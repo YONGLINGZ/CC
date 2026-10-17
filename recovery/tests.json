@@ -1,0 +1,17 @@
+{
+  "passed": 7,
+  "failed": 0,
+  "checks": [
+    "fresh restore: every source, PNG and generated HTML SHA256 matched",
+    "repeat restore: success, zero files rewritten",
+    "missing source + HTML: reconstructed with exact hashes",
+    "modified source: refused, preserved edit, wrote no missing HTML",
+    "symlink destination: refused without writing project files",
+    "after user removes conflicting source: restoration succeeds",
+    "modified HTML: refused, preserved edit, wrote no missing source"
+  ],
+  "index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
+  "script_sha256": "a18c615490396fa5785186d9b1e94b6d5e6d53f83a819ccdc0e913d1b30331f2",
+  "new_cloud_instance_tested": false,
+  "draft_save_tested": false
+}

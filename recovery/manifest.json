@@ -1,0 +1,18 @@
+{
+  "format": "baiyao-offline-source-recovery-v1",
+  "files": {
+    "assets/cat.png": "262d2b021a3a5caa7ff1dd622bd9b3a9fd5af243bbec15ff109f4994daf483bc",
+    "assets/fox.png": "01fd69ff2f5f4873390b33e968eacaccd74f1fe25b4f316e6f1dd803cf678ae7",
+    "assets/snake.png": "0c8aa153e4b834290fff3ff9e644d2ac444f8e5214345ce5b13f84686be555e4",
+    "dev/art.js": "35c3e03a0240495e8460e6c2e56c9fa7f31df28069f75b84a0dcc59f021d76bd",
+    "dev/build.py": "90ab9609ff9690508e058299ffe7f3f4e3c4c77f27e001d632a083cfc6e81e70",
+    "dev/engine.js": "6abd70ea7a6db978e007dc181eeac89175d8d3631b581b3701927f7ffc93a0dc",
+    "dev/shell.html": "dfd9e06651e0a095ab41c3c42f257dd43e70881625b21c5f26394e2f9b48d528",
+    "dev/ui.js": "13842bc1d30c299b389f93b0c3ac120cc0d2eecfbedd5d52d2fd1fb30893ab52"
+  },
+  "index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
+  "archive_sha256": "4919a665ae2e44dbd648946802456c8be3971038122fce57c45bcbc92f918572",
+  "uncompressed_source_bytes": 8717391,
+  "archive_bytes": 8536639,
+  "portrait_count": 3
+}
