@@ -8,7 +8,7 @@
 
 `recovery/manifest.json` 记录源文件、PNG 与生成 HTML 的 SHA256；`restore.sha256` 记录恢复脚本校验值；`tests.json` 记录当前实例实际执行的恢复演练结果。校验值用于发现意外损坏，不能替代外部可信签名。
 
-脚本和校验清单另存于 `/workspace/scratch/baiyao-recovery`，它是**同一云实例内的第二份副本**，不保证跨实例保留。另外保留的本地 Git 提交和 Git bundle 也不是远端备份；本次未向 GitHub 推送。
+脚本和校验清单另存于 `/workspace/scratch/baiyao-recovery`，它是**同一云实例内的第二份副本**，不保证跨实例保留。另外保留的本地 Git 提交和 Git bundle 本身也不是远端备份。用户随后已授权把完整项目同步至 GitHub `YONGLINGZ/CC`；以远程 `main` 实际包含的文件与提交为准。`config-status.json` 中的 `github_pushed: false` 是制作配置草稿时的历史记录，不代表后续同步状态。
 
 配置草稿保存与环境发布是两个步骤。仅把恢复脚本写在磁盘上，不能证明平台已经持久保存；仅成功保存配置草稿，也不能证明已发布或已在全新实例恢复。需要以工具返回的保存结果为准，并由用户在环境设置中审阅保存后发布。实际保存了哪些字段、是否完成发布或新实例验证，应以本次交付报告为准，不能从本文件推断。
 

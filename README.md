@@ -4,6 +4,12 @@
 
 成年猫妖主角、16 种卡牌、六层分支、狐妖交易与蛇妖 Boss。攻击牌先点牌再点敌人，Esc 取消，结束回合让敌人行动。
 
+从 GitHub 获取成品：
+
+- [下载完整试玩 ZIP](https://github.com/YONGLINGZ/CC/raw/refs/heads/main/recovery/baiyao-rebuilt.zip)，解压后用浏览器打开 `baiyao-rebuilt/index.html`。
+- [查看／下载单文件 HTML](https://github.com/YONGLINGZ/CC/blob/main/index.html)，通过文件页的 **Download raw file** 保存到电脑后打开。大文件可能无法在 GitHub 代码页预览，不影响下载。
+- [下载整个源码仓库](https://github.com/YONGLINGZ/CC/archive/refs/heads/main.zip)。
+
 - [完整操作与开发说明](GAME_README.md)
 - [本轮实际验证记录](TESTING.md)
 - [离线恢复与持久化说明](PERSISTENCE.md)
