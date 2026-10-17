@@ -4,11 +4,13 @@
     "sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04"
   },
   "play_zip": {
-    "bytes": 8692056,
-    "sha256": "56c637dfd955c89bac2a0883b882ac58bacd94277f6c551aa9c94e5dffce9f7b"
+    "bytes": 8695497,
+    "sha256": "ece9c8aab186b5c14197eee600063e56af276889abcb89d56b9ba965f6c8fd0f"
   },
   "zip_crc": "PASS",
   "embedded_images": 3,
   "attachment_export_available": false,
-  "published_new_instance_verified": false
+  "published_new_instance_verified": false,
+  "source_svg_config_saved": true,
+  "png_in_config": false
 }
