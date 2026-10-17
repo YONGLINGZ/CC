@@ -1,0 +1,21 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    "fresh restore without PNG: five full sources + exact SVG HTML; no PNG written",
+    "repeat SVG restore: zero files rewritten",
+    "missing SVG HTML: exact hash rebuilt",
+    "existing full-art HTML preserved byte-for-byte, without source PNGs",
+    "existing full-art HTML preserved byte-for-byte, with source PNGs",
+    "existing original three PNGs: rebuilt exact full-art HTML",
+    "modified HTML refused and preserved; no missing source written",
+    "modified source refused and preserved; no HTML written"
+  ],
+  "script_sha256": "3ebd1ec15645ee7ae3e57b83a8aebe1f444c31463c10189e087f8823edb74ce5",
+  "svg_index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
+  "full_index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
+  "png_in_payload": false,
+  "new_cloud_instance_tested": false,
+  "configuration_saved": true,
+  "configuration_readback_exact_match": true
+}

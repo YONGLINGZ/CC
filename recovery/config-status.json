@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-17",
+  "full_png_configuration_attempt": {
+    "install_script_bytes": 11501436,
+    "install_script_characters": 11500964,
+    "script_sha256": "a18c615490396fa5785186d9b1e94b6d5e6d53f83a819ccdc0e913d1b30331f2",
+    "status": "rejected",
+    "error_code": "INVALID_ARGUMENT",
+    "error_message": "ASB rejected the configuration. Check the requirements and allowed_domains before retrying.",
+    "readback_install_script": null,
+    "readback_start_skill": null,
+    "readback_draft_id": null,
+    "diagnosed_cause": "The backend did not identify a precise rejected field or size limit. No network, secrets, or repository settings were changed."
+  },
+  "startup_only_diagnostic": {
+    "status": "saved",
+    "requires_publish": true,
+    "readback_exact_match": true,
+    "readback_characters": 485,
+    "revision": 2
+  },
+  "source_svg_configuration": {
+    "status": "saved",
+    "requires_publish": true,
+    "draft_id": "5a92ea04-410e-406f-9cd8-69bc71262960~cecfgdraft_6ad389e4938c819d8903b50562078675",
+    "revision": 3,
+    "install_script_bytes": 44557,
+    "install_script_characters": 43955,
+    "script_sha256": "3ebd1ec15645ee7ae3e57b83a8aebe1f444c31463c10189e087f8823edb74ce5",
+    "start_skill_characters": 800,
+    "install_readback_exact_match": true,
+    "startup_readback_exact_match": true,
+    "contains_complete_rules_and_ui": true,
+    "contains_inline_svg_art": true,
+    "contains_original_png": false,
+    "svg_index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
+    "full_index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04"
+  },
+  "actual_restore_checks": {
+    "full_png": 7,
+    "source_svg": 8,
+    "failed": 0
+  },
+  "published": false,
+  "new_cloud_instance_tested": false,
+  "github_pushed": false,
+  "local_full_png_recovery_paths": [
+    "/workspace/CC/recovery/restore.sh",
+    "/workspace/scratch/baiyao-recovery/restore.sh"
+  ],
+  "local_backup_scope": "same cloud instance only; no cross-instance guarantee",
+  "next_user_action": "Review and save the environment settings, then publish. Saving this draft did not execute scripts or publish a snapshot.",
+  "source_svg_browser_smoke_by_parent": {
+    "executed": true,
+    "same_cloud_instance": true,
+    "new_instance_restore": false,
+    "method": "restore-source.sh into separate /tmp directory, then browser setContent",
+    "verified": [
+      "SVG title screen",
+      "start game",
+      "first battle",
+      "real card click and enemy targeting"
+    ],
+    "javascript_errors": 0,
+    "network_requests": 0,
+    "index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
+    "full_browser_suite_repeated": false
+  }
+}

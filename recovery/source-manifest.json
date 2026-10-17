@@ -1,0 +1,32 @@
+{
+  "format": "baiyao-offline-source-svg-recovery-v1",
+  "mode": "source-svg",
+  "files": {
+    "dev/art.js": "35c3e03a0240495e8460e6c2e56c9fa7f31df28069f75b84a0dcc59f021d76bd",
+    "dev/build.py": "90ab9609ff9690508e058299ffe7f3f4e3c4c77f27e001d632a083cfc6e81e70",
+    "dev/engine.js": "6abd70ea7a6db978e007dc181eeac89175d8d3631b581b3701927f7ffc93a0dc",
+    "dev/shell.html": "dfd9e06651e0a095ab41c3c42f257dd43e70881625b21c5f26394e2f9b48d528",
+    "dev/ui.js": "13842bc1d30c299b389f93b0c3ac120cc0d2eecfbedd5d52d2fd1fb30893ab52"
+  },
+  "png_sha256": {
+    "assets/cat.png": "262d2b021a3a5caa7ff1dd622bd9b3a9fd5af243bbec15ff109f4994daf483bc",
+    "assets/fox.png": "01fd69ff2f5f4873390b33e968eacaccd74f1fe25b4f316e6f1dd803cf678ae7",
+    "assets/snake.png": "0c8aa153e4b834290fff3ff9e644d2ac444f8e5214345ce5b13f84686be555e4"
+  },
+  "variant_sha256": {
+    "000": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
+    "001": "c895287c1ce1b1ea43a6605a6da8d98b9a7978fdc2737caeaffcdd5141e4909c",
+    "010": "cc472d4abe26048c4e3a903444d216c3973e93332963e7e174c43c2fe18692f8",
+    "011": "af55fd1a0cef3fc2268881e9e60967e870ba8c899fc9ba42b348dde68aead771",
+    "100": "7101413e28e54f35dc0ba33809b9f25af5bd2a00390183402c2252b008c786c1",
+    "101": "7b2a6d57cf34d4090d47899d1177d2abb2545fe78cee34421f8e0fd63936bab6",
+    "110": "ea32a78a124bf1c367df9d6bcb19211909b7a8930fbde53ea238db9ddaed79a7",
+    "111": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04"
+  },
+  "index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
+  "full_index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
+  "archive_sha256": "96c9d886f613b858dfa813ba2a268bbd4bb30dcfdee189012dbd46c9d3f0b54d",
+  "archive_bytes": 27250,
+  "portrait_count": 0,
+  "limitation": "完整游戏规则与界面，立绘使用内联SVG；PNG原件未保存到配置草稿"
+}
