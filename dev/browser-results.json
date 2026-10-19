@@ -1,0 +1,160 @@
+{
+  "target": "/workspace/CC/index.html",
+  "fileNavigation": {
+    "allowed": false,
+    "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/CC/index.html\", waiting until \"load\"\u001b[22m\n"
+  },
+  "externalRequests": [],
+  "errors": [],
+  "results": [
+    {
+      "name": "开始页三个初始流派、36种卡牌图鉴及成年猫妖立绘",
+      "ok": true
+    },
+    {
+      "name": "真实DOM第一战、一次奖励与获得的新牌进入下一场",
+      "ok": true
+    },
+    {
+      "name": "地图8层真实连线：支路锁定、仅连边可达、重绘不洗地图",
+      "ok": true
+    },
+    {
+      "name": "fixture：费用不足、选敌取消与敌方回合锁定",
+      "ok": true
+    },
+    {
+      "name": "fixture：完整动态逐段猫爪特效、猫妖突进及播放期间重复点击锁定",
+      "ok": true
+    },
+    {
+      "name": "fixture：逐段护盾、候机首段、标记金铃与扑杀清标",
+      "ok": true
+    },
+    {
+      "name": "fixture：弃牌重洗、结算牌不自抽、手牌上限与消耗区",
+      "ok": true
+    },
+    {
+      "name": "fixture：商店商品固定、购买删实例扣款、余额不足与下场持久化",
+      "ok": true
+    },
+    {
+      "name": "fixture：休息上限、一次性处理、狐契代价免死及后续致死",
+      "ok": true
+    },
+    {
+      "name": "fixture：蛇妖蛇息毒、蜕鳞清标意图与逐回合执行",
+      "ok": true
+    },
+    {
+      "name": "fixture：随机事件选择真实生效并只能领取一次",
+      "ok": true
+    },
+    {
+      "name": "八位角色独立立绘、蛇妖脸素材不复用猫妖、图片损坏内联SVG降级",
+      "ok": true
+    },
+    {
+      "name": "真实DOM完整八层路线、通关与重开（不改生命金币牌组路线状态）",
+      "ok": true
+    },
+    {
+      "name": "游戏内导出完整HTML并独立重新加载、零遗留战斗进度",
+      "ok": true
+    },
+    {
+      "name": "运行时HTTP(S)请求为0，未捕获JavaScript错误为0",
+      "ok": true
+    }
+  ],
+  "sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
+  "starters": {
+    "mark": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C17",
+      "C18"
+    ],
+    "combo": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C06",
+      "C22"
+    ],
+    "blood": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C27",
+      "C28"
+    ]
+  },
+  "fullMotionFX": [
+    {
+      "type": "skill",
+      "text": "夜铃 · 出契连爪"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3爪击命中"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3第 2 段 · 爪击命中"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3第 3 段 · 爪击命中"
+    }
+  ],
+  "realRouteAttempts": [
+    {
+      "screen": "victory",
+      "hp": 25,
+      "floor": 8,
+      "battles": 3,
+      "route": [
+        "fight:f1-1",
+        "event:f2-1",
+        "fox:f3-1",
+        "fight:f4-1",
+        "shop:f5-1",
+        "event:f6-1",
+        "rest:f7-1",
+        "boss:f8-1"
+      ]
+    }
+  ],
+  "exportedBytes": 30717267,
+  "browser": "154.0.8037.57"
+}

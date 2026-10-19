@@ -1,5 +1,5 @@
 {
-  "passed": 8,
+  "passed": 12,
   "failed": 0,
   "checks": [
     "fresh restore without PNG: five full sources + exact SVG HTML; no PNG written",
@@ -7,15 +7,18 @@
     "missing SVG HTML: exact hash rebuilt",
     "existing full-art HTML preserved byte-for-byte, without source PNGs",
     "existing full-art HTML preserved byte-for-byte, with source PNGs",
-    "existing original three PNGs: rebuilt exact full-art HTML",
+    "all eight original PNGs: rebuilt exact full-art HTML",
+    "partial PNG collection: exact SVG HTML rebuilt; every original left untouched",
+    "partial PNG collection with full HTML: full HTML preserved without rewriting",
+    "changed non-protagonist PNG: refused and preserved before any source or HTML write",
+    "symlinked PNG directory: refused before any source or HTML write",
     "modified HTML refused and preserved; no missing source written",
     "modified source refused and preserved; no HTML written"
   ],
-  "script_sha256": "3ebd1ec15645ee7ae3e57b83a8aebe1f444c31463c10189e087f8823edb74ce5",
-  "svg_index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
-  "full_index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
+  "script_sha256": "208a1b1812e14afe93e2e8ca5ad5d83639b45586f90058a3bf41dbf05db0417e",
+  "svg_index_sha256": "6e30ec6d1f8ac376255053d698acfaa2f235c878b0f8b47e6286d27dabb8d10c",
+  "full_index_sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
   "png_in_payload": false,
   "new_cloud_instance_tested": false,
-  "configuration_saved": true,
-  "configuration_readback_exact_match": true
+  "draft_save_tested": false
 }

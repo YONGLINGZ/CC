@@ -10,10 +10,8 @@
     "after user removes conflicting source: restoration succeeds",
     "modified HTML: refused, preserved edit, wrote no missing source"
   ],
-  "index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
-  "script_sha256": "a18c615490396fa5785186d9b1e94b6d5e6d53f83a819ccdc0e913d1b30331f2",
+  "index_sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
+  "script_sha256": "4ae67964a557548dc082f98ce4752b8ca8a90ead43bfa7d06e72f34efbf32efc",
   "new_cloud_instance_tested": false,
-  "draft_save_tested": true,
-  "full_png_configuration_saved": false,
-  "source_svg_configuration_saved": true
+  "draft_save_tested": false
 }

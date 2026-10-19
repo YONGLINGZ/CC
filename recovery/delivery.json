@@ -1,16 +1,36 @@
 {
+  "version": "猫影分途版",
+  "date": "2026-10-19",
   "game_html": {
-    "bytes": 11596699,
-    "sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04"
+    "bytes": 30717305,
+    "sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd"
   },
   "play_zip": {
-    "bytes": 8695987,
-    "sha256": "2824b76316a0f92d29f489391fd375fc9752e47576ea723b6de257184c7af645"
+    "bytes": 23037416,
+    "sha256": "3321bc460fd90ee2dbc52316d7a33985f81b65b34554c8d2c1e3d3b20ba4990a"
   },
   "zip_crc": "PASS",
-  "embedded_images": 3,
+  "embedded_images": 8,
+  "cards": 36,
+  "floors": 8,
+  "starter_decks": 3,
+  "engine_tests": {
+    "passed": 73,
+    "failed": 0
+  },
+  "browser_groups": {
+    "passed": 15,
+    "failed": 0
+  },
+  "public_api_simulations": {
+    "completed": 90,
+    "wins": 90
+  },
+  "full_recovery_checks": 7,
+  "source_recovery_checks": 12,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "source_svg_config_saved": true,
-  "png_in_config": false
+  "cloud_configuration_updated_for_v2": false,
+  "github_repository": "YONGLINGZ/CC",
+  "github_branch": "main"
 }

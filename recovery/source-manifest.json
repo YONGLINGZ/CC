@@ -1,32 +1,31 @@
 {
-  "format": "baiyao-offline-source-svg-recovery-v1",
+  "format": "baiyao-offline-source-svg-recovery-v2",
   "mode": "source-svg",
   "files": {
-    "dev/art.js": "35c3e03a0240495e8460e6c2e56c9fa7f31df28069f75b84a0dcc59f021d76bd",
-    "dev/build.py": "90ab9609ff9690508e058299ffe7f3f4e3c4c77f27e001d632a083cfc6e81e70",
-    "dev/engine.js": "6abd70ea7a6db978e007dc181eeac89175d8d3631b581b3701927f7ffc93a0dc",
-    "dev/shell.html": "dfd9e06651e0a095ab41c3c42f257dd43e70881625b21c5f26394e2f9b48d528",
-    "dev/ui.js": "13842bc1d30c299b389f93b0c3ac120cc0d2eecfbedd5d52d2fd1fb30893ab52"
+    "dev/art.js": "18999d95b7c51bc64b1e97f9cad88ef88b2407896c00ea8c849bbb0a421f60b4",
+    "dev/build.py": "9c3900307189e74b27f2372627257e0dafc00320708d90dad01c8fa3392dc238",
+    "dev/engine.js": "7384ffe656c6fed00a353d37267d0bfdc3fb08b5f10e3794f0d64c0525cf536a",
+    "dev/shell.html": "f34dce07367585558239d83811fd69bb9f893738e3200ef2164e01b8ef32147f",
+    "dev/ui.js": "ab2756ceb0f59a9780d0efe1c6166e93e239e22b514c483303aaa5591566fbcf"
   },
   "png_sha256": {
+    "assets/ape.png": "75a216b826a4c54b05dd6c669db34c46c86a406e7bbd92efd6d04204ae44b3b0",
+    "assets/bone.png": "b4940dfb57ba2003ab629879b270033ab93cabe14704d22197c7e06344cee670",
     "assets/cat.png": "262d2b021a3a5caa7ff1dd622bd9b3a9fd5af243bbec15ff109f4994daf483bc",
     "assets/fox.png": "01fd69ff2f5f4873390b33e968eacaccd74f1fe25b4f316e6f1dd803cf678ae7",
-    "assets/snake.png": "0c8aa153e4b834290fff3ff9e644d2ac444f8e5214345ce5b13f84686be555e4"
+    "assets/lantern.png": "2d560ed505ad7d027776cc5afc49f0102146ca5bbf8ff6fd45be7e9dceb04eb9",
+    "assets/paper.png": "1d18184a58889498d3944e8a486d4f601901b51a2009b2a99b847e42328b3ab8",
+    "assets/snake.png": "01877556ca5404716fe759f41dcf7735f35d126f38fae1ca658acfb9fd19347a",
+    "assets/yaksha.png": "187f2cdb352d8c0084d4c6ea83d778fd2dcc2598cb8f019a0bea2def62d0bb0b"
   },
   "variant_sha256": {
-    "000": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
-    "001": "c895287c1ce1b1ea43a6605a6da8d98b9a7978fdc2737caeaffcdd5141e4909c",
-    "010": "cc472d4abe26048c4e3a903444d216c3973e93332963e7e174c43c2fe18692f8",
-    "011": "af55fd1a0cef3fc2268881e9e60967e870ba8c899fc9ba42b348dde68aead771",
-    "100": "7101413e28e54f35dc0ba33809b9f25af5bd2a00390183402c2252b008c786c1",
-    "101": "7b2a6d57cf34d4090d47899d1177d2abb2545fe78cee34421f8e0fd63936bab6",
-    "110": "ea32a78a124bf1c367df9d6bcb19211909b7a8930fbde53ea238db9ddaed79a7",
-    "111": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04"
+    "svg": "6e30ec6d1f8ac376255053d698acfaa2f235c878b0f8b47e6286d27dabb8d10c",
+    "full": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd"
   },
-  "index_sha256": "fe70179bb52ac3589f8c611d5b600a674d6cf50297845b02caa3adfbf6a2f85e",
-  "full_index_sha256": "70888559163868c59ce336047160850e0eecc810a2f4cf6f4eccf7da7dde2b04",
-  "archive_sha256": "96c9d886f613b858dfa813ba2a268bbd4bb30dcfdee189012dbd46c9d3f0b54d",
-  "archive_bytes": 27250,
+  "index_sha256": "6e30ec6d1f8ac376255053d698acfaa2f235c878b0f8b47e6286d27dabb8d10c",
+  "full_index_sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
+  "archive_sha256": "4ecaec66190c12188283bb44c5d6214e177aee4fb78aebe155ccc14504c2dec4",
+  "archive_bytes": 43531,
   "portrait_count": 0,
-  "limitation": "完整游戏规则与界面，立绘使用内联SVG；PNG原件未保存到配置草稿"
+  "limitation": "本包不含PNG；全部8张原图齐全则重建全图版，否则重建统一SVG版。生成本包不会更新云配置草稿。"
 }

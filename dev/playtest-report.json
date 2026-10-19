@@ -1,0 +1,1872 @@
+{
+  "method": "Public API only; 90 seeded heuristic simulations, no state fixtures. Not human balance or time-to-play validation.",
+  "runs": 90,
+  "wins": 90,
+  "summary": [
+    {
+      "starter": "mark",
+      "lane": 0,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 7.7
+    },
+    {
+      "starter": "mark",
+      "lane": 1,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 6.8
+    },
+    {
+      "starter": "mark",
+      "lane": 2,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 10.9
+    },
+    {
+      "starter": "combo",
+      "lane": 0,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 6.9
+    },
+    {
+      "starter": "combo",
+      "lane": 1,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 7.2
+    },
+    {
+      "starter": "combo",
+      "lane": 2,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 11.9
+    },
+    {
+      "starter": "blood",
+      "lane": 0,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 8.2
+    },
+    {
+      "starter": "blood",
+      "lane": 1,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 8
+    },
+    {
+      "starter": "blood",
+      "lane": 2,
+      "wins": 10,
+      "runs": 10,
+      "averageEnemyTurns": 12.2
+    }
+  ],
+  "details": [
+    {
+      "seed": 1000,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 41,
+      "turns": 6,
+      "actions": 45,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1001,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 45,
+      "turns": 8,
+      "actions": 59,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1002,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 10,
+      "actions": 59,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1003,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 44,
+      "turns": 9,
+      "actions": 61,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1004,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 6,
+      "actions": 46,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1005,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 42,
+      "turns": 7,
+      "actions": 47,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1006,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 9,
+      "actions": 56,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1007,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 52,
+      "turns": 7,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1008,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 48,
+      "turns": 7,
+      "actions": 46,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1009,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 42,
+      "turns": 8,
+      "actions": 58,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1100,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 29,
+      "turns": 7,
+      "actions": 46,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1101,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 28,
+      "turns": 9,
+      "actions": 53,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1102,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 23,
+      "turns": 6,
+      "actions": 41,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1103,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 41,
+      "turns": 6,
+      "actions": 41,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1104,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 39,
+      "turns": 7,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1105,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 28,
+      "turns": 8,
+      "actions": 55,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1106,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 6,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1107,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 36,
+      "turns": 6,
+      "actions": 47,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1108,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 30,
+      "turns": 7,
+      "actions": 51,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1109,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 37,
+      "turns": 6,
+      "actions": 47,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1200,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 12,
+      "actions": 71,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1201,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 37,
+      "turns": 11,
+      "actions": 72,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1202,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 34,
+      "turns": 12,
+      "actions": 71,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1203,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 45,
+      "turns": 9,
+      "actions": 60,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1204,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 29,
+      "turns": 13,
+      "actions": 75,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1205,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 44,
+      "turns": 13,
+      "actions": 78,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1206,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 43,
+      "turns": 10,
+      "actions": 61,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1207,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 35,
+      "turns": 12,
+      "actions": 73,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1208,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 34,
+      "turns": 8,
+      "actions": 59,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1209,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 30,
+      "turns": 9,
+      "actions": 57,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1000,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 48,
+      "turns": 5,
+      "actions": 47,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1001,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 37,
+      "turns": 7,
+      "actions": 58,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1002,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 40,
+      "turns": 7,
+      "actions": 53,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1003,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 32,
+      "turns": 6,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1004,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 46,
+      "turns": 6,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1005,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 32,
+      "turns": 6,
+      "actions": 46,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1006,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 46,
+      "turns": 6,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1007,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 28,
+      "turns": 9,
+      "actions": 62,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1008,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 50,
+      "turns": 7,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1009,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 46,
+      "turns": 10,
+      "actions": 76,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1100,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 31,
+      "turns": 7,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1101,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 33,
+      "turns": 8,
+      "actions": 53,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1102,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 36,
+      "turns": 9,
+      "actions": 59,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1103,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 33,
+      "turns": 6,
+      "actions": 46,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1104,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 8,
+      "actions": 55,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1105,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 34,
+      "turns": 8,
+      "actions": 51,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1106,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 45,
+      "turns": 8,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1107,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 35,
+      "turns": 5,
+      "actions": 45,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1108,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 39,
+      "turns": 6,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1109,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 37,
+      "turns": 7,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1200,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 41,
+      "turns": 14,
+      "actions": 90,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1201,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 48,
+      "turns": 12,
+      "actions": 86,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1202,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 45,
+      "turns": 10,
+      "actions": 79,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1203,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 38,
+      "turns": 13,
+      "actions": 85,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1204,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 43,
+      "turns": 9,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1205,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 43,
+      "turns": 11,
+      "actions": 72,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1206,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 53,
+      "turns": 11,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1207,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 48,
+      "turns": 13,
+      "actions": 82,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1208,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 32,
+      "turns": 15,
+      "actions": 83,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1209,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 11,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1000,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 29,
+      "turns": 9,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1001,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 10,
+      "actions": 57,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1002,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 40,
+      "turns": 12,
+      "actions": 65,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1003,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 40,
+      "turns": 7,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1004,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 43,
+      "turns": 9,
+      "actions": 52,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1005,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 7,
+      "actions": 48,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1006,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 34,
+      "turns": 8,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1007,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 26,
+      "turns": 7,
+      "actions": 54,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1008,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 44,
+      "turns": 7,
+      "actions": 44,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1009,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 35,
+      "turns": 6,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "rest",
+        "shop",
+        "fight",
+        "fight",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1100,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 26,
+      "turns": 9,
+      "actions": 54,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1101,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 35,
+      "turns": 7,
+      "actions": 45,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1102,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 27,
+      "turns": 9,
+      "actions": 51,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1103,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 28,
+      "turns": 8,
+      "actions": 47,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1104,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 25,
+      "turns": 9,
+      "actions": 54,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1105,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 45,
+      "turns": 7,
+      "actions": 49,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1106,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 30,
+      "turns": 8,
+      "actions": 53,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1107,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 31,
+      "turns": 7,
+      "actions": 50,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "rest",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1108,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 32,
+      "turns": 9,
+      "actions": 54,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1109,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 44,
+      "turns": 7,
+      "actions": 45,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1200,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 43,
+      "turns": 11,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1201,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 42,
+      "turns": 13,
+      "actions": 73,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1202,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 27,
+      "turns": 12,
+      "actions": 66,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1203,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 13,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1204,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 21,
+      "turns": 14,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1205,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 44,
+      "turns": 12,
+      "actions": 70,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1206,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 41,
+      "turns": 12,
+      "actions": 67,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1207,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 13,
+      "actions": 77,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1208,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 13,
+      "actions": 73,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    },
+    {
+      "seed": 1209,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 40,
+      "turns": 9,
+      "actions": 66,
+      "floor": 8,
+      "encounters": [
+        "fight",
+        "fight",
+        "elite",
+        "fight",
+        "rest",
+        "shop",
+        "rest",
+        "boss"
+      ]
+    }
+  ]
+}

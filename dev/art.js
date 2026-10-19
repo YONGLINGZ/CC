@@ -38,6 +38,32 @@
       ${isSnake ? '<path d="M199 197q-17-51 13-69m142 68q16-48-12-68" fill="none" stroke="#d5ba78" stroke-width="3"/><path d="M281 166l6 10-6 13-6-13Z" fill="#af4550"/>' : '<path d="M183 173l27-21-7 34-26-6Z" fill="#9e3540" stroke="#d8ad67" stroke-width="2"/>'}
     </svg>`;
   };
+  // 绛鳞专属侧脸坐姿，独立于猫妖／狐妖的脸部与身体模板。
+  const serpentQueen = () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 760" role="img" aria-label="成年蛇妖·绛鳞：银发高颧骨侧脸，端坐蛇纹王座">
+    <defs><linearGradient id="queen-skin" x2="1" y2=".6"><stop stop-color="#e1dfd3"/><stop offset="1" stop-color="#a6b8b2"/></linearGradient><linearGradient id="queen-robe" x2="1" y2="1"><stop stop-color="#28564e"/><stop offset="1" stop-color="#0b242b"/></linearGradient><linearGradient id="queen-hair" x2=".8" y2="1"><stop stop-color="#f1f0df"/><stop offset="1" stop-color="#889d9c"/></linearGradient><radialGradient id="queen-halo"><stop stop-color="#2d6655" stop-opacity=".65"/><stop offset="1" stop-color="#0b1c27" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="286" cy="392" rx="260" ry="351" fill="url(#queen-halo)"/>
+    <path d="M138 695V253Q139 154 280 116Q420 153 423 251V695" fill="#122a2d" stroke="#9e8c58" stroke-width="8"/><path d="M163 666V262Q163 184 280 148Q396 183 398 262V666" fill="none" stroke="#3c5a4e" stroke-width="9"/>
+    <path d="M126 672Q24 623 104 556Q151 518 123 429Q84 355 103 294" fill="none" stroke="#071f23" stroke-width="55"/><path d="M126 672Q24 623 104 556Q151 518 123 429Q84 355 103 294" fill="none" stroke="#365d4d" stroke-width="41"/><path d="M79 287Q66 257 96 228Q119 249 120 280L106 302Z" fill="#3c6652" stroke="#a39259" stroke-width="3"/><path d="M86 268l12 4-10 5" fill="#e1cb79"/>
+    <path d="M337 690Q522 708 463 625Q408 559 446 464Q487 371 446 320" fill="none" stroke="#0b2929" stroke-width="64"/><path d="M337 690Q522 708 463 625Q408 559 446 464Q487 371 446 320" fill="none" stroke="#3d6655" stroke-width="47"/><path d="M450 346l-17 17 25 13m-9 29-25 9 19 20m-7 34-19 15 18 19m-6 31-15 18 21 10m18 32-17 21 26 8m6 34-25 12 14 15M111 349l17 9-15 17m11 43 16 13-16 14m-1 34 16 12-18 14" fill="none" stroke="#93ad7b" stroke-width="3"/>
+    <path d="M224 286L304 284Q360 286 377 344L394 460Q356 493 321 484L365 558 426 713Q299 749 147 706L193 531 184 383Z" fill="url(#queen-robe)" stroke="#9e885b" stroke-width="3"/>
+    <path d="M231 274L208 254 211 324 259 362 297 331 320 253 293 273" fill="#0a242b" stroke="#b39a61" stroke-width="4"/>
+    <path d="M243 231L238 281 260 316 291 280 288 222" fill="url(#queen-skin)"/>
+    <path d="M302 134Q308 183 295 218L269 258 240 256 218 242 211 227 196 225 205 216 199 211 213 186 211 171 228 140Z" fill="url(#queen-skin)" stroke="#839b93" stroke-width="2"/>
+    <path d="M215 172L236 160 253 169 232 180Z" fill="#dee4d5"/><path d="M211 171L235 164 253 170" fill="none" stroke="#243c3f" stroke-width="4"/><path d="M227 169L237 168 233 177 226 176Z" fill="#85c7a2"/><path d="M231 168V176" stroke="#09272b" stroke-width="2"/>
+    <path d="M219 157L240 149 257 153M245 188L218 202M212 228L228 229M217 232L229 230" fill="none" stroke="#6e7a76" stroke-width="2"/><path d="M225 233l-10-2 7 7 10-3" fill="#8f6667"/>
+    <path d="M208 151Q206 104 248 92Q306 80 331 121L327 177 300 214 292 178 283 141 249 137Z" fill="url(#queen-hair)" stroke="#91a6a0" stroke-width="2"/><ellipse cx="335" cy="133" rx="36" ry="49" fill="url(#queen-hair)" stroke="#7b9592" stroke-width="3"/>
+    <path d="M215 137Q260 112 311 145M221 122Q264 102 316 134M239 105Q281 100 318 124M298 169l24-20m-23 32 25-22" fill="none" stroke="#768f90" stroke-width="2"/>
+    <path d="M245 102L250 71 268 93 293 64 307 102 334 76 342 119" fill="#66583c" stroke="#c6af6e" stroke-width="3"/><path d="M278 84Q254 44 283 28Q304 26 305 47Q285 47 284 63L298 83" fill="#354e44" stroke="#c5ad66" stroke-width="4"/><path d="M275 41l12 1" stroke="#dfcf84" stroke-width="3"/>
+    <path d="M289 217L296 262M292 235l10 23-7 19-7-19" fill="none" stroke="#c6ab61" stroke-width="3"/>
+    <path d="M207 298Q172 281 147 306L163 350 205 339 224 316M308 296Q355 278 383 311L368 349 319 337 299 316" fill="#5b6246" stroke="#bda468" stroke-width="4"/>
+    <path d="M187 344L160 438 113 452 111 475 183 469Q208 452 225 373M335 344L375 410 398 352 421 357 414 434Q409 462 385 462L321 407" fill="url(#queen-robe)" stroke="#a38e5c" stroke-width="3"/>
+    <path d="M117 447l-29 2-11 34 7 16 7-25 8-9 4 31 8-4 4-29 12-3M399 357l5-33 16-23 23 7 9 24-6 10-12-25-9 2-6 40" fill="url(#queen-skin)" stroke="#829e94" stroke-width="2"/>
+    <path d="M433 324Q469 438 422 520Q390 570 462 644" fill="none" stroke="#b2b8a4" stroke-width="19" opacity=".65"/><path d="M434 338l12 14-12 17 12 18-12 17 10 17-12 17 8 16-13 19 3 18-15 18 1 19-10 16 7 21 6 20 16 16 8 19 21 15" fill="none" stroke="#dae0c9" stroke-width="2"/>
+    <path d="M216 416Q274 435 331 418L345 450Q275 477 206 451Z" fill="#63724f" stroke="#b7a063" stroke-width="3"/><path d="M267 432l13-12 15 13-15 16Z" fill="#a9b384" stroke="#ddc884" stroke-width="2"/>
+    <path d="M220 480Q253 517 329 536M250 470Q298 494 348 552M200 538Q275 572 364 578M175 613Q259 642 390 653M161 659Q266 700 407 694" fill="none" stroke="#7a906b" stroke-width="3" opacity=".7"/>
+    <path d="M225 502l13 13 13-13 13 13 13-13m-68 70 13 13 13-13 13 13 13-13m30 57 13 13 13-13 13 13 13-13m-122 44 13 13 13-13 13 13 13-13" fill="none" stroke="#b3aa6f" stroke-width="2" opacity=".7"/>
+    <path d="M70 476H172M383 473H477M95 481V680M451 479V680" stroke="#9f8c58" stroke-width="9"/><ellipse cx="280" cy="728" rx="209" ry="12" fill="#03191e" opacity=".6"/>
+  </svg>`;
   const monster = (kind) => {
     const shapes = {
       paper: `<path d="M166 137L267 103 364 140 353 273 296 303 299 365 380 397 407 543 358 533 334 448 321 622 337 703 290 703 270 542 243 703 195 703 210 615 202 443 174 535 123 548 150 391 227 360 229 301 173 271Z" fill="#d7cbb2" stroke="#8d735c" stroke-width="4"/><path d="M195 181l49 14-40 20m129-33-48 14 39 22M240 254l51-2M269 112v184M221 383l49 54 45-53M270 437v214" fill="none" stroke="#9e3b3c" stroke-width="8"/><path d="M197 158l54 17m89-16-54 18" stroke="#473b3d" stroke-width="4"/>`,
@@ -49,7 +75,7 @@
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 760" role="img" aria-label="${({paper:'纸人',lantern:'灯鬼',ape:'山魈',bone:'白骨侍',yaksha:'精英夜叉'})[kind]}"><defs><radialGradient id="enemy-${kind}"><stop stop-color="#4b5f58" stop-opacity=".42"/><stop offset="1" stop-color="#10232b" stop-opacity="0"/></radialGradient></defs><ellipse cx="280" cy="395" rx="257" ry="345" fill="url(#enemy-${kind})"/><circle cx="280" cy="330" r="204" fill="none" stroke="#bea46f" stroke-opacity=".18"/><ellipse cx="280" cy="713" rx="165" ry="12" fill="#000" opacity=".3"/>${shapes[kind]}</svg>`;
   };
   globalThis.YokaiArt = {
-    cat: female('cat'), fox: female('fox'), snake: female('snake'),
+    cat: female('cat'), fox: female('fox'), snake: serpentQueen(),
     paper: monster('paper'), lantern: monster('lantern'), ape: monster('ape'),
     bone: monster('bone'), yaksha: monster('yaksha')
   };
