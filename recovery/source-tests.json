@@ -1,24 +1,36 @@
 {
-  "passed": 12,
+  "format": "baiyao-recovery-tests-v3",
+  "mode": "source-svg",
+  "passed": 17,
   "failed": 0,
   "checks": [
-    "fresh restore without PNG: five full sources + exact SVG HTML; no PNG written",
-    "repeat SVG restore: zero files rewritten",
-    "missing SVG HTML: exact hash rebuilt",
-    "existing full-art HTML preserved byte-for-byte, without source PNGs",
-    "existing full-art HTML preserved byte-for-byte, with source PNGs",
-    "all eight original PNGs: rebuilt exact full-art HTML",
-    "partial PNG collection: exact SVG HTML rebuilt; every original left untouched",
-    "partial PNG collection with full HTML: full HTML preserved without rewriting",
-    "changed non-protagonist PNG: refused and preserved before any source or HTML write",
-    "symlinked PNG directory: refused before any source or HTML write",
-    "modified HTML refused and preserved; no missing source written",
-    "modified source refused and preserved; no HTML written"
+    "fresh empty directory: all payload files and generated outputs match exact SHA256; no images.js or PNG needed",
+    "idempotent restore: zero files rewritten and all timestamps preserved",
+    "missing source, outputs and selected assets: reconstructed byte-exactly",
+    "modified source: refused before any writes; missing HTML remains missing",
+    "after user removes conflicting source: restoration succeeds",
+    "modified HTML: refused before any writes; missing source remains missing",
+    "symlinked source directory: refused without writes",
+    "dangling HTML symlink: refused without writes to target",
+    "source parent occupied by a file: refused before writes",
+    "relative, root and parent-traversal destinations: rejected",
+    "modified card WebP: refused without any source or HTML writes",
+    "symlinked assets directory: refused before writes",
+    "partial WebP collection: no assets rewritten, exact single-file SVG fallback generated",
+    "existing full inline HTML renamed index.html: preserved without external images",
+    "existing folder release with all 66 WebPs: preserved byte-for-byte while sources restored",
+    "existing folder release with missing WebPs: safely refused and untouched; requires full recovery or empty directory",
+    "existing standalone release: preserved while independent slim index is restored"
   ],
-  "script_sha256": "208a1b1812e14afe93e2e8ca5ad5d83639b45586f90058a3bf41dbf05db0417e",
-  "svg_index_sha256": "6e30ec6d1f8ac376255053d698acfaa2f235c878b0f8b47e6286d27dabb8d10c",
-  "full_index_sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
-  "png_in_payload": false,
+  "script_sha256": "6a3ca75e3e2878db1f32b6a968872eaeede0705d7a970fe3510327035329a250",
+  "outputs": {
+    "index.html": "d617d86da9c0409794c8740f3be41141a9694bc20e2824455bffafd3a3348780"
+  },
+  "release_outputs": {
+    "index.html": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
+    "baiyao-standalone.html": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+  },
+  "asset_count_in_payload": 0,
   "new_cloud_instance_tested": false,
   "draft_save_tested": false
 }

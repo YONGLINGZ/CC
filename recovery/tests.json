@@ -1,17 +1,33 @@
 {
-  "passed": 7,
+  "format": "baiyao-recovery-tests-v3",
+  "mode": "full-webp",
+  "passed": 13,
   "failed": 0,
   "checks": [
-    "fresh restore: every source, PNG and generated HTML SHA256 matched",
-    "repeat restore: success, zero files rewritten",
-    "missing source + HTML: reconstructed with exact hashes",
-    "modified source: refused, preserved edit, wrote no missing HTML",
-    "symlink destination: refused without writing project files",
+    "fresh empty directory: all payload files and generated outputs match exact SHA256; no images.js or PNG needed",
+    "idempotent restore: zero files rewritten and all timestamps preserved",
+    "missing source, outputs and selected assets: reconstructed byte-exactly",
+    "modified source: refused before any writes; missing HTML remains missing",
     "after user removes conflicting source: restoration succeeds",
-    "modified HTML: refused, preserved edit, wrote no missing source"
+    "modified HTML: refused before any writes; missing source remains missing",
+    "symlinked source directory: refused without writes",
+    "dangling HTML symlink: refused without writes to target",
+    "source parent occupied by a file: refused before writes",
+    "relative, root and parent-traversal destinations: rejected",
+    "modified card WebP: refused without any source or HTML writes",
+    "symlinked assets directory: refused before writes",
+    "modified standalone HTML: refused before writing any source, resource or folder index"
   ],
-  "index_sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd",
-  "script_sha256": "4ae67964a557548dc082f98ce4752b8ca8a90ead43bfa7d06e72f34efbf32efc",
+  "script_sha256": "39d48d96f0144877311f31a5c152fb5597c7d8df0d403907d39ddf7562c8ad1c",
+  "outputs": {
+    "index.html": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
+    "baiyao-standalone.html": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+  },
+  "release_outputs": {
+    "index.html": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
+    "baiyao-standalone.html": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+  },
+  "asset_count_in_payload": 66,
   "new_cloud_instance_tested": false,
   "draft_save_tested": false
 }

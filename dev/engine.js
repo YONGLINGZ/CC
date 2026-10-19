@@ -99,26 +99,43 @@
     fox: { name: '狐契', text: '本局下一次受到致命伤害时，免死并恢复至 12 点生命（不超过最大生命），随后消失。' },
     fang: { name: '夜牙簪', text: '每个玩家回合第一张攻击牌的第一段伤害增加 2。' },
     silk: { name: '鲛绡带', text: '每个玩家回合首次获得护盾时，额外获得 2 点护盾。' },
-    vial: { name: '回春露', text: '每场战斗胜利时恢复 4 点生命。' },
-    bloodstone: { name: '朱砂心', text: '每个玩家回合首次因卡牌自损生命并存活后，获得 1 点灵力。' }
+    vial: { name: '回春露', text: '每场战斗胜利时恢复 8 点生命。' },
+    bloodstone: { name: '朱砂心', text: '每个玩家回合首次因卡牌自损生命并存活后，获得 1 点灵力并抽 1 张牌。' },
+    moonheart: { name: '月髓', text: '秘宝：每个玩家回合开始时额外获得 1 点灵力。' },
+    mirror: { name: '照魂镜', text: '秘宝：每场战斗第一张攻击牌的第一段伤害增加 7。' },
+    dream: { name: '梦匣', text: '秘宝：每场战斗第一回合额外获得 1 点灵力，并额外抽 2 张牌。' },
+    godblood: { name: '无面神血', text: '秘宝：获得时最大生命永久增加 12，并恢复 12 点生命。' },
+    ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
   };
+  const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
     fight: ['百鬼回廊','普通战斗 · 20 金币与三选一卡'],
-    elite: ['夜叉守门','高风险 · 35 金币、三选一卡与新遗物'],
+    elite: ['夜叉守门','高风险 · 35 金币、稀有卡保底与遗物／秘宝二选一'],
     rest: ['栖月温泉','休息 · 恢复 18 点生命'],
     shop: ['夜市珍阁','商店 · 随机三张牌，每张 35 金币；删牌 40'],
     fox: ['狐影朱亭','最大生命减少 8 · 换一次免死'],
-    event: ['异闻幽径','随机异闻 · 代价和报酬进入时明示'],
+    event: ['异闻幽径','剧情奇遇 · 前情、抉择与强奖励'],
     boss: ['绛鳞之座','最终战 · 蛇妖·绛鳞，生命 100']
   };
-  const FLOORS = [
-    ['fight'], ['rest','event','fight'], ['shop','fox','elite'], ['fight','fight','fight'],
-    ['fight','shop','event'], ['shop','event','shop'], ['rest','rest','rest'], ['boss']
-  ].map((types, floor) => types.map((type, lane) => ({
-    id: `f${floor + 1}-${types.length === 1 ? 1 : lane}`, type, name: NODE_INFO[type][0], description: NODE_INFO[type][1],
-    floor: floor + 1, lane: types.length === 1 ? 1 : lane
+  const MAP_BLUEPRINTS = [
+    ['fight'], ['fight','event','fight'], ['fight','event','shop','elite'],
+    ['fight','fox','event','elite'], ['fight','shop','rest','event'],
+    ['fight','elite','shop','event'], ['fight','rest','elite'], ['boss']
+  ];
+  const FLOORS = MAP_BLUEPRINTS.map((types, floor) => types.map((type, lane) => ({
+    id: `f${floor + 1}-${lane}`, type, name: NODE_INFO[type][0], description: NODE_INFO[type][1],
+    floor: floor + 1, lane
   })));
+  const OMENS = {
+    fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
+    elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在楼梯上', '门缝里渗出铁锈与香灰味'],
+    rest: ['雾里浮着一点暖意', '远处有水声，像有人替你留着灯', '这一层安静得能听见心跳'],
+    shop: ['有人拨弄算盘，也有人在数铜钱', '一缕货香混着旧纸味', '檐下挂着会自己响的铃串'],
+    fox: ['一尾赤色影子从墙后掠过', '风里有一点甜腻的狐香', '有人隔着帘子问：今夜还赊账吗'],
+    event: ['纸灯无风自转', '雾中传来半句没说完的话', '门牌上的字被谁故意擦掉了'],
+    boss: ['楼顶的鳞片擦过屋瓦', '整座楼忽然安静下来', '金铃自己响了一声']
+  };
 
   const REWARD_POOL = Object.keys(CARDS).filter(id => Number(id.slice(1)) >= 3);
   const ORDINARY = ['paper', 'lantern', 'ape', 'bone'];
@@ -143,16 +160,40 @@
     }
     function sample(pool, count) { return shuffle(pool).slice(0, count); }
     function makeMap() {
-      const map = FLOORS.map(row => row.map(node => ({ ...node, next: [] })));
-      // Connections are persistent; the middle corridor and safe corridor offer
-      // a different mix of encounters every run without dissolving lane choice.
-      for (const [floor, lane, choices] of [[4,0,['fight','event']], [4,2,['event','rest']], [5,1,['event','rest']]]) {
-        const type = choices[rand(choices.length)], node = map[floor][lane];
-        node.type = type; node.name = NODE_INFO[type][0]; node.description = NODE_INFO[type][1];
-      }
-      for (let floor = 0; floor < map.length - 1; floor++) for (const node of map[floor]) {
-        node.next = map[floor + 1].filter(next => map[floor].length === 1 || map[floor + 1].length === 1 ||
-          next.lane === node.lane || (floor === 3 && Math.abs(next.lane - node.lane) === 1)).map(next => next.id);
+      const map = FLOORS.map((row, floor) => {
+        let types = row.map(node => node.type);
+        if (floor > 0 && floor < FLOORS.length - 1) {
+          types = shuffle(types);
+          if (rand(3) === 0) {
+            const fightIndex = types.indexOf('fight');
+            if (fightIndex >= 0) types[fightIndex] = ['event', 'rest', 'shop', 'fox'][rand(4)];
+          }
+        }
+        return types.map((type, lane) => ({
+          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane,
+          name: NODE_INFO[type][0], description: NODE_INFO[type][1],
+          omen: OMENS[type][rand(OMENS[type].length)], next: []
+        }));
+      });
+      // Build a connected branching graph: every node offers two or three ways
+      // forward, and cross-lane links keep later decisions from being locked to
+      // the lane picked on the previous floor.
+      for (let floor = 0; floor < map.length - 1; floor++) {
+        const current = map[floor], next = map[floor + 1];
+        for (const node of current) {
+          const ranked = next.map(target => ({
+            target, score: Math.abs(target.lane - node.lane) + rng() * 2.15
+          })).sort((a, b) => a.score - b.score);
+          const degree = floor === 0 ? next.length : Math.min(next.length, 2 + rand(2));
+          node.next = ranked.slice(0, degree).map(item => item.target.id);
+        }
+        for (const target of next) {
+          if (!current.some(node => node.next.includes(target.id))) {
+            const source = current.slice().sort((a, b) =>
+              Math.abs(a.lane - target.lane) - Math.abs(b.lane - target.lane))[0];
+            source.next.push(target.id);
+          }
+        }
       }
       return map;
     }
@@ -168,8 +209,9 @@
           deck: cards.map(makeCard),
           relics: ['bell']
         },
-        floor: 1, history: [], battle: null, reward: null, shop: null, event: null,
-        notice: '', result: null, stats: { battles: 0, cardsPlayed: 0 }
+        floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null,
+        notice: '', result: null, rewardRerolls: 1,
+        stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0 }
       };
     }
     function emit() { onChange(state); }
@@ -189,6 +231,16 @@
     }
     function note(message) { state.notice = message; }
     function hasRelic(id) { return state.player.relics.includes(id); }
+    function addRelic(id) {
+      const p = state.player;
+      if (!RELICS[id] || hasRelic(id)) return false;
+      p.relics.push(id);
+      if (id === 'godblood') {
+        p.maxHp += 12;
+        p.hp = Math.min(p.maxHp, p.hp + 12);
+      }
+      return true;
+    }
     function liveBattle() { return state.screen === 'battle' && state.battle && state.battle.phase !== 'ended'; }
     function heal(amount, reason) {
       const before = state.player.hp;
@@ -227,6 +279,16 @@
         if (selfDamage) bloodstone();
         return true;
       }
+      const b = state.battle;
+      if (liveBattle() && hasRelic('ninelives') && !b.nineUsed) {
+        b.nineUsed = true;
+        p.hp = Math.min(18, p.maxHp);
+        log(`九命铃触发：免于死亡，生命设为 ${p.hp}。本场战斗不再触发。`);
+        note('九命铃替你挡下了这一夜。');
+        event('relic', { relic: 'ninelives', amount: p.hp, name: RELICS.ninelives.name });
+        if (selfDamage) bloodstone();
+        return true;
+      }
       if (hasRelic('fox')) {
         p.relics.splice(p.relics.indexOf('fox'), 1);
         p.hp = Math.min(12, p.maxHp);
@@ -243,7 +305,8 @@
       const b = state.battle;
       if (hasRelic('bloodstone') && !b.bloodstoneUsed) {
         b.bloodstoneUsed = true; b.energy++;
-        log('朱砂心触发：首次自损，获得 1 灵力。');
+        drawCards(1);
+        log('朱砂心触发：首次自损，获得 1 灵力并抽 1 张牌。');
         event('relic', { relic: 'bloodstone', name: RELICS.bloodstone.name, amount: 1 });
       }
     }
@@ -308,7 +371,7 @@
       const b = state.battle;
       b.phase = 'ended';
       event('victory', { target: 'enemy' });
-      if (hasRelic('vial')) { heal(4, '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: 4 }); }
+      if (hasRelic('vial')) { heal(8, '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: 8 }); }
       clearCombatStatuses();
       state.stats.battles++;
       log(`击败${b.enemy.name}！`);
@@ -321,22 +384,44 @@
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
-      let relic = null;
+      let relicChoices = [];
       if (b.kind === 'elite') {
         const available = Object.keys(RELICS).filter(id => !['bell','fox'].includes(id) && !hasRelic(id));
         if (available.length) {
-          relic = available[rand(available.length)];
-          state.player.relics.push(relic);
-          log(`获得遗物「${RELICS[relic].name}」。`);
+          const treasures = available.filter(id => TREASURE_RELICS.includes(id));
+          if (state.stats.eliteBattles === 0 && treasures.length) {
+            const guaranteed = sample(treasures, 1)[0];
+            relicChoices = [guaranteed, ...sample(available.filter(id => id !== guaranteed), 1)];
+          } else relicChoices = sample(available, 2);
+          log(`精英珍藏已揭晓：请从${relicChoices.map(id => `「${RELICS[id].name}」`).join('／')}中选择一件。`);
         } else {
           gold += 20;
           log('奖励遗物已集齐，额外获得 20 金币。');
         }
+        state.stats.eliteBattles++;
       }
       state.player.gold += gold;
-      state.reward = { cards: sample(REWARD_POOL, 3), gold, relic };
+      state.reward = { cards: rewardCards(b.kind), gold, relic: null, relicChoices,
+        relicPending: relicChoices.length > 0, rerolled: false };
       state.screen = 'reward';
-      note(`胜利：${gold} 金币已入账，请选一张牌或跳过。`);
+      note(`胜利：${gold} 金币已入账。${relicChoices.length ? '先选一件精英珍藏，再选择卡牌。' : '请选一张牌或跳过。'}${gold === 55 ? '遗物已集齐，包含额外 20 金币。' : ''}`);
+    }
+    function rewardCards(kind, previous = []) {
+      const required = kind === 'elite'
+        ? REWARD_POOL.filter(id => CARDS[id].rarity === 'rare')
+        : REWARD_POOL.filter(id => CARDS[id].category === state.starter);
+      let cards;
+      if (required.length) {
+        const first = sample(required, 1)[0];
+        cards = [first, ...sample(REWARD_POOL.filter(id => id !== first), 2)];
+      } else cards = sample(REWARD_POOL, 3);
+      // Even a fixed RNG must visibly change an offer when the one-use redraw
+      // is spent. Replacing only the final slot preserves the first-slot floor.
+      if (previous.length && cards.every(id => previous.includes(id))) {
+        const alternate = REWARD_POOL.filter(id => !previous.includes(id));
+        cards[cards.length - 1] = alternate[rand(alternate.length)];
+      }
+      return cards;
     }
     // The killing heal is resolved before victory changes the screen.
     function enemyHit(amount, killingHeal = 0, alwaysHeal = 0, kind = 'card') {
@@ -344,6 +429,7 @@
       const absorbed = Math.min(b.enemy.block, amount);
       b.enemy.block -= absorbed;
       const damage = Math.max(0, amount - absorbed);
+      if (kind === 'card') state.stats.maxHit = Math.max(state.stats.maxHit, amount);
       b.enemy.hp = Math.max(0, b.enemy.hp - damage);
       log(`对${b.enemy.name}造成 ${amount} 点伤害：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
       event('attack', { target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind });
@@ -374,15 +460,26 @@
         b.poison = Math.max(0, b.poison - 1);
         log(`毒减至 ${b.poison} 层。`);
       }
-      b.energy = 3 + b.nextEnergy;
+      let turnEnergy = 3 + b.nextEnergy;
       let draw = 5 + b.nextDraw;
+      if (hasRelic('moonheart')) {
+        turnEnergy += 1;
+        log('月髓触发：本回合额外获得 1 点灵力。');
+      }
       if (b.turn === 1 && hasRelic('moon')) {
         draw += 2;
         log('残月坠触发：首回合额外抽 2 张牌。');
         event('relic', { relic: 'moon', name: RELICS.moon.name, amount: 2 });
       }
+      if (b.turn === 1 && hasRelic('dream')) {
+        turnEnergy += 1;
+        draw += 2;
+        log('梦匣触发：首回合额外获得 1 灵力、抽 2 张牌。');
+        event('relic', { relic: 'dream', name: RELICS.dream.name, amount: 2 });
+      }
       if (b.nextEnergy || b.nextDraw) log(`蓄爪触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
       b.nextEnergy = b.nextDraw = 0;
+      b.energy = turnEnergy;
       drawCards(draw);
       b.phase = 'player';
     }
@@ -396,6 +493,7 @@
         block: 0, energy: 0, poison: 0, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
+        mirrorUsed: false, nineUsed: false,
         logs: [`进入第 ${state.floor} 层，与${def.name}交战。`]
       };
       state.screen = 'battle';
@@ -475,6 +573,7 @@
       b.resolving.push(card);
       const previousPlayed = b.played;
       b.played++;
+      state.stats.maxCombo = Math.max(state.stats.maxCombo, b.played);
       state.stats.cardsPlayed++;
       log(`打出「${def.name}」，消耗 ${def.cost} 灵力。`);
       event('card', { cardId: card.id, name: def.name, cost: def.cost });
@@ -482,6 +581,12 @@
       if (def.attack) {
         bonus = b.nextAttack + b.bloodPower;
         b.nextAttack = 0;
+        if (hasRelic('mirror') && !b.mirrorUsed) {
+          b.mirrorUsed = true;
+          bonus += 7;
+          log('照魂镜触发：本场首张攻击牌第一段伤害增加 7。');
+          event('relic', { relic: 'mirror', name: RELICS.mirror.name, amount: 7 });
+        }
         if (hasRelic('fang') && !b.fangUsed) {
           b.fangUsed = true; bonus += 2;
           log('夜牙簪触发：首张攻击第一段伤害增加 2。');
@@ -643,9 +748,31 @@
     }
     function chooseReward(idOrNull) {
       if (state.screen !== 'reward' || !state.reward) return false;
+      if (state.reward.relicPending) { note('请先选择一件精英珍藏。'); return false; }
       if (idOrNull !== null && !state.reward.cards.includes(idOrNull)) return false;
       if (idOrNull !== null) state.player.deck.push(makeCard(idOrNull));
       advance();
+      emit();
+      return true;
+    }
+    function chooseRelic(id) {
+      const reward = state.reward;
+      if (state.screen !== 'reward' || !reward || !reward.relicPending || !reward.relicChoices.includes(id)) return false;
+      if (!addRelic(id)) return false;
+      reward.relic = id;
+      reward.relicPending = false;
+      log(`获得精英珍藏「${RELICS[id].name}」。`);
+      note(`已获得「${RELICS[id].name}」：${RELICS[id].text} 现在选一张卡牌或跳过。`);
+      emit();
+      return true;
+    }
+    function rerollReward() {
+      const reward = state.reward;
+      if (state.screen !== 'reward' || !reward || state.rewardRerolls <= 0 || reward.rerolled) return false;
+      reward.cards = rewardCards(state.battle.kind, reward.cards);
+      reward.rerolled = true;
+      state.rewardRerolls--;
+      note('本局唯一的免费换牌已使用。新候选已固定，精英珍藏不会重抽。');
       emit();
       return true;
     }
@@ -697,52 +824,226 @@
       return true;
     }
 
+    function chooseTreasure(preferred) {
+      if (preferred && !hasRelic(preferred)) return preferred;
+      const pool = TREASURE_RELICS.filter(id => !hasRelic(id));
+      return pool.length ? pool[rand(pool.length)] : null;
+    }
+    function choiceAvailable(choice, p) {
+      if ((choice.goldCost || 0) > p.gold) return false;
+      if ((choice.hpCost || 0) > 0 && p.hp <= choice.hpCost) return false;
+      if ((choice.maxHpCost || 0) > 0 && p.maxHp - choice.maxHpCost < 5) return false;
+      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02'].includes(card.id)))) return false;
+      return true;
+    }
+    function finishChoices(choices, p) {
+      const available = choices.map(choice => ({ ...choice,
+        text: choice.maxHpCost ? `${choice.text} 最大生命须至少保留 5。` : choice.text,
+        disabled: !choiceAvailable(choice, p) }));
+      if (available.every(choice => choice.disabled)) available.push({
+        label: '无力交易 · 安然离开', text: '不支付任何代价，也不获得奖励。', disabled: false,
+        outcome: '你轻轻摇头，收好空空的袖袋。楼里的怪事没有追上来，只留下一盏微光，照着你继续上楼。'
+      });
+      return available;
+    }
+    function applyEventChoice(choice, p) {
+      const received = [];
+      if (choice.goldCost) {
+        p.gold -= choice.goldCost;
+        received.push(`金币 −${choice.goldCost}`);
+      }
+      if (choice.hpCost) {
+        p.hp = Math.max(1, p.hp - choice.hpCost);
+        received.push(`生命 −${choice.hpCost}`);
+      }
+      if (choice.maxHpCost) {
+        p.maxHp = Math.max(5, p.maxHp - choice.maxHpCost);
+        p.hp = Math.min(p.hp, p.maxHp);
+        received.push(`最大生命 −${choice.maxHpCost}`);
+      }
+      if (choice.removeBasic) {
+        const index = p.deck.findIndex(card => ['C01','C02'].includes(card.id));
+        if (index >= 0) {
+          const [card] = p.deck.splice(index, 1);
+          received.push(`移除「${CARDS[card.id].name}」`);
+        }
+      }
+      if (Object.prototype.hasOwnProperty.call(choice, 'relic')) {
+        if (addRelic(choice.relic)) received.push(`秘宝「${RELICS[choice.relic].name}」`);
+        else {
+          const fallback = choice.fallbackGold || 60;
+          p.gold += fallback;
+          received.push(`秘宝已齐，改得 ${fallback} 金币`);
+        }
+      }
+      for (const id of choice.cardIds || []) {
+        p.deck.push(makeCard(id));
+        received.push(`卡牌「${CARDS[id].name}」`);
+      }
+      if (choice.heal) {
+        const before = p.hp;
+        p.hp = Math.min(p.maxHp, p.hp + choice.heal);
+        received.push(`生命 +${p.hp - before}`);
+      }
+      if (choice.goldGain) {
+        p.gold += choice.goldGain;
+        received.push(`金币 +${choice.goldGain}`);
+      }
+      return received;
+    }
     function makeEvent() {
-      const kind = rand(3), p = state.player;
-      if (kind === 0) {
-        const id = sample(REWARD_POOL.filter(id => CARDS[id].rarity === 'rare'), 1)[0];
-        return { id: 'well', name: '倒映祈愿井', description: '井底的月亮映出一张陌生符纸。「丢下钱，你就能带走这份愿望。」', choices: [
-          { label: `投入 18 金币 · 获得「${CARDS[id].name}」`, text: CARDS[id].text, disabled: p.gold < 18, effect: 'buy', price: 18, cardId: id },
-          { label: '饮一口月水 · 恢复 6 生命', text: '免费，治疗不超过最大生命。', disabled: false, effect: 'heal', amount: 6 }
-        ] };
-      }
-      if (kind === 1) {
-        const pool = Object.keys(RELICS).filter(id => !['bell','fox'].includes(id) && !hasRelic(id));
-        const relic = pool.length ? pool[rand(pool.length)] : null;
-        return { id: 'shrine', name: '无面旧神龛', description: '无面的神像摊开掌心，指尖停着一点血色。「六滴心血，换一件旧物。」', choices: [
-          { label: `失去 6 生命 · ${relic ? `获得「${RELICS[relic].name}」` : '获得 30 金币'}`, text: `${relic ? RELICS[relic].text : '普通奖励遗物已集齐。'}需要当前生命大于 6。`, disabled: p.hp <= 6, effect: 'offering', relic, amount: 6 },
-          { label: '替神像拂尘 · 获得 10 金币', text: '不损失生命，也不获得遗物。', disabled: false, effect: 'gold', amount: 10 }
-        ] };
-      }
-      const basic = p.deck.find(card => ['C01','C02'].includes(card.id));
-      const id = sample(REWARD_POOL, 1)[0];
-      return { id: 'memory', name: '卖梦人的摊位', description: '摊主从琉璃罐中拈起一片旧梦。「忘掉一招，轻装上楼；或买下别人的本领。」', choices: [
-        { label: `卖掉${basic ? `一张「${CARDS[basic.id].name}」` : '基础牌'} · 获得 25 金币`, text: '永久删除指定的单张实例；牌组须至少保留 5 张。', disabled: !basic || p.deck.length <= 5, effect: 'sell', uid: basic?.uid, amount: 25 },
-        p.gold >= 20 ? { label: `付 20 金币 · 获得「${CARDS[id].name}」`, text: CARDS[id].text, disabled: false, effect: 'buy', price: 20, cardId: id } :
-          { label: '没有余钱 · 婉拒离开', text: '不支付金币，不改变牌组。', disabled: false, effect: 'leave' }
-      ] };
+      const p = state.player;
+      const rare = REWARD_POOL.filter(id => CARDS[id].rarity === 'rare');
+      const rareCards = () => sample(rare, 2);
+      const builders = {
+        well() {
+          const card = sample(rare, 1)[0];
+          const relic = chooseTreasure('moonheart');
+          return {
+            id: 'well', name: '倒映祈愿井', glyph: '井', kicker: 'THE WELL THAT REMEMBERS / 井中旧月',
+            whisper: '井水记得每一枚投入的愿望。',
+            description: '水面映出的不是你的脸。它像一扇门，门后有人用你的声音说：再走近一点。',
+            story: [
+              '井沿结着薄霜。你俯身时，水里浮起的却是一扇从未见过的门；门后有人轻轻敲了三下，像在催你交出什么。',
+              '井底那一轮月亮很圆，也很饿。它把你的倒影含在口中，等你先开口。'
+            ],
+            choices: finishChoices([
+              { label: `投入 20 金币 · ${relic ? `捞起秘宝「${RELICS[relic].name}」` : '换得 40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 20，得到 40，净赚 20 金币。', goldCost: 20, relic, fallbackGold: 40,
+                outcome: '金币沉下去时没有声音。一只湿冷的手把月白色的髓珠放进你掌心；再低头时，井底那张脸已经闭上了眼。' },
+              { label: `以 6 点生命喂井 · 获得「${CARDS[card].name}」与 30 金币`, text: `${CARDS[card].text} 需要当前生命大于 6。`, hpCost: 6, cardIds: [card], goldGain: 30,
+                outcome: '你把六滴血按进井沿。水面吐出一张湿淋淋的符纸，还有一小袋从未属于你的钱。井底传来很轻的咀嚼声。' },
+              { label: '只饮一口井水 · 恢复 12 生命', text: '不取任何宝贝，也不惊动井底那个“你”。', heal: 12,
+                outcome: '井水冷得像一场旧雪，伤口却在雪里慢慢合拢。你没有拿走任何东西，井底的人反而松了一口气。' }
+            ], p)
+          };
+        },
+        shrine() {
+          const card = sample(rare, 1)[0], relic = chooseTreasure('godblood');
+          return {
+            id: 'shrine', name: '无面旧神龛', glyph: '龛', kicker: 'A GOD WITHOUT A FACE / 无面旧神',
+            whisper: '祂没有脸，却记得你的名字。',
+            description: '香灰里埋着几枚刻了你名字的旧钱。神像的掌心有一道新伤，正等着别的东西填满。',
+            story: [
+              '雨从神像空白的眼窝里流下来。它没有脸，却知道你从哪一层来；供桌上摆着六枚旧钱，每一枚都刻着你的名字。',
+              '“拿走你想要的东西。”一个声音说，“只要留下一点，让我记得你曾经来过。”'
+            ],
+            choices: finishChoices([
+              { label: `献上 8 生命与 15 金币 · 得「${CARDS[card].name}」与${relic ? `秘宝「${RELICS[relic].name}」` : '60 金币'}`, text: `${CARDS[card].text} ${relic ? RELICS[relic].text : '秘宝已集齐：支付 15，得到 60，净赚 45 金币。'}`, hpCost: 8, goldCost: 15, cardIds: [card], relic, fallbackGold: 60,
+                outcome: '神像把血抹在空白的脸上，长出一双极淡的眼睛。你的胸口发热，像多了一颗不属于自己的心。' },
+              { label: '撬开功德箱 · 获得 55 金币，最大生命 −6', text: '铜钱很多，神像也记得是谁拿的。需要最大生命大于 6。', maxHpCost: 6, goldGain: 55,
+                outcome: '功德箱裂开，铜钱像雨水一样涌出来。你听见神像在背后轻轻记下一笔：下次，收的不只是命。' },
+              { label: '把旧钱放回供桌 · 恢复 10 生命', text: '让这场雨停一会儿。', heal: 10,
+                outcome: '旧钱落回铜盘，神像的呼吸慢了下来。你忽然想起，自己也曾被谁轻轻放过一次。' }
+            ], p)
+          };
+        },
+        dreamshop() {
+          const relic = chooseTreasure('dream'), cards = rareCards();
+          return {
+            id: 'dreamshop', name: '卖梦人的摊位', glyph: '梦', kicker: 'DREAMS FOR SALE / 琉璃罐里的来生',
+            whisper: '梦比命便宜，也比命记得久。',
+            description: '摊主把一只琉璃罐推到你面前。罐中有一场没下完的雪，还有另一个你，正在牌桌边等你落子。',
+            story: [
+              '琉璃罐里沉着别人的一生：一场没下完的雪、一句没说完的话、一次没有回头的离开。摊主说，梦比命便宜，也比命记得久。',
+              '“你可以买一个梦，也可以卖掉一点过去。”她把空罐摆正，“楼上的蛇不挑食，但挑梦。”'
+            ],
+            choices: finishChoices([
+              { label: `付 25 金币 · ${relic ? `买下秘宝「${RELICS[relic].name}」` : '换得 60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 25，得到 60，净赚 35 金币。', goldCost: 25, relic, fallbackGold: 60,
+                outcome: '你打开一只写着“如果那晚我没有上楼”的罐子。梦里多出一只手替你翻牌，醒来时指尖还带着琉璃的凉。' },
+              { label: '卖掉一段旧习惯 · 移除一张基础牌，得 35 金币并恢复 8 生命', text: '牌组须至少保留 5 张。', removeBasic: true, goldGain: 35, heal: 8,
+                outcome: '摊主从你手里抽走一张旧牌，像抽走一根早已长进肉里的刺。你忽然轻得有些不习惯。' },
+              { label: `吞下无名梦 · 失去 10 生命，获得「${CARDS[cards[0]].name}」与「${CARDS[cards[1]].name}」`, text: '梦里没有回头路，醒来的掌心却会留下东西。', hpCost: 10, cardIds: cards,
+                outcome: '你在梦里活了两种截然不同的人生。醒来时嘴角有血，掌心却多了两张陌生的契。摊主已经不在了，只剩空罐轻轻碰撞。' }
+            ], p)
+          };
+        },
+        theatre() {
+          const mirror = chooseTreasure('mirror'), nine = chooseTreasure('ninelives');
+          return {
+            id: 'theatre', name: '纸灯戏台', glyph: '戏', kicker: 'A PLAY ABOUT YOUR DEATH / 今夜的死法',
+            whisper: '台下没有观众，只有空椅在鼓掌。',
+            description: '纸扎的戏台上，一只与你穿同样衣裳的猫妖正被蛇从背后咬住喉咙。戏还没有演完，你还可以改词。',
+            story: [
+              '纸扎的戏台在走廊尽头亮着。台上的猫妖与你穿同样的衣裳，正被一条蛇从背后咬住喉咙；台下没有观众，只有一排空椅在鼓掌。',
+              '班主把一支蘸了朱砂的笔递给你：“放心，戏是假的。只是每次散场，总会少一个真的。”'
+            ],
+            choices: finishChoices([
+              { label: `上台改戏 · 失去 8 生命，获得${mirror ? `秘宝「${RELICS[mirror].name}」` : '60 金币'}`, text: mirror ? RELICS[mirror].text : '秘宝已集齐，获得 60 金币。', hpCost: 8, relic: mirror, fallbackGold: 60,
+                outcome: '你走上纸台，把戏本里的死亡改成一次反爪。纸猫妖看了你一眼，把一面小镜塞进你的袖口；镜里，蛇的倒影先流了血。' },
+              { label: `买下戏班的九命灯 · 付 45 金币，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 金币'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 金币。', goldCost: 45, relic: nine, fallbackGold: 60,
+                outcome: '你买下戏班最后一盏灯。灯芯里缠着九根猫须，熄灭时，台上那只纸猫妖朝你弓了弓背。' },
+              { label: '撕掉戏本 · 恢复 6 生命，获得 20 金币', text: '让今夜的死法留在纸里。', heal: 6, goldGain: 20,
+                outcome: '你撕掉戏本，纸人像雪一样落下。散场后，你在空椅下捡到几枚还没被掌声吞掉的铜钱。' }
+            ], p)
+          };
+        },
+        umbrella() {
+          const cards = rareCards(), relic = chooseTreasure('ninelives');
+          return {
+            id: 'umbrella', name: '雨夜借伞', glyph: '伞', kicker: 'A SHADOW FOR ONE NIGHT / 借影人',
+            whisper: '她借的不是伞，是你还愿意相信的那一点黑。',
+            description: '妇人举着半把伞，伞骨里空无一物。她说楼上的蛇最怕黑，而她已经很久没有影子了。',
+            story: [
+              '檐下雨声忽然停了。一名没有脸的妇人举着半把伞，问你能不能把影子借她一晚。',
+              '“只要今晚。”她说，“明早我会把它还你。若不还，你也可以拿走我伞下的东西。”伞骨里蜷着两段不属于你的路。'
+            ],
+            choices: finishChoices([
+              { label: `借出影子 · 最大生命 −6，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」与 35 金币`, text: '她拿走你的一小段黑，留下两段别人未走完的路。', maxHpCost: 6, cardIds: cards, goldGain: 35,
+                outcome: '她把你的影子折好，藏进伞骨。作为交换，你得到两段别人没走完的路，以及一袋在雨里也不会湿的钱。' },
+              { label: `陪她走到楼顶 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 金币。', hpCost: 10, relic, fallbackGold: 40,
+                outcome: '你替她撑伞走到楼梯尽头。她没有回头，只把伞柄塞进你手里；伞下多了一盏铃，铃舌是一小截蛇骨。' },
+              { label: '把自己的伞留给她 · 恢复 10 生命', text: '不借影子，也不问她的名字。', heal: 10,
+                outcome: '你把伞留在檐下。雨声重新落下时，那半把伞已经不见了，手心却暖了很久。' }
+            ], p)
+          };
+        },
+        pawnshop() {
+          const card = sample(rare, 1)[0], relic = chooseTreasure('moonheart');
+          return {
+            id: 'pawnshop', name: '蛇鳞当铺', glyph: '鳞', kicker: 'REGRETS, PAWNED / 一片鳞，一段悔',
+            whisper: '记忆是最不值钱的东西，除非有人愿意替你疼。',
+            description: '柜台上摆满蛇鳞，每一片都映着一段悔意。掌柜用指甲敲了敲玻璃，问你想当掉哪一段。',
+            story: [
+              '柜台后的蛇影没有抬头。玻璃匣里码着数百片蛇鳞，每一片都映着一段悔意：没递出的信、没回头的夜、没救下的人。',
+              '“记忆是最不值钱的东西。”掌柜说，“除非有人愿意替你疼。你可以当，也可以赎。”'
+            ],
+            choices: finishChoices([
+              { label: '当掉一段记忆 · 获得 65 金币，最大生命 −5', text: '你会忘记自己为何上楼，但不会忘记怎么活下去。', maxHpCost: 5, goldGain: 65,
+                outcome: '掌柜从你眉心揭下一层薄薄的旧影，像揭下一张用久了的符。金币沉进袖袋，你忽然想不起母亲的嗓音。' },
+              { label: `付 40 金币 · ${relic ? `赎回秘宝「${RELICS[relic].name}」` : '换得 40 金币'}与「${CARDS[card].name}」`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 40，得到 40 金币与一张卡牌。', goldCost: 40, relic, cardIds: [card], fallbackGold: 40,
+                outcome: '你赎回一片温热的旧鳞。鳞片贴在掌心时，一段不属于你的记忆从指缝里流过去，留下了一件宝贝。' },
+              { label: `放走匣中一片蛇鳞 · 失去 6 生命，获得「${CARDS[card].name}」与 25 金币`, text: `${CARDS[card].text} 蛇鳞割手，但不会白割。`, hpCost: 6, cardIds: [card], goldGain: 25,
+                outcome: '你撬开玻璃匣，那片鳞像活物一样卷住你的手指。掌柜没有拦你，只在账本上添了一行：欠蛇后一次。' }
+            ], p)
+          };
+        }
+      };
+      const ids = Object.keys(builders);
+      const unseen = ids.filter(id => !state.seenEvents.includes(id));
+      const id = (unseen.length ? unseen : ids)[rand((unseen.length ? unseen : ids).length)];
+      state.seenEvents.push(id);
+      return builders[id]();
     }
     function chooseEvent(index) {
-      if (state.screen !== 'event' || !state.event || !Number.isInteger(index)) return false;
+      if (state.screen !== 'event' || !state.event || state.event.resolved || !Number.isInteger(index)) return false;
       const choice = state.event.choices[index], p = state.player;
-      if (!choice || choice.disabled) return false;
-      if (choice.effect === 'buy') {
-        if (p.gold < choice.price) return false;
-        p.gold -= choice.price; p.deck.push(makeCard(choice.cardId));
-      } else if (choice.effect === 'heal') heal(choice.amount);
-      else if (choice.effect === 'gold') p.gold += choice.amount;
-      else if (choice.effect === 'offering') {
-        if (p.hp <= choice.amount) return false;
-        p.hp -= choice.amount;
-        if (choice.relic && !hasRelic(choice.relic)) p.relics.push(choice.relic);
-        else p.gold += 30;
-      } else if (choice.effect === 'sell') {
-        const i = p.deck.findIndex(card => card.uid === choice.uid);
-        if (i < 0 || p.deck.length <= 5) return false;
-        p.deck.splice(i, 1); p.gold += choice.amount;
-      }
-      const message = choice.label;
-      advance(); note(`异闻结束：${message}。`); emit(); return true;
+      if (!choice || choice.disabled || !choiceAvailable(choice, p)) return false;
+      const received = applyEventChoice(choice, p);
+      state.event.resolved = true;
+      state.event.outcome = choice.outcome;
+      state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
+      state.event.choiceLabel = choice.label;
+      note('异闻已了。看过这段结局，再决定是否继续上楼。');
+      emit();
+      return true;
+    }
+    function leaveEvent() {
+      if (state.screen !== 'event' || !state.event || !state.event.resolved) return false;
+      const name = state.event.name;
+      advance();
+      note(`离开「${name}」，第 ${state.floor} 层已开放。`);
+      emit();
+      return true;
     }
     function getIntent() {
       const b = state.battle;
@@ -752,11 +1053,11 @@
     state = freshState('title');
     return {
       get state() { return state; }, newRun, enterNode, playCard, endTurn, resolveEnemyTurn,
-      chooseReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, getAvailableNodes, getIntent
+      chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
     };
   }
 
-  const api = { CARDS, ENEMIES, RELICS, FLOORS, STARTERS, CARD_GROUPS, createGame };
+  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

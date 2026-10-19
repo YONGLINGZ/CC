@@ -1,36 +1,64 @@
 {
-  "version": "猫影分途版",
+  "version": "绘契鸣铃版",
   "date": "2026-10-19",
+  "based_on": "user-provided 33.zip",
   "game_html": {
-    "bytes": 30717305,
-    "sha256": "e082c97165996824e47ed21fbfb04f330dc562fccc818a50059347b2f56ef3cd"
+    "bytes": 215279,
+    "sha256": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb"
+  },
+  "standalone_html": {
+    "bytes": 5137000,
+    "sha256": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
   },
   "play_zip": {
-    "bytes": 23037416,
-    "sha256": "3321bc460fd90ee2dbc52316d7a33985f81b65b34554c8d2c1e3d3b20ba4990a"
+    "bytes": 7909245,
+    "sha256": "8f5d93ef99392bb3d92e9fd8214ac332629e0190f81ec890858a1ffc5910879b"
   },
   "zip_crc": "PASS",
-  "embedded_images": 8,
+  "runtime_art": {
+    "portraits": {
+      "count": 8,
+      "bytes": 1256610
+    },
+    "cards": {
+      "count": 36,
+      "bytes": 1538258
+    },
+    "events": {
+      "count": 9,
+      "bytes": 629910
+    },
+    "relics": {
+      "count": 13,
+      "bytes": 266426
+    }
+  },
   "cards": 36,
-  "floors": 8,
-  "starter_decks": 3,
+  "event_art": 9,
+  "relic_art": 13,
+  "sound_profiles": 36,
   "engine_tests": {
-    "passed": 73,
+    "passed": 90,
+    "failed": 0
+  },
+  "audio_tests": {
+    "passed": 11,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 15,
+    "passed": 20,
     "failed": 0
   },
   "public_api_simulations": {
     "completed": 90,
-    "wins": 90
+    "wins": 89,
+    "defeats": 1
   },
-  "full_recovery_checks": 7,
-  "source_recovery_checks": 12,
+  "full_recovery_checks": 13,
+  "source_recovery_checks": 17,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v2": false,
+  "cloud_configuration_updated_for_v3": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"
 }

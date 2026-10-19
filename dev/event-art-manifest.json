@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "created": "2026-10-19",
+  "generator": "OpenAI image_gen imagegen",
+  "style": "精致东方志怪卡牌插画：墨青暗部、朱红与暖金；叙事场景和法器静物；无字、无UI；人物仅明确成年人。",
+  "workflow": "四张独立分格原画由 image_gen 生成并目视检查，使用 sharp 按等分格直接裁切和 WebP 编码。只做资源裁切/压缩，无程序绘画。每个条目均为不同叙事构图或器物画面，不是同一肖像换底。",
+  "atlases": [
+    {
+      "id": "events-01",
+      "source": "/workspace/generated_images/exec-c6685b30-da28-442e-b628-5b57ffd90cf0.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "events-relics-02",
+      "source": "/workspace/generated_images/exec-fadda331-5984-4c17-b13b-be760a957094.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "relics-03",
+      "source": "/workspace/generated_images/exec-81612356-14e7-4e92-a945-aa199f360ef8.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "relics-04",
+      "source": "/workspace/generated_images/exec-e22065ed-e3e7-44ef-a6c3-49f9926ffd61.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "grid": [
+        2,
+        2
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "kind": "event",
+      "id": "well",
+      "name": "倒映祈愿井",
+      "concept": "月下祈愿井，水中旧月与捞起月髓的湿冷之手。",
+      "path": "assets/events/well.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 60002,
+      "sha256": "faec4f1da92844bead1c01eae65013e4b86c14a22a3d893b04405bc70f1f7447",
+      "atlas": "events-01",
+      "tile": {
+        "column": 0,
+        "row": 0,
+        "left": 0,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "shrine",
+      "name": "无面旧神龛",
+      "concept": "破损神龛内无面石像伸出带朱红伤口的掌心，香烟、供钱与雨水。",
+      "path": "assets/events/shrine.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 70272,
+      "sha256": "6b60b5eed6cb34d92fdcae940aa5b4446d158efa31025130b39fc762f51d4a95",
+      "atlas": "events-01",
+      "tile": {
+        "column": 1,
+        "row": 0,
+        "left": 512,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "dreamshop",
+      "name": "卖梦人的摊位",
+      "concept": "成熟蒙眼女摊主递出装着雪景与来生的琉璃梦罐。",
+      "path": "assets/events/dreamshop.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 77684,
+      "sha256": "8f2196c2467915dba244fca6eae00ae09ecf6bee11d52c7e96353a60a69a2100",
+      "atlas": "events-01",
+      "tile": {
+        "column": 2,
+        "row": 0,
+        "left": 1024,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "theatre",
+      "name": "纸灯戏台",
+      "concept": "红灯纸戏台上成年猫妖纸偶与蛇偶对演，空椅列席。",
+      "path": "assets/events/theatre.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 69310,
+      "sha256": "e01bbe470e5482033fb1303649c9cfed7af48af39b11ab05c0f2c051b5da1e29",
+      "atlas": "events-01",
+      "tile": {
+        "column": 0,
+        "row": 1,
+        "left": 0,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "umbrella",
+      "name": "雨夜借伞",
+      "concept": "雨阶中无面成年妇人与破伞、长影，伞柄悬铃。",
+      "path": "assets/events/umbrella.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 67714,
+      "sha256": "34fb27305e812209172ee813d924a008d630d8f00d058657057341c87c9cf202",
+      "atlas": "events-01",
+      "tile": {
+        "column": 1,
+        "row": 1,
+        "left": 512,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "pawnshop",
+      "name": "蛇鳞当铺",
+      "concept": "幽暗木柜后蛇影掌柜，玻璃柜中每片鳞片映着一段旧忆。",
+      "path": "assets/events/pawnshop.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 67874,
+      "sha256": "21ebeee478df95c139105271c12d1fd23c3a5a631c4dc943fd20f85390c4e0b9",
+      "atlas": "events-01",
+      "tile": {
+        "column": 2,
+        "row": 1,
+        "left": 1024,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "fox",
+      "name": "狐妖契约",
+      "concept": "成熟华服狐妖在烛火茶席递出朱红契卷，白色狐尾簇拥。",
+      "path": "assets/events/fox.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 68348,
+      "sha256": "2d179bd3e950208670d9f3edfbc56a58bce6f51988d6fe7995b4d7c14092c1f6",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 0,
+        "row": 0,
+        "left": 0,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "rest",
+      "name": "月庭休憩",
+      "concept": "成年猫妖靠古树于月庭歇息，热茶、竹林、月门和花瓣。",
+      "path": "assets/events/rest.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 68038,
+      "sha256": "4f338ef63b0bb76b550daf4232ced550d4e6f6663425e08a3e6b6c59ebeebac2",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 1,
+        "row": 0,
+        "left": 512,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "event",
+      "id": "shop",
+      "name": "妖市夜铺",
+      "concept": "戴金铜面具的成年商人展示符牌，灯火长街摆满法器与药瓶。",
+      "path": "assets/events/shop.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 80668,
+      "sha256": "a3e3bfffcf732d65474c4233584e127c3aceb0583d5656c6a4c86fe9627a1b33",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 2,
+        "row": 0,
+        "left": 1024,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "moonheart",
+      "name": "月髓",
+      "concept": "黑漆台上发光乳白月髓珠与透明月牙碎片，清冷月雾。",
+      "path": "assets/relics/moonheart.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18130,
+      "sha256": "f766fdfe31e2e934819732ef53a2cb0e092ac0973d80d42c885a57d69e1e19ed",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 0,
+        "row": 1,
+        "left": 0,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "mirror",
+      "name": "照魂镜",
+      "concept": "金铜雕花古镜中一只灵眼与蓝色魂雾，朱锦承托。",
+      "path": "assets/relics/mirror.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22176,
+      "sha256": "b2d4551ff6c10a516a90170729a7fa756c0556373709202231b711c0a1ea77ac",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 1,
+        "row": 1,
+        "left": 512,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "dream",
+      "name": "梦匣",
+      "concept": "镶金黑木梦匣打开后溢出雪山小景、紫色梦星和琉璃珠。",
+      "path": "assets/relics/dream.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24120,
+      "sha256": "4d470113973bd04c11c53e2470214c4a8a4180c68d34a82ae23a7e9f8bd72e1e",
+      "atlas": "events-relics-02",
+      "tile": {
+        "column": 2,
+        "row": 1,
+        "left": 1024,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "godblood",
+      "name": "无面神血",
+      "concept": "双掌状铜祭碗上方悬浮红色神血宝珠，无面石像居后。",
+      "path": "assets/relics/godblood.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21388,
+      "sha256": "565579e00bdc9e1d17066cb7a109087e14281fb5edc66a0eaeb05d2dce653ea1",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 0,
+        "row": 0,
+        "left": 0,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "ninelives",
+      "name": "九命铃",
+      "concept": "红绳结成的猫面铜铃护符环，银白猫魂在金雾中穿梭。",
+      "path": "assets/relics/ninelives.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25080,
+      "sha256": "93b3086a0ebc5bd22f49f807ad16a7972732811499810b24e4572639936c83af",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 1,
+        "row": 0,
+        "left": 512,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "bell",
+      "name": "金铃",
+      "concept": "单只雕猫爪纹的厚重暖金铃铛，朱红项绳。",
+      "path": "assets/relics/bell.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18784,
+      "sha256": "fc6425791a7a3b3be0bcf06991c1c05aba57f2b1dd9fbca650909a3cc5ab3983",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 2,
+        "row": 0,
+        "left": 1024,
+        "top": 0,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "jade",
+      "name": "磨爪玉",
+      "concept": "三爪形半透明翡翠玉佩，银边红穗与划痕灵光。",
+      "path": "assets/relics/jade.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20674,
+      "sha256": "554dbef95415d00a48ada08f648c350e6ebee3c1438f5f7a1fead701ccda9fad",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 0,
+        "row": 1,
+        "left": 0,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "moon",
+      "name": "残月坠",
+      "concept": "银金新月环绕悬珠，星垂链与月色白绸。",
+      "path": "assets/relics/moon.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16640,
+      "sha256": "d77dc65091f2887bbbf876b43ab85b0b1d730f4aa4d72429136f9466b5771e9e",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 1,
+        "row": 1,
+        "left": 512,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "fang",
+      "name": "夜牙簪",
+      "concept": "弯曲白牙嵌于黑金发簪，朱红绳结置于红锦。",
+      "path": "assets/relics/fang.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15948,
+      "sha256": "8ae715efa43bcbef8934e3ff1119308ecfd13e85503490ef2a72df637dde6de4",
+      "atlas": "relics-03",
+      "tile": {
+        "column": 2,
+        "row": 1,
+        "left": 1024,
+        "top": 512,
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "fox",
+      "name": "狐契",
+      "concept": "朱绳狐印束起无字契卷，赤金狐魂在上盘旋。",
+      "path": "assets/relics/fox.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21472,
+      "sha256": "552def41022ec8e9576850ca166736966f8361fb833a81eb7ff309159aa36caf",
+      "atlas": "relics-04",
+      "tile": {
+        "column": 0,
+        "row": 0,
+        "left": 0,
+        "top": 0,
+        "width": 627,
+        "height": 627
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "silk",
+      "name": "鲛绡带",
+      "concept": "淡蓝半透明鲛绡凌空环绕，鳞纹、鱼鳍玉扣与水珠。",
+      "path": "assets/relics/silk.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22078,
+      "sha256": "13ea75ddea3bce5b899f3bafe13f1aa6c25517808d923b08ac8a9de13a28f663",
+      "atlas": "relics-04",
+      "tile": {
+        "column": 1,
+        "row": 0,
+        "left": 627,
+        "top": 0,
+        "width": 627,
+        "height": 627
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "vial",
+      "name": "回春露",
+      "concept": "青瓷玉葫芦药瓶向金沿小杯倾出翠绿回春露，鲜花药叶。",
+      "path": "assets/relics/vial.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20536,
+      "sha256": "9423a912a117afed72c5cb0a23c539243c2cbbd7d2670677c72404f117838b4a",
+      "atlas": "relics-04",
+      "tile": {
+        "column": 0,
+        "row": 1,
+        "left": 0,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "bloodstone",
+      "name": "朱砂心",
+      "concept": "朱红切面心形灵石包裹精巧金脉，悬于黑绒垫上。",
+      "path": "assets/relics/bloodstone.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19400,
+      "sha256": "c4b970931a3896e34c490e15972ffaf35250537e81a16e7f16c0d5756e620c25",
+      "atlas": "relics-04",
+      "tile": {
+        "column": 1,
+        "row": 1,
+        "left": 627,
+        "top": 627,
+        "width": 627,
+        "height": 627
+      }
+    }
+  ]
+}

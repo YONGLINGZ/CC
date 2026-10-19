@@ -35,7 +35,7 @@ function nextCard(s) {
     if(id==='C34')score+=Math.min(2,b.poison)*4;
     if(id==='C36')score+=Math.min(4,p.maxHp-p.hp)*3;
     const loss={C13:3,C15:1,C25:1,C27:4,C29:5,C31:2}[id]||0;
-    if(loss>=p.hp&&!p.relics.includes('fox'))score=-1000;
+    if(loss>=p.hp&&!p.relics.includes('fox')&&!(p.relics.includes('ninelives')&&!b.nineUsed))score=-1000;
     if(!best||score>best.score)best={card,score};
   }
   return best&&best.score>0?best.card:null;
@@ -63,7 +63,15 @@ function playRun(seed,starter,lane){
         else{turns++;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);}
         break;
       }
-      case 'reward':assert.equal(g.chooseReward([...s.reward.cards].sort((a,b)=>cardValue(b,starter)-cardValue(a,starter))[0]),true);break;
+      case 'reward':{
+        if(s.reward.relicPending){
+          const preferences=['moonheart','dream','ninelives','godblood','jade','vial','mirror','moon','bloodstone','fang','silk'];
+          const offered=[...s.reward.relicChoices].sort((a,b)=>preferences.indexOf(a)-preferences.indexOf(b));
+          assert.ok(offered.length,'pending treasure must have offers');
+          assert.equal(g.chooseRelic(offered[0]),true);
+        }else assert.equal(g.chooseReward([...s.reward.cards].sort((a,b)=>cardValue(b,starter)-cardValue(a,starter))[0]),true);
+        break;
+      }
       case 'rest':assert.equal(g.rest(true),true);break;
       case 'fox':assert.equal(g.fox(p.maxHp>8&&!p.relics.includes('fox')),true);break;
       case 'shop':{
@@ -73,6 +81,7 @@ function playRun(seed,starter,lane){
         assert.equal(g.leaveShop(),true);break;
       }
       case 'event':{
+        if(s.event.resolved){assert.equal(g.leaveEvent(),true);break;}
         // Read visible availability only. All options are processed by engine.
         let chosen=false;
         for(let i=0;i<(s.event.options||s.event.choices).length;i++){if(g.chooseEvent(i)){chosen=true;break;}}
@@ -81,18 +90,20 @@ function playRun(seed,starter,lane){
       default:throw new Error('Unexpected screen '+s.screen);
     }
   }
-  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,encounters};
+  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters};
 }
 function main(){
   const runs=[];
-  for(const starter of ['mark','combo','blood'])for(let lane=0;lane<3;lane++)for(let i=0;i<10;i++)runs.push(playRun(1000+lane*100+i,starter,lane));
+  for(const starter of ['mark','combo','blood'])for(let i=0;i<30;i++)runs.push(playRun(1000+i,starter,i%4));
   const summary=[];
-  for(const starter of ['mark','combo','blood'])for(let lane=0;lane<3;lane++){
+  for(const starter of ['mark','combo','blood'])for(let lane=0;lane<4;lane++){
     const selected=runs.filter(r=>r.starter===starter&&r.lane===lane);
     summary.push({starter,lane,wins:selected.filter(r=>r.result==='victory').length,runs:selected.length,averageEnemyTurns:+(selected.reduce((n,r)=>n+r.turns,0)/selected.length).toFixed(1)});
   }
   const report={method:'Public API only; 90 seeded heuristic simulations, no state fixtures. Not human balance or time-to-play validation.',runs:runs.length,wins:runs.filter(r=>r.result==='victory').length,summary,details:runs};
-  fs.writeFileSync(path.join(__dirname,'playtest-report.json'),JSON.stringify(report,null,2)+'\n');
+  const reportPath=process.env.PLAYTEST_REPORT||path.join(__dirname,'playtest-report.json');
+  fs.mkdirSync(path.dirname(reportPath),{recursive:true});
+  fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({runs:report.runs,wins:report.wins,summary},null,2));
 }
 if(require.main===module)main();

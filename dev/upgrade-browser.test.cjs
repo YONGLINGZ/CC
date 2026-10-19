@@ -1,13 +1,14 @@
-/* Real Chromium v2 regression tests. Fixtures are explicitly named. No server or file-policy bypass. */
+/* Real Chromium v3 regression tests. Fixtures are named; managed file policy is respected. */
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert/strict');
 const crypto = require('crypto');
+const http = require('http');
 const { chromium } = require('playwright');
 const target = path.resolve(process.argv[2] || path.join(__dirname, '..', 'index.html'));
 const results = [];
-const report = { target, fileNavigation: null, externalRequests: [], errors: [], results };
-let page, browser;
+const report = { target, fileNavigation: null, externalRequests: [], localRequests: [], errors: [], results };
+let page, browser, server, localOrigin;
 const snapshot = () => page.evaluate(() => JSON.parse(JSON.stringify(game.state)));
 const idle = () => page.waitForFunction(() => !window.uiBusy, null, { timeout: 15000 });
 async function click(action, filter = '') {
@@ -50,10 +51,10 @@ async function fixtureVisit(type) {
   }, type);
 }
 async function test(name, fn) {
-  if (process.env.QA_FILTER && !name.includes(process.env.QA_FILTER)) return;
+  if (process.env.QA_FILTER && !process.env.QA_FILTER.split('|').some(part=>name.includes(part))) return;
   try { await fn(); results.push({ name, ok: true }); console.log('PASS ' + name); }
   catch (error) { results.push({ name, ok: false, error: error.stack }); console.error('FAIL ' + name + ': ' + error.message); }
-  finally { await idle(); await page.evaluate(() => { window.fxObserver?.disconnect(); window.setMotionMode?.('fast'); }); }
+  finally { await idle(); await page.evaluate(() => { window.fxObserver?.disconnect(); window.setMotionMode?.('fast');document.querySelector('#modal-root [data-action="close"]')?.click();window.NightAudio?.setMuted(false); }); }
 }
 async function chooseAction() {
   const { nextCard } = require('./playtest.cjs');
@@ -72,29 +73,85 @@ async function autoBattle() {
   throw new Error('Autoplayer exceeded 80 turns');
 }
 async function reward() {
-  const s=await snapshot(); assert.equal(s.screen,'reward');
+  let s=await snapshot(); assert.equal(s.screen,'reward');
+  if(s.reward.relicPending){await click('choose-relic',`[data-relic="${s.reward.relicChoices[0]}"]`);s=await snapshot();}
   const weights={C03:3,C04:10,C05:9,C06:8,C07:7,C08:8,C09:8,C10:9,C11:6,C12:7,C13:5,C14:7,C15:6,C16:10};
   const id=[...s.reward.cards].sort((a,b)=>(weights[b]||8)-(weights[a]||8))[0];
   await click('reward',`[data-id="${id}"]`); return id;
 }
-async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:true}); await page.screenshot({path:`/workspace/scratch/v2-${name}.png`,fullPage:true}); }
+async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:true}); await page.screenshot({path:`/workspace/scratch/v3-${name}.png`,fullPage:true}); }
+async function finishNode() {
+  const s=await snapshot();
+  if(s.screen==='battle'){const out=await autoBattle();if(out==='reward')await reward();return;}
+  if(s.screen==='rest')return click('rest','[data-heal="true"]');
+  if(s.screen==='fox')return click('fox',`[data-sign="${s.player.maxHp>8&&!s.player.relics.includes('fox')}"]`);
+  if(s.screen==='shop')return click('leave-shop');
+  if(s.screen==='event'){if(!s.event.resolved)await click('event-choice');return click('event-leave');}
+  throw new Error('Unhandled screen '+s.screen);
+}
+async function decodeImageSignatures(selector) {
+  return page.locator(selector).evaluateAll(async images=>Promise.all(images.map(async img=>{
+    img.loading='eager';await img.decode();if(!img.naturalWidth||!img.naturalHeight)throw new Error('Invalid image '+img.src);
+    const canvas=document.createElement('canvas');canvas.width=48;canvas.height=48;
+    canvas.getContext('2d').drawImage(img,0,0,48,48);
+    return {src:img.getAttribute('src'),width:img.naturalWidth,height:img.naturalHeight,pixels:canvas.toDataURL()};
+  })));
+}
 
 (async()=>{
   const html=fs.readFileSync(target,'utf8'); report.sha256=crypto.createHash('sha256').update(html).digest('hex');
-  browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+  const root=path.dirname(target),mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.css':'text/css'};
+  server=http.createServer((req,res)=>{
+    let requested;try{requested=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);res.end();return;}
+    const file=path.resolve(root,'.'+requested);
+    if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
+    fs.readFile(file,(error,data)=>{if(error){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));localOrigin=`http://127.0.0.1:${server.address().port}`;
   try {
+    browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
     const direct=await browser.newPage();
     try { await direct.goto('file://'+target,{waitUntil:'load',timeout:15000}); report.fileNavigation={allowed:true,title:await direct.title()}; }
     catch(error){report.fileNavigation={allowed:false,error:error.message};}
     await direct.close();
     page=await browser.newPage({viewport:{width:1440,height:1050}});
-    const watch=p=>{p.on('pageerror',e=>report.errors.push(e.message));p.on('request',r=>{if(/^https?:/i.test(r.url()))report.externalRequests.push(r.url());});};
+    await page.addInitScript(()=>{
+      window.__audioGraph={oscillators:0,buffers:0,gains:0,started:0,connections:0};
+      const seen=new Set();
+      for(const Context of [window.AudioContext,window.webkitAudioContext]){
+        if(!Context||seen.has(Context))continue;seen.add(Context);
+        for(const [method,key] of [['createOscillator','oscillators'],['createBufferSource','buffers'],['createGain','gains']]){
+          const original=Context.prototype[method];if(!original)continue;
+          Context.prototype[method]=function(...args){
+            window.__audioContext=this;window.__audioGraph[key]++;const node=original.apply(this,args);
+            const connect=node.connect;node.connect=function(...destinations){window.__audioGraph.connections++;return connect.apply(this,destinations);};
+            if(node.start){const start=node.start;node.start=function(...times){window.__audioGraph.started++;return start.apply(this,times);};}
+            return node;
+          };
+        }
+      }
+    });
+    const watch=p=>{p.on('pageerror',e=>report.errors.push(e.message));p.on('request',r=>{if(/^https?:/i.test(r.url())){if(r.url().startsWith(localOrigin+'/'))report.localRequests.push(r.url().slice(localOrigin.length));else report.externalRequests.push(r.url());}});};
     watch(page);
-    await page.setContent(html,{waitUntil:'load',timeout:30000});
+    await page.goto(localOrigin+'/'+encodeURIComponent(path.basename(target)),{waitUntil:'load',timeout:30000});
     await page.waitForFunction(()=>window.game&&window.NightPact&&window.renderGame);
     await page.evaluate(()=>window.setMotionMode?.('fast'));
 
-    await test('开始页三个初始流派、36种卡牌图鉴及成年猫妖立绘',async()=>{
+    await test('完整文件夹66张WebP资源：8立绘、36技能、9事件、13遗物全部解码',async()=>{
+      const assets=await page.evaluate(async()=>{
+        const result=[];
+        for(const kind of ['portraits','cards','events','relics'])for(const [id,src]of Object.entries(NightAssets[kind]||{})){
+          const img=new Image();img.src=src;await img.decode();
+          if(!img.naturalWidth||!img.naturalHeight)throw new Error('Failed asset '+kind+':'+id);
+          result.push({kind,id,width:img.naturalWidth,height:img.naturalHeight});
+        }
+        return result;
+      });
+      for(const [kind,count]of Object.entries({portraits:8,cards:36,events:9,relics:13}))assert.equal(assets.filter(a=>a.kind===kind).length,count);
+      report.decodedAssets=assets;
+    });
+
+    await test('开始页三个初始流派、36种卡牌完整图鉴及成年猫妖立绘',async()=>{
       assert.equal((await snapshot()).screen,'title');
       assert.equal(await page.locator('[data-action="starter"]').count(),3);
       assert.equal(await page.evaluate(()=>Object.keys(NightPact.CARDS).length),36);
@@ -113,7 +170,35 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       assert.equal(await page.locator('#modal-root .card').count(),36);
       const text=await page.locator('#modal-root').innerText();
       assert.match(text,/爪击/);assert.ok(text.length>1200);
+      const pictures=await decodeImageSignatures('#modal-root .card-art img');
+      assert.equal(pictures.length,36,'Every skill card has its own illustration');
+      assert.equal(new Set(pictures.map(p=>p.src)).size,36);
+      assert.equal(new Set(pictures.map(p=>p.pixels)).size,36,'Images must contain 36 distinct compositions');
+      report.cardArt=pictures.map(({pixels,...picture})=>picture);
       await click('close');
+    });
+
+    await test('音效：用户手势解锁、36独立音色与真实WebAudio节点、静音和音量',async()=>{
+      assert.equal(await page.evaluate(()=>typeof NightAudio),'object');
+      await click('settings');
+      const volume=page.locator('input[data-action="volume"]');
+      await volume.evaluate(el=>{el.value='38';el.dispatchEvent(new Event('input',{bubbles:true}));});
+      assert.ok(Math.abs((await page.evaluate(()=>NightAudio.getState())).volume-.38)<.001);
+      let audio=await page.evaluate(()=>NightAudio.getState());
+      if(!audio.muted)await page.locator('#modal-root [data-action="audio-toggle"]').click();
+      const beforeMuted=await page.evaluate(()=>({...NightAudio.getState(),graph:{...__audioGraph}}));
+      await page.evaluate(()=>{NightAudio.playCard('C01');NightAudio.playEvent({type:'attack',cardId:'C01',target:'enemy',amount:6,damage:6,absorbed:0});});
+      const afterMuted=await page.evaluate(()=>({...NightAudio.getState(),graph:{...__audioGraph}}));
+      assert.equal(afterMuted.sourcesCreated,beforeMuted.sourcesCreated);assert.equal(afterMuted.graph.started,beforeMuted.graph.started);
+      await page.locator('#modal-root [data-action="audio-toggle"]').click();await click('audio-preview','[data-id="C01"]');
+      await page.waitForFunction(()=>NightAudio.getState().contextState==='running');
+      audio=await page.evaluate(()=>NightAudio.getState());assert.equal(audio.unlocked,true);assert.equal(audio.muted,false);
+      const signatures=await page.evaluate(()=>NightAudio.profiles.map(id=>NightAudio.profile(id).signature));assert.equal(signatures.length,36);assert.equal(new Set(signatures).size,36);
+      await click('close');
+      for(let i=1;i<=36;i++){await page.evaluate(id=>NightAudio.playCard(id),'C'+String(i).padStart(2,'0'));await page.waitForTimeout(80);}
+      audio=await page.evaluate(()=>({...NightAudio.getState(),graph:{...__audioGraph}}));
+      assert.equal(audio.profilesUsed.length,36);assert.ok(audio.graph.oscillators>0&&audio.graph.buffers>0&&audio.graph.started>0&&audio.graph.connections>0);assert.equal(audio.lastError,'');
+      report.audio=audio;
     });
 
     await test('真实DOM第一战、一次奖励与获得的新牌进入下一场',async()=>{
@@ -133,20 +218,26 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       await screenshot('battle');
     });
 
-    await test('地图8层真实连线：支路锁定、仅连边可达、重绘不洗地图',async()=>{
-      await newRun();let s=await snapshot();assert.equal(s.map.length,8);assert.equal(s.map[1].length,3);
+    await test('地图八层四列迷雾：仅连边可达、类型不泄露、重绘不洗图',async()=>{
+      await newRun();let s=await snapshot();assert.deepEqual(s.map.map(row=>row.length),[1,3,4,4,4,4,3,1]);
+      assert.ok(s.map.flat().some(n=>n.type==='fox'),'Fox transaction must exist in a naturally generated map');
       const map=JSON.stringify(s.map);await click('deck');await click('close');assert.equal(JSON.stringify((await snapshot()).map),map);
+      for(const node of s.map.flat()){
+        const el=page.locator(`[data-action="node"][data-node="${node.id}"]`);
+        assert.equal(await el.getAttribute('data-type'),'unknown');
+        const title=(await el.getAttribute('title'))||'';
+        assert.ok(!title.includes(node.name),'Unvisited node must not expose its true name');
+        assert.equal(await el.getAttribute('aria-label'),title);
+      }
       await screenshot('map');
       const far=s.map[3][2];await page.evaluate(id=>game.enterNode(id),far.id);assert.equal((await snapshot()).screen,'map');
       await click('node',`[data-node="${s.availableNodes[0]}"]`);assert.equal(await autoBattle(),'reward');await reward();
-      s=await snapshot();const chosen=s.map[1].find(n=>n.type==='rest')||s.map[1][0];await click('node',`[data-node="${chosen.id}"]`);
-      if(chosen.type==='rest')await click('rest','[data-heal="true"]');else if(chosen.type==='fight'){assert.equal(await autoBattle(),'reward');await reward();}else throw new Error('Unexpected floor-2 branch '+chosen.type);
-      s=await snapshot();assert.deepEqual(s.availableNodes,chosen.next);assert.equal(s.availableNodes.length,1);
-      const disconnected=s.map[2].find(n=>!chosen.next.includes(n.id));assert.ok(disconnected);
-      const before=JSON.stringify(s.player);await page.evaluate(id=>game.enterNode(id),disconnected.id);
-      assert.equal((await snapshot()).screen,'map');assert.equal(JSON.stringify((await snapshot()).player),before);
-      assert.equal(await page.locator(`[data-node="${disconnected.id}"]`).isDisabled(),true);
+      s=await snapshot();const chosen=s.map[1].find(n=>n.next.length<s.map[2].length)||s.map[1][0];await click('node',`[data-node="${chosen.id}"]`);await finishNode();
+      s=await snapshot();assert.deepEqual(s.availableNodes,chosen.next);assert.ok(s.availableNodes.length>=2);
+      const disconnected=s.map[2].find(n=>!chosen.next.includes(n.id));
+      if(disconnected){const before=JSON.stringify(s.player);await page.evaluate(id=>game.enterNode(id),disconnected.id);assert.equal((await snapshot()).screen,'map');assert.equal(JSON.stringify((await snapshot()).player),before);assert.equal(await page.locator(`[data-node="${disconnected.id}"]`).isDisabled(),true);}
       assert.equal(await page.locator('.map-node.completed').count(),2);
+      assert.equal(await page.locator(`[data-node="${chosen.id}"]`).getAttribute('data-type'),chosen.type);
       const maps=new Set();for(let i=0;i<6;i++){await newRun();maps.add(JSON.stringify((await snapshot()).map));}
       assert.ok(maps.size>1,'Different runs generate different maps');
     });
@@ -167,6 +258,7 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
           for(const r of records)for(const n of r.addedNodes)if(n.nodeType===1){if(n.dataset?.fx)observedFX.push({type:n.dataset.fx,text:n.textContent});for(const el of n.querySelectorAll?.('[data-fx]')||[])observedFX.push({type:el.dataset.fx,text:el.textContent});}
         });fxObserver.observe(document.getElementById('fx-root'),{childList:true,subtree:true});
       });
+      const audioBefore=await page.evaluate(()=>({...NightAudio.getState(),graph:{...__audioGraph}}));
       await click('card','[data-id="C05"]');await click('target');
       assert.equal(await page.evaluate(()=>window.uiBusy),true);
       assert.ok(await page.locator('[data-combatant="player"] .portrait').evaluate(el=>el.dataset.attacking==='true'&&el.getAnimations().length>0),'Cat performs an actual dash animation');
@@ -178,6 +270,8 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       await idle();const s=await snapshot();assert.equal(s.battle.enemy.hp,491);assert.equal(s.battle.played,1);
       const fx=await page.evaluate(()=>observedFX);report.fullMotionFX=fx;
       assert.ok(fx.filter(x=>x.type==='claw').length>=3,'Three individual hit effects must appear');
+      const audioAfter=await page.evaluate(()=>({...NightAudio.getState(),graph:{...__audioGraph}}));
+      assert.ok(audioAfter.eventsPlayed>audioBefore.eventsPlayed,'Combat UI plays actual card and impact cues');assert.ok(audioAfter.graph.started>audioBefore.graph.started,'Combat audio creates and starts real source nodes');report.combatAudio={before:audioBefore,after:audioAfter};
       await page.evaluate(()=>{fxObserver.disconnect();setMotionMode('fast');});
     });
 
@@ -190,6 +284,15 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       await fixture(['C03']);await page.evaluate(()=>{game.state.battle.enemy.mark=5;renderGame();});await play('C03');assert.equal((await snapshot()).battle.block,0);
       await fixture(['C04']);await page.evaluate(()=>{Object.assign(game.state.battle.enemy,{mark:2,block:100});renderGame();});await play('C04');
       assert.equal((await snapshot()).battle.enemy.hp,500);assert.equal((await snapshot()).battle.enemy.block,82);assert.equal((await snapshot()).battle.enemy.mark,0);
+    });
+
+    await test('减少动态：取消人物前扑，保留卡牌结算和声音',async()=>{
+      await fixture(['C01']);await click('settings');await click('motion','[data-mode="reduced"]');await click('close');
+      assert.equal(await page.locator('body').getAttribute('data-motion'),'reduced');
+      const before=await page.evaluate(()=>NightAudio.getState().sourcesCreated);
+      await click('card','[data-id="C01"]');await click('target');
+      assert.equal(await page.locator('[data-combatant="player"] .portrait').evaluate(el=>el.getAnimations().length),0);
+      await idle();assert.equal((await snapshot()).battle.enemy.hp,494);assert.ok(await page.evaluate(n=>NightAudio.getState().sourcesCreated>n,before));
     });
 
     await test('fixture：弃牌重洗、结算牌不自抽、手牌上限与消耗区',async()=>{
@@ -235,14 +338,40 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       await screenshot('snake');
     });
 
-    await test('fixture：随机事件选择真实生效并只能领取一次',async()=>{
-      await fixtureVisit('event');let s=await snapshot();assert.ok(s.event.choices.length>=2);const event=JSON.stringify(s.event);await click('deck');await click('close');assert.equal(JSON.stringify((await snapshot()).event),event);
-      const before=s.floor,prior=s.player,choice=s.event.choices[0];await click('event-choice','[data-index="0"]');s=await snapshot();assert.equal(s.floor,before+1);
-      if(choice.effect==='buy'){assert.equal(s.player.gold,prior.gold-choice.price);assert.equal(s.player.deck.length,prior.deck.length+1);assert.equal(s.player.deck.at(-1).id,choice.cardId);}
-      else if(choice.effect==='offering'){assert.equal(s.player.hp,prior.hp-choice.amount);assert.ok(s.player.relics.includes(choice.relic));}
-      else if(choice.effect==='sell'){assert.equal(s.player.gold,prior.gold+choice.amount);assert.equal(s.player.deck.length,prior.deck.length-1);assert.ok(!s.player.deck.some(c=>c.uid===choice.uid));}
-      else throw new Error('Unverified event choice '+choice.effect);
-      const player=JSON.stringify(s.player);await page.evaluate(()=>game.chooseEvent(0));assert.equal(JSON.stringify((await snapshot()).player),player);assert.equal((await snapshot()).floor,before+1);
+    await test('fixture：六剧情各自画卡、先读结局再前进、选择不能重复领取',async()=>{
+      const ids=['well','shrine','dreamshop','theatre','umbrella','pawnshop'],pictures=[];
+      for(const id of ids){
+        await newRun();await page.evaluate(({id,ids})=>{
+          const s=game.state,n=s.map.flat().find(n=>n.type==='event');
+          s.seenEvents=ids.filter(other=>other!==id);s.floor=n.floor;s.availableNodes=[n.id];s.player.hp=180;s.player.maxHp=200;s.player.gold=1000;game.enterNode(n.id);renderGame();
+        },{id,ids});
+        let s=await snapshot();assert.equal(s.event.id,id);assert.equal(s.event.choices.length,3);
+        pictures.push(...await decodeImageSignatures(`.encounter-art[data-event-art="${id}"] img`));
+        const event=JSON.stringify(s.event);await click('deck');await click('close');assert.equal(JSON.stringify((await snapshot()).event),event);
+        if(id==='well')await screenshot('event');
+        const before=s.floor,prior=JSON.stringify(s.player);await click('event-choice','[data-index="0"]');s=await snapshot();
+        assert.equal(s.floor,before);assert.equal(s.screen,'event');assert.equal(s.event.resolved,true);assert.ok(s.event.outcome.length>12);assert.ok(s.event.received.length>0);assert.notEqual(JSON.stringify(s.player),prior);
+        assert.ok(await page.locator('.event-outcome').isVisible());const player=JSON.stringify(s.player);assert.equal(await page.evaluate(()=>game.chooseEvent(0)),false);assert.equal(JSON.stringify((await snapshot()).player),player);
+        await click('event-leave');assert.equal((await snapshot()).floor,before+1);assert.equal(await page.evaluate(()=>game.leaveEvent()),false);
+      }
+      for(const id of ['rest','shop','fox']){await fixtureVisit(id);pictures.push(...await decodeImageSignatures(`.encounter-art[data-event-art="${id}"] img`));}
+      assert.equal(pictures.length,9);assert.equal(new Set(pictures.map(p=>p.src)).size,9);assert.equal(new Set(pictures.map(p=>p.pixels)).size,9);report.eventArt=pictures.map(({pixels,...p})=>p);
+      const audio=await page.evaluate(()=>NightAudio.getState());assert.equal(audio.encountersUsed.length,9,'Each encounter screen triggers its own actual sound');report.encounterAudio=audio.encountersUsed;
+    });
+
+    await test('fixture：精英稀有保底、宝物双选真实生效、重抽本局限一次',async()=>{
+      await fixtureVisit('elite');await page.evaluate(()=>{const b=game.state.battle;b.enemy.hp=1;b.hand=[{uid:'elite-finish',id:'C01'}];renderGame();});await play('C01');
+      let s=await snapshot();assert.equal(s.screen,'reward');assert.equal(s.player.gold,95);
+      assert.equal(await page.evaluate(()=>game.state.reward.cards.some(id=>NightPact.CARDS[id].rarity==='rare')),true);
+      assert.equal(s.reward.relicPending,true);assert.equal(s.reward.relicChoices.length,2);assert.equal(new Set(s.reward.relicChoices).size,2);
+      assert.ok(s.reward.relicChoices.some(id=>['moonheart','mirror','dream','godblood','ninelives'].includes(id)));
+      assert.equal(await page.evaluate(()=>game.chooseReward(null)),false);assert.equal(await page.locator('[data-action="reward"]').first().isDisabled(),true);
+      const before=s.player.relics.length,offers=[...s.reward.relicChoices],choice=offers[0];await screenshot('reward');
+      await click('choose-relic',`[data-relic="${choice}"]`);s=await snapshot();assert.equal(s.player.relics.length,before+1);assert.ok(s.player.relics.includes(choice));assert.equal(s.reward.relicPending,false);
+      assert.equal(await page.evaluate(id=>game.chooseRelic(id),offers[1]),false);assert.equal((await snapshot()).player.relics.length,before+1);
+      const cards=[...s.reward.cards];await click('reroll-reward');s=await snapshot();assert.equal(s.rewardRerolls,0);assert.equal(s.reward.rerolled,true);assert.equal(s.player.gold,95);assert.deepEqual(s.reward.relicChoices,offers);assert.equal(s.reward.relic,choice);assert.notDeepEqual(s.reward.cards,cards);
+      const fixed=JSON.stringify(s.reward);assert.equal(await page.evaluate(()=>game.rerollReward()),false);await click('deck');await click('close');assert.equal(JSON.stringify((await snapshot()).reward),fixed);
+      await screenshot('rare');await reward();assert.equal((await snapshot()).player.deck.length,11);
     });
 
     await test('八位角色独立立绘、蛇妖脸素材不复用猫妖、图片损坏内联SVG降级',async()=>{
@@ -267,18 +396,21 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
           let s=await snapshot();if(['victory','defeat'].includes(s.screen))break;assert.equal(s.screen,'map');
           const available=s.map.flat().filter(n=>s.availableNodes.includes(n.id));
           const priority={rest:s.player.hp<45?100:45,fox:80,shop:60,event:55,fight:35,elite:15,boss:10};
-          const n=available.sort((a,b)=>(priority[b.type]||0)-(priority[a.type]||0))[0];route.push(n.type+':'+n.id);await click('node',`[data-node="${n.id}"]`);
+          const fox=s.map.flat().find(n=>n.type==='fox'&&n.floor===4),byId=Object.fromEntries(s.map.flat().map(n=>[n.id,n]));
+          const reachesFox=n=>Boolean(fox&&(n.id===fox.id||(n.floor<fox.floor&&n.next.some(id=>reachesFox(byId[id])))));
+          const score=n=>(priority[n.type]||0)+(reachesFox(n)?300:0);
+          const n=available.sort((a,b)=>score(b)-score(a))[0];route.push(n.type+':'+n.id);await click('node',`[data-node="${n.id}"]`);
           if(['fight','elite','boss'].includes(n.type)){const result=await autoBattle();if(result==='defeat')break;if(result==='reward')await reward();}
           else if(n.type==='rest')await click('rest','[data-heal="true"]');
           else if(n.type==='fox')await click('fox',`[data-sign="${!(await snapshot()).player.relics.includes('fox')}"]`);
           else if(n.type==='shop'){
             s=await snapshot();for(let j=0;j<s.shop.cards.length;j++)if((await snapshot()).player.gold>=35)await click('buy',`[data-index="${j}"]`);await click('leave-shop');
-          }else if(n.type==='event')await click('event-choice');
+          }else if(n.type==='event'){await click('event-choice');await click('event-leave');}
           else throw new Error('Unhandled node '+n.type);
         }
         const s=await snapshot();attempts.push({screen:s.screen,hp:s.player.hp,floor:s.floor,battles:s.stats.battles,route});won=s.screen==='victory';
       }
-      report.realRouteAttempts=attempts;assert.ok(won,'No DOM victory in eight runs: '+JSON.stringify(attempts));await screenshot('victory');
+      report.realRouteAttempts=attempts;assert.ok(won,'No DOM victory in eight runs: '+JSON.stringify(attempts));assert.ok(attempts.some(a=>a.route.some(n=>n.startsWith('fox:'))),'A complete DOM run naturally reaches the fox');await screenshot('victory');
       await click('start');let s=await snapshot();if(s.screen==='title')await click('start');s=await snapshot();assert.equal(s.floor,1);assert.equal(s.player.hp,60);assert.equal(s.player.maxHp,60);assert.equal(s.player.gold,60);assert.equal(s.player.deck.length,10);assert.deepEqual(s.player.relics,['bell']);assert.equal(s.history.length,0);
     });
 
@@ -286,14 +418,33 @@ async function screenshot(name) { fs.mkdirSync('/workspace/scratch',{recursive:t
       const pending=page.waitForEvent('download',{timeout:8000});await click('export');const download=await pending;
       assert.match(download.suggestedFilename(),/\.html$/);const stream=await download.createReadStream(),chunks=[];for await(const chunk of stream)chunks.push(chunk);const exported=Buffer.concat(chunks).toString('utf8');
       assert.ok(exported.startsWith('<!doctype html>'));assert.ok(exported.includes('NightPact')&&exported.includes('data:image/'));
-      const reopened=await browser.newPage();watch(reopened);try{await reopened.setContent(exported,{waitUntil:'load'});await reopened.waitForFunction(()=>window.game);assert.equal(await reopened.evaluate(()=>game.state.screen),'title');await reopened.locator('[data-action="start"]').click();assert.equal(await reopened.evaluate(()=>game.state.player.hp),60);}finally{await reopened.close();}
+      const requestsBefore=report.localRequests.length;
+      const reopened=await browser.newPage();watch(reopened);try{
+        await reopened.setContent(exported,{waitUntil:'load'});await reopened.waitForFunction(()=>window.game);assert.equal(await reopened.evaluate(()=>game.state.screen),'title');
+        await reopened.locator('[data-action="catalogue"]').first().click();
+        const pictures=await reopened.locator('#modal-root .card-art img').evaluateAll(async imgs=>Promise.all(imgs.map(async img=>{img.loading='eager';await img.decode();return {src:img.getAttribute('src'),width:img.naturalWidth};})));
+        assert.equal(pictures.length,36);assert.ok(pictures.every(p=>p.src.startsWith('data:image/')&&p.width>0));
+        await reopened.locator('[data-action="close"]').click();await reopened.locator('[data-action="start"]').click();assert.equal(await reopened.evaluate(()=>game.state.player.hp),60);
+        assert.equal(report.localRequests.length,requestsBefore,'Exported HTML must make no asset requests');
+      }finally{await reopened.close();}
       report.exportedBytes=Buffer.byteLength(exported);
     });
 
-    await test('运行时HTTP(S)请求为0，未捕获JavaScript错误为0',async()=>{assert.deepEqual(report.externalRequests,[]);assert.deepEqual(report.errors,[]);});
+    if(process.argv[3])await test('构建的内联单文件在about:blank直接启动且36插画解码',async()=>{
+      const inlinePath=path.resolve(process.argv[3]),inline=fs.readFileSync(inlinePath,'utf8'),requestsBefore=report.localRequests.length;
+      const reopened=await browser.newPage();watch(reopened);try{
+        await reopened.setContent(inline,{waitUntil:'load'});await reopened.waitForFunction(()=>window.game);assert.equal(await reopened.evaluate(()=>game.state.screen),'title');
+        await reopened.locator('[data-action="catalogue"]').first().click();
+        const sizes=await reopened.locator('#modal-root .card-art img').evaluateAll(async imgs=>Promise.all(imgs.map(async img=>{img.loading='eager';await img.decode();return img.naturalWidth;})));
+        assert.equal(sizes.length,36);assert.ok(sizes.every(n=>n>0));assert.equal(report.localRequests.length,requestsBefore);
+        report.inline={path:inlinePath,bytes:Buffer.byteLength(inline),sha256:crypto.createHash('sha256').update(inline).digest('hex')};
+      }finally{await reopened.close();}
+    });
+
+    await test('运行时外网请求为0，未捕获JavaScript错误为0',async()=>{assert.deepEqual(report.externalRequests,[]);assert.deepEqual(report.errors,[]);});
     report.browser=await browser.version();
   }finally{
-    await browser.close();fs.mkdirSync('/workspace/scratch',{recursive:true});fs.writeFileSync('/workspace/scratch/v2-browser-results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+    if(browser)await browser.close();if(server)await new Promise(resolve=>server.close(resolve));fs.mkdirSync('/workspace/scratch',{recursive:true});fs.writeFileSync(path.join(__dirname,'v3-browser-results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({...report,localRequests:report.localRequests.length},null,2));
   }
   if(results.some(r=>!r.ok))process.exitCode=1;
 })().catch(error=>{console.error(error.stack);process.exitCode=1;});

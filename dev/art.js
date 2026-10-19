@@ -1,4 +1,4 @@
-/* 新绘制的离线 SVG 占位立绘；无需联网，亦作为 PNG 缺失时的替代图。 */
+/* 内联 SVG 后备立绘；无需联网，亦作为图片缺失时的替代图。 */
 (function () {
   'use strict';
   const female = (kind) => {

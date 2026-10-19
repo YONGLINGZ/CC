@@ -1,0 +1,347 @@
+/* 百妖夜契 · 离线程序合成音效。无录音、配音、音乐或运行时网络请求。 */
+(function (root, factory) {
+  const api = factory(root);
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  root.NightAudio = api;
+})(typeof window === 'object' ? window : globalThis, function (root) {
+  'use strict';
+  // Every card has its own timbre, gesture, pitch movement and small cast motif.
+  // Damage sounds are played by each actual attack event, never by the cast event.
+  const PROFILES = Object.freeze({
+    C01: { name:'爪击', kind:'claw', pitch:1720, tail:3300, length:.16, body:105, weight:.18, notes:[440,660] },
+    C02: { name:'敛息', kind:'shield', pitch:523, tail:1318, length:.30, body:196, weight:.15, notes:[523,784] },
+    C03: { name:'窥隙', kind:'mark', pitch:1046, tail:1568, length:.23, body:262, weight:.13, notes:[784,1046] },
+    C04: { name:'扑杀', kind:'pounce', pitch:1320, tail:3100, length:.35, body:62, weight:.27, notes:[220,440,880] },
+    C05: { name:'连爪', kind:'claw', pitch:2140, tail:4200, length:.115, body:130, weight:.15, notes:[587,740,880] },
+    C06: { name:'猫步', kind:'wind', pitch:1480, tail:720, length:.24, body:330, weight:.12, notes:[660,880,1175] },
+    C07: { name:'流影', kind:'shield', pitch:659, tail:1976, length:.34, body:220, weight:.14, notes:[659,988,1318] },
+    C08: { name:'戏鼠', kind:'claw', pitch:2350, tail:1120, length:.145, body:147, weight:.14, notes:[880,784,1046] },
+    C09: { name:'夜猎', kind:'paper', pitch:2600, tail:4100, length:.20, body:349, weight:.12, notes:[698,1046] },
+    C10: { name:'候机', kind:'focus', pitch:370, tail:740, length:.39, body:185, weight:.14, notes:[370,554,740] },
+    C11: { name:'蓄爪', kind:'focus', pitch:294, tail:1175, length:.45, body:147, weight:.15, notes:[294,440,1175] },
+    C12: { name:'月下守', kind:'shield', pitch:392, tail:1568, length:.52, body:131, weight:.19, notes:[392,587,784] },
+    C13: { name:'血契', kind:'blood', pitch:165, tail:82, length:.45, body:55, weight:.19, notes:[165,196,294] },
+    C14: { name:'噬魂', kind:'soul', pitch:680, tail:210, length:.34, body:87, weight:.19, notes:[330,494,659] },
+    C15: { name:'妖火符', kind:'fire', pitch:760, tail:4300, length:.40, body:73, weight:.21, notes:[349,523,698] },
+    C16: { name:'残月', kind:'moon', pitch:920, tail:2700, length:.42, body:82, weight:.23, notes:[415,622,1244] },
+    C17: { name:'金瞳', kind:'mark', pitch:1318, tail:2637, length:.30, body:330, weight:.16, notes:[988,1318,1976] },
+    C18: { name:'追猎', kind:'pounce', pitch:1850, tail:3800, length:.23, body:98, weight:.19, notes:[392,784,1175] },
+    C19: { name:'缚影', kind:'shield', pitch:466, tail:1397, length:.38, body:156, weight:.17, notes:[466,698,932] },
+    C20: { name:'铃音', kind:'bell', pitch:1175, tail:2349, length:.62, body:392, weight:.16, notes:[1175,1568,2349] },
+    C21: { name:'终夜', kind:'eclipse', pitch:780, tail:2200, length:.65, body:42, weight:.29, notes:[196,392,784,1568] },
+    C22: { name:'裂帛', kind:'tear', pitch:3100, tail:1600, length:.21, body:110, weight:.18, notes:[622,932,1244] },
+    C23: { name:'逐影', kind:'wind', pitch:3600, tail:1500, length:.17, body:294, weight:.12, notes:[1175,880,1760] },
+    C24: { name:'狂爪', kind:'claw', pitch:1980, tail:5100, length:.14, body:98, weight:.20, notes:[494,740,988,1480] },
+    C25: { name:'灵巧', kind:'spark', pitch:1568, tail:3136, length:.22, body:392, weight:.12, notes:[784,1568,2093] },
+    C26: { name:'翻檐', kind:'wind', pitch:2300, tail:680, length:.25, body:131, weight:.17, notes:[523,784,1568] },
+    C27: { name:'歃血', kind:'blood', pitch:131, tail:55, length:.60, body:49, weight:.23, notes:[131,196,262,392] },
+    C28: { name:'血饮', kind:'soul', pitch:990, tail:165, length:.48, body:65, weight:.24, notes:[262,392,659] },
+    C29: { name:'献寿', kind:'blood', pitch:110, tail:440, length:.55, body:41, weight:.22, notes:[220,330,440] },
+    C30: { name:'残心', kind:'tear', pitch:2700, tail:780, length:.32, body:55, weight:.24, notes:[277,415,830] },
+    C31: { name:'借命', kind:'shield', pitch:349, tail:1047, length:.42, body:87, weight:.20, notes:[349,523,1047] },
+    C32: { name:'绕指柔', kind:'silk', pitch:880, tail:1760, length:.30, body:294, weight:.13, notes:[880,1175,1760] },
+    C33: { name:'逆鳞', kind:'scale', pitch:740, tail:2220, length:.36, body:123, weight:.19, notes:[370,740,1480] },
+    C34: { name:'护心', kind:'shield', pitch:262, tail:1048, length:.64, body:65, weight:.23, notes:[262,392,523,1046] },
+    C35: { name:'盾返', kind:'scale', pitch:1397, tail:3490, length:.28, body:78, weight:.23, notes:[349,698,1397] },
+    C36: { name:'归息', kind:'heal', pitch:440, tail:880, length:.62, body:220, weight:.16, notes:[440,554,660,880] }
+  });
+  const ENCOUNTERS = Object.freeze({
+    well: { name:'倒映祈愿井', notes:[294,440,587], kind:'water', air:460 },
+    shrine: { name:'无面旧神龛', notes:[131,196,262], kind:'gong', air:720 },
+    dreamshop: { name:'卖梦人的摊位', notes:[523,784,1175], kind:'glass', air:1700 },
+    theatre: { name:'纸灯戏台', notes:[622,466,932], kind:'wood', air:2400 },
+    umbrella: { name:'雨夜借伞', notes:[330,494,659], kind:'rain', air:1100 },
+    pawnshop: { name:'蛇鳞当铺', notes:[185,277,554], kind:'scale', air:3100 },
+    fox: { name:'狐妖契约', notes:[440,659,988], kind:'bell', air:2000 },
+    shop: { name:'百妖商铺', notes:[587,880,1175], kind:'coin', air:2800 },
+    rest: { name:'月庭休憩', notes:[262,330,392], kind:'wind', air:620 }
+  });
+  const MAX_VOICES = 56;
+  const state = { context:null, bus:null, muted:false, volume:.30, unlocked:false, lastError:'', attempts:0, contextsCreated:0 };
+  const stats = { eventsPlayed:0, peakScheduled:0, sourcesCreated:0, rejectedVoices:0, profilesUsed:new Set(), encountersUsed:new Set(), lastCue:'' };
+  const buffers = new WeakMap();
+  const clamp = (x,a,b) => Math.max(a,Math.min(b,x));
+  const finite = (value,fallback) => Number.isFinite(Number(value)) ? Number(value) : fallback;
+  const now = () => state.context ? state.context.currentTime : 0;
+
+  function noiseBuffer(ctx) {
+    if (buffers.has(ctx)) return buffers.get(ctx);
+    const buffer = ctx.createBuffer(1,Math.ceil(ctx.sampleRate*1.5),ctx.sampleRate), data = buffer.getChannelData(0);
+    let seed=0x6d2b79f5;
+    for(let i=0;i<data.length;i++){seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;data[i]=(seed>>>0)/2147483648-1;}
+    buffers.set(ctx,buffer);return buffer;
+  }
+  function makeBus(ctx,volume,measure=stats) {
+    const gain=ctx.createGain(),compressor=ctx.createDynamicsCompressor(),filter=ctx.createBiquadFilter();
+    gain.gain.value=volume;
+    filter.type='highpass';filter.frequency.value=30;filter.Q.value=.5;
+    compressor.threshold.value=-16;compressor.knee.value=16;compressor.ratio.value=8;compressor.attack.value=.002;compressor.release.value=.15;
+    gain.connect(filter);filter.connect(compressor);compressor.connect(ctx.destination);
+    return {ctx,gain,filter,compressor,sources:new Set(),measure,closed:false};
+  }
+  function retain(bus,source,nodes) {
+    bus.sources.add(source);bus.measure.sourcesCreated++;
+    bus.measure.peakScheduled=Math.max(bus.measure.peakScheduled,bus.sources.size);
+    source.onended=function(){bus.sources.delete(source);for(const node of [source,...nodes]){try{node.disconnect();}catch(_){}}};
+  }
+  function available(bus) {
+    if(!bus||bus.closed)return false;
+    if(bus.sources.size>=MAX_VOICES){bus.measure.rejectedVoices++;return false;}return true;
+  }
+  function envelope(gain,t,duration,level,attack=.003) {
+    gain.setValueAtTime(.00001,t);gain.exponentialRampToValueAtTime(Math.max(.00002,level),t+Math.min(attack,duration*.2));
+    gain.exponentialRampToValueAtTime(.00001,t+duration);
+  }
+  function tone(bus,freq,duration,options={}) {
+    if(!available(bus))return;
+    const ctx=bus.ctx,t=finite(options.at,ctx.currentTime)+finite(options.delay,0),d=clamp(duration,.02,1.5);
+    const source=ctx.createOscillator(),gain=ctx.createGain();source.type=options.wave||'sine';
+    source.frequency.setValueAtTime(clamp(freq,35,15000),t);
+    if(options.end)source.frequency.exponentialRampToValueAtTime(clamp(options.end,35,15000),t+d*.85);
+    if(options.detune)source.detune.value=options.detune;
+    envelope(gain.gain,t,d,clamp(finite(options.level,.10),.00002,.33),options.attack||.003);
+    source.connect(gain);gain.connect(bus.gain);retain(bus,source,[gain]);source.start(t);source.stop(t+d+.012);
+  }
+  function hiss(bus,freq,duration,options={}) {
+    if(!available(bus))return;
+    const ctx=bus.ctx,t=finite(options.at,ctx.currentTime)+finite(options.delay,0),d=clamp(duration,.02,1.35);
+    const source=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain();
+    source.buffer=noiseBuffer(ctx);source.playbackRate.value=clamp(finite(options.rate,1),.4,2.5);
+    filter.type=options.filter||'bandpass';filter.Q.value=options.q||.7;filter.frequency.setValueAtTime(clamp(freq,55,15000),t);
+    if(options.end)filter.frequency.exponentialRampToValueAtTime(clamp(options.end,55,15000),t+d*.9);
+    envelope(gain.gain,t,d,clamp(finite(options.level,.14),.00002,.33),options.attack||.003);
+    source.connect(filter);filter.connect(gain);gain.connect(bus.gain);retain(bus,source,[filter,gain]);source.start(t,0,d);source.stop(t+d+.012);
+  }
+  function bell(bus,freq,duration,level=.11,at) {
+    [1,2.76,5.4].forEach((n,i)=>tone(bus,freq*n,duration/(1+i*.48),{at,level:level/[1,3.8,8][i],wave:'sine',end:freq*n*.992}));
+  }
+  function heartbeat(bus,freq,level=.15,at) {
+    tone(bus,freq,.14,{at,level,end:freq*.64});tone(bus,freq*1.12,.16,{at,delay:.17,level:level*.68,end:freq*.68});
+  }
+  function playSignature(bus,p,phase='impact',hitIndex=0,at) {
+    const t=finite(at,bus.ctx.currentTime),shift=1+clamp(hitIndex,0,6)*.052,pitch=p.pitch*shift,weight=p.weight;
+    if(phase==='cast'){
+      hiss(bus,2400+p.notes[0],.055,{at:t,level:.075,end:4200});
+      p.notes.slice(0,3).forEach((n,i)=>tone(bus,n,.10+i*.018,{at:t,delay:.027*i,level:.025/(1+i*.3),wave:'sine'}));
+      if(['blood','focus'].includes(p.kind))tone(bus,p.body,.18,{at:t,level:.035,end:p.body*1.2});
+      return;
+    }
+    const common={at:t,level:weight,end:p.tail*shift};
+    switch(p.kind){
+      case 'claw':
+        hiss(bus,pitch,p.length,common);hiss(bus,6500,.028,{at:t,level:.10});tone(bus,p.body*shift,.10,{at:t,level:weight*.52,end:p.body*.48});break;
+      case 'pounce':
+        hiss(bus,pitch,p.length,{...common,attack:.014});tone(bus,p.body,.27,{at:t,level:weight,end:39});
+        hiss(bus,4900,.055,{at:t,delay:.015,level:.13});bell(bus,p.notes[1],.36,.055,t+.025);break;
+      case 'tear':
+        hiss(bus,pitch,p.length,{...common,q:1.5});hiss(bus,pitch*.7,p.length*.66,{at:t,delay:.037,end:p.tail*.7,level:weight*.8});
+        tone(bus,p.body,.13,{at:t,level:weight*.57,end:p.body*.45});break;
+      case 'moon':
+        hiss(bus,pitch,p.length,{...common,q:1.2,attack:.012});tone(bus,p.body,.24,{at:t,level:weight*.75,end:43});
+        bell(bus,p.notes[2],.55,.075,t+.012);break;
+      case 'eclipse':
+        hiss(bus,pitch,p.length,{...common,filter:'lowpass',attack:.01});tone(bus,p.body,.58,{at:t,level:weight,end:35});
+        hiss(bus,6200,.065,{at:t,level:.16});p.notes.slice(1).forEach((n,i)=>bell(bus,n,.65,.055,t+i*.045));break;
+      case 'shield':
+        bell(bus,pitch,p.length,weight*.56,t);bell(bus,p.tail,p.length*.7,weight*.17,t+.025);
+        hiss(bus,950,.14,{at:t,level:.05,end:2600,attack:.018});tone(bus,p.body,.21,{at:t,level:weight*.3});break;
+      case 'mark':
+        tone(bus,pitch,p.length,{...common,level:weight*.55,wave:'sine',attack:.009});
+        bell(bus,p.tail,p.length*.9,weight*.33,t+.07);break;
+      case 'bell': bell(bus,pitch,p.length,weight,t);bell(bus,p.tail,p.length*.8,weight*.38,t+.08);break;
+      case 'blood':
+        heartbeat(bus,p.body,weight*.8,t);tone(bus,pitch,p.length,{at:t,level:weight*.3,end:p.tail,wave:'triangle',attack:.02});
+        hiss(bus,340,p.length*.7,{at:t,level:.065,end:85,filter:'lowpass'});break;
+      case 'soul':
+        tone(bus,pitch,p.length,{at:t,level:weight*.3,end:p.tail,wave:'triangle',attack:.015});
+        hiss(bus,1800,p.length,{at:t,level:weight*.7,end:260,q:1.5});tone(bus,p.body,.19,{at:t,level:weight*.68,end:40});break;
+      case 'fire':
+        hiss(bus,pitch,p.length,{...common,filter:'lowpass',attack:.012});hiss(bus,5200,.075,{at:t,delay:.04,level:.16});
+        tone(bus,p.body,.25,{at:t,level:weight*.7,end:40});break;
+      case 'wind':
+        hiss(bus,pitch,p.length,{...common,attack:.012});tone(bus,p.body,.17,{at:t,level:weight*.26,end:p.body*1.7});break;
+      case 'paper':
+        for(let i=0;i<2;i++)hiss(bus,pitch+i*700,.065,{at:t,delay:i*.085,level:weight,end:p.tail});break;
+      case 'focus':
+        tone(bus,pitch,p.length,{at:t,level:weight*.42,end:p.tail,wave:'triangle',attack:.022});
+        bell(bus,p.tail,.35,weight*.3,t+.12);break;
+      case 'spark':
+        p.notes.forEach((n,i)=>tone(bus,n,.18,{at:t,delay:.04*i,level:weight*.5/(1+i*.3),end:n*1.02}));break;
+      case 'silk':
+        hiss(bus,2300,p.length,{at:t,level:.06,end:5800,attack:.016});p.notes.forEach((n,i)=>bell(bus,n,.25,weight*.34,t+i*.04));break;
+      case 'scale':
+        hiss(bus,5100,.065,{at:t,level:.10});bell(bus,pitch,p.length,weight*.65,t);tone(bus,p.body,.16,{at:t,level:weight*.65,end:p.body*.6});break;
+      case 'heal':
+        p.notes.forEach((n,i)=>tone(bus,n,.38,{at:t,delay:.055*i,level:weight*.36,attack:.015}));
+        hiss(bus,1600,.32,{at:t,level:.035,end:3100,attack:.02});break;
+    }
+  }
+  function withSound(label,callback,profileId) {
+    state.attempts++;
+    if(!state.unlocked||state.muted||state.volume===0||!state.bus||state.context.state!=='running')return false;
+    try{
+      const before=stats.sourcesCreated;callback(state.bus,now()+.004);
+      if(stats.sourcesCreated>before){stats.eventsPlayed++;stats.lastCue=label;if(profileId)stats.profilesUsed.add(profileId);return true;}
+    }catch(error){state.lastError=String(error&&error.message||error).slice(0,160);}return false;
+  }
+  async function unlock() {
+    try{
+      if(!state.context){const Constructor=root.AudioContext||root.webkitAudioContext;if(!Constructor){state.lastError='当前浏览器不支持 Web Audio';return false;}
+        state.context=new Constructor({latencyHint:'interactive'});state.contextsCreated++;state.bus=makeBus(state.context,state.muted?0:state.volume);
+      }
+      if(state.context.state==='suspended')await state.context.resume();
+      state.unlocked=state.context.state==='running';return state.unlocked;
+    }catch(error){state.lastError=String(error&&error.message||error).slice(0,160);state.unlocked=false;return false;}
+  }
+  function profile(id) {
+    const p=PROFILES[id];return p ? {...p,notes:[...p.notes],signature:[p.kind,p.pitch,p.tail,p.length,p.body,p.weight,...p.notes].join(':')} : null;
+  }
+  function playCard(id) {
+    const p=PROFILES[id];if(!p)return false;
+    return withSound('card:'+id,(bus,t)=>{
+      // Cards without a later shield/heal/mark/hit event need their own full
+      // focus, bell or energy gesture here. Attack cards remain cast-only.
+      playSignature(bus,p,['C09','C10','C11','C20','C25'].includes(id)?'impact':'cast',0,t);
+    },id);
+  }
+  function preview(id) {
+    const p=PROFILES[id];if(!p)return false;
+    return withSound('preview:'+id,(bus,t)=>playSignature(bus,p,'impact',0,t),id);
+  }
+  const cueAlias={reward:'rewardReveal',rare:'rareReveal',legendary:'treasure',gold:'coin',purchase:'coin',levelup:'treasure',contract:'fox',revive:'resurrect',reshuffle:'shuffle',newTurn:'turn',click:'select',eventResult:'eventChoice'};
+  function cue(bus,name,options={},t) {
+    const amount=finite(options.amount,0),p=PROFILES[options.cardId];
+    switch(cueAlias[name]||name){
+      case 'select':tone(bus,660,.065,{at:t,level:.055,end:880});break;
+      case 'cancel':tone(bus,440,.08,{at:t,level:.045,end:330});break;
+      case 'denied':tone(bus,165,.12,{at:t,level:.07,end:110,wave:'triangle'});break;
+      case 'draw':hiss(bus,3200,.052,{at:t,level:.09,end:5300});tone(bus,880,.035,{at:t,level:.02});break;
+      case 'shuffle':for(let i=0;i<4;i++)hiss(bus,2200+i*460,.055,{at:t,delay:i*.045,level:.075,end:4600});break;
+      case 'discard':hiss(bus,1900,.075,{at:t,level:.06,end:700});break;
+      case 'block':if(p)playSignature(bus,p,'impact',0,t);else{bell(bus,784,.29,.10,t);tone(bus,196,.15,{at:t,level:.06});}break;
+      case 'mark':if(p&&p.kind==='mark')playSignature(bus,p,'impact',0,t);else bell(bus,options.amount<0?523:1175,.23,.075,t);break;
+      case 'consumeMark':hiss(bus,1400,.23,{at:t,level:.12,end:5600});bell(bus,1760,.32,.10,t);break;
+      case 'heal':playSignature(bus,p&&p.kind==='heal'?p:PROFILES.C36,'impact',0,t);break;
+      case 'selfDamage':playSignature(bus,p&&p.kind==='blood'?p:PROFILES.C13,'impact',0,t);break;
+      case 'power':tone(bus,147,.34,{at:t,level:.09,end:588,wave:'triangle',attack:.022});bell(bus,1175,.30,.065,t+.12);break;
+      case 'poison':
+        for(let i=0;i<3;i++)tone(bus,170+i*83,.11,{at:t,delay:i*.06,level:.085,end:510+i*145});
+        hiss(bus,1200,.30,{at:t,level:.06,end:360});break;
+      case 'cleanse':bell(bus,1046,.40,.10,t);bell(bus,1568,.35,.05,t+.08);hiss(bus,2100,.20,{at:t,level:.045,end:5000});break;
+      case 'relic':bell(bus,1046,.47,.10,t);bell(bus,1568,.4,.06,t+.075);break;
+      case 'resurrect':
+        tone(bus,55,.34,{at:t,level:.13,end:220});[523,784,1046,1568].forEach((n,i)=>bell(bus,n,.68,.075,t+i*.055));break;
+      case 'bell':bell(bus,1175,.45,.12,t);break;
+      case 'coin':[1760,2093,2637].forEach((n,i)=>bell(bus,n,.20,.065,t+i*.038));break;
+      case 'rewardReveal':
+        hiss(bus,1700,.17,{at:t,level:.08,end:4400});[523,659,784].forEach((n,i)=>bell(bus,n,.40,.07,t+i*.065));break;
+      case 'rareReveal':
+        tone(bus,98,.27,{at:t,level:.12,end:196});[523,784,1046,1568].forEach((n,i)=>bell(bus,n,.66,.08,t+i*.055));break;
+      case 'treasure':
+        tone(bus,65,.36,{at:t,level:.13,end:130});hiss(bus,1200,.33,{at:t,level:.06,end:5800});
+        [392,587,784,1175,1568].forEach((n,i)=>bell(bus,n,.85,.075,t+i*.06));break;
+      case 'eventChoice':bell(bus,659,.37,.075,t);bell(bus,988,.38,.06,t+.08);break;
+      case 'fox':heartbeat(bus,82,.08,t);[440,659,988].forEach((n,i)=>bell(bus,n,.55,.07,t+i*.1));break;
+      case 'combo':
+        tone(bus,440*Math.pow(1.122,clamp(amount||3,1,8)),.18,{at:t,level:.09,end:1046});hiss(bus,4100,.045,{at:t,level:.07});break;
+      case 'turn':tone(bus,392,.11,{at:t,level:.05});tone(bus,587,.15,{at:t,delay:.055,level:.055});break;
+      case 'death':tone(bus,196,.75,{at:t,level:.12,end:49,wave:'triangle'});hiss(bus,520,.45,{at:t,level:.055,end:70,filter:'lowpass'});break;
+      case 'victory':[392,523,659,784].forEach((n,i)=>bell(bus,n,.65,.08,t+i*.08));tone(bus,98,.40,{at:t,level:.09});break;
+      case 'win':[392,523,659,784,1046,1568].forEach((n,i)=>bell(bus,n,1.10,.08,t+i*.10));tone(bus,98,.65,{at:t,level:.10});break;
+      case 'enemyHit':hiss(bus,1700,.13,{at:t,level:.15,end:610});tone(bus,90,.15,{at:t,level:.13,end:45});break;
+      case 'paperHit':hiss(bus,3700,.14,{at:t,level:.17,end:1400});hiss(bus,6100,.035,{at:t,level:.08});tone(bus,130,.10,{at:t,level:.07,end:70});break;
+      case 'lanternHit':hiss(bus,540,.28,{at:t,level:.17,end:3400,filter:'lowpass'});tone(bus,78,.18,{at:t,level:.10,end:44});break;
+      case 'apeHit':tone(bus,57,.19,{at:t,level:.18,end:35});hiss(bus,730,.12,{at:t,level:.18,end:310,filter:'lowpass'});break;
+      case 'boneHit':tone(bus,340,.085,{at:t,level:.12,end:130,wave:'triangle'});hiss(bus,2700,.08,{at:t,level:.17,end:1100});break;
+      case 'yakshaHit':hiss(bus,2300,.24,{at:t,level:.18,end:720});tone(bus,48,.29,{at:t,level:.18,end:35});bell(bus,370,.16,.035,t);break;
+      case 'snakeBlade':hiss(bus,3700,.24,{at:t,level:.16,end:940});bell(bus,1175,.20,.045,t);tone(bus,80,.19,{at:t,level:.12,end:41});break;
+      case 'snakeBreath':hiss(bus,760,.43,{at:t,level:.16,end:3100,attack:.03});tone(bus,72,.22,{at:t,level:.08,end:40});break;
+      case 'snakeCoil':hiss(bus,1100*(1+finite(options.hitIndex,0)*.16),.17,{at:t,level:.16,end:2600});tone(bus,65,.16,{at:t,level:.13,end:38});break;
+      case 'snakeShed':hiss(bus,5200,.33,{at:t,level:.13,end:1100});[740,1110,1665].forEach((n,i)=>bell(bus,n,.3,.06,t+i*.035));break;
+      default:return false;
+    }return true;
+  }
+  function playCue(name,options={}) {return withSound('cue:'+name,(bus,t)=>cue(bus,name,options,t),options.cardId);}
+  let lastDrawAt=-100;
+  function playEvent(event,context={}) {
+    if(!event||typeof event!=='object')return false;
+    const type=event.type,p=PROFILES[event.cardId];
+    if(type==='card')return playCard(event.cardId);
+    if(type==='attack'){
+      if(event.source==='enemy'){
+        const enemy=context.enemyId||event.enemyId,intent=String(event.intent||context.intentName||context.intent||'');
+        const normal={paper:'paperHit',lantern:'lanternHit',ape:'apeHit',bone:'boneHit',yaksha:'yakshaHit'};
+        return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),event);
+      }
+      return withSound('hit:'+(event.cardId||event.kind||'claw'),(bus,t)=>{
+        playSignature(bus,p||PROFILES.C01,'impact',finite(event.hitIndex,0),t);
+        if(event.absorbed>0)bell(bus,1318,.15,.033,t+.015);
+      },event.cardId);
+    }
+    if(type==='draw'){
+      if(now()-lastDrawAt<.045)return false;lastDrawAt=now();return playCue('draw',event);
+    }
+    if(type==='blockClear')return false;
+    if(type==='mark'&&event.amount===0)return false;
+    if(type==='mark'&&event.amount<0)return playCue('consumeMark',event);
+    if(type==='poison'&&event.amount<0)return playCue('cleanse',event);
+    if(type==='relic')return playCue(['fox','ninelives'].includes(event.relic)?'resurrect':event.relic==='bell'?'bell':'relic',event);
+    if(type==='block'&&event.source==='enemy'&&(context.enemyId||event.enemyId)==='snake')return playCue('snakeShed',event);
+    return playCue(type,event);
+  }
+  function playEncounter(id) {
+    const p=ENCOUNTERS[id];if(!p)return false;
+    return withSound('encounter:'+id,(bus,t)=>{
+      stats.encountersUsed.add(id);
+      const level=['rain','wind','water'].includes(p.kind) ? .08 : .045;
+      hiss(bus,p.air,.55,{at:t,level,end:p.air*.67,attack:.055,filter:p.kind==='rain'?'highpass':'bandpass'});
+      p.notes.forEach((n,i)=>{
+        if(['gong','wood'].includes(p.kind)){
+          tone(bus,n,.55,{at:t,delay:i*.085,level:.085/(1+i*.3),wave:p.kind==='wood'?'triangle':'sine'});
+          tone(bus,n*1.48,.34,{at:t,delay:i*.085,level:.027});
+        }else bell(bus,n,.68,.075/(1+i*.22),t+i*.09);
+      });
+      if(p.kind==='water'){tone(bus,330,.12,{at:t,delay:.34,level:.10,end:1050});}
+    });
+  }
+  function stopVoices() {
+    if(!state.bus)return;
+    for(const source of state.bus.sources){try{source.stop();}catch(_){}try{source.disconnect();}catch(_){}}
+    state.bus.sources.clear();
+  }
+  function adjustMaster() {
+    if(!state.bus)return;
+    const gain=state.bus.gain.gain,t=now();gain.cancelScheduledValues(t);
+    if(typeof gain.cancelAndHoldAtTime==='function'){try{gain.cancelAndHoldAtTime(t);}catch(_){}}
+    gain.setValueAtTime(state.muted?0:state.volume,t);
+  }
+  function setMuted(value) {
+    state.muted=Boolean(value);if(state.muted)stopVoices();try{adjustMaster();}catch(_){}return state.muted;
+  }
+  function setVolume(value) {
+    state.volume=clamp(finite(value,state.volume),0,1);if(state.volume===0)stopVoices();try{adjustMaster();}catch(_){}return state.volume;
+  }
+  function getState() {
+    return {supported:Boolean(root.AudioContext||root.webkitAudioContext),unlocked:state.unlocked,muted:state.muted,volume:state.volume,contextState:state.context?state.context.state:'not-created',contextsCreated:state.contextsCreated,
+      attempts:state.attempts,eventsPlayed:stats.eventsPlayed,sourcesCreated:stats.sourcesCreated,activeVoices:state.bus?state.bus.sources.size:0,peakScheduled:stats.peakScheduled,
+      maxVoices:MAX_VOICES,rejectedVoices:stats.rejectedVoices,profilesUsed:[...stats.profilesUsed],encountersUsed:[...stats.encountersUsed],lastCue:stats.lastCue,lastError:state.lastError};
+  }
+  // QA-only, explicit offline rendering. Does not unlock or alter live audio state.
+  async function renderOffline(ids=['C01','C04','C15','C02','C13','C24']) {
+    const Constructor=root.OfflineAudioContext||root.webkitOfflineAudioContext;
+    if(!Constructor)throw new Error('OfflineAudioContext unavailable');
+    const slot=1.2,sampleRate=44100,duration=Math.max(1,ids.length)*slot+.6;
+    const ctx=new Constructor(1,Math.ceil(sampleRate*duration),sampleRate);
+    const measure={peakScheduled:0,sourcesCreated:0,rejectedVoices:0},bus=makeBus(ctx,.30,measure);
+    // Render per-slot batches below the production live voice limit, even though
+    // offline contexts schedule their entire timeline before executing a source.
+    ids.forEach((id,i)=>{
+      if(!PROFILES[id])throw new Error('Unknown audio profile: '+id);
+      bus.sources.clear();playSignature(bus,PROFILES[id],'impact',0,i*slot+.03);
+    });
+    const rendered=await ctx.startRendering();
+    return {sampleRate:rendered.sampleRate,duration:rendered.duration,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
+  }
+  return {unlock,playCard,playEvent,playCue,playEncounter,setMuted,setVolume,getState,preview,profile,
+    profiles:Object.freeze(Object.keys(PROFILES)),encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline};
+});

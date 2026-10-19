@@ -1,0 +1,1236 @@
+{
+  "target": "/workspace/CC/index.html",
+  "fileNavigation": {
+    "allowed": false,
+    "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/CC/index.html\", waiting until \"load\"\u001b[22m\n"
+  },
+  "externalRequests": [],
+  "localRequests": [
+    "/index.html",
+    "/assets/portraits/cat.webp",
+    "/assets/portraits/fox.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/portraits/yaksha.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C05.webp",
+    "/assets/cards/C06.webp",
+    "/assets/cards/C07.webp",
+    "/assets/cards/C08.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C10.webp",
+    "/assets/cards/C11.webp",
+    "/assets/cards/C12.webp",
+    "/assets/cards/C13.webp",
+    "/assets/cards/C14.webp",
+    "/assets/cards/C15.webp",
+    "/assets/cards/C16.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C19.webp",
+    "/assets/cards/C20.webp",
+    "/assets/cards/C21.webp",
+    "/assets/cards/C22.webp",
+    "/assets/cards/C23.webp",
+    "/assets/cards/C24.webp",
+    "/assets/cards/C25.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C27.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C29.webp",
+    "/assets/cards/C30.webp",
+    "/assets/cards/C31.webp",
+    "/assets/cards/C32.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C34.webp",
+    "/assets/cards/C35.webp",
+    "/assets/cards/C36.webp",
+    "/assets/events/well.webp",
+    "/assets/events/shrine.webp",
+    "/assets/events/dreamshop.webp",
+    "/assets/events/theatre.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/events/fox.webp",
+    "/assets/events/rest.webp",
+    "/assets/events/shop.webp",
+    "/assets/relics/bell.webp",
+    "/assets/relics/jade.webp",
+    "/assets/relics/moon.webp",
+    "/assets/relics/fox.webp",
+    "/assets/relics/fang.webp",
+    "/assets/relics/silk.webp",
+    "/assets/relics/vial.webp",
+    "/assets/relics/bloodstone.webp",
+    "/assets/relics/moonheart.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/relics/dream.webp",
+    "/assets/relics/godblood.webp",
+    "/assets/relics/ninelives.webp",
+    "/assets/portraits/cat.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/C04.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C05.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/C10.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C02.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/cards/C06.webp",
+    "/assets/cards/C10.webp",
+    "/assets/cards/C21.webp",
+    "/assets/cards/C15.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/C03.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C23.webp",
+    "/assets/cards/C25.webp",
+    "/assets/cards/C27.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/events/rest.webp",
+    "/assets/events/fox.webp",
+    "/assets/portraits/cat.webp",
+    "/assets/relics/fox.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C13.webp",
+    "/assets/cards/C15.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/events/well.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/relics/moonheart.webp",
+    "/assets/events/shrine.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/relics/godblood.webp",
+    "/assets/cards/C27.webp",
+    "/assets/portraits/cat.webp",
+    "/assets/events/dreamshop.webp",
+    "/assets/relics/dream.webp",
+    "/assets/events/theatre.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/cards/C24.webp",
+    "/assets/cards/C27.webp",
+    "/assets/portraits/cat.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/events/rest.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C15.webp",
+    "/assets/cards/C35.webp",
+    "/assets/events/fox.webp",
+    "/assets/portraits/yaksha.webp",
+    "/assets/relics/godblood.webp",
+    "/assets/relics/moon.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C12.webp",
+    "/assets/cards/C28.webp",
+    "/assets/portraits/cat.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C01.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/portraits/yaksha.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C16.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C13.webp",
+    "/assets/events/shrine.webp",
+    "/assets/relics/godblood.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C08.webp",
+    "/assets/cards/C30.webp",
+    "/assets/events/fox.webp",
+    "/assets/relics/fox.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C12.webp",
+    "/assets/cards/C20.webp",
+    "/assets/cards/C16.webp",
+    "/assets/events/rest.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C16.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C08.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C08.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C18.webp",
+    "/index.html",
+    "/assets/portraits/cat.webp"
+  ],
+  "errors": [],
+  "results": [
+    {
+      "name": "完整文件夹66张WebP资源：8立绘、36技能、9事件、13遗物全部解码",
+      "ok": true
+    },
+    {
+      "name": "开始页三个初始流派、36种卡牌完整图鉴及成年猫妖立绘",
+      "ok": true
+    },
+    {
+      "name": "音效：用户手势解锁、36独立音色与真实WebAudio节点、静音和音量",
+      "ok": true
+    },
+    {
+      "name": "真实DOM第一战、一次奖励与获得的新牌进入下一场",
+      "ok": true
+    },
+    {
+      "name": "地图八层四列迷雾：仅连边可达、类型不泄露、重绘不洗图",
+      "ok": true
+    },
+    {
+      "name": "fixture：费用不足、选敌取消与敌方回合锁定",
+      "ok": true
+    },
+    {
+      "name": "fixture：完整动态逐段猫爪特效、猫妖突进及播放期间重复点击锁定",
+      "ok": true
+    },
+    {
+      "name": "fixture：逐段护盾、候机首段、标记金铃与扑杀清标",
+      "ok": true
+    },
+    {
+      "name": "减少动态：取消人物前扑，保留卡牌结算和声音",
+      "ok": true
+    },
+    {
+      "name": "fixture：弃牌重洗、结算牌不自抽、手牌上限与消耗区",
+      "ok": true
+    },
+    {
+      "name": "fixture：商店商品固定、购买删实例扣款、余额不足与下场持久化",
+      "ok": true
+    },
+    {
+      "name": "fixture：休息上限、一次性处理、狐契代价免死及后续致死",
+      "ok": true
+    },
+    {
+      "name": "fixture：蛇妖蛇息毒、蜕鳞清标意图与逐回合执行",
+      "ok": true
+    },
+    {
+      "name": "fixture：六剧情各自画卡、先读结局再前进、选择不能重复领取",
+      "ok": true
+    },
+    {
+      "name": "fixture：精英稀有保底、宝物双选真实生效、重抽本局限一次",
+      "ok": true
+    },
+    {
+      "name": "八位角色独立立绘、蛇妖脸素材不复用猫妖、图片损坏内联SVG降级",
+      "ok": true
+    },
+    {
+      "name": "真实DOM完整八层路线、通关与重开（不改生命金币牌组路线状态）",
+      "ok": true
+    },
+    {
+      "name": "游戏内导出完整HTML并独立重新加载、零遗留战斗进度",
+      "ok": true
+    },
+    {
+      "name": "构建的内联单文件在about:blank直接启动且36插画解码",
+      "ok": true
+    },
+    {
+      "name": "运行时外网请求为0，未捕获JavaScript错误为0",
+      "ok": true
+    }
+  ],
+  "sha256": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
+  "decodedAssets": [
+    {
+      "kind": "portraits",
+      "id": "cat",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "fox",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "snake",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "paper",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "lantern",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "ape",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "bone",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "portraits",
+      "id": "yaksha",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "kind": "cards",
+      "id": "C01",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C02",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C03",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C04",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C05",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C06",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C07",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C08",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "kind": "cards",
+      "id": "C09",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C10",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C11",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C12",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C13",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C14",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C15",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C16",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C17",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C18",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C19",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C20",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "kind": "cards",
+      "id": "C21",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C22",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "kind": "cards",
+      "id": "C23",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C24",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C25",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C26",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C27",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C28",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C29",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C30",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C31",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C32",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C33",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C34",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "cards",
+      "id": "C35",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "kind": "cards",
+      "id": "C36",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "kind": "events",
+      "id": "well",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "shrine",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "dreamshop",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "theatre",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "umbrella",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "pawnshop",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "fox",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "rest",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "events",
+      "id": "shop",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "kind": "relics",
+      "id": "bell",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "jade",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "moon",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "fox",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "fang",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "silk",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "vial",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "bloodstone",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "moonheart",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "mirror",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "dream",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "godblood",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "kind": "relics",
+      "id": "ninelives",
+      "width": 256,
+      "height": 256
+    }
+  ],
+  "starters": {
+    "mark": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C17",
+      "C18"
+    ],
+    "combo": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C06",
+      "C22"
+    ],
+    "blood": [
+      "C01",
+      "C01",
+      "C01",
+      "C02",
+      "C02",
+      "C02",
+      "C03",
+      "C04",
+      "C27",
+      "C28"
+    ]
+  },
+  "cardArt": [
+    {
+      "src": "assets/cards/C01.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C02.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C03.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C04.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C05.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C06.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C07.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C08.webp",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "src": "assets/cards/C09.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C10.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C11.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C12.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C13.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C14.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C15.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C16.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C17.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C18.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C19.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C20.webp",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "src": "assets/cards/C21.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C22.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C23.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C24.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C25.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C26.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C27.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C28.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C29.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C30.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C31.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C32.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C33.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C34.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C35.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C36.webp",
+      "width": 448,
+      "height": 448
+    }
+  ],
+  "audio": {
+    "supported": true,
+    "unlocked": true,
+    "muted": false,
+    "volume": 0.38,
+    "contextState": "running",
+    "contextsCreated": 1,
+    "attempts": 39,
+    "eventsPlayed": 37,
+    "sourcesCreated": 146,
+    "activeVoices": 4,
+    "peakScheduled": 16,
+    "maxVoices": 56,
+    "rejectedVoices": 0,
+    "profilesUsed": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C08",
+      "C09",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C15",
+      "C16",
+      "C17",
+      "C18",
+      "C19",
+      "C20",
+      "C21",
+      "C22",
+      "C23",
+      "C24",
+      "C25",
+      "C26",
+      "C27",
+      "C28",
+      "C29",
+      "C30",
+      "C31",
+      "C32",
+      "C33",
+      "C34",
+      "C35",
+      "C36"
+    ],
+    "encountersUsed": [],
+    "lastCue": "card:C36",
+    "lastError": "",
+    "graph": {
+      "oscillators": 111,
+      "buffers": 35,
+      "gains": 147,
+      "started": 146,
+      "connections": 293
+    }
+  },
+  "fullMotionFX": [
+    {
+      "type": "skill",
+      "text": "夜铃 · 出契连爪"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3爪击命中"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3第 2 段 · 爪击命中"
+    },
+    {
+      "type": "claw",
+      "text": ""
+    },
+    {
+      "type": "number",
+      "text": "−3第 3 段 · 爪击命中"
+    }
+  ],
+  "combatAudio": {
+    "before": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.38,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 98,
+      "eventsPlayed": 96,
+      "sourcesCreated": 413,
+      "activeVoices": 0,
+      "peakScheduled": 52,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C33",
+        "C34",
+        "C35",
+        "C36"
+      ],
+      "encountersUsed": [
+        "pawnshop"
+      ],
+      "lastCue": "cue:eventChoice",
+      "lastError": "",
+      "graph": {
+        "oscillators": 323,
+        "buffers": 90,
+        "gains": 414,
+        "started": 413,
+        "connections": 827
+      }
+    },
+    "after": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.38,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 102,
+      "eventsPlayed": 100,
+      "sourcesCreated": 426,
+      "activeVoices": 0,
+      "peakScheduled": 52,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C33",
+        "C34",
+        "C35",
+        "C36"
+      ],
+      "encountersUsed": [
+        "pawnshop"
+      ],
+      "lastCue": "hit:C05",
+      "lastError": "",
+      "graph": {
+        "oscillators": 329,
+        "buffers": 97,
+        "gains": 427,
+        "started": 426,
+        "connections": 853
+      }
+    }
+  },
+  "eventArt": [
+    {
+      "src": "assets/events/well.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/shrine.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/dreamshop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/theatre.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/umbrella.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/pawnshop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/rest.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/shop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/fox.webp",
+      "width": 512,
+      "height": 512
+    }
+  ],
+  "encounterAudio": [
+    "pawnshop",
+    "shop",
+    "rest",
+    "fox",
+    "well",
+    "shrine",
+    "dreamshop",
+    "theatre",
+    "umbrella"
+  ],
+  "realRouteAttempts": [
+    {
+      "screen": "victory",
+      "hp": 50,
+      "floor": 8,
+      "battles": 2,
+      "route": [
+        "fight:f1-0",
+        "event:f2-0",
+        "shop:f3-0",
+        "fox:f4-0",
+        "shop:f5-1",
+        "shop:f6-0",
+        "rest:f7-1",
+        "boss:f8-0"
+      ]
+    }
+  ],
+  "browser": "154.0.8037.57",
+  "executedAtUtc": "2026-10-19T15:25:40.010Z",
+  "exportedBytes": 5137000,
+  "inline": {
+    "path": "/workspace/CC/baiyao-standalone.html",
+    "bytes": 5137000,
+    "sha256": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+  },
+  "verificationRuns": [
+    {
+      "scope": "Full final folder and standalone browser suite",
+      "passed": 18,
+      "failed": 2
+    },
+    {
+      "scope": "Targeted export, standalone and network/error checks after adding .first() to ambiguous catalogue test locator",
+      "passed": 3,
+      "failed": 0
+    }
+  ],
+  "testHarnessCorrections": [
+    {
+      "name": "游戏内导出完整HTML并独立重新加载、零遗留战斗进度",
+      "issue": "The test locator matched both header and title-screen catalogue buttons; corrected to .first(). No game source changed; targeted rerun passed."
+    },
+    {
+      "name": "构建的内联单文件在about:blank直接启动且36插画解码",
+      "issue": "The test locator matched both header and title-screen catalogue buttons; corrected to .first(). No game source changed; targeted rerun passed."
+    }
+  ]
+}

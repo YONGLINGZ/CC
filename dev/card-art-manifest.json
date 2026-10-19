@@ -1,0 +1,362 @@
+{
+  "C01": {
+    "file": "assets/cards/C01.webp",
+    "title": "爪击",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "金色猫爪向前撕裂朱红夜色",
+    "width": 448,
+    "height": 448,
+    "bytes": 43888,
+    "quality": 76
+  },
+  "C02": {
+    "file": "assets/cards/C02.webp",
+    "title": "敛息",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "竹林中敛息凝聚护身结界",
+    "width": 416,
+    "height": 416,
+    "bytes": 42206,
+    "quality": 68
+  },
+  "C03": {
+    "file": "assets/cards/C03.webp",
+    "title": "窥隙",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "铜镜金瞳窥见鬼影破绽",
+    "width": 432,
+    "height": 432,
+    "bytes": 44484,
+    "quality": 70
+  },
+  "C04": {
+    "file": "assets/cards/C04.webp",
+    "title": "扑杀",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "猫妖由屋檐扑落收割标记",
+    "width": 432,
+    "height": 432,
+    "bytes": 42602,
+    "quality": 70
+  },
+  "C05": {
+    "file": "assets/cards/C05.webp",
+    "title": "连爪",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "三道连续金爪撕裂鬼面",
+    "width": 432,
+    "height": 432,
+    "bytes": 44112,
+    "quality": 70
+  },
+  "C06": {
+    "file": "assets/cards/C06.webp",
+    "title": "猫步",
+    "sourceSheet": "exec-0b914e11-4cb7-4183-88f4-b9a49d144af6.png",
+    "concept": "金铃绣鞋轻点月下水波",
+    "width": 448,
+    "height": 448,
+    "bytes": 40708,
+    "quality": 76
+  },
+  "C07": {
+    "file": "assets/cards/C07.webp",
+    "title": "流影",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "猫妖流动幻影与青色护盾",
+    "width": 416,
+    "height": 416,
+    "bytes": 44522,
+    "quality": 60
+  },
+  "C08": {
+    "file": "assets/cards/C08.webp",
+    "title": "戏鼠",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "猫妖以鼠形金饰戏弄猎物",
+    "width": 480,
+    "height": 480,
+    "bytes": 43582,
+    "quality": 78
+  },
+  "C09": {
+    "file": "assets/cards/C09.webp",
+    "title": "夜猎",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "满月下屋脊放飞侦猎纸鸟",
+    "width": 448,
+    "height": 448,
+    "bytes": 43420,
+    "quality": 76
+  },
+  "C10": {
+    "file": "assets/cards/C10.webp",
+    "title": "候机",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "折扇后金瞳等待出手机会",
+    "width": 448,
+    "height": 448,
+    "bytes": 41738,
+    "quality": 76
+  },
+  "C11": {
+    "file": "assets/cards/C11.webp",
+    "title": "蓄爪",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "磨爪玉积蓄金色灵力",
+    "width": 448,
+    "height": 448,
+    "bytes": 39152,
+    "quality": 76
+  },
+  "C12": {
+    "file": "assets/cards/C12.webp",
+    "title": "月下守",
+    "sourceSheet": "exec-31e31b1e-f5af-489e-890b-f36011ab0a78.png",
+    "concept": "月下猫妖与巨大银月屏障",
+    "width": 416,
+    "height": 416,
+    "bytes": 42718,
+    "quality": 68
+  },
+  "C13": {
+    "file": "assets/cards/C13.webp",
+    "title": "血契",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "鲜血一滴签下禁忌契书",
+    "width": 448,
+    "height": 448,
+    "bytes": 42598,
+    "quality": 72
+  },
+  "C14": {
+    "file": "assets/cards/C14.webp",
+    "title": "噬魂",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "猫爪摄取紫色魂魄化作生命",
+    "width": 448,
+    "height": 448,
+    "bytes": 41536,
+    "quality": 76
+  },
+  "C15": {
+    "file": "assets/cards/C15.webp",
+    "title": "妖火符",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "朱红妖火燃起纸符",
+    "width": 432,
+    "height": 432,
+    "bytes": 43594,
+    "quality": 70
+  },
+  "C16": {
+    "file": "assets/cards/C16.webp",
+    "title": "残月",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "银色残月斩破长夜",
+    "width": 432,
+    "height": 432,
+    "bytes": 41628,
+    "quality": 70
+  },
+  "C17": {
+    "file": "assets/cards/C17.webp",
+    "title": "金瞳",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "四道猎印映入黄金猫瞳",
+    "width": 448,
+    "height": 448,
+    "bytes": 37840,
+    "quality": 76
+  },
+  "C18": {
+    "file": "assets/cards/C18.webp",
+    "title": "追猎",
+    "sourceSheet": "exec-347fbd01-67a4-4e63-ac82-7b6a69200180.png",
+    "concept": "循红色猎印奔袭迷雾之林",
+    "width": 448,
+    "height": 448,
+    "bytes": 44020,
+    "quality": 72
+  },
+  "C19": {
+    "file": "assets/cards/C19.webp",
+    "title": "缚影",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "金链束缚鬼影与青色护盾",
+    "width": 416,
+    "height": 416,
+    "bytes": 43896,
+    "quality": 60
+  },
+  "C20": {
+    "file": "assets/cards/C20.webp",
+    "title": "铃音",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "猫纹金铃荡出灵力音波",
+    "width": 480,
+    "height": 480,
+    "bytes": 43936,
+    "quality": 78
+  },
+  "C21": {
+    "file": "assets/cards/C21.webp",
+    "title": "终夜",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "血月五印迸发终夜巨爪",
+    "width": 448,
+    "height": 448,
+    "bytes": 43646,
+    "quality": 72
+  },
+  "C22": {
+    "file": "assets/cards/C22.webp",
+    "title": "裂帛",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "交错利爪切裂红帛鬼面",
+    "width": 432,
+    "height": 432,
+    "bytes": 42782,
+    "quality": 70
+  },
+  "C23": {
+    "file": "assets/cards/C23.webp",
+    "title": "逐影",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "猫妖逐影轻掠月下水面",
+    "width": 416,
+    "height": 416,
+    "bytes": 42936,
+    "quality": 68
+  },
+  "C24": {
+    "file": "assets/cards/C24.webp",
+    "title": "狂爪",
+    "sourceSheet": "exec-0b76faae-7509-43e9-8b29-fe956c9d69b0.png",
+    "concept": "五重旋转狂爪轰碎鬼面",
+    "width": 416,
+    "height": 416,
+    "bytes": 44456,
+    "quality": 58
+  },
+  "C25": {
+    "file": "assets/cards/C25.webp",
+    "title": "灵巧",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "灵巧手指从危险丝网取出灵珠",
+    "width": 448,
+    "height": 448,
+    "bytes": 43390,
+    "quality": 72
+  },
+  "C26": {
+    "file": "assets/cards/C26.webp",
+    "title": "翻檐",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "月下翻越飞檐抵挡利箭",
+    "width": 448,
+    "height": 448,
+    "bytes": 41674,
+    "quality": 76
+  },
+  "C27": {
+    "file": "assets/cards/C27.webp",
+    "title": "歃血",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "歃血之碗唤醒赤红利爪",
+    "width": 448,
+    "height": 448,
+    "bytes": 42130,
+    "quality": 72
+  },
+  "C28": {
+    "file": "assets/cards/C28.webp",
+    "title": "血饮",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "生命之血化作碧绿疗愈莲花",
+    "width": 448,
+    "height": 448,
+    "bytes": 42182,
+    "quality": 72
+  },
+  "C29": {
+    "file": "assets/cards/C29.webp",
+    "title": "献寿",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "寿命沙漏换来双生灵火",
+    "width": 448,
+    "height": 448,
+    "bytes": 43170,
+    "quality": 72
+  },
+  "C30": {
+    "file": "assets/cards/C30.webp",
+    "title": "残心",
+    "sourceSheet": "exec-0b607ea3-8496-41a1-9281-379691926b23.png",
+    "concept": "执碎心契印绝地反击",
+    "width": 448,
+    "height": 448,
+    "bytes": 42536,
+    "quality": 72
+  },
+  "C31": {
+    "file": "assets/cards/C31.webp",
+    "title": "借命",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "以生命红线编织青玉护盾",
+    "width": 416,
+    "height": 416,
+    "bytes": 44604,
+    "quality": 68
+  },
+  "C32": {
+    "file": "assets/cards/C32.webp",
+    "title": "绕指柔",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "柔顺青绸绕指凝成莲盾",
+    "width": 448,
+    "height": 448,
+    "bytes": 38938,
+    "quality": 76
+  },
+  "C33": {
+    "file": "assets/cards/C33.webp",
+    "title": "逆鳞",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "逆鳞盾面抵挡并反射攻击",
+    "width": 448,
+    "height": 448,
+    "bytes": 43038,
+    "quality": 72
+  },
+  "C34": {
+    "file": "assets/cards/C34.webp",
+    "title": "护心",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "护心莲佩驱散紫色毒雾",
+    "width": 448,
+    "height": 448,
+    "bytes": 42764,
+    "quality": 76
+  },
+  "C35": {
+    "file": "assets/cards/C35.webp",
+    "title": "盾返",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "青玉盾镜反射金光击碎鬼面",
+    "width": 416,
+    "height": 416,
+    "bytes": 44090,
+    "quality": 68
+  },
+  "C36": {
+    "file": "assets/cards/C36.webp",
+    "title": "归息",
+    "sourceSheet": "exec-aa93ec58-2381-43f3-a390-ee5d202ac51a.png",
+    "concept": "猫妖在月下疗愈温泉安眠",
+    "width": 448,
+    "height": 448,
+    "bytes": 43742,
+    "quality": 72
+  }
+}
