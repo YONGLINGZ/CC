@@ -27,11 +27,14 @@ const resources={};
 for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
+resources.puppet=Object.fromEntries(['normal','wounded','critical','blink'].map(id=>[id,asset('puppet','cat-'+id)]));
+const rigPath=path.join(__dirname,'puppet-rig.json');
+resources.puppetRig=fs.existsSync(rigPath)?JSON.parse(fs.readFileSync(rigPath,'utf8')):{};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if(args.includes('--strict')&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
 const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('engine.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',fs.existsSync(path.join(__dirname,'puppet.js'))?script(read('puppet.js')):'',script(read('engine.js')),ui];
 const html=shell+'\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');

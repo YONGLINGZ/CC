@@ -1,2 +1,2 @@
-/* v3: external folder at argv[2], optional self-contained HTML at argv[3]. */
-require('./upgrade-browser.test.cjs');
+/* Current v4 suite. Historical v3 checks remain in upgrade-browser.test.cjs. */
+require('./v4-browser.test.cjs');

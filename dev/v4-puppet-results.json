@@ -1,0 +1,111 @@
+{
+  "renderer": "custom Canvas2D weighted mesh; not Cubism",
+  "results": [
+    {
+      "name": "inclusive 50%/25% boundaries and bounded invalid inputs",
+      "ok": true
+    },
+    {
+      "name": "real transparent texture rendered with 135 vertices / 224 triangles",
+      "ok": true
+    },
+    {
+      "name": "pointer tracking changes head separately from tail / body pixels",
+      "ok": true
+    },
+    {
+      "name": "separate eyelid layer visibly blinks at calibrated eye coordinates",
+      "ok": true
+    },
+    {
+      "name": "HP state switches and healing restores normal without mutating caller HP",
+      "ok": true
+    },
+    {
+      "name": "attack, hurt and revive deform the mesh; guard and heal finish safely",
+      "ok": true
+    },
+    {
+      "name": "reduced motion freezes idle, pointer and blink while damage stages still change",
+      "ok": true
+    },
+    {
+      "name": "visibility pause stops animation frames (explicit document.hidden fixture)",
+      "ok": true
+    },
+    {
+      "name": "same-root mounting reuses one canvas; dispose and detached root stop RAF",
+      "ok": true
+    },
+    {
+      "name": "missing portrait preserves static fallback and creates no unhandled exception",
+      "ok": true
+    },
+    {
+      "name": "zero runtime HTTP(S) requests and zero uncaught script errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "actualDamageTextures": true,
+  "actualBlinkTexture": true,
+  "runtimeSha256": "e1ebb62a894e5b33ecec133dba5a9d30f09d7eb5f0bdb756f52722c818ae1dc3",
+  "renderPixels": {
+    "opaque": 494524,
+    "transparent": 166120
+  },
+  "localOffsets": {
+    "before": {
+      "head": {
+        "x": -0.004467692341913798,
+        "y": -0.0008438157707464644
+      },
+      "body": {
+        "x": -0.000027858340326369913,
+        "y": -0.0027858340326342157
+      },
+      "hair": {
+        "x": -0.004284838032712873,
+        "y": 0.000027147561038165513
+      },
+      "tail": {
+        "x": 0.03558240607642882,
+        "y": 0.00011875322953960876
+      },
+      "ear": {
+        "x": 0.00455933080129034,
+        "y": -0.0032313923905057038
+      }
+    },
+    "after": {
+      "head": {
+        "x": 0.00625919038614936,
+        "y": -0.0009313584766509897
+      },
+      "body": {
+        "x": -0.00003694534488934975,
+        "y": -0.0036945344889326437
+      },
+      "hair": {
+        "x": -0.0040895380864652,
+        "y": -0.00032250705112796263
+      },
+      "tail": {
+        "x": 0.035188311634420266,
+        "y": 0.00008929563002899044
+      },
+      "ear": {
+        "x": 0.005595224541040167,
+        "y": -0.0040126951107965075
+      }
+    }
+  },
+  "damageTextureHashes": {
+    "wounded": "b1715087e21f1b2a6b890f535f662a3a68ecf9723ccb14675420ff1c3429d760",
+    "critical": "423941a4fb21a75f8d3a26a404362f0900f0878feee3998c3d95248467188d6b",
+    "normal": "ff6427c3571b9933f5a5786ce658cae563d02b8944ff64fa59f8425eb124d877"
+  },
+  "passed": 11,
+  "failed": 0
+}

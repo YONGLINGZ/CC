@@ -1,0 +1,18 @@
+{
+  "format": "nightpact-weighted-puppet-v1",
+  "renderer": "Canvas2D weighted triangle mesh; not a Cubism moc3 model",
+  "grid": {"columns": 8, "rows": 14},
+  "face": {"x": 0.4668, "y": 0.1738, "radiusX": 0.145, "radiusY": 0.1},
+  "eyes": [
+    {"x": 0.421875, "y": 0.1770833333, "width": 0.0479, "height": 0.0085, "angle": -0.25, "skin": "#efc3ad"},
+    {"x": 0.4853515625, "y": 0.1588541667, "width": 0.043, "height": 0.0104, "angle": -0.34, "skin": "#efc3ad"}
+  ],
+  "blink": {
+    "x": 0.380859375, "y": 0.13997395833333333, "width": 0.1416015625, "height": 0.05338541666666667,
+    "critical": {"x": 0.384765625, "y": 0.14127604166666667, "width": 0.1416015625, "height": 0.05338541666666667}
+  },
+  "ears": [{"x": 0.3184, "y": 0.0605}, {"x": 0.5313, "y": 0.0117}],
+  "body": {"x": 0.51, "y": 0.50, "radiusX": 0.35, "radiusY": 0.32},
+  "tail": {"points": [[0.76, 0.51], [0.875, 0.43], [0.915, 0.32], [0.825, 0.25], [0.88, 0.205], [0.96, 0.245]], "radius": 0.06},
+  "notes": "Coordinates are normalized to the transparent full portrait, independent of display crop."
+}

@@ -1,21 +1,23 @@
 {
-  "format": "baiyao-offline-recovery-v3",
+  "format": "baiyao-offline-recovery-v4",
   "mode": "source-svg",
   "files": {
     "dev/art.js": "fbd541281b742a1b4a9594168041ee301ca6206a3f3c1850a95a27d70cf75774",
     "dev/audio.js": "bd55d35c6419fea34ebc33d039060252d51215188ed1f85a032f5adf11258d0b",
-    "dev/build.cjs": "b37fb11c479ba0ac8fa2bfaa78e36ded6b6f17494ff2f1691eb10f928187485b",
+    "dev/build.cjs": "e7e61370a557f18543b6e5157f424671da82fb5130ba9c94fdc53a0026a952eb",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
     "dev/engine.js": "0fb0b90f0e91b6ab2759763d8c4190284961f6a2312601a42353401015608817",
-    "dev/shell.html": "dd56a6be6253afccd3a7d6872834f9c0c54801d64a729fcdd2966500a5f517c6",
-    "dev/ui.js": "b1f5807f895d3fea9c81587f4774d44c9c99eb181134c39525d20d5eb477bfa5"
+    "dev/puppet-rig.json": "e182ce2d79a8a84e024064f7ab084e4401eb211a0d01371e14b3e4a3b85832cc",
+    "dev/puppet.js": "e1ebb62a894e5b33ecec133dba5a9d30f09d7eb5f0bdb756f52722c818ae1dc3",
+    "dev/shell.html": "3ee8259fc9ab268cc4afba7d9f6fa18d0d07b45b57c8b2cf370d0bcd2f333794",
+    "dev/ui.js": "c06e5ed3d3e204ed4713399ab2f2fa1b32bde023dd336e54bfdd6427d58a4eb2"
   },
   "outputs": {
-    "index.html": "d617d86da9c0409794c8740f3be41141a9694bc20e2824455bffafd3a3348780"
+    "index.html": "f37307df5572bf436d89b0ffa60e4b0018ac16bcd0388cdb93874ab1922bc022"
   },
   "release_outputs": {
-    "index.html": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
-    "baiyao-standalone.html": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+    "index.html": "93c0aedcd9162ed35f3c4d54c32e7dbce8f17be77482bc27c69212dd1684c7ee",
+    "baiyao-standalone.html": "d1a61a858ca3036c3eafbe66373ea136ede07007c00a444c53bd664faec3fd5c"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -71,6 +73,10 @@
     "assets/portraits/paper.webp": "49a1330f00eba0232b8c002cc646f2eaf161f861b12b9288052d58e7ab6b9c24",
     "assets/portraits/snake.webp": "1d34104f23f8190dd7e7d7182f4ff605cbaf35b5e2226d1a482f8f09841b3d8d",
     "assets/portraits/yaksha.webp": "b062d787b25468abb933c41107abbd795e4767ca3dc6e6e7b3782af2a8ae354c",
+    "assets/puppet/cat-blink.webp": "6b3f5972f4fc767e5effd883f1eab15abfc296d25f9d572590f7dc4af1682843",
+    "assets/puppet/cat-critical.webp": "0d405f47a1a8427e5decfd2c5e5343ef95cab6a6ad549ae2f1ce90624f3f3aae",
+    "assets/puppet/cat-normal.webp": "29160ca8132005b8b5536b1bcd4e943fc69aa607d8ceb366a3436bd0f8447943",
+    "assets/puppet/cat-wounded.webp": "0520380b4a83a8121f7b49814da9111e960c377bad99a7847b8a218be517a4ac",
     "assets/relics/bell.webp": "fc6425791a7a3b3be0bcf06991c1c05aba57f2b1dd9fbca650909a3cc5ab3983",
     "assets/relics/bloodstone.webp": "c4b970931a3896e34c490e15972ffaf35250537e81a16e7f16c0d5756e620c25",
     "assets/relics/dream.webp": "4d470113973bd04c11c53e2470214c4a8a4180c68d34a82ae23a7e9f8bd72e1e",
@@ -86,10 +92,10 @@
     "assets/relics/vial.webp": "9423a912a117afed72c5cb0a23c539243c2cbbd7d2670677c72404f117838b4a"
   },
   "asset_count": 0,
-  "source_count": 7,
-  "archive_sha256": "5d00edcf8746776f7b1bbe929e5d6a759044208261c568a67ec607ffdcf1ceb1",
-  "archive_bytes": 68919,
-  "uncompressed_bytes": 215792,
+  "source_count": 9,
+  "archive_sha256": "1ad398beaebbd15050f969b3f28df95e84ca7fb3fd610c1f017ca5e29e879102",
+  "archive_bytes": 79929,
+  "uncompressed_bytes": 250910,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

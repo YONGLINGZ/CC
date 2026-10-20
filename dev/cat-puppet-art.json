@@ -1,0 +1,281 @@
+{
+  "format": "night-pact-character-art-v4",
+  "character": "夜铃",
+  "adult": true,
+  "description": "同一成年猫妖的三档战损纹理与自然闭眼局部贴片，用于自制离线加权网格动态原型；不是Cubism moc3模型。",
+  "generation": "image_gen edit with character reference; WebP encoding via sharp; blink resource extracted from generated closed-eye texture and feathered as a sprite integration step",
+  "originalReference": "assets/cat.png",
+  "states": {
+    "normal": {
+      "file": "assets/puppet/cat-normal.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 205702,
+      "sha256": "29160ca8132005b8b5536b1bcd4e943fc69aa607d8ceb366a3436bd0f8447943",
+      "sourceImage": "/workspace/generated_images/exec-17118f7a-2d03-4aae-b304-2f2d66dc98fa.png",
+      "health": ">50%",
+      "visibleChanges": [
+        "完整黑红金外袍与刺绣",
+        "自信轻笑",
+        "竖起的猫耳与整齐发丝"
+      ],
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 183.86789525759517
+      }
+    },
+    "wounded": {
+      "file": "assets/puppet/cat-wounded.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 254922,
+      "sha256": "0520380b4a83a8121f7b49814da9111e960c377bad99a7847b8a218be517a4ac",
+      "sourceImage": "/workspace/generated_images/exec-1107e8a7-1cbd-4840-8249-eca2cd42395e.png",
+      "health": "25%<HP<=50%",
+      "visibleChanges": [
+        "外袍袖口与袍边撕裂",
+        "衣料尘土、肩臂与脸颊浅伤",
+        "警觉严肃、眉头收紧"
+      ],
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 181.3571616489751
+      }
+    },
+    "critical": {
+      "file": "assets/puppet/cat-critical.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 257028,
+      "sha256": "0d405f47a1a8427e5decfd2c5e5343ef95cab6a6ad549ae2f1ce90624f3f3aae",
+      "sourceImage": "/workspace/generated_images/exec-c6e8ca94-bec6-43e4-a27b-e13dd03257b4.png",
+      "health": "0%<HP<=25%",
+      "visibleChanges": [
+        "更破碎的外袍与松散发丝",
+        "猫耳压低、汗珠、脸与臂上的战斗擦伤",
+        "明显疲惫且坚决的表情、微张唇呼吸"
+      ],
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 182.63553057512812
+      }
+    }
+  },
+  "landmarks": {
+    "coordinateSpace": "normalized to original 1024x1536 character canvas; y increases downward",
+    "face": {
+      "center": {
+        "x": 0.466796875,
+        "y": 0.173828125
+      },
+      "bounds": {
+        "x": 0.38671875,
+        "y": 0.11263020833333333,
+        "width": 0.166015625,
+        "height": 0.11588541666666667
+      }
+    },
+    "eyes": [
+      {
+        "side": "screen-left",
+        "x": 0.421875,
+        "y": 0.17708333333333334,
+        "width": 0.056640625,
+        "height": 0.017578125,
+        "angle": -0.17,
+        "skin": "#efc3ad",
+        "stroke": "#51312b"
+      },
+      {
+        "side": "screen-right",
+        "x": 0.4853515625,
+        "y": 0.15885416666666666,
+        "width": 0.0498046875,
+        "height": 0.025390625,
+        "angle": -0.43,
+        "skin": "#efc3ad",
+        "stroke": "#51312b"
+      }
+    ],
+    "ears": [
+      {
+        "side": "screen-left",
+        "tip": {
+          "x": 0.318359375,
+          "y": 0.060546875
+        },
+        "root": {
+          "x": 0.369140625,
+          "y": 0.1171875
+        },
+        "radius": {
+          "x": 0.09,
+          "y": 0.08
+        }
+      },
+      {
+        "side": "screen-right",
+        "tip": {
+          "x": 0.53125,
+          "y": 0.01171875
+        },
+        "root": {
+          "x": 0.5078125,
+          "y": 0.08984375
+        },
+        "radius": {
+          "x": 0.08,
+          "y": 0.09
+        }
+      }
+    ],
+    "head": {
+      "center": {
+        "x": 0.463,
+        "y": 0.145
+      },
+      "radius": {
+        "x": 0.18,
+        "y": 0.15
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.24
+      }
+    },
+    "torso": {
+      "center": {
+        "x": 0.53,
+        "y": 0.42
+      },
+      "radius": {
+        "x": 0.22,
+        "y": 0.25
+      },
+      "pivot": {
+        "x": 0.53,
+        "y": 0.56
+      }
+    },
+    "hair": {
+      "left": {
+        "bounds": {
+          "x": 0.04,
+          "y": 0.18,
+          "width": 0.35,
+          "height": 0.5
+        },
+        "root": {
+          "x": 0.4,
+          "y": 0.21
+        }
+      },
+      "right": {
+        "bounds": {
+          "x": 0.56,
+          "y": 0.17,
+          "width": 0.21,
+          "height": 0.43
+        },
+        "root": {
+          "x": 0.54,
+          "y": 0.2
+        }
+      }
+    },
+    "tail": {
+      "bounds": {
+        "x": 0.77,
+        "y": 0.19,
+        "width": 0.23,
+        "height": 0.35
+      },
+      "root": {
+        "x": 0.785,
+        "y": 0.52
+      },
+      "path": [
+        {
+          "x": 0.795,
+          "y": 0.53
+        },
+        {
+          "x": 0.9,
+          "y": 0.375
+        },
+        {
+          "x": 0.82,
+          "y": 0.266
+        },
+        {
+          "x": 0.855,
+          "y": 0.215
+        },
+        {
+          "x": 0.949,
+          "y": 0.232
+        },
+        {
+          "x": 0.98,
+          "y": 0.275
+        }
+      ]
+    },
+    "bell": {
+      "center": {
+        "x": 0.5517578125,
+        "y": 0.2721354166666667
+      },
+      "radius": 0.025
+    },
+    "stateOffsets": {
+      "normal": {
+        "eyeX": 0,
+        "eyeY": 0
+      },
+      "wounded": {
+        "eyeX": 0,
+        "eyeY": 0
+      },
+      "critical": {
+        "eyeX": 0.00390625,
+        "eyeY": 0.0013020833333333333
+      }
+    },
+    "blink": {
+      "file": "assets/puppet/cat-blink.webp",
+      "x": 0.380859375,
+      "y": 0.13997395833333334,
+      "width": 0.1416015625,
+      "height": 0.053385416666666664,
+      "sourceRect": {
+        "x": 390,
+        "y": 215,
+        "width": 145,
+        "height": 82
+      },
+      "sourceCanvas": {
+        "width": 1024,
+        "height": 1536
+      },
+      "texture": {
+        "width": 145,
+        "height": 82
+      },
+      "featherPixels": 1.5,
+      "sourceImage": "/workspace/generated_images/exec-4d0a19c1-b115-47a6-942b-0c637cb12c4b.png",
+      "bytes": 9942,
+      "sha256": "6b3f5972f4fc767e5effd883f1eab15abfc296d25f9d572590f7dc4af1682843"
+    }
+  },
+  "totalRuntimeBytes": 727594,
+  "checks": {
+    "decoded": 4,
+    "independentStateFiles": 3,
+    "transparentStates": 3,
+    "manuallyViewed": true
+  }
+}

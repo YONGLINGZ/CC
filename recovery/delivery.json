@@ -1,18 +1,18 @@
 {
-  "version": "绘契鸣铃版",
-  "date": "2026-10-19",
+  "version": "妖影战痕版",
+  "date": "2026-10-20",
   "based_on": "user-provided 33.zip",
   "game_html": {
-    "bytes": 215279,
-    "sha256": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb"
+    "bytes": 250124,
+    "sha256": "93c0aedcd9162ed35f3c4d54c32e7dbce8f17be77482bc27c69212dd1684c7ee"
   },
   "standalone_html": {
-    "bytes": 5137000,
-    "sha256": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+    "bytes": 6141947,
+    "sha256": "d1a61a858ca3036c3eafbe66373ea136ede07007c00a444c53bd664faec3fd5c"
   },
   "play_zip": {
-    "bytes": 7909245,
-    "sha256": "8f5d93ef99392bb3d92e9fd8214ac332629e0190f81ec890858a1ffc5910879b"
+    "bytes": 9623862,
+    "sha256": "135180570b99eafcc8c7f87dadafe688eca70f42480be2f0890daa1082f664b9"
   },
   "zip_crc": "PASS",
   "runtime_art": {
@@ -31,7 +31,22 @@
     "relics": {
       "count": 13,
       "bytes": 266426
+    },
+    "puppet": {
+      "count": 4,
+      "bytes": 727594
     }
+  },
+  "formal_cubism_model_exported": false,
+  "animated_portrait": "custom Canvas2D weighted mesh, 135 vertices / 224 triangles / 7 influence regions",
+  "damage_thresholds": {
+    "wounded": 0.5,
+    "critical": 0.25,
+    "inclusive": true
+  },
+  "puppet_tests": {
+    "passed": 11,
+    "failed": 0
   },
   "cards": 36,
   "event_art": 9,
@@ -46,7 +61,7 @@
     "failed": 0
   },
   "browser_groups": {
-    "passed": 20,
+    "passed": 16,
     "failed": 0
   },
   "public_api_simulations": {
@@ -54,11 +69,13 @@
     "wins": 89,
     "defeats": 1
   },
-  "full_recovery_checks": 13,
-  "source_recovery_checks": 17,
+  "full_recovery_checks": 15,
+  "source_recovery_checks": 19,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v3": false,
+  "cloud_configuration_updated_for_v4": true,
+  "cloud_draft_read_back_verified": true,
+  "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"
 }

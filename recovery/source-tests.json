@@ -1,7 +1,7 @@
 {
-  "format": "baiyao-recovery-tests-v3",
+  "format": "baiyao-recovery-tests-v4",
   "mode": "source-svg",
-  "passed": 17,
+  "passed": 19,
   "failed": 0,
   "checks": [
     "fresh empty directory: all payload files and generated outputs match exact SHA256; no images.js or PNG needed",
@@ -15,20 +15,22 @@
     "source parent occupied by a file: refused before writes",
     "relative, root and parent-traversal destinations: rejected",
     "modified card WebP: refused without any source or HTML writes",
+    "modified wounded puppet WebP: refused before any source, rig or HTML writes",
+    "modified puppet rig JSON: refused and preserved before any file writes",
     "symlinked assets directory: refused before writes",
     "partial WebP collection: no assets rewritten, exact single-file SVG fallback generated",
     "existing full inline HTML renamed index.html: preserved without external images",
-    "existing folder release with all 66 WebPs: preserved byte-for-byte while sources restored",
+    "existing folder release with all 70 WebPs: preserved byte-for-byte while sources restored",
     "existing folder release with missing WebPs: safely refused and untouched; requires full recovery or empty directory",
     "existing standalone release: preserved while independent slim index is restored"
   ],
-  "script_sha256": "6a3ca75e3e2878db1f32b6a968872eaeede0705d7a970fe3510327035329a250",
+  "script_sha256": "dd689bf3fe845ed4873faee99391779dffc0e5c8ee6e9b02e81e60d4ecca9f09",
   "outputs": {
-    "index.html": "d617d86da9c0409794c8740f3be41141a9694bc20e2824455bffafd3a3348780"
+    "index.html": "f37307df5572bf436d89b0ffa60e4b0018ac16bcd0388cdb93874ab1922bc022"
   },
   "release_outputs": {
-    "index.html": "f9c6369e7ae7006ec2793e9358cdd508c8f194abe190b5d02c1921985db9d4fb",
-    "baiyao-standalone.html": "311aa0ed969633c6aed2e6e4b40d921fc701f0d3bb7ac9b424f9995e5e5494d3"
+    "index.html": "93c0aedcd9162ed35f3c4d54c32e7dbce8f17be77482bc27c69212dd1684c7ee",
+    "baiyao-standalone.html": "d1a61a858ca3036c3eafbe66373ea136ede07007c00a444c53bd664faec3fd5c"
   },
   "asset_count_in_payload": 0,
   "new_cloud_instance_tested": false,

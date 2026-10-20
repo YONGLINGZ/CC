@@ -1,0 +1,33 @@
+{
+  "version": "妖影战痕版",
+  "date": "2026-10-20",
+  "engine": {
+    "command": "node --test dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs",
+    "passed": 90,
+    "failed": 0,
+    "skipped": 0
+  },
+  "audio": {
+    "command": "node dev/audio.test.cjs",
+    "passed": 11,
+    "failed": 0,
+    "report": "audio-results.json"
+  },
+  "public_api": {
+    "command": "node dev/playtest.cjs",
+    "completed": 90,
+    "wins": 89,
+    "defeats": 1,
+    "report": "playtest-report.json"
+  },
+  "inputs": {
+    "dev/engine.js": "0fb0b90f0e91b6ab2759763d8c4190284961f6a2312601a42353401015608817",
+    "dev/engine.test.cjs": "a98805da64fb081b1223b22f5ecc338771a64b96a46082cfb2ebaae43d6397f0",
+    "dev/rework.test.cjs": "1531f8e3bfe7e2e718d41cc654488b58eeb1b8ba1d373e7d5f45a325f6269430",
+    "dev/reward.test.cjs": "d5340d40d8cf535968eb4d8dc38615b089d374129159c409f19bcc0146f27e2f",
+    "dev/audio.js": "bd55d35c6419fea34ebc33d039060252d51215188ed1f85a032f5adf11258d0b",
+    "dev/audio.test.cjs": "b6b5e0cd3f08ff385ab271973edc0349f4a24d634fd936e079eaa2214d5533ca",
+    "dev/playtest.cjs": "8a65a19d1094982f3acfe69243bf8b15e7fc83dbede1cc357cd93419854d1685"
+  },
+  "note": "Actually rerun for v4. API simulations do not measure human play time or balance."
+}
