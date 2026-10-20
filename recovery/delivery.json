@@ -1,18 +1,18 @@
 {
-  "version": "妖影战痕版",
+  "version": "寒渊问剑版",
   "date": "2026-10-20",
-  "based_on": "user-provided 33.zip",
+  "based_on": "user 33.zip and v4 game",
   "game_html": {
-    "bytes": 250124,
-    "sha256": "93c0aedcd9162ed35f3c4d54c32e7dbce8f17be77482bc27c69212dd1684c7ee"
+    "bytes": 349834,
+    "sha256": "e4b49022cb1e4c13ec2b71da7787fc2b20bebe728b4060b104c503f245b311c6"
   },
   "standalone_html": {
-    "bytes": 6141947,
-    "sha256": "d1a61a858ca3036c3eafbe66373ea136ede07007c00a444c53bd664faec3fd5c"
+    "bytes": 8768687,
+    "sha256": "1135a132873593364b0cc832c34bb3679ff3161e95e28c8d2ae0f6b900e84041"
   },
   "play_zip": {
-    "bytes": 9623862,
-    "sha256": "135180570b99eafcc8c7f87dadafe688eca70f42480be2f0890daa1082f664b9"
+    "bytes": 13520970,
+    "sha256": "d87331a026747606cb485c70405f6c26874a21b6834b7d05b99ab325b15a037a"
   },
   "zip_crc": "PASS",
   "runtime_art": {
@@ -21,60 +21,64 @@
       "bytes": 1256610
     },
     "cards": {
-      "count": 36,
-      "bytes": 1538258
+      "count": 52,
+      "bytes": 1977414
     },
     "events": {
-      "count": 9,
-      "bytes": 629910
+      "count": 17,
+      "bytes": 1005352
     },
     "relics": {
-      "count": 13,
-      "bytes": 266426
+      "count": 14,
+      "bytes": 297444
     },
     "puppet": {
-      "count": 4,
-      "bytes": 727594
+      "count": 7,
+      "bytes": 1554294
     }
   },
+  "professions": [
+    "影契刺客",
+    "霜华剑修"
+  ],
+  "map_stages": 10,
+  "story_events": 14,
+  "cards": 52,
+  "sound_profiles": 52,
   "formal_cubism_model_exported": false,
-  "animated_portrait": "custom Canvas2D weighted mesh, 135 vertices / 224 triangles / 7 influence regions",
-  "damage_thresholds": {
-    "wounded": 0.5,
-    "critical": 0.25,
-    "inclusive": true
-  },
-  "puppet_tests": {
-    "passed": 11,
-    "failed": 0
-  },
-  "cards": 36,
-  "event_art": 9,
-  "relic_art": 13,
-  "sound_profiles": 36,
+  "scene_models": "procedural WebGL low-poly geometry, articulated parts; not production sculpted/skinned assets",
   "engine_tests": {
-    "passed": 90,
-    "failed": 0
+    "command": "node --test dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs",
+    "passed": 105,
+    "failed": 0,
+    "skipped": 0
   },
   "audio_tests": {
-    "passed": 11,
+    "passed": 19,
+    "failed": 0
+  },
+  "scene_tests": {
+    "passed": 12,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 16,
+    "passed": 12,
+    "failed": 0
+  },
+  "export_roundtrip_checks": {
+    "passed": 4,
     "failed": 0
   },
   "public_api_simulations": {
-    "completed": 90,
-    "wins": 89,
-    "defeats": 1
+    "completed": 120,
+    "wins": 120,
+    "defeats": 0
   },
-  "full_recovery_checks": 15,
-  "source_recovery_checks": 19,
+  "full_recovery_checks": 17,
+  "source_recovery_checks": 21,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v4": true,
-  "cloud_draft_read_back_verified": true,
+  "cloud_configuration_updated_for_v5": false,
   "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"

@@ -1,0 +1,551 @@
+{
+  "format": "nightpact-art-v5",
+  "character": {
+    "id": "sword",
+    "name": "沈霜白",
+    "adult": true,
+    "description": "清冷寡言的成年女剑修；银灰长发、冰蓝眼、白蓝银长袍、长剑。与猫妖为独立绘制身份。",
+    "formalCubismModel": false
+  },
+  "method": "image_gen generation/edits; contact sheets technically cropped and encoded with Sharp; no remote runtime assets",
+  "portraits": {
+    "normal": {
+      "file": "assets/puppet/sword-normal.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 222950,
+      "sha256": "8e71990ca52613bad026e4e8114d7ba27d58a9310ab035cc40a279ffe992ba7b",
+      "pixelFingerprint32": "6e0f7576ac478bbbac957181a16591f371bbb9c51dcfaa5e2dd96a7fa7ce86ee",
+      "sourceImage": "/workspace/generated_images/exec-64122752-94c1-4ea8-a2c2-84fc11ef7e3a.png",
+      "health": ">50%",
+      "visibleChanges": "衣装完整、冷静寡言，神情从容",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 177.48683856835652
+      }
+    },
+    "wounded": {
+      "file": "assets/puppet/sword-wounded.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 277136,
+      "sha256": "10f92fa04967fc2e2d746f4a192536e4c77c648e3162b99ff0ab19d4bf258806",
+      "pixelFingerprint32": "718964a92cb7c2825369a1a6c9c075d7873c91daf95e8b9cb9e5c9f6ecefc0fc",
+      "sourceImage": "/workspace/generated_images/exec-3bb85de6-9b80-4939-a8fe-2a4d2d654e5a.png",
+      "health": "25%<HP<=50%",
+      "visibleChanges": "外袖袍边破损、浅擦伤、神色警觉",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 172.79914554355784
+      }
+    },
+    "critical": {
+      "file": "assets/puppet/sword-critical.webp",
+      "width": 683,
+      "height": 1024,
+      "bytes": 326614,
+      "sha256": "57769ae0f4420ce895d8ecde2892a56d8161c276b7faa0370d0d9121e1b16d4e",
+      "pixelFingerprint32": "f811b6b1c81c7a429e68609fc7cab09251ff26f3ab65550939c8debd2903d070",
+      "sourceImage": "/workspace/generated_images/exec-ca1effda-8ce2-4388-a59e-2b8340cfb99a.png",
+      "health": "HP<=25%",
+      "visibleChanges": "衣装更破、发丝凌乱、疲惫而坚决，核心遮盖完整",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 167.94207254300878
+      }
+    }
+  },
+  "cards": {
+    "S01": {
+      "file": "assets/cards/S01.webp",
+      "width": 314,
+      "height": 314,
+      "bytes": 33152,
+      "sha256": "64b03c01288fe4296a2a6004093707e7933e21a129c0f9087deed893a2f3a629",
+      "pixelFingerprint32": "b730e3449a980753390347f22ecbe087cbe14630f301de1e826716edad74696d",
+      "title": "霜锋",
+      "concept": "一剑斜斩雪中霜锋",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 1,
+        "left": 0,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      }
+    },
+    "S02": {
+      "file": "assets/cards/S02.webp",
+      "width": 313,
+      "height": 314,
+      "bytes": 26880,
+      "sha256": "5cb647be2f3a28f268e77a9483f51b14d6e381e3acc6dbe0afea48407152eaf4",
+      "pixelFingerprint32": "1582a6c66d128abb72b291d10aaa9ff2c003e68343b5881db139b886dee71c68",
+      "title": "凝霜",
+      "concept": "六角冰晶环绕护身",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 2,
+        "left": 314,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      }
+    },
+    "S03": {
+      "file": "assets/cards/S03.webp",
+      "width": 314,
+      "height": 314,
+      "bytes": 29342,
+      "sha256": "9470ae80948f101f778964f81dbfcdf8f472530bf42b06a366d545f0f8e61601",
+      "pixelFingerprint32": "cbe73527e50d8d915c3d16fef4ba1fe61635b5ff134eca3a583b9473651a6d3b",
+      "title": "听雪",
+      "concept": "雪枝下闭目听雪积蓄剑意",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 3,
+        "left": 627,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      }
+    },
+    "S04": {
+      "file": "assets/cards/S04.webp",
+      "width": 313,
+      "height": 314,
+      "bytes": 32932,
+      "sha256": "5f614a4b200e04b5a99339b4fe471bdbf2a79b3360a7580a01c5f27b8396685c",
+      "pixelFingerprint32": "1259764eab2e7c5f60643aa956f0828b3588d1c1d00fda664b61f34c9b0e3164",
+      "title": "断流",
+      "concept": "长剑斩开冻结瀑布",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 4,
+        "left": 941,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      }
+    },
+    "S05": {
+      "file": "assets/cards/S05.webp",
+      "width": 314,
+      "height": 313,
+      "bytes": 15598,
+      "sha256": "132dc77823b54ed8c369e0321d9db28fdd279eeacd745d1b9cbafefcbd1d40bb",
+      "pixelFingerprint32": "e8c7066c8408110c2810b0b3cd1f9782d717bb9683e6d877268ff13ae11a0734",
+      "title": "寒芒",
+      "concept": "凌空冰刃狭长剑芒",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 5,
+        "left": 0,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      }
+    },
+    "S06": {
+      "file": "assets/cards/S06.webp",
+      "width": 313,
+      "height": 313,
+      "bytes": 21596,
+      "sha256": "9704c3b5e8b7f8da9975469f1c6cfdbce7216db285a881236daea0cf3777fe71",
+      "pixelFingerprint32": "98fb2e9f1150944fbd3dbf2546aca2bc27dd5f79df536eaea7cf2fa20e98210d",
+      "title": "踏雪",
+      "concept": "白靴踏雪留弧形足迹",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 6,
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      }
+    },
+    "S07": {
+      "file": "assets/cards/S07.webp",
+      "width": 314,
+      "height": 313,
+      "bytes": 21936,
+      "sha256": "7e931e287aabd62223b7c4e1c419666e5fbd2d9af1d77ff829c473c453d8b67f",
+      "pixelFingerprint32": "10826203178702c4f48b598cac7a62e883f083984dc417ca21271f0525cd8409",
+      "title": "冰镜",
+      "concept": "冰镜挡下并反射剑光",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 7,
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      }
+    },
+    "S08": {
+      "file": "assets/cards/S08.webp",
+      "width": 313,
+      "height": 313,
+      "bytes": 30666,
+      "sha256": "d53d6745340ccd4faf65e763d449c6be64a39b261d97d9e8240ce349e89cf702",
+      "pixelFingerprint32": "3d8851b6ee4dc966df3a7df0b6df0673d6d19a64c901daf55633313730d9513d",
+      "title": "三叠泉",
+      "concept": "泉水之上三道连续剑弧",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 8,
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      }
+    },
+    "S09": {
+      "file": "assets/cards/S09.webp",
+      "width": 314,
+      "height": 314,
+      "bytes": 19786,
+      "sha256": "65cb8dd937151f30293e3c700cef0d0b3dc29b65cbf88af83609e97c50768ca5",
+      "pixelFingerprint32": "b8fed2034ec7f31691d932ef1aff0ac2e09c1e06cbca5414b7ae63054e32c5d4",
+      "title": "澄心",
+      "concept": "冷月剑湖静心",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 9,
+        "left": 0,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      }
+    },
+    "S10": {
+      "file": "assets/cards/S10.webp",
+      "width": 313,
+      "height": 314,
+      "bytes": 33498,
+      "sha256": "afacea06316a1d160e0fa2121208c18805f94bc062bbcee1432db8a50303bece",
+      "pixelFingerprint32": "97848c683eb950de6cdaa7f7d2c2875b78ea3e853d47968bb6f3b20e754e40b9",
+      "title": "回锋",
+      "concept": "回身旋转剑气",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 10,
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      }
+    },
+    "S11": {
+      "file": "assets/cards/S11.webp",
+      "width": 314,
+      "height": 314,
+      "bytes": 24146,
+      "sha256": "76731111e438c5fb309ef24840e65ffe67065259d103cb357cb574ec475a1fc5",
+      "pixelFingerprint32": "74385b77c867b037ef2f7164521858a15a0699ce72d9e63d388221959578ceb2",
+      "title": "藏剑",
+      "concept": "长剑归入蓝银剑鞘",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 11,
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      }
+    },
+    "S12": {
+      "file": "assets/cards/S12.webp",
+      "width": 313,
+      "height": 314,
+      "bytes": 31380,
+      "sha256": "ad213c39ce6134d79b1dbe44500eabd1064fb0cc341d7dcdd0b29b74a9949da1",
+      "pixelFingerprint32": "42fffb4a71035fef06f68e53678f0ea4399680aecf28662e96d040645c63bb9a",
+      "title": "霜天壁",
+      "concept": "巨大冰壁抵挡箭雨",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 12,
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      }
+    },
+    "S13": {
+      "file": "assets/cards/S13.webp",
+      "width": 314,
+      "height": 313,
+      "bytes": 17930,
+      "sha256": "700b937891589bee5cb6ad50369040160b1f91d07b3755370a2f44898b9e2699",
+      "pixelFingerprint32": "3a2bed1d21775a0e3dea2e90a7eb31847b5838e85333e6941e231741cb4332f4",
+      "title": "以血淬刃",
+      "concept": "寒剑上的象征性血滴",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 13,
+        "left": 0,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      }
+    },
+    "S14": {
+      "file": "assets/cards/S14.webp",
+      "width": 313,
+      "height": 313,
+      "bytes": 32812,
+      "sha256": "b5ea22ee53469248f5b31376d405245c5763c189b15dd7e9ffb2949bfc2c14ee",
+      "pixelFingerprint32": "616f56604e548bf163168452289de21881f9e0545a0cebf496b97bfd92e96de3",
+      "title": "剑鸣",
+      "concept": "长剑震荡同心冰纹",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 14,
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      }
+    },
+    "S15": {
+      "file": "assets/cards/S15.webp",
+      "width": 314,
+      "height": 313,
+      "bytes": 36646,
+      "sha256": "d86bc4564526d5c131cddab95c3442651ac4b7f7aca014def05a2bb61009c4d4",
+      "pixelFingerprint32": "17245816018ad50d23efca4c4293dc1b38944e55f9ced0db395f288c59905adc",
+      "title": "碎霜",
+      "concept": "剑尖击碎冰晶爆散",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 15,
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      }
+    },
+    "S16": {
+      "file": "assets/cards/S16.webp",
+      "width": 313,
+      "height": 313,
+      "bytes": 30856,
+      "sha256": "1096dcfb12d6de3bf4d59f4c676a1bf8f8023d57da8e2bd9b3cd721d40b6e10e",
+      "pixelFingerprint32": "31b22e982df31821fef950f18482797a013acf6f218706c11fb1329781ab7e6e",
+      "title": "万川归寂",
+      "concept": "千冰飞剑汇聚冻结山川",
+      "sourceImage": "/workspace/generated_images/exec-fd3401c2-32f3-4e06-a4d8-e14de747e5d7.png",
+      "sourceCell": {
+        "grid": 4,
+        "readingOrder": 16,
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      }
+    }
+  },
+  "events": {
+    "riftwatch": {
+      "file": "assets/events/riftwatch.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 45866,
+      "sha256": "b5e3edea3498d1bb4ff20a50b916bdc690738d0e48f513a9de010bfb32bb9cbe",
+      "pixelFingerprint32": "c5f643365760b8994dbac737bf7cb3127d2c9ec17d3bd0681f18d57babfa72c3",
+      "title": "封域望哨",
+      "concept": "太微剑宗霜白哨塔凝望黑雾",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 1,
+        "left": 0,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "supply": {
+      "file": "assets/events/supply.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 45098,
+      "sha256": "87a021a34ab5b9b5a4024180c691e4e0aed01ddeda1bda73a971a244f6b5bc66",
+      "pixelFingerprint32": "e493a4ca49e09990c5d07d57b398601b97a27cb23e1573250acb92c2b00ba147",
+      "title": "断桥军需",
+      "concept": "千灯商盟残桥货车与军需",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 2,
+        "left": 418,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "cultlab": {
+      "file": "assets/events/cultlab.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 48954,
+      "sha256": "5105eeb5e5a51c05bad8914fb4d361a9a640981a01af1c35bcb282e79630e8ed",
+      "pixelFingerprint32": "eae920c1287cf4643bcbf8a7919205ec236b5448db16e5a00fe7ee7f8b14681c",
+      "title": "逆仪残室",
+      "concept": "玄烬教失控红色仪器与反噬",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 3,
+        "left": 836,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "swordgrave": {
+      "file": "assets/events/swordgrave.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 53412,
+      "sha256": "0a508bae4aa08da857ac69d5fe004da96acb13fdd65b94f9d44a873eda104a05",
+      "pixelFingerprint32": "a3a2887c859dcf3e728eb0cd10970c3bbdd257e740886102adcaadfd4c39a45c",
+      "title": "寒碑剑冢",
+      "concept": "冰封古碑与雪中剑冢",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 4,
+        "left": 0,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "pilgrims": {
+      "file": "assets/events/pilgrims.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 46826,
+      "sha256": "e3ff680ddd7576e89fa1c6e8c94418e76c997407942ac70d6c0bf144a6fde61a",
+      "pixelFingerprint32": "537c67c67133c42ea8d43645ba4a5e1ad20736fdb69bbfd53f5f659157a3a839",
+      "title": "失序行营",
+      "concept": "混杂探险者与暗怀鬼胎的营地",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 5,
+        "left": 418,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "prisoner": {
+      "file": "assets/events/prisoner.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 46454,
+      "sha256": "3e562098948482b0fb07d094cb1559a31900d257b6ee4dbbdddc19335a26787b",
+      "pixelFingerprint32": "d744732fa5136d88573e9949978acbd21f157e285be6610d54d66855e45a2730",
+      "title": "锁魂囚笼",
+      "concept": "黑铁符箓囚笼中的幽蓝灵魂",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 6,
+        "left": 836,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "echo": {
+      "file": "assets/events/echo.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 43834,
+      "sha256": "77a48a7684d5ce408e1c1b5447cd63ebcb367926e532c90641e9d1c9feaf8387",
+      "pixelFingerprint32": "71fc57a015a020078ba91c82ed03f0e0d86e67d94e9f5fc2cb93100933609f98",
+      "title": "异声裂隙",
+      "concept": "不可能的紫黑几何裂隙",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 7,
+        "left": 0,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      }
+    },
+    "broker": {
+      "file": "assets/events/broker.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 44998,
+      "sha256": "34179ecf2ef6b9b965d88d8349215551b0d8011abd565748af635fd6bb4b9e79",
+      "pixelFingerprint32": "94fd229a973427b05dfacc295f68b790601c6d9dca1f3a83bafc5af3810e099b",
+      "title": "千灯密约",
+      "concept": "金灯下暗中签约的商人",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 8,
+        "left": 418,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      }
+    }
+  },
+  "relics": {
+    "frostseal": {
+      "file": "assets/relics/frostseal.webp",
+      "width": 418,
+      "height": 418,
+      "bytes": 31018,
+      "sha256": "54bf50f1db8c95eda14eb0e9f9576b104173325012bbac407151af5058e21468",
+      "pixelFingerprint32": "528e0a172adc3f914386a1e90c3d15436192753383649557211a8ea4a75cec15",
+      "title": "霜魄剑穗（剑印形佩件与冰晶穗饰）",
+      "concept": "银玉剑印与冰蓝剑穗",
+      "sourceImage": "/workspace/generated_images/exec-4d45b116-01b4-4639-87f6-2f2d792c06ae.png",
+      "sourceCell": {
+        "grid": 3,
+        "readingOrder": 9,
+        "left": 836,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      }
+    }
+  },
+  "validation": {
+    "decoded": 28,
+    "uniquePixelFingerprints": 28,
+    "totalBytes": 1672316,
+    "cardCount": 16,
+    "eventCount": 8,
+    "relicCount": 1,
+    "portraitCount": 3
+  }
+}

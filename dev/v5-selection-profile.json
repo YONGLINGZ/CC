@@ -1,0 +1,723 @@
+{
+  "note": "Diagnostic profiling, separate from final integration suite. No game-rule or run-resource edits. Do not count this as the final dual-profession run.",
+  "uiSha256": "900ef4957b7bc3b88d3d4f429ef72e31aeff872864206d1cc286b894608f50c2",
+  "before": {
+    "source": "final standalone without modification",
+    "cases": [
+      {
+        "mode": "both",
+        "timings": [
+          449,
+          320,
+          365,
+          237,
+          402,
+          256,
+          406,
+          257,
+          377,
+          251,
+          453,
+          216,
+          450,
+          284,
+          321,
+          312,
+          362,
+          237,
+          458,
+          190
+        ],
+        "stats": {
+          "scene": {
+            "instances": 1,
+            "rafCount": 1,
+            "frames": 179,
+            "webglInstances": 1
+          },
+          "puppet": {
+            "instances": 1,
+            "rafCount": 1,
+            "scheduledRafs": 216,
+            "frames": 137,
+            "paused": false
+          },
+          "heap": 39600000
+        }
+      },
+      {
+        "mode": "no-scene",
+        "timings": [
+          212,
+          131,
+          297,
+          73,
+          339,
+          110,
+          328,
+          112,
+          321,
+          104,
+          319,
+          82,
+          329,
+          102,
+          343,
+          98,
+          323,
+          105,
+          326,
+          83
+        ],
+        "stats": {
+          "scene": {
+            "instances": 0,
+            "rafCount": 0,
+            "frames": 180,
+            "webglInstances": 0
+          },
+          "puppet": {
+            "instances": 1,
+            "rafCount": 1,
+            "scheduledRafs": 467,
+            "frames": 258,
+            "paused": false
+          },
+          "heap": 39600000
+        }
+      },
+      {
+        "mode": "both-again",
+        "timings": [
+          333,
+          251,
+          431,
+          215,
+          344,
+          222,
+          429,
+          187,
+          426,
+          188,
+          499,
+          224,
+          415,
+          196,
+          683,
+          405,
+          589,
+          585,
+          426,
+          276
+        ],
+        "stats": {
+          "scene": {
+            "instances": 1,
+            "rafCount": 1,
+            "frames": 344,
+            "webglInstances": 1
+          },
+          "puppet": {
+            "instances": 1,
+            "rafCount": 1,
+            "scheduledRafs": 690,
+            "frames": 386,
+            "paused": false
+          },
+          "heap": 39600000
+        }
+      },
+      {
+        "mode": "no-puppet",
+        "timings": [
+          358,
+          220,
+          454,
+          273,
+          387,
+          248,
+          517,
+          248,
+          414,
+          208,
+          425,
+          177,
+          408,
+          206,
+          417,
+          213,
+          391,
+          185,
+          447,
+          397
+        ],
+        "stats": {
+          "scene": {
+            "instances": 1,
+            "rafCount": 1,
+            "frames": 512,
+            "webglInstances": 1
+          },
+          "puppet": {
+            "instances": 0,
+            "rafCount": 0,
+            "scheduledRafs": 691,
+            "frames": 387,
+            "paused": false
+          },
+          "heap": 39600000
+        }
+      }
+    ],
+    "errors": []
+  },
+  "after": {
+    "source": "final standalone without modification",
+    "cases": [
+      {
+        "mode": "both",
+        "timings": [
+          314,
+          196,
+          79,
+          51,
+          95,
+          55,
+          35,
+          81,
+          62,
+          58,
+          68,
+          47,
+          86,
+          82,
+          58,
+          55,
+          41,
+          93,
+          47,
+          51
+        ],
+        "stats": {
+          "scene": {
+            "instances": 1,
+            "rafCount": 1,
+            "frames": 55,
+            "webglInstances": 1
+          },
+          "puppet": {
+            "instances": 1,
+            "rafCount": 1,
+            "scheduledRafs": 104,
+            "frames": 55,
+            "paused": false
+          },
+          "heap": 47400000
+        }
+      }
+    ],
+    "errors": []
+  },
+  "cat_diagnostic": {
+    "target": "/workspace/scratch/v5-ui-select-fix.html",
+    "inlineTarget": "/workspace/CC/baiyao-standalone.html",
+    "results": [
+      {
+        "name": "双职业正常DOM十区完整通关与重开，不修改生命费用牌组路线",
+        "ok": true
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "localRequests": [
+      "/v5-ui-select-fix.html",
+      "/v5-ui-select-fix.html"
+    ],
+    "expectedMissingRequests": [],
+    "sha256": "1135a132873593364b0cc832c34bb3679ff3161e95e28c8d2ae0f6b900e84041",
+    "fileNavigation": {
+      "allowed": false,
+      "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/scratch/v5-ui-select-fix.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/scratch/v5-ui-select-fix.html\", waiting until \"load\"\u001b[22m\n"
+    },
+    "naturalRuns": {
+      "mark": [
+        {
+          "result": "victory",
+          "hp": 50,
+          "maxHp": 62,
+          "route": [
+            "fight",
+            "event",
+            "shop",
+            "fight",
+            "shop",
+            "event",
+            "fight",
+            "event",
+            "rest",
+            "boss"
+          ],
+          "history": 10
+        }
+      ]
+    },
+    "clickTimings": [
+      {
+        "action": "character",
+        "filter": "[data-character=\"assassin\"]",
+        "ms": 342
+      },
+      {
+        "action": "starter",
+        "filter": "[data-starter=\"mark\"]",
+        "ms": 210
+      },
+      {
+        "action": "start",
+        "filter": "",
+        "ms": 369
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f1-0\"]",
+        "ms": 255
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C17\"]",
+        "ms": 83
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 107
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C04\"]",
+        "ms": 81
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 117
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 232
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C01\"]",
+        "ms": 116
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 109
+      },
+      {
+        "action": "reward",
+        "filter": "[data-id=\"C19\"]",
+        "ms": 326
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f2-2\"]",
+        "ms": 93
+      },
+      {
+        "action": "event-choice",
+        "filter": "",
+        "ms": 194
+      },
+      {
+        "action": "event-leave",
+        "filter": "",
+        "ms": 370
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f3-3\"]",
+        "ms": 129
+      },
+      {
+        "action": "buy",
+        "filter": "[data-index=\"0\"]",
+        "ms": 44
+      },
+      {
+        "action": "leave-shop",
+        "filter": "",
+        "ms": 320
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f4-2\"]",
+        "ms": 270
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C03\"]",
+        "ms": 47
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 80
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C19\"]",
+        "ms": 84
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 143
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C28\"]",
+        "ms": 81
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 130
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 246
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C04\"]",
+        "ms": 47
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 119
+      },
+      {
+        "action": "reward",
+        "filter": "[data-id=\"C16\"]",
+        "ms": 286
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f5-2\"]",
+        "ms": 151
+      },
+      {
+        "action": "buy",
+        "filter": "[data-index=\"0\"]",
+        "ms": 32
+      },
+      {
+        "action": "leave-shop",
+        "filter": "",
+        "ms": 296
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f6-2\"]",
+        "ms": 183
+      },
+      {
+        "action": "event-choice",
+        "filter": "",
+        "ms": 111
+      },
+      {
+        "action": "event-leave",
+        "filter": "",
+        "ms": 301
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f7-1\"]",
+        "ms": 199
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C17\"]",
+        "ms": 44
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 84
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C16\"]",
+        "ms": 40
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 89
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 247
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C04\"]",
+        "ms": 89
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 122
+      },
+      {
+        "action": "reward",
+        "filter": "[data-id=\"C28\"]",
+        "ms": 319
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f8-1\"]",
+        "ms": 79
+      },
+      {
+        "action": "event-choice",
+        "filter": "",
+        "ms": 146
+      },
+      {
+        "action": "event-leave",
+        "filter": "",
+        "ms": 318
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f9-0\"]",
+        "ms": 138
+      },
+      {
+        "action": "rest",
+        "filter": "[data-heal=\"true\"]",
+        "ms": 375
+      },
+      {
+        "action": "node",
+        "filter": "[data-node=\"f10-0\"]",
+        "ms": 228
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C17\"]",
+        "ms": 49
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 65
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C19\"]",
+        "ms": 92
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 133
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C18\"]",
+        "ms": 68
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 193
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 224
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C16\"]",
+        "ms": 76
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 133
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C02\"]",
+        "ms": 61
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 277
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C28\"]",
+        "ms": 115
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 118
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C01\"]",
+        "ms": 80
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 132
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 211
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C17\"]",
+        "ms": 88
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 135
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C03\"]",
+        "ms": 80
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 230
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C19\"]",
+        "ms": 67
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 103
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C01\"]",
+        "ms": 92
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 118
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 226
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C28\"]",
+        "ms": 105
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 114
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C01\"]",
+        "ms": 87
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 95
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C32\"]",
+        "ms": 89
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 223
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C18\"]",
+        "ms": 119
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 150
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C28\"]",
+        "ms": 41
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 148
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 232
+      },
+      {
+        "action": "card",
+        "filter": "[data-id=\"C04\"]",
+        "ms": 40
+      },
+      {
+        "action": "target",
+        "filter": "",
+        "ms": 106
+      },
+      {
+        "action": "start",
+        "filter": "",
+        "ms": 291
+      },
+      {
+        "action": "end-turn",
+        "filter": "",
+        "ms": 242
+      },
+      {
+        "action": "start",
+        "filter": "",
+        "ms": 297
+      }
+    ],
+    "browser": "154.0.8037.57"
+  }
+}

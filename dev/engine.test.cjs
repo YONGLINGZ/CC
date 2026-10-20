@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { CARDS, ENEMIES, RELICS, FLOORS, STARTERS, createGame } = require('./engine.js');
+const { CARDS, ENEMIES, RELICS, FLOORS, STARTERS, EVENT_IDS, createGame } = require('./engine.js');
 
 let fixtureSerial = 0;
 function seeded(seed) {
@@ -37,12 +37,12 @@ function atNode(type, floor) {
 }
 function battleCards(b) { return [...b.hand, ...b.draw, ...b.discard, ...b.exhaust, ...b.resolving]; }
 
-test('数据完整：36 卡、6 敌人、13 遗物及八层四列迷雾地图', () => {
-  assert.equal(Object.keys(CARDS).length, 36);
+test('数据完整：52 卡、6 敌人、14 遗物及十段四列路线地图', () => {
+  assert.equal(Object.keys(CARDS).length, 52);
   assert.equal(Object.keys(ENEMIES).length, 6);
-  assert.equal(Object.keys(RELICS).length, 13);
-  assert.equal(FLOORS.length, 8);
-  assert.deepEqual(FLOORS.map(row => row.length), [1,3,4,4,4,4,3,1]);
+  assert.equal(Object.keys(RELICS).length, 14);
+  assert.equal(FLOORS.length, 10);
+  assert.deepEqual(FLOORS.map(row => row.length), [1,3,4,4,4,4,4,4,3,1]);
   for (const definition of Object.values(CARDS)) {
     assert.ok(definition.text.length > 0); assert.ok(definition.cost >= 0);
   }
@@ -270,7 +270,7 @@ test('精英给予 35 金币及未持有遗物，重复领取不生效', () => {
 });
 
 test('精英遗物全部持有时额外 20 金币，不重复给遗物', () => {
-  const game=atNode('elite',4); game.state.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox'].includes(id)));
+  const game=atNode('elite',4); game.state.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal'].includes(id)));
   forceWin(game); assert.equal(game.state.reward.gold,55); assert.equal(game.state.player.gold,115);
   assert.equal(game.state.reward.relic,null); assert.equal(game.state.reward.relicPending,false); assert.equal(game.state.player.relics.length,12);
 });
@@ -304,7 +304,7 @@ test('删牌按实例扣 40 金币且每店一次，下场仍永久删除', () =
   assert.equal(s.player.deck.length,9); assert.equal(s.player.deck.filter(c=>c.id==='C01').length,3);
   s.player.gold=100; assert.equal(game.removeCard(s.player.deck[0].uid),false);
   assert.equal(game.leaveShop(),true); assert.equal(game.leaveShop(),false);
-  assert.equal(game.enterNode('fight'),true);
+  assert.equal(game.enterNode(game.getAvailableNodes()[0].id),true);
   assert.ok(!battleCards(s.battle).some(c=>c.uid===removed.uid)); assert.equal(battleCards(s.battle).length,9);
 });
 
@@ -415,7 +415,7 @@ test('击杀立刻结束，多段不再继续；胜利奖励只结算一次', ()
 test('Boss 胜利直接结算，无选牌奖励，节点历史记录完成', () => {
   const game=atNode('boss',6); forceWin(game);
   assert.equal(game.state.screen,'victory'); assert.equal(game.state.reward,null);
-  assert.equal(game.state.player.gold,60); assert.deepEqual(game.state.result,{won:true,floor:8,enemy:ENEMIES.snake.name});
+  assert.equal(game.state.player.gold,60); assert.deepEqual(game.state.result,{won:true,floor:10,enemy:ENEMIES.snake.name});
   assert.deepEqual(game.state.history.map(n=>n.type),['boss']); assert.equal(game.chooseReward(null),false);
 });
 
@@ -448,21 +448,22 @@ test('失败后重新开始彻底还原生命、牌组、遗物、地图与临�
   assert.equal(s.floor,1); assert.equal(s.history.length,0); assert.deepEqual(s.stats,{battles:0,cardsPlayed:0,eliteBattles:0,maxCombo:0,maxHit:0}); assert.equal(s.rewardRerolls,1);
 });
 
-test('三个开局各 10 个独立实例，只替换两张基础牌且首战使用所选牌组', () => {
+test('四个职业流派开局各 10 个独立实例，首战真实使用所选职业牌组', () => {
   for (const [id, starter] of Object.entries(STARTERS)) {
     const game = createGame({rng:seeded(9)}); assert.equal(game.newRun(id),true);
     const s = game.state;
     assert.equal(s.starter,id); assert.equal(s.player.deck.length,10);
     assert.deepEqual(s.player.deck.map(c=>c.id),starter.cards);
-    assert.equal(s.player.deck.filter(c=>c.id==='C01').length,3);
-    assert.equal(s.player.deck.filter(c=>c.id==='C02').length,3);
+    const sword = starter.character === 'sword';
+    assert.equal(s.player.deck.filter(c=>c.id===(sword?'S01':'C01')).length,sword?4:3);
+    assert.equal(s.player.deck.filter(c=>c.id===(sword?'S02':'C02')).length,sword?4:3);
     game.enterNode(s.availableNodes[0]);
     assert.deepEqual(battleCards(s.battle).map(c=>c.id).sort(),starter.cards.slice().sort());
   }
   const game=createGame();const old=game.state;assert.equal(game.newRun('invalid'),false);assert.equal(game.state,old);
 });
 
-test('八层地图只开放真实后继，锁定节点不能跨层或重复进入', () => {
+test('十段地图只开放真实后继，锁定节点不能跨层或重复进入', () => {
   const game=setup();forceWin(game);game.chooseReward(null);const s=game.state;
   assert.equal(s.availableNodes.length,3);
   const selected=s.map[1][0];
@@ -489,8 +490,8 @@ test('地图每局生成一次且有随机节点，宽度和首尾战斗固定',
   for(let seed=1;seed<=30;seed++) {
     const game=createGame({rng:seeded(seed)});game.newRun();const map=JSON.stringify(game.state.map);
     layouts.add(map);for(let i=0;i<4;i++)game.getAvailableNodes();assert.equal(JSON.stringify(game.state.map),map);
-    assert.equal(game.state.map[0][0].type,'fight');assert.equal(game.state.map[7][0].type,'boss');
-    assert.deepEqual(game.state.map.map(row=>row.length),[1,3,4,4,4,4,3,1]);
+    assert.equal(game.state.map[0][0].type,'fight');assert.equal(game.state.map.at(-1)[0].type,'boss');
+    assert.deepEqual(game.state.map.map(row=>row.length),[1,3,4,4,4,4,4,4,3,1]);
   }
   assert.ok(layouts.size>1);
 });
@@ -636,11 +637,11 @@ test('事件每次进入只生成一次，至少一个有效选项，接受后�
     assert.equal(game.chooseEvent(index),false);assert.equal(JSON.stringify(s.player),p);assert.equal(s.history.length,0);
     assert.equal(s.event.resolved,true);assert.equal(game.leaveEvent(),true);assert.equal(s.history.length,1);
   }
-  assert.deepEqual(kinds,new Set(['well','shrine','dreamshop','theatre','umbrella','pawnshop']));
+  assert.deepEqual(kinds,new Set(EVENT_IDS));
 });
 
 test('异闻代价与收益精确兑现，贫穷或低血时仍有免费出路', () => {
-  const eventIds=['well','shrine','dreamshop','theatre','umbrella','pawnshop'];
+  const eventIds=EVENT_IDS;
   for (const id of eventIds) for (const poor of [false,true]) {
     const game=createGame({rng:seeded(60)});game.newRun();const s=game.state;
     const node=s.map[1].find(n=>n.type==='event');s.floor=2;s.availableNodes=[node.id];
@@ -671,12 +672,12 @@ test('结构化事件逐段准确、ID唯一、每行动重置并在致死后保
   assert.equal(new Set(b.events.map(e=>e.id)).size,b.events.length);assert.ok(b.logs.length>0);
 });
 
-test('公开 API 三种开局和三条路线共 27 固定种子自然跑通完整八层', () => {
+test('公开 API 四种开局和三条路线共 36 固定种子自然走完十段封域', () => {
   const {playRun}=require('./playtest.cjs');let wins=0;
   for(const starter of Object.keys(STARTERS))for(let lane=0;lane<3;lane++)for(let seed=1;seed<=3;seed++) {
     const result=playRun(1000+lane*100+seed,starter,lane);
     assert.ok(['victory','defeat'].includes(result.result));
-    if(result.result==='victory'){wins++;assert.equal(result.floor,8);assert.equal(result.encounters.length,8);assert.equal(result.encounters[0],'fight');}
+    if(result.result==='victory'){wins++;assert.equal(result.floor,10);assert.equal(result.encounters.length,10);assert.equal(result.encounters[0],'fight');}
   }
-  assert.ok(wins>=18,`Natural run victories: ${wins}/27`);
+  assert.ok(wins>=18,`Natural run victories: ${wins}/36`);
 });

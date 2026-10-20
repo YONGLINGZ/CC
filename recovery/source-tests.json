@@ -1,12 +1,12 @@
 {
-  "format": "baiyao-recovery-tests-v4",
+  "format": "baiyao-recovery-tests-v5",
   "mode": "source-svg",
-  "passed": 19,
+  "passed": 21,
   "failed": 0,
   "checks": [
     "fresh empty directory: all payload files and generated outputs match exact SHA256; no images.js or PNG needed",
     "idempotent restore: zero files rewritten and all timestamps preserved",
-    "missing source, outputs and selected assets: reconstructed byte-exactly",
+    "missing source including 3D scene, outputs and selected assets including sword critical portrait: reconstructed byte-exactly",
     "modified source: refused before any writes; missing HTML remains missing",
     "after user removes conflicting source: restoration succeeds",
     "modified HTML: refused before any writes; missing source remains missing",
@@ -17,20 +17,22 @@
     "modified card WebP: refused without any source or HTML writes",
     "modified wounded puppet WebP: refused before any source, rig or HTML writes",
     "modified puppet rig JSON: refused and preserved before any file writes",
+    "modified 3D scene source: refused and preserved before any source, resource or HTML writes",
+    "modified sword heroine WebP: refused and preserved before any source or HTML writes",
     "symlinked assets directory: refused before writes",
     "partial WebP collection: no assets rewritten, exact single-file SVG fallback generated",
     "existing full inline HTML renamed index.html: preserved without external images",
-    "existing folder release with all 70 WebPs: preserved byte-for-byte while sources restored",
+    "existing folder release with all 98 WebPs: preserved byte-for-byte while sources restored",
     "existing folder release with missing WebPs: safely refused and untouched; requires full recovery or empty directory",
     "existing standalone release: preserved while independent slim index is restored"
   ],
-  "script_sha256": "dd689bf3fe845ed4873faee99391779dffc0e5c8ee6e9b02e81e60d4ecca9f09",
+  "script_sha256": "e803bd9ab99311fb15b56654abb3dd77b609bfff81f2be62217dcb189483dac4",
   "outputs": {
-    "index.html": "f37307df5572bf436d89b0ffa60e4b0018ac16bcd0388cdb93874ab1922bc022"
+    "index.html": "ad7b31a9bb1315e0a68badb5146cef5a9199991ce630809abe35c31ae5357818"
   },
   "release_outputs": {
-    "index.html": "93c0aedcd9162ed35f3c4d54c32e7dbce8f17be77482bc27c69212dd1684c7ee",
-    "baiyao-standalone.html": "d1a61a858ca3036c3eafbe66373ea136ede07007c00a444c53bd664faec3fd5c"
+    "index.html": "e4b49022cb1e4c13ec2b71da7787fc2b20bebe728b4060b104c503f245b311c6",
+    "baiyao-standalone.html": "1135a132873593364b0cc832c34bb3679ff3161e95e28c8d2ae0f6b900e84041"
   },
   "asset_count_in_payload": 0,
   "new_cloud_instance_tested": false,

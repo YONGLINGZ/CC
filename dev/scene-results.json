@@ -1,0 +1,895 @@
+{
+  "renderer": "Procedural WebGL triangle meshes, not production model assets",
+  "runtimeSha256": "b9c36d15b1a1c23d717515eed2df77b709b62cbd8cd94ccf81ecf5e24263cc6a",
+  "results": [
+    {
+      "name": "default Chromium creates actual WebGL meshes and colored depth-tested pixels",
+      "ok": true
+    },
+    {
+      "name": "assassin and ice swordswoman use different geometry, silhouettes and palette",
+      "ok": true
+    },
+    {
+      "name": "3D map follows engine graph, readable future labels and keyboard-ready current nodes",
+      "ok": true
+    },
+    {
+      "name": "available projected node really calls once; unavailable and duplicate activation are refused",
+      "ok": true
+    },
+    {
+      "name": "sync notices in-place map state changes and updates reachable projection buttons",
+      "ok": true
+    },
+    {
+      "name": "attack, hurt, guard, heal and revive deform real articulated character parts",
+      "ok": true
+    },
+    {
+      "name": "pointer look moves head independently of animated hair and tail",
+      "ok": true
+    },
+    {
+      "name": "reduced motion freezes frames and ignores actions, while scene data can still sync",
+      "ok": true
+    },
+    {
+      "name": "same-root mounting reuses one canvas; repeated disposal and detached roots release scheduler",
+      "ok": true
+    },
+    {
+      "name": "document-hidden fixture pauses shared RAF, then resumes; truly offscreen model also pauses",
+      "ok": true
+    },
+    {
+      "name": "battle scene contains hero and distinct modeled guardian; WebGL denial falls back without script failure",
+      "ok": true
+    },
+    {
+      "name": "zero runtime external requests, zero uncaught JS exceptions, full disposal leaves zero RAF",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "launchArgs": [
+    "--no-sandbox"
+  ],
+  "actualMeshes": [
+    {
+      "id": "map",
+      "info": {
+        "id": 1,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 7,
+        "rebuilds": 1,
+        "vertices": 38628,
+        "meshVertices": 38628,
+        "triangles": 12876,
+        "triangleCount": 12876,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f3-0",
+          "f3-1"
+        ],
+        "projections": [
+          {
+            "nodeId": "f1-0",
+            "x": 113.3045555984367,
+            "y": 178.4848388446332,
+            "available": false,
+            "visited": true
+          },
+          {
+            "nodeId": "f2-0",
+            "x": 234.8292993996041,
+            "y": 65.0731448029982,
+            "available": false,
+            "visited": true
+          },
+          {
+            "nodeId": "f2-1",
+            "x": 225.93610135311022,
+            "y": 145.66018433004518,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-2",
+            "x": 217.0429033066163,
+            "y": 226.24722385709222,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-3",
+            "x": 208.1497052601225,
+            "y": 306.83426338413926,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-0",
+            "x": 343.2339538268242,
+            "y": 70.55109602159796,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-1",
+            "x": 334.3407557803303,
+            "y": 151.13813554864495,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-2",
+            "x": 325.4475577338364,
+            "y": 231.725175075692,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-3",
+            "x": 316.5543596873425,
+            "y": 312.312214602739,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-0",
+            "x": 451.8099862274103,
+            "y": 74.47608019262773,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-1",
+            "x": 442.91678818091646,
+            "y": 155.06311971967475,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-2",
+            "x": 434.0235901344226,
+            "y": 235.65015924672176,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-3",
+            "x": 425.1303920879287,
+            "y": 316.2371987737688,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-0",
+            "x": 560.4171016431671,
+            "y": 78.11940098912372,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-1",
+            "x": 551.5239035966732,
+            "y": 158.7064405161707,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-2",
+            "x": 542.6307055501794,
+            "y": 239.2934800432177,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-3",
+            "x": 533.7375075036855,
+            "y": 319.8805195702647,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-0",
+            "x": 668.8983252779806,
+            "y": 82.90350892135794,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-1",
+            "x": 660.0051272314868,
+            "y": 163.49054844840492,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-2",
+            "x": 651.1119291849928,
+            "y": 244.07758797545193,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-3",
+            "x": 642.2187311384989,
+            "y": 324.66462750249894,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-0",
+            "x": 777.1642386680255,
+            "y": 89.63868272607425,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-1",
+            "x": 768.2710406215317,
+            "y": 170.2257222531213,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-2",
+            "x": 759.3778425750378,
+            "y": 250.8127617801683,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-3",
+            "x": 750.4846445285439,
+            "y": 331.3998013072153,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-0",
+            "x": 885.2409636201106,
+            "y": 98.08821575772183,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-1",
+            "x": 876.3477655736167,
+            "y": 178.67525528476884,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-2",
+            "x": 867.4545675271228,
+            "y": 259.2622948118158,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-3",
+            "x": 858.5613694806289,
+            "y": 339.8493343388629,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-0",
+            "x": 993.2561446686144,
+            "y": 107.09543804408071,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-1",
+            "x": 984.3629466221205,
+            "y": 187.6824775711277,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-2",
+            "x": 975.4697485756266,
+            "y": 268.26951709817473,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-3",
+            "x": 966.5765505291326,
+            "y": 348.85655662522174,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-0",
+            "x": 1088.0306551069425,
+            "y": 236.08497043400445,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1202,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "solid": 103110,
+      "colors": 3123,
+      "glError": 0,
+      "depthTest": true,
+      "contextVersion": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+    },
+    {
+      "id": "cat",
+      "info": {
+        "id": 2,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "character",
+        "type": "character",
+        "character": "assassin",
+        "frames": 7,
+        "rebuilds": 1,
+        "vertices": 6162,
+        "meshVertices": 6162,
+        "triangles": 2054,
+        "triangleCount": 2054,
+        "parts": 7,
+        "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [],
+        "projections": [],
+        "canvasCount": 1,
+        "width": 600,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "solid": 51932,
+      "colors": 1441,
+      "glError": 0,
+      "depthTest": true,
+      "contextVersion": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+    },
+    {
+      "id": "sword",
+      "info": {
+        "id": 3,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "character",
+        "type": "character",
+        "character": "sword",
+        "frames": 7,
+        "rebuilds": 1,
+        "vertices": 6192,
+        "meshVertices": 6192,
+        "triangles": 2064,
+        "triangleCount": 2064,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [],
+        "projections": [],
+        "canvasCount": 1,
+        "width": 600,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "solid": 52148,
+      "colors": 1886,
+      "glError": 0,
+      "depthTest": true,
+      "contextVersion": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+    }
+  ],
+  "characterSignatures": {
+    "assassin": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+    "sword": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30"
+  },
+  "mapLabels": [
+    {
+      "id": "f1-0",
+      "action": "node",
+      "label": "第1层 封域节点 已完成",
+      "disabled": true,
+      "opacity": 0.65,
+      "left": 113.305,
+      "top": 178.485
+    },
+    {
+      "id": "f2-0",
+      "action": "node",
+      "label": "第2层 封域节点 已完成",
+      "disabled": true,
+      "opacity": 0.65,
+      "left": 234.829,
+      "top": 65.0731
+    },
+    {
+      "id": "f2-1",
+      "action": "node",
+      "label": "第2层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 225.936,
+      "top": 145.66
+    },
+    {
+      "id": "f2-2",
+      "action": "node",
+      "label": "第2层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 217.043,
+      "top": 226.247
+    },
+    {
+      "id": "f2-3",
+      "action": "node",
+      "label": "第2层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 208.15,
+      "top": 306.834
+    },
+    {
+      "id": "f3-0",
+      "action": "node",
+      "label": "第3层 封域节点 可前往",
+      "disabled": false,
+      "opacity": 1,
+      "left": 343.234,
+      "top": 70.5511
+    },
+    {
+      "id": "f3-1",
+      "action": "node",
+      "label": "第3层 封域节点 可前往",
+      "disabled": false,
+      "opacity": 1,
+      "left": 334.341,
+      "top": 151.138
+    },
+    {
+      "id": "f3-2",
+      "action": "node",
+      "label": "第3层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 325.448,
+      "top": 231.725
+    },
+    {
+      "id": "f3-3",
+      "action": "node",
+      "label": "第3层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 316.554,
+      "top": 312.312
+    },
+    {
+      "id": "f4-0",
+      "action": "node",
+      "label": "第4层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 451.81,
+      "top": 74.4761
+    },
+    {
+      "id": "f4-1",
+      "action": "node",
+      "label": "第4层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 442.917,
+      "top": 155.063
+    },
+    {
+      "id": "f4-2",
+      "action": "node",
+      "label": "第4层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 434.024,
+      "top": 235.65
+    },
+    {
+      "id": "f4-3",
+      "action": "node",
+      "label": "第4层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 425.13,
+      "top": 316.237
+    },
+    {
+      "id": "f5-0",
+      "action": "node",
+      "label": "第5层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 560.417,
+      "top": 78.1194
+    },
+    {
+      "id": "f5-1",
+      "action": "node",
+      "label": "第5层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 551.524,
+      "top": 158.706
+    },
+    {
+      "id": "f5-2",
+      "action": "node",
+      "label": "第5层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 542.631,
+      "top": 239.293
+    },
+    {
+      "id": "f5-3",
+      "action": "node",
+      "label": "第5层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 533.738,
+      "top": 319.881
+    },
+    {
+      "id": "f6-0",
+      "action": "node",
+      "label": "第6层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 668.898,
+      "top": 82.9035
+    },
+    {
+      "id": "f6-1",
+      "action": "node",
+      "label": "第6层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 660.005,
+      "top": 163.491
+    },
+    {
+      "id": "f6-2",
+      "action": "node",
+      "label": "第6层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 651.112,
+      "top": 244.078
+    },
+    {
+      "id": "f6-3",
+      "action": "node",
+      "label": "第6层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 642.219,
+      "top": 324.665
+    },
+    {
+      "id": "f7-0",
+      "action": "node",
+      "label": "第7层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 777.164,
+      "top": 89.6387
+    },
+    {
+      "id": "f7-1",
+      "action": "node",
+      "label": "第7层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 768.271,
+      "top": 170.226
+    },
+    {
+      "id": "f7-2",
+      "action": "node",
+      "label": "第7层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 759.378,
+      "top": 250.813
+    },
+    {
+      "id": "f7-3",
+      "action": "node",
+      "label": "第7层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 750.485,
+      "top": 331.4
+    },
+    {
+      "id": "f8-0",
+      "action": "node",
+      "label": "第8层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 885.241,
+      "top": 98.0882
+    },
+    {
+      "id": "f8-1",
+      "action": "node",
+      "label": "第8层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 876.348,
+      "top": 178.675
+    },
+    {
+      "id": "f8-2",
+      "action": "node",
+      "label": "第8层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 867.455,
+      "top": 259.262
+    },
+    {
+      "id": "f8-3",
+      "action": "node",
+      "label": "第8层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 858.561,
+      "top": 339.849
+    },
+    {
+      "id": "f9-0",
+      "action": "node",
+      "label": "第9层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 993.256,
+      "top": 107.095
+    },
+    {
+      "id": "f9-1",
+      "action": "node",
+      "label": "第9层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 984.363,
+      "top": 187.682
+    },
+    {
+      "id": "f9-2",
+      "action": "node",
+      "label": "第9层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 975.47,
+      "top": 268.27
+    },
+    {
+      "id": "f9-3",
+      "action": "node",
+      "label": "第9层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 966.577,
+      "top": 348.857
+    },
+    {
+      "id": "f10-0",
+      "action": "node",
+      "label": "第10层 封域节点 尚不可达",
+      "disabled": true,
+      "opacity": 0.8,
+      "left": 1088.03,
+      "top": 236.085
+    }
+  ],
+  "actionPoses": [
+    {
+      "breath": -0.015322955850123974,
+      "headYaw": 0.011868348729009099,
+      "hair": -0.001782385821218969,
+      "tail": 0.08096505228304712,
+      "leftArm": 0.2231070945326894,
+      "rightArm": -0.8031855403176819,
+      "lean": -0.11601568915699849,
+      "shift": 0.26772851343922727,
+      "kind": "attack",
+      "p": 0.35100000000496645
+    },
+    {
+      "breath": -0.015247112071678531,
+      "headYaw": -0.014643781483841866,
+      "hair": -0.016293673319253077,
+      "tail": 0.013968091393219322,
+      "leftArm": 0,
+      "rightArm": 0,
+      "lean": 0.14498563363593434,
+      "shift": -0.14498563363593434,
+      "kind": "hurt",
+      "p": 0.3610000000024835
+    },
+    {
+      "breath": -0.0019580442980071046,
+      "headYaw": 0.008143091929672337,
+      "hair": -0.03379523866735199,
+      "tail": -0.11088437171083897,
+      "leftArm": -0.3664793452514164,
+      "rightArm": -0.14095359432746785,
+      "lean": 0,
+      "shift": 0,
+      "kind": "guard",
+      "p": 0.1906666666691505
+    },
+    {
+      "breath": 0.029434607215982553,
+      "headYaw": 0.005515070980967818,
+      "hair": -0.03403677082344683,
+      "tail": -0.16431537955879166,
+      "leftArm": -0.15003005295459623,
+      "rightArm": -0.15003005295459623,
+      "lean": 0,
+      "shift": 0,
+      "kind": "heal",
+      "p": 0.31366666667411663
+    },
+    {
+      "breath": 0.04020089536736124,
+      "headYaw": 0.0024923948174190363,
+      "hair": -0.026000634930183026,
+      "tail": -0.18896591707348334,
+      "leftArm": -0.17986490201841887,
+      "rightArm": -0.17986490201841887,
+      "lean": 0,
+      "shift": 0,
+      "kind": "revive",
+      "p": 0.5123333333432675
+    }
+  ],
+  "pointer": {
+    "left": {
+      "breath": 0.011956890431816155,
+      "headYaw": -0.11432964059170922,
+      "hair": -0.0030047325744139335,
+      "tail": -0.16379668709770825,
+      "leftArm": 0,
+      "rightArm": 0,
+      "lean": 0,
+      "shift": 0,
+      "kind": null,
+      "p": 0
+    },
+    "right": {
+      "breath": 0.007018717463850399,
+      "headYaw": 0.10791909213908153,
+      "hair": 0.0068032772693297884,
+      "tail": -0.13644521044812685,
+      "leftArm": 0,
+      "rightArm": 0,
+      "lean": 0,
+      "shift": 0,
+      "kind": null,
+      "p": 0
+    }
+  },
+  "visibilityMethod": "document.hidden fixture plus genuine IntersectionObserver scroll-offscreen",
+  "battle": {
+    "id": 7,
+    "alive": true,
+    "supported": true,
+    "ready": true,
+    "mode": "battle",
+    "type": "battle",
+    "character": "sword",
+    "frames": 3,
+    "rebuilds": 1,
+    "vertices": 8322,
+    "meshVertices": 8322,
+    "triangles": 2774,
+    "triangleCount": 2774,
+    "parts": 8,
+    "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+    "pose": {
+      "breath": 0,
+      "headYaw": 0,
+      "hair": 0,
+      "tail": 0,
+      "leftArm": 0,
+      "rightArm": 0,
+      "lean": 0,
+      "shift": 0,
+      "kind": null,
+      "p": 0
+    },
+    "animation": null,
+    "availableNodes": [],
+    "projections": [],
+    "canvasCount": 1,
+    "width": 1202,
+    "height": 442,
+    "look": {
+      "x": 0,
+      "y": 0
+    },
+    "visible": true,
+    "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+  },
+  "browser": "154.0.8037.57",
+  "passed": 12,
+  "failed": 0
+}

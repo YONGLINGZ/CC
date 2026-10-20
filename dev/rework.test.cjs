@@ -16,12 +16,12 @@ function run(seed = 1, starter = 'mark') {
   return game;
 }
 
-test('迷雾地图每层都有分支，所有节点可达且能抵达 Boss', () => {
+test('可规划地图每段都有分支，所有节点可达且能抵达 Boss', () => {
   const layouts = new Set();
   for (let seed = 1; seed <= 160; seed++) {
     const game = run(seed, ['mark', 'combo', 'blood'][seed % 3]);
     const state = game.state, map = state.map, byId = Object.fromEntries(map.flat().map(node => [node.id, node]));
-    assert.deepEqual(map.map(floor => floor.length), [1, 3, 4, 4, 4, 4, 3, 1]);
+    assert.deepEqual(map.map(floor => floor.length), [1, 3, 4, 4, 4, 4, 4, 4, 3, 1]);
     layouts.add(map.map(floor => floor.map(node => node.type).join(',')).join('|'));
     for (let floor = 0; floor < map.length - 1; floor++) {
       assert.ok(map[floor].length > 1 || floor === 0, `第 ${floor + 1} 层没有分支`);
@@ -30,12 +30,12 @@ test('迷雾地图每层都有分支，所有节点可达且能抵达 Boss', () 
         for (const next of node.next) {
           assert.equal(byId[next].floor, node.floor + 1);
         }
-        if (node.floor > 1 && node.floor < 8) {
+        if (node.floor > 1 && node.floor < 10) {
           assert.ok(map.flat().some(previous => previous.next.includes(node.id)), `${node.id} 没有入口`);
         }
       }
     }
-    for (const node of map[6]) assert.ok(node.next.includes('f8-0'));
+    for (const node of map[8]) assert.ok(node.next.includes('f10-0'));
 
     const seen = new Set(['f1-0']), queue = ['f1-0'];
     while (queue.length) {
@@ -43,13 +43,13 @@ test('迷雾地图每层都有分支，所有节点可达且能抵达 Boss', () 
       for (const next of node.next) if (!seen.has(next)) { seen.add(next); queue.push(next); }
     }
     assert.equal(seen.size, map.flat().length, `seed ${seed} 有节点不可达`);
-    assert.ok(seen.has('f8-0'));
+    assert.ok(seen.has('f10-0'));
   }
   assert.ok(layouts.size > 20, '地图类型分布过于固定');
 });
 
-test('六种剧情奇遇的每个选项都能结算，并停留在结局页', () => {
-  const eventIds = ['well', 'shrine', 'dreamshop', 'theatre', 'umbrella', 'pawnshop'];
+test('十四种剧情奇遇的每个选项都能结算，并停留在结局页', () => {
+  const eventIds = NightPact.EVENT_IDS;
   for (const target of eventIds) {
     for (let index = 0; index < 3; index++) {
       const game = run(77 + index, 'mark');
@@ -103,7 +103,7 @@ test('无面神血增加最大生命，九命铃每场战斗挡一次致死', ()
   eventState.floor = 2;
   eventState.availableNodes = ['f2-0'];
   eventState.history = [];
-  eventState.seenEvents = ['dreamshop', 'theatre', 'umbrella', 'pawnshop', 'well'];
+  eventState.seenEvents = NightPact.EVENT_IDS.filter(id=>id!=='shrine');
   eventState.map[1][0].type = 'event';
   eventState.player.hp = 60;
   eventState.player.maxHp = 60;

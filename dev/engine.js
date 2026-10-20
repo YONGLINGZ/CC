@@ -40,6 +40,24 @@
     C35: { name: '盾返', cost: 1, text: '造成 4＋当前护盾的伤害（护盾贡献上限 16），不消耗护盾。', target: true, attack: true },
     C36: { name: '归息', cost: 1, text: '恢复 4 点生命。消耗。', target: false, exhaust: true }
   };
+  Object.assign(CARDS, {
+    S01: { name: '霜锋', cost: 1, text: '造成 6 点伤害；若敌人仍存活，获得 1 层剑意。', target: true, attack: true },
+    S02: { name: '凝霜', cost: 1, text: '获得 6 点护盾，使敌人获得 1 层霜寒。', target: true },
+    S03: { name: '听雪', cost: 0, text: '获得 2 层剑意。剑意上限 8，跨回合保留。', target: false },
+    S04: { name: '断流', cost: 2, text: '消耗全部剑意，造成 10＋3×消耗层数的伤害。', target: true, attack: true },
+    S05: { name: '寒芒', cost: 1, text: '造成 4 点伤害；若敌人仍存活，使其获得 2 层霜寒。', target: true, attack: true },
+    S06: { name: '踏雪', cost: 0, text: '获得 3 点护盾，抽 1 张牌。消耗。', target: false, exhaust: true },
+    S07: { name: '冰镜', cost: 1, text: '获得 7 点护盾；若敌人已有霜寒，再抽 1 张牌。', target: false },
+    S08: { name: '三叠泉', cost: 1, text: '连续攻击 3 次，每次 3 点伤害；若结算前剑意至少 3 层，每次改为 4 点。不消耗剑意。', target: true, attack: true },
+    S09: { name: '澄心', cost: 1, text: '抽 2 张牌。', target: false },
+    S10: { name: '回锋', cost: 0, text: '若剑意至少 2 层，消耗 2 层剑意，获得 1 灵力并抽 1 张牌；不足时无收益。消耗。', target: false, exhaust: true },
+    S11: { name: '藏剑', cost: 1, text: '下个玩家回合额外获得 1 灵力，并额外抽 1 张牌。可叠加。', target: false },
+    S12: { name: '霜天壁', cost: 2, text: '获得 14 点护盾，使敌人获得 2 层霜寒。', target: true },
+    S13: { name: '以血淬刃', cost: 0, text: '先失去 3 点生命，再抽 2 张牌并获得 1 层剑意。消耗。', target: false, exhaust: true },
+    S14: { name: '剑鸣', cost: 1, text: '造成 5 点伤害；若敌人仍存活，获得 2 层剑意。', target: true, attack: true },
+    S15: { name: '碎霜', cost: 2, text: '移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。', target: true, attack: true },
+    S16: { name: '万川归寂', cost: 3, text: '消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。', target: true, attack: true }
+  });
   Object.values(CARDS).forEach(card => {
     card.attack = !!card.attack;
     card.exhaust = !!card.exhaust;
@@ -48,19 +66,40 @@
     mark: ['C03','C04','C08','C16','C17','C18','C19','C20','C21'],
     combo: ['C05','C06','C07','C09','C10','C11','C22','C23','C24','C25','C26'],
     blood: ['C13','C14','C15','C27','C28','C29','C30','C31'],
-    guard: ['C02','C12','C32','C33','C34','C35','C36']
+    guard: ['C02','C12','C32','C33','C34','C35','C36'],
+    blade: ['S01','S03','S04','S08','S10','S11','S13','S14','S16'],
+    ice: ['S02','S05','S06','S07','S09','S12','S15']
   };
   for (const [category, ids] of Object.entries(CARD_GROUPS)) for (const id of ids) CARDS[id].category = category;
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
-    card.rarity = ['C21','C24','C27','C28','C33','C34'].includes(id) ? 'rare' : Number(id.slice(1)) > 16 ? 'uncommon' : 'common';
+    card.character = id.startsWith('S') ? 'sword' : 'assassin';
+    card.rarity = ['C21','C24','C27','C28','C33','C34','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common';
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
   const STARTERS = {
     mark: { name: '金瞳猎印', description: '窥隙叠印 → 追猎压血 → 扑杀收割。以标记换取爆发。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C17','C18'] },
     combo: { name: '月影连爪', description: '猫步与窥隙穿插，第三张触发裂帛连段；快速连续出牌。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C06','C22'] },
+    sword: { character: 'sword', name: '霜华剑道', description: '霜寒削弱敌人下一次行动的每段攻击，积蓄跨回合剑意，以断流一剑收束。', cards: ['S01','S01','S01','S01','S02','S02','S02','S02','S03','S04'] },
     blood: { name: '赤契噬魂', description: '歃血付出生命，换整场攻击增伤；血饮边进攻边疗伤。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C27','C28'] }
   };
+
+  for (const starter of Object.values(STARTERS)) starter.character = starter.character || 'assassin';
+  const CHARACTERS = {
+    assassin: { id: 'assassin', name: '夜铃', profession: '影契刺客', portrait: 'cat', adult: true,
+      description: '夜契盟的成年猫妖，善于窥见破绽、穿插连击，以血契换取致命的一击。她受雇寻找玄烬教遗失的契器。',
+      quote: '“别急。要害总会露出来。”', accent: '#d4ac72', starters: ['mark','combo','blood'] },
+    sword: { id: 'sword', name: '沈霜白', profession: '霜华剑修', portrait: 'sword', adult: true,
+      description: '太微剑宗的成年女修。寡言清冷，剑术卓绝；以冰霜封住杀势，再以无声一剑决胜。奉命入域，查明失踪同门的下落。',
+      quote: '“跟紧。不要回头。”', accent: '#a6dce9', starters: ['sword'] }
+  };
+  const FACTIONS = {
+    taiwei: { name: '太微剑宗', motive: '探明失踪同门与反噬边界，阻止灾变外溢。' },
+    cult: { name: '玄烬残众', motive: '收回实验残页，掩盖归墟引灵仪失控的证据。' },
+    guild: { name: '千灯商盟', motive: '收购奇物与情报，抢占无人知晓的代价。' },
+    wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
+  };
+  const EVENT_IDS = ['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker'];
 
   const ENEMIES = {
     paper: { name: '纸人', hp: 26, intents: [
@@ -93,6 +132,7 @@
   };
 
   const RELICS = {
+    frostseal: { name: '霜魄剑穗', text: '剑修初始遗物：每个玩家回合第一次实际增加敌人霜寒时，获得 1 层剑意。霜寒上限 4，剑意上限 8。' },
     bell: { name: '金铃', text: '每个玩家回合首次实际增加敌人标记时，获得 3 点护盾。标记上限 5。' },
     jade: { name: '磨爪玉', text: '每个玩家回合第 3 张牌结算后，获得 1 点灵力，每回合一次。' },
     moon: { name: '残月坠', text: '每场战斗第一个玩家回合额外抽 2 张牌。' },
@@ -110,18 +150,19 @@
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
-    fight: ['百鬼回廊','普通战斗 · 20 金币与三选一卡'],
-    elite: ['夜叉守门','高风险 · 35 金币、稀有卡保底与遗物／秘宝二选一'],
-    rest: ['栖月温泉','休息 · 恢复 18 点生命'],
-    shop: ['夜市珍阁','商店 · 随机三张牌，每张 35 金币；删牌 40'],
-    fox: ['狐影朱亭','最大生命减少 8 · 换一次免死'],
-    event: ['异闻幽径','剧情奇遇 · 前情、抉择与强奖励'],
-    boss: ['绛鳞之座','最终战 · 蛇妖·绛鳞，生命 100']
+    fight: ['侵蚀遗径','普通战斗 · 20 金币与本职业三选一卡'],
+    elite: ['禁域镇守','高风险 · 35 金币、稀有卡保底与珍藏二选一'],
+    rest: ['避瘴火塘','休息 · 恢复 18 点生命'],
+    shop: ['千灯补给站','商店 · 本职业卡牌 35 金币；删牌 40'],
+    fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
+    event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
+    boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
   };
   const MAP_BLUEPRINTS = [
-    ['fight'], ['fight','event','fight'], ['fight','event','shop','elite'],
-    ['fight','fox','event','elite'], ['fight','shop','rest','event'],
-    ['fight','elite','shop','event'], ['fight','rest','elite'], ['boss']
+    ['fight'], ['fight','event','rest'], ['fight','event','shop','elite'],
+    ['fight','fight','elite','fight'], ['event','fox','shop','event'],
+    ['rest','shop','event','elite'], ['fight','elite','fight','fight'],
+    ['event','shop','event','rest'], ['rest','shop','elite'], ['boss']
   ];
   const FLOORS = MAP_BLUEPRINTS.map((types, floor) => types.map((type, lane) => ({
     id: `f${floor + 1}-${lane}`, type, name: NODE_INFO[type][0], description: NODE_INFO[type][1],
@@ -129,12 +170,12 @@
   })));
   const OMENS = {
     fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
-    elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在楼梯上', '门缝里渗出铁锈与香灰味'],
+    elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在遗径上', '门缝里渗出铁锈与香灰味'],
     rest: ['雾里浮着一点暖意', '远处有水声，像有人替你留着灯', '这一层安静得能听见心跳'],
     shop: ['有人拨弄算盘，也有人在数铜钱', '一缕货香混着旧纸味', '檐下挂着会自己响的铃串'],
     fox: ['一尾赤色影子从墙后掠过', '风里有一点甜腻的狐香', '有人隔着帘子问：今夜还赊账吗'],
     event: ['纸灯无风自转', '雾中传来半句没说完的话', '门牌上的字被谁故意擦掉了'],
-    boss: ['楼顶的鳞片擦过屋瓦', '整座楼忽然安静下来', '金铃自己响了一声']
+    boss: ['观测井的鳞片擦过屋瓦', '整片封域忽然安静下来', '金铃自己响了一声']
   };
 
   const REWARD_POOL = Object.keys(CARDS).filter(id => Number(id.slice(1)) >= 3);
@@ -161,53 +202,51 @@
     function sample(pool, count) { return shuffle(pool).slice(0, count); }
     function makeMap() {
       const map = FLOORS.map((row, floor) => {
-        let types = row.map(node => node.type);
-        if (floor > 0 && floor < FLOORS.length - 1) {
-          types = shuffle(types);
-          if (rand(3) === 0) {
-            const fightIndex = types.indexOf('fight');
-            if (fightIndex >= 0) types[fightIndex] = ['event', 'rest', 'shop', 'fox'][rand(4)];
-          }
-        }
+        const types = floor > 0 && floor < FLOORS.length - 1 ? shuffle(row.map(n => n.type)) : row.map(n => n.type);
         return types.map((type, lane) => ({
-          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane,
+          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane, revealed: true,
           name: NODE_INFO[type][0], description: NODE_INFO[type][1],
           omen: OMENS[type][rand(OMENS[type].length)], next: []
         }));
       });
-      // Build a connected branching graph: every node offers two or three ways
-      // forward, and cross-lane links keep later decisions from being locked to
-      // the lane picked on the previous floor.
+      // Typed, connected routes: middle nodes have one or two nearby exits.
+      // Mandatory combat rows 1/4/7 plus the final guardian prevent an all-event run.
       for (let floor = 0; floor < map.length - 1; floor++) {
         const current = map[floor], next = map[floor + 1];
-        for (const node of current) {
-          const ranked = next.map(target => ({
-            target, score: Math.abs(target.lane - node.lane) + rng() * 2.15
-          })).sort((a, b) => a.score - b.score);
-          const degree = floor === 0 ? next.length : Math.min(next.length, 2 + rand(2));
-          node.next = ranked.slice(0, degree).map(item => item.target.id);
-        }
+        const position = (node, row) => row.length <= 1 ? .5 : node.lane / (row.length - 1);
+        const distance = (a, b) => Math.abs(position(a, current) - position(b, next));
+        if (current.length === 1) { current[0].next = next.map(n => n.id); continue; }
+        if (next.length === 1) { for (const n of current) n.next = [next[0].id]; continue; }
+        // Cover every destination first, without exceeding two exits per source.
         for (const target of next) {
-          if (!current.some(node => node.next.includes(target.id))) {
-            const source = current.slice().sort((a, b) =>
-              Math.abs(a.lane - target.lane) - Math.abs(b.lane - target.lane))[0];
-            source.next.push(target.id);
+          const candidates = current.filter(n => n.next.length < 2).map(n => ({ n, score: distance(n, target) + rng() * .1 }));
+          candidates.sort((a, b) => a.score - b.score);
+          candidates[0].n.next.push(target.id);
+        }
+        for (const node of current) {
+          const ranked = next.map(target => ({ target, score: distance(node, target) + rng() * .16 })).sort((a, b) => a.score - b.score);
+          if (!node.next.length) node.next.push(ranked[0].target.id);
+          if (node.next.length === 1 && rand(3) !== 0) {
+            const alternative = ranked.find(item => !node.next.includes(item.target.id));
+            if (alternative) node.next.push(alternative.target.id);
           }
         }
       }
       return map;
     }
+    function cardPool() { return REWARD_POOL.filter(id => CARDS[id].character === state.character); }
     function freshState(screen, starter = 'mark') {
       serial = 0;
       eventSerial = 0;
       const map = makeMap();
       const cards = starter === 'classic' ? CLASSIC : STARTERS[starter].cards;
+      const character = starter === 'sword' ? 'sword' : 'assassin';
       return {
-        screen, starter, map, availableNodes: [map[0][0].id], currentNode: null,
+        screen, starter, character, map, availableNodes: [map[0][0].id], currentNode: null,
         player: {
-          hp: 60, maxHp: 60, gold: 60,
+          hp: 60, maxHp: 60, gold: 60, character,
           deck: cards.map(makeCard),
-          relics: ['bell']
+          relics: [character === 'sword' ? 'frostseal' : 'bell']
         },
         floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null,
         notice: '', result: null, rewardRerolls: 1,
@@ -252,10 +291,11 @@
     function clearCombatStatuses() {
       const b = state.battle;
       b.block = b.energy = b.poison = 0;
-      b.enemy.block = b.enemy.mark = b.enemy.poison = 0;
+      b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = 0;
+      b.swordIntent = 0;
       b.nextAttack = b.nextEnergy = b.nextDraw = 0;
       b.bloodPower = b.riposte = 0;
-      b.bellUsed = b.jadeUsed = false;
+      b.bellUsed = b.jadeUsed = b.frostsealUsed = false;
       b.fangUsed = b.silkUsed = b.bloodstoneUsed = false;
     }
     function defeat() {
@@ -266,7 +306,7 @@
       state.player.hp = 0;
       state.result = { won: false, floor: state.floor, enemy: b.enemy.name };
       state.screen = 'defeat';
-      note(`第 ${state.floor} 层，妖契未解，倒在${b.enemy.name}面前。`);
+      note(`第 ${state.floor} 段，未能带出残页，倒在${b.enemy.name}面前。`);
       log('生命归零，本局结束。');
       event('death', { source: 'enemy', target: 'player' });
     }
@@ -347,6 +387,34 @@
         gainBlock(3, '金铃触发');
       }
     }
+    function addSwordIntent(amount, reason = '剑意') {
+      if (!liveBattle()) return 0;
+      const b = state.battle, before = b.swordIntent || 0;
+      b.swordIntent = Math.max(0, Math.min(8, before + amount));
+      const gained = b.swordIntent - before;
+      event('swordIntent', { amount: gained, total: b.swordIntent, reason });
+      log(`${reason}：剑意 ${gained >= 0 ? '+' : ''}${gained}（${b.swordIntent}/8）。`);
+      return gained;
+    }
+    function consumeSwordIntent(count) {
+      const b = state.battle, used = Math.min(b.swordIntent || 0, count);
+      if (used) addSwordIntent(-used, '收束剑意');
+      return used;
+    }
+    function addChill(amount, reason = '霜寒') {
+      if (!liveBattle()) return 0;
+      const b = state.battle, before = b.enemy.chill || 0;
+      b.enemy.chill = Math.max(0, Math.min(4, before + amount));
+      const gained = b.enemy.chill - before;
+      event('chill', { target: 'enemy', amount: gained, total: b.enemy.chill, reason });
+      log(`${reason}：${b.enemy.name}霜寒 ${gained >= 0 ? '+' : ''}${gained}（${b.enemy.chill}/4）；下次行动每段攻击减少 ${b.enemy.chill}。`);
+      if (gained > 0 && hasRelic('frostseal') && !b.frostsealUsed) {
+        b.frostsealUsed = true;
+        event('relic', { relic: 'frostseal', name: RELICS.frostseal.name, amount: 1 });
+        addSwordIntent(1, '霜魄剑穗触发');
+      }
+      return gained;
+    }
     function drawCards(count) {
       const b = state.battle;
       for (let i = 0; i < count; i++) {
@@ -380,13 +448,13 @@
         state.screen = 'victory';
         state.availableNodes = [];
         state.result = { won: true, floor: state.map.length, enemy: b.enemy.name };
-        note('绛鳞伏首，妖契裂开。你终于走出了百妖楼。');
+        note('绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。');
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal'].includes(id) && !hasRelic(id));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -407,19 +475,17 @@
       note(`胜利：${gold} 金币已入账。${relicChoices.length ? '先选一件精英珍藏，再选择卡牌。' : '请选一张牌或跳过。'}${gold === 55 ? '遗物已集齐，包含额外 20 金币。' : ''}`);
     }
     function rewardCards(kind, previous = []) {
+      const pool = cardPool();
       const required = kind === 'elite'
-        ? REWARD_POOL.filter(id => CARDS[id].rarity === 'rare')
-        : REWARD_POOL.filter(id => CARDS[id].category === state.starter);
+        ? pool.filter(id => CARDS[id].rarity === 'rare')
+        : state.character === 'sword' ? pool.filter(id => CARDS[id].category === (state.stats.battles % 2 ? 'blade' : 'ice'))
+        : pool.filter(id => CARDS[id].category === state.starter);
       let cards;
-      if (required.length) {
-        const first = sample(required, 1)[0];
-        cards = [first, ...sample(REWARD_POOL.filter(id => id !== first), 2)];
-      } else cards = sample(REWARD_POOL, 3);
-      // Even a fixed RNG must visibly change an offer when the one-use redraw
-      // is spent. Replacing only the final slot preserves the first-slot floor.
+      if (required.length) { const first = sample(required, 1)[0]; cards = [first, ...sample(pool.filter(id => id !== first), 2)]; }
+      else cards = sample(pool, 3);
       if (previous.length && cards.every(id => previous.includes(id))) {
-        const alternate = REWARD_POOL.filter(id => !previous.includes(id));
-        cards[cards.length - 1] = alternate[rand(alternate.length)];
+        const alternate = pool.filter(id => !previous.includes(id));
+        if (alternate.length) cards[cards.length - 1] = alternate[rand(alternate.length)];
       }
       return cards;
     }
@@ -448,6 +514,7 @@
       b.block = 0;
       b.played = 0;
       b.bellUsed = false;
+      b.frostsealUsed = false;
       b.jadeUsed = false;
       b.fangUsed = b.silkUsed = b.bloodstoneUsed = false;
       b.riposte = 0;
@@ -477,7 +544,7 @@
         log('梦匣触发：首回合额外获得 1 灵力、抽 2 张牌。');
         event('relic', { relic: 'dream', name: RELICS.dream.name, amount: 2 });
       }
-      if (b.nextEnergy || b.nextDraw) log(`蓄爪触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
+      if (b.nextEnergy || b.nextDraw) log(`蓄势触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
       b.nextEnergy = b.nextDraw = 0;
       b.energy = turnEnergy;
       drawCards(draw);
@@ -489,12 +556,12 @@
       state.battle = {
         kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, intentIndex: 0 },
-        block: 0, energy: 0, poison: 0, turn: 0, played: 0,
+        enemy: { id, name: def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, intentIndex: 0 },
+        block: 0, energy: 0, poison: 0, swordIntent: 0, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
-        logs: [`进入第 ${state.floor} 层，与${def.name}交战。`]
+        logs: [`进入第 ${state.floor} 段，与${def.name}交战。`]
       };
       state.screen = 'battle';
       state.reward = null;
@@ -514,14 +581,14 @@
       state.reward = null;
       state.shop = null;
       state.event = null;
-      note(`第 ${state.floor} 层已开放。沿已连接的道路继续前行。`);
+      note(`第 ${state.floor} 段已开放。沿已连接的道路继续前行。`);
     }
 
     function newRun(starter = 'mark') {
       if (!STARTERS[starter] && starter !== 'classic') return false;
       state = freshState('map', starter);
       activeNode = null;
-      note('金铃轻响。选择第一层的节点，开始闯楼。');
+      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
       emit();
       return true;
     }
@@ -540,7 +607,7 @@
       else {
         state.screen = type;
         if (type === 'shop') {
-          state.shop = { cards: sample(REWARD_POOL, 3).map(id => ({ id, bought: false })), removed: false };
+          state.shop = { cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false };
         }
         if (type === 'event') state.event = makeEvent();
       }
@@ -595,6 +662,39 @@
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
       switch (card.id) {
+        case 'S01': enemyHit(6 + bonus); if (liveBattle()) addSwordIntent(1, def.name); break;
+        case 'S02': gainBlock(6, def.name); addChill(1, def.name); break;
+        case 'S03': addSwordIntent(2, def.name); break;
+        case 'S04': { const used = consumeSwordIntent(8); enemyHit(10 + 3 * used + bonus); break; }
+        case 'S05': enemyHit(4 + bonus); if (liveBattle()) addChill(2, def.name); break;
+        case 'S06': gainBlock(3, def.name); drawCards(1); break;
+        case 'S07': gainBlock(7, def.name); if (b.enemy.chill > 0) drawCards(1); break;
+        case 'S08': {
+          const amount = b.swordIntent >= 3 ? 4 : 3;
+          for (let i = 0; i < 3 && liveBattle(); i++) enemyHit(amount + (i === 0 ? bonus : 0));
+          break;
+        }
+        case 'S09': drawCards(2); break;
+        case 'S10':
+          if (b.swordIntent >= 2) { consumeSwordIntent(2); b.energy++; drawCards(1); log('回锋：消耗 2 剑意，获得 1 灵力并抽 1 张牌。'); }
+          else log('回锋：剑意不足 2，没有收益。');
+          break;
+        case 'S11': b.nextEnergy++; b.nextDraw++; log('藏剑：下回合额外 1 灵力、抽 1 张牌。'); break;
+        case 'S12': gainBlock(14, def.name); addChill(2, def.name); break;
+        case 'S13': if (loseLife(3, '以血淬刃自损（无视护盾）', true)) { drawCards(2); addSwordIntent(1, def.name); } break;
+        case 'S14': enemyHit(5 + bonus); if (liveBattle()) addSwordIntent(2, def.name); break;
+        case 'S15': {
+          const removed = b.enemy.chill || 0;
+          if (removed) addChill(-removed, '碎霜清除');
+          enemyHit(12 + 2 * removed + bonus);
+          if (liveBattle()) addSwordIntent(removed, def.name);
+          break;
+        }
+        case 'S16': {
+          const used = consumeSwordIntent(8); enemyHit(16 + 4 * used + bonus);
+          if (liveBattle()) addChill(3, def.name);
+          break;
+        }
         case 'C01': enemyHit(6 + bonus); break;
         case 'C02': gainBlock(5, def.name); break;
         case 'C03': addMark(2); break;
@@ -720,7 +820,7 @@
           return true;
         }
       }
-      const intent = ENEMIES[enemy.id].intents[enemy.intentIndex];
+      const intent = getIntent();
       log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
       if (intent.clearMark) {
         log(`蜕鳞：清除 ${enemy.mark} 层标记。`);
@@ -740,6 +840,7 @@
         log(`你获得 ${intent.poison} 层毒（共 ${b.poison} 层）。`);
         event('poison', { source: 'enemy', target: 'player', amount: intent.poison, total: b.poison });
       }
+      if (enemy.chill > 0) addChill(-enemy.chill, '敌人行动结束');
       enemy.intentIndex = (enemy.intentIndex + 1) % ENEMIES[enemy.id].intents.length;
       note('你的回合。先看敌人意图，再决定攻守。');
       startPlayerTurn();
@@ -806,7 +907,7 @@
       if (state.screen !== 'rest') return false;
       const amount = shouldHeal ? heal(18) : 0;
       advance();
-      note(shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 层已开放。` : `离开月庭。第 ${state.floor} 层已开放。`);
+      note(shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 段已开放。` : `离开月庭。第 ${state.floor} 段已开放。`);
       emit();
       return true;
     }
@@ -833,7 +934,7 @@
       if ((choice.goldCost || 0) > p.gold) return false;
       if ((choice.hpCost || 0) > 0 && p.hp <= choice.hpCost) return false;
       if ((choice.maxHpCost || 0) > 0 && p.maxHp - choice.maxHpCost < 5) return false;
-      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02'].includes(card.id)))) return false;
+      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02'].includes(card.id)))) return false;
       return true;
     }
     function finishChoices(choices, p) {
@@ -842,7 +943,7 @@
         disabled: !choiceAvailable(choice, p) }));
       if (available.every(choice => choice.disabled)) available.push({
         label: '无力交易 · 安然离开', text: '不支付任何代价，也不获得奖励。', disabled: false,
-        outcome: '你轻轻摇头，收好空空的袖袋。楼里的怪事没有追上来，只留下一盏微光，照着你继续上楼。'
+        outcome: '你轻轻摇头，收好空空的袖袋。封域的怪事没有追上来，只留下一盏微光，照着你继续深入封域。'
       });
       return available;
     }
@@ -862,7 +963,7 @@
         received.push(`最大生命 −${choice.maxHpCost}`);
       }
       if (choice.removeBasic) {
-        const index = p.deck.findIndex(card => ['C01','C02'].includes(card.id));
+        const index = p.deck.findIndex(card => ['C01','C02','S01','S02'].includes(card.id));
         if (index >= 0) {
           const [card] = p.deck.splice(index, 1);
           received.push(`移除「${CARDS[card.id].name}」`);
@@ -893,7 +994,7 @@
     }
     function makeEvent() {
       const p = state.player;
-      const rare = REWARD_POOL.filter(id => CARDS[id].rarity === 'rare');
+      const rare = cardPool().filter(id => CARDS[id].rarity === 'rare');
       const rareCards = () => sample(rare, 2);
       const builders = {
         well() {
@@ -945,11 +1046,11 @@
             description: '摊主把一只琉璃罐推到你面前。罐中有一场没下完的雪，还有另一个你，正在牌桌边等你落子。',
             story: [
               '琉璃罐里沉着别人的一生：一场没下完的雪、一句没说完的话、一次没有回头的离开。摊主说，梦比命便宜，也比命记得久。',
-              '“你可以买一个梦，也可以卖掉一点过去。”她把空罐摆正，“楼上的蛇不挑食，但挑梦。”'
+              '“你可以买一个梦，也可以卖掉一点过去。”她把空罐摆正，“井底的看守不挑食，但挑梦。”'
             ],
             choices: finishChoices([
               { label: `付 25 金币 · ${relic ? `买下秘宝「${RELICS[relic].name}」` : '换得 60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 25，得到 60，净赚 35 金币。', goldCost: 25, relic, fallbackGold: 60,
-                outcome: '你打开一只写着“如果那晚我没有上楼”的罐子。梦里多出一只手替你翻牌，醒来时指尖还带着琉璃的凉。' },
+                outcome: '你打开一只写着“如果那晚我没有深入封域”的罐子。梦里多出一只手替你翻牌，醒来时指尖还带着琉璃的凉。' },
               { label: '卖掉一段旧习惯 · 移除一张基础牌，得 35 金币并恢复 8 生命', text: '牌组须至少保留 5 张。', removeBasic: true, goldGain: 35, heal: 8,
                 outcome: '摊主从你手里抽走一张旧牌，像抽走一根早已长进肉里的刺。你忽然轻得有些不习惯。' },
               { label: `吞下无名梦 · 失去 10 生命，获得「${CARDS[cards[0]].name}」与「${CARDS[cards[1]].name}」`, text: '梦里没有回头路，醒来的掌心却会留下东西。', hpCost: 10, cardIds: cards,
@@ -962,16 +1063,16 @@
           return {
             id: 'theatre', name: '纸灯戏台', glyph: '戏', kicker: 'A PLAY ABOUT YOUR DEATH / 今夜的死法',
             whisper: '台下没有观众，只有空椅在鼓掌。',
-            description: '纸扎的戏台上，一只与你穿同样衣裳的猫妖正被蛇从背后咬住喉咙。戏还没有演完，你还可以改词。',
+            description: '纸扎的戏台上，一名与你穿同样衣裳的行者正被蛇从背后咬住喉咙。戏还没有演完，你还可以改词。',
             story: [
-              '纸扎的戏台在走廊尽头亮着。台上的猫妖与你穿同样的衣裳，正被一条蛇从背后咬住喉咙；台下没有观众，只有一排空椅在鼓掌。',
+              '纸扎的戏台在走廊尽头亮着。台上的纸偶与你穿同样的衣裳，正被一条蛇从背后咬住喉咙；台下没有观众，只有一排空椅在鼓掌。',
               '班主把一支蘸了朱砂的笔递给你：“放心，戏是假的。只是每次散场，总会少一个真的。”'
             ],
             choices: finishChoices([
               { label: `上台改戏 · 失去 8 生命，获得${mirror ? `秘宝「${RELICS[mirror].name}」` : '60 金币'}`, text: mirror ? RELICS[mirror].text : '秘宝已集齐，获得 60 金币。', hpCost: 8, relic: mirror, fallbackGold: 60,
-                outcome: '你走上纸台，把戏本里的死亡改成一次反爪。纸猫妖看了你一眼，把一面小镜塞进你的袖口；镜里，蛇的倒影先流了血。' },
+                outcome: '你走上纸台，把戏本里的死亡改成一次反击。纸偶看了你一眼，把一面小镜塞进你的袖口；镜里，蛇的倒影先流了血。' },
               { label: `买下戏班的九命灯 · 付 45 金币，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 金币'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 金币。', goldCost: 45, relic: nine, fallbackGold: 60,
-                outcome: '你买下戏班最后一盏灯。灯芯里缠着九根猫须，熄灭时，台上那只纸猫妖朝你弓了弓背。' },
+                outcome: '你买下戏班最后一盏灯。灯芯里缠着九根猫须，熄灭时，台上那只纸偶朝你弓了弓背。' },
               { label: '撕掉戏本 · 恢复 6 生命，获得 20 金币', text: '让今夜的死法留在纸里。', heal: 6, goldGain: 20,
                 outcome: '你撕掉戏本，纸人像雪一样落下。散场后，你在空椅下捡到几枚还没被掌声吞掉的铜钱。' }
             ], p)
@@ -982,7 +1083,7 @@
           return {
             id: 'umbrella', name: '雨夜借伞', glyph: '伞', kicker: 'A SHADOW FOR ONE NIGHT / 借影人',
             whisper: '她借的不是伞，是你还愿意相信的那一点黑。',
-            description: '妇人举着半把伞，伞骨里空无一物。她说楼上的蛇最怕黑，而她已经很久没有影子了。',
+            description: '妇人举着半把伞，伞骨里空无一物。她说井底的看守最怕黑，而她已经很久没有影子了。',
             story: [
               '檐下雨声忽然停了。一名没有脸的妇人举着半把伞，问你能不能把影子借她一晚。',
               '“只要今晚。”她说，“明早我会把它还你。若不还，你也可以拿走我伞下的东西。”伞骨里蜷着两段不属于你的路。'
@@ -990,8 +1091,8 @@
             choices: finishChoices([
               { label: `借出影子 · 最大生命 −6，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」与 35 金币`, text: '她拿走你的一小段黑，留下两段别人未走完的路。', maxHpCost: 6, cardIds: cards, goldGain: 35,
                 outcome: '她把你的影子折好，藏进伞骨。作为交换，你得到两段别人没走完的路，以及一袋在雨里也不会湿的钱。' },
-              { label: `陪她走到楼顶 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 金币。', hpCost: 10, relic, fallbackGold: 40,
-                outcome: '你替她撑伞走到楼梯尽头。她没有回头，只把伞柄塞进你手里；伞下多了一盏铃，铃舌是一小截蛇骨。' },
+              { label: `陪她走到观测井 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 金币。', hpCost: 10, relic, fallbackGold: 40,
+                outcome: '你替她撑伞走到遗径尽头。她没有回头，只把伞柄塞进你手里；伞下多了一盏铃，铃舌是一小截蛇骨。' },
               { label: '把自己的伞留给她 · 恢复 10 生命', text: '不借影子，也不问她的名字。', heal: 10,
                 outcome: '你把伞留在檐下。雨声重新落下时，那半把伞已经不见了，手心却暖了很久。' }
             ], p)
@@ -1008,12 +1109,123 @@
               '“记忆是最不值钱的东西。”掌柜说，“除非有人愿意替你疼。你可以当，也可以赎。”'
             ],
             choices: finishChoices([
-              { label: '当掉一段记忆 · 获得 65 金币，最大生命 −5', text: '你会忘记自己为何上楼，但不会忘记怎么活下去。', maxHpCost: 5, goldGain: 65,
+              { label: '当掉一段记忆 · 获得 65 金币，最大生命 −5', text: '你会忘记自己为何深入封域，但不会忘记怎么活下去。', maxHpCost: 5, goldGain: 65,
                 outcome: '掌柜从你眉心揭下一层薄薄的旧影，像揭下一张用久了的符。金币沉进袖袋，你忽然想不起母亲的嗓音。' },
               { label: `付 40 金币 · ${relic ? `赎回秘宝「${RELICS[relic].name}」` : '换得 40 金币'}与「${CARDS[card].name}」`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 40，得到 40 金币与一张卡牌。', goldCost: 40, relic, cardIds: [card], fallbackGold: 40,
                 outcome: '你赎回一片温热的旧鳞。鳞片贴在掌心时，一段不属于你的记忆从指缝里流过去，留下了一件宝贝。' },
               { label: `放走匣中一片蛇鳞 · 失去 6 生命，获得「${CARDS[card].name}」与 25 金币`, text: `${CARDS[card].text} 蛇鳞割手，但不会白割。`, hpCost: 6, cardIds: [card], goldGain: 25,
                 outcome: '你撬开玻璃匣，那片鳞像活物一样卷住你的手指。掌柜没有拦你，只在账本上添了一行：欠蛇后一次。' }
+            ], p)
+          };
+        },
+        riftwatch() {
+          const card = sample(rare, 1)[0], relic = chooseTreasure('jade');
+          return {
+            id: 'riftwatch', name: '封域望哨', glyph: '哨', faction: 'taiwei', kicker: 'TAIWEI WATCH / 断讯哨站',
+            whisper: '“雾里若有人呼你旧名，别答。”',
+            description: '太微剑宗留下的望哨已断讯三日。守哨人把名册反扣在掌心，不肯让你看最后一页。',
+            story: ['灰白界碑之后，天色停在某个没有太阳的傍晚。两名剑宗弟子守着一位昏迷同伴，身后的符灯一盏盏朝着雾内倾斜。', '他们奉命查明玄烬教实验的反噬范围；可名册上写着四个人，这里却只有三个人。无人敢去问第四个的名字。'],
+            choices: finishChoices([
+              { label: `分出真气救人 · 失去 6 生命，得「${CARDS[card].name}」与 20 金币`, text: `${CARDS[card].text} 当前生命须大于 6。`, hpCost: 6, cardIds: [card], goldGain: 20, outcome: '伤者睁眼，只说井里还有东西。守哨人把一页剑诀和盘缠递来，随即抹掉了名册最后一行。' },
+              { label: `付 20 金币补给 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 20 后返还 60 金币。', goldCost: 20, relic, fallbackGold: 60, outcome: '他们收下补给，将一件从雾中带回的旧物交给你。剑宗不问你来历，只希望下一次有人活着走出界碑。' },
+              { label: '记下警示后离开 · 恢复 6 生命', text: '不接名册，不问失踪者姓名。', heal: 6, outcome: '你在火边坐了片刻。临行时守哨人忽然问你们共有几个人；你没有回头替他数。' }
+            ], p)
+          };
+        },
+        supply() {
+          const relic = chooseTreasure('vial');
+          return {
+            id: 'supply', name: '断桥军需', glyph: '桥', faction: 'guild', kicker: 'BROKEN BRIDGE / 灯下计价',
+            whisper: '“钱能买路，买不了雾。”',
+            description: '千灯商盟的货车悬在断桥中央。老板已经为每一件失物标好了价，也为每一个救货的人标好了价。',
+            story: ['桥下没有河，只有缓慢翻动的黑雾。商盟把桥头灯架得很高，一车丹药却仍卡在不可能抵达的桥中央。', '老板不曾提救人；车夫的名字早被划掉。他只指着药箱，问你愿不愿意做一笔赚得不太干净的生意。'],
+            choices: finishChoices([
+              { label: `付 30 金币 · 买下${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 30 后得到 60 金币。', goldCost: 30, relic, fallbackGold: 60, outcome: '药箱隔着雾滑到你脚边，桥中央的货车却没有动。老板不再说车上还有别的什么。' },
+              { label: '冒险搬货 · 失去 5 生命，得 45 金币', text: '当前生命须大于 5；黑雾侵蚀无视护盾。', hpCost: 5, goldGain: 45, outcome: '桥面咬住了你的一点血气。你抱回半只货箱，老板如数付钱，只多问了一句：另一半有没有哭？' },
+              { label: '烤火后绕行 · 恢复 8 生命', text: '不碰货车，也不接受赊账。', heal: 8, outcome: '灯油里混着止痛的药香。你在桥头暖了暖手，选择走一条真正踩得到地面的路。' }
+            ], p)
+          };
+        },
+        cultlab() {
+          const cards = rareCards(), relic = chooseTreasure('godblood');
+          return {
+            id: 'cultlab', name: '逆仪残室', glyph: '仪', faction: 'cult', kicker: 'BROKEN RITUAL / 归墟引灵',
+            whisper: '残页上最后一行写着：不要让它知道自己被观察。',
+            description: '玄烬教的归墟引灵实验在这里失控。阵盘从内向外翻开，血迹却全都指向同一个空位置。',
+            story: ['魔教本想从归墟引来可供驱使的灵性，祭阵却把整片寒渊变成了实验容器。外界看不透，活物在这里也很难长久活着。', '石台上留有被匆忙撕碎的记录。有人回来收过证据，却独独没有碰那本还在自己翻页的手札。'],
+            choices: finishChoices([
+              { label: `读取禁页 · 失去 8 生命，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」`, text: '当前生命须大于 8；两张均为本职业稀有卡。', hpCost: 8, cardIds: cards, outcome: '两行无法念出的字化成了出招的直觉。你看懂了力量，却没有看懂记录者为何在最后画满自己的眼睛。' },
+              { label: `触碰试剂 · 最大生命 −6，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', maxHpCost: 6, relic, fallbackGold: 60, outcome: '试剂像一颗反向跳动的心。你收走一滴，室内的阵盘忽然一起停住，仿佛终于确认了新的观察者。' },
+              { label: '焚去残室 · 恢复 12 生命，得 15 金币', text: '带走安全补给，不再读取禁页。', heal: 12, goldGain: 15, outcome: '符火烧掉了纸页，却烧不掉纸页投下的影子。你只带走封存的丹药和几枚没有被污染的铜钱。' }
+            ], p)
+          };
+        },
+        swordgrave() {
+          const card = sample(rare, 1)[0], technique = sample(cardPool().filter(id => CARDS[id].rarity === 'uncommon'), 1)[0];
+          return {
+            id: 'swordgrave', name: '寒碑剑冢', glyph: '剑', faction: 'taiwei', kicker: 'FROZEN SWORDS / 无名剑碑',
+            whisper: '剑锋指向井底，碑文却只写了一个“退”字。',
+            description: '失踪剑修的佩剑都插在这里。握柄上尚有余温，冰下却找不到任何人的脚印。',
+            story: ['成排剑影沉在坚冰里，像一支等待号令的队伍。太微弟子的剑穗依然洁净，归路上的脚印却被什么从记忆里抹去了。', '碑后留着半段未完成的招式。你可以沿着那道伤痕推演，也可以先让这些无主之剑安静片刻。'],
+            choices: finishChoices([
+              { label: `以身试剑 · 失去 5 生命，获得「${CARDS[card].name}」`, text: `${CARDS[card].text} 当前生命须大于 5。`, hpCost: 5, cardIds: [card], outcome: '旧剑没有主人，却仍记得最后一场交手。你以一线血气接住残招，随后将它化成自己的出手。' },
+              { label: `付 15 金币磨砺 · 移除一张基础牌，获得「${CARDS[technique].name}」`, text: '移除最早的一张本职业基础牌；牌组须至少保留 5 张。', goldCost: 15, removeBasic: true, cardIds: [technique], outcome: '你舍去一个不合时宜的起手式。旧剑的嗡鸣短了一拍，新的招式却比先前更清楚。' },
+              { label: '替无主剑立碑 · 恢复 10 生命', text: '不索取剑诀。', heal: 10, outcome: '你替每一柄剑拨正剑穗。最后一缕霜气散去时，有人隔着很远的地方向你行了一礼。' }
+            ], p)
+          };
+        },
+        pilgrims() {
+          return {
+            id: 'pilgrims', name: '失序行营', glyph: '营', faction: 'wanderers', kicker: 'THE WANDERERS / 各怀心事',
+            whisper: '“我只是来找人。”每一顶帐篷里都有人这么说。',
+            description: '散修、逃兵和寻宝客挤在同一处营火旁。每个人都声称自己没有拿走不该拿的东西。',
+            story: ['篝火照不出帐篷背面。有个探客兜售祖传护符，另一个正在用自己的牙齿换药；两人的口音完全相同，却互不相认。', '这里没有统一的命令，只有临时的价目。下一支入域的队伍正在挑向导，没有人肯第一个报出真名。'],
+            choices: finishChoices([
+              { label: '付 20 金币换伤药 · 恢复 22 生命', text: '治疗不超过最大生命。', goldCost: 20, heal: 22, outcome: '药师收钱后立刻烧掉收据。药是真的，伤口不再发冷；至于他为何知道你的伤在哪里，他不肯多说。' },
+              { label: '出售前路情报 · 失去 6 生命，得 50 金币', text: '你须亲自探过一段受侵蚀的路；当前生命大于 6。', hpCost: 6, goldGain: 50, outcome: '你用伤痕证明情报不是编的。买主满意地付钱，随后在地图上把安全路段全都标成了自己的领地。' },
+              { label: '替他们修好灯架 · 得 10 金币', text: '不加入任何队伍，也不付出生命。', goldGain: 10, outcome: '灯架稳住了，影子却没有。你收下一点谢礼，在他们开始争论谁的影子多了一条之前离开。' }
+            ], p)
+          };
+        },
+        prisoner() {
+          const relic = chooseTreasure('mirror'), card = sample(rare, 1)[0];
+          return {
+            id: 'prisoner', name: '锁魂囚笼', glyph: '囚', faction: 'cult', kicker: 'A VOICE IN IRON / 旧实验体',
+            whisper: '“我不是第一个，也不会是最后一个。”',
+            description: '黑符封着一只空笼。笼内的声音自称玄烬旧徒，愿用一件实验产物换你断开一道锁。',
+            story: ['囚笼从地底悬起，里面却空无一物。声音准确报出归墟引灵仪启动的时辰，随后又改口说，那也许是明天。', '玄烬残众回来搬走了同类试验体，唯独把这一只留在原地。锁上没有“危险”，只有一个被反复划掉的“失败”。'],
+            choices: finishChoices([
+              { label: `用血断锁 · 失去 7 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', hpCost: 7, relic, fallbackGold: 60, outcome: '锁断时你没有看笼内。声音说它会记得这个人情；随后一件冰冷的旧物落下，比承诺更实在。' },
+              { label: `付 25 金币买口供 · 获得「${CARDS[card].name}」`, text: `${CARDS[card].text} 只买招式，不替囚中人解锁。`, goldCost: 25, cardIds: [card], outcome: '它没有透露主使的名字，只教给你一段能活着接近观测井的招式。你记住了招式，没记住它最后喊出的称呼。' },
+              { label: '封好黑符后离开 · 恢复 6 生命', text: '不释放笼中的东西。', heal: 6, outcome: '符纸重新贴紧铁栏。你听见笼里有人轻轻叹息，像失望，也像终于能睡。' }
+            ], p)
+          };
+        },
+        echo() {
+          const cards = rareCards(), relic = chooseTreasure('moonheart');
+          return {
+            id: 'echo', name: '异声裂隙', glyph: '隙', faction: 'wanderers', kicker: 'AN UNNAMED ECHO / 不可名之隙',
+            whisper: '裂隙里传来的是你尚未做出的回答。',
+            description: '石壁裂成不合几何的角度。外界探查至此全数失效，只有一道影子始终面对着你。',
+            story: ['远处的岩壁在同一个位置折了两次，雾从不可能的夹角里倒流。你想为它取一个名字，舌尖却忽然失去知觉。', '有人在这里留下许多测量绳，绳结全都回到了自己掌心。你不需要知道里面是什么，只需要决定取到什么程度。'],
+            choices: finishChoices([
+              { label: `用一段寿元换视野 · 最大生命 −5，得两张稀有卡与 20 金币`, text: `获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」，最大生命至少保留 5。`, maxHpCost: 5, cardIds: cards, goldGain: 20, outcome: '你看见了两个尚未发生的出手，并把它们从未来带回。代价是某些很久以后的日子再也不会属于你。' },
+              { label: `伸手取出裂隙之核 · 失去 8 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', hpCost: 8, relic, fallbackGold: 60, outcome: '你抽回手，掌心多了一枚会随呼吸明灭的核心。裂隙变窄了些，仿佛只是把注意力移到了别处。' },
+              { label: '收回目光，调息离开 · 恢复 10 生命', text: '不继续观察。', heal: 10, outcome: '你闭眼数过十次呼吸。再睁眼时，石壁仍是石壁；你把刚才看见的角度留在了身后。' }
+            ], p)
+          };
+        },
+        broker() {
+          const relic = chooseTreasure('dream');
+          return {
+            id: 'broker', name: '千灯密约', glyph: '契', faction: 'guild', kicker: 'A PRIVATE CONTRACT / 千灯不灭',
+            whisper: '“我们从不打听来源。只问，谁还知道它在你手里？”',
+            description: '商盟代理人愿为玄烬残页付一笔好价钱，也愿意现在就把报酬预支给你。',
+            story: ['代理人关掉身后九盏灯，只留一盏照着契纸。他说宗门要真相，残众要证据，散修要活路；商盟可以同时买下它们。', '这份密约不要求你交出最终残页，只出售一份从实验里流出的奇物。至少契纸上是这么写的。'],
+            choices: finishChoices([
+              { label: `付 40 金币签下暗单 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，支付 40 后得到 60 金币。', goldCost: 40, relic, fallbackGold: 60, outcome: '代理人把奇物放在你面前，契纸立刻自行焚尽。账已结清；他提醒你，这句只对今晚有效。' },
+              { label: '替商盟探一条险路 · 失去 6 生命，得 55 金币', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人带走了你的标记。金币是真的，隐去名字的那一栏也是真的。' },
+              { label: '婉拒暗单，借灯调息 · 恢复 6 生命', text: '不留下契约或后续惩罚。', heal: 6, outcome: '他没有挽留，只替你拨亮最后一盏灯。灯光越过你肩头，照向了另一个将要入域的人。' }
             ], p)
           };
         }
@@ -1033,7 +1245,7 @@
       state.event.outcome = choice.outcome;
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       state.event.choiceLabel = choice.label;
-      note('异闻已了。看过这段结局，再决定是否继续上楼。');
+      note('异闻已了。看过这段结局，再决定是否继续深入封域。');
       emit();
       return true;
     }
@@ -1041,13 +1253,24 @@
       if (state.screen !== 'event' || !state.event || !state.event.resolved) return false;
       const name = state.event.name;
       advance();
-      note(`离开「${name}」，第 ${state.floor} 层已开放。`);
+      note(`离开「${name}」，第 ${state.floor} 段已开放。`);
       emit();
       return true;
     }
     function getIntent() {
       const b = state.battle;
-      return b ? ENEMIES[b.enemy.id].intents[b.enemy.intentIndex] : null;
+      if (!b) return null;
+      const intent = ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
+      const baseHits = (intent.hits || []).slice(), chill = Math.max(0, b.enemy.chill || 0);
+      const hits = baseHits.map(amount => Math.max(0, amount - chill));
+      if (!chill) return { ...intent, hits, baseHits, chill: 0 };
+      const parts = [];
+      if (intent.clearMark) parts.push('清除全部标记');
+      if (intent.block) parts.push(`获得护盾 ${intent.block}`);
+      if (hits.length === 1) parts.push(`攻击 ${hits[0]}`);
+      else if (hits.length > 1) parts.push(hits.every(x => x === hits[0]) ? `连续攻击 ${hits.length} 次，每次 ${hits[0]}` : `连续攻击 ${hits.join('／')}`);
+      if (intent.poison) parts.push(`再施加 ${intent.poison} 层毒`);
+      return { ...intent, hits, baseHits, chill, text: `${parts.join('，')}（霜寒 ${chill}：本次行动每段减伤，行动后清除）` };
     }
 
     state = freshState('title');
@@ -1057,7 +1280,7 @@
     };
   }
 
-  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CARD_GROUPS, createGame };
+  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, EVENT_IDS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

@@ -1,8 +1,8 @@
 'use strict';
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {createGame,CARDS,RELICS,TREASURE_RELICS}=require('./engine.js');
-const EVENTS=['well','shrine','dreamshop','theatre','umbrella','pawnshop'];
+const {createGame,CARDS,RELICS,TREASURE_RELICS,EVENT_IDS}=require('./engine.js');
+const EVENTS=EVENT_IDS;
 function random(seed){let n=seed>>>0;return()=>((n=(1664525*n+1013904223)>>>0)/4294967296);}
 function run(seed=1,starter='mark',rng){const g=createGame({rng:rng||random(seed)});g.newRun(starter);return g;}
 function enter(g,type){const s=g.state,n=s.map.flat().find(n=>n.type===type);assert.ok(n,type);s.floor=n.floor;s.availableNodes=[n.id];s.screen='map';assert.equal(g.enterNode(n.id),true);return s.battle;}
@@ -14,8 +14,8 @@ test('1000局地图都保留可达狐妖，各节点连通到蛇妖且没有死�
   for(let seed=1;seed<=1000;seed++){
     const g=run(seed),s=g.state,all=s.map.flat(),byId=Object.fromEntries(all.map(n=>[n.id,n]));
     const seen=new Set(['f1-0']);
-    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));for(const next of n.next){assert.equal(byId[next].floor,n.floor+1);seen.add(next);}if(n.floor<8)assert.ok(n.next.length>0);}
-    assert.equal(seen.size,all.length);assert.ok(all.some(n=>n.type==='fox'&&seen.has(n.id)));assert.ok(seen.has('f8-0'));
+    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));for(const next of n.next){assert.equal(byId[next].floor,n.floor+1);seen.add(next);}if(n.floor<10)assert.ok(n.next.length>0);}
+    assert.equal(seen.size,all.length);assert.ok(all.some(n=>n.type==='fox'&&seen.has(n.id)));assert.ok(seen.has('f10-0'));
   }
 });
 
@@ -74,13 +74,13 @@ test('无面神血只在确定选择后精确增加12生命上限并治疗12，�
 });
 
 test('无可发珍藏时精英只额外20金币，总55，且不再要求选择',()=>{
-  const g=run(2),s=g.state;s.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox'].includes(id)));
+  const g=run(2),s=g.state;s.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal'].includes(id)));
   enter(g,'elite');win(g);assert.equal(s.reward.gold,55);assert.equal(s.player.gold,115);
   assert.deepEqual(s.reward.relicChoices,[]);assert.equal(s.reward.relicPending,false);assert.match(s.notice,/额外 20/);
   assert.equal(g.chooseReward(null),true);assert.equal(s.player.gold,115);
 });
 
-test('六事件18个正常选项完整兑现代价与收益，结局停留且一次领取',()=>{
+test('十四事件42个正常选项完整兑现代价与收益，结局停留且一次领取',()=>{
   for(const id of EVENTS)for(let i=0;i<3;i++){
     const g=eventGame(id,i),s=g.state,e=s.event,c=e.choices[i],p=structuredClone(s.player),beforeFloor=s.floor;
     assert.equal(e.choices.length,3);assert.equal(c.disabled,false);assert.equal(g.leaveEvent(),false);
@@ -97,7 +97,7 @@ test('六事件18个正常选项完整兑现代价与收益，结局停留且一
   }
 });
 
-test('六事件在1生命、0金币、5张牌下均可继续，卖梦人条件性免费离开不发奖',()=>{
+test('十四事件在1生命、0金币、5张牌下均可继续，卖梦人条件性免费离开不发奖',()=>{
   for(const id of EVENTS){
     const g=eventGame(id,0,{poor:true}),s=g.state,e=s.event;
     const index=e.choices.findIndex(c=>!c.disabled);assert.ok(index>=0,id);

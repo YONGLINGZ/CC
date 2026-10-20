@@ -43,7 +43,23 @@
     C33: { name:'逆鳞', kind:'scale', pitch:740, tail:2220, length:.36, body:123, weight:.19, notes:[370,740,1480] },
     C34: { name:'护心', kind:'shield', pitch:262, tail:1048, length:.64, body:65, weight:.23, notes:[262,392,523,1046] },
     C35: { name:'盾返', kind:'scale', pitch:1397, tail:3490, length:.28, body:78, weight:.23, notes:[349,698,1397] },
-    C36: { name:'归息', kind:'heal', pitch:440, tail:880, length:.62, body:220, weight:.16, notes:[440,554,660,880] }
+    C36: { name:'归息', kind:'heal', pitch:440, tail:880, length:.62, body:220, weight:.16, notes:[440,554,660,880] },
+    S01: { name:'霜锋', kind:'sword', pitch:2290, tail:1420, length:.23, body:392, weight:.16, notes:[784,1175,1568] },
+    S02: { name:'凝霜', kind:'iceguard', pitch:698, tail:2093, length:.43, body:233, weight:.15, notes:[698,1046,1397] },
+    S03: { name:'听雪', kind:'swordfocus', pitch:880, tail:1760, length:.49, body:294, weight:.14, notes:[587,880,1175,1760] },
+    S04: { name:'断流', kind:'swordburst', pitch:1760, tail:4400, length:.49, body:147, weight:.23, notes:[440,880,1320,1760] },
+    S05: { name:'寒芒', kind:'iceblade', pitch:3136, tail:1568, length:.29, body:330, weight:.16, notes:[1046,1568,2093] },
+    S06: { name:'踏雪', kind:'frostwind', pitch:4100, tail:1720, length:.26, body:349, weight:.12, notes:[698,1046,1760] },
+    S07: { name:'冰镜', kind:'iceguard', pitch:830, tail:2490, length:.48, body:277, weight:.16, notes:[830,1244,1661] },
+    S08: { name:'三叠泉', kind:'sword', pitch:2780, tail:1850, length:.15, body:440, weight:.14, notes:[880,1318,1760] },
+    S09: { name:'澄心', kind:'frostwind', pitch:2670, tail:5340, length:.35, body:440, weight:.12, notes:[880,1175,1568,2349] },
+    S10: { name:'回锋', kind:'swordfocus', pitch:1175, tail:2349, length:.31, body:392, weight:.14, notes:[784,1175,1568] },
+    S11: { name:'藏剑', kind:'swordfocus', pitch:523, tail:2093, length:.56, body:175, weight:.15, notes:[523,784,1046,2093] },
+    S12: { name:'霜天壁', kind:'iceguard', pitch:466, tail:1864, length:.65, body:156, weight:.20, notes:[466,698,932,1397] },
+    S13: { name:'以血淬刃', kind:'frostblood', pitch:659, tail:2637, length:.46, body:82, weight:.17, notes:[330,659,988,1318] },
+    S14: { name:'剑鸣', kind:'sword', pitch:1976, tail:2960, length:.38, body:494, weight:.17, notes:[988,1480,1976,2960] },
+    S15: { name:'碎霜', kind:'iceshatter', pitch:3520, tail:880, length:.47, body:196, weight:.22, notes:[880,1760,2637,3520] },
+    S16: { name:'万川归寂', kind:'swordstorm', pitch:1568, tail:4704, length:.72, body:98, weight:.25, notes:[392,784,1175,1568,2349] }
   });
   const ENCOUNTERS = Object.freeze({
     well: { name:'倒映祈愿井', notes:[294,440,587], kind:'water', air:460 },
@@ -54,7 +70,15 @@
     pawnshop: { name:'蛇鳞当铺', notes:[185,277,554], kind:'scale', air:3100 },
     fox: { name:'狐妖契约', notes:[440,659,988], kind:'bell', air:2000 },
     shop: { name:'百妖商铺', notes:[587,880,1175], kind:'coin', air:2800 },
-    rest: { name:'月庭休憩', notes:[262,330,392], kind:'wind', air:620 }
+    rest: { name:'月庭休憩', notes:[262,330,392], kind:'wind', air:620 },
+    riftwatch: { name:'封域望哨', notes:[147,220,330,622], kind:'rift', air:830 },
+    supply: { name:'断桥军需', notes:[330,494,740], kind:'wood', air:1450 },
+    cultlab: { name:'逆仪残室', notes:[110,165,233,349], kind:'ritual', air:520 },
+    swordgrave: { name:'寒碑剑冢', notes:[587,880,1760], kind:'steel', air:3300 },
+    pilgrims: { name:'失序行营', notes:[196,294,415], kind:'ritual', air:960 },
+    prisoner: { name:'锁魂囚笼', notes:[185,370,554], kind:'chain', air:2100 },
+    echo: { name:'异声裂隙', notes:[415,622,932,1397], kind:'echo', air:1270 },
+    broker: { name:'千灯密约', notes:[659,988,1318], kind:'coin', air:3700 }
   });
   const MAX_VOICES = 56;
   const state = { context:null, bus:null, muted:false, volume:.30, unlocked:false, lastError:'', attempts:0, contextsCreated:0 };
@@ -118,9 +142,27 @@
   function heartbeat(bus,freq,level=.15,at) {
     tone(bus,freq,.14,{at,level,end:freq*.64});tone(bus,freq*1.12,.16,{at,delay:.17,level:level*.68,end:freq*.68});
   }
+  // Steel is voiced with inharmonic, fast-decaying partials; frost has sparse
+  // crystalline overtones and a soft air bed. Neither uses the cat's bass hit.
+  function steel(bus,freq,duration,level,at) {
+    [1,2.01,3.88,6.11].forEach((ratio,i)=>tone(bus,freq*ratio,duration/(1+i*.42),{
+      at,level:level/[1,3.2,6,12][i],end:freq*ratio*.984,wave:'sine',attack:.0015
+    }));
+  }
+  function crystal(bus,freq,duration,level,at) {
+    [1,1.498,2.756].forEach((ratio,i)=>tone(bus,freq*ratio,duration/(1+i*.28),{
+      at,delay:i*.016,level:level/[1,3.5,7][i],end:freq*ratio*1.004,attack:.004
+    }));
+  }
   function playSignature(bus,p,phase='impact',hitIndex=0,at) {
     const t=finite(at,bus.ctx.currentTime),shift=1+clamp(hitIndex,0,6)*.052,pitch=p.pitch*shift,weight=p.weight;
     if(phase==='cast'){
+      if(/^(sword|ice|frost)/.test(p.kind)){
+        hiss(bus,3800,.075,{at:t,level:.045,end:6700,attack:.009});
+        steel(bus,p.notes[0],.16,.029,t+.012);
+        tone(bus,p.notes[1],.19,{at:t,delay:.045,level:.025,end:p.notes[2],attack:.012});
+        return;
+      }
       hiss(bus,2400+p.notes[0],.055,{at:t,level:.075,end:4200});
       p.notes.slice(0,3).forEach((n,i)=>tone(bus,n,.10+i*.018,{at:t,delay:.027*i,level:.025/(1+i*.3),wave:'sine'}));
       if(['blood','focus'].includes(p.kind))tone(bus,p.body,.18,{at:t,level:.035,end:p.body*1.2});
@@ -174,6 +216,40 @@
       case 'heal':
         p.notes.forEach((n,i)=>tone(bus,n,.38,{at:t,delay:.055*i,level:weight*.36,attack:.015}));
         hiss(bus,1600,.32,{at:t,level:.035,end:3100,attack:.02});break;
+      case 'sword':
+        hiss(bus,pitch,p.length,{...common,level:weight*.53,q:1.8,attack:.004});
+        steel(bus,p.body*shift,p.length*1.2,weight*.60,t);crystal(bus,p.notes[2],.29,weight*.15,t+.034);break;
+      case 'iceblade':
+        hiss(bus,pitch,p.length,{...common,level:weight*.40,q:2.1,attack:.006});
+        steel(bus,p.body,.21,weight*.44,t);crystal(bus,p.notes[1]*shift,.42,weight*.55,t+.018);break;
+      case 'iceguard':
+        hiss(bus,1800,p.length*.75,{at:t,level:weight*.22,end:p.tail,attack:.035});
+        p.notes.slice(0,3).forEach((n,i)=>crystal(bus,n,p.length,weight*.38/(1+i*.5),t+i*.043));
+        tone(bus,p.body,p.length*.7,{at:t,level:weight*.25,end:p.body*1.003,attack:.035});break;
+      case 'swordfocus':
+        tone(bus,p.body,p.length,{at:t,level:weight*.37,end:p.body*2,wave:'triangle',attack:.045});
+        steel(bus,pitch,p.length*.8,weight*.28,t+.065);crystal(bus,p.tail,.42,weight*.26,t+.14);break;
+      case 'frostwind':
+        hiss(bus,pitch,p.length,{...common,level:weight*.52,attack:.024,q:.65});
+        p.notes.slice(0,3).forEach((n,i)=>tone(bus,n,.25,{at:t,delay:i*.048,level:weight*.26,attack:.012,end:n*1.012}));break;
+      case 'frostblood':
+        heartbeat(bus,p.body,weight*.35,t);steel(bus,pitch,.23,weight*.25,t+.035);
+        crystal(bus,p.notes[2],p.length,weight*.34,t+.12);hiss(bus,2200,.19,{at:t,delay:.09,level:weight*.25,end:p.tail});break;
+      case 'swordburst':
+        hiss(bus,pitch,p.length,{...common,level:weight*.67,q:1.3,attack:.009});
+        steel(bus,p.body,.46,weight*.70,t);steel(bus,p.notes[1],.36,weight*.32,t+.035);
+        crystal(bus,p.notes[3],.56,weight*.27,t+.06);break;
+      case 'iceshatter':
+        for(let i=0;i<3;i++){
+          hiss(bus,pitch-i*610,.055+i*.012,{at:t,delay:i*.038,level:weight*.44,end:p.tail,filter:'highpass'});
+          tone(bus,p.notes[3-i],.22,{at:t,delay:i*.042,level:weight*.32,end:p.notes[3-i]*.73});
+        }
+        steel(bus,p.body,p.length,weight*.42,t+.028);break;
+      case 'swordstorm':
+        hiss(bus,940,p.length,{at:t,level:weight*.39,end:p.tail,attack:.035,q:.75});
+        steel(bus,p.body,.56,weight*.54,t);steel(bus,p.notes[1],.46,weight*.35,t+.075);
+        p.notes.slice(2).forEach((n,i)=>crystal(bus,n,.52,weight*.29/(1+i*.3),t+.08+i*.07));
+        hiss(bus,6100,.14,{at:t,delay:.17,level:weight*.43,end:2400});break;
     }
   }
   function withSound(label,callback,profileId) {
@@ -201,7 +277,7 @@
     return withSound('card:'+id,(bus,t)=>{
       // Cards without a later shield/heal/mark/hit event need their own full
       // focus, bell or energy gesture here. Attack cards remain cast-only.
-      playSignature(bus,p,['C09','C10','C11','C20','C25'].includes(id)?'impact':'cast',0,t);
+      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11'].includes(id)?'impact':'cast',0,t);
     },id);
   }
   function preview(id) {
@@ -220,9 +296,18 @@
       case 'discard':hiss(bus,1900,.075,{at:t,level:.06,end:700});break;
       case 'block':if(p)playSignature(bus,p,'impact',0,t);else{bell(bus,784,.29,.10,t);tone(bus,196,.15,{at:t,level:.06});}break;
       case 'mark':if(p&&p.kind==='mark')playSignature(bus,p,'impact',0,t);else bell(bus,options.amount<0?523:1175,.23,.075,t);break;
+      case 'chill':
+        if(amount===0)return false;
+        if(amount<0){hiss(bus,5400,.16,{at:t,level:.065,end:1700});[2093,1568,1175].forEach((n,i)=>tone(bus,n,.18,{at:t,delay:i*.025,level:.035,end:n*.8}));}
+        else{crystal(bus,1397+clamp(amount,1,4)*83,.37,.073,t);hiss(bus,3100,.20,{at:t,level:.035,end:5700,attack:.018});}break;
+      case 'swordIntent':
+        if(amount===0)return false;
+        if(amount<0){steel(bus,392,.35,.075,t);hiss(bus,2200,.19,{at:t,level:.055,end:5600});}
+        else{const frequency=784*Math.pow(2,clamp(options.total||amount,1,8)/12);steel(bus,frequency,.31,.065,t);tone(bus,frequency*1.5,.22,{at:t,delay:.035,level:.023});}break;
+      case 'frostseal':crystal(bus,1568,.50,.075,t);tone(bus,784,.33,{at:t,delay:.04,level:.025});break;
       case 'consumeMark':hiss(bus,1400,.23,{at:t,level:.12,end:5600});bell(bus,1760,.32,.10,t);break;
       case 'heal':playSignature(bus,p&&p.kind==='heal'?p:PROFILES.C36,'impact',0,t);break;
-      case 'selfDamage':playSignature(bus,p&&p.kind==='blood'?p:PROFILES.C13,'impact',0,t);break;
+      case 'selfDamage':playSignature(bus,p&&['blood','frostblood'].includes(p.kind)?p:PROFILES.C13,'impact',0,t);break;
       case 'power':tone(bus,147,.34,{at:t,level:.09,end:588,wave:'triangle',attack:.022});bell(bus,1175,.30,.065,t+.12);break;
       case 'poison':
         for(let i=0;i<3;i++)tone(bus,170+i*83,.11,{at:t,delay:i*.06,level:.085,end:510+i*145});
@@ -265,43 +350,53 @@
   let lastDrawAt=-100;
   function playEvent(event,context={}) {
     if(!event||typeof event!=='object')return false;
-    const type=event.type,p=PROFILES[event.cardId];
-    if(type==='card')return playCard(event.cardId);
+    const cardId=event.cardId||context.cardId,type=event.type,p=PROFILES[cardId],payload={...event,cardId};
+    if(type==='card')return playCard(cardId);
     if(type==='attack'){
       if(event.source==='enemy'){
         const enemy=context.enemyId||event.enemyId,intent=String(event.intent||context.intentName||context.intent||'');
         const normal={paper:'paperHit',lantern:'lanternHit',ape:'apeHit',bone:'boneHit',yaksha:'yakshaHit'};
-        return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),event);
+        return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),payload);
       }
-      return withSound('hit:'+(event.cardId||event.kind||'claw'),(bus,t)=>{
+      return withSound('hit:'+(cardId||event.kind||'claw'),(bus,t)=>{
         playSignature(bus,p||PROFILES.C01,'impact',finite(event.hitIndex,0),t);
         if(event.absorbed>0)bell(bus,1318,.15,.033,t+.015);
-      },event.cardId);
+      },cardId);
     }
     if(type==='draw'){
       if(now()-lastDrawAt<.045)return false;lastDrawAt=now();return playCue('draw',event);
     }
     if(type==='blockClear')return false;
-    if(type==='mark'&&event.amount===0)return false;
-    if(type==='mark'&&event.amount<0)return playCue('consumeMark',event);
-    if(type==='poison'&&event.amount<0)return playCue('cleanse',event);
-    if(type==='relic')return playCue(['fox','ninelives'].includes(event.relic)?'resurrect':event.relic==='bell'?'bell':'relic',event);
-    if(type==='block'&&event.source==='enemy'&&(context.enemyId||event.enemyId)==='snake')return playCue('snakeShed',event);
-    return playCue(type,event);
+    if(['mark','chill','swordIntent'].includes(type)&&event.amount===0)return false;
+    if(type==='mark'&&event.amount<0)return playCue('consumeMark',payload);
+    if(type==='poison'&&event.amount<0)return playCue('cleanse',payload);
+    if(type==='relic')return playCue(['fox','ninelives'].includes(event.relic)?'resurrect':event.relic==='bell'?'bell':event.relic==='frostseal'?'frostseal':'relic',payload);
+    if(type==='block'&&event.source==='enemy'&&(context.enemyId||event.enemyId)==='snake')return playCue('snakeShed',payload);
+    return playCue(type,payload);
   }
-  function playEncounter(id) {
-    const p=ENCOUNTERS[id];if(!p)return false;
-    return withSound('encounter:'+id,(bus,t)=>{
-      stats.encountersUsed.add(id);
+  function encounterSound(bus,p,t) {
       const level=['rain','wind','water'].includes(p.kind) ? .08 : .045;
       hiss(bus,p.air,.55,{at:t,level,end:p.air*.67,attack:.055,filter:p.kind==='rain'?'highpass':'bandpass'});
       p.notes.forEach((n,i)=>{
-        if(['gong','wood'].includes(p.kind)){
+        if(['steel','chain'].includes(p.kind)){
+          steel(bus,n,.48,.060/(1+i*.3),t+i*.10);
+          if(p.kind==='chain')hiss(bus,4600,.04,{at:t,delay:i*.10,level:.035,end:1900});
+        }else if(['rift','ritual'].includes(p.kind)){
+          tone(bus,n,.67,{at:t,delay:i*.09,level:.050/(1+i*.4),end:p.kind==='rift'?n*1.08:n*.97,wave:'triangle',attack:.045});
+          tone(bus,n*1.069,.50,{at:t,delay:i*.09,level:.018,attack:.06});
+        }else if(p.kind==='echo'){
+          for(let j=0;j<3;j++)tone(bus,n,.28,{at:t,delay:i*.08+j*.17,level:.046/(1+j*1.5+i*.4),attack:.012});
+        }else if(['gong','wood'].includes(p.kind)){
           tone(bus,n,.55,{at:t,delay:i*.085,level:.085/(1+i*.3),wave:p.kind==='wood'?'triangle':'sine'});
           tone(bus,n*1.48,.34,{at:t,delay:i*.085,level:.027});
         }else bell(bus,n,.68,.075/(1+i*.22),t+i*.09);
       });
       if(p.kind==='water'){tone(bus,330,.12,{at:t,delay:.34,level:.10,end:1050});}
+  }
+  function playEncounter(id) {
+    const p=ENCOUNTERS[id];if(!p)return false;
+    return withSound('encounter:'+id,(bus,t)=>{
+      stats.encountersUsed.add(id);encounterSound(bus,p,t);
     });
   }
   function stopVoices() {
@@ -342,6 +437,21 @@
     const rendered=await ctx.startRendering();
     return {sampleRate:rendered.sampleRate,duration:rendered.duration,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
   }
+  async function renderEncountersOffline(ids=Object.keys(ENCOUNTERS)) {
+    const Constructor=root.OfflineAudioContext||root.webkitOfflineAudioContext;
+    if(!Constructor)throw new Error('OfflineAudioContext unavailable');
+    const slot=1.2,sampleRate=44100,duration=Math.max(1,ids.length)*slot+.6;
+    const ctx=new Constructor(1,Math.ceil(sampleRate*duration),sampleRate);
+    const measure={peakScheduled:0,sourcesCreated:0,rejectedVoices:0},bus=makeBus(ctx,.30,measure);
+    ids.forEach((id,i)=>{
+      if(!ENCOUNTERS[id])throw new Error('Unknown audio encounter: '+id);
+      bus.sources.clear();encounterSound(bus,ENCOUNTERS[id],i*slot+.03);
+    });
+    const rendered=await ctx.startRendering();
+    return {sampleRate:rendered.sampleRate,duration:rendered.duration,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
+  }
   return {unlock,playCard,playEvent,playCue,playEncounter,setMuted,setVolume,getState,preview,profile,
-    profiles:Object.freeze(Object.keys(PROFILES)),encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline};
+    profiles:Object.freeze(Object.keys(PROFILES)),assassinProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('C'))),
+    swordProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('S'))),
+    encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline};
 });

@@ -1,2 +1,2 @@
-/* Current v4 suite. Historical v3 checks remain in upgrade-browser.test.cjs. */
-require('./v4-browser.test.cjs');
+/* Current v5 suite; historical suites remain under their versioned filenames. */
+require('./v5-browser.test.cjs');

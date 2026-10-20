@@ -1,0 +1,36 @@
+{
+  "version": "寒渊问剑版",
+  "date": "2026-10-20",
+  "engine": {
+    "command": "node --test dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs",
+    "passed": 105,
+    "failed": 0,
+    "skipped": 0
+  },
+  "audio": {
+    "legacy_passed": 11,
+    "new_passed": 8,
+    "failed": 0,
+    "reports": [
+      "v5-audio-regression-results.json",
+      "v5-audio-results.json"
+    ]
+  },
+  "public_api": {
+    "command": "PLAYTEST_REPORT=dev/v5-playtest-report.json node dev/playtest.cjs",
+    "completed": 120,
+    "wins": 120,
+    "defeats": 0,
+    "report": "v5-playtest-report.json"
+  },
+  "inputs": {
+    "dev/engine.js": "30b976fa78c70d0149f91c4b458cdbc10076ce0285c6784a53c02a652b626641",
+    "dev/engine.test.cjs": "a79b1bb95951ced586249576f6a993c74d6597f3f5852a85fbdcc7959b63e504",
+    "dev/rework.test.cjs": "95b9d82993bcc59193051d80c89f84f27631cd6a6e53b4fb416996beaadfca28",
+    "dev/reward.test.cjs": "caaf2ef695d4fa58ff8a201242de1e9295a8d68a154ec1444f0a4ec328852687",
+    "dev/v5-engine.test.cjs": "52d7679a03002e0c57723fd32342a2159f85dd3153677a28cf9a46c296aab8ab",
+    "dev/playtest.cjs": "f7966ed1374ecc5252bb54c083d31465af49df4b18c403e57e07ea4abd154621",
+    "dev/audio.js": "d7438e7fbad669947f42f673ed60fcf0020ead2a867485d75e7285f4cd83de45"
+  },
+  "note": "Actually run for v5. Public API simulation reads visible state and test map; not a human balance or time-to-play verdict."
+}

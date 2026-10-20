@@ -1,0 +1,1186 @@
+{
+  "target": "/workspace/CC/index.html",
+  "inlineTarget": "/workspace/CC/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "职业选择与魔教反噬背景：独立牌组、初始遗物和角色",
+      "ok": true
+    },
+    {
+      "name": "剑修三档透明立绘与16技能、14异闻资源真实解码",
+      "ok": true
+    },
+    {
+      "name": "十区路线类型可见、沙盘真网格点选，拒绝跳区与刷奖励",
+      "ok": true
+    },
+    {
+      "name": "霜寒意图与三连击实际减伤一致，行动后清空；剑意积累和兑现",
+      "ok": true
+    },
+    {
+      "name": "剑光冰晶与猫爪演出不同，逐段动画和选敌操作锁正常",
+      "ok": true
+    },
+    {
+      "name": "剑修与刺客奖励及商店独立池，购买实例下场真实进入",
+      "ok": true
+    },
+    {
+      "name": "14类异闻均有前情选择结局与一次性处理",
+      "ok": true
+    },
+    {
+      "name": "模型实例随重绘释放，职业几何独立；动态和减少动态开关生效",
+      "ok": true
+    },
+    {
+      "name": "WebGL和新图片不可用时仍可选职业、走路线及战斗",
+      "ok": true
+    },
+    {
+      "name": "双职业正常DOM十区完整通关与重开，不修改生命费用牌组路线",
+      "ok": true
+    },
+    {
+      "name": "完整单文件独立空白页启动，两职业资源与场景不联网",
+      "ok": true
+    },
+    {
+      "name": "运行时外网请求及未捕获JavaScript异常为零",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S05.webp",
+    "/assets/cards/S06.webp",
+    "/assets/cards/S07.webp",
+    "/assets/cards/S08.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S10.webp",
+    "/assets/cards/S11.webp",
+    "/assets/cards/S12.webp",
+    "/assets/cards/S13.webp",
+    "/assets/cards/S14.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S16.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/puppet/sword-wounded.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/events/well.webp",
+    "/assets/events/shrine.webp",
+    "/assets/events/dreamshop.webp",
+    "/assets/events/theatre.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/events/riftwatch.webp",
+    "/assets/events/supply.webp",
+    "/assets/events/cultlab.webp",
+    "/assets/events/swordgrave.webp",
+    "/assets/events/pilgrims.webp",
+    "/assets/events/prisoner.webp",
+    "/assets/events/echo.webp",
+    "/assets/events/broker.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/puppet/sword-wounded.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S05.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S05.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S05.webp",
+    "/assets/cards/C05.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/cards/S04.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S13.webp",
+    "/assets/cards/S07.webp",
+    "/assets/cards/S11.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/S06.webp",
+    "/assets/cards/S08.webp",
+    "/assets/cards/S09.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C23.webp",
+    "/assets/cards/C30.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C07.webp",
+    "/assets/cards/C22.webp",
+    "/assets/cards/C14.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/well.webp",
+    "/assets/relics/moonheart.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/shrine.webp",
+    "/assets/relics/godblood.webp",
+    "/assets/cards/S15.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/dreamshop.webp",
+    "/assets/relics/dream.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/theatre.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S15.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/riftwatch.webp",
+    "/assets/cards/S15.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/supply.webp",
+    "/assets/relics/vial.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/cultlab.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S15.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/swordgrave.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/pilgrims.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/prisoner.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/echo.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S15.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/broker.webp",
+    "/assets/relics/dream.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/portraits/ape.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S01.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S08.webp",
+    "/assets/cards/S05.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/events/echo.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S15.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S14.webp",
+    "/assets/cards/S10.webp",
+    "/assets/events/fox.webp",
+    "/assets/relics/fox.webp",
+    "/assets/events/rest.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S07.webp",
+    "/assets/cards/S06.webp",
+    "/assets/events/rest.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S02.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C19.webp",
+    "/assets/cards/C28.webp",
+    "/assets/events/broker.webp",
+    "/assets/relics/dream.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C27.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C36.webp",
+    "/assets/cards/C19.webp",
+    "/assets/events/fox.webp",
+    "/assets/relics/fox.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C22.webp",
+    "/assets/cards/C05.webp",
+    "/assets/cards/C09.webp",
+    "/assets/portraits/bone.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C36.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C32.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C13.webp",
+    "/assets/cards/C06.webp",
+    "/assets/cards/C04.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C36.webp",
+    "/assets/cards/C22.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C27.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C13.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C22.webp",
+    "/assets/cards/C36.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C02.webp",
+    "/assets/puppet/cat-wounded.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C36.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C18.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S01.webp",
+    "/assets/puppet/sword-normal.webp"
+  ],
+  "expectedMissingRequests": [
+    "http://127.0.0.1:36157/assets/puppet/sword-normal.webp",
+    "http://127.0.0.1:36157/assets/puppet/sword-normal.webp",
+    "http://127.0.0.1:36157/assets/puppet/sword-normal.webp"
+  ],
+  "sha256": "e4b49022cb1e4c13ec2b71da7787fc2b20bebe728b4060b104c503f245b311c6",
+  "fileNavigation": {
+    "allowed": false,
+    "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/CC/index.html\", waiting until \"load\"\u001b[22m\n"
+  },
+  "professions": {
+    "assassin": {
+      "id": "assassin",
+      "name": "夜铃",
+      "profession": "影契刺客",
+      "portrait": "cat",
+      "adult": true,
+      "description": "夜契盟的成年猫妖，善于窥见破绽、穿插连击，以血契换取致命的一击。她受雇寻找玄烬教遗失的契器。",
+      "quote": "“别急。要害总会露出来。”",
+      "accent": "#d4ac72",
+      "starters": [
+        "mark",
+        "combo",
+        "blood"
+      ]
+    },
+    "sword": {
+      "id": "sword",
+      "name": "沈霜白",
+      "profession": "霜华剑修",
+      "portrait": "sword",
+      "adult": true,
+      "description": "太微剑宗的成年女修。寡言清冷，剑术卓绝；以冰霜封住杀势，再以无声一剑决胜。奉命入域，查明失踪同门的下落。",
+      "quote": "“跟紧。不要回头。”",
+      "accent": "#a6dce9",
+      "starters": [
+        "sword"
+      ]
+    }
+  },
+  "art": [
+    {
+      "id": "S01",
+      "width": 314,
+      "height": 314,
+      "fingerprint": 2004294434
+    },
+    {
+      "id": "S02",
+      "width": 313,
+      "height": 314,
+      "fingerprint": -2067787976
+    },
+    {
+      "id": "S03",
+      "width": 314,
+      "height": 314,
+      "fingerprint": -1511820033
+    },
+    {
+      "id": "S04",
+      "width": 313,
+      "height": 314,
+      "fingerprint": 1889312733
+    },
+    {
+      "id": "S05",
+      "width": 314,
+      "height": 313,
+      "fingerprint": -979333899
+    },
+    {
+      "id": "S06",
+      "width": 313,
+      "height": 313,
+      "fingerprint": 1519881209
+    },
+    {
+      "id": "S07",
+      "width": 314,
+      "height": 313,
+      "fingerprint": -1674123476
+    },
+    {
+      "id": "S08",
+      "width": 313,
+      "height": 313,
+      "fingerprint": -1783176208
+    },
+    {
+      "id": "S09",
+      "width": 314,
+      "height": 314,
+      "fingerprint": 193462388
+    },
+    {
+      "id": "S10",
+      "width": 313,
+      "height": 314,
+      "fingerprint": 395952366
+    },
+    {
+      "id": "S11",
+      "width": 314,
+      "height": 314,
+      "fingerprint": 191915128
+    },
+    {
+      "id": "S12",
+      "width": 313,
+      "height": 314,
+      "fingerprint": -329911782
+    },
+    {
+      "id": "S13",
+      "width": 314,
+      "height": 313,
+      "fingerprint": -275282343
+    },
+    {
+      "id": "S14",
+      "width": 313,
+      "height": 313,
+      "fingerprint": 1318320151
+    },
+    {
+      "id": "S15",
+      "width": 314,
+      "height": 313,
+      "fingerprint": -170510532
+    },
+    {
+      "id": "S16",
+      "width": 313,
+      "height": 313,
+      "fingerprint": -775252334
+    },
+    {
+      "id": "sword-normal",
+      "width": 683,
+      "height": 1024,
+      "fingerprint": -1331812339
+    },
+    {
+      "id": "sword-wounded",
+      "width": 683,
+      "height": 1024,
+      "fingerprint": 1951608432
+    },
+    {
+      "id": "sword-critical",
+      "width": 683,
+      "height": 1024,
+      "fingerprint": 30413411
+    },
+    {
+      "id": "well",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 156112580
+    },
+    {
+      "id": "shrine",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 375431054
+    },
+    {
+      "id": "dreamshop",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1388479284
+    },
+    {
+      "id": "theatre",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1126715449
+    },
+    {
+      "id": "umbrella",
+      "width": 512,
+      "height": 512,
+      "fingerprint": -3962544
+    },
+    {
+      "id": "pawnshop",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1693553035
+    },
+    {
+      "id": "riftwatch",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 1734039583
+    },
+    {
+      "id": "supply",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -103871926
+    },
+    {
+      "id": "cultlab",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -1209189166
+    },
+    {
+      "id": "swordgrave",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 2013565862
+    },
+    {
+      "id": "pilgrims",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -1318219591
+    },
+    {
+      "id": "prisoner",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -630662881
+    },
+    {
+      "id": "echo",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 846685204
+    },
+    {
+      "id": "broker",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 630193730
+    }
+  ],
+  "map": {
+    "floors": 10,
+    "nodes": 32,
+    "info": {
+      "id": 19,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "map",
+      "type": "map",
+      "character": "sword",
+      "frames": 10,
+      "rebuilds": 1,
+      "vertices": 34320,
+      "meshVertices": 34320,
+      "triangles": 11440,
+      "triangleCount": 11440,
+      "parts": 7,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "pose": {
+        "breath": 0.010058946522883184,
+        "headYaw": 0.0031358461564115064,
+        "hair": 0.016503088145864098,
+        "tail": 0.07668779819710833,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [
+        "f1-0"
+      ],
+      "projections": [
+        {
+          "nodeId": "f1-0",
+          "x": 138.78466606804895,
+          "y": 157.90638400590407,
+          "available": true,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-0",
+          "x": 268.4709483644658,
+          "y": 76.9141184689287,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-1",
+          "x": 258.6200424198659,
+          "y": 166.1795708499957,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-2",
+          "x": 248.7691364752659,
+          "y": 255.4450232310627,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-0",
+          "x": 393.47514569132494,
+          "y": 38.34926369443856,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-1",
+          "x": 383.624239746725,
+          "y": 127.61471607550553,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-2",
+          "x": 373.7733338021251,
+          "y": 216.88016845657253,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-3",
+          "x": 363.9224278575251,
+          "y": 306.1456208376395,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-0",
+          "x": 513.7437237016488,
+          "y": 42.69692914624995,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-1",
+          "x": 503.8928177570489,
+          "y": 131.96238152731695,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-2",
+          "x": 494.041911812449,
+          "y": 221.22783390838393,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-3",
+          "x": 484.19100586784907,
+          "y": 310.4932862894509,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f5-0",
+          "x": 634.0467320549517,
+          "y": 46.732598913711875,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f5-1",
+          "x": 624.1958261103517,
+          "y": 135.99805129477883,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f5-2",
+          "x": 614.3449201657519,
+          "y": 225.2635036758458,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f5-3",
+          "x": 604.4940142211518,
+          "y": 314.5289560569128,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f6-0",
+          "x": 754.2102913499082,
+          "y": 52.03190710665532,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f6-1",
+          "x": 744.3593854053082,
+          "y": 141.2973594877223,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f6-2",
+          "x": 734.5084794607084,
+          "y": 230.5628118687893,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f6-3",
+          "x": 724.6575735161084,
+          "y": 319.8282642498563,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f7-0",
+          "x": 874.1353536543518,
+          "y": 59.4923913243605,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f7-1",
+          "x": 864.2844477097518,
+          "y": 148.7578437054275,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f7-2",
+          "x": 854.433541765152,
+          "y": 238.02329608649447,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f7-3",
+          "x": 844.582635820552,
+          "y": 327.28874846756145,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f8-0",
+          "x": 993.8508538307055,
+          "y": 68.85185399857427,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f8-1",
+          "x": 983.9999478861057,
+          "y": 158.11730637964126,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f8-2",
+          "x": 974.1490419415057,
+          "y": 247.3827587607082,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f8-3",
+          "x": 964.2981359969058,
+          "y": 336.6482111417752,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f9-0",
+          "x": 1108.5727294723501,
+          "y": 123.46178963627698,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f9-1",
+          "x": 1098.7218235277503,
+          "y": 212.72724201734394,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f9-2",
+          "x": 1088.8709175831502,
+          "y": 301.99269439841095,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f10-0",
+          "x": 1218.4789535230082,
+          "y": 221.709469883113,
+          "available": false,
+          "visited": false
+        }
+      ],
+      "canvasCount": 1,
+      "width": 1358,
+      "height": 410,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    }
+  },
+  "chill": {
+    "first": [
+      1,
+      1,
+      1
+    ],
+    "next": [
+      10
+    ],
+    "hp": 57
+  },
+  "fx": {
+    "sword": [
+      {
+        "type": "skill",
+        "text": "沈霜白 · 出剑寒芒"
+      },
+      {
+        "type": "afterimage",
+        "text": ""
+      },
+      {
+        "type": "iceblade",
+        "text": ""
+      },
+      {
+        "type": "impact",
+        "text": ""
+      },
+      {
+        "type": "number",
+        "text": "−4剑锋命中"
+      },
+      {
+        "type": "frost",
+        "text": ""
+      },
+      {
+        "type": "number",
+        "text": "霜寒 +2当前 2 层"
+      },
+      {
+        "type": "relic",
+        "text": "霜魄剑穗"
+      },
+      {
+        "type": "sword-intent",
+        "text": "凝剑意+1 · 当前 1 / 8"
+      }
+    ],
+    "classic": [
+      {
+        "type": "skill",
+        "text": "夜铃 · 潜袭连爪"
+      },
+      {
+        "type": "afterimage",
+        "text": ""
+      },
+      {
+        "type": "claw",
+        "text": ""
+      },
+      {
+        "type": "impact",
+        "text": ""
+      },
+      {
+        "type": "number",
+        "text": "−3爪击命中"
+      },
+      {
+        "type": "afterimage",
+        "text": ""
+      },
+      {
+        "type": "claw",
+        "text": ""
+      },
+      {
+        "type": "impact",
+        "text": ""
+      },
+      {
+        "type": "number",
+        "text": "−3第 2 段 · 爪击命中"
+      },
+      {
+        "type": "afterimage",
+        "text": ""
+      },
+      {
+        "type": "claw",
+        "text": ""
+      },
+      {
+        "type": "impact",
+        "text": ""
+      },
+      {
+        "type": "number",
+        "text": "−3第 3 段 · 爪击命中"
+      }
+    ]
+  },
+  "pool": [
+    {
+      "starter": "sword",
+      "bought": "S06"
+    },
+    {
+      "starter": "classic",
+      "bought": "C07"
+    }
+  ],
+  "events": [
+    {
+      "id": "well",
+      "name": "倒映祈愿井",
+      "received": "金币 −20 · 秘宝「月髓」"
+    },
+    {
+      "id": "shrine",
+      "name": "无面旧神龛",
+      "received": "金币 −15 · 生命 −8 · 秘宝「无面神血」 · 卡牌「碎霜」"
+    },
+    {
+      "id": "dreamshop",
+      "name": "卖梦人的摊位",
+      "received": "金币 −25 · 秘宝「梦匣」"
+    },
+    {
+      "id": "theatre",
+      "name": "纸灯戏台",
+      "received": "生命 −8 · 秘宝「照魂镜」"
+    },
+    {
+      "id": "umbrella",
+      "name": "雨夜借伞",
+      "received": "最大生命 −6 · 卡牌「万川归寂」 · 卡牌「碎霜」 · 金币 +35"
+    },
+    {
+      "id": "pawnshop",
+      "name": "蛇鳞当铺",
+      "received": "最大生命 −5 · 金币 +65"
+    },
+    {
+      "id": "riftwatch",
+      "name": "封域望哨",
+      "received": "生命 −6 · 卡牌「碎霜」 · 金币 +20"
+    },
+    {
+      "id": "supply",
+      "name": "断桥军需",
+      "received": "金币 −30 · 秘宝「回春露」"
+    },
+    {
+      "id": "cultlab",
+      "name": "逆仪残室",
+      "received": "生命 −8 · 卡牌「万川归寂」 · 卡牌「碎霜」"
+    },
+    {
+      "id": "swordgrave",
+      "name": "寒碑剑冢",
+      "received": "生命 −5 · 卡牌「碎霜」"
+    },
+    {
+      "id": "pilgrims",
+      "name": "失序行营",
+      "received": "金币 −20 · 生命 +0"
+    },
+    {
+      "id": "prisoner",
+      "name": "锁魂囚笼",
+      "received": "生命 −7 · 秘宝「照魂镜」"
+    },
+    {
+      "id": "echo",
+      "name": "异声裂隙",
+      "received": "最大生命 −5 · 卡牌「万川归寂」 · 卡牌「碎霜」 · 金币 +20"
+    },
+    {
+      "id": "broker",
+      "name": "千灯密约",
+      "received": "金币 −40 · 秘宝「梦匣」"
+    }
+  ],
+  "models": [
+    {
+      "id": 115,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "battle",
+      "type": "battle",
+      "character": "sword",
+      "frames": 11,
+      "rebuilds": 1,
+      "vertices": 7572,
+      "meshVertices": 7572,
+      "triangles": 2524,
+      "triangleCount": 2524,
+      "parts": 8,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "pose": {
+        "breath": 0.010868936749517293,
+        "headYaw": 0.0034363709222799198,
+        "hair": 0.01797584366168429,
+        "tail": 0.08373498962146697,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [
+        "f1-0"
+      ],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1360,
+      "height": 300,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    },
+    {
+      "id": 119,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "battle",
+      "type": "battle",
+      "character": "assassin",
+      "frames": 8,
+      "rebuilds": 1,
+      "vertices": 7542,
+      "meshVertices": 7542,
+      "triangles": 2514,
+      "triangleCount": 2514,
+      "parts": 8,
+      "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+      "pose": {
+        "breath": 0.00582729442078049,
+        "headYaw": 0.00173355293364472,
+        "hair": 0.009309623893610548,
+        "tail": 0.04291048333593676,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [
+        "f1-0"
+      ],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1360,
+      "height": 300,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    }
+  ],
+  "fallback": true,
+  "naturalRuns": {
+    "sword": [
+      {
+        "result": "victory",
+        "hp": 27,
+        "maxHp": 42,
+        "route": [
+          "fight",
+          "event",
+          "event",
+          "fight",
+          "fox",
+          "rest",
+          "fight",
+          "rest",
+          "rest",
+          "boss"
+        ],
+        "history": 10
+      }
+    ],
+    "mark": [
+      {
+        "result": "victory",
+        "hp": 17,
+        "maxHp": 41,
+        "route": [
+          "fight",
+          "event",
+          "event",
+          "fight",
+          "fox",
+          "shop",
+          "fight",
+          "event",
+          "shop",
+          "boss"
+        ],
+        "history": 10
+      }
+    ]
+  },
+  "inline": {
+    "bytes": 8768687,
+    "sha256": "1135a132873593364b0cc832c34bb3679ff3161e95e28c8d2ae0f6b900e84041",
+    "requests": []
+  },
+  "browser": "154.0.8037.57"
+}

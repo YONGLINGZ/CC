@@ -1,0 +1,150 @@
+{
+  "suite": "v5 source-only recovered HTML: both professions first battle and reward",
+  "method": "Fresh source recovery with no assets; about:blank setContent; newRun public API selects profession, then DOM card/target/end-turn and reward interactions; no HP, deck, price or damage edits.",
+  "uiSha256": "900ef4957b7bc3b88d3d4f429ef72e31aeff872864206d1cc286b894608f50c2",
+  "sceneSha256": "b9c36d15b1a1c23d717515eed2df77b709b62cbd8cd94ccf81ecf5e24263cc6a",
+  "slimSha256": "ad7b31a9bb1315e0a68badb5146cef5a9199991ce630809abe35c31ae5357818",
+  "restoreScriptSha256": "e803bd9ab99311fb15b56654abb3dd77b609bfff81f2be62217dcb189483dac4",
+  "variants": [
+    {
+      "character": "assassin",
+      "screen": "battle",
+      "svg": true,
+      "images": 0,
+      "scene": {
+        "id": 4,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "battle",
+        "type": "battle",
+        "character": "assassin",
+        "frames": 3,
+        "rebuilds": 1,
+        "vertices": 7542,
+        "meshVertices": 7542,
+        "triangles": 2514,
+        "triangleCount": 2514,
+        "parts": 8,
+        "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f1-0"
+        ],
+        "projections": [],
+        "canvasCount": 1,
+        "width": 1360,
+        "height": 300,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "fallback": "成年猫妖·铃夜的新绘立绘",
+      "deckBefore": 10,
+      "enemy": "山魈",
+      "outcome": {
+        "screen": "reward",
+        "hp": 51,
+        "cards": [
+          "C20",
+          "C04",
+          "C07"
+        ]
+      },
+      "afterReward": {
+        "screen": "map",
+        "floor": 2,
+        "deck": 11,
+        "gold": 80
+      },
+      "actions": 7
+    },
+    {
+      "character": "sword",
+      "screen": "battle",
+      "svg": true,
+      "images": 0,
+      "scene": {
+        "id": 15,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "battle",
+        "type": "battle",
+        "character": "sword",
+        "frames": 3,
+        "rebuilds": 1,
+        "vertices": 7572,
+        "meshVertices": 7572,
+        "triangles": 2524,
+        "triangleCount": 2524,
+        "parts": 8,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f1-0"
+        ],
+        "projections": [],
+        "canvasCount": 1,
+        "width": 1360,
+        "height": 300,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "fallback": "成年女剑修沈霜白，银发、冷淡冰蓝眼、白蓝长袍与长剑",
+      "deckBefore": 10,
+      "enemy": "灯鬼",
+      "outcome": {
+        "screen": "reward",
+        "hp": 60,
+        "cards": [
+          "S10",
+          "S14",
+          "S04"
+        ]
+      },
+      "afterReward": {
+        "screen": "map",
+        "floor": 2,
+        "deck": 11,
+        "gold": 80
+      },
+      "actions": 6
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "browser": "154.0.8037.57",
+  "passed": true
+}

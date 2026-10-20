@@ -1,33 +1,32 @@
-# 百妖夜契 · 妖影战痕版
+# 百妖夜契 · 寒渊问剑版
 
-解压试玩包，直接用桌面浏览器打开 `index.html`，保留旁边的 `assets/` 文件夹。想只带一个文件时，打开 `baiyao-standalone.html`：全部图画已内嵌。两种版本均无需安装、服务器或联网。
+魔教玄烬教的“归墟引灵”实验遭到反噬，寒渊整片区域被黑雾封闭。外界无法探查，宗门、魔教残众、商盟与散修只能派人进去。有人找失踪的同门，有人收回证据，有人想把禁术和异宝卖个好价钱。
 
-新增正常、50% 战痕、25% 濒危三档猫妖立绘，血量逐段变化时实时切换，治疗后恢复。声画设置中可查看“三态画卷”或关闭动态立绘。攻击增加蓄势前扑、残影和命中火星，受击、格挡、毒和复活各有反馈。
+选择 **夜铃 · 影契刺客** 或 **沈霜白 · 霜华剑修**，沿十段相连的路线深入封域。夜铃通过标记、连击和血契收割；沈霜白清冷寡言，以霜寒削弱敌人的每段攻击，再积攒剑意一剑决胜。两职业使用独立起始牌组、初始遗物、商店和奖励牌池，共 52 种技能。
 
-本版包含呼吸、眨眼、视线跟随与局部网格动作的离线动态立绘原型；**尚未生成正式 Cubism Live2D 模型**，制作尝试与边界见 [LIVE2D_STATUS.md](LIVE2D_STATUS.md)。
+地图提前显示战斗、精英、奇遇、商店和休息。只能沿当前节点的真实连边前进，选路会失去其他支路。14 种奇遇呈现各方的交易、秘密与损失，代价和收益直接写在选项上；故事只作为探索背景。
 
-基于你上传的 `33.zip` 继续制作，保留四列迷雾地图、六段故事和五件秘宝。36 张技能、9 类事件和 13 件遗物均有独立插画；36 种技能音色与命中逐段同步。攻击牌先点牌再点敌人，Esc 取消，结束回合让敌人行动。
+## 下载与启动
 
-精英战会让你挑选珍藏，首次精英保底提供秘宝候选；普通战保底同流派卡、精英保底稀有卡，每局一次免费换牌。揭牌、秘宝入手、连段和收割都有音画反馈，得到的能力会真实生效。声音在首次点击后开启，可在顶部静音或调音量。
-
-从 GitHub 获取成品：
-
-- [下载完整试玩 ZIP](https://github.com/YONGLINGZ/CC/raw/refs/heads/main/recovery/baiyao-rebuilt.zip)，解压后用浏览器打开 `baiyao-rebuilt/index.html`。
-- [查看／下载完整单文件 HTML](https://github.com/YONGLINGZ/CC/blob/main/baiyao-standalone.html)，通过文件页的 **Download raw file** 保存到电脑后打开。
+- [下载完整试玩 ZIP](https://github.com/YONGLINGZ/CC/raw/refs/heads/main/recovery/baiyao-rebuilt.zip)，解压后用桌面浏览器打开 `baiyao-rebuilt/index.html`，保留旁边的 `assets/` 文件夹。
+- [查看／下载完整单文件 HTML](https://github.com/YONGLINGZ/CC/blob/main/baiyao-standalone.html)，点击 **Download raw file** 保存后打开，可单独复制。
 - [下载整个源码仓库](https://github.com/YONGLINGZ/CC/archive/refs/heads/main.zip)。
 
-- [完整操作与开发说明](GAME_README.md)
-- [本轮实际验证记录](TESTING.md)
-- [离线恢复与持久化说明](PERSISTENCE.md)
+两种版本均无需安装、构建、服务器、账号或联网。攻击／施法牌先点牌再点敌人，Esc 取消；结束回合执行已经展示的敌人意图。首次点击启用声音，可在声画设置中静音、调音量或减少动态。刷新重开，暂不存档。
 
-![三档战损立绘](docs/previews/damage-gallery.webp)
+## 场景与人物
 
-![连爪前扑与残影的边界测试场景](docs/previews/combat-v4.webp)
+路线是实际 WebGL 几何场景：浮岛、断桥、遗迹、营火和事件地标按本局地图生成，人物使用独立的程序化低多边形模型。两位主角保留精细独立原画及正常／50%／25% 三档战损，剑修使用剑芒、冰晶与剑意释放表现，刺客保留潜袭、猫爪和残影。
 
-![独立画卡与战斗界面](docs/previews/battle.webp)
+三维场景和人物是轻量几何模型原型，尚非精细雕刻或完整骨骼角色。夜铃另有自制 2D 网格动态立绘；本版仍没有正式 Cubism Live2D 模型。WebGL 或图片不可用时保留二维地图、SVG 人物和完整游戏操作。
 
-![精英战珍藏双选](docs/previews/reward.webp)
+![沈霜白与双职业选择](docs/previews/sword-title.webp)
 
-![剧情奇遇独立场景](docs/previews/event.webp)
+![寒渊封域的三维路线沙盘](docs/previews/map-v5.webp)
 
-工作区路径不是聊天附件。「发布环境」也不等于部署网站或发送下载文件。跨新实例的恢复，必须另行实际核验。
+- [完整操作、职业和规则](GAME_README.md)
+- [实际运行的检查](TESTING.md)
+- [三维模型及动态立绘边界](LIVE2D_STATUS.md)
+- [成品与离线恢复说明](PERSISTENCE.md)
+
+工作区路径不是聊天附件，“发布环境”也不等于部署网站或生成下载文件。直接下载仓库成品即可试玩。
