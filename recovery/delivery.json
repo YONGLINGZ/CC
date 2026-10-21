@@ -1,22 +1,22 @@
 {
-  "version": "蚀心长夜版",
+  "version": "蚀心长夜版 · 隐契登楼更新",
   "date": "2026-10-21",
-  "based_on": "user 33.zip and v7 game",
+  "based_on": "user 33.zip and v8 game",
   "game_html": {
-    "bytes": 463750,
-    "sha256": "912b871951a6f66c5865e8ed46f87d28d0c1837b9faf5facf846387a6ff6e1d6"
+    "bytes": 472205,
+    "sha256": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c"
   },
   "standalone_html": {
-    "bytes": 15292620,
-    "sha256": "e6c6d8feea0a4e1fe5d3e8020e56e3ec13453ddb62714fb366de2c1843b072dc"
+    "bytes": 15301075,
+    "sha256": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
   },
   "play_zip": {
-    "bytes": 24379100,
-    "sha256": "6747379084917b3e558fc96a72b24019d434034812fc84b8925b66095d67c397"
+    "bytes": 24734515,
+    "sha256": "0a6a4f6589f608801b41041dcac2e60e67aaa327cf0cb95f936717b641b522cc"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 377,
+  "zip_members": 398,
   "editable_shell_in_zip": true,
   "runtime_art": {
     "portraits": {
@@ -65,7 +65,12 @@
     }
   },
   "runtime_art_total": 233,
-  "new_v8_art_files": 41,
+  "retained_v8_art_files": 41,
+  "inline_vector_icons": 21,
+  "universal_map_icons": 7,
+  "map_direction": "bottom-to-top",
+  "hidden_narrative_counters": true,
+  "status_details_on_click_only": true,
   "professions": [
     "影契刺客",
     "霜华剑修",
@@ -98,22 +103,22 @@
   "runtime_3d": false,
   "scene_models": "removed; painted regional backgrounds, 2D routes and static character art",
   "engine_tests": {
-    "passed": 161,
+    "passed": 170,
     "failed": 0,
-    "total": 161,
+    "total": 170,
     "skipped": 0,
-    "legacy_checks": 144,
-    "new_checks": 17
+    "legacy_checks": 161,
+    "new_checks": 9
   },
   "audio_tests": {
     "passed": 23,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 26,
+    "passed": 10,
     "failed": 0
   },
-  "natural_dom_professions": 3,
+  "natural_dom_professions": 1,
   "export_roundtrip_checks": {
     "passed": 4,
     "failed": 0
@@ -124,16 +129,14 @@
     "defeats": 0
   },
   "hidden_route_simulations": {
+    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
     "wins": 22,
     "defeats": 2,
+    "unlocks": 22,
     "hidden_challenges": 24,
     "hidden_wins": 22,
-    "unlocks": 22,
-    "ordinary_victories": 0,
-    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
-    "report": "dev/v8-hidden-playtest-report.json",
-    "starting_profile": "Empty default profile; no unlock injection."
+    "report": "dev/v9-hidden-playtest-report.json"
   },
   "full_recovery_checks": 17,
   "source_recovery_checks": 21,
@@ -141,27 +144,28 @@
   "local_file_browser": {
     "passed": 0,
     "failed": 1,
+    "evidence_scope": "Historical v8 cloud-browser file URL probe; v9 verified through local HTTP and direct standalone HTML.",
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/v8-results.json": "84de64efe7b9213c20670559142d8cc98c9496fd070a3e2815b8cdf9701f907e",
-    "dev/v8-export-results.json": "ae9b4ec0fcb3bd0fd111bb9059eaf861b2ab491d05684e318c0c30a96be6b91b",
+    "dev/v9-results.json": "dee024991a9a09d088178bd393919b872463dc67334c861e4f413b4623e59b5c",
+    "dev/v9-export-results.json": "6185db190a61dbb0ae33b55492450cdcb93d4d05654f16db436d8d9302c2e75a",
     "dev/v8-audio-regression-results.json": "c29cbeda79ccef1f4b330e936de1f0e94e149df9c453b8175f2f3d1da8aa3044",
     "dev/v8-sword-audio-results.json": "51c11468725f80b3d19103decd404e184dac4276f9d4020a65688cd4fbf99059",
     "dev/v8-audio-results.json": "a903a1bb5525d6f069156398266106675c9357c020a46687a6663780a8abd438",
-    "dev/v8-regression-results.json": "c361b457dbcbc374f5379ce9367a6a61a869cc346f0b9a9af5d4f2fbc7b1bf97",
-    "dev/v8-source-browser-results.json": "f9d247dcbe171b09080d90a6706b817529c1c2b878386d07262a83e89b12d1ef",
+    "dev/v9-regression-results.json": "59ebae7214953a346b7aa82133ea256580f099c2c2163dc226d1b76924e305ae",
+    "dev/v9-source-browser-results.json": "d4dd726858f28858da3438fca202a1c6fe560cb9da4a9afaccc41ccc85757e21",
     "dev/v8-art-manifest.json": "6ada753715f11933adb767d6cdaa84327a502aa5411b178984c4bc12465df3e9",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "4cb1308411264f43d069e26f62240828fd96272e07fbe96beb6d9d9489ca65a3",
-    "recovery/source-tests.json": "9671a6a970153c563f19481f0a9fc30bbe84cf0153eb6bb32f9aa71e7fdf5ac1",
-    "recovery/manifest.json": "55f30e47818aa988f468b3122d50b215edbe424bc8920db4e953624e282234fd",
-    "recovery/source-manifest.json": "87e6746ad32f91d7ddeaedb290d2d288a663b964f1bad95af4b0df32bb3ba820"
+    "recovery/tests.json": "2ec9fdb4aa63fab4c73e31fedac5d81eb63dd3cd0dd0fd6683f025ac1ecb9821",
+    "recovery/source-tests.json": "0492f3a44a78460fc355e070167dde02d9de9ac3fb04fbbcfecdc108df2740a6",
+    "recovery/manifest.json": "1c67ce796cccb98350441449eef5387836b15072e805862ff397733b4fc75d8c",
+    "recovery/source-manifest.json": "819dc66fbd2d3dbf770e7454d1ececbbe3325c9149f6ef5da87829f8086fb7b3"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v8": false,
+  "cloud_configuration_updated_for_v9": false,
   "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"

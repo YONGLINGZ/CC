@@ -1,5 +1,5 @@
 {
-  "format": "baiyao-offline-recovery-v8",
+  "format": "baiyao-offline-recovery-v9",
   "mode": "full-webp",
   "files": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -235,22 +235,22 @@
     "assets/weapons/rime.webp": "be2c55497aeb1e4aa2ed0819b717e9321525aac8dfc31e79d2f269074d86c35b",
     "assets/weapons/spirit.webp": "a5f8e05b4eacf42dd705121ee7fd4c6e67fe6f9cbbe193f3172c200ca3d53036",
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945",
-    "dev/art.js": "cd32758a50f30e9c7a1a0a88ac84df08e3076d32593b87191da2125c22943b4e",
+    "dev/art.js": "455029bd309f3096e03f9e5781dccf5e1376b0fe74e4b7fda1746e154748eaec",
     "dev/audio.js": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
     "dev/build.cjs": "19357b392fc9be59e599ecdb39807325206fa629799211822a05dfe644ea4d17",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "4f366ddac569a9c012b3e653d7a6cacee5d4ff0c45b189421e07447e1c3244b7",
-    "dev/expansion.js": "f89e54c34232661f572dc02e4342ec7a920c1f54828d49b15cb68862dbb7d2a2",
-    "dev/shell.html": "3f9672abc60bf96c3fad98942d5dbbc2ffadbe0bcca97352849480b48ce156e5",
-    "dev/ui.js": "dbe3fe725bc80cc31ea8f0cb5ad203b5803cce4eda165437d1e391021df94e73"
+    "dev/engine.js": "2bde7db56354496b4f7183096725502a778cbd9aef1b254d455cc35b1f5d0a37",
+    "dev/expansion.js": "982ac39c995f93cb14c934cadd12488d19113efa8ebb808743ce00acc12d197f",
+    "dev/shell.html": "b276149af2cef7045fdd0d1449982fa0108af0a033528b0b649b1ab7fd2a86f0",
+    "dev/ui.js": "11f3996d2fd2a6bd3db96d22b4deb7e7ff57cdcd0fe2f5d744543f639c002dc0"
   },
   "outputs": {
-    "index.html": "912b871951a6f66c5865e8ed46f87d28d0c1837b9faf5facf846387a6ff6e1d6",
-    "baiyao-standalone.html": "e6c6d8feea0a4e1fe5d3e8020e56e3ec13453ddb62714fb366de2c1843b072dc"
+    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
+    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
   },
   "release_outputs": {
-    "index.html": "912b871951a6f66c5865e8ed46f87d28d0c1837b9faf5facf846387a6ff6e1d6",
-    "baiyao-standalone.html": "e6c6d8feea0a4e1fe5d3e8020e56e3ec13453ddb62714fb366de2c1843b072dc"
+    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
+    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -489,9 +489,9 @@
   },
   "asset_count": 233,
   "source_count": 8,
-  "archive_sha256": "d5426706af3b61ae6784f2e714afea32b17b35189c501511c45df0420c7e44f7",
-  "archive_bytes": 11081107,
-  "uncompressed_bytes": 11357586,
+  "archive_sha256": "243cb3a60daa1d0b42626980acc3e5c88ef04e7e0ea285d1a382b40defb237d0",
+  "archive_bytes": 11083812,
+  "uncompressed_bytes": 11366041,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

@@ -238,20 +238,20 @@
     }
     function getAffliction() {
       const a=state.player.affliction;
-      return {...a,suppressed:a.suppressed||0,name:a.revealed?'缠脉毒':'未察觉的异样',text:!a.active?'未受缠脉毒影响。':a.revealed?`持续缠脉毒：进入每个节点与每个玩家回合开始时失去 1 生命。${a.suppressed>0?`尚可压制 ${a.suppressed} 次发作。`:''}普通治疗不会解毒；火塘静息或商店抑毒散只能暂时压制。后续药棚或残镜可付代价根治。`:'伤口深处尚有一丝陌生的寒意。'};
+      return {...a,suppressed:a.suppressed||0,name:a.revealed?'缠脉毒':'未察觉的异样',text:!a.active?'未受缠脉毒影响。':a.revealed?`持续缠脉毒：进入节点与玩家回合开始时失去 1 生命。${a.suppressed>0?'药力正暂时压住毒性。':''}普通治疗不会解毒；火塘静息或商店抑毒散可暂时压制，也可寻医根治。`:'伤口深处尚有一丝陌生的寒意。'};
     }
     function tickAffliction(trigger) {
       const a=state.player.affliction;
       if(!a.active)return true;
       if(!a.revealed){
         a.revealed=true;
-        recordJourney(null,'缠脉毒发作','救下陌生人后，掌心伤口渗出黑线。每次踏入节点、每个玩家回合开始失去 1 生命；普通治疗无法根除。火塘静息与商店抑毒散只能暂时压制，后续药棚或残镜才有根治机会。','warning');
-        note('缠脉毒已发作：踏入节点与每个玩家回合开始失去 1 生命。火塘静息与抑毒散可暂压毒性，普通治疗不会解毒。');
+        recordJourney(null,'缠脉毒发作','掌心伤口渗出黑线，寒意沿着经脉游走。火塘静息与抑毒散可暂压毒性，毒根仍须另寻药方。','warning');
+        note('掌心黑线沿经脉游走，寒意侵骨。');
       }
       a.ticks++;
       if(a.suppressed>0){
         a.suppressed--;
-        if(liveBattle()){log(`缠脉毒暂被压制，尚余 ${a.suppressed} 次。`);event('afflictionSuppressed',{name:'缠脉毒',amount:0,remaining:a.suppressed,trigger});}
+        if(liveBattle()){log('药力暂时压住了缠脉毒。');event('afflictionSuppressed',{name:'缠脉毒',amount:0,remaining:a.suppressed,trigger});}
         return true;
       }
       if(liveBattle())event('affliction',{name:'缠脉毒',amount:1,damage:1,trigger});
@@ -268,11 +268,11 @@
       if(state.screen!=='shop'||!state.shop||state.shop.antidoteBought||!state.player.affliction.active||state.player.gold<30)return false;
       state.player.gold-=30;state.shop.antidoteBought=true;
       const amount=heal(6);state.player.affliction.suppressed=Math.max(6,state.player.affliction.suppressed||0);
-      note(`花费 30 金币服下抑毒散，恢复 ${amount} 生命，压制接下来 6 次发作。毒根仍在，压制结束后继续发作。`);emit();return true;
+      note(`花费 30 金币服下抑毒散，恢复 ${amount} 生命，毒性暂缓。`);emit();return true;
     }
     function getCorruptionStatus() {
       const p=state.player,path=p.path,protectedByJade=p.questItems.includes('clearheart_jade');
-      return {...path,protected:protectedByJade,threshold:6,item:'clearheart_jade',stage:path.fallen?'fallen':path.learned||path.corruption?'tempted':'normal',label:path.fallen?'已入魔':protectedByJade?'清心玉护持':path.learned?'魔念渐生':'霜心未染',text:path.fallen?'本局入魔不可逆：原剑修攻击与护盾基础值减半，向下取整；魔修技能保持完整效果。':protectedByJade?'持有清心玉，今后使用魔修技能不会增加魔念。':`魔念 ${path.corruption}/6。每次使用魔修技能增加 1；无清心玉达到 6 将入魔，本局不可逆。`};
+      return {...path,protected:protectedByJade,threshold:6,item:'clearheart_jade',stage:path.fallen?'fallen':path.learned||path.corruption?'tempted':'normal',label:path.fallen?'霜心异变':protectedByJade?'清心玉护持':path.learned?'气息有异':'剑心澄静',text:path.fallen?'因气息逆转，部分旧有功法难以运转，魔道招式仍顺手。':protectedByJade?'清心玉的凉意护住灵台，杂念渐静。':path.learned||path.corruption?'一缕陌生的气息随运功而起。':'心念沉静，剑息如常。'};
     }
     function useDemonicCard(id) {
       const p=state.player,path=p.path;path.learned=true;path.uses++;state.stats.demonicUses++;
@@ -280,8 +280,8 @@
       if(!path.protected)path.corruption++;
       if(!path.fallen&&path.corruption>=6&&!path.protected){
         path.fallen=true;
-        recordJourney(null,'霜心入魔','第六缕魔念吞没剑心。入魔已成，本局不可逆；原剑修攻击与护盾基础值减半，魔修技能保持完整效果。','warning');
-        note('魔念达到 6，沈霜白已入魔。本局不可逆；原剑修攻击与护盾基础值减半，魔修技能保持完整效果。');
+        recordJourney(null,'霜心异变','寒息骤然逆转，剑上霜色沉入暗红。','warning');
+        note('寒息骤然逆转，剑上霜色沉入暗红。');
         event('fallen',{name:'霜心入魔',total:path.corruption});
       }else event('corruption',{cardId:id,amount:path.protected?0:1,total:path.corruption,protected:path.protected});
     }
@@ -292,14 +292,14 @@
       const value={...(values[id]||{})};if(fallenPenalty)for(const key of ['damage','block'])if(value[key]!=null)value[key]=Math.floor(value[key]/2);
       const altered={
         S01:'造成 3 点伤害；若敌人仍存活，获得 1 层剑意。',S02:'获得 3 点护盾，使敌人获得 1 层霜寒。',
-        S04:'消耗全部剑意，造成 ⌊(10＋3×消耗层数)÷2⌋ 点伤害。',S05:'造成 2 点伤害；若敌人仍存活，使其获得 2 层霜寒。',
+        S04:'消耗全部剑意，造成 5＋⌊3×消耗层数÷2⌋ 点伤害。',S05:'造成 2 点伤害；若敌人仍存活，使其获得 2 层霜寒。',
         S06:'获得 1 点护盾，抽 1 张牌。消耗。',S07:'获得 3 点护盾；若敌人已有霜寒，再抽 1 张牌。',
         S08:'连续攻击 3 次，每次 1 点伤害；若结算前剑意至少 3 层，每次改为 2 点。不消耗剑意。',
         S12:'获得 7 点护盾，使敌人获得 2 层霜寒。',S14:'造成 2 点伤害；若敌人仍存活，获得 2 层剑意。',
         S15:'移除敌人全部霜寒，造成 6＋移除层数的伤害；若敌人仍存活，获得等量剑意。',
         S16:'消耗全部剑意，造成 8＋2×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。'
       };
-      return {...card,...value,id,fallenPenalty,attackMultiplier:fallenPenalty?.5:1,blockMultiplier:fallenPenalty?.5:1,text:fallenPenalty&&altered[id]?altered[id]+'（入魔：基础值已减半，额外增伤照常。）':card.text};
+      return {...card,...value,id,fallenPenalty,attackMultiplier:fallenPenalty?.5:1,blockMultiplier:fallenPenalty?.5:1,text:fallenPenalty&&altered[id]?altered[id]:card.text};
     }
     function getWeaponStatus() {
       const p=state.player,id=p.equippedWeapon,w=WEAPONS[id]||{},requiredLevel=w.requiredLevel||w.level||1;
@@ -342,24 +342,24 @@
       const make=(id,name,story,choices)=>({id,name,glyph:'月',kicker:'雾中余声',description:story[0],story,choices:finishChoices(choices,p)});
       return {
         armory:()=>make('armory','封存剑匣',['废弃行营里有一口封好的剑匣。有人将价钱写在木牌背面，旁边留下了可供试握的两柄旧剑。','剑与人一样，未必因为被带在身边就会听命。'],[
-          {label:'付 35 金币取「听雪」',text:'首张攻击第一段+2，需要灵识2。',goldCost:35,weapon:'rime',outcome:'剑匣开了，寒光贴着手腕安静下来。'},
-          {label:'付 35 金币取「回灯」',text:'首张攻击第一段+1，首回合护盾+3，需要灵识2。',goldCost:35,weapon:'spirit',outcome:'旧剑的剑穗像一盏小灯，在你握紧时亮了一瞬。'},
+          {label:'付 35 金币取「听雪」',text:'每回合首张攻击第一段伤害 +2。剑锋寒意凛冽。',goldCost:35,weapon:'rime',outcome:'剑匣开了，寒光贴着手腕安静下来。'},
+          {label:'付 35 金币取「回灯」',text:'每回合首张攻击第一段伤害 +1；每场战斗首回合护盾 +3。',goldCost:35,weapon:'spirit',outcome:'旧剑的剑穗像一盏小灯，在你握紧时亮了一瞬。'},
           {label:'合上剑匣',text:'不支付代价，也不取剑。',outcome:'你将旧剑留给下一位经过的人。'}
         ]),
         moon_trace:()=>make('moon_trace','沉钟与旧剑',[
           '石门之后，一柄剑悬在没有风的半空。钟上没有铭文，剑却在你靠近时发出一声极轻的回应。',
           '你按住自己的呼吸。剑锋照见的影子，比你的动作慢了半拍。'
         ],[
-          {label:'握住旧剑 · 失去 6 生命，获得「照夜」',text:'获得神剑，修为不足4时每回合按固定顺序失控；可先收进剑匣。',hpCost:6,weapon:'divine',flags:{bellEcho:true},outcome:'剑入鞘，钟却响了。你记下那一声回音，掌心留下的冷意久久没有散去。'},
-          {label:'只听完钟声 · 下一战护盾 +3',text:'收起记下的钟声，不取剑。',guard:3,flags:{bellEcho:true},outcome:'你没有伸手。钟声停下以后，你仍能在心里复述出那最后一拍。'},
+          {label:'握住旧剑 · 失去 6 生命，获得「照夜」',text:'每回合首张攻击第一段伤害 +4。剑中灵性强盛，握持时隐有抗拒；可先收入剑匣。',hpCost:6,weapon:'divine',flags:{bellEcho:true},outcome:'剑入鞘，钟却响了。掌心留下的冷意久久没有散去。'},
+          {label:'只听完钟声 · 下一战护盾 +3',text:'留在石门边听钟，不取剑。',guard:3,flags:{bellEcho:true},outcome:'你没有伸手。最后一声钟响贴着石壁，缓缓消散。'},
           {label:'退出石门',text:'没有数值变化。',outcome:'你将未响的钟与悬剑留在石门之后。'}
         ]),
         sealed_name:()=>make('sealed_name','缺字的残页',[
           '营地外有一张被火燎过的纸，文字在烛火熄灭时才会显现。你听见有人用指节，在桌下敲出先前那段钟声。',
           '最后一行只缺一个名字。你可以念，也可以收好纸页。'
         ],[
-          {label:'默读残页 · 失去 4 生命，获得 25 金币',text:'当前生命须大于4。',hpCost:4,goldGain:25,flags:{ritualName:true},outcome:'一个名字浮上心头，却还没有对应的面容。纸背藏着的旧钱也一起落进你的掌心。'},
-          {label:'付 15 金币买下纸页 · 恢复 6 生命',text:'得到纸页，治疗不超过生命上限。',goldCost:15,heal:6,flags:{ritualName:true},outcome:'烛火灭了。你将浮现的那个名字记在心里，纸页上的字又归于空白。'},
+          {label:'默读残页 · 失去 4 生命，获得 25 金币',text:'当前生命须大于4。',hpCost:4,goldGain:25,flags:{ritualName:true},outcome:'墨迹浮出一瞬，却没有对应的面容。纸背藏着的旧钱落进你的掌心。'},
+          {label:'付 15 金币买下纸页 · 恢复 6 生命',text:'得到纸页，治疗不超过生命上限。',goldCost:15,heal:6,flags:{ritualName:true},outcome:'烛火灭了，纸页上的字又归于空白。你将它折好，放进衣袖。'},
           {label:'不再看那行字',text:'没有数值变化。',outcome:'你移开目光，桌下的敲击声也停了。'}
         ]),
         moon_vow:()=>make('moon_vow','无字之誓',[
@@ -400,8 +400,8 @@
     function makeSwordBuilders(p) {
       const make=(id,name,story,choices)=>({id,name,glyph:'剑',kicker:'剑心行迹',description:story[0],story,choices:finishChoices(choices,p)});
       const refusal={label:'收剑离开',text:'不接受招式，也不支付代价。',outcome:'你将那页字留在雾里，仍沿自己的路前行。'};
-      const jadeChoice={label:'接过清心玉',text:'清心玉阻止今后使用魔修技能增加魔念；不能逆转已经发生的入魔。',questItem:'clearheart_jade',outcome:'清心玉贴在剑穗下，凉意澄澈。它护住此后的每一次选择，却不会替你改写已经发生的事。'};
-      const cureChoice={label:'付 40 金币根治缠脉毒',text:'彻底解除持续缠脉毒；本次无法同时取得清心玉，也不会恢复生命或逆转入魔。',goldCost:40,cureAffliction:true,requiresAffliction:true,outcome:'你放下清心玉，以四十枚旧钱换得一服拔毒药。黑线从掌心褪尽，旧伤终于不再向心口延伸。'};
+      const jadeChoice={label:'接过清心玉',text:'取得清心玉，系在剑穗上。',questItem:'clearheart_jade',outcome:'清心玉贴在剑穗下，澄澈的凉意直抵灵台。'};
+      const cureChoice={label:'付 40 金币根治缠脉毒',text:'解除缠脉毒，不恢复生命；本次只取拔毒药。',goldCost:40,cureAffliction:true,requiresAffliction:true,outcome:'你放下清心玉，以四十枚旧钱换得一服拔毒药。黑线从掌心褪尽，旧伤终于不再向心口延伸。'};
       return {
         tainted_mercy:()=>make('tainted_mercy','雾中求援',[
           '一名背着药囊的陌生人倒在石阶旁，指间紧攥半幅湿透的药方。他说自己叫裴隐，身后还有追兵。',
@@ -412,22 +412,22 @@
         ]),
         demonic_offer:()=>make('demonic_offer','伤口里的低语',p.affliction.active?[
           '掌心的黑线沿经脉缓缓向上，止血与回春都只能让你暂时好受。雾里有人准确说出了伤口的位置。',
-          '“借煞回生。”那人把一页口诀放在石上，“能伤敌，也能续命。每用一次，魔念便深一分；无清心玉达到六分，剑心将再也回不来。”'
+          '“借煞回生。”那人把一页口诀放在石上，“能伤敌，也能续命。你若不信，拿去自己看。”'
         ]:[
           '雾中的药香与先前那名伤者相同。一页口诀被压在路边的石头上，字迹像刚刚写就。',
-          '口诀名为借煞回生：伤敌续命，每用一次增加一分魔念。无清心玉达到六分，便会入魔，本局不可逆。'
+          '纸角写着“借煞回生”。一行行运气法门绕开剑宗旧诀，指向另一处你从未触及的经脉。'
         ],[
-          {label:'记下「借煞回生」',text:'获得 D01：1 灵力，造成 4 伤害并恢复 6 生命。每次使用魔念 +1；无玉达到 6 后入魔，本局不可逆。普通治疗不会解除缠脉毒。',cardIds:['D01'],learnDemonic:true,flags:{demonicContact:true},outcome:'你只读一遍便记住了口诀。伤口尚未愈合，新的出手却已经在呼吸间成形。'},
-          {label:'冷冷拒绝，继续前行',text:'不学习魔修技能。已有缠脉毒仍会持续，可在火塘或药铺暂时压制，后续药棚或残镜有根治机会。',flags:{demonicRefused:true},outcome:'你没有碰那页纸。低语退进雾里；已有的伤口并未因此消失，但前路仍有火塘与药铺。'}
+          {label:'记下「借煞回生」',text:'获得「借煞回生」：消耗 1 灵力，造成 4 伤害并恢复 6 生命；击杀或伤害被护盾阻挡仍治疗。',cardIds:['D01'],learnDemonic:true,flags:{demonicContact:true},outcome:'你只读一遍便记住了口诀。伤口尚未愈合，新的出手却已经在呼吸间成形。'},
+          {label:'冷冷拒绝，继续前行',text:'不学习招式。若需疗伤，可去火塘静息或到药铺买药。',flags:{demonicRefused:true},outcome:'你没有碰那页纸。低语退进雾里，药香也渐渐淡了。'}
         ]),
         demonic_warning:()=>make('demonic_warning','剑穗与清心玉',[
           '断桥药棚外，一位剑宗旧识看见你剑穗边的黑气，取出一枚清心玉。她没有问你为什么会学那些招式。',
-          '“六次之前戴上，往后便不再增添魔念。若已经入魔，它只能止住继续沉下去，不能使旧剑心复原。”'
-        ],[jadeChoice,cureChoice,{label:'只听完告诫',text:'不取得清心玉；魔念仍按原有规则增加。',outcome:'你记下她的警告，将清心玉留给了后来的人。'}]),
+          '“贴身系着吧，能护住灵台。”她将玉放在药案边，又去照看炉上的药。'
+        ],[jadeChoice,cureChoice,{label:'向旧识道别',text:'不取玉，也不买药。',outcome:'你谢过她，将清心玉留在药案上。'}]),
         mirror_trial:()=>make('mirror_trial','照心残镜',[
-          '残镜里映出你的剑与另一道更深的影子。镜座嵌着一块清心玉，旁边刻着“后悔无门，后来可守”。',
-          '玉可以阻止以后增加魔念；已经发生的入魔不会被清除。你仍能决定下一步如何出剑。'
-        ],[jadeChoice,cureChoice,{label:'合上残镜',text:'不取得物品，不改变当前魔念与入魔状态。',outcome:'镜面沉入暗处，你看见的影子仍与自己同行。'}]),
+          '残镜里映出你的剑与另一道更深的影子。镜座嵌着一块清心玉，旁边还留着一包封好的拔毒药。',
+          '镜上的裂痕停在剑锋之前。你伸出手，玉与药都静静落在触得到的地方。'
+        ],[jadeChoice,cureChoice,{label:'合上残镜',text:'不取物品。',outcome:'镜面沉入暗处，你看见的影子仍与自己同行。'}]),
         fallen_hunt:()=>make('fallen_hunt','故药再逢',[
           '裴隐在井边收拢药囊。你认出曾经划伤掌心的搭扣，也看见他身后按顺序排好的六页经卷。',
           p.path.fallen?'他看见你眼底的暗红，终于笑了：“原来你已经能读懂后半卷。”经卷压在他的刀下，想取走就须亲自赢过他。':'他将药刀横在经卷上：“你已经知道，治命也可以伤人。”你可以挑战他，取走两页真正用来交锋的魔修经文。'
@@ -437,9 +437,9 @@
         ]),
         demon_manual:()=>make('demon_manual','井下残卷',[
           p.path.fallen?'井沿一名守卷弟子正在收拾前人遗下的经页。他没有拔剑，反而让出火光：“这三页你可抄走，剑匣里的师门经本请留给我。”':'三页尚未焚尽的魔修经文悬在井沿。它们没有索取鲜血，也没有许诺解毒，只把余下的招式清楚摆在你面前。',
-          p.path.fallen?'你听见自己的笑声。他袖口还系着替伤者包扎剩下的白绦，你的目光却只停在剑匣中的另外两页。方才的善意很远，夺来便能增长力量的念头很近。':'魔躯可以守身，狂念可以寻招，万煞归心可以决胜。每次使用仍遵守同一条规则：无清心玉时魔念 +1，达到六分便不可回头。'
+          p.path.fallen?'你听见自己的笑声。他袖口还系着替伤者包扎剩下的白绦，你的目光却只停在剑匣中的另外两页。':'魔躯可以守身，狂念可以寻招，万煞归心可以决胜。纸页被井风掀开，墨迹深处仍带着未散的热意。'
         ],[
-          {label:'收下三页经文',text:'获得「魔躯」「狂念」「万煞归心」。取得卡牌本身不增加魔念；使用时才结算。',cardIds:['D04','D05','D06'],learnDemonic:true,flags:{demonicContact:true},outcome:'你将三页经文收进剑匣。它们不催促你，只等下一次真正出手。'},refusal,
+          {label:'收下三页经文',text:'获得「魔躯」「狂念」「万煞归心」。',cardIds:['D04','D05','D06'],learnDemonic:true,flags:{demonicContact:true},outcome:'你将三页经文收进剑匣，压平被风卷起的纸角。'},refusal,
           ...(p.path.fallen?[{label:'截住守卷弟子，夺走整部经卷',text:'主动开战：守卷弟子生命 42，攻击7 → 护盾5并攻击6 → 连击6×2。胜利取得「饮魄」「夺脉」「魔躯」「狂念」「万煞归心」及正常战利品；失败结束本局。',battle:{enemyId:'raider',kind:'fight',name:'守卷弟子',lootCards:['D02','D03','D04','D05','D06']},flags:{fallenPlunder:true},outcome:'他一直没有封住去路。你却将剑横了过去：“抄来太慢，整部留下。”他护住剑匣，终于拔剑；你已不再问那部经卷该属于谁。'}]:[])
         ])
       };
@@ -729,7 +729,7 @@
       awardExperience(b.kind);
       if (state.character==='sovereign' && ['feiye_echo','retainer','heart'].includes(b.enemy.id)) {
         const before=state.player.power;state.player.power=Math.min(3,before+1);
-        recordJourney(null,'本源归身',`从${b.enemy.name}处收回一份本源，当前${state.player.power}/3。每张攻击牌第一段额外伤害增加。`,'good');
+        recordJourney(null,'本源归身',`从${b.enemy.name}处取回熟悉的气息，出剑时旧日的回响愈发清晰。`,'good');
         event('powerReturn',{amount:state.player.power-before,total:state.player.power});
       }
       if(b.storyEncounter?.lootCards){for(const id of b.storyEncounter.lootCards)if(CARDS[id]){state.player.deck.push(makeCard(id));if(id.startsWith('D'))state.player.path.learned=true;}recordJourney(null,'新得经页',b.storyEncounter.lootCards.map(id=>CARDS[id].name).join('、'),'warning');}
@@ -951,7 +951,7 @@
       for (const node of state.map[j.regionIndex*10+2]) {
         node.storyId = j.chain + '_' + suffix; node.npc = j.chain;
         node.name = suffix === 'return' ? `再逢 · ${NPCS[j.chain].name}` : `旧缘 · ${NPCS[j.chain].name}`;
-        node.description = `来自${NPCS[j.chain].faction}的旧识；先前的选择已经留在途中。`;
+        node.description = `来自${NPCS[j.chain].faction}的旧识，正在前路的灯下停留。`;
       }
     }
     function recordJourney(npc, title, text, tone = 'neutral') {
@@ -1299,7 +1299,7 @@
       const cleansing=shouldHeal==='cleanse',amount = cleansing?heal(6):shouldHeal ? heal(18) : 0;
       if(cleansing)state.player.affliction.suppressed=Math.max(4,state.player.affliction.suppressed||0);
       advance();
-      note(cleansing?`静息恢复 ${amount} 生命，压制接下来 ${state.player.affliction.suppressed} 次发作。毒根仍在，压制结束后继续。第 ${state.floor} 段已开放。`:shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 段已开放。` : `离开月庭。第 ${state.floor} 段已开放。`);
+      note(cleansing?`静息恢复 ${amount} 生命，经脉中的寒意暂时平复。第 ${state.floor} 段已开放。`:shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 段已开放。` : `离开月庭。第 ${state.floor} 段已开放。`);
       emit();
       return true;
     }
@@ -1400,7 +1400,7 @@
       const eventFor = (id, npc, chapter, name, story, choices, extra = {}) => ({
         id, npc, chapter, name, faction: npc ? NPCS[npc].faction : extra.faction,
         glyph: npc === 'liu' ? '药' : npc === 'ji' ? '剑' : npc === 'wen' ? '烛' : '缘',
-        kicker: chapter ? `故人行迹 · ${chapter} / 3` : '封域行旅 · 门派众生',
+        kicker: chapter ? '故人行迹' : '封域行旅 · 门派众生',
         whisper: extra.whisper || (npc ? NPCS[npc].description : ''),
         description: story[0], story, ...extra, choices: finishChoices(choices, p)
       });
@@ -1412,8 +1412,8 @@
             '一名丹霞谷弟子跪在坏掉的药箱旁，怀里抱着被瘴气侵蚀的师姐。她报了名字：柳照青。她的手一直在抖，针却没有落错一根。',
             '“借我一点真气，或者替我买一包引灵砂。”她抬头望向你，“师姐醒了，我们会去断桥营地。若你也过去，我一定认得你。”'
           ],[
-            {label:'渡气救人 · 失去 6 生命',text:'当前生命须大于 6。柳照青会记住这次援手。',hpCost:6,flags:{liuAid:true},relationship:relation('有恩','你替她救回了师姐。她说会在断桥营地等你。'),tone:'good',outcome:'师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”'},
-            {label:'留 15 金币买药 · 帮她安置伤者',text:'支付 15 金币，同样结下救命的人情。',goldCost:15,flags:{liuAid:true},relationship:relation('有恩','你留下药钱，帮她安置了伤者。'),tone:'good',outcome:'柳照青把钱握得很紧，只郑重向你行了一礼。临走，她把断桥营地的方向指给你。'},
+            {label:'渡气救人 · 失去 6 生命',text:'当前生命须大于 6。',hpCost:6,flags:{liuAid:true},relationship:relation('有恩','你替她救回了师姐。'),tone:'good',outcome:'师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”'},
+            {label:'留 15 金币买药 · 帮她安置伤者',text:'支付 15 金币购买引灵砂。',goldCost:15,flags:{liuAid:true},relationship:relation('有恩','你留下药钱，帮她安置了伤者。'),tone:'good',outcome:'柳照青把钱握得很紧，只郑重向你行了一礼。临走，她把断桥营地的方向指给你。'},
             {label:'留下方向，独自前行',text:'没有即时数值变化；她只能另寻援手。',flags:{liuAid:false},relationship:relation('一面之缘','你没有留下救人，指给她营地的方向。'),outcome:'你告诉她最近的营火在哪里。她点点头，背起师姐，药箱沿着石阶磕出很慢的响声。'}
           ]);
         },
@@ -1427,7 +1427,7 @@
             '她认出你，神色并不怨怼：“药材是借来的，我还要还账。你若要药，和旁人同价。”'
           ],[
             helped ? {label:'接受她的谢礼 · 恢复 18 生命，下一战护盾 +8',text:'下一场战斗首回合获得 8 护盾，用后消失。治疗不超过上限。',heal:18,guard:8,flags:{liuReturned:true},relationship:relation('可信同路人','柳照青为你疗伤，并留下只用一次的护身药符。'),tone:'good',outcome:'她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。'} : {label:'买一包伤药 · 支付 15 金币，恢复 18 生命',text:'治疗不超过最大生命。',goldCost:15,heal:18,flags:{liuReturned:true},relationship:relation('相识','你向她买了药，彼此都记住了名字。'),outcome:'她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。'},
-            {label:'替药棚守夜 · 失去 4 生命，获得 25 金币',text:'当前生命须大于 4；守夜后她愿与你互相照应。',hpCost:4,goldGain:25,flags:{liuReturned:true,liuAid:true},relationship:relation('互相照应','你替药棚守了一夜，柳照青答应照应你的后路。'),tone:'good',outcome:'你挡住了夜里摸来的影子，袖口被瘴刃划开。天亮前，柳照青把药棚凑出的盘缠塞给你。'},
+            {label:'替药棚守夜 · 失去 4 生命，获得 25 金币',text:'当前生命须大于 4。',hpCost:4,goldGain:25,flags:{liuReturned:true,liuAid:true},relationship:relation('互相照应','你替药棚守了一夜，收下凑来的盘缠。'),tone:'good',outcome:'你挡住了夜里摸来的影子，袖口被瘴刃划开。天亮前，柳照青把药棚凑出的盘缠塞给你。'},
             {label:'只报平安，继续深入',text:'不支付代价，也不领取药物。',flags:{liuReturned:false},relationship:relation(helped?'仍记旧恩':'一面之缘',helped?'你谢过她，未收药物。旧恩并未因此散去。':'你报了平安，没有在药棚停留。'),outcome:'柳照青替你拨正衣领，只说：“到了井边，先听风，不要先看水。”'}
           ],{connection:helped?'雾锁山门：你曾出手帮她救人。':'雾锁山门：你曾指路，却没有留下救人。'});
         },
@@ -1439,19 +1439,19 @@
           ],[
             helped ? {label:'循药灯前行 · 恢复 12 生命，下一战护盾 +12',text:'护盾仅在下一场战斗首回合获得，与尚未使用的援护叠加。',heal:12,guard:12,flags:{liuFinished:true},relationship:relation('生死之交','她留到最后，为你点亮归路。'),tone:'good',outcome:'你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。'} : {label:'付 20 金币取药 · 恢复 16 生命',text:'她留药救急，也仍须偿还药材钱。',goldCost:20,heal:16,flags:{liuFinished:true},relationship:relation('守望相助','你补齐药钱，带走了她留在井边的药。'),tone:'good',outcome:'你把药钱压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。'},
             {label:`请教破瘴手法 · 失去 5 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:5,cardIds:[id],flags:{liuFinished:true},relationship:relation('互授所长','柳照青替你引出瘴气，你也记下了她的破势手法。'),outcome:'以伤口为引，她从你经络里挑出一道黑线。疼痛之后，一个从未有过的出手顺序清楚起来。'},
-            {label:'托她带一句平安回去',text:'没有即时数值变化，记下这段相逢。',flags:{liuFinished:true},relationship:relation(helped?'旧恩未忘':'萍水善缘','她答应将你仍活着的消息带到雾外。'),tone:'good',outcome:'她把你的话记在药方背面，字很端正。你们没有许下不可能的承诺，只互道一句保重。'}
-          ],{connection:helped?'你当初伸出的那只手，换来了井边迟迟未灭的灯。':'你们未结救命之恩；她仍留了一条能够交易的活路。'});
+            {label:'托她带一句平安回去',text:'没有即时数值变化。',flags:{liuFinished:true},relationship:relation(helped?'旧恩未忘':'萍水善缘','她答应将你仍活着的消息带到雾外。'),tone:'good',outcome:'她把你的话记在药方背面，字很端正。你们没有许下不可能的承诺，只互道一句保重。'}
+          ],{connection:'药灯挂在岔路口，灯下留着尚未冷透的药。'});
         },
         ji_first() {
           const id = card();
           return eventFor('ji_first','ji',1,'断剑客的请求',[
-            '一位衣领整齐的太微外门弟子被困在塌落剑阵边。他自称季临川，佩剑断了一截，目光却总在你的行囊边停留。',
-            '“同在雾中，能否搭一把手？”他许诺以剑诀相谢。手腕上的宗门名牌是真的，至于承诺，尚需等到后来。'
+            '一位衣领整齐的太微外门弟子被困在塌落剑阵边。他自称季临川，佩剑断了一截，手腕上系着宗门名牌。',
+            '“同在雾中，能否搭一把手？”他指向阵外的石阶，许诺以剑诀相谢。'
           ],[
-            {label:`替他破阵 · 失去 5 生命，获得「${CARDS[id].name}」`,text:`${CARDS[id].text} 他会在断桥一带与你再会。`,hpCost:5,cardIds:[id],flags:{jiHelp:true},relationship:relation('受你援手','你把他从剑阵里救出，收下了约好的剑诀。'),outcome:'季临川递出剑诀，行礼十分周到。他多问了一句你要去哪里，随后沿着与你相近的方向离开。'},
-            {label:'给他 12 金币请向导 · 得一枚护符',text:'下一场战斗首回合护盾 +5；护符只能用一次。',goldCost:12,guard:5,flags:{jiHelp:true},relationship:relation('欠你人情','你留钱替他脱困，收下一枚一次性的护符。'),outcome:'他把护符送给你，说这是外门弟子出门时的规矩。接钱时，他记住了你钱袋系结的样子。'},
-            {label:'不近剑阵，提醒他另寻出口',text:'没有数值变化。对方的真实打算尚不清楚。',flags:{jiHelp:false},relationship:relation('彼此戒备','你没有靠近，他记住了你的面容。'),outcome:'季临川收回伸出的手，仍向你道谢。等你走远，他脸上的笑意才慢慢淡下去。'}
-          ],{risk:'他留意你的行囊。帮助他未必能看清他的本心。'});
+            {label:`替他破阵 · 失去 5 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:5,cardIds:[id],flags:{jiHelp:true},relationship:relation('受你援手','你把他从剑阵里救出，收下了约好的剑诀。'),outcome:'季临川递出剑诀，行礼十分周到。你们互道保重，各自越过残阵。'},
+            {label:'给他 12 金币请向导 · 得一枚护符',text:'下一场战斗首回合护盾 +5；护符只能用一次。',goldCost:12,guard:5,flags:{jiHelp:true},relationship:relation('欠你人情','你留钱替他脱困，收下一枚一次性的护符。'),outcome:'他把护符送给你，说这是外门弟子出门时的规矩。你将符折好，放进贴身的衣袋。'},
+            {label:'不近剑阵，提醒他另寻出口',text:'没有数值变化。',flags:{jiHelp:false},relationship:relation('一面之缘','你提醒他另寻出口，未曾靠近残阵。'),outcome:'季临川收回伸出的手，向你道谢。你指过石阶的方向，继续赶路。'}
+          ]);
         },
         ji_return() {
           const relic = chooseTreasure('mirror');
@@ -1461,10 +1461,10 @@
           return eventFor('ji_return','ji',2,'灯下验宝',[
             '断桥边，季临川又认出了你。他说自己刚从一处密室取出奇物，也听说你身上有了值钱的东西。', clue
           ],[
-            {label:`收下他带出的奇物 · 支付 ${f.jiHelp?10:25} 金币，获得${relic?`「${RELICS[relic].name}」`:'60 金币'}`,text:`${relic?RELICS[relic].text:'秘宝已齐，改得60金币。'} 他将知道你带着这件宝物；可能引来后患。`,goldCost:f.jiHelp?10:25,relic,fallbackGold:60,flags:{jiExposed:true},relationship:relation('宝物已被看见','你从季临川手中取得奇物；他已知道宝物在你身上。'),tone:'warning',outcome:'奇物入手，确实有灵。季临川替你合上匣盖，却将匣边的纹路看了很久。你把这件事记在心里。'},
-            hasTreasure ? {label:'请他验看随身秘宝 · 获得 25 金币',text:'得到一笔鉴宝情报费；他与旁人可能记住这件秘宝。',goldGain:25,flags:{jiExposed:true},relationship:relation('露宝','你给他看过随身秘宝，也收下了情报费。'),tone:'warning',outcome:'他准确报出秘宝的名字，钱也当场付清。灯罩后面响了一声，你回头时只看见晃动的影子。'} : {label:'只交换路讯 · 获得 10 金币',text:'不展示行囊，不取来历不明的奇物。',goldGain:10,flags:{jiExposed:false},relationship:relation('保持距离','你交换了路讯，却没有给他看行囊。'),outcome:'你们各说了一段走过的路。季临川没能把话题引向你的行囊，只付了约好的路讯钱。'},
+            {label:`收下他带出的奇物 · 支付 ${f.jiHelp?10:25} 金币，获得${relic?`「${RELICS[relic].name}」`:'60 金币'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60金币。',goldCost:f.jiHelp?10:25,relic,fallbackGold:60,flags:{jiExposed:true},relationship:relation('宝物已被看见','你从季临川手中取得奇物。'),tone:'warning',outcome:'奇物入手，确实有灵。季临川替你合上匣盖，指腹沿匣边的纹路抹去灰尘。'},
+            hasTreasure ? {label:'请他验看随身秘宝 · 获得 25 金币',text:'展示秘宝，收取鉴宝情报费。',goldGain:25,flags:{jiExposed:true},relationship:relation('露宝','你给他看过随身秘宝，也收下了情报费。'),tone:'warning',outcome:'他准确报出秘宝的名字，钱也当场付清。灯罩后面响了一声，你回头时只看见晃动的影子。'} : {label:'只交换路讯 · 获得 10 金币',text:'不展示行囊，不取奇物。',goldGain:10,flags:{jiExposed:false},relationship:relation('保持距离','你交换了路讯，却没有给他看行囊。'),outcome:'你们各说了一段走过的路。季临川收起地图，付了约好的路讯钱。'},
             {label:'封好行囊，先走一步 · 下一战护盾 +6',text:'收紧护身符。下一战首回合 +6 护盾；不让他验看宝物。',guard:6,flags:{jiExposed:false},relationship:relation('心存戒备','你察觉他的打量，拒绝露出随身物品。'),outcome:'你借整理护符的动作封住包裹。季临川没有拦路，但这一次你没有把背影留给他。'}
-          ],{connection:f.jiHelp?'雾锁山门：你帮过季临川；这份人情尚未证明它的分量。':'雾锁山门：你们只打过照面，并未结下恩情。',risk:clue});
+          ],{connection:'断桥边的灯火晃动，照着案上的木匣。',risk:clue});
         },
         ji_final() {
           const robbery = f.jiExposed && j.hidden.jiIntent === 'greedy';
@@ -1483,21 +1483,21 @@
             '“山门那次，我还记得。”他把一页剑诀推给你，“我进不了井底，至少替你守住这条退路。”'
           ]:[
             '井外有一串熟悉的脚印，季临川站在石柱后面。你看见他看了看行囊，随后又将剑收回鞘中。',
-            j.hidden.jiIntent === 'greedy' ? '你一直封着行囊，他没有摸清你带着什么，也没找到值得下手的机会。' : '他不欠你救命的人情，却也没有把萍水相逢当成拔剑的理由。'
+            j.hidden.jiIntent === 'greedy' ? '他的手在剑柄上停了片刻，最终只是掸去衣领上的石灰。' : '他向你侧身行礼，给石阶让出一人宽的空当。'
           ],[
             grateful ? {label:`接受回礼 · 获得「${CARDS[id].name}」，下一战护盾 +10`,text:CARDS[id].text,cardIds:[id],guard:10,flags:{jiFinished:true},relationship:relation('知恩守信','季临川兑现了承诺，替你守住退路。'),tone:'good',outcome:'他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。'} : {label:'相互让路 · 获得 12 金币',text:'交换最后一段安全路讯，不展示宝物。',goldGain:12,flags:{jiFinished:true},relationship:relation('相安无事','你们保持距离，各走各的路。'),outcome:'你卖给他一段刚刚走过的路讯。他付钱，让路；这一回，相逢没有变成刀剑。'},
             {label:'收紧护符，独自离去 · 下一战护盾 +5',text:'下一场战斗首回合获得5护盾，不收人情。',guard:5,flags:{jiFinished:true},relationship:relation(grateful?'人情未散':'谨慎作别',grateful?'你谢过他的守望，独自走向井口。':'你没有放下戒备，也没有主动拔剑。'),outcome:'你留下一句保重，顺着另一侧石阶离开。包裹仍封得严实，剑也仍在自己手中。'}
-          ],{connection:grateful?'你的援手遇见了一个愿意偿还的人。':f.jiExposed?'他知道你带着宝物，却选择让你过去。':'你没有让季临川看清行囊，后来的相逢仍留着余地。'});
+          ],{connection:'石阶上的脚印交错而过，剑仍收在鞘中。'});
         },
         wen_first() {
           return eventFor('wen_first','wen',1,'符锁下的人',[
             '玄烬符锁把一个削瘦的人钉在山门残柱上。她说自己叫闻人烛，曾为实验记数，直到记录里出现了同门的名字。',
-            '“我知道她们如何封路。”她抬起染黑的手，“你解开我，追兵也可能循着符锁找到你。这个风险，我先说在前面。”'
+            '“我知道她们如何封路。”她抬起染黑的手，“锁上的阵纹，我画过。只求你替我松开这一道。”'
           ],[
-            {label:'断开符锁 · 失去 5 生命，获得 20 金币',text:'当前生命须大于5。释放她会留下可被追踪的符息，之后可能遇到追猎。',hpCost:5,goldGain:20,flags:{wenFreed:true},relationship:relation('共担追踪','你释放了闻人烛，也沾上了锁中的符息。'),tone:'warning',outcome:'铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛没有隐瞒：“到断桥，我找材料替你洗掉。”'},
-            {label:'付 15 金币买一页记录，不解锁',text:'取得实验线索，下一战首回合护盾 +6，不沾追踪符息。',goldCost:15,guard:6,flags:{wenFreed:false,wenEvidence:true},relationship:relation('只谈交易','你买走了一页记录，没有替她断锁。'),outcome:'她把记录卷成细条递给你，指明一处可避开的阵眼。你记下了手法，却没有伸手碰锁。'},
-            {label:'留下水，继续寻找出路',text:'没有数值变化，也不沾追踪符息。',flags:{wenFreed:false},relationship:relation('未施援手','你留下水，没有介入她的追逃。'),outcome:'她喝得很慢，没有再许诺什么。你走开时，听见她重新开始数锁上那些符文。'}
-          ],{risk:'释放她有明确的追踪风险，但也可能让她带回更重要的证据。'});
+            {label:'断开符锁 · 失去 5 生命，获得 20 金币',text:'当前生命须大于5。',hpCost:5,goldGain:20,flags:{wenFreed:true},relationship:relation('解锁相助','你释放了闻人烛，锁中的黑印留在腕上。'),tone:'warning',outcome:'铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛拿布替你擦过：“擦不净，得另找洗符砂。”'},
+            {label:'付 15 金币买一页记录，不解锁',text:'获得阵眼记录，下一战首回合护盾 +6。',goldCost:15,guard:6,flags:{wenFreed:false,wenEvidence:true},relationship:relation('只谈交易','你买走了一页记录，没有替她断锁。'),outcome:'她把记录卷成细条递给你，指明一处可避开的阵眼。你记下了手法，却没有伸手碰锁。'},
+            {label:'留下水，继续寻找出路',text:'没有数值变化。',flags:{wenFreed:false},relationship:relation('未施援手','你留下水，没有替她断锁。'),outcome:'她喝得很慢，没有再许诺什么。你走开时，听见她重新开始数锁上那些符文。'}
+          ]);
         },
         wen_return() {
           const freed = !!f.wenFreed;
@@ -1508,10 +1508,10 @@
             '闻人烛坐在断桥阴影里，手腕血肉模糊。她自己撬断了符锁，留下了一只无法再握笔的手。',
             '“账归账，路归路。”她认出你，却没有责问。她愿意卖出最后一段阵眼记录，换一包止痛药。'
           ],[
-            freed ? {label:'付 15 金币买洗符砂 · 洗去追踪，恢复 6 生命',text:'支付15金币，消除这条故事的追踪风险；闻人烛仍会继续携证前行。',goldCost:15,heal:6,flags:{wenCleansed:true,wenEvidence:true},relationship:relation('并肩脱险','你们洗去符息，约好在观测井外碰面。'),tone:'good',outcome:'黑印在砂中化开。闻人烛把追兵的方向标在地上：“下一次，我把完整的那页给你。”'} : {label:'付 15 金币买记录 · 下一战护盾 +8',text:'明确支付15金币，获得下一战首回合8护盾。',goldCost:15,guard:8,flags:{wenEvidence:true},relationship:relation('证据买主','你买走阵眼记录，替她付了药钱。'),outcome:'她把阵眼一一指给你，直到你能独自复述。纸页边缘的血早已干了，字却仍辨认得清。'},
-            freed ? {label:'保住残页，暂不洗印 · 获得 35 金币',text:'保留追踪风险；到逆仪腹地可能面对追猎者。',goldGain:35,flags:{wenCleansed:false,wenEvidence:true},relationship:relation('仍被追踪','你保住残页却未洗去符息，追兵仍可能找到你。'),tone:'warning',outcome:'你们把钱和残页分装，赶在追兵前穿过断桥。手腕上的黑印没有消失，仿佛在替别人记住方向。'} : {label:'替她送一段口供 · 获得 20 金币',text:'只带走证言，不留下新的追踪印记。',goldGain:20,flags:{wenEvidence:true},relationship:relation('替她作证','你答应把一段实验记录带出雾外。'),outcome:'她把那几个名字念了两遍，你也复述了两遍。如今至少有另一个活人知道她们曾经存在。'},
-            {label:'各走各路，不再交易',text:freed?'不支付代价；此前留下的追踪印记仍未消除。':'不支付代价，也不领取奖励。',flags:{wenCleansed:!!f.wenCleansed},relationship:relation(freed?'追踪未解':'分道而行',freed?'你先行离开，手腕仍留着可追踪的黑印。':'你与闻人烛分开，未再做交易。'),tone:freed?'warning':'neutral',outcome:freed?'你没有停下来洗印。闻人烛没有追赶，只远远提醒你，到了井边先看身后的路。':'你将水囊放回腰侧，朝井口走去。闻人烛留在桥下，继续寻找愿意听的人。'}
-          ],{connection:freed?'雾锁山门：你释放闻人烛时，沾上了符锁的追踪印记。':'雾锁山门：你没有解开符锁，也没有沾上黑印。',risk:freed?'黑印尚未洗净时，追猎可能继续。':'这次交易不会留下追踪印记。'});
+            freed ? {label:'付 15 金币买洗符砂 · 洗去黑印，恢复 6 生命',text:'以洗符砂擦去腕上黑印，恢复 6 生命。',goldCost:15,heal:6,flags:{wenCleansed:true,wenEvidence:true},relationship:relation('并肩脱险','你们洗去符息，约好在观测井外碰面。'),tone:'good',outcome:'黑印在砂中化开。闻人烛将湿布丢进火里，重新包好残页。'} : {label:'付 15 金币买记录 · 下一战护盾 +8',text:'支付15金币，获得下一战首回合8护盾。',goldCost:15,guard:8,flags:{wenEvidence:true},relationship:relation('证据买主','你买走阵眼记录，替她付了药钱。'),outcome:'她把阵眼一一指给你，直到你能独自复述。纸页边缘的血早已干了，字却仍辨认得清。'},
+            freed ? {label:'保住残页，暂不洗印 · 获得 35 金币',text:'收下赶路的盘缠，不使用洗符砂。',goldGain:35,flags:{wenCleansed:false,wenEvidence:true},relationship:relation('带印同行','你保住残页，没有洗去腕上黑印。'),tone:'warning',outcome:'你们把钱和残页分装，赶在追兵前穿过断桥。手腕上的黑印仍贴着皮肤，触之微烫。'} : {label:'替她送一段口供 · 获得 20 金币',text:'带走证言，收下盘缠。',goldGain:20,flags:{wenEvidence:true},relationship:relation('替她作证','你答应把一段实验记录带出雾外。'),outcome:'她把那几个名字念了两遍，你也复述了两遍。如今至少有另一个活人知道她们曾经存在。'},
+            {label:'各走各路，不再交易',text:'不支付代价，也不领取奖励。',flags:{wenCleansed:!!f.wenCleansed},relationship:relation(freed?'黑印仍在':'分道而行',freed?'你先行离开，手腕仍留着黑印。':'你与闻人烛分开，未再做交易。'),tone:freed?'warning':'neutral',outcome:freed?'你没有停下来洗印。闻人烛收回湿布，看着你越过桥下的石阶。':'你将水囊放回腰侧，朝井口走去。闻人烛留在桥下，继续寻找愿意听的人。'}
+          ],{connection:freed?'腕上的黑印在火边泛着微光。':'闻人烛将残页摊平，用石子压住纸角。'});
         },
         wen_final() {
           const hunted = f.wenFreed && !f.wenCleansed, id = card();
@@ -1522,7 +1522,7 @@
             {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20金币与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
             {label:'焚毁口供诱开追兵 · 失去 6 生命',text:'当前生命须大于6。保留自己的卡牌遗物，放弃故事中的证词；不触发战斗。',hpCost:6,flags:{wenFinished:true,wenEvidence:false,wenCleansed:true},relationship:relation('带伤脱身','你烧掉口供引开追兵，结束了这段追踪。'),tone:'warning',outcome:'符火吞下纸页，也灼伤了你手腕。追兵追着假阵眼远去，那些名字只剩你和闻人烛还记得。'},
             {label:'付 30 金币借暗道撤离',text:'保留卡牌、遗物及证词，支付30金币结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的路钱，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收钱，不问名字；门在追猎者的脚步到来前重新合拢。'}
-          ],{connection:'你当初断锁救人，又没有在断桥洗去黑印。追踪终于抵达了这里。',risk:'这是未解除的追踪造成的后果，仍有付费与带伤脱身的选择。'});
+          ],{connection:'黑印与石阶上的阵纹一同发亮，追猎者的脚步近了。'});
           return eventFor('wen_final','wen',3,'留存之证',[
             '闻人烛在观测井外等你。她将最后几页实验记录放在石头上，纸上列着被抹去的姓名，而非可供修炼的口诀。',
             f.wenEvidence ? '“你替我记住了那些名字。”她把一份破阵手法夹进记录，“这份不用再付钱。”' : '她已经不再求你救她，只问你愿不愿意让雾外的人知道，这里发生过什么。'
@@ -1530,7 +1530,7 @@
             {label:`带出记录 · 获得「${CARDS[id].name}」，下一战护盾 +8`,text:CARDS[id].text,cardIds:[id],guard:8,flags:{wenFinished:true,wenEvidence:true},relationship:relation('证词同行者','你带走了实验记录，闻人烛将破阵手法留给你。'),tone:'good',outcome:'你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。'},
             {label:'让她保管记录 · 恢复 10 生命',text:'接受一份洗符余药，不带走故事证词。',heal:10,flags:{wenFinished:true},relationship:relation('各自求生','你收下余药，托她自己带出记录。'),outcome:'闻人烛把余药递来，重新将记录包好。你们选择不同的出口，至少都不再被黑印牵着走。'},
             {label:'记住她的名字，独自离开',text:'没有数值变化。',flags:{wenFinished:true},relationship:relation('一段旧事','你记住了闻人烛这个名字。'),outcome:'她报过许多试验编号，直到这时，你才郑重地叫了她一声闻人烛。'}
-          ],{connection:f.wenFreed?'你曾救她，也及时处理了追踪。旧恩于是有机会成为回报。':'你没有卷入断锁追逃，却仍走到了这份记录的终点。'});
+          ],{connection:'纸上的名字一行行延伸，尽头压着一截干净的白绦。'});
         },
         sect_duel() {
           const id = card();
@@ -1809,7 +1809,7 @@
             choices: finishChoices([
               { label: `付 40 金币签下暗单 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，支付 40 后得到 60 金币。', goldCost: 40, relic, fallbackGold: 60, outcome: '代理人把奇物放在你面前，契纸立刻自行焚尽。账已结清；他提醒你，这句只对今晚有效。' },
               { label: '替商盟探一条险路 · 失去 6 生命，得 55 金币', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人带走了你的标记。金币是真的，隐去名字的那一栏也是真的。' },
-              { label: '婉拒暗单，借灯调息 · 恢复 6 生命', text: '不留下契约或后续惩罚。', heal: 6, outcome: '他没有挽留，只替你拨亮最后一盏灯。灯光越过你肩头，照向了另一个将要入域的人。' }
+              { label: '婉拒暗单，借灯调息 · 恢复 6 生命', text: '不签契约，借灯休息片刻。', heal: 6, outcome: '他没有挽留，只替你拨亮最后一盏灯。灯光越过你肩头，照向了另一个将要入域的人。' }
             ], p)
           };
         }

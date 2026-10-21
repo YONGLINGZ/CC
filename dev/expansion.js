@@ -16,14 +16,13 @@
     F12:{name:'万相归一',cost:3,text:'消耗全部魂息，造成 18＋4×消耗层数的伤害。',target:true,attack:true}
   };
   for(const [id,c]of Object.entries(CARDS)){c.character='sovereign';c.category=['F02','F06','F07'].includes(id)?'veil':'soul';c.rarity=['F10','F12'].includes(id)?'rare':['F04','F05','F07','F09','F11'].includes(id)?'uncommon':'common';c.attack=!!c.attack;c.exhaust=!!c.exhaust;}
-  const demonicWarning='使用后魔念 +1；清心玉可阻止增加。无玉达到 6 后入魔，本局不可逆。';
   Object.assign(CARDS,{
-    D01:{name:'借煞回生',cost:1,text:'造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。'+demonicWarning,target:true,attack:true},
-    D02:{name:'饮魄',cost:1,text:'造成 8 点伤害，恢复 3 生命。击杀或被护盾阻挡仍治疗。'+demonicWarning,target:true,attack:true},
-    D03:{name:'夺脉',cost:2,text:'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。'+demonicWarning,target:true,attack:true},
-    D04:{name:'魔躯',cost:1,text:'获得 12 护盾，抽 1 张牌。'+demonicWarning,target:false},
-    D05:{name:'狂念',cost:0,text:'抽 2 张牌。消耗。'+demonicWarning,target:false,exhaust:true},
-    D06:{name:'万煞归心',cost:3,text:'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。'+demonicWarning,target:true,attack:true}
+    D01:{name:'借煞回生',cost:1,text:'造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。',target:true,attack:true},
+    D02:{name:'饮魄',cost:1,text:'造成 8 点伤害，恢复 3 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
+    D03:{name:'夺脉',cost:2,text:'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
+    D04:{name:'魔躯',cost:1,text:'获得 12 护盾，抽 1 张牌。',target:false},
+    D05:{name:'狂念',cost:0,text:'抽 2 张牌。消耗。',target:false,exhaust:true},
+    D06:{name:'万煞归心',cost:3,text:'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true}
   });
   for(const [id,c]of Object.entries(CARDS))if(id.startsWith('D')){
     c.character='sword';c.category='demonic';c.locked=true;c.storyOnly=true;
@@ -31,7 +30,7 @@
     c.attack=!!c.attack;c.exhaust=!!c.exhaust;
   }
   const ITEMS={
-    clearheart_jade:{name:'清心玉',text:'持有期间，使用魔修技能不会增加魔念。必须在魔念达到 6、入魔之前取得；不能逆转已经发生的入魔。',quest:true,preventsCorruption:true}
+    clearheart_jade:{name:'清心玉',text:'澄澈的凉意贴着剑穗，能护住灵台。',quest:true,preventsCorruption:true}
   };
   const CORRUPTION={threshold:6,perDemonicCard:1,fallenAttackScale:.5,fallenBlockScale:.5,preventingItem:'clearheart_jade',irreversible:true};
   const STARTERS={sovereign:{character:'sovereign',name:'万相归潮',description:'聚拢魂息，以夜幕守身。寻回散落的本源，让封印前的力量逐一归来。',cards:['F01','F01','F01','F01','F02','F02','F02','F02','F03','F04']}};
@@ -39,9 +38,9 @@
   const RELICS={veil:{name:'无相夜纱',text:'每个玩家回合首张攻击牌结算后，获得 1 魂息。魂息上限 6，跨回合保留。'}};
   const WEAPONS={
     training:{name:'行旅佩刃',requiredLevel:1,bonus:0,price:0,text:'普通随身佩刃，没有额外效果，也不会干扰出招。'},
-    rime:{name:'听雪',requiredLevel:2,bonus:2,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +2。灵识至少 2 级时可稳定驾驭。'},
-    spirit:{name:'回灯',requiredLevel:2,bonus:1,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +1；每场战斗首回合获得 3 护盾。灵识至少 2 级时稳定。',block:3},
-    divine:{name:'照夜',requiredLevel:4,bonus:4,price:70,text:'神剑：每回合首张攻击牌的第一段伤害 +4。灵识不足 4 级时，依回合固定循环：灵力 −1 → 直接失去 3 生命 → 敌人获得 6 护盾；可收剑换用其他佩刃。',sentient:true}
+    rime:{name:'听雪',requiredLevel:2,bonus:2,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +2。剑锋寒意凛冽。'},
+    spirit:{name:'回灯',requiredLevel:2,bonus:1,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +1；每场战斗首回合获得 3 护盾。剑穗间有暖光流动。',block:3},
+    divine:{name:'照夜',requiredLevel:4,bonus:4,price:70,text:'神剑：每回合首张攻击牌的第一段伤害 +4。剑中灵性强盛，握持时隐有抗拒；可先收入剑匣。',sentient:true}
   };
   const ENVIRONMENTS={
     fog_gate:{id:'miasma',name:'迷路雾',text:'本章每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1},

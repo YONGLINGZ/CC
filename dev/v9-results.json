@@ -1,0 +1,3122 @@
+{
+  "format": "baiyao-v9-browser",
+  "startedAt": "2026-10-21T23:45:51.370Z",
+  "target": "/workspace/CC/index.html",
+  "inlineTarget": "/workspace/CC/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "fixture: all 20 route templates have 42–46 nodes per region and ascend without overlap at 1440/390",
+      "ok": true
+    },
+    {
+      "name": "fixture: choosing a branch prevents same-row siblings and unconnected future nodes",
+      "ok": true
+    },
+    {
+      "name": "fixture: seven distinct role independent shape-only route SVGs match map and route cards",
+      "ok": true
+    },
+    {
+      "name": "fixture: before learning, after five uses, and sixth-use fall keep unopened UI free of progress and degradation notes",
+      "ok": true
+    },
+    {
+      "name": "fixture: poison, jade, environment, weapon and ordinary combat icons reveal detail only on click without ticks",
+      "ok": true
+    },
+    {
+      "name": "DOM: normal first battles and rewards preserve resources and advance to connected row above",
+      "ok": true
+    },
+    {
+      "name": "DOM: one natural sword run completes all 30 nodes through three upward regions",
+      "ok": true
+    },
+    {
+      "name": "all folder WebPs decode in Chromium and match current asset SHA inputs",
+      "ok": true
+    },
+    {
+      "name": "standalone has no network requests; blocked folder images retain SVG fallbacks",
+      "ok": true
+    },
+    {
+      "name": "frozen artifact/source/asset hashes remain unchanged; zero JavaScript errors or external requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "failedRequests": [],
+  "naturalRuns": {
+    "sword": [
+      {
+        "seed": 1000,
+        "result": "victory",
+        "hp": 50,
+        "maxHp": 52,
+        "level": 6,
+        "power": 0,
+        "history": 30,
+        "route": [
+          {
+            "floor": 1,
+            "type": "fight",
+            "id": "f1-0",
+            "y": 1531.08
+          },
+          {
+            "floor": 2,
+            "type": "shop",
+            "id": "f2-1",
+            "y": 1373.07
+          },
+          {
+            "floor": 3,
+            "type": "event",
+            "id": "f3-2",
+            "storyId": "liu_first",
+            "y": 1210.69
+          },
+          {
+            "floor": 4,
+            "type": "event",
+            "id": "f4-0",
+            "storyId": "moon_trace",
+            "y": 1051.28
+          },
+          {
+            "floor": 5,
+            "type": "event",
+            "id": "f5-0",
+            "storyId": "tainted_mercy",
+            "y": 901.68
+          },
+          {
+            "floor": 6,
+            "type": "fox",
+            "id": "f6-3",
+            "y": 747.316
+          },
+          {
+            "floor": 7,
+            "type": "event",
+            "id": "f7-5",
+            "storyId": "demonic_offer",
+            "y": 588.66
+          },
+          {
+            "floor": 8,
+            "type": "rest",
+            "id": "f8-1",
+            "y": 418.676
+          },
+          {
+            "floor": 9,
+            "type": "rest",
+            "id": "f9-1",
+            "y": 264.073
+          },
+          {
+            "floor": 10,
+            "type": "boss",
+            "id": "f10-0",
+            "y": 98.8843
+          },
+          {
+            "floor": 11,
+            "type": "fight",
+            "id": "f11-0",
+            "y": 1537.54
+          },
+          {
+            "floor": 12,
+            "type": "rest",
+            "id": "f12-1",
+            "y": 1371.35
+          },
+          {
+            "floor": 13,
+            "type": "event",
+            "id": "f13-1",
+            "storyId": "liu_return",
+            "y": 1210.81
+          },
+          {
+            "floor": 14,
+            "type": "shop",
+            "id": "f14-1",
+            "y": 1052.8
+          },
+          {
+            "floor": 15,
+            "type": "shop",
+            "id": "f15-2",
+            "y": 901.882
+          },
+          {
+            "floor": 16,
+            "type": "rest",
+            "id": "f16-1",
+            "y": 736.79
+          },
+          {
+            "floor": 17,
+            "type": "event",
+            "id": "f17-0",
+            "storyId": "demonic_warning",
+            "y": 573.352
+          },
+          {
+            "floor": 18,
+            "type": "rest",
+            "id": "f18-3",
+            "y": 414.297
+          },
+          {
+            "floor": 19,
+            "type": "rest",
+            "id": "f19-4",
+            "y": 261.116
+          },
+          {
+            "floor": 20,
+            "type": "boss",
+            "id": "f20-0",
+            "y": 101.27
+          },
+          {
+            "floor": 21,
+            "type": "fight",
+            "id": "f21-0",
+            "y": 1542.71
+          },
+          {
+            "floor": 22,
+            "type": "event",
+            "id": "f22-0",
+            "storyId": "mirror_trial",
+            "y": 1371.86
+          },
+          {
+            "floor": 23,
+            "type": "event",
+            "id": "f23-1",
+            "storyId": "liu_final",
+            "y": 1220.85
+          },
+          {
+            "floor": 24,
+            "type": "rest",
+            "id": "f24-1",
+            "y": 1052.21
+          },
+          {
+            "floor": 25,
+            "type": "event",
+            "id": "f25-1",
+            "y": 901.177
+          },
+          {
+            "floor": 26,
+            "type": "rest",
+            "id": "f26-2",
+            "y": 741.458
+          },
+          {
+            "floor": 27,
+            "type": "event",
+            "id": "f27-3",
+            "storyId": "demon_manual",
+            "y": 585.109
+          },
+          {
+            "floor": 28,
+            "type": "shop",
+            "id": "f28-2",
+            "y": 422.549
+          },
+          {
+            "floor": 29,
+            "type": "shop",
+            "id": "f29-4",
+            "y": 259.159
+          },
+          {
+            "floor": 30,
+            "type": "boss",
+            "id": "f30-0",
+            "y": 108.945
+          }
+        ],
+        "events": [
+          {
+            "floor": 3,
+            "id": "liu_first",
+            "choice": 2
+          },
+          {
+            "floor": 4,
+            "id": "moon_trace",
+            "choice": 1
+          },
+          {
+            "floor": 5,
+            "id": "tainted_mercy",
+            "choice": 0
+          },
+          {
+            "floor": 7,
+            "id": "demonic_offer",
+            "choice": 0
+          },
+          {
+            "floor": 13,
+            "id": "liu_return",
+            "choice": 0
+          },
+          {
+            "floor": 17,
+            "id": "demonic_warning",
+            "choice": 0
+          },
+          {
+            "floor": 22,
+            "id": "mirror_trial",
+            "choice": 0
+          },
+          {
+            "floor": 23,
+            "id": "liu_final",
+            "choice": 0
+          },
+          {
+            "floor": 25,
+            "id": "riftwatch",
+            "choice": 1
+          },
+          {
+            "floor": 27,
+            "id": "demon_manual",
+            "choice": 0
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "battles": [
+          {
+            "floor": 1,
+            "id": "ape",
+            "power": 0,
+            "hp": 60
+          },
+          {
+            "floor": 10,
+            "id": "gate_boss",
+            "power": 0,
+            "hp": 52
+          },
+          {
+            "floor": 11,
+            "id": "ape",
+            "power": 0,
+            "hp": 50
+          },
+          {
+            "floor": 20,
+            "id": "camp_boss",
+            "power": 0,
+            "hp": 52
+          },
+          {
+            "floor": 21,
+            "id": "lantern",
+            "power": 0,
+            "hp": 50
+          },
+          {
+            "floor": 30,
+            "id": "snake",
+            "power": 0,
+            "hp": 52
+          }
+        ],
+        "affliction": {
+          "active": true,
+          "revealed": true,
+          "ticks": 47,
+          "suppressed": 0,
+          "source": "tainted_mercy"
+        },
+        "path": {
+          "corruption": 1,
+          "fallen": false,
+          "protected": true,
+          "learned": true,
+          "uses": 7
+        }
+      }
+    ]
+  },
+  "screenshots": [
+    "/workspace/scratch/v9-map-1440.png",
+    "/workspace/scratch/v9-map-390.png",
+    "/workspace/scratch/v9-five-uses.png",
+    "/workspace/scratch/v9-fallen-unopened.png",
+    "/workspace/scratch/v9-effective-cards.png",
+    "/workspace/scratch/v9-status-icons.png",
+    "/workspace/scratch/v9-mobile-status-detail.png",
+    "/workspace/scratch/v9-normal-reward-advanced.png",
+    "/workspace/scratch/v9-natural-sword-victory.png",
+    "/workspace/scratch/v9-svg-fallback-mobile.png"
+  ],
+  "sha256": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
+  "inputs": {
+    "dev/engine.js": "2bde7db56354496b4f7183096725502a778cbd9aef1b254d455cc35b1f5d0a37",
+    "dev/expansion.js": "982ac39c995f93cb14c934cadd12488d19113efa8ebb808743ce00acc12d197f",
+    "dev/ui.js": "11f3996d2fd2a6bd3db96d22b4deb7e7ff57cdcd0fe2f5d744543f639c002dc0",
+    "dev/shell.html": "b276149af2cef7045fdd0d1449982fa0108af0a033528b0b649b1ab7fd2a86f0",
+    "dev/art.js": "455029bd309f3096e03f9e5781dccf5e1376b0fe74e4b7fda1746e154748eaec",
+    "dev/audio.js": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
+    "dev/build.cjs": "19357b392fc9be59e599ecdb39807325206fa629799211822a05dfe644ea4d17",
+    "dev/v9-browser.test.cjs": "3523e7d662a9b4c92e7796345a9aba47e736a7f148d73244282d95a48b434b4f"
+  },
+  "templates": [
+    {
+      "id": "route-01",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-02",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-03",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-04",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-05",
+      "widths": [
+        1,
+        4,
+        6,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-06",
+      "widths": [
+        1,
+        5,
+        6,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-07",
+      "widths": [
+        1,
+        4,
+        7,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-08",
+      "widths": [
+        1,
+        5,
+        7,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-09",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-10",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-11",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-12",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-13",
+      "widths": [
+        1,
+        4,
+        6,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-14",
+      "widths": [
+        1,
+        5,
+        6,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-15",
+      "widths": [
+        1,
+        4,
+        7,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-16",
+      "widths": [
+        1,
+        5,
+        7,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-17",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-18",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-19",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-20",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "chapters": [
+        {
+          "region": 0,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "region": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "region": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ]
+    }
+  ],
+  "mapLayouts": [
+    {
+      "template": 0,
+      "width": 1440,
+      "nodes": 42,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "width": 1440,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "width": 1440,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "width": 1440,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "width": 1440,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "width": 1440,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "width": 1440,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "width": 1440,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "width": 1440,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "width": 1440,
+      "nodes": 46,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "width": 1440,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "width": 1440,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "width": 1440,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1024,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 1169,
+      "overlaps": 0
+    }
+  ],
+  "branchRestriction": {
+    "chosen": "f2-0",
+    "sibling": "f2-1",
+    "next": [
+      "f3-6",
+      "f3-1",
+      "f3-2"
+    ],
+    "rejected": "f3-0"
+  },
+  "icons": {
+    "fight": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 10 19 11 46 38 40 44 13 17Z\" fill=\"#e8ddbc\" stroke=\"#ba9960\" stroke-width=\"1.5\"/><path d=\"M15 12 43 40 40 43 14 17Z\" fill=\"#a8b9ae\"/><path d=\"M14 10 18 12 44 38\" stroke=\"#fff3ce\" stroke-width=\"1.5\"/><path d=\"m36 44 9-9 4 4-9 9Z\" fill=\"#d8b46c\" stroke=\"#82653e\" stroke-width=\"1.5\"/><path d=\"m42 45 7 7 4-4-7-7Z\" fill=\"#7d3b3f\" stroke=\"#dbb77b\" stroke-width=\"1.5\"/><path d=\"m49 51 3 4 4-4-4-3\" fill=\"#c9a368\"/><path d=\"M50 10 45 11 18 38 24 44 51 17Z\" fill=\"#f1e5c4\" stroke=\"#ba9960\" stroke-width=\"1.5\"/><path d=\"m50 11-1 6-27 27-3-4Z\" fill=\"#c4d0bf\"/><path d=\"m49 12-28 28\" stroke=\"#fff5d4\" stroke-width=\"1.8\"/><path d=\"m28 44-9-9-4 4 9 9Z\" fill=\"#e1bc75\" stroke=\"#82653e\" stroke-width=\"1.5\"/><path d=\"m22 45-7 7-4-4 7-7Z\" fill=\"#7d3b3f\" stroke=\"#dbb77b\" stroke-width=\"1.5\"/><path d=\"m15 51-3 4-4-4 4-3\" fill=\"#d6b273\"/><path d=\"m12 54-2 5m41-5 3 4\" stroke=\"#a64e4e\" stroke-width=\"2.5\"/><path d=\"m32 10 2 4-2 4-2-4Z\" fill=\"#b99d68\"/><path d=\"M27 51h10\" stroke=\"#b99d68\" stroke-width=\"1.5\"/></svg>",
+    "elite": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 23C12 22 8 14 10 7c4 7 8 7 15 7M42 23c10-1 14-9 12-16-4 7-8 7-15 7\" fill=\"#c6a065\" stroke=\"#eed5a2\" stroke-width=\"1.5\"/><path d=\"M12 12c0 5 4 8 9 9m31-9c0 5-4 8-9 9\" stroke=\"#806341\" stroke-width=\"2\"/><path d=\"m32 8 6 10 12 6-3 17-8 10-7 5-7-5-8-10-3-17 12-6Z\" fill=\"#d5b377\" stroke=\"#f1d8a5\" stroke-width=\"1.5\"/><path d=\"m32 14 5 9 10 4-4 14-11 11-11-11-4-14 10-4Z\" fill=\"#394a45\"/><path d=\"m32 14 5 9 10 4-15 7Z\" fill=\"#6e5546\"/><path d=\"m21 29 9 5-9 3-3-9m25 1-9 5 9 3 3-9\" fill=\"#efd6a3\"/><path d=\"m32 25 3 10-3 7-3-7Z\" fill=\"#bb5551\"/><path d=\"m24 43 4 4 4-3 4 3 4-4\" stroke=\"#cbb078\" stroke-width=\"2\"/><path d=\"m24 40 2 7 3-4m11-3-2 7-3-4\" fill=\"#efdfb7\"/><path d=\"M11 30v8m42-8v8\" stroke=\"#a58756\" stroke-width=\"1.5\"/><circle cx=\"11\" cy=\"42\" r=\"2\" fill=\"#caaa6e\"/><circle cx=\"53\" cy=\"42\" r=\"2\" fill=\"#caaa6e\"/></svg>",
+    "boss": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 53h48v5H8Z\" fill=\"#b08a50\"/><path d=\"M12 49h40v5H12Z\" fill=\"#e0bc79\"/><path d=\"M16 25h7v25h-7Zm25 0h7v25h-7Z\" fill=\"#9d4a46\" stroke=\"#d3ae71\" stroke-width=\"1.5\"/><path d=\"M19 30v14m26-14v14\" stroke=\"#e8c588\" stroke-width=\"1.5\"/><path d=\"M24 49V29q8-8 16 0v20\" fill=\"#162f30\" stroke=\"#c7a46b\" stroke-width=\"2\"/><path d=\"M9 28c6-4 10-7 14-12h18c4 5 8 8 14 12-8 2-38 2-46 0Z\" fill=\"#dcbb80\" stroke=\"#f0d8a3\" stroke-width=\"1.5\"/><path d=\"M12 25h40l-5 4H17Z\" fill=\"#7c3b3d\"/><path d=\"m21 18-5-11 12 7 4-9 4 9 12-7-5 11\" fill=\"#ac8052\" stroke=\"#eed2a0\" stroke-width=\"1.5\"/><path d=\"m32 9 3 6-3 4-3-4Z\" fill=\"#c65c50\"/><path d=\"M8 28v7m48-7v7\" stroke=\"#bd995e\" stroke-width=\"1.5\"/><path d=\"m8 34-3 5 3 5 3-5Zm48 0-3 5 3 5 3-5Z\" fill=\"#bc995e\"/><path d=\"m32 32 5 5-5 7-5-7Z\" fill=\"#a74a47\" stroke=\"#ddbc7d\" stroke-width=\"1.5\"/><path d=\"M32 45v4\" stroke=\"#c19d64\" stroke-width=\"1.5\"/></svg>",
+    "rest": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 47q20 7 40 0\" stroke=\"#b39460\" stroke-width=\"1.5\"/><path d=\"M19 37h26l-4 12H23Z\" fill=\"#c4a369\" stroke=\"#edd5a1\" stroke-width=\"1.5\"/><path d=\"M24 41h16l-2 6H26Z\" fill=\"#765542\"/><path d=\"M18 37q14-5 28 0-14 6-28 0Z\" fill=\"#e3c58a\"/><path d=\"M29 48h6v6h-6Z\" fill=\"#c7a56a\"/><path d=\"M23 54h18l3 4H20Z\" fill=\"#d9b67a\" stroke=\"#f0d6a0\" stroke-width=\"1.5\"/><path d=\"M23 33c-7-7-2-15 5-21-1 7 4 7 6 11 5-5 4-10 3-15 11 11 14 24 3 28H27Z\" fill=\"#427f75\" stroke=\"#80ac91\" stroke-width=\"1.5\"/><path d=\"M27 35c-6-5-3-10 2-14-1 6 5 6 5 10 3-2 4-6 4-9 6 7 3 13-3 14Z\" fill=\"#d7d39e\"/><path d=\"M30 35q-3-4 2-9 5 4 4 9\" fill=\"#fff1c7\"/><path d=\"m17 17-2 4m32-4 2 4M32 3v3\" stroke=\"#ba9b64\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"31\" r=\"1.5\" fill=\"#d2ad6c\"/><circle cx=\"52\" cy=\"31\" r=\"1.5\" fill=\"#d2ad6c\"/></svg>",
+    "shop": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m22 12 6 3 5-4 5 4 6-3-4 13H26Z\" fill=\"#b34e47\" stroke=\"#e0bb7d\" stroke-width=\"1.5\"/><path d=\"M26 24c-3 5-14 12-13 22 1 8 10 12 20 12s20-5 19-14c-1-9-10-14-13-20Z\" fill=\"#9e7250\" stroke=\"#e9c68b\" stroke-width=\"1.5\"/><path d=\"M27 29c-3 7-10 8-9 16 0 5 5 8 9 9\" stroke=\"#cfac75\" stroke-width=\"2.5\"/><path d=\"M27 24h12\" stroke=\"#eed8a7\" stroke-width=\"4\"/><path d=\"M34 25q13 3 16 10m-6-7 7-2\" stroke=\"#e4bd7d\" stroke-width=\"2\"/><circle cx=\"33\" cy=\"42\" r=\"8\" fill=\"#e2bd72\" stroke=\"#f3dba6\" stroke-width=\"1.5\"/><path d=\"m30 39h6v6h-6Z\" fill=\"#785b3d\"/><path d=\"M5 44h12v10q-6 4-12 0Z\" fill=\"#bf9755\" stroke=\"#e8c88a\" stroke-width=\"1.5\"/><ellipse cx=\"11\" cy=\"44\" rx=\"6\" ry=\"2.5\" fill=\"#ecd094\" stroke=\"#b28c52\" stroke-width=\"1.5\"/><path d=\"M6 49q5 3 10 0\" stroke=\"#e5c487\" stroke-width=\"1.5\"/><path d=\"M45 48h13v8q-6 4-13 0Z\" fill=\"#b99053\" stroke=\"#e5c386\" stroke-width=\"1.5\"/><ellipse cx=\"51.5\" cy=\"48\" rx=\"6.5\" ry=\"2.5\" fill=\"#efd69d\" stroke=\"#b28c52\" stroke-width=\"1.5\"/><path d=\"m12 9 2 4-2 4-2-4Zm40 7 2 4-2 4-2-4Z\" fill=\"#d3ad6b\"/></svg>",
+    "fox": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 12h29v36H18Z\" fill=\"#d6c59c\" stroke=\"#e9d6a7\" stroke-width=\"1.5\"/><path d=\"M20 15h24v30H20Z\" fill=\"#eee0b8\"/><path d=\"M18 12h7v36h-7Z\" fill=\"#b99d69\"/><path d=\"M14 10h8v41h-8Z\" fill=\"#8d6847\" stroke=\"#d8b881\" stroke-width=\"1.5\"/><path d=\"M14 13h8m-8 35h8\" stroke=\"#e9c98d\" stroke-width=\"2\"/><path d=\"M22 12h25q6 0 6 5v3H28v-3q0-5-6-5Z\" fill=\"#dfcea4\" stroke=\"#eddeb9\" stroke-width=\"1.5\"/><path d=\"M27 16h25\" stroke=\"#ac9061\" stroke-width=\"1.5\"/><path d=\"M22 44h20q-3 0-3 5t7 4H21\" fill=\"#e8d8ac\" stroke=\"#f1e2bc\" stroke-width=\"1.5\"/><path d=\"M30 24h12m-12 5h9\" stroke=\"#9f8a5f\" stroke-width=\"2\"/><path d=\"m36 34 6 3-1 7-5 4-5-4-1-7Z\" fill=\"#a44946\" stroke=\"#d1a574\" stroke-width=\"1.5\"/><path d=\"m36 37 2 3-2 3-2-3Z\" fill=\"#f1d39a\"/><path d=\"m33 46-2 11 5-3 4 3-2-11\" fill=\"#9d4544\" stroke=\"#c19b69\" stroke-width=\"1.2\"/><path d=\"M10 25H7m3 9H5m43 5h6\" stroke=\"#ae925f\" stroke-width=\"1.5\"/></svg>",
+    "event": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m32 5 5 10 13-1-1 13 10 5-10 5 1 13-13-1-5 10-5-10-13 1 1-13-10-5 10-5-1-13 13 1Z\" fill=\"#38564f\" stroke=\"#9e9a6b\" stroke-width=\"1.5\"/><circle cx=\"32\" cy=\"32\" r=\"20\" fill=\"#1a3435\" stroke=\"#ddbd7e\" stroke-width=\"2\"/><circle cx=\"32\" cy=\"32\" r=\"15\" stroke=\"#ad955f\" stroke-width=\"1\"/><path d=\"M32 14v4m0 28v4M14 32h4m28 0h4\" stroke=\"#e5ca91\" stroke-width=\"1.5\"/><path d=\"m24 24 4 12 12 4-4-12Z\" fill=\"#9e4b46\" stroke=\"#d8b37c\" stroke-width=\"1.5\"/><path d=\"m24 24 12 4-8 8Z\" fill=\"#f0ddb3\"/><circle cx=\"32\" cy=\"32\" r=\"3.5\" fill=\"#cdb479\" stroke=\"#f1dba7\" stroke-width=\"1.5\"/><path d=\"m32 5 2 5h-4Zm27 27-5 2v-4ZM32 59l-2-5h4ZM5 32l5-2v4Z\" fill=\"#e0c187\"/></svg>"
+  },
+  "iconSignatures": {
+    "fight": "fa1c58fdc764244a29a01d4d88dac936a1c7c62ac38d1c1004b34a90c83e6352",
+    "elite": "e099109182af4f7e6fec24d5e8b9788119461f7dbcf5a2c5289e1420ff8d27ce",
+    "boss": "670598e6ed4a47583b0c86612e8a3abd694d1ea18f54da28bd919b96d5bd6d13",
+    "rest": "389919fcd0e303bcdc97bdeb8c3697cc6fc20b50ec8eba9c66e6269b10f5c497",
+    "shop": "35d74ccf998b70e2a1b68b786e1eab9fb0a4f57729db771dbae309bcb526f9f2",
+    "fox": "4f031b2b9c892b68d0b45cfa17f7561e11a55955d6af5054be7cf22968b32a18",
+    "event": "2ebbf8c9649dbb93f3df5ed6bac5c69d18949ef742ce7617bd577b841b5fe5c3"
+  },
+  "transientUiLeaks": [],
+  "fallen": {
+    "usesBefore": 5,
+    "usesAfter": 6,
+    "portrait": "assets/puppet/sword_fallen-normal.webp"
+  },
+  "firstBattles": [
+    {
+      "starter": "sword",
+      "profileFixture": false,
+      "hp": 59,
+      "gold": 80,
+      "history": 1,
+      "next": [
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f2-3"
+      ]
+    },
+    {
+      "starter": "mark",
+      "profileFixture": false,
+      "hp": 59,
+      "gold": 80,
+      "history": 1,
+      "next": [
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f2-3"
+      ]
+    },
+    {
+      "starter": "combo",
+      "profileFixture": false,
+      "hp": 59,
+      "gold": 80,
+      "history": 1,
+      "next": [
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f2-3"
+      ]
+    },
+    {
+      "starter": "blood",
+      "profileFixture": false,
+      "hp": 54,
+      "gold": 80,
+      "history": 1,
+      "next": [
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f2-3"
+      ]
+    },
+    {
+      "starter": "sovereign",
+      "profileFixture": true,
+      "hp": 58,
+      "gold": 80,
+      "history": 1,
+      "next": [
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f2-3"
+      ]
+    }
+  ],
+  "assetInputs": {
+    "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
+    "assets/cards/C02.webp": "9da6066f3e9d368e64dcd2513c373dafca8d14d3b04c25ede008278243b806a4",
+    "assets/cards/C03.webp": "5fa82a1eb329978c9367eca93a02fd898abddb7b21d54352d7f1e1ad9a6e5c73",
+    "assets/cards/C04.webp": "b9496ff02f96c4b0901580ca705d59bca58f500f7a16335e912c3de3d7e49e2c",
+    "assets/cards/C05.webp": "4a25ca6ac93a3f11ed405ca4546f9ce2132c15c89be7f4c55e29e115bd187d5f",
+    "assets/cards/C06.webp": "b5392e81de43bc0dd1158e3642bf1fad035fc2b850d679a2d6fa07e635b2e301",
+    "assets/cards/C07.webp": "7389d643c157cf3509eca7f17839b9f6fb5775f8b50dcba2a8525db229b7fc44",
+    "assets/cards/C08.webp": "8c24e7e2f4c310c928e6ac5be99689351b4f2a1e4adf96ae52466fd01f7f85a8",
+    "assets/cards/C09.webp": "686fe6895d59f88b4865224aa591157878e79e6b015dff1f64bb38739eeb047b",
+    "assets/cards/C10.webp": "4e7045bc7627eb378849e70d8ac38a733804d61f8a1f72132b8c440deb7215fc",
+    "assets/cards/C11.webp": "826df1dcf4849d6f99f1a20a383e7d4618512d862e0acc4efc67a57866b4c21b",
+    "assets/cards/C12.webp": "7574bcc8512b5ac87fbc632a7e0ae408617eb965ebecdb44ec58e74a33eb27d0",
+    "assets/cards/C13.webp": "f99b5ae92399192f9d08ee9d624e540dfb792703791fd3063bace44bc799d0e6",
+    "assets/cards/C14.webp": "a90890f8dcdddf7c3fe562a7b7f5056960754887102010ef6f77d53f4effabfd",
+    "assets/cards/C15.webp": "bcd947d55a96951507f3980f67aba57fa22fb513d21d5c535d264507eff147a7",
+    "assets/cards/C16.webp": "e9d36afff7de4f7cce20974f2bdebb6d30b4327047be9e7e3e0cfdb42c8b2ed1",
+    "assets/cards/C17.webp": "f4af7472becbe5d3fa1402539fbad2ed02bdfd37a1606194deb9f477a2f7c111",
+    "assets/cards/C18.webp": "f4688a76ad5f5459810041589bfa00debab740fc2bcfcad37c6c81a21acf83cb",
+    "assets/cards/C19.webp": "1e30c5458e2642dbee8cbf03ccaeda7d1e2b4891a285caaf9cf91e6723e8dbe5",
+    "assets/cards/C20.webp": "8e229768fbcdfd8404f9ed4370cf75e6eb21395c9862c9d9c86490afb808f88f",
+    "assets/cards/C21.webp": "95233ba436c9e797dbcb5c34e07300b598c2fe6870c5c2e1c77bde87e74c66d5",
+    "assets/cards/C22.webp": "60e4a9ba848cb2c7396165b68f53af48b087e58b80e4e0179ce8e404c9f56869",
+    "assets/cards/C23.webp": "b8491f4219344fca41fa8b0a9749e66a834bdf9ef0aab7ecd3cb7aa7275ec743",
+    "assets/cards/C24.webp": "efd6d6c9f6c69ffccfe4381ad94a7e2bae48f4312dd2426d7913e2cbdf238aac",
+    "assets/cards/C25.webp": "711e70c683a6ab62d073977e0664a729cfc750aad54122f369ce61922a42a395",
+    "assets/cards/C26.webp": "dbc249f5c3dae06ba4d4360b4c8d679e0f4b8b290537a8e35316d709dbbc044b",
+    "assets/cards/C27.webp": "c16ed4423f72f9ed373c3404fbfadef4a084189c0070f62a86b66e39088f4322",
+    "assets/cards/C28.webp": "14faa017c79044c1642204a6f4f4ab059c1a40f1d389a222f45ccee7e4398be3",
+    "assets/cards/C29.webp": "255e06ced3739bbf3566cda0a58e79fde3038023af5d258a5fbf8aba6630b0c1",
+    "assets/cards/C30.webp": "9ec939d564a584a346563c8026d0310fde0e3c363fdd4253afc88092433c5b31",
+    "assets/cards/C31.webp": "ae05ffd78868aa5ad027c64fa062427799d87bdbd7b2a4f372d029550aa7fb16",
+    "assets/cards/C32.webp": "3ef3971499c9397f8bf69a86d7e58208a2306efcb2d5594ad1a481ff221ffa8a",
+    "assets/cards/C33.webp": "d5bbb6ab11f589e4ba382a32224677b3cde5892bfa5a832757c38d8b093db7bd",
+    "assets/cards/C34.webp": "94e42f81c975e8e958d1653d3a7b8aa936f74e25708d605458da9f8ada0613ec",
+    "assets/cards/C35.webp": "465d98e89424aad838bd65e32289071e9a134fabb2e4002e9168dbed8b82087e",
+    "assets/cards/C36.webp": "2f9a8b5cb8556f23467fadc29ed3e33dc8519297b312f77c839854c51ff0d3d7",
+    "assets/cards/D01.webp": "a97e59c3969662023323189f6a1f5e04daa204bf84c0a09d6734e93ca71f2d1f",
+    "assets/cards/D02.webp": "bcb955834864f5845e245cec43164f6279f899cb46fff70ae0a99c472bc21984",
+    "assets/cards/D03.webp": "2e3229bff471aea4d0b2c680aa1979f6ac5d2f356720e762cbe8ad05cce40a11",
+    "assets/cards/D04.webp": "ca631e234ffa3d10b0c828e515f7884254336fdc0fca742ad606d91240aa4224",
+    "assets/cards/D05.webp": "c3e4375f9493aad1fd3628ab6327c0f30788be4d20d48b207c41872b396e856e",
+    "assets/cards/D06.webp": "d275d8023676e4e0556bcc320894068961a273a8bf774026aaa644a1be920690",
+    "assets/cards/F01.webp": "025a375322f4cffd13441895f45f793955d7604b712f96d7450afc278ced7761",
+    "assets/cards/F02.webp": "e73f8a64ce45bfe3f38a01890ba9e47f74d2fa81e92dd11bb1f1a4c6163af6a9",
+    "assets/cards/F03.webp": "2db12538d191566b6102d130747aaa31edffa6a5df64ae0dadff0cfdaa6a0212",
+    "assets/cards/F04.webp": "a29ccd934b7d5877309196a6cbd9078d48a8a5801cce3baf6683361a25932165",
+    "assets/cards/F05.webp": "7b0e678dba26c232f0d71ab77b3daebd514ccecfa55006b9dbaab5eaccfba3dd",
+    "assets/cards/F06.webp": "54c0a4901a665b2c674341e92bba03ab11c20913f94bcc0aa35417ab47640a68",
+    "assets/cards/F07.webp": "02a19315ccf8a4b7dfb47420772e771876196818f02c2d83b7b1623dbfc20d24",
+    "assets/cards/F08.webp": "48d0d40db1adab3efc0536444bf402ca0f22a2782d0c7cfec5bfff83e5110bfa",
+    "assets/cards/F09.webp": "dc24b313649d5a5942eebd10140527ff7a3815499fcc510be78dabd75d7153b4",
+    "assets/cards/F10.webp": "8b24b146d61a871dc36896b23b6133926dbc1e50caef580cfc0b2b60cca9c8f8",
+    "assets/cards/F11.webp": "3867fd33fa873943a46b020672be5649637fb850a506951253b4a265a754ea8e",
+    "assets/cards/F12.webp": "043a7cd7b5866642d2ecc8f7071674c404e55361e65b2c9d57f2109f588fc165",
+    "assets/cards/S01.webp": "64b03c01288fe4296a2a6004093707e7933e21a129c0f9087deed893a2f3a629",
+    "assets/cards/S02.webp": "5cb647be2f3a28f268e77a9483f51b14d6e381e3acc6dbe0afea48407152eaf4",
+    "assets/cards/S03.webp": "9470ae80948f101f778964f81dbfcdf8f472530bf42b06a366d545f0f8e61601",
+    "assets/cards/S04.webp": "5f614a4b200e04b5a99339b4fe471bdbf2a79b3360a7580a01c5f27b8396685c",
+    "assets/cards/S05.webp": "132dc77823b54ed8c369e0321d9db28fdd279eeacd745d1b9cbafefcbd1d40bb",
+    "assets/cards/S06.webp": "9704c3b5e8b7f8da9975469f1c6cfdbce7216db285a881236daea0cf3777fe71",
+    "assets/cards/S07.webp": "7e931e287aabd62223b7c4e1c419666e5fbd2d9af1d77ff829c473c453d8b67f",
+    "assets/cards/S08.webp": "d53d6745340ccd4faf65e763d449c6be64a39b261d97d9e8240ce349e89cf702",
+    "assets/cards/S09.webp": "65cb8dd937151f30293e3c700cef0d0b3dc29b65cbf88af83609e97c50768ca5",
+    "assets/cards/S10.webp": "afacea06316a1d160e0fa2121208c18805f94bc062bbcee1432db8a50303bece",
+    "assets/cards/S11.webp": "76731111e438c5fb309ef24840e65ffe67065259d103cb357cb574ec475a1fc5",
+    "assets/cards/S12.webp": "ad213c39ce6134d79b1dbe44500eabd1064fb0cc341d7dcdd0b29b74a9949da1",
+    "assets/cards/S13.webp": "700b937891589bee5cb6ad50369040160b1f91d07b3755370a2f44898b9e2699",
+    "assets/cards/S14.webp": "b5ea22ee53469248f5b31376d405245c5763c189b15dd7e9ffb2949bfc2c14ee",
+    "assets/cards/S15.webp": "d86bc4564526d5c131cddab95c3442651ac4b7f7aca014def05a2bb61009c4d4",
+    "assets/cards/S16.webp": "1096dcfb12d6de3bf4d59f4c676a1bf8f8023d57da8e2bd9b3cd721d40b6e10e",
+    "assets/events-sovereign/armory.webp": "e02ac5fbf1a192a9e399b7325d3e8c29a808bc9c6c6c90921fdfd95f720059df",
+    "assets/events-sovereign/broker.webp": "6d358d2197bd2c2b3da7f077cc0f2016ea5eee9c9eb91667ba0062f4b406232b",
+    "assets/events-sovereign/cultlab.webp": "3473cefcedaeb8d4910c952f13f37809bc152124089b81b2d1dbecb325e987af",
+    "assets/events-sovereign/dreamshop.webp": "f4633761e3a9d1535845c22993a5d34d1c5ed0ed47f09bad304732fd713ebed3",
+    "assets/events-sovereign/echo.webp": "1a2fddc9cdc5ba3708f889f7054bc16248fa8528ad7df93d6268ba4c3ebd0859",
+    "assets/events-sovereign/fox.webp": "1bd4d4d6b87f0560cbf0eee2e14717e144aeec4782fa00299b21d7b4dcff1328",
+    "assets/events-sovereign/moon_trace.webp": "31f2b55d8a41a8870633bb51272535395a75126519f55405fe6de2afa00337c3",
+    "assets/events-sovereign/moon_vow.webp": "a5884accefaf0ae4cf3ab36ab34fead7961c73ddb763e9b39b8e1578a6fcbfa5",
+    "assets/events-sovereign/pawnshop.webp": "952ee6f1f1ea18f05928e9fe4a48b38522381976b32398662fed0b477cff7ff6",
+    "assets/events-sovereign/pilgrims.webp": "3c7ad4644583a2beecce037f215bfc2e40a4dc94898ee5b4d81a062ae78a5d2d",
+    "assets/events-sovereign/prisoner.webp": "2c50098bd94da3cf35a6e899e6fc40ce6be3518f84eaefbf85c8277446cde724",
+    "assets/events-sovereign/rest.webp": "e9ffaf88e72f5a4cce4d6a40e22662bfa68dbd77ae0a33fafadb28ecb0973766",
+    "assets/events-sovereign/riftwatch.webp": "a657a44ae5a507fe42e48c57f73f806aeb46591a585431f9f5928c52822f2959",
+    "assets/events-sovereign/sealed_name.webp": "926fb9148e62bb4f9494e7c16c208a7fb79d34f3c5dcce7d48e996ab1d2a3617",
+    "assets/events-sovereign/shop.webp": "c104d123458633399b76f0b897d433f5d3948b110489fbb2a267a0af5ead83e5",
+    "assets/events-sovereign/shrine.webp": "91c4c73f88377a8c868773a4a67cb5fd1b38cd1bdbff4a98d15568f22835d775",
+    "assets/events-sovereign/supply.webp": "c28572d4f0bd976e92f4b328e6da9f7852c1fa6e70ebaf71d33ae38e232044e0",
+    "assets/events-sovereign/swordgrave.webp": "942c253a21fe656b734e926eb138cc9bb494a1b284c5f3129cf426d7e8067b20",
+    "assets/events-sovereign/theatre.webp": "faa12c5c79eb93775ac36c2ace009e03f15f77ae549cf2675b8818fdce29fb01",
+    "assets/events-sovereign/umbrella.webp": "31bee24428fcc278a06301a968e52147678658d3939dd8df1807b2ce725e1184",
+    "assets/events-sovereign/well.webp": "3cd96ba28a9124c1145c0d9523bc5dd55ffa1cfa25c610f98dad9076a0b3a3c4",
+    "assets/events-sword/armory.webp": "89da4e54a481f4839f3ed2155960e91aa1f33bef8ee30e94b0cc27b8a896c73e",
+    "assets/events-sword/broker.webp": "5115930493083fdc3512dbd6cd1ceaf1ec20d4739b5453939d3cf8b2e9fe99c5",
+    "assets/events-sword/cultlab.webp": "e89e4ee44ffd1c84bacbda52fc4a9cfabbe27347c19489ead0fc369ef86393ea",
+    "assets/events-sword/dreamshop.webp": "46f7660368ee0e8ba7c5255145d6f2284c60f0e006857518b934ec6f45d1ae0f",
+    "assets/events-sword/echo.webp": "6a36d19c178b7a7613d72be4cbd726e3cfc81aeb3034236abae158bd8c22f5dc",
+    "assets/events-sword/fox.webp": "b352f5d96e5cf27b4752206571dd15dfd67d3aec27841e383ed50813520d957d",
+    "assets/events-sword/moon_trace.webp": "f275e24371ecc66f6e8145d0e52ebfee5007e4ef95664d3df164ffab7e80d494",
+    "assets/events-sword/moon_vow.webp": "618a0bdc2d575e7b763dd58dc1063b001f41c12ebbe695ab468683aa0f00267c",
+    "assets/events-sword/pawnshop.webp": "46e9d5e1368bdc7fba35589d1b0a8b9454dc68917bfc3ae8c397e4874bceaa69",
+    "assets/events-sword/pilgrims.webp": "3bdfdf9dad9107fdc9c537038289b4cc4c5184bcb888951408615aee310db5f0",
+    "assets/events-sword/prisoner.webp": "fb7e2a3fa2adf304bd16dd7b7befb5697b9b275e985a2b52cf1e3ae80e8c8a82",
+    "assets/events-sword/rest.webp": "99792f9aac5a7c81a9aacd4c6c8d6259437ca770c53befb66f96ba86902f167b",
+    "assets/events-sword/riftwatch.webp": "409c00ff8d73d27ffd987d216381afd94ef051dc241c366ed0b959dc4b8ee866",
+    "assets/events-sword/sealed_name.webp": "6e2a94cf1d71da703eb9f5ba1af965154575a0411316fe80f804edecb83c284d",
+    "assets/events-sword/shop.webp": "ead419ab7d9aa30d2809d02c4f8a21bf2d41a0981400287b2a1e47b0ddc30738",
+    "assets/events-sword/shrine.webp": "01d2ca4e2e35ffd46abf6d445ecba02a07ca83170f294ddd1d79bb475ac7f657",
+    "assets/events-sword/supply.webp": "fdb70523fd73d8cd120b347b4577e4cfb168d7b4c7fd4fe5d20c3d5577f043a2",
+    "assets/events-sword/swordgrave.webp": "1e7013ee122633b4e795f7003d9688ccd6dab69269c4e91f44c18e6a2fc72537",
+    "assets/events-sword/theatre.webp": "207341fffb82e670265fc04862a59dad8f23d84e4ffd50a6ab9e000303e9ebf3",
+    "assets/events-sword/umbrella.webp": "aeb3db7377bebe453e1ce42dd8926d9ccba417f69cffa1a956b4b0e9da263c61",
+    "assets/events-sword/well.webp": "f9f56e9e88a05e6b4285cc9f35860813f8a38419adc96268e9fecf77b43bec3b",
+    "assets/events-sword_fallen/armory.webp": "60a9b886b195a134b4f4684ec1c088c7ac92d26fd11c309bb022b4ab9be43782",
+    "assets/events-sword_fallen/broker.webp": "8f30c3657ddec95b6c5b64c10106da7c94b5b596c3ff8157e20dbdd553100c2a",
+    "assets/events-sword_fallen/cultlab.webp": "4d5f4172d5c8d51451931c5bec5995f6ad9a2cb9f4f953c06d09473e42ed4dd4",
+    "assets/events-sword_fallen/dreamshop.webp": "2bdabe3424f517b608890dff548deee322fea4a1a5b7fd49a8170b191eafdcb0",
+    "assets/events-sword_fallen/echo.webp": "14bb3abdcb28ca46bf659332bdae1924c51a23d1529cb6ed75ea0c476413e08e",
+    "assets/events-sword_fallen/fox.webp": "2368207736467d2d6bf84c8f9bd75ad40c902f0500d41b603430cde6ee65ff1b",
+    "assets/events-sword_fallen/moon_trace.webp": "0d3e29f68ab2dad6cccb7e945ad6fffbfea79ca41eb758a43274f5b6f1b90503",
+    "assets/events-sword_fallen/moon_vow.webp": "44fda122d60a0f6b3795ea543460c8eae19e248be925d5fbde5d63299fe687f0",
+    "assets/events-sword_fallen/pawnshop.webp": "75606d695ebc79d2e2da1592988b023533df3c0b06b2d5f6d969cc47c602ec1c",
+    "assets/events-sword_fallen/pilgrims.webp": "2a307f42b63d5b0aac444a287f0dd247c9f8cca371d3fba7c0b4825c7a385f6c",
+    "assets/events-sword_fallen/prisoner.webp": "d92d176d97888fb76059055d7cb74da2ada9c18bb41b02b8f6be20b59909aea0",
+    "assets/events-sword_fallen/rest.webp": "b52b2cc154e38150289dcecefd1ac0931db9b20d54ffe5c7c93ad4ec107e53eb",
+    "assets/events-sword_fallen/riftwatch.webp": "7454c1f6f7a1c4c73a5fabccd93af0c2fa961502a8e48d413113c4788a61ee64",
+    "assets/events-sword_fallen/sealed_name.webp": "14fc0062376bbe4a66be9f9c491252d1c276afdbabc6863179eb00b882bcb3b6",
+    "assets/events-sword_fallen/shop.webp": "e37aa65f5c7484af512f266ef98e9db1d341bc2e7e526416444bc1cf5d29bfe7",
+    "assets/events-sword_fallen/shrine.webp": "a7052a2476439a070397599cf44f85db9fb91e900ed98fb6cbc8e50391a4f98f",
+    "assets/events-sword_fallen/supply.webp": "d2398e46b0214ae79704b88fa5214321b5b41a3487916795536fbb8b96b7220e",
+    "assets/events-sword_fallen/swordgrave.webp": "836d00ae773cb6e1ec375f28c914dc822e0e09222a7217e57440ca38fa8bcb91",
+    "assets/events-sword_fallen/theatre.webp": "005311628118c752fc52de59cf0d6f3736a2d943f4bc7262f20b5f2e939d9600",
+    "assets/events-sword_fallen/umbrella.webp": "7b65f93de42da436b95c00f2184842a2ca88b42b420246e8680a060346e304b8",
+    "assets/events-sword_fallen/well.webp": "3bb5ced39ce85098954d54e6a700051335e261d74d7f208016dad8b64fad7a34",
+    "assets/events/armory.webp": "0645fc046f1809886fa3d50c1a9366fcbe771512e0b11f870083425e3e5b712b",
+    "assets/events/broker.webp": "34179ecf2ef6b9b965d88d8349215551b0d8011abd565748af635fd6bb4b9e79",
+    "assets/events/cultlab.webp": "5105eeb5e5a51c05bad8914fb4d361a9a640981a01af1c35bcb282e79630e8ed",
+    "assets/events/demon_manual.webp": "c76dc9b298ff1bff3a0850520c44ba7d745aaa46d8991b037ab3a4be6b456d3f",
+    "assets/events/demonic_offer.webp": "c8de1abbe28e1162989932ba6e7673e1173e4f34d6fed9113745a2e8830a0264",
+    "assets/events/demonic_warning.webp": "8a142234bb9842bb78201e18ca1aba0b0c12cd5f7e4fea6c0a223443c52d365d",
+    "assets/events/dreamshop.webp": "8f2196c2467915dba244fca6eae00ae09ecf6bee11d52c7e96353a60a69a2100",
+    "assets/events/echo.webp": "77a48a7684d5ce408e1c1b5447cd63ebcb367926e532c90641e9d1c9feaf8387",
+    "assets/events/fallen_hunt.webp": "487e433609a2ed7241b0e5497bf87b1d2c0c9c9d6bf2374bbc4170cb6a5c3ecb",
+    "assets/events/fox.webp": "2d179bd3e950208670d9f3edfbc56a58bce6f51988d6fe7995b4d7c14092c1f6",
+    "assets/events/herb_caravan.webp": "a151773da70006493a79dd44ae7e1a58c1aab9f2b104bdbdf3e55f84c2e9de9a",
+    "assets/events/ji_final.webp": "af1e8769f865d1e41f249c5e8833c406933402472b2e4aab68c4bba23528a829",
+    "assets/events/ji_first.webp": "e52677721cd0fd9dcf1381870cbfa52d3c9b99b2cf38ea0dd77878a05915cd27",
+    "assets/events/ji_return.webp": "d27440c261378ee854b794349b23e6cfb8cd3b66936eed0a6d1abdda37738bc1",
+    "assets/events/liu_final.webp": "4415b41f5e224e1993193d81690505b8edd8170b3c58d254c42fc04f4b78fae2",
+    "assets/events/liu_first.webp": "a8ea83504f65c50f8a1ccb69de56e6a0a3ccc122552b36c8692d7adb5b90732c",
+    "assets/events/liu_return.webp": "f6d52e5315cfefb5750284f14c8f8fc50a7aa446e44df142335f67424c986218",
+    "assets/events/mirror_trial.webp": "dea28c685538174760db825499915315a2618cf304228126d96221df3000cb70",
+    "assets/events/moon_trace.webp": "a6dd63c21319016388ecff2528ce0d9ece2d7d55f7e3d6762913fd1917b9aee9",
+    "assets/events/moon_vow.webp": "f36fcdada30ad2c3b4d052deb45484b171fc13039106e07ce8bf5a1ca937040d",
+    "assets/events/night_watch.webp": "544544b2c9693fe96f7277d8d28d340b318a1477dbd089a3c4341103c2419598",
+    "assets/events/pawnshop.webp": "21ebeee478df95c139105271c12d1fd23c3a5a631c4dc943fd20f85390c4e0b9",
+    "assets/events/pilgrims.webp": "e3ff680ddd7576e89fa1c6e8c94418e76c997407942ac70d6c0bf144a6fde61a",
+    "assets/events/prisoner.webp": "3e562098948482b0fb07d094cb1559a31900d257b6ee4dbbdddc19335a26787b",
+    "assets/events/relic_dispute.webp": "b4ead7c11f6e92c68ce560051c6845e6d95d08826472b9e804bbef4fee3cd486",
+    "assets/events/rest.webp": "4f338ef63b0bb76b550daf4232ced550d4e6f6663425e08a3e6b6c59ebeebac2",
+    "assets/events/riftwatch.webp": "b5e3edea3498d1bb4ff20a50b916bdc690738d0e48f513a9de010bfb32bb9cbe",
+    "assets/events/sealed_name.webp": "330056e983b27ac0f796b4f42c2e4a885ffb3ebe6eb58b5cf3f652c4f139a71e",
+    "assets/events/sect_duel.webp": "228c9665481636b0aa3625c438ac5beb0ee4966f107c9af9318b79b06209c254",
+    "assets/events/shop.webp": "a3e3bfffcf732d65474c4233584e127c3aceb0583d5656c6a4c86fe9627a1b33",
+    "assets/events/shrine.webp": "6b60b5eed6cb34d92fdcae940aa5b4446d158efa31025130b39fc762f51d4a95",
+    "assets/events/sovereign_memory.webp": "e93fa5849326f31d5c4d191cd04999df086ce0f12d8fa6c1c043dc7ad0fc3874",
+    "assets/events/sovereign_recall.webp": "9c9c70871d92a81896a345c870a4df4478842cdbbdd6ccd3b93806f6e0153703",
+    "assets/events/sovereign_wake.webp": "474a20a9ce8c18604e05ce065446544ec0abeaa349f920b0421bc44a30caec39",
+    "assets/events/supply.webp": "87a021a34ab5b9b5a4024180c691e4e0aed01ddeda1bda73a971a244f6b5bc66",
+    "assets/events/swordgrave.webp": "0a508bae4aa08da857ac69d5fe004da96acb13fdd65b94f9d44a873eda104a05",
+    "assets/events/tainted_mercy.webp": "fe3ee5f78449dfc2d41e4cdf91e0acf02a128f9c7ed4a492172fd931d0ab8cc9",
+    "assets/events/theatre.webp": "e01bbe470e5482033fb1303649c9cfed7af48af39b11ab05c0f2c051b5da1e29",
+    "assets/events/umbrella.webp": "34fb27305e812209172ee813d924a008d630d8f00d058657057341c87c9cf202",
+    "assets/events/well.webp": "faec4f1da92844bead1c01eae65013e4b86c14a22a3d893b04405bc70f1f7447",
+    "assets/events/wen_final.webp": "84f19cd5508da0f7e689ac5c783eca535b4a1aa41d44239a6337787ba05df416",
+    "assets/events/wen_first.webp": "860f0a0478477e4aba6b8d0be594548f4516f981b5066bad08e2688846fddef8",
+    "assets/events/wen_return.webp": "fdb62b2d7e14a04cce599cee12e56ca2f5dc55aeb8ce55b19e81a284cb3deaa6",
+    "assets/items/clearheart_jade.webp": "335ae349dfc16a3c6c738ac5e99ef17fb518e68cb3b9b4a18ccf4ceb7a8f2ffe",
+    "assets/portraits/ape.webp": "733b33f03a2bc041e04112b160952676ae342fb68ced42e50d2480c2abf1be89",
+    "assets/portraits/apothecary.webp": "ee758a08726acdd3dd4d5086d5c50f5bd4afd1e4d1c1cb77f8b527ddcc9ea935",
+    "assets/portraits/bone.webp": "720394558b31aa41a53c2898a9c1c06791606093a63f296121b9ff241cde8dca",
+    "assets/portraits/camp_boss.webp": "058ae6bd262a544403ab9562ea432d207735cd28e3f31de7107e662344f7315e",
+    "assets/portraits/cat.webp": "17db2695ec637301cea456d785c07f0ed0c23edd9a5e57df04ca5ffaa842c65b",
+    "assets/portraits/feiye.webp": "0871c858eb50a510e8a74b14afe9987f8cddb63215e2d56a6547450651a01628",
+    "assets/portraits/feiye_echo.webp": "26042a8192abf5a18c060f216879abc1d3fd77aedda3a958f4df64294e87f48b",
+    "assets/portraits/fox.webp": "1824cd5e996d9f90570967c699ef6f206b089d2936504402f13be0db469c530f",
+    "assets/portraits/gate_boss.webp": "4f245ea4686891a3dbfe114bcda441a1d38c07e56365f8f1b218e445549f7618",
+    "assets/portraits/heart.webp": "e32c33c39ccefa4285c22e2e2b46699d4a9e2ee99649a6ea7db4ef754050c3e9",
+    "assets/portraits/ji.webp": "43c8cfec1fd911188bb37af3979282548a4b705099742d02da5d1a2702df4c8d",
+    "assets/portraits/lantern.webp": "52ea35cc91c13ab9e181aefc6d618487ad9456f5f98e0b6f0ea888b52787c4f1",
+    "assets/portraits/liu.webp": "192d85b17bb7f14bf390b21ed90a537c50c8e51430df9844a95e82ea33bee3b4",
+    "assets/portraits/paper.webp": "49a1330f00eba0232b8c002cc646f2eaf161f861b12b9288052d58e7ab6b9c24",
+    "assets/portraits/raider.webp": "64a7b603ea21eb6b8243cd5b98d9becfb43fc31d617a56aafbdd0fad377cc6a7",
+    "assets/portraits/retainer.webp": "f00291f48aa73ee1c465cfe979100779e00830cc1c93124f253351a3178ef302",
+    "assets/portraits/snake.webp": "1d34104f23f8190dd7e7d7182f4ff605cbaf35b5e2226d1a482f8f09841b3d8d",
+    "assets/portraits/snake_ascended.webp": "081713618c769e0c4118dc44b0afcb6c00a250f36a1cdf06b65d14e2e51e1003",
+    "assets/portraits/sword_fallen.webp": "a68a8eaefd1f23f73f95076043085c5f03f3d867179c717094f4042f7109c2fb",
+    "assets/portraits/wen.webp": "50fb6e7f547017b50740da7618897b38a3c0804d958c7ec769383d8b95956965",
+    "assets/portraits/yaksha.webp": "b062d787b25468abb933c41107abbd795e4767ca3dc6e6e7b3782af2a8ae354c",
+    "assets/puppet/cat-blink.webp": "6b3f5972f4fc767e5effd883f1eab15abfc296d25f9d572590f7dc4af1682843",
+    "assets/puppet/cat-critical.webp": "0d405f47a1a8427e5decfd2c5e5343ef95cab6a6ad549ae2f1ce90624f3f3aae",
+    "assets/puppet/cat-normal.webp": "29160ca8132005b8b5536b1bcd4e943fc69aa607d8ceb366a3436bd0f8447943",
+    "assets/puppet/cat-wounded.webp": "0520380b4a83a8121f7b49814da9111e960c377bad99a7847b8a218be517a4ac",
+    "assets/puppet/feiye-critical.webp": "7bc2e97f713aeb4740962d408dea75963adda0b4d34c7eb3025e15935ecd66d4",
+    "assets/puppet/feiye-normal.webp": "0871c858eb50a510e8a74b14afe9987f8cddb63215e2d56a6547450651a01628",
+    "assets/puppet/feiye-wounded.webp": "c16b63f2bd3e659e47da90f6c0bafff60968592405f1060083e885f352a8ccb1",
+    "assets/puppet/sword-critical.webp": "57769ae0f4420ce895d8ecde2892a56d8161c276b7faa0370d0d9121e1b16d4e",
+    "assets/puppet/sword-normal.webp": "8e71990ca52613bad026e4e8114d7ba27d58a9310ab035cc40a279ffe992ba7b",
+    "assets/puppet/sword-wounded.webp": "10f92fa04967fc2e2d746f4a192536e4c77c648e3162b99ff0ab19d4bf258806",
+    "assets/puppet/sword_fallen-critical.webp": "4e4bde58827cc7d9fda6b9835cbe775184485f03d5d435cbd75aa5d3c62d6f36",
+    "assets/puppet/sword_fallen-normal.webp": "a68a8eaefd1f23f73f95076043085c5f03f3d867179c717094f4042f7109c2fb",
+    "assets/puppet/sword_fallen-wounded.webp": "148b8e6a8ab76159487d52fd5e287cb2fa27564d22a9a2c5057e8a4e293ca185",
+    "assets/regions/broken_camp.webp": "7fb97fa3a984f19f079bf5b5dee79d9ea5f52356477df1f234d19d3640d668d6",
+    "assets/regions/fog_gate.webp": "6ded0a8c83e3e9ad8e75dd62d470b5f0b3359dd30f7bdfe029078a7bbb642529",
+    "assets/regions/ritual_core.webp": "4201f4b4803e501c894063e757ad49fca223337d8c83cc640037b1908e513849",
+    "assets/relics/bell.webp": "fc6425791a7a3b3be0bcf06991c1c05aba57f2b1dd9fbca650909a3cc5ab3983",
+    "assets/relics/bloodstone.webp": "c4b970931a3896e34c490e15972ffaf35250537e81a16e7f16c0d5756e620c25",
+    "assets/relics/dream.webp": "4d470113973bd04c11c53e2470214c4a8a4180c68d34a82ae23a7e9f8bd72e1e",
+    "assets/relics/fang.webp": "8ae715efa43bcbef8934e3ff1119308ecfd13e85503490ef2a72df637dde6de4",
+    "assets/relics/fox.webp": "552def41022ec8e9576850ca166736966f8361fb833a81eb7ff309159aa36caf",
+    "assets/relics/frostseal.webp": "54bf50f1db8c95eda14eb0e9f9576b104173325012bbac407151af5058e21468",
+    "assets/relics/godblood.webp": "565579e00bdc9e1d17066cb7a109087e14281fb5edc66a0eaeb05d2dce653ea1",
+    "assets/relics/jade.webp": "554dbef95415d00a48ada08f648c350e6ebee3c1438f5f7a1fead701ccda9fad",
+    "assets/relics/mirror.webp": "b2d4551ff6c10a516a90170729a7fa756c0556373709202231b711c0a1ea77ac",
+    "assets/relics/moon.webp": "d77dc65091f2887bbbf876b43ab85b0b1d730f4aa4d72429136f9466b5771e9e",
+    "assets/relics/moonheart.webp": "f766fdfe31e2e934819732ef53a2cb0e092ac0973d80d42c885a57d69e1e19ed",
+    "assets/relics/ninelives.webp": "93b3086a0ebc5bd22f49f807ad16a7972732811499810b24e4572639936c83af",
+    "assets/relics/silk.webp": "13ea75ddea3bce5b899f3bafe13f1aa6c25517808d923b08ac8a9de13a28f663",
+    "assets/relics/veil.webp": "e27eeadfa42bb9f125a42250d67ff5c56e3fe16ab4c35732f4b9097a051d3251",
+    "assets/relics/vial.webp": "9423a912a117afed72c5cb0a23c539243c2cbbd7d2670677c72404f117838b4a",
+    "assets/weapons/divine.webp": "388d6aea1f7510c0963f8dda93b648cf464c5f1e5a0d36684a4451480bf71286",
+    "assets/weapons/rime.webp": "be2c55497aeb1e4aa2ed0819b717e9321525aac8dfc31e79d2f269074d86c35b",
+    "assets/weapons/spirit.webp": "a5f8e05b4eacf42dd705121ee7fd4c6e67fe6f9cbbe193f3172c200ca3d53036",
+    "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945"
+  },
+  "allAssetDecode": [
+    {
+      "src": "assets/cards/C01.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C02.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C03.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C04.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C05.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C06.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C07.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C08.webp",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "src": "assets/cards/C09.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C10.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C11.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C12.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C13.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C14.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C15.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C16.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C17.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C18.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C19.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C20.webp",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "src": "assets/cards/C21.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C22.webp",
+      "width": 432,
+      "height": 432
+    },
+    {
+      "src": "assets/cards/C23.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C24.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C25.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C26.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C27.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C28.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C29.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C30.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C31.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C32.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C33.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C34.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/C35.webp",
+      "width": 416,
+      "height": 416
+    },
+    {
+      "src": "assets/cards/C36.webp",
+      "width": 448,
+      "height": 448
+    },
+    {
+      "src": "assets/cards/D01.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/D02.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/D03.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/D04.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/D05.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/D06.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F01.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F02.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F03.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F04.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F05.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/cards/F06.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/cards/F07.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/cards/F08.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/cards/F09.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F10.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F11.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/F12.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/cards/S01.webp",
+      "width": 314,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S02.webp",
+      "width": 313,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S03.webp",
+      "width": 314,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S04.webp",
+      "width": 313,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S05.webp",
+      "width": 314,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S06.webp",
+      "width": 313,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S07.webp",
+      "width": 314,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S08.webp",
+      "width": 313,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S09.webp",
+      "width": 314,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S10.webp",
+      "width": 313,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S11.webp",
+      "width": 314,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S12.webp",
+      "width": 313,
+      "height": 314
+    },
+    {
+      "src": "assets/cards/S13.webp",
+      "width": 314,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S14.webp",
+      "width": 313,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S15.webp",
+      "width": 314,
+      "height": 313
+    },
+    {
+      "src": "assets/cards/S16.webp",
+      "width": 313,
+      "height": 313
+    },
+    {
+      "src": "assets/events-sovereign/armory.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/broker.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/cultlab.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/dreamshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/echo.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/fox.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/moon_trace.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/moon_vow.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/pawnshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/pilgrims.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/prisoner.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/rest.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/riftwatch.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/sealed_name.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/shop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/shrine.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/supply.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/swordgrave.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/theatre.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/umbrella.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sovereign/well.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/armory.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/broker.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/cultlab.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/dreamshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/echo.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/fox.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/moon_trace.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/moon_vow.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/pawnshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/pilgrims.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/prisoner.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/rest.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/riftwatch.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/sealed_name.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/shop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/shrine.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/supply.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/swordgrave.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/theatre.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/umbrella.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword/well.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/armory.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/broker.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/cultlab.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/dreamshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/echo.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/fox.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/moon_trace.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/moon_vow.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/pawnshop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/pilgrims.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/prisoner.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/rest.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/riftwatch.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/sealed_name.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/shop.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/shrine.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/supply.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/swordgrave.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/theatre.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/umbrella.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events-sword_fallen/well.webp",
+      "width": 254,
+      "height": 254
+    },
+    {
+      "src": "assets/events/armory.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/broker.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/cultlab.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/demon_manual.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/demonic_offer.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/demonic_warning.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/dreamshop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/echo.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/fallen_hunt.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/fox.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/herb_caravan.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/ji_final.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/ji_first.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/ji_return.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/events/liu_final.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/liu_first.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/liu_return.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/mirror_trial.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/moon_trace.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/moon_vow.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/night_watch.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/events/pawnshop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/pilgrims.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/prisoner.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/relic_dispute.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/rest.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/riftwatch.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/sealed_name.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/sect_duel.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/events/shop.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/shrine.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/sovereign_memory.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/sovereign_recall.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/events/sovereign_wake.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/supply.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/swordgrave.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/events/tainted_mercy.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/events/theatre.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/umbrella.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/well.webp",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "src": "assets/events/wen_final.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/events/wen_first.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/events/wen_return.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/items/clearheart_jade.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/ape.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/apothecary.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/bone.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/camp_boss.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/cat.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/feiye.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/portraits/feiye_echo.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/fox.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/gate_boss.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/heart.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/ji.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/lantern.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/liu.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/paper.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/raider.webp",
+      "width": 508,
+      "height": 508
+    },
+    {
+      "src": "assets/portraits/retainer.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/snake.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/snake_ascended.webp",
+      "width": 311,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/sword_fallen.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/portraits/wen.webp",
+      "width": 312,
+      "height": 312
+    },
+    {
+      "src": "assets/portraits/yaksha.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/puppet/cat-blink.webp",
+      "width": 145,
+      "height": 82
+    },
+    {
+      "src": "assets/puppet/cat-critical.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/cat-normal.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/cat-wounded.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/feiye-critical.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/feiye-normal.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/feiye-wounded.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword-critical.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword-normal.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword-wounded.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword_fallen-critical.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword_fallen-normal.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/puppet/sword_fallen-wounded.webp",
+      "width": 683,
+      "height": 1024
+    },
+    {
+      "src": "assets/regions/broken_camp.webp",
+      "width": 764,
+      "height": 508
+    },
+    {
+      "src": "assets/regions/fog_gate.webp",
+      "width": 764,
+      "height": 508
+    },
+    {
+      "src": "assets/regions/ritual_core.webp",
+      "width": 764,
+      "height": 508
+    },
+    {
+      "src": "assets/relics/bell.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/bloodstone.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/dream.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/fang.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/fox.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/frostseal.webp",
+      "width": 418,
+      "height": 418
+    },
+    {
+      "src": "assets/relics/godblood.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/jade.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/mirror.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/moon.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/moonheart.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/ninelives.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/silk.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/relics/veil.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/relics/vial.webp",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "src": "assets/weapons/divine.webp",
+      "width": 312,
+      "height": 311
+    },
+    {
+      "src": "assets/weapons/rime.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/weapons/spirit.webp",
+      "width": 311,
+      "height": 311
+    },
+    {
+      "src": "assets/weapons/training.webp",
+      "width": 312,
+      "height": 311
+    }
+  ],
+  "inline": {
+    "bytes": 15301075,
+    "sha256": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9",
+    "requests": []
+  },
+  "finishedAt": "2026-10-21T23:47:17.717Z",
+  "passed": 10,
+  "failed": 0
+}

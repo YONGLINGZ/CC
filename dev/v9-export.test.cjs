@@ -1,0 +1,26 @@
+'use strict';
+// Real browser downloads and isolated reopens; no local file policy override.
+const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {chromium}=require('playwright');
+const root=path.resolve(__dirname,'..'),folder=fs.readFileSync(path.join(root,'index.html')),inline=fs.readFileSync(path.join(root,'baiyao-standalone.html'));
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const report={folderSha256:hash(folder),inlineSha256:hash(inline),results:[],errors:[],externalRequests:[]};
+let server,browser,origin;
+async function test(name,fn){try{await fn();report.results.push({name,ok:true});console.log('PASS '+name);}catch(e){report.results.push({name,ok:false,error:e.stack});console.error('FAIL '+name+': '+e.message);}}
+function watch(page){page.on('pageerror',e=>report.errors.push(e.message));page.on('request',r=>{if(/^https?:/i.test(r.url())&&!r.url().startsWith(origin+'/'))report.externalRequests.push(r.url());});}
+async function download(page){const done=page.waitForEvent('download');await page.locator('[data-action="export"]').click();const item=await done;assert.equal(await item.failure(),null);return fs.readFileSync(await item.path());}
+async function reopen(bytes){const page=await browser.newPage({viewport:{width:1440,height:1060}});watch(page);await page.setContent(bytes.toString('utf8'),{waitUntil:'load'});await page.waitForFunction(()=>window.game&&window.NightPact&&window.NightAssets);return page;}
+(async()=>{
+ server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://local').pathname));}catch{res.writeHead(400).end();return;}if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}fs.readFile(file,(e,b)=>{if(e){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':file.endsWith('.webp')?'image/webp':'text/html;charset=utf-8'}).end(b);});});
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin='http://127.0.0.1:'+server.address().port;
+ browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+ let folderExport,blobExport;
+ try{
+  await test('folder export downloads exact fully embedded standalone HTML',async()=>{const p=await browser.newPage();watch(p);try{await p.goto(origin+'/index.html');await p.waitForFunction(()=>window.game);folderExport=await download(p);assert.equal(hash(folderExport),hash(inline));report.folderExportBytes=folderExport.length;}finally{await p.close();}});
+  await test('folder export independently reopens with all 70 card art and three professions',async()=>{assert.ok(folderExport);const p=await reopen(folderExport);try{assert.equal(await p.evaluate(()=>game.state.screen),'title');assert.deepEqual(await p.evaluate(()=>Object.keys(NightPact.CHARACTERS)),['assassin','sword','sovereign']);const art=await p.evaluate(async()=>{for(const src of Object.values(NightAssets.cards)){if(!src.startsWith('data:image/webp;base64,'))throw Error('External art');const image=new Image();image.src=src;await image.decode();}return Object.keys(NightAssets.cards).length;});assert.equal(art,70);}finally{await p.close();}});
+  await test('inline export uses a real Blob download after selecting sword without saving run state',async()=>{const p=await reopen(inline);try{await p.locator('[data-action="character"][data-character="sword"]').click();await p.locator('[data-action="start"]').click();assert.equal(await p.evaluate(()=>game.state.character),'sword');blobExport=await download(p);assert.ok(blobExport.length>inline.length*.98);report.blobExportBytes=blobExport.length;report.blobExportSha256=hash(blobExport);}finally{await p.close();}});
+  await test('Blob export reopens at title, starts new sword run and preserves inline portraits without model runtime',async()=>{assert.ok(blobExport);const p=await reopen(blobExport);try{assert.equal(await p.evaluate(()=>game.state.screen),'title');await p.locator('[data-action="character"][data-character="sword"]').click();await p.locator('[data-action="start"]').click();const s=await p.evaluate(()=>({screen:game.state.screen,hp:game.state.player.hp,gold:game.state.player.gold,deck:game.state.player.deck.length,scene:typeof NightScene,src:NightAssets.puppet.sword.normal}));assert.equal(s.screen,'arrival');assert.equal(s.hp,60);assert.equal(s.gold,60);assert.equal(s.deck,10);assert.equal(s.scene,'undefined');assert.ok(s.src.startsWith('data:image/webp;base64,'));const before=report.externalRequests.length;await p.waitForTimeout(120);assert.equal(report.externalRequests.length,before);assert.deepEqual(report.errors,[]);assert.deepEqual(report.externalRequests,[]);}finally{await p.close();}});
+  report.browser=await browser.version();
+ }finally{await browser.close();await new Promise(resolve=>server.close(resolve));report.passed=report.results.filter(x=>x.ok).length;report.failed=report.results.filter(x=>!x.ok).length;fs.writeFileSync(path.join(__dirname,'v9-export-results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));}
+ if(report.failed)process.exitCode=1;
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});

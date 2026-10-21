@@ -94,7 +94,7 @@ test('helped grateful Ji repays with own-class rare card and guard; hidden greed
     eventAt(g,'ji_return');resolve(g,exposed?0:2);g.leaveEvent();eventAt(g,'ji_final');const e=s.event;
     assert.equal(!!e.choices[0].battle,disposition==='greedy'&&exposed);
     if(disposition==='grateful'){assert.ok(e.choices[0].cardIds.length===1);assert.equal(e.choices[0].cardIds[0][0],starter==='sword'?'S':'C');assert.equal(e.choices[0].guard,10);}
-    if(disposition==='greedy'&&!exposed)assert.match(e.story.join(''),/没有摸清/);
+    if(disposition==='greedy'&&!exposed){assert.ok(e.choices.every(c=>!c.battle));assert.doesNotMatch(e.story.join(''),/没有摸清|没找到值得下手|知道.*宝物.*没有/);}
   }
 });
 
@@ -123,15 +123,15 @@ test('robbery pay and blood escapes preserve every relic, charge once, and avoid
 });
 
 test('freeing Wen creates tracking; washing it removes later combat while keeping evidence',()=>{
-  const g=run(),s=g.state;eventAt(g,'wen_first');assert.match(s.event.risk,/追踪/);resolve(g,0);g.leaveEvent();assert.equal(s.journey.flags.wenFreed,true);
+  const g=run(),s=g.state;eventAt(g,'wen_first');assert.equal(s.event.risk,undefined);assert.doesNotMatch(s.event.choices.map(c=>c.text).join(''),/之后.*追猎|留下.*追踪/);resolve(g,0);g.leaveEvent();assert.equal(s.journey.flags.wenFreed,true);
   eventAt(g,'wen_return');resolve(g,0);assert.equal(s.journey.flags.wenCleansed,true);g.leaveEvent();eventAt(g,'wen_final');assert.ok(s.event.choices.every(c=>!c.battle));
   resolve(g,0);assert.equal(s.journey.flags.wenEvidence,true);assert.equal(s.journey.nextCombatBlock,8);assert.equal(s.journey.relationships.wen.status,'证词同行者');
 });
 
-test('unwashed tracking reaches a real hunter later, with alternate exits and known causal recap',()=>{
+test('unwashed tracking reaches a real hunter later, with alternate exits while displaying only observed clues',()=>{
   for(const firstChoice of [0,2]){
     const g=run(),s=g.state;eventAt(g,'wen_first');resolve(g,0);g.leaveEvent();eventAt(g,'wen_return');resolve(g,firstChoice===0?1:2);g.leaveEvent();eventAt(g,'wen_final');
-    assert.match(s.event.connection,/断锁救人.*没有.*洗/);assert.equal(s.event.choices[0].battle.name,'黑衣人');
+    assert.doesNotMatch(s.event.connection||'',/断锁救人.*没有.*洗/);assert.equal(s.event.choices[0].battle.name,'黑衣人');
     resolve(g,0);g.leaveEvent();assert.equal(s.battle.enemy.id,'raider');assert.equal(s.battle.enemy.name,'黑衣人');killFixture(g);assert.equal(s.screen,'reward');
   }
   for(const index of [1,2]){const g=run(),s=g.state;s.journey.flags.wenFreed=true;eventAt(g,'wen_final');const before=structuredClone(s.player);resolve(g,index);assert.equal(s.journey.flags.wenCleansed,true);assert.deepEqual(s.player.relics,before.relics);g.leaveEvent();assert.equal(s.floor,24);assert.equal(s.screen,'map');}

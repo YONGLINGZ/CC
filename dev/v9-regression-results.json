@@ -1,0 +1,77 @@
+{
+  "version": "v9 hidden narrative states and ascending routes",
+  "engine": {
+    "passed": 170,
+    "failed": 0,
+    "total": 170,
+    "skipped": 0,
+    "legacy_checks": 161,
+    "new_checks": 9
+  },
+  "data_contract": {
+    "cards": 70,
+    "enemies": 15,
+    "events": 40,
+    "relics": 15
+  },
+  "public_api": {
+    "method": "Public API only; 150 seeded heuristic simulations across three professions and five starters, active chapter hazards, 30 global steps, logical poison suppression, late story cures and visible equipment choices, no run-state/resource fixtures. Sword attempts alternate refusing and learning demonic skills; each policy includes ten stranger rescues and five refusals, through actual event choices. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.",
+    "completed": 150,
+    "wins": 150,
+    "defeats": 0,
+    "all_victories_completed_30_nodes": true,
+    "sword_policies": [
+      {
+        "policy": "refuse",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "poisoned": 10,
+        "demonicUses": 0,
+        "fallen": 0
+      },
+      {
+        "policy": "learn",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "poisoned": 10,
+        "demonicUses": 106,
+        "fallen": 0
+      }
+    ],
+    "report": "dev/v9-playtest-report.json"
+  },
+  "hidden_api": {
+    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "completed": 24,
+    "wins": 22,
+    "defeats": 2,
+    "unlocks": 22,
+    "hidden_challenges": 24,
+    "hidden_wins": 22,
+    "report": "dev/v9-hidden-playtest-report.json"
+  },
+  "inputs": {
+    "dev/engine.js": "2bde7db56354496b4f7183096725502a778cbd9aef1b254d455cc35b1f5d0a37",
+    "dev/expansion.js": "982ac39c995f93cb14c934cadd12488d19113efa8ebb808743ce00acc12d197f",
+    "dev/engine.test.cjs": "a38f775c251c5d3901cde0c57d8cac45093688824f37629844c56ccc10ca7aea",
+    "dev/rework.test.cjs": "0b2a07d8a14fe58b976162e48006c0cf5504a81103acab3c29d7e7271e8439ac",
+    "dev/reward.test.cjs": "14006e7fa69ead55fabc6161f487bb8b6b99e7bb1be590b8a46d071a0b3d0d1b",
+    "dev/v5-engine.test.cjs": "a2d732611c178c43cd6b411e52038a7dbfe123e24a8c5e40e60ca437010daf57",
+    "dev/v6-engine.test.cjs": "54b198fffc6a4ac455e6fb4d247053da5231f1fa925c24854bbfa80daddc2e27",
+    "dev/v7-engine.test.cjs": "a362b42af4ae420e62a1671f8283f4feb0592513cf9851f1a77f877a99a9ba02",
+    "dev/v8-engine.test.cjs": "abdd1412257deccda2489f7a77586acd6d20963934197e82b7370e3a2f14932e",
+    "dev/v9-engine.test.cjs": "d6c409d6cc2871f4c98d1b60c535c5e14ba33a0aa3af1f94c0de75357c89597c",
+    "dev/playtest.cjs": "e5b8f94db87b488bdd6a08ee8ab1d1be7af3aa427d06a0fd265673c29690a485",
+    "dev/v7-hidden-playtest.cjs": "635e3e3e7a65305991c88580070ebb49f8989c4f8764ececa3f13d245d0e1be8",
+    "dev/v9-regression.cjs": "b60787bf9edaf708b2f24c4e77fcbad5d8e9ccf46f86d67198c360a9e437513f",
+    "dev/v9-engine-results.json": "52556a1eb9a4fde13d6d040ff6765cf414198f2510a535ce31ed14725b9ce807",
+    "dev/v9-playtest-report.json": "52fd28f0f0bb0016daae02458084e479ac7dfc271dd7767efe1e6bc0380ecb1c",
+    "dev/v9-hidden-playtest-report.json": "f8b057c8880dd9597e08642148c834337b3559c38a33b119a0d97ecd7921cbc0"
+  },
+  "commands": [
+    "node dev/v9-regression.cjs"
+  ],
+  "note": "Actual rule tests and seeded public-action heuristic runs. UI exposure changes do not change hidden state mechanics. Sovereign public simulations explicitly begin with a pre-unlocked profile; hidden-route attempts begin with an empty profile. Not human balance or time-to-complete validation."
+}
