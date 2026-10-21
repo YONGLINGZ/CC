@@ -1,0 +1,1219 @@
+{
+  "method": "Public API only; 24 active-environment attempts deliberately choose the three clue nodes and their first legal options, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+  "completed": 24,
+  "wins": 16,
+  "defeats": 8,
+  "unlocks": 16,
+  "details": [
+    {
+      "seed": 1000,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 33,
+      "turns": 11,
+      "actions": 93,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 16,
+      "turns": 13,
+      "actions": 97,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 13,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 32,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "umbrella",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 93,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 14,
+      "actions": 94,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 13,
+      "actions": 95,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 15,
+      "turns": 16,
+      "actions": 116,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 7,
+      "turns": 17,
+      "actions": 108,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 31,
+      "turns": 14,
+      "actions": 108,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 8,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 16,
+      "actions": 108,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 16,
+      "actions": 107,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 5,
+      "turns": 20,
+      "actions": 122,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1000,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 10,
+      "turns": 18,
+      "actions": 117,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 17,
+      "turns": 17,
+      "actions": 106,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 24,
+      "turns": 15,
+      "actions": 105,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "supply",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 8,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 24,
+      "turns": 17,
+      "actions": 105,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 13,
+      "turns": 18,
+      "actions": 110,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 13,
+      "turns": 16,
+      "actions": 98,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "sword",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 95,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 14,
+      "turns": 18,
+      "actions": 111,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 32,
+      "turns": 14,
+      "actions": 114,
+      "floor": 12,
+      "maxCombo": 7,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "rest",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 8,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "sword",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 17,
+      "actions": 121,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 5,
+      "turns": 19,
+      "actions": 114,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 1,
+      "turns": 18,
+      "actions": 111,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 7,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": true,
+      "power": 0
+    }
+  ]
+}

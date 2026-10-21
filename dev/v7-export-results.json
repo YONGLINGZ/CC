@@ -1,0 +1,30 @@
+{
+  "folderSha256": "389faf5a700714b1cddba565c9f7436fa861159090ee90f69289229e7a8ec486",
+  "inlineSha256": "2cfcd5626f0b98269bf25319b5e0a67679bb64ff5bab8b6cd5bcea5fe167560b",
+  "results": [
+    {
+      "name": "folder export downloads exact fully embedded standalone HTML",
+      "ok": true
+    },
+    {
+      "name": "folder export independently reopens with all 64 card art and three professions",
+      "ok": true
+    },
+    {
+      "name": "inline export uses a real Blob download after selecting sword without saving run state",
+      "ok": true
+    },
+    {
+      "name": "Blob export reopens at title, starts new sword run and preserves inline portraits without model runtime",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "folderExportBytes": 12906320,
+  "blobExportBytes": 12906330,
+  "blobExportSha256": "32c372c273bb7c957d4ea71fe1be282132cf217dee25d9d6ae72a737e106439e",
+  "browser": "154.0.8037.57",
+  "passed": 4,
+  "failed": 0
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package and test non-destructive, offline v6 game recovery.
+"""Package and test non-destructive, offline v7 game recovery.
 
 Python 3 and Node.js are needed only for rebuilding/recovery. Playing either
 finished HTML product needs only a browser. This tool never changes cloud
@@ -23,15 +23,18 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_NAMES = (
     "dev/shell.html", "dev/art.js", "dev/audio.js", "dev/engine.js",
     "dev/ui.js", "dev/build.cjs", "dev/build.py",
-    "dev/puppet.js", "dev/puppet-rig.json", "dev/scene.js",
+    "dev/expansion.js",
 )
 ASSET_GROUPS = {
+    "events-sword": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "moon_trace", "sealed_name", "moon_vow", "armory"),
+    "events-sovereign": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "moon_trace", "sealed_name", "moon_vow", "armory"),
+    "weapons": ("training", "rime", "divine", "spirit"),
     "regions": ("fog_gate", "broken_camp", "ritual_core"),
-    "portraits": ("cat", "fox", "snake", "paper", "lantern", "ape", "bone", "yaksha", "raider", "liu", "ji", "wen"),
-    "cards": tuple(f"C{number:02}" for number in range(1, 37)) + tuple(f"S{number:02}" for number in range(1, 17)),
-    "events": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "liu_first", "liu_return", "liu_final", "ji_first", "ji_return", "ji_final", "wen_first", "wen_return", "wen_final", "sect_duel", "herb_caravan", "relic_dispute", "night_watch"),
-    "relics": ("bell", "jade", "moon", "fox", "fang", "silk", "vial", "bloodstone", "moonheart", "mirror", "dream", "godblood", "ninelives", "frostseal"),
-    "puppet": ("cat-normal", "cat-wounded", "cat-critical", "cat-blink", "sword-normal", "sword-wounded", "sword-critical"),
+    "portraits": ("cat", "fox", "snake", "paper", "lantern", "ape", "bone", "yaksha", "raider", "liu", "ji", "wen", "feiye", "feiye_echo", "retainer", "heart", "snake_ascended"),
+    "cards": tuple(f"C{number:02}" for number in range(1, 37)) + tuple(f"S{number:02}" for number in range(1, 17)) + tuple(f"F{number:02}" for number in range(1, 13)),
+    "events": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "liu_first", "liu_return", "liu_final", "ji_first", "ji_return", "ji_final", "wen_first", "wen_return", "wen_final", "sect_duel", "herb_caravan", "relic_dispute", "night_watch", "moon_trace", "sealed_name", "moon_vow", "armory", "sovereign_wake", "sovereign_recall", "sovereign_memory"),
+    "relics": ("bell", "jade", "moon", "fox", "fang", "silk", "vial", "bloodstone", "moonheart", "mirror", "dream", "godblood", "ninelives", "frostseal", "veil"),
+    "puppet": ("cat-normal", "cat-wounded", "cat-critical", "cat-blink", "sword-normal", "sword-wounded", "sword-critical", "feiye-normal", "feiye-wounded", "feiye-critical"),
 }
 ASSET_NAMES = tuple(f"assets/{group}/{name}.webp" for group, names in ASSET_GROUPS.items() for name in names)
 
@@ -91,7 +94,7 @@ def package_bytes(files: dict[str, bytes]) -> bytes:
 def script_body(payload: str, manifest: dict) -> str:
     # The literal quoted heredoc permits no shell interpolation of project data.
     template = r'''#!/bin/sh
-# 百妖夜契 v6 离线恢复。仅补缺失文件；已有改动、符号链接均拒绝。
+# 百妖夜契 v7 离线恢复。仅补缺失文件；已有改动、符号链接均拒绝。
 # 需要 Python 3 和 Node.js；游玩生成的 HTML 无需安装任何依赖。
 # 可选：BAIYAO_RESTORE_ROOT=/absolute/empty/directory sh restore.sh
 set -eu
@@ -168,7 +171,7 @@ if MANIFEST["mode"] == "source-svg":
 
 # Rebuild in isolation and require byte-exact accepted outputs before touching
 # the destination. No images.js or old PNG originals are needed in either mode.
-with tempfile.TemporaryDirectory(prefix="baiyao-v6-verify-") as folder:
+with tempfile.TemporaryDirectory(prefix="baiyao-v7-verify-") as folder:
     staging = Path(folder)
     for name, data in contents.items():
         path = staging / name
@@ -232,7 +235,7 @@ for name, data in contents.items():
 for name, data in contents.items():
     if (root / name).read_bytes() != data:
         fail("写入后核验失败：" + name)
-print("百妖夜契 v6 离线恢复成功：" + str(root))
+print("百妖夜契 v7 离线恢复成功：" + str(root))
 print("模式：" + MANIFEST["mode"] + "；新增 " + str(created) + " 个文件；核验 " + str(len(contents)) + " 个文件。")
 for name in MANIFEST["outputs"]:
     print(name + " SHA256: " + digest(contents[name]))
@@ -246,7 +249,7 @@ def build(source_only: bool = False) -> tuple[Path, dict]:
     assets = collect(ASSET_NAMES, assets=True)
     # Verify current release products first. Stale root HTML must never become
     # the reference hash for a newly generated recovery package.
-    with tempfile.TemporaryDirectory(prefix="baiyao-v6-package-", dir="/tmp") as folder:
+    with tempfile.TemporaryDirectory(prefix="baiyao-v7-package-", dir="/tmp") as folder:
         staging = Path(folder)
         write_files(staging, {**sources, **assets})
         full_outputs = build_at(staging)
@@ -264,7 +267,7 @@ def build(source_only: bool = False) -> tuple[Path, dict]:
     files = sources if source_only else {**sources, **assets}
     archive = package_bytes(files)
     manifest = {
-        "format": "baiyao-offline-recovery-v6",
+        "format": "baiyao-offline-recovery-v7",
         "mode": "source-svg" if source_only else "full-webp",
         "files": {name: sha256(data) for name, data in sorted(files.items())},
         "outputs": {name: sha256(data) for name, data in outputs.items()},
@@ -319,7 +322,7 @@ def succeeded(result: subprocess.CompletedProcess) -> None:
 def exercise(script: Path, manifest: dict) -> dict:
     checks = []
     source_only = manifest["mode"] == "source-svg"
-    with tempfile.TemporaryDirectory(prefix="baiyao-v6-recovery-test-", dir="/tmp") as folder:
+    with tempfile.TemporaryDirectory(prefix="baiyao-v7-recovery-test-", dir="/tmp") as folder:
         area = Path(folder)
         game = area / "game"
         succeeded(run_restore(script, game))
@@ -338,7 +341,7 @@ def exercise(script: Path, manifest: dict) -> dict:
         assert "新增 0 个文件" in result.stdout
         checks.append("idempotent restore: zero files rewritten and all timestamps preserved")
 
-        removed = ["dev/audio.js", "dev/puppet-rig.json", "dev/scene.js", *manifest["outputs"]]
+        removed = ["dev/audio.js", "dev/expansion.js", *manifest["outputs"]]
         if not source_only:
             removed += ["assets/cards/C01.webp", "assets/events/well.webp", "assets/puppet/cat-critical.webp", "assets/puppet/cat-blink.webp", "assets/puppet/sword-critical.webp"]
         for name in removed:
@@ -347,7 +350,7 @@ def exercise(script: Path, manifest: dict) -> dict:
         assert snapshot(game).keys() == before.keys()
         for name, expected in {**manifest["files"], **manifest["outputs"]}.items():
             assert sha256((game / name).read_bytes()) == expected, name
-        checks.append("missing source including 3D scene, outputs and selected assets including sword critical portrait: reconstructed byte-exactly")
+        checks.append("missing source including expansion rules, outputs and selected assets including sword critical portrait: reconstructed byte-exactly")
 
         (game / "dev/ui.js").write_bytes(b"user source modification\n")
         (game / "index.html").unlink()
@@ -408,21 +411,21 @@ def exercise(script: Path, manifest: dict) -> dict:
         before_puppet = snapshot(changed_puppet)
         assert run_restore(script, changed_puppet).returncode != 0
         assert snapshot(changed_puppet) == before_puppet
-        checks.append("modified wounded puppet WebP: refused before any source, rig or HTML writes")
+        checks.append("modified wounded puppet WebP: refused before any source or HTML writes")
 
         changed_rig = area / "changed-rig"
-        write_files(changed_rig, {"dev/puppet-rig.json": b'{"user":"rig edit"}\n'})
+        write_files(changed_rig, {"dev/audio.js": b"user audio edit\n"})
         before_rig = snapshot(changed_rig)
         assert run_restore(script, changed_rig).returncode != 0
         assert snapshot(changed_rig) == before_rig
-        checks.append("modified puppet rig JSON: refused and preserved before any file writes")
+        checks.append("modified audio source: refused and preserved before any file writes")
 
         changed_scene = area / "changed-scene"
-        write_files(changed_scene, {"dev/scene.js": b"user 3D model and shader edit\n"})
+        write_files(changed_scene, {"dev/expansion.js": b"user expansion edit\n"})
         before_scene = snapshot(changed_scene)
         assert run_restore(script, changed_scene).returncode != 0
         assert snapshot(changed_scene) == before_scene
-        checks.append("modified 3D scene source: refused and preserved before any source, resource or HTML writes")
+        checks.append("modified expansion rules: refused and preserved before any source, resource or HTML writes")
 
         changed_sword = area / "changed-sword"
         write_files(changed_sword, {"assets/puppet/sword-wounded.webp": b"user sword heroine image edit\n"})
@@ -463,7 +466,7 @@ def exercise(script: Path, manifest: dict) -> dict:
             succeeded(run_restore(script, folder_release))
             after_release = snapshot(folder_release)
             assert all(after_release[name] == value for name, value in before_release.items())
-            checks.append("existing folder release with all 118 WebPs: preserved byte-for-byte while sources restored")
+            checks.append("existing folder release with all 192 WebPs: preserved byte-for-byte while sources restored")
 
             incomplete = area / "incomplete-folder-release"
             write_files(incomplete, {"index.html": (ROOT / "index.html").read_bytes(),
@@ -487,7 +490,7 @@ def exercise(script: Path, manifest: dict) -> dict:
             assert snapshot(changed_inline) == before_inline
             checks.append("modified standalone HTML: refused before writing any source, resource or folder index")
     report = {
-        "format": "baiyao-recovery-tests-v6", "mode": manifest["mode"],
+        "format": "baiyao-recovery-tests-v7", "mode": manifest["mode"],
         "passed": len(checks), "failed": 0, "checks": checks,
         "script_sha256": sha256(script.read_bytes()), "outputs": manifest["outputs"],
         "release_outputs": manifest["release_outputs"],

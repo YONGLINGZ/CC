@@ -8,6 +8,18 @@
   // Every card has its own timbre, gesture, pitch movement and small cast motif.
   // Damage sounds are played by each actual attack event, never by the cast event.
   const PROFILES = Object.freeze({
+    F01: { name:'摄魂', kind:'soul', pitch:877, tail:219, length:.32, body:97, weight:.17, notes:[369,553,830] },
+    F02: { name:'夜幕', kind:'shield', pitch:415, tail:1245, length:.43, body:138, weight:.15, notes:[415,622,830] },
+    F03: { name:'回响', kind:'focus', pitch:277, tail:1108, length:.46, body:138, weight:.13, notes:[277,415,554,830] },
+    F04: { name:'归潮', kind:'eclipse', pitch:831, tail:2493, length:.53, body:58, weight:.24, notes:[207,415,830,1661] },
+    F05: { name:'影袭', kind:'moon', pitch:1480, tail:740, length:.18, body:123, weight:.14, notes:[740,1108,1480] },
+    F06: { name:'移影', kind:'wind', pitch:2700, tail:913, length:.26, body:277, weight:.12, notes:[553,830,1244] },
+    F07: { name:'魂衣', kind:'shield', pitch:554, tail:1662, length:.50, body:184, weight:.16, notes:[554,830,1108] },
+    F08: { name:'引魂', kind:'paper', pitch:3170, tail:4750, length:.28, body:311, weight:.12, notes:[622,932,1397] },
+    F09: { name:'噬念', kind:'soul', pitch:1130, tail:283, length:.42, body:94, weight:.18, notes:[311,466,698] },
+    F10: { name:'裂界', kind:'eclipse', pitch:1060, tail:4240, length:.58, body:66, weight:.24, notes:[265,530,1060,2120] },
+    F11: { name:'摄念', kind:'bell', pitch:1244, tail:2489, length:.38, body:311, weight:.13, notes:[622,1244,1865] },
+    F12: { name:'万相归一', kind:'eclipse', pitch:622, tail:3732, length:.74, body:39, weight:.28, notes:[155,311,622,1244,2489] },
     C01: { name:'爪击', kind:'claw', pitch:1720, tail:3300, length:.16, body:105, weight:.18, notes:[440,660] },
     C02: { name:'敛息', kind:'shield', pitch:523, tail:1318, length:.30, body:196, weight:.15, notes:[523,784] },
     C03: { name:'窥隙', kind:'mark', pitch:1046, tail:1568, length:.23, body:262, weight:.13, notes:[784,1046] },
@@ -62,6 +74,13 @@
     S16: { name:'万川归寂', kind:'swordstorm', pitch:1568, tail:4704, length:.72, body:98, weight:.25, notes:[392,784,1175,1568,2349] }
   });
   const ENCOUNTERS = Object.freeze({
+    moon_trace: { name:'旧铃', notes:[277,415,830], kind:'bell', air:1770 },
+    sealed_name: { name:'封字', notes:[138,207,311,466], kind:'ritual', air:690 },
+    moon_vow: { name:'留白', notes:[415,622,1244], kind:'echo', air:1350 },
+    armory: { name:'石室', notes:[369,739,1479], kind:'steel', air:3270 },
+    sovereign_wake: { name:'归来', notes:[207,311,415,622], kind:'echo', air:1210 },
+    sovereign_recall: { name:'旧约', notes:[155,233,466,698], kind:'chain', air:1840 },
+    sovereign_memory: { name:'自问', notes:[196,294,440,659], kind:'rift', air:980 },
     well: { name:'倒映祈愿井', notes:[294,440,587], kind:'water', air:460 },
     shrine: { name:'无面旧神龛', notes:[131,196,262], kind:'gong', air:720 },
     dreamshop: { name:'卖梦人的摊位', notes:[523,784,1175], kind:'glass', air:1700 },
@@ -290,7 +309,7 @@
     return withSound('card:'+id,(bus,t)=>{
       // Cards without a later shield/heal/mark/hit event need their own full
       // focus, bell or energy gesture here. Attack cards remain cast-only.
-      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11'].includes(id)?'impact':'cast',0,t);
+      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11','F03','F08','F11'].includes(id)?'impact':'cast',0,t);
     },id);
   }
   function preview(id) {
@@ -321,6 +340,10 @@
       case 'consumeMark':hiss(bus,1400,.23,{at:t,level:.12,end:5600});bell(bus,1760,.32,.10,t);break;
       case 'heal':playSignature(bus,p&&p.kind==='heal'?p:PROFILES.C36,'impact',0,t);break;
       case 'selfDamage':playSignature(bus,p&&['blood','frostblood'].includes(p.kind)?p:PROFILES.C13,'impact',0,t);break;
+      case 'soul':bell(bus,amount<0?415:830,.42,.075,t);tone(bus,207,.27,{at:t,level:.045,end:amount<0?104:415});break;
+      case 'environment':hiss(bus,620,.40,{at:t,level:.065,end:240,attack:.04});break;
+      case 'weapon':steel(bus,739,.36,.085,t);if(options.rebellious)heartbeat(bus,69,.08,t);break;
+      case 'powerRecovered':
       case 'power':tone(bus,147,.34,{at:t,level:.09,end:588,wave:'triangle',attack:.022});bell(bus,1175,.30,.065,t+.12);break;
       case 'poison':
         for(let i=0;i<3;i++)tone(bus,170+i*83,.11,{at:t,delay:i*.06,level:.085,end:510+i*145});
@@ -465,6 +488,6 @@
   }
   return {unlock,playCard,playEvent,playCue,playEncounter,setMuted,setVolume,getState,preview,profile,
     profiles:Object.freeze(Object.keys(PROFILES)),assassinProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('C'))),
-    swordProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('S'))),
+    swordProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('S'))),sovereignProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('F'))),
     encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline};
 });

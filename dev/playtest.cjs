@@ -8,18 +8,19 @@ const {createGame, CARDS, ENEMIES} = require('./engine.js');
 function random(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t ^= t + Math.imul(t ^ t >>> 7, 61 | t); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const value = {C01:2,C02:2,C03:6,C04:8,C05:7,C06:8,C07:7,C08:8,C09:7,C10:6,C11:5,C12:8,C13:6,C14:6,C15:6,C16:9,C17:10,C18:10,C19:9,C20:8,C21:9,C22:9,C23:8,C24:9,C25:6,C26:9,C27:9,C28:10,C29:6,C30:7,C31:7,C32:8,C33:10,C34:9,C35:9,C36:9};
 Object.assign(value,{S01:5,S02:7,S03:8,S04:9,S05:8,S06:8,S07:8,S08:9,S09:7,S10:8,S11:6,S12:8,S13:7,S14:9,S15:10,S16:10});
+Object.assign(value,{F01:6,F02:7,F03:10,F04:10,F05:9,F06:10,F07:10,F08:8,F09:11,F10:10,F11:9,F12:11});
 function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
 function nextCard(s) {
   const b=s.battle,e=b.enemy,p=s.player,intent=ENEMIES[e.id].intents[e.intentIndex];
-  const incoming=(intent.hits||[]).reduce((a,n)=>a+Math.max(0,n-(e.chill||0)),0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0;
+  const incoming=(intent.hits||[]).reduce((a,n)=>a+Math.max(0,n-(e.chill||0)),0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0,soul=b.soul||0;
   let best=null;
   for(const card of b.hand){
     const c=CARDS[card.id],id=card.id;if(c.cost>b.energy)continue;
-    const raw={C01:6,C04:10+4*e.mark,C05:9,C08:4,C14:5,C15:9,C16:16,C18:5+2*e.mark,C21:12+6*e.mark,C22:b.played>=2?12:8,C23:3,C24:b.played>=2?20:16,C26:4,C28:10,C30:p.hp<=p.maxHp/2?16:8,C35:4+Math.min(16,b.block),S01:6,S04:10+3*swordIntent,S05:4,S08:swordIntent>=3?12:9,S14:5,S15:12+2*(e.chill||0),S16:16+4*swordIntent}[id]||0;
-    const damage=raw+(c.attack?b.nextAttack+(b.bloodPower||0):0);
+    const raw={C01:6,C04:10+4*e.mark,C05:9,C08:4,C14:5,C15:9,C16:16,C18:5+2*e.mark,C21:12+6*e.mark,C22:b.played>=2?12:8,C23:3,C24:b.played>=2?20:16,C26:4,C28:10,C30:p.hp<=p.maxHp/2?16:8,C35:4+Math.min(16,b.block),S01:6,S04:10+3*swordIntent,S05:4,S08:swordIntent>=3?12:9,S14:5,S15:12+2*(e.chill||0),S16:16+4*swordIntent,F01:6,F04:10+3*soul,F05:9,F09:5,F10:16,F12:18+4*soul}[id]||0;
+    const damage=raw+(c.attack?b.nextAttack+(b.bloodPower||0)+(p.power||0):0);
     let score=damage/Math.max(1,c.cost);
     if(raw&&damage>=e.hp+e.block)score+=150;
-    const shield={C02:5,C06:3,C07:7,C12:14,C19:8,C26:4,C31:12,C32:b.played>=2?6:3,C33:6,C34:18,S02:6,S06:3,S07:7,S12:14}[id]||0;
+    const shield={C02:5,C06:3,C07:7,C12:14,C19:8,C26:4,C31:12,C32:b.played>=2?6:3,C33:6,C34:18,S02:6,S06:3,S07:7,S12:14,F02:6,F06:3,F07:8}[id]||0;
     score+=Math.min(shield,need)*(p.hp<25?2.15:1.45)/Math.max(1,c.cost);
     if(['C03','C17','C19','C08'].includes(id)&&e.mark<5)score+=id==='C03'?19:id==='C17'?17:5;
     if(['C04','C21'].includes(id)&&e.mark<2&&e.hp>damage)score-=7;
@@ -53,14 +54,23 @@ function nextCard(s) {
     if(id==='S11')score+=e.hp>18?8:1;
     if(id==='S13')score+=p.hp>8&&(b.energy>0||swordIntent<8)?18:-60;
     if(id==='S15'&&e.hp>damage&&need>0)score-=Math.min(need,(e.chill||0)*(intent.hits||[]).length)*.9;
+    if(id==='F01'&&soul<6)score+=4;
+    if(id==='F03')score+=soul<5?25:soul===5?11:-40;
+    if((id==='F04'||id==='F12')&&soul<3&&e.hp>damage)score-=6;
+    if(id==='F06')score+=b.draw.length+b.discard.length>0?18:3;
+    if(id==='F07'&&soul>=3)score+=b.energy>1?9:2;
+    if(id==='F08')score+=b.energy>1?15:1;
+    if(id==='F09')score+=Math.min(2,p.maxHp-p.hp)*2.8;
+    if(id==='F10'&&p.power>=2)score+=b.energy>2?7:2;
+    if(id==='F11')score+=soul>=2&&b.hand.some(x=>x!==card&&CARDS[x.id].cost>0)?24:-60;
     const loss={C13:3,C15:1,C25:1,C27:4,C29:5,C31:2,S13:3}[id]||0;
     if(loss>=p.hp&&!p.relics.includes('fox')&&!(p.relics.includes('ninelives')&&!b.nineUsed))score=-1000;
     if(!best||score>best.score)best={card,score};
   }
   return best&&best.score>0?best.card:null;
 }
-function playRun(seed,starter,lane){
-  const g=createGame({rng:random(seed)});g.newRun(starter);
+function playRun(seed,starter,lane,options={}){
+  const g=createGame({rng:random(seed),...(starter==='sovereign'?{profile:{unlocks:['feiye']}}:{}),...(options.environment===false?{environment:false}:{})});assert.equal(g.newRun(starter),true);
   let actions=0,turns=0;const encounters=[],regions=[],storyEvents=[];
   while(!['victory','defeat'].includes(g.state.screen)){
     assert.ok(++actions<4000,'run did not terminate');
@@ -73,7 +83,8 @@ function playRun(seed,starter,lane){
         const nodes=g.getAvailableNodes();
         assert.ok(nodes.length,'reachable next node');
         nodes.sort((a,b)=>Math.abs(a.lane-lane)-Math.abs(b.lane-lane));
-        const n=nodes[0];encounters.push(n.type);assert.equal(g.enterNode(n.id),true);break;
+        const clue=options.hiddenChallenge?nodes.find(n=>['moon_trace','sealed_name','moon_vow'].includes(n.storyId)):null;
+        const n=clue||nodes[0];encounters.push(n.type);assert.equal(g.enterNode(n.id),true);break;
       }
       case 'battle':{
         const b=s.battle;assert.ok(b.energy>=0&&b.block>=0&&b.enemy.block>=0&&b.enemy.mark<=5);
@@ -108,20 +119,21 @@ function playRun(seed,starter,lane){
         for(let i=0;i<(s.event.options||s.event.choices).length;i++){if(g.chooseEvent(i)){chosen=true;break;}}
         assert.ok(chosen,'event has a legal choice');break;
       }
+      case 'threshold':assert.equal(options.hiddenChallenge?g.startHiddenBoss():g.leaveThreshold(),true);break;
       default:throw new Error('Unexpected screen '+s.screen);
     }
   }
-  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length};
+  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length,profile:g.getProfile?.(),environment:options.environment!==false,unlockedProfileAtStart:starter==='sovereign',hiddenChallenge:!!options.hiddenChallenge,power:g.state.player.power};
 }
 function main(){
   const runs=[];
-  for(const starter of ['mark','combo','blood','sword'])for(let i=0;i<30;i++)runs.push(playRun(1000+i,starter,i%4));
+  for(const starter of ['mark','combo','blood','sword','sovereign'])for(let i=0;i<30;i++)runs.push(playRun(1000+i,starter,i%4));
   const summary=[];
-  for(const starter of ['mark','combo','blood','sword'])for(let lane=0;lane<4;lane++){
+  for(const starter of ['mark','combo','blood','sword','sovereign'])for(let lane=0;lane<4;lane++){
     const selected=runs.filter(r=>r.starter===starter&&r.lane===lane);
     summary.push({starter,lane,wins:selected.filter(r=>r.result==='victory').length,runs:selected.length,averageEnemyTurns:+(selected.reduce((n,r)=>n+r.turns,0)/selected.length).toFixed(1)});
   }
-  const report={method:'Public API only; 120 seeded heuristic simulations across two professions and four starters, no state fixtures. Not human balance or time-to-play validation.',runs:runs.length,completed:runs.length,wins:runs.filter(r=>r.result==='victory').length,defeats:runs.filter(r=>r.result==='defeat').length,summary,details:runs};
+  const report={method:'Public API only; 150 seeded heuristic simulations across three professions and five starters, active regional debuffs, no run-state/resource fixtures. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.',runs:runs.length,completed:runs.length,wins:runs.filter(r=>r.result==='victory').length,defeats:runs.filter(r=>r.result==='defeat').length,summary,details:runs};
   const reportPath=process.env.PLAYTEST_REPORT||path.join(__dirname,'playtest-report.json');
   fs.mkdirSync(path.dirname(reportPath),{recursive:true});
   fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');

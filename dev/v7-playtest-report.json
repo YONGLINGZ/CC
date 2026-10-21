@@ -1,0 +1,7261 @@
+{
+  "method": "Public API only; 150 seeded heuristic simulations across three professions and five starters, active regional debuffs, no run-state/resource fixtures. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.",
+  "runs": 150,
+  "completed": 150,
+  "wins": 134,
+  "defeats": 16,
+  "summary": [
+    {
+      "starter": "mark",
+      "lane": 0,
+      "wins": 7,
+      "runs": 8,
+      "averageEnemyTurns": 11.4
+    },
+    {
+      "starter": "mark",
+      "lane": 1,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 9.1
+    },
+    {
+      "starter": "mark",
+      "lane": 2,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 8.3
+    },
+    {
+      "starter": "mark",
+      "lane": 3,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 10.4
+    },
+    {
+      "starter": "combo",
+      "lane": 0,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 9.1
+    },
+    {
+      "starter": "combo",
+      "lane": 1,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 9.8
+    },
+    {
+      "starter": "combo",
+      "lane": 2,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 9.3
+    },
+    {
+      "starter": "combo",
+      "lane": 3,
+      "wins": 6,
+      "runs": 7,
+      "averageEnemyTurns": 10.1
+    },
+    {
+      "starter": "blood",
+      "lane": 0,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 12.9
+    },
+    {
+      "starter": "blood",
+      "lane": 1,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 11.9
+    },
+    {
+      "starter": "blood",
+      "lane": 2,
+      "wins": 6,
+      "runs": 7,
+      "averageEnemyTurns": 11.6
+    },
+    {
+      "starter": "blood",
+      "lane": 3,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 12.1
+    },
+    {
+      "starter": "sword",
+      "lane": 0,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 12.9
+    },
+    {
+      "starter": "sword",
+      "lane": 1,
+      "wins": 8,
+      "runs": 8,
+      "averageEnemyTurns": 10.5
+    },
+    {
+      "starter": "sword",
+      "lane": 2,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 10.9
+    },
+    {
+      "starter": "sword",
+      "lane": 3,
+      "wins": 7,
+      "runs": 7,
+      "averageEnemyTurns": 11.6
+    },
+    {
+      "starter": "sovereign",
+      "lane": 0,
+      "wins": 7,
+      "runs": 8,
+      "averageEnemyTurns": 13
+    },
+    {
+      "starter": "sovereign",
+      "lane": 1,
+      "wins": 4,
+      "runs": 8,
+      "averageEnemyTurns": 12
+    },
+    {
+      "starter": "sovereign",
+      "lane": 2,
+      "wins": 4,
+      "runs": 7,
+      "averageEnemyTurns": 12.9
+    },
+    {
+      "starter": "sovereign",
+      "lane": 3,
+      "wins": 2,
+      "runs": 7,
+      "averageEnemyTurns": 12.7
+    }
+  ],
+  "details": [
+    {
+      "seed": 1000,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 30,
+      "turns": 8,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 35,
+      "turns": 7,
+      "actions": 63,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "riftwatch",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 38,
+      "turns": 9,
+      "actions": 78,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 33,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "theatre",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 48,
+      "turns": 12,
+      "actions": 85,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 43,
+      "turns": 16,
+      "actions": 106,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "fight",
+        "event",
+        "elite",
+        "elite",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 46,
+      "turns": 9,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 39,
+      "turns": 10,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 32,
+      "turns": 7,
+      "actions": 62,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 38,
+      "turns": 12,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 45,
+      "turns": 10,
+      "actions": 79,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "prisoner",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 15,
+      "turns": 10,
+      "actions": 75,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "swordgrave"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 22,
+      "turns": 13,
+      "actions": 88,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1012,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 41,
+      "turns": 12,
+      "actions": 88,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "elite",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1013,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 15,
+      "turns": 10,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 49,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1014,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 41,
+      "turns": 7,
+      "actions": 66,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "armory"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1015,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 6,
+      "turns": 13,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 32,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "echo"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1016,
+      "starter": "mark",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 96,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1017,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 57,
+      "turns": 11,
+      "actions": 88,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1018,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 35,
+      "turns": 7,
+      "actions": 65,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1019,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 28,
+      "turns": 9,
+      "actions": 72,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "pilgrims"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1020,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 35,
+      "turns": 10,
+      "actions": 80,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1021,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 42,
+      "turns": 9,
+      "actions": 73,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1022,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 53,
+      "turns": 6,
+      "actions": 66,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1023,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 8,
+      "turns": 9,
+      "actions": 75,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1024,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 37,
+      "turns": 11,
+      "actions": 86,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1025,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 9,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "pawnshop",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1026,
+      "starter": "mark",
+      "lane": 2,
+      "result": "victory",
+      "hp": 16,
+      "turns": 9,
+      "actions": 69,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1027,
+      "starter": "mark",
+      "lane": 3,
+      "result": "victory",
+      "hp": 52,
+      "turns": 10,
+      "actions": 75,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1028,
+      "starter": "mark",
+      "lane": 0,
+      "result": "victory",
+      "hp": 45,
+      "turns": 7,
+      "actions": 71,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1029,
+      "starter": "mark",
+      "lane": 1,
+      "result": "victory",
+      "hp": 45,
+      "turns": 8,
+      "actions": 69,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "supply",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1000,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 24,
+      "turns": 7,
+      "actions": 72,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 45,
+      "turns": 7,
+      "actions": 75,
+      "floor": 12,
+      "maxCombo": 7,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "armory",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 28,
+      "turns": 9,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "pilgrims",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 39,
+      "turns": 14,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 36,
+      "turns": 16,
+      "actions": 116,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "fight",
+        "event",
+        "elite",
+        "elite",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 57,
+      "turns": 9,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 29,
+      "turns": 9,
+      "actions": 83,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 19,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 32,
+      "turns": 7,
+      "actions": 67,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 45,
+      "turns": 7,
+      "actions": 74,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 40,
+      "turns": 11,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "theatre",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 19,
+      "turns": 12,
+      "actions": 90,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "cultlab"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 29,
+      "turns": 9,
+      "actions": 80,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1012,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 32,
+      "turns": 11,
+      "actions": 99,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "elite",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1013,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 36,
+      "turns": 11,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1014,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 33,
+      "turns": 8,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "broker"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1015,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 58,
+      "turns": 12,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "herb_caravan"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1016,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 44,
+      "turns": 8,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1017,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 44,
+      "turns": 13,
+      "actions": 95,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 24,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1018,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 44,
+      "turns": 7,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 22,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1019,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 47,
+      "turns": 10,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "pilgrims"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1020,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 65,
+      "turns": 8,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1021,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 10,
+      "actions": 79,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1022,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 38,
+      "turns": 8,
+      "actions": 73,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1023,
+      "starter": "combo",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 12,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 32,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1024,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 55,
+      "turns": 9,
+      "actions": 85,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1025,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 54,
+      "turns": 8,
+      "actions": 78,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 18,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "supply",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1026,
+      "starter": "combo",
+      "lane": 2,
+      "result": "victory",
+      "hp": 17,
+      "turns": 12,
+      "actions": 99,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1027,
+      "starter": "combo",
+      "lane": 3,
+      "result": "victory",
+      "hp": 53,
+      "turns": 7,
+      "actions": 71,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1028,
+      "starter": "combo",
+      "lane": 0,
+      "result": "victory",
+      "hp": 51,
+      "turns": 7,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 8,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1029,
+      "starter": "combo",
+      "lane": 1,
+      "result": "victory",
+      "hp": 42,
+      "turns": 9,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "night_watch",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1000,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 20,
+      "turns": 10,
+      "actions": 71,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 9,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "relic_dispute",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 31,
+      "turns": 13,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "cultlab",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 33,
+      "turns": 12,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 20,
+      "turns": 18,
+      "actions": 113,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "fight",
+        "event",
+        "elite",
+        "elite",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 38,
+      "turns": 15,
+      "actions": 97,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 38,
+      "turns": 13,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 17,
+      "turns": 13,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 30,
+      "turns": 8,
+      "actions": 68,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 27,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 41,
+      "turns": 10,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "umbrella",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 31,
+      "turns": 10,
+      "actions": 78,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 32,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "shrine"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 20,
+      "turns": 11,
+      "actions": 74,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 26,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1012,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 24,
+      "turns": 14,
+      "actions": 89,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "elite",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1013,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 15,
+      "turns": 13,
+      "actions": 88,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 33,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1014,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 22,
+      "turns": 11,
+      "actions": 75,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "umbrella"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1015,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 5,
+      "turns": 11,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "herb_caravan"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1016,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 25,
+      "turns": 17,
+      "actions": 110,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1017,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 31,
+      "turns": 14,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1018,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 27,
+      "turns": 10,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1019,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 28,
+      "turns": 11,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 22,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "pilgrims"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1020,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 40,
+      "turns": 11,
+      "actions": 81,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1021,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 34,
+      "turns": 11,
+      "actions": 79,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 37,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1022,
+      "starter": "blood",
+      "lane": 2,
+      "result": "victory",
+      "hp": 35,
+      "turns": 12,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 32,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1023,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 12,
+      "turns": 14,
+      "actions": 90,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 22,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1024,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 1,
+      "turns": 15,
+      "actions": 97,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1025,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 27,
+      "turns": 12,
+      "actions": 83,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 38,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "swordgrave",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1026,
+      "starter": "blood",
+      "lane": 2,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 12,
+      "actions": 85,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 20,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1027,
+      "starter": "blood",
+      "lane": 3,
+      "result": "victory",
+      "hp": 38,
+      "turns": 13,
+      "actions": 81,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1028,
+      "starter": "blood",
+      "lane": 0,
+      "result": "victory",
+      "hp": 14,
+      "turns": 10,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1029,
+      "starter": "blood",
+      "lane": 1,
+      "result": "victory",
+      "hp": 30,
+      "turns": 11,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 22,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "herb_caravan",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1000,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 23,
+      "turns": 9,
+      "actions": 68,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1001,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 46,
+      "turns": 10,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "shrine",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1002,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 41,
+      "turns": 11,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "swordgrave",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1003,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 50,
+      "turns": 13,
+      "actions": 85,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "moon_trace",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1004,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 45,
+      "turns": 21,
+      "actions": 123,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "fight",
+        "event",
+        "elite",
+        "elite",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1005,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 28,
+      "turns": 10,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1006,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 29,
+      "turns": 13,
+      "actions": 92,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "sealed_name",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1007,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 37,
+      "turns": 10,
+      "actions": 74,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1008,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 34,
+      "turns": 11,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1009,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 43,
+      "turns": 10,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "swordgrave",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1010,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 29,
+      "turns": 10,
+      "actions": 80,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "prisoner"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1011,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 29,
+      "turns": 10,
+      "actions": 72,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1012,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 42,
+      "turns": 10,
+      "actions": 89,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "elite",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "elite",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1013,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 27,
+      "turns": 9,
+      "actions": 72,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 48,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1014,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 48,
+      "turns": 9,
+      "actions": 73,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 28,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final",
+        "supply"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1015,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 23,
+      "turns": 10,
+      "actions": 79,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "sealed_name",
+        "wen_final",
+        "prisoner"
+      ],
+      "chain": "wen",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1016,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 18,
+      "turns": 16,
+      "actions": 104,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "elite",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1017,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 41,
+      "turns": 13,
+      "actions": 84,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "rest",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1018,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 47,
+      "turns": 12,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1019,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 28,
+      "turns": 10,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "prisoner"
+      ],
+      "chain": "ji",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1020,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 41,
+      "turns": 13,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1021,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 47,
+      "turns": 10,
+      "actions": 80,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "event",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "moon_trace",
+        "liu_return",
+        "liu_final",
+        "moon_vow"
+      ],
+      "chain": "liu",
+      "journalEntries": 5,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1022,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 32,
+      "turns": 10,
+      "actions": 70,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 25,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1023,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 29,
+      "turns": 18,
+      "actions": 111,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "moon_trace",
+        "wen_return",
+        "wen_final"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1024,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 44,
+      "turns": 11,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "event",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "wen_first",
+        "wen_return",
+        "wen_final",
+        "moon_vow"
+      ],
+      "chain": "wen",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1025,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 46,
+      "turns": 9,
+      "actions": 76,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "pawnshop",
+        "liu_return",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1026,
+      "starter": "sword",
+      "lane": 2,
+      "result": "victory",
+      "hp": 10,
+      "turns": 11,
+      "actions": 74,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "shop",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1027,
+      "starter": "sword",
+      "lane": 3,
+      "result": "victory",
+      "hp": 63,
+      "turns": 10,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "rest",
+        "event",
+        "rest",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "ji_final"
+      ],
+      "chain": "ji",
+      "journalEntries": 3,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1028,
+      "starter": "sword",
+      "lane": 0,
+      "result": "victory",
+      "hp": 37,
+      "turns": 12,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "event",
+        "elite",
+        "shop",
+        "event",
+        "event",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "ji_first",
+        "ji_return",
+        "sealed_name",
+        "ji_final",
+        "moon_vow"
+      ],
+      "chain": "ji",
+      "journalEntries": 6,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1029,
+      "starter": "sword",
+      "lane": 1,
+      "result": "victory",
+      "hp": 35,
+      "turns": 13,
+      "actions": 90,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 34,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "shop",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "liu_first",
+        "liu_return",
+        "swordgrave",
+        "liu_final"
+      ],
+      "chain": "liu",
+      "journalEntries": 4,
+      "profile": {
+        "version": 1,
+        "unlocks": []
+      },
+      "environment": true,
+      "unlockedProfileAtStart": false,
+      "hiddenChallenge": false,
+      "power": 0
+    },
+    {
+      "seed": 1000,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 11,
+      "turns": 12,
+      "actions": 83,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1001,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "victory",
+      "hp": 11,
+      "turns": 14,
+      "actions": 98,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "theatre",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1002,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 13,
+      "actions": 96,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 37,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "prisoner",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1003,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "victory",
+      "hp": 11,
+      "turns": 18,
+      "actions": 113,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "elite",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1004,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 10,
+      "turns": 14,
+      "actions": 109,
+      "floor": 12,
+      "maxCombo": 6,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "elite",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1005,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "victory",
+      "hp": 12,
+      "turns": 11,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1006,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 97,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 29,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sealed_name",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1007,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 11,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sealed_name",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1008,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 20,
+      "turns": 13,
+      "actions": 91,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 43,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1009,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 10,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "echo",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1010,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "victory",
+      "hp": 12,
+      "turns": 13,
+      "actions": 90,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 44,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory",
+        "well"
+      ],
+      "chain": null,
+      "journalEntries": 12,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1011,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 13,
+      "actions": 88,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 42,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1012,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 14,
+      "turns": 11,
+      "actions": 81,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1013,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "victory",
+      "hp": 8,
+      "turns": 17,
+      "actions": 104,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1014,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "victory",
+      "hp": 3,
+      "turns": 11,
+      "actions": 85,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1015,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 10,
+      "actions": 82,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "event",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sealed_name",
+        "sovereign_memory",
+        "night_watch"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1016,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 10,
+      "turns": 15,
+      "actions": 98,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "fox",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1017,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 12,
+      "actions": 79,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "fight",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 9,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1018,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "victory",
+      "hp": 11,
+      "turns": 9,
+      "actions": 77,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 43,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1019,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 12,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sealed_name",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1020,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 25,
+      "turns": 10,
+      "actions": 78,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1021,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 8,
+      "actions": 68,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 43,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1022,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "victory",
+      "hp": 14,
+      "turns": 14,
+      "actions": 95,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 40,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1023,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 12,
+      "actions": 87,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 39,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "moon_trace",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1024,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 99,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "fight",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 9,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1025,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "victory",
+      "hp": 11,
+      "turns": 15,
+      "actions": 100,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 30,
+      "encounters": [
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "pawnshop",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1026,
+      "starter": "sovereign",
+      "lane": 2,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 15,
+      "actions": 98,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 45,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "shop",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 9,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1027,
+      "starter": "sovereign",
+      "lane": 3,
+      "result": "victory",
+      "hp": 32,
+      "turns": 13,
+      "actions": 94,
+      "floor": 12,
+      "maxCombo": 5,
+      "maxHit": 43,
+      "encounters": [
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "elite",
+        "fight",
+        "rest",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1028,
+      "starter": "sovereign",
+      "lane": 0,
+      "result": "victory",
+      "hp": 5,
+      "turns": 14,
+      "actions": 93,
+      "floor": 12,
+      "maxCombo": 4,
+      "maxHit": 31,
+      "encounters": [
+        "fight",
+        "event",
+        "rest",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "shop",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "sealed_name",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 11,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    },
+    {
+      "seed": 1029,
+      "starter": "sovereign",
+      "lane": 1,
+      "result": "defeat",
+      "hp": 0,
+      "turns": 9,
+      "actions": 71,
+      "floor": 12,
+      "maxCombo": 3,
+      "maxHit": 36,
+      "encounters": [
+        "fight",
+        "event",
+        "fight",
+        "fight",
+        "event",
+        "shop",
+        "fight",
+        "event",
+        "event",
+        "fight",
+        "rest",
+        "boss"
+      ],
+      "regions": [
+        0,
+        1,
+        2
+      ],
+      "storyEvents": [
+        "sovereign_wake",
+        "sovereign_recall",
+        "herb_caravan",
+        "sovereign_memory"
+      ],
+      "chain": null,
+      "journalEntries": 10,
+      "profile": {
+        "version": 1,
+        "unlocks": [
+          "feiye"
+        ]
+      },
+      "environment": true,
+      "unlockedProfileAtStart": true,
+      "hiddenChallenge": false,
+      "power": 3
+    }
+  ]
+}

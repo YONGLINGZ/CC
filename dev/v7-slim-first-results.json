@@ -1,0 +1,453 @@
+{
+  "format": "baiyao-v7-browser",
+  "target": "/workspace/scratch/v7-qa-slim.html",
+  "inlineTarget": "/workspace/scratch/v7-qa-slim.html",
+  "results": [
+    {
+      "name": "隐藏职业初始锁定，不能借开局按钮绕过解锁",
+      "ok": true
+    },
+    {
+      "name": "fixture 人物只由言行呈现：事件无人物介绍、阵营立场和提前夺宝标签",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: 寒渊行旅\n断剑客的请求\nA MOMENT IN THE FOG / 雾中一刻\n断剑客的请求\n\n一位衣领整齐的太微外门弟子被困在塌落剑阵边。他自称季临川，佩剑断了一截，目光却总在你的行囊边停留。\n\n“同在雾中，能否搭一把手？”他许诺以剑诀相谢。手腕上的宗门名牌是真的，至于承诺，尚需等到后来。\n\n替他破阵 · 失去 5 生命，获得「万川归寂」\n消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。 他会在断桥一带与你再会。\n给他 12 金币请向导 · 得一枚护符\n下一场战斗首回合护盾 +5；护符只能用一次。\n不近剑阵，提醒他另寻出口\n没有数值变化。对方的真实打算尚不清楚。\n    at /workspace/CC/dev/v7-browser.test.cjs:66:261\n    at async test (/workspace/CC/dev/v7-browser.test.cjs:18:127)\n    at async /workspace/CC/dev/v7-browser.test.cjs:66:3"
+    },
+    {
+      "name": "fixture 地域负面效果实际结算，并在当前地域展示规则",
+      "ok": true
+    },
+    {
+      "name": "fixture 神剑可装备，等级不足按可见固定次序反噬而非暗改随机结果",
+      "ok": true
+    },
+    {
+      "name": "fixture 正常胜利增加修为，达到要求后神剑不再失控",
+      "ok": true
+    },
+    {
+      "name": "fixture 三条隐线只能由真实事件选择收集，重复点击不重复支付",
+      "ok": true
+    },
+    {
+      "name": "fixture 缺少隐线条件无法见到隐藏战，普通结局仍可完成",
+      "ok": true
+    },
+    {
+      "name": "fixture 收齐隐线并击败隐藏Boss后真实解锁，刷新仅保留职业解锁",
+      "ok": false,
+      "error": "locator.click: Timeout 7000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"profile\"]:not(:disabled)').first()\u001b[22m\n\n    at click (/workspace/CC/dev/v7-browser.test.cjs:13:133)\n    at async /workspace/CC/dev/v7-browser.test.cjs:78:1096\n    at async test (/workspace/CC/dev/v7-browser.test.cjs:18:127)\n    at async /workspace/CC/dev/v7-browser.test.cjs:78:3"
+    },
+    {
+      "name": "fixture 绯夜专属三境故事与分身、旧部、心魔真实战斗，胜后力量逐次提升",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/v7-qa-slim.html",
+    "/v7-qa-slim.html"
+  ],
+  "expectedMissingRequests": [],
+  "sha256": "e50bb29afe28eb2e159cd5757a7dd51986d85999a2098f5a12add9035ba8d13d",
+  "inputs": {
+    "dev/engine.js": "2866e884a80392238b34a607df86df73c97f7fcfe150e7eba54a7619e0a9742e",
+    "dev/expansion.js": "7f95fae7a0bdac341ffe3802eee6252256cd1b2d5c812f75777c99b6b2d1fc42",
+    "dev/ui.js": "cc0becac400a805c11db50f28cb7ec87409c6dcb90afca616f0ebf21480ece4e",
+    "dev/shell.html": "5076d469fedbcc60d87366b5e58c36fa0ba3d410406fda4d72a67e2ad0c88290",
+    "dev/scene.js": "046e32b2cb0f84199a9d6fe65560b7ad1dc5154457742c4e30936a5568860dd3",
+    "dev/art.js": "482a9d11fd453f410203efa3f120ac795b49c8decfb0950c2b05012702e54af5"
+  },
+  "environments": [
+    {
+      "region": 0,
+      "hp": 59,
+      "energy": 3,
+      "environment": {
+        "id": "fog_gate",
+        "name": "入骨瘴",
+        "text": "本境每场战斗入场时获得 1 层毒；首次回合开始结算，失去 1 生命后毒消散。",
+        "poison": 1,
+        "regionIndex": 0,
+        "enabled": true
+      }
+    },
+    {
+      "region": 1,
+      "hp": 60,
+      "energy": 2,
+      "environment": {
+        "id": "broken_camp",
+        "name": "逆灵风",
+        "text": "本境每场战斗首个玩家回合灵力 −1；之后恢复正常。",
+        "energy": 1,
+        "regionIndex": 1,
+        "enabled": true
+      }
+    },
+    {
+      "region": 2,
+      "turn": 3,
+      "hp": 59,
+      "environment": {
+        "id": "ritual_core",
+        "name": "离魂隙",
+        "text": "本境战斗从第 3 个玩家回合开始，每回合开始直接失去 1 生命，无视护盾。",
+        "life": 1,
+        "fromTurn": 3,
+        "regionIndex": 2,
+        "enabled": true
+      }
+    }
+  ],
+  "divine": {
+    "status": {
+      "name": "照夜",
+      "requiredLevel": 4,
+      "bonus": 4,
+      "price": 70,
+      "text": "神剑：每回合首张攻击牌的第一段伤害 +4。灵识不足 4 级时，依回合固定循环：灵力 −1 → 直接失去 3 生命 → 敌人获得 6 护盾；可收剑换用其他佩刃。",
+      "sentient": true,
+      "id": "divine",
+      "level": 1,
+      "controlled": false,
+      "omen": "本回合灵力 −1"
+    },
+    "turn3": {
+      "kind": "fight",
+      "phase": "player",
+      "hand": [
+        {
+          "uid": "card-10",
+          "id": "S04"
+        },
+        {
+          "uid": "card-7",
+          "id": "S02"
+        },
+        {
+          "uid": "card-5",
+          "id": "S02"
+        },
+        {
+          "uid": "card-6",
+          "id": "S02"
+        },
+        {
+          "uid": "card-1",
+          "id": "S01"
+        }
+      ],
+      "draw": [
+        {
+          "uid": "card-8",
+          "id": "S02"
+        },
+        {
+          "uid": "card-9",
+          "id": "S03"
+        },
+        {
+          "uid": "card-3",
+          "id": "S01"
+        },
+        {
+          "uid": "card-4",
+          "id": "S01"
+        },
+        {
+          "uid": "card-2",
+          "id": "S01"
+        }
+      ],
+      "discard": [],
+      "exhaust": [],
+      "resolving": [],
+      "enemy": {
+        "id": "paper",
+        "name": "纸人",
+        "hp": 999,
+        "maxHp": 999,
+        "block": 6,
+        "mark": 0,
+        "poison": 0,
+        "chill": 0,
+        "intentIndex": 0
+      },
+      "block": 0,
+      "energy": 3,
+      "poison": 0,
+      "swordIntent": 0,
+      "soul": 0,
+      "environment": {
+        "id": "fog_gate",
+        "name": "入骨瘴",
+        "text": "本境每场战斗入场时获得 1 层毒；首次回合开始结算，失去 1 生命后毒消散。",
+        "poison": 1,
+        "regionIndex": 0,
+        "enabled": true
+      },
+      "weaponOmen": "本回合敌人护盾 +6",
+      "weaponUsed": false,
+      "veilUsed": false,
+      "frostsealUsed": false,
+      "turn": 3,
+      "played": 0,
+      "nextAttack": 0,
+      "nextEnergy": 0,
+      "nextDraw": 0,
+      "bellUsed": false,
+      "jadeUsed": false,
+      "bloodPower": 0,
+      "riposte": 0,
+      "fangUsed": false,
+      "silkUsed": false,
+      "bloodstoneUsed": false,
+      "events": [
+        {
+          "id": 19,
+          "type": "blockClear",
+          "source": "enemy",
+          "target": "enemy",
+          "amount": 0,
+          "total": 0
+        },
+        {
+          "id": 20,
+          "type": "attack",
+          "source": "enemy",
+          "target": "player",
+          "amount": 8,
+          "absorbed": 8,
+          "damage": 0,
+          "hitIndex": 0
+        },
+        {
+          "id": 21,
+          "type": "blockClear",
+          "source": "player",
+          "target": "player",
+          "amount": -92,
+          "total": 0
+        },
+        {
+          "id": 22,
+          "type": "weapon",
+          "source": "player",
+          "target": "player",
+          "name": "照夜",
+          "text": "本回合敌人护盾 +6",
+          "kind": 2
+        },
+        {
+          "id": 23,
+          "type": "block",
+          "source": "weapon",
+          "target": "enemy",
+          "amount": 6,
+          "total": 6
+        },
+        {
+          "id": 24,
+          "type": "shuffle",
+          "source": "player",
+          "target": "player",
+          "amount": 10
+        },
+        {
+          "id": 25,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S04",
+          "amount": 1
+        },
+        {
+          "id": 26,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S02",
+          "amount": 1
+        },
+        {
+          "id": 27,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S02",
+          "amount": 1
+        },
+        {
+          "id": 28,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S02",
+          "amount": 1
+        },
+        {
+          "id": 29,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S01",
+          "amount": 1
+        }
+      ],
+      "hitIndex": 0,
+      "mirrorUsed": false,
+      "nineUsed": false,
+      "logs": [
+        "进入第 1 段，与白骨侍交战。",
+        "—— 玩家第 1 回合：旧护盾清空 ——",
+        "毒 1（无视护盾）：失去 1 点生命（剩余 59）。",
+        "毒减至 0 层。",
+        "照夜不肯听令：本回合灵力 −1。",
+        "结束回合：剩余手牌全部弃置，候机增伤清除。",
+        "纸人使用「纸刃」：攻击 6。",
+        "敌人攻击 6：护盾抵挡 6，生命伤害 0。",
+        "—— 玩家第 2 回合：旧护盾清空 ——",
+        "照夜不肯听令：本回合失去 3 生命。",
+        "神剑反噬（无视护盾）：失去 3 点生命（剩余 56）。",
+        "结束回合：剩余手牌全部弃置，候机增伤清除。",
+        "纸人使用「剪影」：攻击 8。",
+        "敌人攻击 8：护盾抵挡 8，生命伤害 0。",
+        "—— 玩家第 3 回合：旧护盾清空 ——",
+        "照夜不肯听令：本回合敌人护盾 +6。",
+        "抽牌堆已空：将弃牌堆洗回抽牌堆。"
+      ]
+    },
+    "player": {
+      "hp": 56,
+      "maxHp": 60,
+      "gold": 60,
+      "character": "sword",
+      "level": 1,
+      "xp": 0,
+      "power": 0,
+      "weaponInventory": [
+        "training",
+        "divine"
+      ],
+      "equippedWeapon": "divine",
+      "deck": [
+        {
+          "uid": "card-1",
+          "id": "S01"
+        },
+        {
+          "uid": "card-2",
+          "id": "S01"
+        },
+        {
+          "uid": "card-3",
+          "id": "S01"
+        },
+        {
+          "uid": "card-4",
+          "id": "S01"
+        },
+        {
+          "uid": "card-5",
+          "id": "S02"
+        },
+        {
+          "uid": "card-6",
+          "id": "S02"
+        },
+        {
+          "uid": "card-7",
+          "id": "S02"
+        },
+        {
+          "uid": "card-8",
+          "id": "S02"
+        },
+        {
+          "uid": "card-9",
+          "id": "S03"
+        },
+        {
+          "uid": "card-10",
+          "id": "S04"
+        }
+      ],
+      "relics": [
+        "frostseal"
+      ]
+    }
+  },
+  "suppression": {
+    "level": 4,
+    "status": {
+      "name": "照夜",
+      "requiredLevel": 4,
+      "bonus": 4,
+      "price": 70,
+      "text": "神剑：每回合首张攻击牌的第一段伤害 +4。灵识不足 4 级时，依回合固定循环：灵力 −1 → 直接失去 3 生命 → 敌人获得 6 护盾；可收剑换用其他佩刃。",
+      "sentient": true,
+      "id": "divine",
+      "level": 4,
+      "controlled": true,
+      "omen": ""
+    }
+  },
+  "clues": [
+    {
+      "id": "moon_trace",
+      "flag": "bellEcho",
+      "choice": 0,
+      "received": "生命 −6 · 剑器「照夜」"
+    },
+    {
+      "id": "sealed_name",
+      "flag": "ritualName",
+      "choice": 0,
+      "received": "生命 −4 · 金币 +25"
+    },
+    {
+      "id": "moon_vow",
+      "flag": "emptyVow",
+      "choice": 0,
+      "received": "最大生命 −4 · 生命 +6"
+    }
+  ],
+  "sovereignQuest": [
+    {
+      "floor": 2,
+      "event": "sovereign_wake"
+    },
+    {
+      "floor": 4,
+      "enemy": "feiye_echo",
+      "power": 1
+    },
+    {
+      "floor": 5,
+      "event": "sovereign_recall"
+    },
+    {
+      "floor": 7,
+      "enemy": "retainer",
+      "power": 2
+    },
+    {
+      "floor": 9,
+      "event": "sovereign_memory"
+    },
+    {
+      "floor": 10,
+      "enemy": "heart",
+      "power": 3
+    },
+    {
+      "floor": 12,
+      "enemy": "snake_ascended",
+      "power": 3
+    }
+  ],
+  "browser": "154.0.8037.57",
+  "passed": 7,
+  "failed": 2
+}

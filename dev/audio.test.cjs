@@ -24,11 +24,11 @@ function wav(samples, rate) {
 (async () => {
   let browser;
   try {
-    await check('52 independent signatures: 36 assassin, 16 sword; 30 encounter motifs', () => {
-      assert.equal(audio.profiles.length,52); assert.equal(audio.encounters.length,30);
+    await check('64 independent signatures across three roles; 37 encounter motifs', () => {
+      assert.equal(audio.profiles.length,64); assert.equal(audio.encounters.length,37);
       assert.equal(audio.assassinProfiles.length,36);assert.equal(audio.swordProfiles.length,16);
       const profiles = audio.profiles.map(id => audio.profile(id));
-      assert.equal(new Set(profiles.map(p => p.signature)).size,52);
+      assert.equal(new Set(profiles.map(p => p.signature)).size,64);
       assert.equal(audio.profile('C99'),null);
       const first=audio.profile('C01');first.notes[0]=1;assert.notEqual(audio.profile('C01').notes[0],1);
     });
@@ -72,16 +72,16 @@ function wav(samples, rate) {
     await check('genuine user click unlocks live audio graph',async()=>{
       const state=await page.evaluate(()=>NightAudio.getState());assert.equal(state.contextState,'running');assert.equal(state.volume,.3);
     });
-    await check('all 52 casts/impacts create and start actual connected audio sources',async()=>{
+    await check('all 64 casts/impacts create and start actual connected audio sources',async()=>{
       await page.evaluate(async()=>{for(const id of NightAudio.profiles){NightAudio.playCard(id);await new Promise(r=>setTimeout(r,45));}
         for(const id of NightAudio.profiles){NightAudio.playEvent({type:'attack',source:'player',cardId:id,hitIndex:1,damage:6});await new Promise(r=>setTimeout(r,id.startsWith('S')?200:125));}});
       const result=await page.evaluate(()=>({state:NightAudio.getState(),graph}));
-      assert.equal(result.state.profilesUsed.length,52);assert.ok(result.graph.oscillators>100);assert.ok(result.graph.buffers>40);
-      assert.ok(result.graph.startCalls>160);assert.ok(result.graph.connections>300);assert.ok(result.state.eventsPlayed>=104);
+      assert.equal(result.state.profilesUsed.length,64);assert.ok(result.graph.oscillators>100);assert.ok(result.graph.buffers>40);
+      assert.ok(result.graph.startCalls>160);assert.ok(result.graph.connections>300);assert.ok(result.state.eventsPlayed>=128);
       assert.equal(result.state.rejectedVoices,0);assert.ok(result.state.peakScheduled<=result.state.maxVoices);
       return { sourcesCreated:result.state.sourcesCreated,oscillators:result.graph.oscillators,noiseSources:result.graph.buffers };
     });
-    await check('30 encounters, snake intents, defense/poison/relic/reward cues all produce graph',async()=>{
+    await check('37 encounters, snake intents, defense/poison/relic/reward cues all produce graph',async()=>{
       const checks=await page.evaluate(async()=>{
         const out=[];
         for(const id of NightAudio.encounters){out.push(NightAudio.playEncounter(id));await new Promise(r=>setTimeout(r,260));}
@@ -90,7 +90,7 @@ function wav(samples, rate) {
         }
         return {out,state:NightAudio.getState()};
       });
-      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,30);assert.equal(checks.state.rejectedVoices,0);
+      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,37);assert.equal(checks.state.rejectedVoices,0);
     });
     await check('ordinary enemy and snake intent events select matching attack sound',async()=>{
       const result=await page.evaluate(async()=>{
@@ -128,7 +128,7 @@ function wav(samples, rate) {
           for(let i=Math.floor(j*1.2*rate);i<Math.floor((j*1.2+.95)*rate);i++){sum+=a[i]*a[i];peak=Math.max(peak,Math.abs(a[i]));hash=Math.imul(hash^Math.round(a[i]*32767),16777619);}
           return {id,rms:Math.sqrt(sum/(.95*rate)),peak,hash:hash>>>0};});return values;
       });
-      assert.equal(result.length,52);assert.equal(new Set(result.map(p=>p.hash)).size,52);
+      assert.equal(result.length,64);assert.equal(new Set(result.map(p=>p.hash)).size,64);
       for(const p of result){assert.ok(p.rms>.0004,p.id+' silent');assert.ok(p.peak<.85,p.id+' clips');assert.ok(Number.isFinite(p.rms));}
       return {distinctRenders:result.length,minRMS:Math.min(...result.map(p=>p.rms)),maxPeak:Math.max(...result.map(p=>p.peak))};
     });
@@ -137,7 +137,7 @@ function wav(samples, rate) {
     assert.deepEqual(errors,[]);
     const result={passed:report.length,failed:0,checks:report,preview:output,audioSha256:crypto.createHash('sha256').update(source).digest('hex'),note:'Programmatically synthesized effects; real Chromium AudioContext/OfflineAudioContext executed. Listening quality is not a test assertion.'};
     fs.writeFileSync('/workspace/scratch/audio-test-report.json',JSON.stringify(result,null,2));
-    fs.writeFileSync(path.join(__dirname,'v6-audio-regression-results.json'),JSON.stringify(result,null,2)+'\n');
+    fs.writeFileSync(path.join(__dirname,'v7-audio-regression-results.json'),JSON.stringify(result,null,2)+'\n');
     console.log(JSON.stringify(result,null,2));
   }catch(error){console.error(JSON.stringify({passed:report.length,failed:1,checks:report,error:error.stack},null,2));process.exitCode=1;}
   finally{if(browser)await browser.close();}

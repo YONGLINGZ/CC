@@ -1,0 +1,668 @@
+{
+  "version": "v7",
+  "format": "baiyao-v7-art-manifest",
+  "method": "imagegen original illustrations and referenced portrait edits; technical crop/resize/WebP encode only",
+  "sources": [
+    {
+      "path": "/workspace/generated_images/exec-0e2f24b4-30ee-4838-ad12-9f46800dbca3.png",
+      "sha256": "61f3d8defc35ee51a09dd3e32bbe5f8fd4c4ef8d205eb391e2f4b739a4d3a6e8",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "/workspace/generated_images/exec-93027885-fdc0-41bc-842e-67dc9f20e7a0.png",
+      "sha256": "e9f9e5df2c88a2fdfffdddaf278ca096d759c98ab24d1c671e73c9105d562f2c",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "/workspace/generated_images/exec-d39c2a65-e387-4042-8025-ef077074b7ec.png",
+      "sha256": "758593b112db54daea591c3db0e904b717ca8df061326108c66a10f79ad8d7b9",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "sha256": "b42844ca31a5b42f5af20271a95be4846391f9c589cc4f5d04d2680bfb6de6a4",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "sha256": "774fe012820752b5531f46b4ad8eb32e4eb858962aef7c38162767ee22aa3beb",
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "entries": [
+    {
+      "id": "feiye-normal",
+      "kind": "puppet",
+      "path": "assets/puppet/feiye-normal.webp",
+      "source": "/workspace/generated_images/exec-0e2f24b4-30ee-4838-ad12-9f46800dbca3.png",
+      "bytes": 208020,
+      "width": 683,
+      "height": 1024,
+      "channels": 4,
+      "sha256": "0871c858eb50a510e8a74b14afe9987f8cddb63215e2d56a6547450651a01628",
+      "thumbnailSha256": "9c0aed14fe157e73653a97f79308f04dab9f0eb708e4d08733032d15c9588e5d",
+      "transparentPixels": 253984,
+      "partialAlphaPixels": 444888
+    },
+    {
+      "id": "feiye-wounded",
+      "kind": "puppet",
+      "path": "assets/puppet/feiye-wounded.webp",
+      "source": "/workspace/generated_images/exec-93027885-fdc0-41bc-842e-67dc9f20e7a0.png",
+      "bytes": 225288,
+      "width": 683,
+      "height": 1024,
+      "channels": 4,
+      "sha256": "c16b63f2bd3e659e47da90f6c0bafff60968592405f1060083e885f352a8ccb1",
+      "thumbnailSha256": "d896c8d0ee72db01a4f38a5346b38455f436aafbf677042a31afe01dbdc9550a",
+      "transparentPixels": 234372,
+      "partialAlphaPixels": 464494
+    },
+    {
+      "id": "feiye-critical",
+      "kind": "puppet",
+      "path": "assets/puppet/feiye-critical.webp",
+      "source": "/workspace/generated_images/exec-d39c2a65-e387-4042-8025-ef077074b7ec.png",
+      "bytes": 240294,
+      "width": 683,
+      "height": 1024,
+      "channels": 4,
+      "sha256": "7bc2e97f713aeb4740962d408dea75963adda0b4d34c7eb3025e15935ecd66d4",
+      "thumbnailSha256": "a0a211c57c985bc6380d1e36100a875a5be5ca95811a9c32a182c1aaa34514d5",
+      "transparentPixels": 243819,
+      "partialAlphaPixels": 455223
+    },
+    {
+      "id": "feiye",
+      "kind": "portrait",
+      "path": "assets/portraits/feiye.webp",
+      "source": "/workspace/generated_images/exec-0e2f24b4-30ee-4838-ad12-9f46800dbca3.png",
+      "bytes": 208020,
+      "width": 683,
+      "height": 1024,
+      "channels": 4,
+      "sha256": "0871c858eb50a510e8a74b14afe9987f8cddb63215e2d56a6547450651a01628",
+      "thumbnailSha256": "9c0aed14fe157e73653a97f79308f04dab9f0eb708e4d08733032d15c9588e5d",
+      "transparentPixels": 253984,
+      "partialAlphaPixels": 444888,
+      "intentionalAlias": "Same character as playable Feiye normal portrait"
+    },
+    {
+      "id": "feiye_echo",
+      "kind": "portrait",
+      "path": "assets/portraits/feiye_echo.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 1,
+        "top": 1,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 29696,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "26042a8192abf5a18c060f216879abc1d3fd77aedda3a958f4df64294e87f48b",
+      "thumbnailSha256": "38b836a1a795d3df73f5cf6d80848fd56380ec0cc534eba4cb632f4b79943206",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "retainer",
+      "kind": "portrait",
+      "path": "assets/portraits/retainer.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 315,
+        "top": 1,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 24056,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "f00291f48aa73ee1c465cfe979100779e00830cc1c93124f253351a3178ef302",
+      "thumbnailSha256": "494a03721df2b9df49416bd40ea741049284c184d309ff4ca62ba87be39feb4c",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "heart",
+      "kind": "portrait",
+      "path": "assets/portraits/heart.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 628,
+        "top": 1,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 14156,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "e32c33c39ccefa4285c22e2e2b46699d4a9e2ee99649a6ea7db4ef754050c3e9",
+      "thumbnailSha256": "170b3ef00b20b4e0dd021a9f5259c3421baf42537f7e0a75e1c59964c12a8cbb",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "snake_ascended",
+      "kind": "portrait",
+      "path": "assets/portraits/snake_ascended.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 942,
+        "top": 1,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 26542,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "081713618c769e0c4118dc44b0afcb6c00a250f36a1cdf06b65d14e2e51e1003",
+      "thumbnailSha256": "4a426491dbf2c6bc9bf1d878c730f1e5f0896474ff50c06669158c6decd83525",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "moon_trace",
+      "kind": "event",
+      "path": "assets/events/moon_trace.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 1,
+        "top": 315,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 11206,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "a6dd63c21319016388ecff2528ce0d9ece2d7d55f7e3d6762913fd1917b9aee9",
+      "thumbnailSha256": "40fa8f0aae8bbe53902efc3545da81d8b66f6d4ed2b7bf5589badb63a854498f",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "sealed_name",
+      "kind": "event",
+      "path": "assets/events/sealed_name.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 315,
+        "top": 315,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 23526,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "330056e983b27ac0f796b4f42c2e4a885ffb3ebe6eb58b5cf3f652c4f139a71e",
+      "thumbnailSha256": "da9879f1b3d521ee10e259f79569c7ea20aeddf3c86b8fb8081918904d89ad81",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "moon_vow",
+      "kind": "event",
+      "path": "assets/events/moon_vow.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 628,
+        "top": 315,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 15026,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "f36fcdada30ad2c3b4d052deb45484b171fc13039106e07ce8bf5a1ca937040d",
+      "thumbnailSha256": "30591e15cde5b2c8f539b735726b416fcdb1edb75757c23f23fe9f5f7789e295",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "armory",
+      "kind": "event",
+      "path": "assets/events/armory.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 942,
+        "top": 315,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 21420,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "0645fc046f1809886fa3d50c1a9366fcbe771512e0b11f870083425e3e5b712b",
+      "thumbnailSha256": "72e55857b1ec74c0817eccf25d7b57a7139496a0e9de7c8ef037fa2462721608",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "sovereign_wake",
+      "kind": "event",
+      "path": "assets/events/sovereign_wake.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 1,
+        "top": 628,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 26112,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "474a20a9ce8c18604e05ce065446544ec0abeaa349f920b0421bc44a30caec39",
+      "thumbnailSha256": "9432b370691e80005ddd49ddc06f569afdd36a59895ad5ad15e0644297689358",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "sovereign_recall",
+      "kind": "event",
+      "path": "assets/events/sovereign_recall.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 315,
+        "top": 628,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 25166,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "9c9c70871d92a81896a345c870a4df4478842cdbbdd6ccd3b93806f6e0153703",
+      "thumbnailSha256": "e78cec9cd158b5e8ac97b21d12a3a88ccc7fa96d6620e6a0d1718f5ebf5245cd",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "sovereign_memory",
+      "kind": "event",
+      "path": "assets/events/sovereign_memory.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 628,
+        "top": 628,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 21928,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "e93fa5849326f31d5c4d191cd04999df086ce0f12d8fa6c1c043dc7ad0fc3874",
+      "thumbnailSha256": "af47113913c44df41588702d9982682895f5ae58ed98f4a97b93b527e8e80511",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "training",
+      "kind": "weapon",
+      "path": "assets/weapons/training.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 1,
+        "top": 942,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 13998,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945",
+      "thumbnailSha256": "6f09a182798925cbb7758159747cd5806b0885a730d2dfdf1240c555c4b07dae",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "rime",
+      "kind": "weapon",
+      "path": "assets/weapons/rime.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 315,
+        "top": 942,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 24006,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "be2c55497aeb1e4aa2ed0819b717e9321525aac8dfc31e79d2f269074d86c35b",
+      "thumbnailSha256": "09d078dd3509ce1bcf8b0831bb0cc4fff576419e0148d490388990fc41197762",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "divine",
+      "kind": "weapon",
+      "path": "assets/weapons/divine.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 628,
+        "top": 942,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 27670,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "388d6aea1f7510c0963f8dda93b648cf464c5f1e5a0d36684a4451480bf71286",
+      "thumbnailSha256": "2ca728565118d111d763dc6cc8b983189749cd1dd5ecd08a206ec97ccb1eac52",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "spirit",
+      "kind": "weapon",
+      "path": "assets/weapons/spirit.webp",
+      "source": "/workspace/generated_images/exec-988bac0c-7aa5-4830-bcc8-6996d4d01214.png",
+      "crop": {
+        "left": 942,
+        "top": 942,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 22362,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "a5f8e05b4eacf42dd705121ee7fd4c6e67fe6f9cbbe193f3172c200ca3d53036",
+      "thumbnailSha256": "07e02502f6e61d89d25818d076d152e6e96ea52ee3c63aeabe95ef82d964eba3",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F01",
+      "kind": "card",
+      "path": "assets/cards/F01.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 1,
+        "top": 1,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 22784,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "025a375322f4cffd13441895f45f793955d7604b712f96d7450afc278ced7761",
+      "thumbnailSha256": "552885652c4f1ebc44e786282f761e5552d42772d3a282a36bff8a9c4118d500",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F02",
+      "kind": "card",
+      "path": "assets/cards/F02.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 315,
+        "top": 1,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 22058,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "e73f8a64ce45bfe3f38a01890ba9e47f74d2fa81e92dd11bb1f1a4c6163af6a9",
+      "thumbnailSha256": "4632282b9e17bc8af7b709f692c70fa59a7b02730fc3c9b6400083e898a1275a",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F03",
+      "kind": "card",
+      "path": "assets/cards/F03.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 628,
+        "top": 1,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 18198,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "2db12538d191566b6102d130747aaa31edffa6a5df64ae0dadff0cfdaa6a0212",
+      "thumbnailSha256": "d86954ea4694c167160373e5838b4774702340ba6c587cbb450d16d14e6e7ee6",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F04",
+      "kind": "card",
+      "path": "assets/cards/F04.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 942,
+        "top": 1,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 33276,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "a29ccd934b7d5877309196a6cbd9078d48a8a5801cce3baf6683361a25932165",
+      "thumbnailSha256": "dd8fe60fcf686c1dbb3e7f1e68dfb54147a976034ccc084bb9b55510d1f611d9",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F05",
+      "kind": "card",
+      "path": "assets/cards/F05.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 1,
+        "top": 315,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 28550,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "7b0e678dba26c232f0d71ab77b3daebd514ccecfa55006b9dbaab5eaccfba3dd",
+      "thumbnailSha256": "4a47e6012f3ef573463a022aa37b9317f5a2c156610cab8857274165ae0eb03f",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F06",
+      "kind": "card",
+      "path": "assets/cards/F06.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 315,
+        "top": 315,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 18724,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "54c0a4901a665b2c674341e92bba03ab11c20913f94bcc0aa35417ab47640a68",
+      "thumbnailSha256": "f672451f23d0a39078420791cb007846065d1a7544da0d5911185a4b894a2d30",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F07",
+      "kind": "card",
+      "path": "assets/cards/F07.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 628,
+        "top": 315,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 28376,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "02a19315ccf8a4b7dfb47420772e771876196818f02c2d83b7b1623dbfc20d24",
+      "thumbnailSha256": "357c394c741eed3caa9adcde35e4f0f999a40e2f4e8f1a53f62f20aca5c2775b",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F08",
+      "kind": "card",
+      "path": "assets/cards/F08.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 942,
+        "top": 315,
+        "width": 311,
+        "height": 311
+      },
+      "bytes": 18434,
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "sha256": "48d0d40db1adab3efc0536444bf402ca0f22a2782d0c7cfec5bfff83e5110bfa",
+      "thumbnailSha256": "bff40e9913d52b444f43e8ecb45827dc6865fc81d15b4c14b6b49c1c80667ccd",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F09",
+      "kind": "card",
+      "path": "assets/cards/F09.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 1,
+        "top": 628,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 25644,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "dc24b313649d5a5942eebd10140527ff7a3815499fcc510be78dabd75d7153b4",
+      "thumbnailSha256": "69ec91fa0cad289aefd8514d8fe6347d5fdb45920d8871f31cca212d19f38164",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F10",
+      "kind": "card",
+      "path": "assets/cards/F10.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 315,
+        "top": 628,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 31214,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "8b24b146d61a871dc36896b23b6133926dbc1e50caef580cfc0b2b60cca9c8f8",
+      "thumbnailSha256": "bae84e4d9521e2bd4f87b3e3449762cbd5e3fab94e51aafb47f26ede32d0ea08",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F11",
+      "kind": "card",
+      "path": "assets/cards/F11.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 628,
+        "top": 628,
+        "width": 312,
+        "height": 312
+      },
+      "bytes": 18474,
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "sha256": "3867fd33fa873943a46b020672be5649637fb850a506951253b4a265a754ea8e",
+      "thumbnailSha256": "4587e4fcfc5b2aa73df6d97ab7b56c264d5df035bc41d71539e80e39e1c64dbb",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "F12",
+      "kind": "card",
+      "path": "assets/cards/F12.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 942,
+        "top": 628,
+        "width": 311,
+        "height": 312
+      },
+      "bytes": 30258,
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "sha256": "043a7cd7b5866642d2ecc8f7071674c404e55361e65b2c9d57f2109f588fc165",
+      "thumbnailSha256": "580c7111c7e570c9e0283f18a6489adb695273d81d5a9911fc910d4253ce41b0",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    },
+    {
+      "id": "veil",
+      "kind": "relic",
+      "path": "assets/relics/veil.webp",
+      "source": "/workspace/generated_images/exec-111a9a69-acd3-40f0-84f5-2c76792e5ea6.png",
+      "crop": {
+        "left": 1,
+        "top": 942,
+        "width": 312,
+        "height": 311
+      },
+      "bytes": 20918,
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "sha256": "e27eeadfa42bb9f125a42250d67ff5c56e3fe16ab4c35732f4b9097a051d3251",
+      "thumbnailSha256": "c775f0a9341dd26a95dc608fbdea226d6f724616a16d2457615c334a6c9c9679",
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0
+    }
+  ],
+  "count": 32,
+  "bytes": 1525400,
+  "allDecoded": true,
+  "distinctExcludingIntentionalAlias": 31,
+  "portraitAlphaVerified": true,
+  "fallback": {
+    "path": "dev/art.js",
+    "sha256": "b13a086953f329d42a46b55e04482686752de30a6799dc876386d078f5e1948b",
+    "newSVGCount": 16,
+    "allRendered": true,
+    "neutralNPCLabels": true
+  }
+}

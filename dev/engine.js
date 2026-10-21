@@ -1,6 +1,7 @@
 /* 百妖夜契 — deterministic, DOM-independent game rules. */
 (function (root) {
   'use strict';
+  const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
 
   const CARDS = {
     C01: { name: '爪击', cost: 1, text: '对敌人造成 6 点伤害。', target: true, attack: true },
@@ -58,6 +59,7 @@
     S15: { name: '碎霜', cost: 2, text: '移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。', target: true, attack: true },
     S16: { name: '万川归寂', cost: 3, text: '消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。', target: true, attack: true }
   });
+  Object.assign(CARDS, EXPANSION.CARDS || {});
   Object.values(CARDS).forEach(card => {
     card.attack = !!card.attack;
     card.exhaust = !!card.exhaust;
@@ -73,8 +75,8 @@
   for (const [category, ids] of Object.entries(CARD_GROUPS)) for (const id of ids) CARDS[id].category = category;
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
-    card.character = id.startsWith('S') ? 'sword' : 'assassin';
-    card.rarity = ['C21','C24','C27','C28','C33','C34','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common';
+    card.character = id.startsWith('F') ? 'sovereign' : id.startsWith('S') ? 'sword' : 'assassin';
+    card.rarity = card.rarity || ['C21','C24','C27','C28','C33','C34','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common';
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
   const STARTERS = {
@@ -84,6 +86,7 @@
     blood: { name: '赤契噬魂', description: '歃血付出生命，换整场攻击增伤；血饮边进攻边疗伤。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C27','C28'] }
   };
 
+  Object.assign(STARTERS, EXPANSION.STARTERS || (EXPANSION.STARTER ? {sovereign: EXPANSION.STARTER} : {}));
   for (const starter of Object.values(STARTERS)) starter.character = starter.character || 'assassin';
   const CHARACTERS = {
     assassin: { id: 'assassin', name: '夜铃', profession: '影契刺客', portrait: 'cat', adult: true,
@@ -93,6 +96,7 @@
       description: '太微剑宗的成年女修。寡言清冷，剑术卓绝；以冰霜封住杀势，再以无声一剑决胜。奉命入域，查明失踪同门的下落。',
       quote: '“跟紧。不要回头。”', accent: '#a6dce9', starters: ['sword'] }
   };
+  Object.assign(CHARACTERS, EXPANSION.CHARACTERS || (EXPANSION.CHARACTER ? {sovereign: EXPANSION.CHARACTER} : {}));
   const FACTIONS = {
     taiwei: { name: '太微剑宗', motive: '探明失踪同门与反噬边界，阻止灾变外溢。' },
     cult: { name: '玄烬残众', motive: '收回实验残页，掩盖归墟引灵仪失控的证据。' },
@@ -105,9 +109,9 @@
     { id: 'ritual_core', name: '逆仪腹地', subtitle: '第三幕 · 因果入井', stages: [9,12], description: '归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。', palette: { sky: '#221728', ground: '#4c3c61', accent: '#c5a1e4' } }
   ];
   const NPCS = {
-    liu: { id: 'liu', name: '柳照青', faction: '丹霞谷', portrait: 'liu', adult: true, description: '丹霞谷的成年女药修，背着药箱入域寻找失踪师姐。说话直率，仍相信救人不该先问价钱。' },
-    ji: { id: 'ji', name: '季临川', faction: '太微剑宗外门', portrait: 'ji', adult: true, description: '太微外门的成年男弟子，自称走散了队伍。待人谦和，却总在谈话时留意别人的行囊。' },
-    wen: { id: 'wen', name: '闻人烛', faction: '玄烬叛徒', portrait: 'wen', adult: true, description: '曾替归墟引灵仪记载试验结果的成年女修。她知道一些出口，也背着一份不肯放下的罪证。' }
+    liu: { id: 'liu', name: '柳照青', faction: '丹霞谷', portrait: 'liu', adult: true, description: '' },
+    ji: { id: 'ji', name: '季临川', faction: '太微剑宗外门', portrait: 'ji', adult: true, description: '' },
+    wen: { id: 'wen', name: '闻人烛', faction: '玄烬旧徒', portrait: 'wen', adult: true, description: '' }
   };
   const CHAIN_EVENT_IDS = ['liu_first','liu_return','liu_final','ji_first','ji_return','ji_final','wen_first','wen_return','wen_final'];
   const EVENT_IDS = ['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker', ...CHAIN_EVENT_IDS, 'sect_duel','herb_caravan','relic_dispute','night_watch'];
@@ -134,7 +138,7 @@
       { name: '夜甲', text: '获得护盾 10', block: 10 },
       { name: '镇魂', text: '攻击 16', hits: [16] }
     ] },
-    raider: { name: '夺宝伏客', hp: 42, intents: [
+    raider: { name: '来客', hp: 42, intents: [
       { name: '试探剑', text: '攻击 7', hits: [7] },
       { name: '封路', text: '获得护盾 5，然后攻击 6', block: 5, hits: [6] },
       { name: '夺命连斩', text: '连续攻击 2 次，每次 6', hits: [6,6] }
@@ -163,6 +167,11 @@
     godblood: { name: '无面神血', text: '秘宝：获得时最大生命永久增加 12，并恢复 12 点生命。' },
     ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
   };
+  Object.assign(ENEMIES, EXPANSION.ENEMIES || {});
+  Object.assign(RELICS, EXPANSION.RELICS || {});
+  const WEAPONS = EXPANSION.WEAPONS || {};
+  const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
+  for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
@@ -174,15 +183,17 @@
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
     boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
   };
-  const MAP_BLUEPRINTS = [
-    ['fight'], ['event','event','event'], ['rest','shop','event'], ['fight','elite'],
-    ['event','event'], ['rest','fox','event','shop'], ['fight','elite','fight'], ['rest','shop','event'],
-    ['event','event'], ['fight','event','elite'], ['rest','shop'], ['boss']
-  ];
-  const FLOORS = MAP_BLUEPRINTS.map((types, floor) => types.map((type, lane) => ({
-    id: `f${floor + 1}-${lane}`, type, name: NODE_INFO[type][0], description: NODE_INFO[type][1],
-    floor: floor + 1, lane
-  })));
+  const ROUTE_NAMES = ['松门曲径','沉钟岔道','断碑回廊','乌灯古道','落霞别径','枯河石阶','照影荒庭','折柳旧路','长风栈桥','夜雨碑林','苍苔迷渡','流火废苑','月隙盘山','飞霜残驿','空响祭道','无字长廊','回灯密径','横雾孤城','青绦山隘','藏星回川'];
+  const ROUTE_TEMPLATES = ROUTE_NAMES.map((name,index)=>({
+    id:`route-${String(index+1).padStart(2,'0')}`, name,
+    widths:[1,4,5,4,3,5,4,5,4,5,3,1].map((width,floor)=>floor>0&&floor<6?width+((index>>(floor-1))&1):width),
+    weave:index%4, bias:(index%5-2)*.026
+  }));
+  // FLOORS remains a data-only prototype; each actual run chooses a full template.
+  const FLOORS = ROUTE_TEMPLATES[0].widths.map((width,floor)=>Array.from({length:width},(_,lane)=>{
+    const type=floor===0?'fight':floor===11?'boss':[1,4,8].includes(floor)?'event':[3,6].includes(floor)?(lane===1?'elite':'fight'):['rest','shop','event'][lane%3];
+    return {id:`f${floor+1}-${lane}`,type,name:NODE_INFO[type][0],description:NODE_INFO[type][1],floor:floor+1,lane};
+  }));
   const OMENS = {
     fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
     elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在遗径上', '门缝里渗出铁锈与香灰味'],
@@ -203,6 +214,123 @@
     let eventSerial = 0;
     let state;
     let activeNode = null;
+    const environmentEnabled = options.environment !== false;
+    let profile = normalProfile(options.profile);
+    function normalProfile(value) { return { version: 1, unlocks: value && Array.isArray(value.unlocks) && value.unlocks.includes('feiye') ? ['feiye'] : [] }; }
+    function getProfile() { return {version:1,unlocks:profile.unlocks.slice()}; }
+    function importProfile(value) {
+      try { if (typeof value === 'string') value=JSON.parse(value); } catch (_) { return false; }
+      if (!value || value.version !== 1 || !Array.isArray(value.unlocks) || value.unlocks.some(id=>id!=='feiye')) return false;
+      profile=normalProfile(value); if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile()); emit(); return true;
+    }
+
+    function configureSovereignMap(map) {
+      for (const [floor,id] of [[2,'sovereign_wake'],[5,'sovereign_recall'],[9,'sovereign_memory']]) for(const n of map[floor-1]) {
+        n.type='event';n.storyId=id;n.npc=null;n.name='旧声回返';n.description='一缕似曾相识的气息，从雾里传来。';
+      }
+      for(const [floor,enemyId,name]of [[4,'feiye_echo','井水照影'],[7,'retainer','故人守路'],[10,'heart','心海无灯'],[12,'snake_ascended','逆仪深处']])for(const n of map[floor-1]) {
+        n.type=floor===12?'boss':'fight';delete n.storyId;n.encounter={enemyId,name:ENEMIES[enemyId]?.name,kind:n.type};n.name=name;n.description='这段路上，有什么在等你。';
+      }
+    }
+    function getEnvironment() {
+      const index=state?.journey?.regionIndex||0,id=REGIONS[index].id;
+      return {...(ENVIRONMENTS[id]||{}),id,regionIndex:index,enabled:environmentEnabled};
+    }
+    function getWeaponStatus() {
+      const p=state.player,id=p.equippedWeapon,w=WEAPONS[id]||{},requiredLevel=w.requiredLevel||w.level||1;
+      const controlled=p.level>=requiredLevel;
+      const cycle=state.battle?.turn ? (state.battle.turn-1)%3 : 0;
+      const omen=controlled||id!=='divine'?'': ['本回合灵力 −1','本回合失去 3 生命','本回合敌人护盾 +6'][cycle];
+      return {...w,id,level:p.level,requiredLevel,controlled,omen,text:w.text||''};
+    }
+    function equipWeapon(id) {
+      if(state.screen==='event'&&!state.event?.resolved)return false;
+      if(!['map','arrival','rest','shop','event','threshold'].includes(state.screen)||!state.player.weaponInventory.includes(id)||!WEAPONS[id])return false;
+      if(id!=='divine'&&state.player.level<(WEAPONS[id].requiredLevel||1)){note('灵识尚不足以驾驭这柄剑。');emit();return false;}
+      state.player.equippedWeapon=id;note(`已装备「${WEAPONS[id].name}」。`);emit();return true;
+    }
+    function buyWeapon(index) {
+      if(state.screen!=='shop'||!Number.isInteger(index))return false;
+      const item=state.shop?.weapons?.[index],p=state.player;
+      if(!item||item.bought||p.gold<item.price||p.weaponInventory.includes(item.id))return false;
+      item.bought=true;p.gold-=item.price;p.weaponInventory.push(item.id);note(`购得「${WEAPONS[item.id].name}」，可在行囊中装备。`);emit();return true;
+    }
+    function addSoul(amount,reason='魂息') {
+      if(!liveBattle())return 0;const b=state.battle,before=b.soul||0;b.soul=Math.max(0,Math.min(6,before+amount));
+      if(b.soul!==before){log(`${reason}：魂息 ${b.soul-before>0?'+':''}${b.soul-before}，当前${b.soul}/6。`);event('soul',{amount:b.soul-before,total:b.soul,reason});}
+      return b.soul-before;
+    }
+    function consumeSoul() {const amount=state.battle.soul||0;addSoul(-amount,'魂息归潮');return amount;}
+    function awardExperience(kind) {
+      const p=state.player,gained=kind==='elite'?2:['boss','hidden'].includes(kind)?3:1,before=p.level;
+      p.xp+=gained;p.level=Math.min(6,1+Math.floor(p.xp/2));
+      log(`历练 +${gained}；修为 ${p.level}。`);
+      if(p.level>before)event('level',{amount:p.level-before,total:p.level,name:'修为提升'});
+    }
+    function canMeetHidden() {const f=state.journey.flags;return state.character!=='sovereign'&&f.bellEcho&&f.ritualName&&f.emptyVow;}
+    function startHiddenBoss() {
+      if(state.screen!=='threshold'||!canMeetHidden())return false;
+      state.result=null;startBattle('hidden',{enemyId:'feiye',name:ENEMIES.feiye.name});note('井后有人抬起眼。');emit();return true;
+    }
+    function leaveThreshold() {if(state.screen!=='threshold')return false;state.screen='victory';emit();return true;}
+    function makeExpansionBuilders(p) {
+      const make=(id,name,story,choices)=>({id,name,glyph:'月',kicker:'雾中余声',description:story[0],story,choices:finishChoices(choices,p)});
+      return {
+        armory:()=>make('armory','封存剑匣',['废弃行营里有一口封好的剑匣。有人将价钱写在木牌背面，旁边留下了可供试握的两柄旧剑。','剑与人一样，未必因为被带在身边就会听命。'],[
+          {label:'付 35 金币取「听雪」',text:'首张攻击第一段+2，需要灵识2。',goldCost:35,weapon:'rime',outcome:'剑匣开了，寒光贴着手腕安静下来。'},
+          {label:'付 35 金币取「回灯」',text:'首张攻击第一段+1，首回合护盾+3，需要灵识2。',goldCost:35,weapon:'spirit',outcome:'旧剑的剑穗像一盏小灯，在你握紧时亮了一瞬。'},
+          {label:'合上剑匣',text:'不支付代价，也不取剑。',outcome:'你将旧剑留给下一位经过的人。'}
+        ]),
+        moon_trace:()=>make('moon_trace','沉钟与旧剑',[
+          '石门之后，一柄剑悬在没有风的半空。钟上没有铭文，剑却在你靠近时发出一声极轻的回应。',
+          '你按住自己的呼吸。剑锋照见的影子，比你的动作慢了半拍。'
+        ],[
+          {label:'握住旧剑 · 失去 6 生命，获得「照夜」',text:'获得神剑，修为不足4时每回合按固定顺序失控；可先收进剑匣。',hpCost:6,weapon:'divine',flags:{bellEcho:true},outcome:'剑入鞘，钟却响了。你记下那一声回音，掌心留下的冷意久久没有散去。'},
+          {label:'只听完钟声 · 下一战护盾 +3',text:'收起记下的钟声，不取剑。',guard:3,flags:{bellEcho:true},outcome:'你没有伸手。钟声停下以后，你仍能在心里复述出那最后一拍。'},
+          {label:'退出石门',text:'没有数值变化。',outcome:'你将未响的钟与悬剑留在石门之后。'}
+        ]),
+        sealed_name:()=>make('sealed_name','缺字的残页',[
+          '营地外有一张被火燎过的纸，文字在烛火熄灭时才会显现。你听见有人用指节，在桌下敲出先前那段钟声。',
+          '最后一行只缺一个名字。你可以念，也可以收好纸页。'
+        ],[
+          {label:'默读残页 · 失去 4 生命，获得 25 金币',text:'当前生命须大于4。',hpCost:4,goldGain:25,flags:{ritualName:true},outcome:'一个名字浮上心头，却还没有对应的面容。纸背藏着的旧钱也一起落进你的掌心。'},
+          {label:'付 15 金币买下纸页 · 恢复 6 生命',text:'得到纸页，治疗不超过生命上限。',goldCost:15,heal:6,flags:{ritualName:true},outcome:'烛火灭了。你将浮现的那个名字记在心里，纸页上的字又归于空白。'},
+          {label:'不再看那行字',text:'没有数值变化。',outcome:'你移开目光，桌下的敲击声也停了。'}
+        ]),
+        moon_vow:()=>make('moon_vow','无字之誓',[
+          '井外围着一圈无字碑。风吹过时，碑影同时转向你，像在等一句不该说给旁人听的话。',
+          '没有人保证你能从这里得到什么。只有空白碑面，映出你尚未开口的唇。'
+        ],[
+          {label:'在碑前留一线命火 · 最大生命 −4，恢复 10 生命',text:'本局最大生命减少4，治疗不超过新上限。',maxHpCost:4,heal:10,flags:{emptyVow:true},outcome:'你没有许愿，只留下一个空位。井后传来衣摆擦过水面的声音。'},
+          {label:'以掌心血封住碑影 · 失去 5 生命',text:'当前生命须大于5。',hpCost:5,flags:{emptyVow:true},outcome:'血没有落地，碑影里多出了一轮细月。你抬手时，远处似乎也有人收回了手。'},
+          {label:'绕过无字碑',text:'没有数值变化。',outcome:'你将未说出口的话一起带走。'}
+        ]),
+        sovereign_wake:()=>make('sovereign_wake','旧宫无名',[
+          '山门后的断壁曾悬着你的宫灯，如今灯座里只剩陌生的香灰。你记得亲手点灯的那个人，却想不起她后来为何没有回来。',
+          '水洼里有一道与你相同的影子。它先抬头，你才听见自己的名字。'
+        ],[
+          {label:'收回灯芯 · 失去 4 生命，获得「影袭」',text:'取得F05；前方的倒影仍在等你。',hpCost:4,cardIds:['F05'],flags:{sovereignLamp:true},outcome:'灯芯在掌心亮起。你看见那道倒影向井边退去，像带走了本该属于你的半句回答。'},
+          {label:'将灯芯放入袖中 · 下一战护盾 +6',text:'获得一次性援护，不立即取回力量。',guard:6,flags:{sovereignLamp:true},outcome:'你让尚未稳住的火留在袖中。它没有熄灭，也没有替你照出前方的路。'},
+          {label:'循着水声前行',text:'没有数值变化。',outcome:'你认得自己的脚步，却还认不得水中的那个人。'}
+        ]),
+        sovereign_recall:()=>make('sovereign_recall','旧席换主人',[
+          '断桥旁的营灯仍按旧宫的次序排列。曾经跪在灯下听令的卫烬，如今让寻路人跪在他脚边。',
+          '“旧主不在了。”有人这样回答。你没有纠正，只看见自己的印记被挂在处刑的锁上。'
+        ],[
+          {label:'解开灯锁 · 失去 4 生命，获得 30 金币',text:'当前生命须大于4；前方仍须亲自面对卫烬。',hpCost:4,goldGain:30,flags:{sovereignFreed:true},outcome:'被锁住的人散进雾里。卫烬的灯一盏盏转向你，旧席上的主人终于知道你已回来。'},
+          {label:'收好旧宫符印 · 下一战护盾 +8',text:'获得一次性护盾。',guard:8,outcome:'你把符印反扣在掌心。要收回的，不止是一点力量。'},
+          {label:'听完营中的传言',text:'没有数值变化。',outcome:'你听见许多关于自己的死法，没有一种与你记得的一样。'}
+        ]),
+        sovereign_memory:()=>make('sovereign_memory','心海未归',[
+          '井边有人替你留了一张座，座上却是你自己。她问你，为何那些最先相信你的人，总是最先被你遗忘。',
+          '你已经找回的力量在袖中争鸣。井底的绛鳞也被另一种恶意唤醒，鳞片之间长出了本不属于她的眼睛。'
+        ],[
+          {label:'记下遗忘者的名字 · 获得「裂界」',text:'获得F10，随后仍需面对自己的心念。',cardIds:['F10'],flags:{sovereignRemembered:true},outcome:'你没有回答那张座，只把每个记起的名字念了一遍。心海的门缓缓打开。'},
+          {label:'让旧火先稳住 · 恢复 12 生命',text:'治疗不超过生命上限。',heal:12,outcome:'你没有急着宣称自己已经完整。尚未收回的那一部分，仍在前方等你。'},
+          {label:'封紧衣袖，继续前行',text:'没有数值变化。',outcome:'座上的你笑了一下。你没有移开眼睛。'}
+        ])
+      };
+    }
 
     function makeCard(id) { return { uid: `card-${++serial}`, id }; }
     function rand(n) { return Math.min(n - 1, Math.max(0, Math.floor(rng() * n))); }
@@ -216,27 +344,36 @@
     }
     function sample(pool, count) { return shuffle(pool).slice(0, count); }
     function makeMap() {
-      const map = FLOORS.map((row, floor) => {
-        const types = floor > 0 && floor < FLOORS.length - 1 ? shuffle(row.map(n => n.type)) : row.map(n => n.type);
-        return types.map((type, lane) => ({
-          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane, regionIndex: Math.floor(floor / 4), revealed: false,
-          name: NODE_INFO[type][0], description: NODE_INFO[type][1],
-          omen: OMENS[type][rand(OMENS[type].length)], next: []
-        }));
+      const template=ROUTE_TEMPLATES[Number.isInteger(options.routeTemplate)&&options.routeTemplate>=0&&options.routeTemplate<ROUTE_TEMPLATES.length?options.routeTemplate:rand(ROUTE_TEMPLATES.length)];
+      const weighted=['fight','fight','fight','event','event','event','rest','rest','shop','shop','elite'];
+      const map=template.widths.map((width,floor)=>{
+        let types;
+        if(floor===0)types=['fight'];
+        else if(floor===11)types=['boss'];
+        else if([1,4,8].includes(floor))types=Array(width).fill('event');
+        else if([3,6].includes(floor))types=Array.from({length:width},()=>rand(5)===0?'elite':'fight');
+        else {
+          types=Array.from({length:width},()=>weighted[rand(weighted.length)]);
+          if([2,5,7,10].includes(floor)){types[0]='rest';types[1]='shop';}
+          if(floor===5)types[2]='fox';
+          types=shuffle(types);
+        }
+        return types.map((type,lane)=>({id:`f${floor+1}-${lane}`,type,floor:floor+1,lane,regionIndex:Math.floor(floor/4),revealed:false,name:NODE_INFO[type][0],description:NODE_INFO[type][1],omen:OMENS[type][rand(OMENS[type].length)],next:[]}));
       });
+      map.templateId=template.id;map.templateName=template.name;
       const introductions = shuffle(['liu','ji','wen']);
       for (const node of map[1]) {
-        const npc = NPCS[introductions[node.lane]];
+        const npc = NPCS[introductions[node.lane%introductions.length]];
         node.storyId = npc.id + '_first'; node.npc = npc.id;
-        node.name = ({liu:'药箱旁的求援',ji:'断剑客的请求',wen:'符锁下的叛徒'})[npc.id];
-        node.description = `${npc.faction} · ${npc.name}，结识后将在后面的地域再相逢。`;
+        node.name = ({liu:'药箱旁的身影',ji:'剑阵旁的人',wen:'符锁旁的低语'})[npc.id];
+        node.description = '雾中有人停在路边。';
       }
       // Typed, connected routes: middle nodes have one or two nearby exits.
       // Mandatory combat rows 1/4/7 plus the final guardian prevent an all-event run.
       for (let floor = 0; floor < map.length - 1; floor++) {
         const current = map[floor], next = map[floor + 1];
         const position = (node, row) => row.length <= 1 ? .5 : node.lane / (row.length - 1);
-        const distance = (a, b) => Math.abs(position(a, current) - position(b, next));
+        const distance = (a, b) => Math.abs(position(a,current)-position(b,next)+template.bias*(floor%2?1:-1)) + (template.weave===2&&floor%3===1?(a.lane+b.lane)%2*.07:0);
         if (current.length === 1) { current[0].next = next.map(n => n.id); continue; }
         if (next.length === 1) { for (const n of current) n.next = [next[0].id]; continue; }
         // Cover every destination first, without exceeding two exits per source.
@@ -254,6 +391,10 @@
           }
         }
       }
+      for (const [floor,id] of [[3,'moon_trace'],[6,'sealed_name'],[10,'moon_vow']]) {
+        const row=map[floor-1], node=row.find(n=>n.type==='event')||row[row.length-1];node.type='event';node.storyId=id;node.name='雾中异迹';node.description='一段未曾写在旧地图上的路。';
+        for(const source of map[floor-2])if(!source.next.includes(node.id))source.next.push(node.id);
+      }
       return map;
     }
     function cardPool() { return REWARD_POOL.filter(id => CARDS[id].character === state.character); }
@@ -262,13 +403,14 @@
       eventSerial = 0;
       const map = makeMap();
       const cards = starter === 'classic' ? CLASSIC : STARTERS[starter].cards;
-      const character = starter === 'sword' ? 'sword' : 'assassin';
+      const character = STARTERS[starter]?.character || (starter === 'sword' ? 'sword' : 'assassin');
+      if (character === 'sovereign') configureSovereignMap(map);
       return {
-        screen, starter, character, map, availableNodes: [map[0][0].id], currentNode: null,
+        screen, starter, character, map, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
-          hp: 60, maxHp: 60, gold: 60, character,
+          hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training',
           deck: cards.map(makeCard),
-          relics: [character === 'sword' ? 'frostseal' : 'bell']
+          relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell']
         },
         floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null,
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
@@ -316,7 +458,7 @@
       const b = state.battle;
       b.block = b.energy = b.poison = 0;
       b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = 0;
-      b.swordIntent = 0;
+      b.swordIntent = 0; b.soul = 0;
       b.nextAttack = b.nextEnergy = b.nextDraw = 0;
       b.bloodPower = b.riposte = 0;
       b.bellUsed = b.jadeUsed = b.frostsealUsed = false;
@@ -466,24 +608,34 @@
       if (hasRelic('vial')) { heal(8, '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: 8 }); }
       clearCombatStatuses();
       state.stats.battles++;
+      awardExperience(b.kind);
+      if (state.character==='sovereign' && ['feiye_echo','retainer','heart'].includes(b.enemy.id)) {
+        const before=state.player.power;state.player.power=Math.min(3,before+1);
+        recordJourney(null,'本源归身',`从${b.enemy.name}处收回一份本源，当前${state.player.power}/3。每张攻击牌第一段额外伤害增加。`,'good');
+        event('powerReturn',{amount:state.player.power-before,total:state.player.power});
+      }
       log(`击败${b.enemy.name}！`);
       if (b.storyEncounter) {
         const npc = b.storyEncounter.npc;
         if (npc) state.journey.relationships[npc] = { status: '交锋已了', text: `你击退了${b.enemy.name}，守住了携带的物品。` };
         recordJourney(npc, '伏击已破', `击退${b.enemy.name}。你没有失去随身宝物；这段交锋已经结束。`, 'warning');
       }
+      if (b.kind === 'hidden') {
+        if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
+        state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
+      }
       if (b.kind === 'boss') {
         completeNode();
-        state.screen = 'victory';
+        state.screen = canMeetHidden() ? 'threshold' : 'victory';
         state.availableNodes = [];
-        state.result = { won: true, floor: state.map.length, enemy: b.enemy.name };
+        state.result = { won: true, floor: state.map.length, enemy: b.enemy.name, character:state.character, power:state.player.power };
         note('绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。');
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil'].includes(id) && !hasRelic(id));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -541,6 +693,7 @@
       b.turn++;
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
       b.block = 0;
+      b.weaponUsed = false; b.veilUsed = false;
       b.played = 0;
       b.bellUsed = false;
       b.frostsealUsed = false;
@@ -556,7 +709,12 @@
         b.poison = Math.max(0, b.poison - 1);
         log(`毒减至 ${b.poison} 层。`);
       }
+      if(environmentEnabled && b.environment.regionIndex===2 && b.turn>=3) {
+        event('environment',{name:b.environment.name,amount:1,target:'player'});event('selfDamage',{amount:1,damage:1,reason:'离魂隙'});
+        if(!loseLife(1,'离魂隙（无视护盾）'))return;
+      }
       let turnEnergy = 3 + b.nextEnergy;
+      if(environmentEnabled && b.environment.regionIndex===1 && b.turn===1){turnEnergy=Math.max(0,turnEnergy-1);log('逆灵风：首回合灵力减少1。');event('environment',{name:b.environment.name,amount:-1,kind:'energy'});}
       let draw = 5 + b.nextDraw;
       if (hasRelic('moonheart')) {
         turnEnergy += 1;
@@ -576,6 +734,13 @@
       if (b.nextEnergy || b.nextDraw) log(`蓄势触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
       b.nextEnergy = b.nextDraw = 0;
       b.energy = turnEnergy;
+      const weapon=getWeaponStatus();b.weaponOmen=weapon.omen;
+      if(weapon.id==='divine'&&!weapon.controlled) {
+        const cycle=(b.turn-1)%3;event('weapon',{name:weapon.name,text:weapon.omen,kind:cycle});log(`照夜不肯听令：${weapon.omen}。`);
+        if(cycle===0)b.energy=Math.max(0,b.energy-1);
+        if(cycle===1){event('selfDamage',{amount:3,damage:3,reason:'神剑反噬'});if(!loseLife(3,'神剑反噬（无视护盾）'))return;}
+        if(cycle===2){b.enemy.block+=6;event('block',{source:'weapon',target:'enemy',amount:6,total:b.enemy.block});}
+      }
       drawCards(draw);
       b.phase = 'player';
     }
@@ -586,7 +751,7 @@
         kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
         enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, intentIndex: 0 },
-        block: 0, energy: 0, poison: 0, swordIntent: 0, frostsealUsed: false, turn: 0, played: 0,
+        block: 0, energy: 0, poison: environmentEnabled && state.journey.regionIndex===0 ? 1 : 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
@@ -595,6 +760,8 @@
       state.screen = 'battle';
       state.reward = null;
       startPlayerTurn();
+      if(!liveBattle())return;
+      const equipped=WEAPONS[state.player.equippedWeapon];if(equipped?.block)gainBlock(equipped.block,equipped.name);
       if (state.journey.nextCombatBlock > 0) {
         const amount = state.journey.nextCombatBlock;
         state.journey.nextCombatBlock = 0;
@@ -628,7 +795,7 @@
     }
 
     function newRun(starter = 'mark') {
-      if (!STARTERS[starter] && starter !== 'classic') return false;
+      if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
       state = freshState('arrival', starter);
       activeNode = null;
       note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
@@ -648,6 +815,7 @@
     }
     function prepareChapter() {
       const j = state.journey;
+      if (state.character==='sovereign') return;
       if (!j.chain) return;
       const suffix = j.regionIndex === 1 ? 'return' : 'final';
       for (const node of state.map[state.floor - 1]) {
@@ -667,11 +835,11 @@
       const type = node.type;
       activeNode = node;
       state.notice = '';
-      if (type === 'fight' || type === 'elite' || type === 'boss') startBattle(type);
+      if (type === 'fight' || type === 'elite' || type === 'boss') startBattle(type, node.encounter || null);
       else {
         state.screen = type;
         if (type === 'shop') {
-          state.shop = { cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false };
+          state.shop = { cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
         }
         if (type === 'event') state.event = makeEvent();
       }
@@ -710,7 +878,8 @@
       event('card', { cardId: card.id, name: def.name, cost: def.cost });
       let bonus = 0;
       if (def.attack) {
-        bonus = b.nextAttack + b.bloodPower;
+        bonus = b.nextAttack + b.bloodPower + state.player.power;
+        if(!b.weaponUsed){const w=WEAPONS[state.player.equippedWeapon];b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
         b.nextAttack = 0;
         if (hasRelic('mirror') && !b.mirrorUsed) {
           b.mirrorUsed = true;
@@ -726,6 +895,18 @@
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
       switch (card.id) {
+        case 'F01': enemyHit(6+bonus);if(liveBattle())addSoul(1,def.name);break;
+        case 'F02': gainBlock(6,def.name);break;
+        case 'F03': addSoul(2,def.name);break;
+        case 'F04': {const soul=consumeSoul();enemyHit(10+3*soul+bonus);break;}
+        case 'F05': for(let i=0;i<3&&liveBattle();i++)enemyHit(3+(i===0?bonus:0));break;
+        case 'F06': gainBlock(3,def.name);drawCards(1);break;
+        case 'F07': gainBlock(8,def.name);if(b.soul>=3)drawCards(1);break;
+        case 'F08': drawCards(2);break;
+        case 'F09': enemyHit(5+bonus,0,2);break;
+        case 'F10': enemyHit(16+bonus);if(liveBattle()&&state.player.power>=2)drawCards(1);break;
+        case 'F11': if(b.soul>=2){addSoul(-2,def.name);b.energy++;drawCards(1);}else log('魂息不足2，没有收益。');break;
+        case 'F12': {const soul=consumeSoul();enemyHit(18+4*soul+bonus);break;}
         case 'S01': enemyHit(6 + bonus); if (liveBattle()) addSwordIntent(1, def.name); break;
         case 'S02': gainBlock(6, def.name); addChill(1, def.name); break;
         case 'S03': addSwordIntent(2, def.name); break;
@@ -840,6 +1021,7 @@
       b.resolving.splice(b.resolving.indexOf(card), 1);
       (def.exhaust ? b.exhaust : b.discard).push(card);
       if (liveBattle()) {
+        if(def.attack&&hasRelic('veil')&&!b.veilUsed){b.veilUsed=true;addSoul(1,'无相夜纱');event('relic',{relic:'veil',name:RELICS.veil.name,amount:1});}
         if (hasRelic('jade') && b.played === 3 && !b.jadeUsed) {
           b.jadeUsed = true;
           b.energy++;
@@ -998,7 +1180,7 @@
       if ((choice.goldCost || 0) > p.gold) return false;
       if ((choice.hpCost || 0) > 0 && p.hp <= choice.hpCost) return false;
       if ((choice.maxHpCost || 0) > 0 && p.maxHp - choice.maxHpCost < 5) return false;
-      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02'].includes(card.id)))) return false;
+      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02','F01','F02'].includes(card.id)))) return false;
       return true;
     }
     function finishChoices(choices, p) {
@@ -1027,7 +1209,7 @@
         received.push(`最大生命 −${choice.maxHpCost}`);
       }
       if (choice.removeBasic) {
-        const index = p.deck.findIndex(card => ['C01','C02','S01','S02'].includes(card.id));
+        const index = p.deck.findIndex(card => ['C01','C02','S01','S02','F01','F02'].includes(card.id));
         if (index >= 0) {
           const [card] = p.deck.splice(index, 1);
           received.push(`移除「${CARDS[card.id].name}」`);
@@ -1054,6 +1236,8 @@
         p.gold += choice.goldGain;
         received.push(`金币 +${choice.goldGain}`);
       }
+      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon))p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`); }
+      if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
       return received;
     }
     function makeJourneyBuilders(p, rare) {
@@ -1132,11 +1316,11 @@
           const robbery = f.jiExposed && j.hidden.jiIntent === 'greedy';
           const grateful = !!f.jiHelp && j.hidden.jiIntent === 'grateful';
           const id = card();
-          if (robbery) return eventFor('ji_final','ji',3,'旧恩，夺宝',[
+          if (robbery) return eventFor('ji_final','ji',3,'旧路重逢',[
             '你在逆仪石阶再次看见季临川。这次他没有行礼，两名同伙堵在身后，他的剑尖指着的正是你在灯下打开过的匣子。',
             f.jiHelp ? '“你救过我，我记得。”他避开你的目光，“但那件东西，够我换一生的前程。”旧恩没有让剑尖退后半寸。' : '“你既然敢把宝物拿出来，就该知道有人会跟。”他的声音很轻，路却已被封住。'
           ],[
-            {label:'拔刃迎战 · 击败季临川，守住宝物',text:'进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20金币与选牌；失败结束本局。',battle:fight('季临川·夺宝剑客'),flags:{jiRobbery:true},relationship:relation('反目成仇','季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。'),tone:'warning',outcome:'你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。'},
+            {label:'拔刃迎战 · 击败季临川，守住宝物',text:'进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20金币与选牌；失败结束本局。',battle:fight('季临川'),flags:{jiRobbery:true},relationship:relation('反目成仇','季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。'),tone:'warning',outcome:'你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。'},
             {label:'付 35 金币买断此路',text:'保留全部遗物，支付35金币后脱离伏击。',goldCost:35,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('人情已断','你付钱换路，保住了宝物，也看清了这个人。'),tone:'warning',outcome:'钱袋落地，你没有弯腰。季临川让开半步；在他数清钱以前，你已越过最后一道雾墙。'},
             {label:'用瘴雾断后 · 失去 8 生命，保住宝物',text:'当前生命须大于8。付出明确生命代价绕开战斗；不丢失遗物。',hpCost:8,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('避开仇敌','你带伤脱身，保住了行囊。'),tone:'warning',outcome:'你划破掌心，将血撒入嗜灵雾中。雾追着血气合拢，你忍痛从另一侧翻下石阶。'}
           ],{connection:'断桥诸营：你曾让季临川知道宝物在你身上。如今追来的，是同一个人的剑。',risk:'夺宝者已经现身。此处可战斗、花钱脱身或带伤绕行。'});
@@ -1152,7 +1336,7 @@
           ],{connection:grateful?'你的援手遇见了一个愿意偿还的人。':f.jiExposed?'他知道你带着宝物，却选择让你过去。':'你没有让季临川看清行囊，后来的相逢仍留着余地。'});
         },
         wen_first() {
-          return eventFor('wen_first','wen',1,'符锁下的叛徒',[
+          return eventFor('wen_first','wen',1,'符锁下的人',[
             '玄烬符锁把一个削瘦的人钉在山门残柱上。她说自己叫闻人烛，曾为实验记数，直到记录里出现了同门的名字。',
             '“我知道她们如何封路。”她抬起染黑的手，“你解开我，追兵也可能循着符锁找到你。这个风险，我先说在前面。”'
           ],[
@@ -1181,7 +1365,7 @@
             '逆仪石阶上的黑印同时亮起。你腕上的锁息把玄烬追猎者引到了这里；她没有看闻人烛，只要求交出带走的记录。',
             '闻人烛挡在半步之外：“是我把你卷进来的。”她撕下一页阵图递来，至少还给你留下选择。'
           ],[
-            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20金币与选牌，失败结束本局。',battle:fight('玄烬追猎者'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
+            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20金币与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
             {label:'焚毁口供诱开追兵 · 失去 6 生命',text:'当前生命须大于6。保留自己的卡牌遗物，放弃故事中的证词；不触发战斗。',hpCost:6,flags:{wenFinished:true,wenEvidence:false,wenCleansed:true},relationship:relation('带伤脱身','你烧掉口供引开追兵，结束了这段追踪。'),tone:'warning',outcome:'符火吞下纸页，也灼伤了你手腕。追兵追着假阵眼远去，那些名字只剩你和闻人烛还记得。'},
             {label:'付 30 金币借暗道撤离',text:'保留卡牌、遗物及证词，支付30金币结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的路钱，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收钱，不问名字；门在追猎者的脚步到来前重新合拢。'}
           ],{connection:'你当初断锁救人，又没有在断桥洗去黑印。追踪终于抵达了这里。',risk:'这是未解除的追踪造成的后果，仍有付费与带伤脱身的选择。'});
@@ -1476,8 +1660,9 @@
           };
         }
       };
-      Object.assign(builders, makeJourneyBuilders(p, rare));
-      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id));
+      Object.assign(builders, makeJourneyBuilders(p, rare), makeExpansionBuilders(p));
+      const fixedEvents=['moon_trace','sealed_name','moon_vow','sovereign_wake','sovereign_recall','sovereign_memory'];
+      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id));
       const unseen = ids.filter(id => !state.seenEvents.includes(id));
       const pool = unseen.length ? unseen : ids;
       const id = activeNode?.storyId || pool[rand(pool.length)];
@@ -1541,11 +1726,11 @@
     state = freshState('title');
     return {
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
-      chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
+      getProfile, importProfile, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
     };
   }
 
-  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

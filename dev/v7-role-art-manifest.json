@@ -1,0 +1,719 @@
+{
+  "format": "baiyao-v7-role-event-art",
+  "roleEvents": [
+    "well",
+    "shrine",
+    "dreamshop",
+    "theatre",
+    "umbrella",
+    "pawnshop",
+    "riftwatch",
+    "supply",
+    "cultlab",
+    "swordgrave",
+    "pilgrims",
+    "prisoner",
+    "echo",
+    "broker",
+    "fox",
+    "rest",
+    "shop",
+    "moon_trace",
+    "sealed_name",
+    "moon_vow",
+    "armory"
+  ],
+  "sources": {
+    "sword": {
+      "path": "/workspace/generated_images/exec-87d2da2c-06c8-4b38-9eb0-5e7e919bb904.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "308db26373d91e2753156a1fa2a7c01877e4009bf010b5627ec99e1e7599a3dd"
+    },
+    "sovereign": {
+      "path": "/workspace/generated_images/exec-717d8a10-795a-4f3c-8641-b9b631f9dd3d.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "210d24af07dc86ee6794d98aa89142dfb8c1b85a4781908612df16d804488667"
+    }
+  },
+  "entries": [
+    {
+      "role": "sword",
+      "id": "well",
+      "path": "assets/events-sword/well.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22426,
+      "sha256": "f9f56e9e88a05e6b4285cc9f35860813f8a38419adc96268e9fecf77b43bec3b",
+      "thumbnailSha256": "0007b5a0e682440654af9e47e7b7cf35bdf543a07fd43218b3bb901af1f520c1",
+      "crop": {
+        "left": 1,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "shrine",
+      "path": "assets/events-sword/shrine.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 18786,
+      "sha256": "01d2ca4e2e35ffd46abf6d445ecba02a07ca83170f294ddd1d79bb475ac7f657",
+      "thumbnailSha256": "dce7e32699bf24b1b4432a7121a9bf14bc1336723bc5ccf5e0f24faf25afbd40",
+      "crop": {
+        "left": 257,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "dreamshop",
+      "path": "assets/events-sword/dreamshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21910,
+      "sha256": "46f7660368ee0e8ba7c5255145d6f2284c60f0e006857518b934ec6f45d1ae0f",
+      "thumbnailSha256": "606a1d2bfb7b3fbb3328a6b7c8cece74ea28869fd30a1d761d04064ec94931ef",
+      "crop": {
+        "left": 513,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "theatre",
+      "path": "assets/events-sword/theatre.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20034,
+      "sha256": "207341fffb82e670265fc04862a59dad8f23d84e4ffd50a6ab9e000303e9ebf3",
+      "thumbnailSha256": "043ee27b52d59351c24e9072096e24ae7500aee5c45e79765b626e79a1edc2ea",
+      "crop": {
+        "left": 769,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "umbrella",
+      "path": "assets/events-sword/umbrella.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20848,
+      "sha256": "aeb3db7377bebe453e1ce42dd8926d9ccba417f69cffa1a956b4b0e9da263c61",
+      "thumbnailSha256": "4a2bc4e3fb48a31c3303a4a4143af4f750488d9b399f8d7d3063d1db6395b81a",
+      "crop": {
+        "left": 1,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "pawnshop",
+      "path": "assets/events-sword/pawnshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23446,
+      "sha256": "46e9d5e1368bdc7fba35589d1b0a8b9454dc68917bfc3ae8c397e4874bceaa69",
+      "thumbnailSha256": "5fbf55ee8dcabd7de70d6177f74c7dcfa6b575f3f2be01516da97464e6932cbb",
+      "crop": {
+        "left": 257,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "riftwatch",
+      "path": "assets/events-sword/riftwatch.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21076,
+      "sha256": "409c00ff8d73d27ffd987d216381afd94ef051dc241c366ed0b959dc4b8ee866",
+      "thumbnailSha256": "2210a4d8245d390c81f4c9477a5d0f417f5dd932cc654351beae5d975982736e",
+      "crop": {
+        "left": 513,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "supply",
+      "path": "assets/events-sword/supply.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21562,
+      "sha256": "fdb70523fd73d8cd120b347b4577e4cfb168d7b4c7fd4fe5d20c3d5577f043a2",
+      "thumbnailSha256": "904f05088dd3348b91cdffb8c3aa5ddfbd0c0507e6c969391ac4e2ac8a4fd6dd",
+      "crop": {
+        "left": 769,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "cultlab",
+      "path": "assets/events-sword/cultlab.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19568,
+      "sha256": "e89e4ee44ffd1c84bacbda52fc4a9cfabbe27347c19489ead0fc369ef86393ea",
+      "thumbnailSha256": "0f371e4cd26d2fa9433388a7c34b911b415ff26e0ec7a10197013ef4dea5a367",
+      "crop": {
+        "left": 1,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "swordgrave",
+      "path": "assets/events-sword/swordgrave.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21484,
+      "sha256": "1e7013ee122633b4e795f7003d9688ccd6dab69269c4e91f44c18e6a2fc72537",
+      "thumbnailSha256": "08e22740521fff958630806d93d17193211367831a20f08d49488c2d1bdbbf59",
+      "crop": {
+        "left": 257,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "pilgrims",
+      "path": "assets/events-sword/pilgrims.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19248,
+      "sha256": "3bdfdf9dad9107fdc9c537038289b4cc4c5184bcb888951408615aee310db5f0",
+      "thumbnailSha256": "5ae82c79e0d486396d2e75be20e8b3b99d106d1c034954339636de6c1127b68f",
+      "crop": {
+        "left": 513,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "prisoner",
+      "path": "assets/events-sword/prisoner.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19032,
+      "sha256": "fb7e2a3fa2adf304bd16dd7b7befb5697b9b275e985a2b52cf1e3ae80e8c8a82",
+      "thumbnailSha256": "1c0309bcd666518dc1db8de0064e005759249d0b52e159dd069401f227bd996b",
+      "crop": {
+        "left": 769,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "echo",
+      "path": "assets/events-sword/echo.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21086,
+      "sha256": "6a36d19c178b7a7613d72be4cbd726e3cfc81aeb3034236abae158bd8c22f5dc",
+      "thumbnailSha256": "6a6d873b525c22b013a9de48dec5ad95fce8804e9ba55fa3bb5f3aeeb9f6c1c1",
+      "crop": {
+        "left": 1,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "broker",
+      "path": "assets/events-sword/broker.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21960,
+      "sha256": "5115930493083fdc3512dbd6cd1ceaf1ec20d4739b5453939d3cf8b2e9fe99c5",
+      "thumbnailSha256": "cdab80ab2fb20fb4a7e141082bfe8b78b021eb08bc50200fbfbbeee8efea0c8a",
+      "crop": {
+        "left": 257,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "fox",
+      "path": "assets/events-sword/fox.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 17098,
+      "sha256": "b352f5d96e5cf27b4752206571dd15dfd67d3aec27841e383ed50813520d957d",
+      "thumbnailSha256": "90e01888ea5030254e2b24dc253271fb6e80e9a0283e8992ec10ba28531ad5a1",
+      "crop": {
+        "left": 513,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "rest",
+      "path": "assets/events-sword/rest.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21158,
+      "sha256": "99792f9aac5a7c81a9aacd4c6c8d6259437ca770c53befb66f96ba86902f167b",
+      "thumbnailSha256": "6e1f3ef8957b29c644708cce8fb45b9bbf0e0e4392ff434c4871a0b0f6724c7f",
+      "crop": {
+        "left": 769,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "shop",
+      "path": "assets/events-sword/shop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22752,
+      "sha256": "ead419ab7d9aa30d2809d02c4f8a21bf2d41a0981400287b2a1e47b0ddc30738",
+      "thumbnailSha256": "3d31c65f4ec049a73b224db696e49b446c0d1eacc63644a462d7f2aecd3820e0",
+      "crop": {
+        "left": 1,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "moon_trace",
+      "path": "assets/events-sword/moon_trace.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 18376,
+      "sha256": "f275e24371ecc66f6e8145d0e52ebfee5007e4ef95664d3df164ffab7e80d494",
+      "thumbnailSha256": "b8450d7a217cf5ffe21ea82ecff88938a9c4c46e57733dbea5d9a56e8dd3b529",
+      "crop": {
+        "left": 257,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "sealed_name",
+      "path": "assets/events-sword/sealed_name.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22072,
+      "sha256": "6e2a94cf1d71da703eb9f5ba1af965154575a0411316fe80f804edecb83c284d",
+      "thumbnailSha256": "607945022c96ae795fe9a2a3b9f1b5d0d31a6f1d228f03ae372ee154860c7034",
+      "crop": {
+        "left": 513,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "moon_vow",
+      "path": "assets/events-sword/moon_vow.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23598,
+      "sha256": "618a0bdc2d575e7b763dd58dc1063b001f41c12ebbe695ab468683aa0f00267c",
+      "thumbnailSha256": "20ef6d82c3e6691d697e0d42455cb9ea3c3a2b755ed179c9c622042aca6ec39e",
+      "crop": {
+        "left": 769,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword",
+      "id": "armory",
+      "path": "assets/events-sword/armory.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22444,
+      "sha256": "89da4e54a481f4839f3ed2155960e91aa1f33bef8ee30e94b0cc27b8a896c73e",
+      "thumbnailSha256": "7e89c5b9cf923f433ab5738c37d9bf6135165da0557e17c54024c5755374f35a",
+      "crop": {
+        "left": 1,
+        "top": 1281,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "well",
+      "path": "assets/events-sovereign/well.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21236,
+      "sha256": "3cd96ba28a9124c1145c0d9523bc5dd55ffa1cfa25c610f98dad9076a0b3a3c4",
+      "thumbnailSha256": "7b57090cf8a9093a13d3a6ee719316dfd93d4d682d0fcdaff5c976d1bb6a40f9",
+      "crop": {
+        "left": 1,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "shrine",
+      "path": "assets/events-sovereign/shrine.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 18724,
+      "sha256": "91c4c73f88377a8c868773a4a67cb5fd1b38cd1bdbff4a98d15568f22835d775",
+      "thumbnailSha256": "5f76c75a17a3bac24bd7a9de9b44181036ec9008c4217b5a2c07f63ce0a74fd0",
+      "crop": {
+        "left": 257,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "dreamshop",
+      "path": "assets/events-sovereign/dreamshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21332,
+      "sha256": "f4633761e3a9d1535845c22993a5d34d1c5ed0ed47f09bad304732fd713ebed3",
+      "thumbnailSha256": "b8dcfdd23caeea4db33862a60ee57a48e84fe1fe501d783c2c7ee08c2f730311",
+      "crop": {
+        "left": 513,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "theatre",
+      "path": "assets/events-sovereign/theatre.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19220,
+      "sha256": "faa12c5c79eb93775ac36c2ace009e03f15f77ae549cf2675b8818fdce29fb01",
+      "thumbnailSha256": "a4aecf3bb9943ba89e43a8e8b9f03c49c2007fda1e12a256a4b76d68e35a3b97",
+      "crop": {
+        "left": 769,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "umbrella",
+      "path": "assets/events-sovereign/umbrella.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19906,
+      "sha256": "31bee24428fcc278a06301a968e52147678658d3939dd8df1807b2ce725e1184",
+      "thumbnailSha256": "360f3bc521cd6b5010074dd7621d7462a07c492ea47b3cd9655f3cde8b3814ee",
+      "crop": {
+        "left": 1,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "pawnshop",
+      "path": "assets/events-sovereign/pawnshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20750,
+      "sha256": "952ee6f1f1ea18f05928e9fe4a48b38522381976b32398662fed0b477cff7ff6",
+      "thumbnailSha256": "f0385de7b97012d7bfa2760b426a3682b066f797affe027bcc1b4a4ef2f016a0",
+      "crop": {
+        "left": 257,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "riftwatch",
+      "path": "assets/events-sovereign/riftwatch.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 17582,
+      "sha256": "a657a44ae5a507fe42e48c57f73f806aeb46591a585431f9f5928c52822f2959",
+      "thumbnailSha256": "acac7c4c8761e629a396bd556e5e5d8fe0bc4aa9b8341eda15b5d4a4161ff936",
+      "crop": {
+        "left": 513,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "supply",
+      "path": "assets/events-sovereign/supply.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 19142,
+      "sha256": "c28572d4f0bd976e92f4b328e6da9f7852c1fa6e70ebaf71d33ae38e232044e0",
+      "thumbnailSha256": "457b5170c89cd47631232360c217da78d85ebc701ca0cb011f9a751e14f69177",
+      "crop": {
+        "left": 769,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "cultlab",
+      "path": "assets/events-sovereign/cultlab.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20674,
+      "sha256": "3473cefcedaeb8d4910c952f13f37809bc152124089b81b2d1dbecb325e987af",
+      "thumbnailSha256": "753966636f98105563daee73e99f1519cd507d6f044c83b80a13c7d0f8c025c1",
+      "crop": {
+        "left": 1,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "swordgrave",
+      "path": "assets/events-sovereign/swordgrave.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23854,
+      "sha256": "942c253a21fe656b734e926eb138cc9bb494a1b284c5f3129cf426d7e8067b20",
+      "thumbnailSha256": "f3d0c1175f03fc098f28c0833db2c499e15dd49cf9847de4189c66eff56f2bed",
+      "crop": {
+        "left": 257,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "pilgrims",
+      "path": "assets/events-sovereign/pilgrims.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 17016,
+      "sha256": "3c7ad4644583a2beecce037f215bfc2e40a4dc94898ee5b4d81a062ae78a5d2d",
+      "thumbnailSha256": "7c6e49f3364bb13edd832b274fb364c8b587a20f2eac61ee3bf42df0966532b4",
+      "crop": {
+        "left": 513,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "prisoner",
+      "path": "assets/events-sovereign/prisoner.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 17474,
+      "sha256": "2c50098bd94da3cf35a6e899e6fc40ce6be3518f84eaefbf85c8277446cde724",
+      "thumbnailSha256": "d4fa79332fb3d8ccfe89537473dc2db783694ee66786e4698b2b6996bd0ce043",
+      "crop": {
+        "left": 769,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "echo",
+      "path": "assets/events-sovereign/echo.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21594,
+      "sha256": "1a2fddc9cdc5ba3708f889f7054bc16248fa8528ad7df93d6268ba4c3ebd0859",
+      "thumbnailSha256": "3eb27f975a54df6b0ae02f018013e98f4292a8e8ed9962cfcc751831cf4c8d77",
+      "crop": {
+        "left": 1,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "broker",
+      "path": "assets/events-sovereign/broker.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22948,
+      "sha256": "6d358d2197bd2c2b3da7f077cc0f2016ea5eee9c9eb91667ba0062f4b406232b",
+      "thumbnailSha256": "e3eede7f0b7e4def178c522bffaddfceefb15408ee5cc5dd892428c263604458",
+      "crop": {
+        "left": 257,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "fox",
+      "path": "assets/events-sovereign/fox.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 16718,
+      "sha256": "1bd4d4d6b87f0560cbf0eee2e14717e144aeec4782fa00299b21d7b4dcff1328",
+      "thumbnailSha256": "abe0e60571e80954edf50a22cff898ad1ab3d328dec81636cb44fe6b9632951b",
+      "crop": {
+        "left": 513,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "rest",
+      "path": "assets/events-sovereign/rest.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21476,
+      "sha256": "e9ffaf88e72f5a4cce4d6a40e22662bfa68dbd77ae0a33fafadb28ecb0973766",
+      "thumbnailSha256": "6568dba411b7b2438ab01dce4ccbe5db0264e140a34ae87790b750888544c207",
+      "crop": {
+        "left": 769,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "shop",
+      "path": "assets/events-sovereign/shop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20906,
+      "sha256": "c104d123458633399b76f0b897d433f5d3948b110489fbb2a267a0af5ead83e5",
+      "thumbnailSha256": "f1b978f122d710fe57574d3070cbf0a6e100cb79df929aea7a30b0b32273a431",
+      "crop": {
+        "left": 1,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "moon_trace",
+      "path": "assets/events-sovereign/moon_trace.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21526,
+      "sha256": "31f2b55d8a41a8870633bb51272535395a75126519f55405fe6de2afa00337c3",
+      "thumbnailSha256": "ce72874418b57c9ce76b6086688966140e11c33fdb9a25af9c3a9458fa219cee",
+      "crop": {
+        "left": 257,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "sealed_name",
+      "path": "assets/events-sovereign/sealed_name.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 15110,
+      "sha256": "926fb9148e62bb4f9494e7c16c208a7fb79d34f3c5dcce7d48e996ab1d2a3617",
+      "thumbnailSha256": "c48096ad5668f3cec574dff3ce2435b49a1a4fbf7e0d3b6edfecfa8d8e28687c",
+      "crop": {
+        "left": 513,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "moon_vow",
+      "path": "assets/events-sovereign/moon_vow.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22292,
+      "sha256": "a5884accefaf0ae4cf3ab36ab34fead7961c73ddb763e9b39b8e1578a6fcbfa5",
+      "thumbnailSha256": "31bc860071bc16d5f847d2777ceaa36838d4474761a9db52bdeb69d663c1aed8",
+      "crop": {
+        "left": 769,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sovereign",
+      "id": "armory",
+      "path": "assets/events-sovereign/armory.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22188,
+      "sha256": "e02ac5fbf1a192a9e399b7325d3e8c29a808bc9c6c6c90921fdfd95f720059df",
+      "thumbnailSha256": "dda1e432eb23fc4d758a0d959075fca31a443a84d894de52def95437c3adc54c",
+      "crop": {
+        "left": 1,
+        "top": 1281,
+        "width": 254,
+        "height": 254
+      }
+    }
+  ],
+  "note": "Hero-present scenes have role-specific art. Named NPC-only scenes remain shared because they depict the same person, not the playable hero.",
+  "count": 42,
+  "allDecoded": true,
+  "uniqueThumbnails": 42,
+  "bytes": 861632
+}

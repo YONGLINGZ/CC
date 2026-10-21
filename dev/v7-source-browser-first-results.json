@@ -1,0 +1,28 @@
+{
+  "uiSha256": "a3cd0f26f8c86f2b078e76712c40c446e275b135fd35aefb0e36fe4fd56ed30a",
+  "restoreScriptSha256": "4bd2ea1ed5b70f2e59c9df8cb39cf4889ef695df8c395b8b06db2e95a5125aae",
+  "results": [
+    {
+      "starter": "sword",
+      "hp": 59,
+      "gold": 80,
+      "deck": 11,
+      "floor": 2,
+      "ok": true
+    },
+    {
+      "starter": "mark",
+      "hp": 59,
+      "gold": 80,
+      "deck": 11,
+      "floor": 2,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "passed": 2,
+  "failed": 1,
+  "slimSha256": "444e1ce317e57adc60d4157a0d88cfb9d9bda7f2cdf10afd335cebf5589ed489",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"character\"][data-character=\"sovereign\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled aria-pressed=\"false\" data-action=\"character\" data-character=\"sovereign\" class=\"character-option locked \">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /workspace/CC/dev/v6-source-browser.test.cjs:14:281"
+}

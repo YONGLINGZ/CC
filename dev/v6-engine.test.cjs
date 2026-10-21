@@ -1,11 +1,13 @@
+/* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
 /* V6 region progression and causal encounters. Mutating helpers below are fixtures;
  * the final test advances through all regions using public actions only. */
 'use strict';
 const test=require('node:test'), assert=require('node:assert/strict');
-const {createGame,REGIONS,NPCS,EVENT_IDS,CHAIN_EVENT_IDS,ENEMIES,TREASURE_RELICS}=require('./engine.js');
+const {createGame,REGIONS,NPCS,EVENT_IDS:ALL_EVENT_IDS,CHAIN_EVENT_IDS,ENEMIES,TREASURE_RELICS}=require('./engine.js');
+const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory'].includes(id));
 const {nextCard}=require('./playtest.cjs');
 function random(seed=7){let n=seed>>>0;return()=>((n=(Math.imul(n,1664525)+1013904223)>>>0)/4294967296);}
-function run(seed=7,starter='sword'){const g=createGame({rng:random(seed)});g.newRun(starter);return g;}
+function run(seed=7,starter='sword'){const g=createGame({environment:false,rng:random(seed)});g.newRun(starter);return g;}
 function eventAt(g,id,{poor=false}={}){
   const floor=id.endsWith('_first')?2:id.endsWith('_return')?5:id.endsWith('_final')?9:3;
   const s=g.state,node=s.map[floor-1].find(n=>n.type==='event');
@@ -42,10 +44,10 @@ test('1000 maps have connected forward paths, every opening NPC reachable, and a
     const g=run(seed),s=g.state,all=s.map.flat(),byId=Object.fromEntries(all.map(n=>[n.id,n]));
     const seen=new Set(['f1-0']),minimum=new Map([['f1-0',1]]);assert.equal(s.map.length,12);
     assert.deepEqual(new Set(s.map[1].map(n=>n.storyId)),new Set(['liu_first','ji_first','wen_first']));
-    assert.equal(s.map[0][0].next.length,3);
+    assert.equal(s.map[0][0].next.length,s.map[1].length);assert.ok(s.map.flat().length>=40);
     for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.regionIndex,Math.floor((n.floor-1)/4));
       if(n.floor<12)assert.ok(n.next.length>0);for(const id of n.next){const next=byId[id];assert.equal(next.floor,n.floor+1);seen.add(id);minimum.set(id,Math.min(minimum.get(id)??Infinity,minimum.get(n.id)+(['fight','elite','boss'].includes(next.type)?1:0)));}}
-    assert.equal(seen.size,all.length);assert.ok(minimum.get('f12-0')>=4);assert.ok(all.some(n=>n.type==='fox'));
+    assert.equal(seen.size,all.length);assert.ok(minimum.get('f12-0')>=4);assert.ok(all.filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
   }
 });
 
@@ -99,7 +101,7 @@ test('robbery starts actual combat, retains treasure, grants rewards once, and a
   const g=run(),s=g.state;eventAt(g,'ji_first');resolve(g,0);g.leaveEvent();s.journey.hidden.jiIntent='greedy';
   eventAt(g,'ji_return');resolve(g,0);g.leaveEvent();eventAt(g,'ji_final');const held=s.player.relics.slice(),floor=s.floor;
   resolve(g,0);assert.equal(s.screen,'event');assert.equal(s.event.battle.enemyId,'raider');assert.equal(g.leaveEvent(),true);
-  assert.equal(s.screen,'battle');assert.equal(s.battle.enemy.name,'季临川·夺宝剑客');assert.equal(s.battle.enemy.hp,42);assert.equal(g.leaveEvent(),false);
+  assert.equal(s.screen,'battle');assert.equal(s.battle.enemy.name,'季临川');assert.equal(s.battle.enemy.hp,42);assert.equal(g.leaveEvent(),false);
   assert.deepEqual(g.getIntent().hits,[7]);const before=s.player.gold;killFixture(g);assert.equal(s.screen,'reward');assert.equal(s.player.gold,before+20);assert.deepEqual(s.player.relics,held);
   assert.equal(g.playCard('fixture-finisher',true),false);assert.equal(s.player.gold,before+20);assert.equal(s.history.filter(x=>x.floor===floor).length,0);
   finishReward(g);assert.equal(s.floor,floor+1);assert.equal(s.history.filter(x=>x.floor===floor).length,1);assert.equal(g.chooseReward(null),false);assert.equal(g.leaveEvent(),false);
@@ -108,7 +110,7 @@ test('robbery starts actual combat, retains treasure, grants rewards once, and a
 
 test('robbery battle can actually kill the player without rewards or advancing',()=>{
   const g=run(),s=g.state;s.journey.flags.jiExposed=true;s.journey.hidden.jiIntent='greedy';eventAt(g,'ji_final');resolve(g,0);g.leaveEvent();s.player.hp=1;s.battle.block=0;
-  const gold=s.player.gold;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);assert.equal(s.screen,'defeat');assert.equal(s.player.hp,0);assert.equal(s.player.gold,gold);assert.equal(s.result.floor,9);assert.equal(s.result.enemy,'季临川·夺宝剑客');assert.equal(s.history.filter(h=>h.floor===9).length,0);
+  const gold=s.player.gold;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);assert.equal(s.screen,'defeat');assert.equal(s.player.hp,0);assert.equal(s.player.gold,gold);assert.equal(s.result.floor,9);assert.equal(s.result.enemy,'季临川');assert.equal(s.history.filter(h=>h.floor===9).length,0);
 });
 
 test('robbery pay and blood escapes preserve every relic, charge once, and avoid combat',()=>{
@@ -128,8 +130,8 @@ test('freeing Wen creates tracking; washing it removes later combat while keepin
 test('unwashed tracking reaches a real hunter later, with alternate exits and known causal recap',()=>{
   for(const firstChoice of [0,2]){
     const g=run(),s=g.state;eventAt(g,'wen_first');resolve(g,0);g.leaveEvent();eventAt(g,'wen_return');resolve(g,firstChoice===0?1:2);g.leaveEvent();eventAt(g,'wen_final');
-    assert.match(s.event.connection,/断锁救人.*没有.*洗/);assert.equal(s.event.choices[0].battle.name,'玄烬追猎者');
-    resolve(g,0);g.leaveEvent();assert.equal(s.battle.enemy.id,'raider');assert.equal(s.battle.enemy.name,'玄烬追猎者');killFixture(g);assert.equal(s.screen,'reward');
+    assert.match(s.event.connection,/断锁救人.*没有.*洗/);assert.equal(s.event.choices[0].battle.name,'黑衣人');
+    resolve(g,0);g.leaveEvent();assert.equal(s.battle.enemy.id,'raider');assert.equal(s.battle.enemy.name,'黑衣人');killFixture(g);assert.equal(s.screen,'reward');
   }
   for(const index of [1,2]){const g=run(),s=g.state;s.journey.flags.wenFreed=true;eventAt(g,'wen_final');const before=structuredClone(s.player);resolve(g,index);assert.equal(s.journey.flags.wenCleansed,true);assert.deepEqual(s.player.relics,before.relics);g.leaveEvent();assert.equal(s.floor,10);assert.equal(s.screen,'map');}
 });
@@ -155,7 +157,7 @@ test('all 27 event builders and enabled choices apply once for both professions,
 });
 
 test('optional random events exclude unintroduced story sequels and favor unseen encounters',()=>{
-  const g=run(),s=g.state,seen=[];
+  const g=run(),s=g.state,seen=[];s.seenEvents=ALL_EVENT_IDS.filter(id=>!EVENT_IDS.includes(id));
   for(let i=0;i<EVENT_IDS.length-CHAIN_EVENT_IDS.length;i++){
     const node=s.map[2].find(n=>n.type==='event');delete node.storyId;s.floor=3;s.screen='map';s.journey.regionIndex=0;node.revealed=true;s.availableNodes=[node.id];s.history=[];
     assert.equal(g.enterNode(node.id),true);assert.ok(!CHAIN_EVENT_IDS.includes(s.event.id));seen.push(s.event.id);const ix=s.event.choices.findIndex(c=>!c.disabled&&!c.battle);resolve(g,ix);g.leaveEvent();

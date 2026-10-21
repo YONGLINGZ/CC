@@ -1,77 +1,95 @@
 {
-  "version": "寒渊因缘版",
+  "version": "雾中归藏版",
   "date": "2026-10-21",
-  "based_on": "user 33.zip and v5 game",
+  "based_on": "user 33.zip and v6 game",
   "game_html": {
-    "bytes": 419356,
-    "sha256": "8f74ed5e108e2c932efacec8696cd468dab70120c759279da9f0c9942d21759b"
+    "bytes": 411337,
+    "sha256": "389faf5a700714b1cddba565c9f7436fa861159090ee90f69289229e7a8ec486"
   },
   "standalone_html": {
-    "bytes": 9732100,
-    "sha256": "91f39db7af9302c771aa7d8ac7c9a520d1e6446c9882a200aa8dfc8c7556bca2"
+    "bytes": 12906320,
+    "sha256": "2cfcd5626f0b98269bf25319b5e0a67679bb64ff5bab8b6cd5bcea5fe167560b"
   },
   "play_zip": {
-    "bytes": 15184524,
-    "sha256": "2f94315434619dc86e332090c9b351d388c304f5f62a45d26138e2a6a45214b6"
+    "bytes": 20284274,
+    "sha256": "cd42387ed93ef8df7f848d25b29e8a399a845806a7ae5a9b442a152143aa9cfd"
   },
   "zip_crc": "PASS",
   "runtime_art": {
     "portraits": {
-      "count": 12,
-      "bytes": 1371644
+      "count": 17,
+      "bytes": 1674114
     },
     "cards": {
-      "count": 52,
-      "bytes": 1977414
+      "count": 64,
+      "bytes": 2273404
     },
     "events": {
-      "count": 30,
-      "bytes": 1304590
+      "count": 37,
+      "bytes": 1448974
     },
     "relics": {
-      "count": 14,
-      "bytes": 297444
+      "count": 15,
+      "bytes": 318362
     },
     "puppet": {
-      "count": 7,
-      "bytes": 1554294
+      "count": 10,
+      "bytes": 2227896
     },
     "regions": {
       "count": 3,
       "bytes": 256204
+    },
+    "weapons": {
+      "count": 4,
+      "bytes": 88036
+    },
+    "events-sword": {
+      "count": 21,
+      "bytes": 439964
+    },
+    "events-sovereign": {
+      "count": 21,
+      "bytes": 421668
     }
   },
   "professions": [
     "影契刺客",
-    "霜华剑修"
+    "霜华剑修",
+    "无相宫主"
   ],
   "map_stages": 12,
   "regions": 3,
-  "story_events": 27,
+  "route_templates": 20,
+  "nodes_per_template": [
+    44,
+    48
+  ],
+  "random_node_types": true,
+  "story_events": 34,
   "linked_story_chains": 3,
-  "cards": 52,
-  "sound_profiles": 52,
-  "event_sound_profiles": 30,
+  "cards": 64,
+  "sound_profiles": 64,
+  "event_sound_profiles": 37,
+  "role_specific_event_variants": 42,
+  "weapons": 4,
+  "meta_unlock_storage": true,
   "formal_cubism_model_exported": false,
-  "scene_models": "procedural WebGL low-poly geometry, articulated parts; not production sculpted/skinned assets",
+  "scene_models": "removed; painted regional backgrounds, 2D route overlays and static character art",
   "engine_tests": {
-    "passed": 123,
+    "passed": 144,
     "failed": 0,
-    "total": 123,
+    "total": 144,
     "skipped": 0,
-    "legacy_checks": 105,
-    "new_checks": 18
+    "legacy_checks": 123,
+    "new_checks": 21
   },
   "audio_tests": {
-    "passed": 22,
-    "failed": 0
-  },
-  "scene_tests": {
-    "passed": 18,
+    "passed": 23,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 13,
+    "passed": 16,
     "failed": 0
   },
   "export_roundtrip_checks": {
@@ -79,15 +97,24 @@
     "failed": 0
   },
   "public_api_simulations": {
-    "completed": 120,
-    "wins": 119,
-    "defeats": 1
+    "completed": 150,
+    "wins": 134,
+    "defeats": 16
+  },
+  "hidden_route_simulations": {
+    "completed": 24,
+    "wins": 16,
+    "defeats": 8,
+    "unlocks": 16,
+    "method": "Public API only; 24 active-environment attempts deliberately choose the three clue nodes and their first legal options, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "report": "dev/v7-hidden-playtest-report.json",
+    "starting_profile": "Empty default profile, no unlock injection."
   },
   "full_recovery_checks": 17,
   "source_recovery_checks": 21,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v6": false,
+  "cloud_configuration_updated_for_v7": false,
   "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"

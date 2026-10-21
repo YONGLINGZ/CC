@@ -1,0 +1,72 @@
+{
+  "version": "雾中归藏版",
+  "engine": {
+    "passed": 144,
+    "failed": 0,
+    "total": 144,
+    "skipped": 0,
+    "legacy_checks": 123,
+    "new_checks": 21
+  },
+  "public_api": {
+    "completed": 150,
+    "wins": 134,
+    "defeats": 16,
+    "method": "Public API only; 150 seeded heuristic simulations across three professions and five starters, active regional debuffs, no run-state/resource fixtures. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.",
+    "report": "dev/v7-playtest-report.json",
+    "all_victories_crossed_regions": true,
+    "base": {
+      "completed": 120,
+      "wins": 117,
+      "defeats": 3
+    },
+    "sovereign": {
+      "completed": 30,
+      "wins": 17,
+      "defeats": 13,
+      "initial_profile": "Explicit already-unlocked profile supplied for class simulation only; not a claimed natural unlock.",
+      "all_victories_recovered_three_powers": true
+    }
+  },
+  "hidden_api": {
+    "completed": 24,
+    "wins": 16,
+    "defeats": 8,
+    "unlocks": 16,
+    "method": "Public API only; 24 active-environment attempts deliberately choose the three clue nodes and their first legal options, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "report": "dev/v7-hidden-playtest-report.json",
+    "starting_profile": "Empty default profile, no unlock injection."
+  },
+  "world_contract": {
+    "route_templates": 20,
+    "min_nodes_per_template": 40,
+    "regions": 3,
+    "stages": 12,
+    "random_types": "Fox and elite encounters remain random and are not promised in every generated route; all nodes stay forward-connected.",
+    "measured_1000_maps": {
+      "fox": 921,
+      "elite": 964,
+      "rest": 1000,
+      "shop": 1000
+    },
+    "test_adaptations": "Legacy card-rule fixtures explicitly disable environment effects. New regional hazards are tested with environment enabled in v7 rules. Elite reward fixtures may convert an existing valid node when random layout contains no elite. All damage, costs, healing and reward assertions retained."
+  },
+  "inputs": {
+    "dev/engine.js": "9d59bb6fdc1529b2751ed19296e20675d8a73a69c3dba1dd1f71bd5a8211693e",
+    "dev/expansion.js": "7f95fae7a0bdac341ffe3802eee6252256cd1b2d5c812f75777c99b6b2d1fc42",
+    "dev/engine.test.cjs": "4ba05bfd4e28a688ff4fa9f05b8f19c7010d1036ade8ffc9bc758b6ef48bbf72",
+    "dev/rework.test.cjs": "7a7baef747371b631b99882c39fd4dac452cbfcfbb6902ea4601439a90ea283f",
+    "dev/reward.test.cjs": "5218bcafd0133b01705acdbd7fa6b63a89e557303c746005b4400ac58e44990f",
+    "dev/v5-engine.test.cjs": "399c5a07d6a3a8198e2f1242509a3f2063468c538f46471088c5b95d11fad85a",
+    "dev/v6-engine.test.cjs": "928c8560b59dd512e79d07e4c1a92a8de1a24d7d309afa40f2cc932dc003069d",
+    "dev/v7-engine.test.cjs": "85ec5df602185cda98359aa42e39f3e8cafa5522eb659cf02b0d27775d073b4b",
+    "dev/playtest.cjs": "b86bdc4600004713524c88ee974bcb13ec4c468e5ddbbdb9485ea1f3436a7c1c",
+    "dev/v7-hidden-playtest.cjs": "9e10de5fd7aee61dd3153991ab67c24ab70969283b56ac6440b1f25f18c9c5c6"
+  },
+  "commands": [
+    "node --test --test-reporter=tap dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs dev/v6-engine.test.cjs dev/v7-engine.test.cjs",
+    "PLAYTEST_REPORT=dev/v7-playtest-report.json node dev/playtest.cjs",
+    "node dev/v7-hidden-playtest.cjs"
+  ],
+  "note": "Actual deterministic rule tests and public-action heuristic runs. Arranged states are confined to labelled rule fixtures. Simulations have active regional debuffs and no run resource/pile/price/damage edits. Not a human playtest or balance/time-to-complete validation."
+}
