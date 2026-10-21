@@ -1,0 +1,59 @@
+{
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "70 independent signatures across three roles; 43 encounter motifs",
+      "passed": true
+    },
+    {
+      "name": "unsupported Web Audio falls back silently without creating context",
+      "passed": true
+    },
+    {
+      "name": "permission rejection does not throw or require another context",
+      "passed": true
+    },
+    {
+      "name": "loading or requesting sound does not autoplay/create AudioContext",
+      "passed": true
+    },
+    {
+      "name": "genuine user click unlocks live audio graph",
+      "passed": true
+    },
+    {
+      "name": "all 70 casts/impacts create and start actual connected audio sources",
+      "passed": true,
+      "sourcesCreated": 761,
+      "oscillators": 621,
+      "noiseSources": 140
+    },
+    {
+      "name": "43 encounters, snake intents, defense/poison/relic/reward cues all produce graph",
+      "passed": true
+    },
+    {
+      "name": "ordinary enemy and snake intent events select matching attack sound",
+      "passed": true
+    },
+    {
+      "name": "muting cancels every voice immediately; unmuting keeps context; volume clamps",
+      "passed": true
+    },
+    {
+      "name": "burst protection limits live source count",
+      "passed": true
+    },
+    {
+      "name": "52 OfflineAudioContext renders contain distinct, unclipped, non-silent sound",
+      "passed": true,
+      "distinctRenders": 70,
+      "minRMS": 0.0013293803610402435,
+      "maxPeak": 0.2027515470981598
+    }
+  ],
+  "preview": "/workspace/scratch/audio-preview.wav",
+  "audioSha256": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
+  "note": "Programmatically synthesized effects; real Chromium AudioContext/OfflineAudioContext executed. Listening quality is not a test assertion."
+}

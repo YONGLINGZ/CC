@@ -1,0 +1,371 @@
+{
+  "format": "baiyao-v8-fallen-role-event-art",
+  "source": {
+    "path": "/workspace/generated_images/exec-a83d9277-5155-4fa0-94e5-0fb39f45f2c7.png",
+    "width": 1024,
+    "height": 1536,
+    "sha256": "818ec8821c2333aab1e360c1c4499a5e423c55ecd0b9bd9f4dcb436a1ea1a675"
+  },
+  "entries": [
+    {
+      "role": "sword_fallen",
+      "id": "well",
+      "path": "assets/events-sword_fallen/well.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 25104,
+      "sha256": "3bb5ced39ce85098954d54e6a700051335e261d74d7f208016dad8b64fad7a34",
+      "decodedSha256": "e53525e127d6f50f04cfe967e505ba642ba5caa55f7cbffae65b2753f853a024",
+      "thumbnailSha256": "6c0c357f82f8a1938a7dd1ca63199178e975f38c92223c5bbc0b15e9d3608990",
+      "crop": {
+        "left": 1,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "shrine",
+      "path": "assets/events-sword_fallen/shrine.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 20906,
+      "sha256": "a7052a2476439a070397599cf44f85db9fb91e900ed98fb6cbc8e50391a4f98f",
+      "decodedSha256": "63b57cb4be588fa945c157e52491627cdfa069cb1a70c4fd3413950432def134",
+      "thumbnailSha256": "df3c25310f2348881cc8134af48285a86d7f57cbf831f43f3214477f718b24ba",
+      "crop": {
+        "left": 257,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "dreamshop",
+      "path": "assets/events-sword_fallen/dreamshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 27456,
+      "sha256": "2bdabe3424f517b608890dff548deee322fea4a1a5b7fd49a8170b191eafdcb0",
+      "decodedSha256": "4dd3aeebf11d81178c892ad235071e01e855121552a1620e90d06577efc563f6",
+      "thumbnailSha256": "0ecaee014e83664366af73cc8d473c5c520ba022cfe36fb6c5e918b5500645a4",
+      "crop": {
+        "left": 513,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "theatre",
+      "path": "assets/events-sword_fallen/theatre.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22314,
+      "sha256": "005311628118c752fc52de59cf0d6f3736a2d943f4bc7262f20b5f2e939d9600",
+      "decodedSha256": "b0a79b0726b7fc4994ea08ed58080ae2866fe823d3019d1721ad88468c099f49",
+      "thumbnailSha256": "1b9d0ee8b3d6d386b23dcf8972c879ce5b91a416c1314a26718c26bd4a8d4436",
+      "crop": {
+        "left": 769,
+        "top": 1,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "umbrella",
+      "path": "assets/events-sword_fallen/umbrella.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24430,
+      "sha256": "7b65f93de42da436b95c00f2184842a2ca88b42b420246e8680a060346e304b8",
+      "decodedSha256": "3433aad16a5441f8130eb550d90f27197264f714556024611a9bdd6b42c74b54",
+      "thumbnailSha256": "758f0601dd2a4250bc9d37f497e622af80047c20fba66044756325bb083d17b0",
+      "crop": {
+        "left": 1,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "pawnshop",
+      "path": "assets/events-sword_fallen/pawnshop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24640,
+      "sha256": "75606d695ebc79d2e2da1592988b023533df3c0b06b2d5f6d969cc47c602ec1c",
+      "decodedSha256": "008fb44a4181cecd1f037cb9f2a95892e2f3a1658cc227fa0cce1ec31e2d71f4",
+      "thumbnailSha256": "48a1eec7f27d4464673fb141dcdd686ddcd3337930de40157fd00bcc680a7d4d",
+      "crop": {
+        "left": 257,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "riftwatch",
+      "path": "assets/events-sword_fallen/riftwatch.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23618,
+      "sha256": "7454c1f6f7a1c4c73a5fabccd93af0c2fa961502a8e48d413113c4788a61ee64",
+      "decodedSha256": "15e1395e30383d473131834af3f635fc38346583706dd15f3c4ef359abd6664e",
+      "thumbnailSha256": "5d35bb9d48298175955c665cc80c729c4ac663f2bde3f385a683d8aea62afea9",
+      "crop": {
+        "left": 513,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "supply",
+      "path": "assets/events-sword_fallen/supply.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24232,
+      "sha256": "d2398e46b0214ae79704b88fa5214321b5b41a3487916795536fbb8b96b7220e",
+      "decodedSha256": "5e1a89315c51c3135bc1e4c429cfaeb85e875b5a8add9ca60512b2f010170085",
+      "thumbnailSha256": "83d14f5474be24d475aac3f2f89c664a876c1d219f15e303e061820cbc5e3b7f",
+      "crop": {
+        "left": 769,
+        "top": 257,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "cultlab",
+      "path": "assets/events-sword_fallen/cultlab.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24040,
+      "sha256": "4d5f4172d5c8d51451931c5bec5995f6ad9a2cb9f4f953c06d09473e42ed4dd4",
+      "decodedSha256": "b5265e595f5489ed0104631f27c3aee0a28df429505228e11cc4face57fdcbae",
+      "thumbnailSha256": "03f55e59a6385ac52c2de3e291da4b05a207d88eed5541d8389b48f540ebeb61",
+      "crop": {
+        "left": 1,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "swordgrave",
+      "path": "assets/events-sword_fallen/swordgrave.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 25672,
+      "sha256": "836d00ae773cb6e1ec375f28c914dc822e0e09222a7217e57440ca38fa8bcb91",
+      "decodedSha256": "2fbf573a849fcaf8ea2561228819833f919838fef817a7b2a84b4bf331ccdaba",
+      "thumbnailSha256": "2cad3ff8306ba3e0211fc95146689228352f04b72398b69b2c1722fc32b5bcd8",
+      "crop": {
+        "left": 257,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "pilgrims",
+      "path": "assets/events-sword_fallen/pilgrims.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24886,
+      "sha256": "2a307f42b63d5b0aac444a287f0dd247c9f8cca371d3fba7c0b4825c7a385f6c",
+      "decodedSha256": "b201e96938fc6a7cb24e16298239a9ae2c58eb16f36fd575ced14cda8fbbc664",
+      "thumbnailSha256": "69cc957cf9b9bbdc17e0132d569f042c5a9d83e81bf7a17f2fb12816c15e8c22",
+      "crop": {
+        "left": 513,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "prisoner",
+      "path": "assets/events-sword_fallen/prisoner.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24124,
+      "sha256": "d92d176d97888fb76059055d7cb74da2ada9c18bb41b02b8f6be20b59909aea0",
+      "decodedSha256": "e9a7e9e08a8131d1334bb969586ec0d1246dca15d1dadbbfcee7828f500f05cd",
+      "thumbnailSha256": "9f2e25d48900c52adb0c55234ba9516ace75099d0edf99e3c6e9bed12d2dfd9a",
+      "crop": {
+        "left": 769,
+        "top": 513,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "echo",
+      "path": "assets/events-sword_fallen/echo.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 25080,
+      "sha256": "14bb3abdcb28ca46bf659332bdae1924c51a23d1529cb6ed75ea0c476413e08e",
+      "decodedSha256": "97f06f78e7dc72bedf6233fbd072d650ee4804ea49a4fe3d6b46259d7324a64e",
+      "thumbnailSha256": "bd89a43de73e23e99b661bab8bee92ecf12d2204f47780d513902c57aa7eec5b",
+      "crop": {
+        "left": 1,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "broker",
+      "path": "assets/events-sword_fallen/broker.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 21508,
+      "sha256": "8f30c3657ddec95b6c5b64c10106da7c94b5b596c3ff8157e20dbdd553100c2a",
+      "decodedSha256": "2a6de6037695f278f6fdae8c387be197904bacc9837feef2366caa005b400dee",
+      "thumbnailSha256": "268033886b676936ed09658232b3b1b9efff66f6a90279506a1c8f5e6f7ee843",
+      "crop": {
+        "left": 257,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "fox",
+      "path": "assets/events-sword_fallen/fox.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23442,
+      "sha256": "2368207736467d2d6bf84c8f9bd75ad40c902f0500d41b603430cde6ee65ff1b",
+      "decodedSha256": "43b6da04185618ffdee6e21d2ef4c289b9c7a7bd0c2b4e83b468b0dc5ec09eac",
+      "thumbnailSha256": "467517d1aadafd2171467aeaee82ddb1eb095c196df8a10a0d8840f7eb4db675",
+      "crop": {
+        "left": 513,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "rest",
+      "path": "assets/events-sword_fallen/rest.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24154,
+      "sha256": "b52b2cc154e38150289dcecefd1ac0931db9b20d54ffe5c7c93ad4ec107e53eb",
+      "decodedSha256": "7ea715a6d47dcd046bd6de3e386086bf741ca6a9787b02eb82d97f5186545d62",
+      "thumbnailSha256": "50dda1892cf59eec7bc0c3f9a71834bfca1879ec1a21411778d15513e85e6a5f",
+      "crop": {
+        "left": 769,
+        "top": 769,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "shop",
+      "path": "assets/events-sword_fallen/shop.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 25698,
+      "sha256": "e37aa65f5c7484af512f266ef98e9db1d341bc2e7e526416444bc1cf5d29bfe7",
+      "decodedSha256": "a3008be7e61dcd7f16686fe097cb277002abc3542f8bb00e9c574be404b4aefe",
+      "thumbnailSha256": "4022e1883428ce7512ae697558afe9ffe18e36835d3faf161d22cd2f360689e5",
+      "crop": {
+        "left": 1,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "moon_trace",
+      "path": "assets/events-sword_fallen/moon_trace.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 23020,
+      "sha256": "0d3e29f68ab2dad6cccb7e945ad6fffbfea79ca41eb758a43274f5b6f1b90503",
+      "decodedSha256": "9ff850d5a88d290aac9294e7ff45950db0d67fe30f46aa5606e62c654c135a9b",
+      "thumbnailSha256": "850f879d399dd01eea803acf9b7dcdb82aaf21765f14666ca7840d8344fd8cec",
+      "crop": {
+        "left": 257,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "sealed_name",
+      "path": "assets/events-sword_fallen/sealed_name.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24624,
+      "sha256": "14fc0062376bbe4a66be9f9c491252d1c276afdbabc6863179eb00b882bcb3b6",
+      "decodedSha256": "5280eb1d929cf0ebc38ad10bb6871d8d0f6399575a042374f389290074cdd6f4",
+      "thumbnailSha256": "0f523b29993f41722535d66cf9e59ddc777288a6be264f4313dd4352cb962efb",
+      "crop": {
+        "left": 513,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "moon_vow",
+      "path": "assets/events-sword_fallen/moon_vow.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 22788,
+      "sha256": "44fda122d60a0f6b3795ea543460c8eae19e248be925d5fbde5d63299fe687f0",
+      "decodedSha256": "92c561dad4ab9928e7576a87f2110773892985c7821c4eb0b9a7d34a36e90255",
+      "thumbnailSha256": "60095e7e5195e9404df89990577867c2d62bc059ac4795b998001a63ec817fb2",
+      "crop": {
+        "left": 769,
+        "top": 1025,
+        "width": 254,
+        "height": 254
+      }
+    },
+    {
+      "role": "sword_fallen",
+      "id": "armory",
+      "path": "assets/events-sword_fallen/armory.webp",
+      "width": 254,
+      "height": 254,
+      "bytes": 24530,
+      "sha256": "60a9b886b195a134b4f4684ec1c088c7ac92d26fd11c309bb022b4ab9be43782",
+      "decodedSha256": "b0b2e8e7c499937adf1fbca3a8c972f2b470ac87efa3522f61aa137ab7116012",
+      "thumbnailSha256": "be3cdfbe68aab3d2ee8553fa9f94d309aa9adc30fc49be8d00aba705d31a9682",
+      "crop": {
+        "left": 1,
+        "top": 1281,
+        "width": 254,
+        "height": 254
+      }
+    }
+  ],
+  "totalBytes": 506266,
+  "distinctDecoded": 21,
+  "visuallyInspected": true
+}

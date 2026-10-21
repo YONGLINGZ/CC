@@ -1,0 +1,1684 @@
+{
+  "format": "baiyao-v8-browser",
+  "target": "/tmp/v8qa-slim.html",
+  "inlineTarget": "/tmp/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "隐藏职业初始锁定，不能借开局按钮绕过解锁",
+      "ok": true
+    },
+    {
+      "name": "fixture 每章二十套路线模板、十步与至少四十节点及真实跨路连接",
+      "ok": false,
+      "error": "locator.evaluate: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.painted-background[data-painted-region] .painted-region img').first()\u001b[22m\n\n    at /workspace/CC/dev/v8-browser.test.cjs:98:128\n    at async test (/workspace/CC/dev/v8-browser.test.cjs:18:127)\n    at async /workspace/CC/dev/v8-browser.test.cjs:93:3"
+    },
+    {
+      "name": "fixture 人物只由言行呈现：事件无人物介绍、阵营立场和提前夺宝标签",
+      "ok": true
+    },
+    {
+      "name": "fixture 三章环境按抽牌、灵力与首击减伤实际结算",
+      "ok": true
+    },
+    {
+      "name": "fixture 神剑可装备，等级不足按可见固定次序反噬而非暗改随机结果",
+      "ok": true
+    },
+    {
+      "name": "fixture 商店购剑真实扣钱且仅能购买一次，余额不足的商品置灰",
+      "ok": true
+    },
+    {
+      "name": "fixture 正常胜利增加修为，达到要求后神剑不再失控",
+      "ok": true
+    },
+    {
+      "name": "fixture 十、二十步章末战给奖励，其他战斗不提前结束三十步旅程",
+      "ok": true
+    },
+    {
+      "name": "fixture 救人后毒到下一节点才显露；节点、回合各扣一次，菜单与重复点击不扣",
+      "ok": true
+    },
+    {
+      "name": "fixture 缠脉毒免死、死亡和跨章持续；静息与药只压制，晚期剧情可永久解毒",
+      "ok": true
+    },
+    {
+      "name": "fixture 原剑诀无治疗且魔修治疗锁在接触之后，拒绝可保留正道和中毒",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== false\n\n    at /workspace/CC/dev/v8-browser.test.cjs:140:105\n    at async test (/workspace/CC/dev/v8-browser.test.cjs:18:127)\n    at async /workspace/CC/dev/v8-browser.test.cjs:138:3"
+    },
+    {
+      "name": "fixture 六次魔修产生不可逆入魔，剑诀攻击护盾减半而魔修完整结算",
+      "ok": true
+    },
+    {
+      "name": "fixture 五念时经任务取得清心玉阻止第六次入魔，两条玉任务均可实际取得",
+      "ok": true
+    },
+    {
+      "name": "fixture 入魔追猎先实战再得经页，重复选择不发奖，手抄魔经只领取一次",
+      "ok": true
+    },
+    {
+      "name": "fixture 三条隐线只能由真实事件选择收集，重复点击不重复支付",
+      "ok": true
+    },
+    {
+      "name": "fixture 缺少隐线条件无法见到隐藏战，普通结局仍可完成",
+      "ok": true
+    },
+    {
+      "name": "fixture 收齐隐线并击败隐藏Boss后真实解锁，刷新仅保留职业解锁",
+      "ok": true
+    },
+    {
+      "name": "fixture 绯夜专属三境故事与分身、旧部、心魔真实战斗，胜后力量逐次提升",
+      "ok": true
+    },
+    {
+      "name": "当前构建未捕获JavaScript异常和运行时外网请求为零",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/v8qa-slim.html",
+    "/v8qa-slim.html"
+  ],
+  "expectedMissingRequests": [],
+  "sha256": "84efaf9eb0bb45f3939b18565854da9d94d5c645982749dfc92af1f81faba040",
+  "inputs": {
+    "dev/engine.js": "244a935e2856155444f7811f84b546e6988c812e19cfcb20ed39948210fe634c",
+    "dev/expansion.js": "f89e54c34232661f572dc02e4342ec7a920c1f54828d49b15cb68862dbb7d2a2",
+    "dev/ui.js": "cf13e98feb076359caec554c9318af237ee18f30bf1748c94fb119cc9c9f4a7e",
+    "dev/shell.html": "9e2cc806195fde5647e0fdcb3bd8373afccdfd5ab894c9c55318424cdbe2bc70",
+    "dev/art.js": "b13a086953f329d42a46b55e04482686752de30a6799dc876386d078f5e1948b",
+    "dev/build.cjs": "07ac878e1401e6b22a1aa7910460a0d73e6027c17a6a3aa48978f11e49c53e50"
+  },
+  "templates": [
+    {
+      "id": "route-01",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 126,
+      "chosen": "route-01",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 42,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 112
+    },
+    {
+      "id": "route-02",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 129,
+      "chosen": "route-02",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 118
+    },
+    {
+      "id": "route-03",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 129,
+      "chosen": "route-03",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 122
+    },
+    {
+      "id": "route-04",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-04",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 122
+    },
+    {
+      "id": "route-05",
+      "widths": [
+        1,
+        4,
+        6,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 129,
+      "chosen": "route-05",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 121
+    },
+    {
+      "id": "route-06",
+      "widths": [
+        1,
+        5,
+        6,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-06",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 118
+    },
+    {
+      "id": "route-07",
+      "widths": [
+        1,
+        4,
+        7,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-07",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 121
+    },
+    {
+      "id": "route-08",
+      "widths": [
+        1,
+        5,
+        7,
+        4,
+        7,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 135,
+      "chosen": "route-08",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 128
+    },
+    {
+      "id": "route-09",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 129,
+      "chosen": "route-09",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 122
+    },
+    {
+      "id": "route-10",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-10",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 124
+    },
+    {
+      "id": "route-11",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-11",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 124
+    },
+    {
+      "id": "route-12",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 135,
+      "chosen": "route-12",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 126
+    },
+    {
+      "id": "route-13",
+      "widths": [
+        1,
+        4,
+        6,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-13",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 121
+    },
+    {
+      "id": "route-14",
+      "widths": [
+        1,
+        5,
+        6,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 135,
+      "chosen": "route-14",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 126
+    },
+    {
+      "id": "route-15",
+      "widths": [
+        1,
+        4,
+        7,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 135,
+      "chosen": "route-15",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 126
+    },
+    {
+      "id": "route-16",
+      "widths": [
+        1,
+        5,
+        7,
+        4,
+        8,
+        4,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 138,
+      "chosen": "route-16",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 46,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 129
+    },
+    {
+      "id": "route-17",
+      "widths": [
+        1,
+        4,
+        6,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 129,
+      "chosen": "route-17",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 43,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 117
+    },
+    {
+      "id": "route-18",
+      "widths": [
+        1,
+        5,
+        6,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-18",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 120
+    },
+    {
+      "id": "route-19",
+      "widths": [
+        1,
+        4,
+        7,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 132,
+      "chosen": "route-19",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 44,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 125
+    },
+    {
+      "id": "route-20",
+      "widths": [
+        1,
+        5,
+        7,
+        3,
+        7,
+        5,
+        6,
+        4,
+        6,
+        1
+      ],
+      "nodeCount": 135,
+      "chosen": "route-20",
+      "chapters": [
+        {
+          "chapter": 1,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            10
+          ]
+        },
+        {
+          "chapter": 2,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            20
+          ]
+        },
+        {
+          "chapter": 3,
+          "nodes": 45,
+          "steps": 10,
+          "bosses": [
+            30
+          ]
+        }
+      ],
+      "crossEdges": 128
+    }
+  ],
+  "noIntroductions": true,
+  "environments": [
+    {
+      "region": 0,
+      "hp": 60,
+      "hand": 4,
+      "environment": {
+        "id": "fog_gate",
+        "name": "迷路雾",
+        "text": "本章每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。",
+        "firstTurnDrawPenalty": 1,
+        "regionIndex": 0,
+        "enabled": true
+      }
+    },
+    {
+      "region": 1,
+      "hp": 60,
+      "energy": 2,
+      "environment": {
+        "id": "broken_camp",
+        "name": "逆灵风",
+        "text": "本境每场战斗首个玩家回合灵力 −1；之后恢复正常。",
+        "energy": 1,
+        "regionIndex": 1,
+        "enabled": true
+      }
+    },
+    {
+      "region": 2,
+      "damage": [
+        5,
+        6
+      ],
+      "environment": {
+        "id": "ritual_core",
+        "name": "离魂隙",
+        "text": "本章每个玩家回合首张攻击牌的第一段基础伤害 −1，最低为 0；额外剑器增伤照常结算。",
+        "firstAttackPenalty": 1,
+        "regionIndex": 2,
+        "enabled": true
+      }
+    }
+  ],
+  "divine": {
+    "status": {
+      "name": "照夜",
+      "requiredLevel": 4,
+      "bonus": 4,
+      "price": 70,
+      "text": "神剑：每回合首张攻击牌的第一段伤害 +4。灵识不足 4 级时，依回合固定循环：灵力 −1 → 直接失去 3 生命 → 敌人获得 6 护盾；可收剑换用其他佩刃。",
+      "sentient": true,
+      "id": "divine",
+      "level": 1,
+      "controlled": false,
+      "omen": "本回合灵力 −1"
+    },
+    "turn3": {
+      "kind": "fight",
+      "phase": "player",
+      "hand": [
+        {
+          "uid": "card-1",
+          "id": "S01"
+        },
+        {
+          "uid": "card-5",
+          "id": "S02"
+        },
+        {
+          "uid": "card-2",
+          "id": "S01"
+        },
+        {
+          "uid": "card-9",
+          "id": "S03"
+        },
+        {
+          "uid": "card-3",
+          "id": "S01"
+        }
+      ],
+      "draw": [
+        {
+          "uid": "card-8",
+          "id": "S02"
+        },
+        {
+          "uid": "card-10",
+          "id": "S04"
+        },
+        {
+          "uid": "card-6",
+          "id": "S02"
+        },
+        {
+          "uid": "card-4",
+          "id": "S01"
+        },
+        {
+          "uid": "card-7",
+          "id": "S02"
+        }
+      ],
+      "discard": [],
+      "exhaust": [],
+      "resolving": [],
+      "enemy": {
+        "id": "paper",
+        "name": "纸人",
+        "hp": 999,
+        "maxHp": 999,
+        "block": 6,
+        "mark": 0,
+        "poison": 0,
+        "chill": 0,
+        "intentIndex": 0
+      },
+      "block": 0,
+      "energy": 3,
+      "poison": 0,
+      "swordIntent": 0,
+      "soul": 0,
+      "environment": {
+        "id": "fog_gate",
+        "name": "迷路雾",
+        "text": "本章每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。",
+        "firstTurnDrawPenalty": 1,
+        "regionIndex": 0,
+        "enabled": true
+      },
+      "weaponOmen": "本回合敌人护盾 +6",
+      "weaponUsed": false,
+      "veilUsed": false,
+      "frostsealUsed": false,
+      "turn": 3,
+      "played": 0,
+      "nextAttack": 0,
+      "nextEnergy": 0,
+      "nextDraw": 0,
+      "bellUsed": false,
+      "jadeUsed": false,
+      "bloodPower": 0,
+      "riposte": 0,
+      "fangUsed": false,
+      "silkUsed": false,
+      "bloodstoneUsed": false,
+      "events": [
+        {
+          "id": 18,
+          "type": "blockClear",
+          "source": "enemy",
+          "target": "enemy",
+          "amount": 0,
+          "total": 0
+        },
+        {
+          "id": 19,
+          "type": "attack",
+          "source": "enemy",
+          "target": "player",
+          "amount": 8,
+          "absorbed": 8,
+          "damage": 0,
+          "hitIndex": 0
+        },
+        {
+          "id": 20,
+          "type": "blockClear",
+          "source": "player",
+          "target": "player",
+          "amount": -92,
+          "total": 0
+        },
+        {
+          "id": 21,
+          "type": "weapon",
+          "source": "player",
+          "target": "player",
+          "name": "照夜",
+          "text": "本回合敌人护盾 +6",
+          "kind": 2
+        },
+        {
+          "id": 22,
+          "type": "block",
+          "source": "weapon",
+          "target": "enemy",
+          "amount": 6,
+          "total": 6
+        },
+        {
+          "id": 23,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S01",
+          "amount": 1
+        },
+        {
+          "id": 24,
+          "type": "shuffle",
+          "source": "player",
+          "target": "player",
+          "amount": 9
+        },
+        {
+          "id": 25,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S02",
+          "amount": 1
+        },
+        {
+          "id": 26,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S01",
+          "amount": 1
+        },
+        {
+          "id": 27,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S03",
+          "amount": 1
+        },
+        {
+          "id": 28,
+          "type": "draw",
+          "source": "player",
+          "target": "player",
+          "drawnCardId": "S01",
+          "amount": 1
+        }
+      ],
+      "hitIndex": 0,
+      "mirrorUsed": false,
+      "nineUsed": false,
+      "logs": [
+        "进入第 1 段，与灯鬼交战。",
+        "—— 玩家第 1 回合：旧护盾清空 ——",
+        "入骨瘴：首回合少抽1张牌。",
+        "照夜不肯听令：本回合灵力 −1。",
+        "结束回合：剩余手牌全部弃置，候机增伤清除。",
+        "纸人使用「纸刃」：攻击 6。",
+        "敌人攻击 6：护盾抵挡 6，生命伤害 0。",
+        "—— 玩家第 2 回合：旧护盾清空 ——",
+        "照夜不肯听令：本回合失去 3 生命。",
+        "神剑反噬（无视护盾）：失去 3 点生命（剩余 57）。",
+        "结束回合：剩余手牌全部弃置，候机增伤清除。",
+        "纸人使用「剪影」：攻击 8。",
+        "敌人攻击 8：护盾抵挡 8，生命伤害 0。",
+        "—— 玩家第 3 回合：旧护盾清空 ——",
+        "照夜不肯听令：本回合敌人护盾 +6。",
+        "抽牌堆已空：将弃牌堆洗回抽牌堆。"
+      ],
+      "coreStrikeUsed": false
+    },
+    "player": {
+      "hp": 57,
+      "maxHp": 60,
+      "gold": 60,
+      "character": "sword",
+      "level": 1,
+      "xp": 0,
+      "power": 0,
+      "weaponInventory": [
+        "training",
+        "divine"
+      ],
+      "equippedWeapon": "divine",
+      "questItems": [],
+      "affliction": {
+        "active": false,
+        "revealed": false,
+        "ticks": 0,
+        "suppressed": 0,
+        "source": null
+      },
+      "path": {
+        "corruption": 0,
+        "fallen": false,
+        "protected": false,
+        "learned": false,
+        "uses": 0
+      },
+      "deck": [
+        {
+          "uid": "card-1",
+          "id": "S01"
+        },
+        {
+          "uid": "card-2",
+          "id": "S01"
+        },
+        {
+          "uid": "card-3",
+          "id": "S01"
+        },
+        {
+          "uid": "card-4",
+          "id": "S01"
+        },
+        {
+          "uid": "card-5",
+          "id": "S02"
+        },
+        {
+          "uid": "card-6",
+          "id": "S02"
+        },
+        {
+          "uid": "card-7",
+          "id": "S02"
+        },
+        {
+          "uid": "card-8",
+          "id": "S02"
+        },
+        {
+          "uid": "card-9",
+          "id": "S03"
+        },
+        {
+          "uid": "card-10",
+          "id": "S04"
+        }
+      ],
+      "relics": [
+        "frostseal"
+      ]
+    }
+  },
+  "weaponPurchase": {
+    "price": 70,
+    "remaining": 30,
+    "inventory": [
+      "training",
+      "divine"
+    ]
+  },
+  "suppression": {
+    "level": 4,
+    "status": {
+      "name": "照夜",
+      "requiredLevel": 4,
+      "bonus": 4,
+      "price": 70,
+      "text": "神剑：每回合首张攻击牌的第一段伤害 +4。灵识不足 4 级时，依回合固定循环：灵力 −1 → 直接失去 3 生命 → 敌人获得 6 护盾；可收剑换用其他佩刃。",
+      "sentient": true,
+      "id": "divine",
+      "level": 4,
+      "controlled": true,
+      "omen": ""
+    }
+  },
+  "chapterBosses": [
+    {
+      "floor": 9,
+      "nextFloor": 10,
+      "screen": "map",
+      "history": 9
+    },
+    {
+      "floor": 10,
+      "nextFloor": 11,
+      "screen": "arrival",
+      "history": 10
+    },
+    {
+      "floor": 19,
+      "nextFloor": 20,
+      "screen": "map",
+      "history": 19
+    },
+    {
+      "floor": 20,
+      "nextFloor": 21,
+      "screen": "arrival",
+      "history": 20
+    }
+  ],
+  "poisonTicks": {
+    "before": {
+      "active": false,
+      "revealed": false,
+      "ticks": 0,
+      "suppressed": 0,
+      "source": null
+    },
+    "after": {
+      "active": true,
+      "revealed": true,
+      "ticks": 4,
+      "suppressed": 0,
+      "source": "tainted_mercy"
+    },
+    "entryAndFirstTurn": 2,
+    "menus": 0
+  },
+  "poisonCures": {
+    "plainHealCures": false,
+    "restSuppression": 4,
+    "antidoteSuppression": 6,
+    "antidotePrice": 30,
+    "trueCurePrice": 40,
+    "fox": true,
+    "ninelives": true,
+    "lethal": true,
+    "crossChapter": true
+  },
+  "originalSwordHealing": [
+    {
+      "id": "S01",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S02",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S03",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S04",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S05",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S06",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S07",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S08",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S09",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S10",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S11",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S12",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S13",
+      "hpBefore": 30,
+      "hpAfter": 27
+    },
+    {
+      "id": "S14",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S15",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S16",
+      "hpBefore": 30,
+      "hpAfter": 30
+    }
+  ],
+  "fallen": {
+    "status": {
+      "corruption": 8,
+      "fallen": true,
+      "protected": false,
+      "learned": true,
+      "uses": 8,
+      "threshold": 6,
+      "item": "clearheart_jade",
+      "stage": "fallen",
+      "label": "已入魔",
+      "text": "本局入魔不可逆：原剑修攻击与护盾基础值减半，向下取整；魔修技能保持完整效果。"
+    },
+    "effective": {
+      "S01": {
+        "name": "霜锋",
+        "cost": 1,
+        "text": "造成 3 点伤害；若敌人仍存活，获得 1 层剑意。（入魔：基础值已减半，额外增伤照常。）",
+        "target": true,
+        "attack": true,
+        "exhaust": false,
+        "category": "blade",
+        "character": "sword",
+        "rarity": "common",
+        "damage": 3,
+        "id": "S01",
+        "fallenPenalty": true,
+        "attackMultiplier": 0.5,
+        "blockMultiplier": 0.5
+      },
+      "S02": {
+        "name": "凝霜",
+        "cost": 1,
+        "text": "获得 3 点护盾，使敌人获得 1 层霜寒。（入魔：基础值已减半，额外增伤照常。）",
+        "target": true,
+        "attack": false,
+        "exhaust": false,
+        "category": "ice",
+        "character": "sword",
+        "rarity": "common",
+        "block": 3,
+        "id": "S02",
+        "fallenPenalty": true,
+        "attackMultiplier": 0.5,
+        "blockMultiplier": 0.5
+      },
+      "S06": {
+        "name": "踏雪",
+        "cost": 0,
+        "text": "获得 1 点护盾，抽 1 张牌。消耗。（入魔：基础值已减半，额外增伤照常。）",
+        "target": false,
+        "exhaust": true,
+        "attack": false,
+        "category": "ice",
+        "character": "sword",
+        "rarity": "common",
+        "block": 1,
+        "id": "S06",
+        "fallenPenalty": true,
+        "attackMultiplier": 0.5,
+        "blockMultiplier": 0.5
+      },
+      "D01": {
+        "name": "借煞回生",
+        "cost": 1,
+        "text": "造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。使用后魔念 +1；清心玉可阻止增加。无玉达到 6 后入魔，本局不可逆。",
+        "target": true,
+        "attack": true,
+        "character": "sword",
+        "category": "demonic",
+        "locked": true,
+        "storyOnly": true,
+        "corruption": 1,
+        "rarity": "common",
+        "exhaust": false,
+        "damage": 4,
+        "heal": 6,
+        "id": "D01",
+        "fallenPenalty": false,
+        "attackMultiplier": 1,
+        "blockMultiplier": 1
+      },
+      "D04": {
+        "name": "魔躯",
+        "cost": 1,
+        "text": "获得 12 护盾，抽 1 张牌。使用后魔念 +1；清心玉可阻止增加。无玉达到 6 后入魔，本局不可逆。",
+        "target": false,
+        "character": "sword",
+        "category": "demonic",
+        "locked": true,
+        "storyOnly": true,
+        "corruption": 1,
+        "rarity": "uncommon",
+        "attack": false,
+        "exhaust": false,
+        "block": 12,
+        "id": "D04",
+        "fallenPenalty": false,
+        "attackMultiplier": 1,
+        "blockMultiplier": 1
+      }
+    }
+  },
+  "jade": [
+    {
+      "eventId": "demonic_warning",
+      "floor": 17,
+      "corruption": 5,
+      "uses": 6,
+      "fallen": false
+    },
+    {
+      "eventId": "mirror_trial",
+      "floor": 22,
+      "corruption": 5,
+      "uses": 6,
+      "fallen": false
+    }
+  ],
+  "hunt": {
+    "enemy": "apothecary",
+    "actualCombat": true,
+    "before": {
+      "D02": 0,
+      "D03": 0,
+      "D04": 0,
+      "D05": 0,
+      "D06": 0
+    },
+    "after": {
+      "D02": 1,
+      "D03": 1,
+      "D04": 1,
+      "D05": 1,
+      "D06": 1
+    },
+    "rewardOnce": true
+  },
+  "clues": [
+    {
+      "id": "moon_trace",
+      "flag": "bellEcho",
+      "choice": 0,
+      "received": "生命 −6 · 剑器「照夜」"
+    },
+    {
+      "id": "sealed_name",
+      "flag": "ritualName",
+      "choice": 0,
+      "received": "生命 −4 · 金币 +25"
+    },
+    {
+      "id": "moon_vow",
+      "flag": "emptyVow",
+      "choice": 0,
+      "received": "最大生命 −4 · 生命 +6"
+    }
+  ],
+  "unlock": {
+    "persisted": true,
+    "profile": {
+      "version": 1,
+      "unlocks": [
+        "feiye"
+      ]
+    }
+  },
+  "sovereignQuest": [
+    {
+      "floor": 3,
+      "event": "sovereign_wake"
+    },
+    {
+      "floor": 10,
+      "enemy": "feiye_echo",
+      "power": 1
+    },
+    {
+      "floor": 13,
+      "event": "sovereign_recall"
+    },
+    {
+      "floor": 20,
+      "enemy": "retainer",
+      "power": 2
+    },
+    {
+      "floor": 23,
+      "event": "sovereign_memory"
+    },
+    {
+      "floor": 26,
+      "enemy": "heart",
+      "power": 3
+    },
+    {
+      "floor": 30,
+      "enemy": "snake_ascended",
+      "power": 3
+    }
+  ],
+  "browser": "154.0.8037.57",
+  "passed": 17,
+  "failed": 2
+}

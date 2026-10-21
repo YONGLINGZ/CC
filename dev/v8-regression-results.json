@@ -1,0 +1,179 @@
+{
+  "version": "蚀心长夜版 v8",
+  "engine": {
+    "passed": 161,
+    "failed": 0,
+    "total": 161,
+    "skipped": 0,
+    "legacy_checks": 144,
+    "new_checks": 17
+  },
+  "data_contract": {
+    "cards": 70,
+    "enemies": 15,
+    "relics": 15,
+    "quest_items": 1,
+    "events": 40,
+    "demonic_cards": 6
+  },
+  "public_api": {
+    "completed": 150,
+    "wins": 150,
+    "defeats": 0,
+    "method": "Public API only; 150 seeded heuristic simulations across three professions and five starters, active chapter hazards, 30 global steps, logical poison suppression, late story cures and visible equipment choices, no run-state/resource fixtures. Sword attempts alternate refusing and learning demonic skills; each policy includes ten stranger rescues and five refusals, through actual event choices. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.",
+    "report": "dev/v8-playtest-report.json",
+    "all_victories_crossed_regions": true,
+    "all_victories_completed_30_nodes": true,
+    "base": {
+      "completed": 120,
+      "wins": 120,
+      "defeats": 0
+    },
+    "sovereign": {
+      "completed": 30,
+      "wins": 30,
+      "defeats": 0,
+      "initial_profile": "Explicit already-unlocked profile supplied for profession simulation only; not a claimed natural unlock.",
+      "all_victories_recovered_three_powers": true
+    },
+    "sword_policies": [
+      {
+        "policy": "refuse",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "rescued_stranger": 10,
+        "declined_rescue": 5,
+        "poison_triggered": 10,
+        "demonic_uses": 0,
+        "fallen": 0,
+        "temporary_suppression_actions": 26,
+        "permanent_cures": 10,
+        "cured_at_17": 7,
+        "cured_at_22": 3
+      },
+      {
+        "policy": "learn",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "rescued_stranger": 10,
+        "declined_rescue": 5,
+        "poison_triggered": 10,
+        "demonic_uses": 106,
+        "fallen": 0,
+        "temporary_suppression_actions": 25,
+        "permanent_cures": 10,
+        "cured_at_17": 6,
+        "cured_at_22": 4
+      }
+    ],
+    "permanent_cures_verified": true,
+    "fallen_coverage": "No heuristic simulation fell; bounded v8 rule fixtures verify six-use fall, irreversible state and jade prevention."
+  },
+  "hidden_api": {
+    "completed": 24,
+    "wins": 22,
+    "defeats": 2,
+    "hidden_challenges": 24,
+    "hidden_wins": 22,
+    "unlocks": 22,
+    "ordinary_victories": 0,
+    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "report": "dev/v8-hidden-playtest-report.json",
+    "starting_profile": "Empty default profile; no unlock injection."
+  },
+  "world_contract": {
+    "route_templates": 20,
+    "chapters": 3,
+    "steps_per_chapter": 10,
+    "global_steps": 30,
+    "min_nodes_per_chapter": 42,
+    "max_nodes_per_chapter": 46,
+    "chapter_boss_steps": [
+      10,
+      20,
+      30
+    ],
+    "clue_steps": [
+      4,
+      14,
+      24
+    ],
+    "npc_steps": [
+      3,
+      13,
+      23
+    ],
+    "chapter_template_state": "state.chapterTemplates records all three selected templates; state.mapTemplateName tracks the active chapter.",
+    "measured_1000_maps": {
+      "maps": 1000,
+      "chapter_maps": 3000,
+      "fox": 1000,
+      "elite": 1000,
+      "rest": 1000,
+      "shop": 1000,
+      "min_chapter_nodes": 42,
+      "max_chapter_nodes": 46
+    },
+    "test_adaptations": "All 144 pre-v8 tests retained. Legacy card fixtures disable chapter hazards, use valid active-region indices and isolate event/story placement. Full card damage, shields, costs, healing and reward assertions remain. Map and story assertions follow 30 global steps with three ten-step chapters.",
+    "fallen_manuscript_choice": "Fallen-only proactive plunder of an initially unhostile keeper at step27; real combat and five-page loot only after victory; does not label NPC morality."
+  },
+  "poison_contract": {
+    "ordinary_heal": 18,
+    "rest_suppression": {
+      "heal": 6,
+      "ticks": 4,
+      "permanent": false
+    },
+    "shop_suppression": {
+      "gold_cost": 30,
+      "heal": 6,
+      "ticks": 6,
+      "once_per_visit": true,
+      "permanent": false
+    },
+    "permanent_cure": {
+      "gold_cost": 40,
+      "choices": [
+        {
+          "floor": 17,
+          "event": "demonic_warning",
+          "index": 1
+        },
+        {
+          "floor": 22,
+          "event": "mirror_trial",
+          "index": 1
+        }
+      ],
+      "jade_choice": {
+        "index": 0,
+        "item": "clearheart_jade"
+      },
+      "exclusive_per_event": true,
+      "cure_at_17_then_jade_at_22_allowed": true
+    }
+  },
+  "inputs": {
+    "dev/engine.js": "4f366ddac569a9c012b3e653d7a6cacee5d4ff0c45b189421e07447e1c3244b7",
+    "dev/expansion.js": "f89e54c34232661f572dc02e4342ec7a920c1f54828d49b15cb68862dbb7d2a2",
+    "dev/engine.test.cjs": "a38f775c251c5d3901cde0c57d8cac45093688824f37629844c56ccc10ca7aea",
+    "dev/rework.test.cjs": "0b2a07d8a14fe58b976162e48006c0cf5504a81103acab3c29d7e7271e8439ac",
+    "dev/reward.test.cjs": "14006e7fa69ead55fabc6161f487bb8b6b99e7bb1be590b8a46d071a0b3d0d1b",
+    "dev/v5-engine.test.cjs": "a2d732611c178c43cd6b411e52038a7dbfe123e24a8c5e40e60ca437010daf57",
+    "dev/v6-engine.test.cjs": "ae58d2e2a5f115a2205bc372855524b5da11f963bc0bc5227592a243e8a88a6a",
+    "dev/v7-engine.test.cjs": "a362b42af4ae420e62a1671f8283f4feb0592513cf9851f1a77f877a99a9ba02",
+    "dev/v8-engine.test.cjs": "abdd1412257deccda2489f7a77586acd6d20963934197e82b7370e3a2f14932e",
+    "dev/playtest.cjs": "e5b8f94db87b488bdd6a08ee8ab1d1be7af3aa427d06a0fd265673c29690a485",
+    "dev/v7-hidden-playtest.cjs": "635e3e3e7a65305991c88580070ebb49f8989c4f8764ececa3f13d245d0e1be8",
+    "dev/v8-playtest-report.json": "f8fd1319ca85477e988dfb87156737a715de04782f9d2a60d1cd33ca8021a293",
+    "dev/v8-hidden-playtest-report.json": "f4ac0d1075505fb4cd2611f4c28b0c287d0b1e3c252d315524dc516fd9334eea"
+  },
+  "commands": [
+    "node --test dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs dev/v6-engine.test.cjs dev/v7-engine.test.cjs dev/v8-engine.test.cjs",
+    "PLAYTEST_REPORT=dev/v8-playtest-report.json node dev/playtest.cjs",
+    "HIDDEN_PLAYTEST_REPORT=dev/v8-hidden-playtest-report.json node dev/v7-hidden-playtest.cjs"
+  ],
+  "note": "Actual deterministic rule tests and public-action heuristic runs. Arranged states are confined to labelled rule fixtures. Simulations use active chapter hazards and make no resource, pile, price, damage or profile edits; sovereign simulation starts with an explicitly declared unlocked profile. These are regression probes, not human balance or time-to-complete validation. Historical v4–v7 reports are unchanged."
+}

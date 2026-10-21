@@ -4,21 +4,22 @@
 'use strict';
 const test=require('node:test'), assert=require('node:assert/strict');
 const {createGame,REGIONS,NPCS,EVENT_IDS:ALL_EVENT_IDS,CHAIN_EVENT_IDS,ENEMIES,TREASURE_RELICS}=require('./engine.js');
-const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory'].includes(id));
+const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 const {nextCard}=require('./playtest.cjs');
 function random(seed=7){let n=seed>>>0;return()=>((n=(Math.imul(n,1664525)+1013904223)>>>0)/4294967296);}
 function run(seed=7,starter='sword'){const g=createGame({environment:false,rng:random(seed)});g.newRun(starter);return g;}
+function regionFor(floor){return REGIONS.findIndex(r=>floor>=r.stages[0]&&floor<=r.stages[1]);}
 function eventAt(g,id,{poor=false}={}){
-  const floor=id.endsWith('_first')?2:id.endsWith('_return')?5:id.endsWith('_final')?9:3;
-  const s=g.state,node=s.map[floor-1].find(n=>n.type==='event');
-  assert.ok(node,id);s.floor=floor;s.screen='map';s.journey.regionIndex=Math.floor((floor-1)/4);
+  const floor=id.endsWith('_first')?3:id.endsWith('_return')?13:id.endsWith('_final')?23:6;
+  const s=g.state,node=s.map[floor-1].find(n=>n.type==='event')||s.map[floor-1][0];node.type='event';delete node.encounter;
+  assert.ok(node,id);s.floor=floor;s.screen='map';s.journey.regionIndex=regionFor(floor);
   node.revealed=true;node.storyId=id;s.availableNodes=[node.id];s.history=s.history.filter(h=>h.floor!==floor);
   if(poor){s.player.hp=1;s.player.gold=0;s.player.deck=s.player.deck.slice(0,5);}
   assert.equal(g.enterNode(node.id),true);assert.equal(s.event.id,id);return s.event;
 }
 function battleFixture(g,floor=7){
-  const s=g.state,node=s.map[floor-1].find(n=>n.type==='fight');assert.ok(node);
-  s.floor=floor;s.screen='map';s.journey.regionIndex=Math.floor((floor-1)/4);node.revealed=true;
+  const s=g.state,node=s.map[floor-1].find(n=>n.type==='fight')||s.map[floor-1][0];if(node.type!=='boss'){node.type='fight';delete node.storyId;delete node.encounter;}assert.ok(node);
+  s.floor=floor;s.screen='map';s.journey.regionIndex=regionFor(floor);node.revealed=true;
   s.availableNodes=[node.id];s.history=s.history.filter(h=>h.floor!==floor);assert.equal(g.enterNode(node.id),true);return s.battle;
 }
 function killFixture(g){const s=g.state,b=s.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=3;b.hand=[{id:s.character==='sword'?'S01':'C01',uid:'fixture-finisher'}];assert.equal(g.playCard('fixture-finisher',true),true);}
@@ -26,7 +27,7 @@ function finishReward(g){if(g.state.reward.relicPending)assert.equal(g.chooseRel
 function resolve(g,index){assert.equal(g.chooseEvent(index),true);assert.equal(g.chooseEvent(index),false);}
 
 test('three distinct regions, 27 event definitions and adult named disciples are exported',()=>{
-  assert.equal(REGIONS.length,3);assert.deepEqual(REGIONS.map(r=>r.stages),[[1,4],[5,8],[9,12]]);
+  assert.equal(REGIONS.length,3);assert.deepEqual(REGIONS.map(r=>r.stages),[[1,10],[11,20],[21,30]]);
   assert.equal(new Set(REGIONS.map(r=>r.id)).size,3);assert.equal(EVENT_IDS.length,27);assert.equal(new Set(EVENT_IDS).size,27);assert.equal(CHAIN_EVENT_IDS.length,9);
   for(const id of ['liu','ji','wen'])assert.equal(NPCS[id].adult,true);
   assert.equal(ENEMIES.raider.hp,42);assert.deepEqual(ENEMIES.raider.intents.map(x=>x.hits),[[7],[6],[6,6]]);
@@ -34,30 +35,30 @@ test('three distinct regions, 27 event definitions and adult named disciples are
 
 test('arrival gates actions and reveals exactly the first region; cannot enter a future or previous node',()=>{
   const g=run(),s=g.state;assert.equal(s.screen,'arrival');assert.equal(s.map.flat().filter(n=>n.revealed).length,0);
-  assert.deepEqual(g.getAvailableNodes(),[]);assert.equal(g.enterNode('f1-0'),false);assert.equal(g.enterNode('f5-0'),false);
-  assert.equal(g.enterRegion(),true);assert.equal(g.enterRegion(),false);assert.ok(s.map.slice(0,4).flat().every(n=>n.revealed));assert.ok(s.map.slice(4).flat().every(n=>!n.revealed));
-  assert.equal(g.enterNode('f5-0'),false);assert.equal(g.enterNode('f1-0'),true);assert.equal(g.enterNode('f1-0'),false);
+  assert.deepEqual(g.getAvailableNodes(),[]);assert.equal(g.enterNode('f1-0'),false);assert.equal(g.enterNode('f11-0'),false);
+  assert.equal(g.enterRegion(),true);assert.equal(g.enterRegion(),false);assert.ok(s.map.slice(0,10).flat().every(n=>n.revealed));assert.ok(s.map.slice(10).flat().every(n=>!n.revealed));
+  assert.equal(g.enterNode('f11-0'),false);assert.equal(g.enterNode('f1-0'),true);assert.equal(g.enterNode('f1-0'),false);
 });
 
 test('1000 maps have connected forward paths, every opening NPC reachable, and at least four battles',()=>{
   for(let seed=1;seed<=1000;seed++){
     const g=run(seed),s=g.state,all=s.map.flat(),byId=Object.fromEntries(all.map(n=>[n.id,n]));
-    const seen=new Set(['f1-0']),minimum=new Map([['f1-0',1]]);assert.equal(s.map.length,12);
-    assert.deepEqual(new Set(s.map[1].map(n=>n.storyId)),new Set(['liu_first','ji_first','wen_first']));
-    assert.equal(s.map[0][0].next.length,s.map[1].length);assert.ok(s.map.flat().length>=40);
-    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.regionIndex,Math.floor((n.floor-1)/4));
-      if(n.floor<12)assert.ok(n.next.length>0);for(const id of n.next){const next=byId[id];assert.equal(next.floor,n.floor+1);seen.add(id);minimum.set(id,Math.min(minimum.get(id)??Infinity,minimum.get(n.id)+(['fight','elite','boss'].includes(next.type)?1:0)));}}
-    assert.equal(seen.size,all.length);assert.ok(minimum.get('f12-0')>=4);assert.ok(all.filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
+    const seen=new Set(['f1-0']),minimum=new Map([['f1-0',1]]);assert.equal(s.map.length,30);
+    assert.deepEqual(new Set(s.map[2].map(n=>n.storyId)),new Set(['liu_first','ji_first','wen_first']));
+    assert.equal(s.map[0][0].next.length,s.map[1].length);assert.ok(s.map.flat().length>=120);
+    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.regionIndex,regionFor(n.floor));
+      if(n.floor<30)assert.ok(n.next.length>0);for(const id of n.next){const next=byId[id];assert.equal(next.floor,n.floor+1);seen.add(id);minimum.set(id,Math.min(minimum.get(id)??Infinity,minimum.get(n.id)+(['fight','elite','boss'].includes(next.type)?1:0)));}}
+    assert.equal(seen.size,all.length);assert.ok(minimum.get('f30-0')>=6);assert.ok(all.filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
   }
 });
 
 test('crossing a region opens an arrival screen, prepares only chosen NPC sequel, and rejects boundary skipping',()=>{
   const g=run(),s=g.state;g.enterRegion();eventAt(g,'liu_first');resolve(g,0);assert.equal(g.leaveEvent(),true);
-  battleFixture(g,4);killFixture(g);finishReward(g);assert.equal(s.floor,5);assert.equal(s.screen,'arrival');assert.equal(s.journey.regionIndex,1);
-  assert.ok(s.map[4].every(n=>n.storyId==='liu_return'&&!n.revealed));assert.ok(s.map[8].every(n=>!n.storyId&&!n.revealed));
-  assert.equal(g.enterNode(s.availableNodes[0]),false);assert.equal(g.enterRegion(),true);assert.ok(s.map.slice(4,8).flat().every(n=>n.revealed));
-  assert.ok(s.map.slice(8).flat().every(n=>!n.revealed));assert.equal(g.enterNode('f2-0'),false);assert.equal(g.enterNode(s.availableNodes[0]),true);assert.equal(s.event.id,'liu_return');
-  assert.equal(s.journey.journal.length,1);assert.ok(s.journey.journal.every(e=>e.floor<=s.floor));
+  battleFixture(g,10);killFixture(g);finishReward(g);assert.equal(s.floor,11);assert.equal(s.screen,'arrival');assert.equal(s.journey.regionIndex,1);
+  assert.ok(s.map[12].every(n=>n.storyId==='liu_return'&&!n.revealed));assert.ok(s.map[22].every(n=>!n.storyId&&!n.revealed));
+  assert.equal(g.enterNode(s.availableNodes[0]),false);assert.equal(g.enterRegion(),true);assert.ok(s.map.slice(10,20).flat().every(n=>n.revealed));
+  assert.ok(s.map.slice(20).flat().every(n=>!n.revealed));assert.equal(g.enterNode('f3-0'),false);assert.equal(g.enterNode(s.availableNodes[0]),true);killFixture(g);finishReward(g);eventAt(g,'liu_return');assert.equal(s.event.id,'liu_return');
+  assert.equal(s.journey.journal.filter(e=>e.npc==='liu').length,1);assert.ok(s.journey.journal.every(e=>e.floor<=s.floor));
 });
 
 test('Liu help by life or gold is remembered and produces free healing and one-shot battle aid',()=>{
@@ -67,7 +68,7 @@ test('Liu help by life or gold is remembered and produces free healing and one-s
     p.hp=20;eventAt(g,'liu_return');assert.equal(s.event.choices[0].goldCost,undefined);resolve(g,0);assert.equal(p.hp,38);assert.equal(s.journey.nextCombatBlock,8);g.leaveEvent();
     const b=battleFixture(g);assert.equal(b.block,8);assert.equal(s.journey.nextCombatBlock,0);assert.ok(b.logs.some(x=>x.includes('故人留下的护符')));
     g.endTurn();g.resolveEnemyTurn();assert.equal(b.block,0);killFixture(g);finishReward(g);
-    const next=battleFixture(g,10);assert.equal(next.block,0);
+    const next=battleFixture(g,16);assert.equal(next.block,0);
     eventAt(g,'liu_final');assert.match(s.event.story.join(''),/等|药灯/);p.hp=20;resolve(g,0);assert.equal(p.hp,32);assert.equal(s.journey.nextCombatBlock,12);assert.equal(s.journey.relationships.liu.status,'生死之交');
   }
 });
@@ -110,14 +111,14 @@ test('robbery starts actual combat, retains treasure, grants rewards once, and a
 
 test('robbery battle can actually kill the player without rewards or advancing',()=>{
   const g=run(),s=g.state;s.journey.flags.jiExposed=true;s.journey.hidden.jiIntent='greedy';eventAt(g,'ji_final');resolve(g,0);g.leaveEvent();s.player.hp=1;s.battle.block=0;
-  const gold=s.player.gold;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);assert.equal(s.screen,'defeat');assert.equal(s.player.hp,0);assert.equal(s.player.gold,gold);assert.equal(s.result.floor,9);assert.equal(s.result.enemy,'季临川');assert.equal(s.history.filter(h=>h.floor===9).length,0);
+  const gold=s.player.gold;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);assert.equal(s.screen,'defeat');assert.equal(s.player.hp,0);assert.equal(s.player.gold,gold);assert.equal(s.result.floor,23);assert.equal(s.result.enemy,'季临川');assert.equal(s.history.filter(h=>h.floor===23).length,0);
 });
 
 test('robbery pay and blood escapes preserve every relic, charge once, and avoid combat',()=>{
   for(const index of [1,2]){
     const g=run(),s=g.state;s.journey.flags.jiExposed=true;s.journey.hidden.jiIntent='greedy';s.player.relics.push('mirror');eventAt(g,'ji_final');
     const before=structuredClone(s.player);resolve(g,index);assert.deepEqual(s.player.relics,before.relics);assert.equal(s.player.gold,before.gold-(index===1?35:0));assert.equal(s.player.hp,before.hp-(index===2?8:0));
-    assert.equal(g.leaveEvent(),true);assert.equal(s.screen,'map');assert.equal(s.floor,10);assert.equal(s.journey.flags.jiEscaped,true);
+    assert.equal(g.leaveEvent(),true);assert.equal(s.screen,'map');assert.equal(s.floor,24);assert.equal(s.journey.flags.jiEscaped,true);
   }
 });
 
@@ -133,7 +134,7 @@ test('unwashed tracking reaches a real hunter later, with alternate exits and kn
     assert.match(s.event.connection,/断锁救人.*没有.*洗/);assert.equal(s.event.choices[0].battle.name,'黑衣人');
     resolve(g,0);g.leaveEvent();assert.equal(s.battle.enemy.id,'raider');assert.equal(s.battle.enemy.name,'黑衣人');killFixture(g);assert.equal(s.screen,'reward');
   }
-  for(const index of [1,2]){const g=run(),s=g.state;s.journey.flags.wenFreed=true;eventAt(g,'wen_final');const before=structuredClone(s.player);resolve(g,index);assert.equal(s.journey.flags.wenCleansed,true);assert.deepEqual(s.player.relics,before.relics);g.leaveEvent();assert.equal(s.floor,10);assert.equal(s.screen,'map');}
+  for(const index of [1,2]){const g=run(),s=g.state;s.journey.flags.wenFreed=true;eventAt(g,'wen_final');const before=structuredClone(s.player);resolve(g,index);assert.equal(s.journey.flags.wenCleansed,true);assert.deepEqual(s.player.relics,before.relics);g.leaveEvent();assert.equal(s.floor,24);assert.equal(s.screen,'map');}
 });
 
 test('buying records without rescue leaves no tracking and maintains future payoff',()=>{
@@ -150,7 +151,7 @@ test('all 27 event builders and enabled choices apply once for both professions,
       assert.ok(t.player.hp>0&&t.player.hp<=t.player.maxHp&&t.player.gold>=0&&t.player.deck.length>=5);
       for(const card of c.cardIds||[])assert.equal(card[0],starter==='sword'?'S':'C');
       assert.equal(t.player.gold,original.gold-(c.goldCost||0)+(c.goldGain||0)+(Object.hasOwn(c,'relic')&&!c.relic?(c.fallbackGold||60):0));
-      assert.equal(x.leaveEvent(),true);assert.equal(t.screen,c.battle?'battle':([4,8].includes(t.floor-1)?'arrival':'map'));
+      assert.equal(x.leaveEvent(),true);assert.equal(t.screen,c.battle?'battle':([10,20].includes(t.floor-1)?'arrival':'map'));
     }
     const poor=run(55,starter);eventAt(poor,id,{poor:true});const available=poor.state.event.choices.findIndex(c=>!c.disabled);assert.ok(available>=0);assert.equal(poor.chooseEvent(available),true);assert.ok(poor.state.player.hp>0);
   }
@@ -159,7 +160,7 @@ test('all 27 event builders and enabled choices apply once for both professions,
 test('optional random events exclude unintroduced story sequels and favor unseen encounters',()=>{
   const g=run(),s=g.state,seen=[];s.seenEvents=ALL_EVENT_IDS.filter(id=>!EVENT_IDS.includes(id));
   for(let i=0;i<EVENT_IDS.length-CHAIN_EVENT_IDS.length;i++){
-    const node=s.map[2].find(n=>n.type==='event');delete node.storyId;s.floor=3;s.screen='map';s.journey.regionIndex=0;node.revealed=true;s.availableNodes=[node.id];s.history=[];
+    const node=s.map[5][0];node.type='event';delete node.encounter;delete node.storyId;s.floor=6;s.screen='map';s.journey.regionIndex=0;node.revealed=true;s.availableNodes=[node.id];s.history=[];
     assert.equal(g.enterNode(node.id),true);assert.ok(!CHAIN_EVENT_IDS.includes(s.event.id));seen.push(s.event.id);const ix=s.event.choices.findIndex(c=>!c.disabled&&!c.battle);resolve(g,ix);g.leaveEvent();
   }
   assert.equal(new Set(seen).size,18);assert.equal(s.journey.chain,null);
@@ -179,7 +180,7 @@ test('public actions naturally cross all three regions and finish chosen story w
     let successful=false;
     for(let seed=1;seed<=12&&!successful;seed++){
       const g=run(seed,starter),s=g.state,regions=[];
-      for(let step=0;step<1000&&!['victory','defeat'].includes(s.screen);step++){
+      for(let step=0;step<4000&&!['victory','defeat'].includes(s.screen);step++){
         if(s.screen==='arrival'){regions.push(s.journey.regionIndex);assert.equal(g.enterRegion(),true);continue;}
         if(s.screen==='battle'){const c=nextCard(s);if(c)assert.equal(g.playCard(c.uid,true),true);else {assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);}continue;}
         if(s.screen==='reward'){if(s.reward.relicPending)g.chooseRelic(s.reward.relicChoices[0]);g.chooseReward(s.reward.cards[0]);continue;}

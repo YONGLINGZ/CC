@@ -1,0 +1,138 @@
+{
+  "format": "baiyao-v8-browser",
+  "target": "/tmp/v8qa-gate-slim.html",
+  "inlineTarget": "/tmp/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "fixture 救人后毒到下一节点才显露；节点、回合各扣一次，菜单与重复点击不扣",
+      "ok": true
+    },
+    {
+      "name": "fixture 原剑诀无治疗且魔修治疗锁在接触之后，拒绝可保留正道和中毒",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/v8qa-gate-slim.html"
+  ],
+  "expectedMissingRequests": [],
+  "sha256": "7732c521fa03cb378e7856fe9f4bfe091c152e540fa4878c41bea1192908793f",
+  "inputs": {
+    "dev/engine.js": "49f4c4b696d8f1a06d7dac5f8c35090745f20e79fb9101de223d052e76507eb8",
+    "dev/expansion.js": "f89e54c34232661f572dc02e4342ec7a920c1f54828d49b15cb68862dbb7d2a2",
+    "dev/ui.js": "ad0f1340907cf6d1099a83aed9acb98e111929817df34c8a4dc8daf788a8b52a",
+    "dev/shell.html": "3f9672abc60bf96c3fad98942d5dbbc2ffadbe0bcca97352849480b48ce156e5",
+    "dev/art.js": "cd32758a50f30e9c7a1a0a88ac84df08e3076d32593b87191da2125c22943b4e",
+    "dev/build.cjs": "19357b392fc9be59e599ecdb39807325206fa629799211822a05dfe644ea4d17"
+  },
+  "poisonTicks": {
+    "before": {
+      "active": false,
+      "revealed": false,
+      "ticks": 0,
+      "suppressed": 0,
+      "source": null
+    },
+    "after": {
+      "active": true,
+      "revealed": true,
+      "ticks": 4,
+      "suppressed": 0,
+      "source": "tainted_mercy"
+    },
+    "entryAndFirstTurn": 2,
+    "menus": 0
+  },
+  "originalSwordHealing": [
+    {
+      "id": "S01",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S02",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S03",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S04",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S05",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S06",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S07",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S08",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S09",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S10",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S11",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S12",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S13",
+      "hpBefore": 30,
+      "hpAfter": 27
+    },
+    {
+      "id": "S14",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S15",
+      "hpBefore": 30,
+      "hpAfter": 30
+    },
+    {
+      "id": "S16",
+      "hpBefore": 30,
+      "hpAfter": 30
+    }
+  ],
+  "refusal": {
+    "poisonPersistsBeforeCure": true,
+    "learned": false,
+    "fallen": false
+  },
+  "browser": "154.0.8037.57",
+  "passed": 2,
+  "failed": 0
+}

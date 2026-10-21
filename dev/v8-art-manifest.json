@@ -1,0 +1,536 @@
+{
+  "version": 8,
+  "description": "Demonic sword path expansion art. Contact-sheet cells and three consistent transparent health stages; the boss portrait is an explicit alias.",
+  "sourceDirectory": "/workspace/generated_images",
+  "sources": {
+    "sheet": {
+      "file": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "width": 1254,
+      "height": 1254,
+      "grid": [
+        4,
+        4
+      ],
+      "visualInspection": "All 16 row-major concepts checked; exact cell crops avoid the generated white separators."
+    },
+    "normal": {
+      "file": "exec-7856b621-91e2-4c64-b607-ae0f0464730b.png",
+      "visualInspection": "Adult silver-haired sword cultivator, red-violet eyes, fully covered black/crimson robes, confident manic smile."
+    },
+    "wounded": {
+      "file": "exec-e037ae5f-b724-4e26-8a0c-43c47a649151.png",
+      "reference": "exec-7856b621-91e2-4c64-b607-ae0f0464730b.png",
+      "visualInspection": "Same adult face/outfit; outer sleeve/robe damage, scratches and fervent grin; fully covered core."
+    },
+    "critical": {
+      "file": "exec-a567532b-8848-4f6b-8c0c-299eeab0ea9d.png",
+      "reference": "exec-7856b621-91e2-4c64-b607-ae0f0464730b.png",
+      "visualInspection": "Same adult face/outfit; substantially frayed outer robe and superficial scratches, fatigued obsessive smile; fully covered core."
+    }
+  },
+  "totalFiles": 20,
+  "totalBytes": 1244458,
+  "distinctDecodedImages": 19,
+  "explicitAliasCount": 1,
+  "entries": [
+    {
+      "id": "D01",
+      "file": "assets/cards/D01.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 0,
+        "row": 0,
+        "column": 0,
+        "crop": {
+          "left": 1,
+          "top": 1,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 30752,
+      "hasAlpha": false,
+      "sha256": "a97e59c3969662023323189f6a1f5e04daa204bf84c0a09d6734e93ca71f2d1f",
+      "decodedRgbaSha256": "e93b8c68a8cc066c64df8441b1d7b03af268cc0af9cc0f61a936f3bac9d4f1fa"
+    },
+    {
+      "id": "D02",
+      "file": "assets/cards/D02.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 1,
+        "row": 0,
+        "column": 1,
+        "crop": {
+          "left": 315,
+          "top": 1,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 26512,
+      "hasAlpha": false,
+      "sha256": "bcb955834864f5845e245cec43164f6279f899cb46fff70ae0a99c472bc21984",
+      "decodedRgbaSha256": "49e38c3124b76fabda94da7d211dd8c392f6afc4932ea78893c0b824da0ee795"
+    },
+    {
+      "id": "D03",
+      "file": "assets/cards/D03.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 2,
+        "row": 0,
+        "column": 2,
+        "crop": {
+          "left": 630,
+          "top": 1,
+          "width": 308,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 28862,
+      "hasAlpha": false,
+      "sha256": "2e3229bff471aea4d0b2c680aa1979f6ac5d2f356720e762cbe8ad05cce40a11",
+      "decodedRgbaSha256": "fbbc3b75e5642484ff4c2740c396cb1e84a801f3ce21ef3cb897314ff8edf04c"
+    },
+    {
+      "id": "D04",
+      "file": "assets/cards/D04.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 3,
+        "row": 0,
+        "column": 3,
+        "crop": {
+          "left": 943,
+          "top": 1,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 30546,
+      "hasAlpha": false,
+      "sha256": "ca631e234ffa3d10b0c828e515f7884254336fdc0fca742ad606d91240aa4224",
+      "decodedRgbaSha256": "6ea4bdb63b422d4f3062a08c851484c694be85b7a2644b34375e1eaeb1c23127"
+    },
+    {
+      "id": "D05",
+      "file": "assets/cards/D05.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 4,
+        "row": 1,
+        "column": 0,
+        "crop": {
+          "left": 1,
+          "top": 314,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 25376,
+      "hasAlpha": false,
+      "sha256": "c3e4375f9493aad1fd3628ab6327c0f30788be4d20d48b207c41872b396e856e",
+      "decodedRgbaSha256": "bf0b2dcbe8f0a0a4cbec7c7e26c14c632ba23b7d350a112aee721eafd6bdca33"
+    },
+    {
+      "id": "D06",
+      "file": "assets/cards/D06.webp",
+      "kind": "cards",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 5,
+        "row": 1,
+        "column": 1,
+        "crop": {
+          "left": 315,
+          "top": 314,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 28826,
+      "hasAlpha": false,
+      "sha256": "d275d8023676e4e0556bcc320894068961a273a8bf774026aaa644a1be920690",
+      "decodedRgbaSha256": "b7e7496931b95d59c24db31b667fbe890dae065cfe8596059f0c3e8cda1e89f1"
+    },
+    {
+      "id": "tainted_mercy",
+      "file": "assets/events/tainted_mercy.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 6,
+        "row": 1,
+        "column": 2,
+        "crop": {
+          "left": 630,
+          "top": 314,
+          "width": 308,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 22100,
+      "hasAlpha": false,
+      "sha256": "fe3ee5f78449dfc2d41e4cdf91e0acf02a128f9c7ed4a492172fd931d0ab8cc9",
+      "decodedRgbaSha256": "df64a0e2db72da636c7529703d1afd752aa4c866d9fd78acde09e8c743eb330f"
+    },
+    {
+      "id": "demonic_offer",
+      "file": "assets/events/demonic_offer.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 7,
+        "row": 1,
+        "column": 3,
+        "crop": {
+          "left": 943,
+          "top": 314,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 21464,
+      "hasAlpha": false,
+      "sha256": "c8de1abbe28e1162989932ba6e7673e1173e4f34d6fed9113745a2e8830a0264",
+      "decodedRgbaSha256": "25f9e1fe82f2b996ccdcdee4b792574244dff88671e4893c61703d35e8a9bd03"
+    },
+    {
+      "id": "demonic_warning",
+      "file": "assets/events/demonic_warning.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 8,
+        "row": 2,
+        "column": 0,
+        "crop": {
+          "left": 1,
+          "top": 627,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 24932,
+      "hasAlpha": false,
+      "sha256": "8a142234bb9842bb78201e18ca1aba0b0c12cd5f7e4fea6c0a223443c52d365d",
+      "decodedRgbaSha256": "e523b06d514f37bafdfebef0dc1969c0c63722ae40df8d0e470b86fa16a9dba9"
+    },
+    {
+      "id": "mirror_trial",
+      "file": "assets/events/mirror_trial.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 9,
+        "row": 2,
+        "column": 1,
+        "crop": {
+          "left": 315,
+          "top": 627,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 19320,
+      "hasAlpha": false,
+      "sha256": "dea28c685538174760db825499915315a2618cf304228126d96221df3000cb70",
+      "decodedRgbaSha256": "de36d17dc0679b764e2e7e66732b1a832071e371fc2a228123f6e259ce7d2b7c"
+    },
+    {
+      "id": "demon_manual",
+      "file": "assets/events/demon_manual.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 10,
+        "row": 2,
+        "column": 2,
+        "crop": {
+          "left": 630,
+          "top": 627,
+          "width": 308,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 25534,
+      "hasAlpha": false,
+      "sha256": "c76dc9b298ff1bff3a0850520c44ba7d745aaa46d8991b037ab3a4be6b456d3f",
+      "decodedRgbaSha256": "e1e9ec8f383537c02c6634095d2dc6ff9b19a15ef24fa4dad72c99c4a0d195a6"
+    },
+    {
+      "id": "fallen_hunt",
+      "file": "assets/events/fallen_hunt.webp",
+      "kind": "events",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 11,
+        "row": 2,
+        "column": 3,
+        "crop": {
+          "left": 943,
+          "top": 627,
+          "width": 310,
+          "height": 309
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 23682,
+      "hasAlpha": false,
+      "sha256": "487e433609a2ed7241b0e5497bf87b1d2c0c9c9d6bf2374bbc4170cb6a5c3ecb",
+      "decodedRgbaSha256": "92514ebe2f7b37b1943cc0bceaed83f2e5ff22e04a0f84d60d34724ea5824b11"
+    },
+    {
+      "id": "gate_boss",
+      "file": "assets/portraits/gate_boss.webp",
+      "kind": "portraits",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 12,
+        "row": 3,
+        "column": 0,
+        "crop": {
+          "left": 1,
+          "top": 941,
+          "width": 310,
+          "height": 312
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 28446,
+      "hasAlpha": false,
+      "sha256": "4f245ea4686891a3dbfe114bcda441a1d38c07e56365f8f1b218e445549f7618",
+      "decodedRgbaSha256": "82f5a286b731f330266744bc0a835b9ac100d92747149b677b68be0cb9f5ee59"
+    },
+    {
+      "id": "camp_boss",
+      "file": "assets/portraits/camp_boss.webp",
+      "kind": "portraits",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 13,
+        "row": 3,
+        "column": 1,
+        "crop": {
+          "left": 315,
+          "top": 941,
+          "width": 310,
+          "height": 312
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 24922,
+      "hasAlpha": false,
+      "sha256": "058ae6bd262a544403ab9562ea432d207735cd28e3f31de7107e662344f7315e",
+      "decodedRgbaSha256": "095ba88ba29816ec1fa7aa8b755f039783d8db65aff37243f1e252fbee14ffb3"
+    },
+    {
+      "id": "apothecary",
+      "file": "assets/portraits/apothecary.webp",
+      "kind": "portraits",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 14,
+        "row": 3,
+        "column": 2,
+        "crop": {
+          "left": 630,
+          "top": 941,
+          "width": 308,
+          "height": 312
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 20940,
+      "hasAlpha": false,
+      "sha256": "ee758a08726acdd3dd4d5086d5c50f5bd4afd1e4d1c1cb77f8b527ddcc9ea935",
+      "decodedRgbaSha256": "e708f72d24baa30d0b6453aa2e36f1de650ff0a378361e4671fd99c57760608b"
+    },
+    {
+      "id": "clearheart_jade",
+      "file": "assets/items/clearheart_jade.webp",
+      "kind": "items",
+      "source": "exec-73fb059a-277f-4084-8179-89efbfc6150b.png",
+      "sourceCell": {
+        "index": 15,
+        "row": 3,
+        "column": 3,
+        "crop": {
+          "left": 943,
+          "top": 941,
+          "width": 310,
+          "height": 312
+        },
+        "inset": 1
+      },
+      "quality": 82,
+      "operation": "Extract the content cell with 1px inset; normalize the subpixel sheet grid to 312px square; WebP encode.",
+      "width": 312,
+      "height": 312,
+      "bytes": 20872,
+      "hasAlpha": false,
+      "sha256": "335ae349dfc16a3c6c738ac5e99ef17fb518e68cb3b9b4a18ccf4ceb7a8f2ffe",
+      "decodedRgbaSha256": "916648c683a5dd2a638d84f48437f33b8922090a5e95ef995f617ab5d0ecb93a"
+    },
+    {
+      "id": "sword_fallen-normal",
+      "file": "assets/puppet/sword_fallen-normal.webp",
+      "kind": "puppet",
+      "source": "exec-7856b621-91e2-4c64-b607-ae0f0464730b.png",
+      "stage": "normal",
+      "healthThreshold": 1,
+      "quality": 82,
+      "alphaPreserved": true,
+      "operation": "Imagegen character illustration/edit; resize to 683x1024; retain generated alpha and WebP encode.",
+      "width": 683,
+      "height": 1024,
+      "bytes": 193498,
+      "hasAlpha": true,
+      "sha256": "a68a8eaefd1f23f73f95076043085c5f03f3d867179c717094f4042f7109c2fb",
+      "decodedRgbaSha256": "0ab3a924a90ce4aeba79efd600158d245c93f2ff96cf4a6437835b4f441991e7",
+      "alphaRange": {
+        "min": 0,
+        "max": 255
+      },
+      "alphaQuality": 70
+    },
+    {
+      "id": "sword_fallen-wounded",
+      "file": "assets/puppet/sword_fallen-wounded.webp",
+      "kind": "puppet",
+      "source": "exec-e037ae5f-b724-4e26-8a0c-43c47a649151.png",
+      "stage": "wounded",
+      "healthThreshold": 0.5,
+      "quality": 82,
+      "alphaPreserved": true,
+      "operation": "Imagegen character illustration/edit; resize to 683x1024; retain generated alpha and WebP encode.",
+      "width": 683,
+      "height": 1024,
+      "bytes": 221454,
+      "hasAlpha": true,
+      "sha256": "148b8e6a8ab76159487d52fd5e287cb2fa27564d22a9a2c5057e8a4e293ca185",
+      "decodedRgbaSha256": "b1f817c8fd5e140ccae8b436cffcff2efb8ab650de3588b167cc2e18fdfa1544",
+      "alphaRange": {
+        "min": 0,
+        "max": 255
+      },
+      "alphaQuality": 70
+    },
+    {
+      "id": "sword_fallen-critical",
+      "file": "assets/puppet/sword_fallen-critical.webp",
+      "kind": "puppet",
+      "source": "exec-a567532b-8848-4f6b-8c0c-299eeab0ea9d.png",
+      "stage": "critical",
+      "healthThreshold": 0.25,
+      "quality": 82,
+      "alphaPreserved": true,
+      "operation": "Imagegen character illustration/edit; resize to 683x1024; retain generated alpha and WebP encode.",
+      "width": 683,
+      "height": 1024,
+      "bytes": 232922,
+      "hasAlpha": true,
+      "sha256": "4e4bde58827cc7d9fda6b9835cbe775184485f03d5d435cbd75aa5d3c62d6f36",
+      "decodedRgbaSha256": "f663e77afaef941921b835c2c2f6ef97abf8b4913b138cb4d8e5d79405e1c562",
+      "alphaRange": {
+        "min": 0,
+        "max": 255
+      },
+      "alphaQuality": 70
+    },
+    {
+      "id": "sword_fallen",
+      "file": "assets/portraits/sword_fallen.webp",
+      "kind": "portraits",
+      "aliasOf": "assets/puppet/sword_fallen-normal.webp",
+      "operation": "Explicit boss portrait alias of the normal fallen player sprite.",
+      "width": 683,
+      "height": 1024,
+      "bytes": 193498,
+      "hasAlpha": true,
+      "sha256": "a68a8eaefd1f23f73f95076043085c5f03f3d867179c717094f4042f7109c2fb",
+      "decodedRgbaSha256": "0ab3a924a90ce4aeba79efd600158d245c93f2ff96cf4a6437835b4f441991e7",
+      "alphaRange": {
+        "min": 0,
+        "max": 255
+      }
+    }
+  ]
+}

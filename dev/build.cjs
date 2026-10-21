@@ -13,7 +13,7 @@ const output = outputIndex >= 0 ? path.resolve(root, args[outputIndex + 1]) : pa
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const script = text => text.replace(/^\s*<script[^>]*>/, '').replace(/<\/script>\s*$/, '').trimEnd();
 const gameData = require('./engine.js');
-const portraitIds = ['cat','fox','snake','paper','lantern','ape','bone','yaksha','raider','liu','ji','wen','feiye','feiye_echo','retainer','heart','snake_ascended'];
+const portraitIds = ['cat','fox','snake','paper','lantern','ape','bone','yaksha','raider','liu','ji','wen','feiye','feiye_echo','retainer','heart','snake_ascended','sword_fallen','gate_boss','camp_boss','apothecary'];
 const cardIds = Object.keys(gameData.CARDS);
 const eventIds = [...new Set([...(gameData.EVENT_IDS || ['well','shrine','dreamshop','theatre','umbrella','pawnshop']),'fox','rest','shop'])];
 const relicIds = Object.keys(gameData.RELICS);
@@ -25,11 +25,11 @@ function asset(folder,id){
   return inline?'data:image/webp;base64,'+fs.readFileSync(path.join(root,relative)).toString('base64'):relative;
 }
 const resources={};
-for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',['fog_gate','broken_camp','ritual_core']],['weapons','weapons',Object.keys(gameData.WEAPONS||{})]]){
+for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',['fog_gate','broken_camp','ritual_core']],['weapons','weapons',Object.keys(gameData.WEAPONS||{})],['items','items',Object.keys(require('./expansion.js').ITEMS||{})]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
 const roleEventIds=['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker','fox','rest','shop','moon_trace','sealed_name','moon_vow','armory'];
-resources.eventsByCharacter=Object.fromEntries(['sword','sovereign'].map(character=>[character,Object.fromEntries(roleEventIds.map(id=>[id,asset('events-'+character,id)]))]));
+resources.eventsByCharacter=Object.fromEntries(['sword','sovereign','sword_fallen'].map(character=>[character,Object.fromEntries(roleEventIds.map(id=>[id,asset('events-'+character,id)]))]));
 resources.puppet=Object.fromEntries(['normal','wounded','critical','blink'].map(id=>[id,asset('puppet','cat-'+id)]));
 if(gameData.CHARACTERS?.sword){
   resources.puppet.sword=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','sword-'+id)]));
@@ -38,6 +38,7 @@ if(gameData.CHARACTERS?.sword){
 if(gameData.CHARACTERS?.sovereign){
   resources.puppet.feiye=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','feiye-'+id)]));
 }
+resources.puppet.sword_fallen=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','sword_fallen-'+id)]));
 resources.puppetRig={};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if(args.includes('--strict')&&missing.length)throw new Error('Missing release art: '+missing.join(', '));

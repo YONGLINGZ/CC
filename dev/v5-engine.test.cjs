@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { createGame, CARDS, CHARACTERS, STARTERS, EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, RELICS } = require('./engine.js');
-const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory'].includes(id));
+const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 let uid = 0;
 function random(seed=5) { let n=seed>>>0; return()=>((n=(n*1664525+1013904223)>>>0)/4294967296); }
 function battle(starter='sword') {
@@ -27,7 +27,7 @@ test('两职业与四开局真实独立：牌组、初始遗物、成年角色�
 
 test('剑修16种卡是独立数据，费用、目标、完整效果和稀有池均存在',()=>{
   for(let i=1;i<=16;i++){const id='S'+String(i).padStart(2,'0'),c=CARDS[id];assert.ok(c);assert.equal(c.character,'sword');assert.ok(c.text.length>6);assert.ok(Number.isInteger(c.cost)&&c.cost>=0);assert.equal(typeof c.target,'boolean');}
-  assert.equal(Object.values(CARDS).filter(c=>c.character==='sword').length,16);
+  assert.equal(Object.values(CARDS).filter(c=>c.character==='sword'&&!c.storyOnly).length,16);
   assert.equal(Object.values(CARDS).filter(c=>c.character==='assassin').length,36);
   assert.deepEqual(['S15','S16'].filter(id=>CARDS[id].rarity==='rare'),['S15','S16']);
 });
@@ -108,12 +108,12 @@ test('职业卡池覆盖普通精英奖励、一次换牌、商店和18独立事
   for(const id of EVENT_IDS){const g=createGame({environment:false,rng:random(55)});g.newRun('sword'); g.enterRegion();g.state.seenEvents=ALL_EVENT_IDS.filter(x=>x!==id);const s=injectNode(g,'event');assert.equal(s.event.id,id);for(const c of s.event.choices)assert.ok((c.cardIds||[]).every(id=>id.startsWith('S')));}
 });
 
-test('1000张三境十二段路线所有节点可达、实际合法出口，任意完整路线至少四场含Boss',()=>{
+test('1000张三章三十步路线所有节点可达、实际合法出口，任意完整路线至少四场含Boss',()=>{
   for(let seed=1;seed<=1000;seed++){
     const g=createGame({environment:false,rng:random(seed)});g.newRun(); g.enterRegion();const map=g.state.map,seen=new Set(['f1-0']);let min=new Map([['f1-0',1]]);
-    assert.equal(map.length,12);
-    for(const row of map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.revealed,n.regionIndex===0);if(n.floor>1&&n.floor<12)assert.ok(n.next.length>=1&&n.next.length<=map[n.floor].length&&new Set(n.next).size===n.next.length);for(const id of n.next){const target=map[n.floor].find(x=>x.id===id);assert.ok(target);seen.add(id);const v=min.get(n.id)+(['fight','elite','boss'].includes(target.type)?1:0);min.set(id,Math.min(min.get(id)??Infinity,v));}}
-    assert.equal(seen.size,map.flat().length);assert.ok(min.get('f12-0')>=4);assert.ok(map.flat().filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
+    assert.equal(map.length,30);
+    for(const row of map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.revealed,n.regionIndex===0);if(n.floor>1&&n.floor<30)assert.ok(n.next.length>=1&&n.next.length<=map[n.floor].length&&new Set(n.next).size===n.next.length);for(const id of n.next){const target=map[n.floor].find(x=>x.id===id);assert.ok(target);seen.add(id);const v=min.get(n.id)+(['fight','elite','boss'].includes(target.type)?1:0);min.set(id,Math.min(min.get(id)??Infinity,v));}}
+    assert.equal(seen.size,map.flat().length);assert.ok(min.get('f30-0')>=6);assert.ok(map.flat().filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
   }
 });
 

@@ -1,0 +1,10 @@
+{
+  "method": "Ordinary file:// URL; visible sword controls, unmodified resources, actual first-battle reward; fast cosmetic motion only",
+  "results": [],
+  "errors": [],
+  "externalRequests": [],
+  "failedRequests": [],
+  "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/CC/index.html\", waiting until \"load\"\u001b[22m\n\n    at /workspace/CC/dev/v8-file-browser.test.cjs:5:809",
+  "passed": 0,
+  "failed": 1
+}

@@ -8,6 +8,12 @@
   // Every card has its own timbre, gesture, pitch movement and small cast motif.
   // Damage sounds are played by each actual attack event, never by the cast event.
   const PROFILES = Object.freeze({
+    D01: { name:'借煞回生', kind:'blood', pitch:197, tail:788, length:.45, body:65, weight:.18, notes:[197,296,444] },
+    D02: { name:'饮魄', kind:'soul', pitch:935, tail:234, length:.39, body:78, weight:.19, notes:[234,351,526] },
+    D03: { name:'夺脉', kind:'eclipse', pitch:1290, tail:3870, length:.53, body:80, weight:.23, notes:[322,644,1289] },
+    D04: { name:'魔躯', kind:'shield', pitch:370, tail:1480, length:.54, body:123, weight:.18, notes:[370,555,740,1110] },
+    D05: { name:'狂念', kind:'focus', pitch:311, tail:1866, length:.49, body:104, weight:.15, notes:[311,440,659,1318] },
+    D06: { name:'万煞归心', kind:'eclipse', pitch:740, tail:4440, length:.75, body:46, weight:.27, notes:[185,277,555,1110,2220] },
     F01: { name:'摄魂', kind:'soul', pitch:877, tail:219, length:.32, body:97, weight:.17, notes:[369,553,830] },
     F02: { name:'夜幕', kind:'shield', pitch:415, tail:1245, length:.43, body:138, weight:.15, notes:[415,622,830] },
     F03: { name:'回响', kind:'focus', pitch:277, tail:1108, length:.46, body:138, weight:.13, notes:[277,415,554,830] },
@@ -74,6 +80,12 @@
     S16: { name:'万川归寂', kind:'swordstorm', pitch:1568, tail:4704, length:.72, body:98, weight:.25, notes:[392,784,1175,1568,2349] }
   });
   const ENCOUNTERS = Object.freeze({
+    tainted_mercy: { name:'路边的茶', notes:[330,494,740], kind:'wood', air:950 },
+    demonic_offer: { name:'灰衣人的药', notes:[165,247,370], kind:'ritual', air:780 },
+    demonic_warning: { name:'剑穗与清心玉', notes:[523,784,1046], kind:'glass', air:2200 },
+    mirror_trial: { name:'照心残镜', notes:[311,466,698,1046], kind:'echo', air:1700 },
+    demon_manual: { name:'残卷', notes:[147,220,330,494], kind:'ritual', air:660 },
+    fallen_hunt: { name:'隔路相逢', notes:[185,370,740], kind:'steel', air:2850 },
     moon_trace: { name:'旧铃', notes:[277,415,830], kind:'bell', air:1770 },
     sealed_name: { name:'封字', notes:[138,207,311,466], kind:'ritual', air:690 },
     moon_vow: { name:'留白', notes:[415,622,1244], kind:'echo', air:1350 },
@@ -309,7 +321,7 @@
     return withSound('card:'+id,(bus,t)=>{
       // Cards without a later shield/heal/mark/hit event need their own full
       // focus, bell or energy gesture here. Attack cards remain cast-only.
-      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11','F03','F08','F11'].includes(id)?'impact':'cast',0,t);
+      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11','F03','F08','F11','D05'].includes(id)?'impact':'cast',0,t);
     },id);
   }
   function preview(id) {
@@ -340,6 +352,10 @@
       case 'consumeMark':hiss(bus,1400,.23,{at:t,level:.12,end:5600});bell(bus,1760,.32,.10,t);break;
       case 'heal':playSignature(bus,p&&p.kind==='heal'?p:PROFILES.C36,'impact',0,t);break;
       case 'selfDamage':playSignature(bus,p&&['blood','frostblood'].includes(p.kind)?p:PROFILES.C13,'impact',0,t);break;
+      case 'affliction':tone(bus,110,.35,{at:t,level:.065,end:73,wave:'triangle'});hiss(bus,850,.25,{at:t,level:.04,end:290});break;
+      case 'corruption':{const n=220*Math.pow(1.09,clamp(options.total||amount,0,6));tone(bus,n,.34,{at:t,level:.07,end:n*.8});tone(bus,n*1.067,.37,{at:t,level:.035,end:n*1.08});break;}
+      case 'fall':tone(bus,55,.65,{at:t,level:.13,end:165});hiss(bus,1800,.55,{at:t,level:.075,end:4700});[311,466,622].forEach((n,i)=>bell(bus,n,.7,.07,t+i*.10));break;
+      case 'suppression':bell(bus,880,.45,.08,t);tone(bus,440,.26,{at:t,level:.035,end:660});break;
       case 'soul':bell(bus,amount<0?415:830,.42,.075,t);tone(bus,207,.27,{at:t,level:.045,end:amount<0?104:415});break;
       case 'environment':hiss(bus,620,.40,{at:t,level:.065,end:240,attack:.04});break;
       case 'weapon':steel(bus,739,.36,.085,t);if(options.rebellious)heartbeat(bus,69,.08,t);break;

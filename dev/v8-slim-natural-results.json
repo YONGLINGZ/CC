@@ -1,0 +1,902 @@
+{
+  "format": "baiyao-v8-browser",
+  "target": "/tmp/v8qa-natural-slim.html",
+  "inlineTarget": "/tmp/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "fixture 收齐隐线并击败隐藏Boss后真实解锁，刷新仅保留职业解锁",
+      "ok": true
+    },
+    {
+      "name": "三职业真实DOM三十步通关并重开，完整流程不修改本局资源",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/v8qa-natural-slim.html",
+    "/v8qa-natural-slim.html",
+    "/v8qa-natural-slim.html",
+    "/v8qa-natural-slim.html",
+    "/v8qa-natural-slim.html"
+  ],
+  "expectedMissingRequests": [],
+  "sha256": "797d4d0e679525152f65bdb007370f8bcafc48d3da23791558bac880456b4a74",
+  "inputs": {
+    "dev/engine.js": "7bc155d6abd066130c5ae8ce6cced81b24ec889fb5d2161199544829358811d3",
+    "dev/expansion.js": "f89e54c34232661f572dc02e4342ec7a920c1f54828d49b15cb68862dbb7d2a2",
+    "dev/ui.js": "ad0f1340907cf6d1099a83aed9acb98e111929817df34c8a4dc8daf788a8b52a",
+    "dev/shell.html": "3f9672abc60bf96c3fad98942d5dbbc2ffadbe0bcca97352849480b48ce156e5",
+    "dev/art.js": "cd32758a50f30e9c7a1a0a88ac84df08e3076d32593b87191da2125c22943b4e",
+    "dev/build.cjs": "19357b392fc9be59e599ecdb39807325206fa629799211822a05dfe644ea4d17"
+  },
+  "unlock": {
+    "persisted": true,
+    "profile": {
+      "version": 1,
+      "unlocks": [
+        "feiye"
+      ]
+    }
+  },
+  "naturalRuns": {
+    "sword": [
+      {
+        "result": "victory",
+        "hp": 57,
+        "maxHp": 60,
+        "level": 6,
+        "power": 0,
+        "history": 30,
+        "route": [
+          {
+            "floor": 1,
+            "type": "fight",
+            "id": "f1-0"
+          },
+          {
+            "floor": 2,
+            "type": "event",
+            "id": "f2-0"
+          },
+          {
+            "floor": 3,
+            "type": "event",
+            "id": "f3-2",
+            "storyId": "liu_first"
+          },
+          {
+            "floor": 4,
+            "type": "event",
+            "id": "f4-0",
+            "storyId": "moon_trace"
+          },
+          {
+            "floor": 5,
+            "type": "event",
+            "id": "f5-0",
+            "storyId": "tainted_mercy"
+          },
+          {
+            "floor": 6,
+            "type": "rest",
+            "id": "f6-0"
+          },
+          {
+            "floor": 7,
+            "type": "event",
+            "id": "f7-0",
+            "storyId": "demonic_offer"
+          },
+          {
+            "floor": 8,
+            "type": "fight",
+            "id": "f8-1"
+          },
+          {
+            "floor": 9,
+            "type": "rest",
+            "id": "f9-2"
+          },
+          {
+            "floor": 10,
+            "type": "boss",
+            "id": "f10-0"
+          },
+          {
+            "floor": 11,
+            "type": "fight",
+            "id": "f11-0"
+          },
+          {
+            "floor": 12,
+            "type": "rest",
+            "id": "f12-0"
+          },
+          {
+            "floor": 13,
+            "type": "event",
+            "id": "f13-1",
+            "storyId": "liu_return"
+          },
+          {
+            "floor": 14,
+            "type": "rest",
+            "id": "f14-1"
+          },
+          {
+            "floor": 15,
+            "type": "event",
+            "id": "f15-2"
+          },
+          {
+            "floor": 16,
+            "type": "rest",
+            "id": "f16-1"
+          },
+          {
+            "floor": 17,
+            "type": "event",
+            "id": "f17-1",
+            "storyId": "demonic_warning"
+          },
+          {
+            "floor": 18,
+            "type": "rest",
+            "id": "f18-0"
+          },
+          {
+            "floor": 19,
+            "type": "rest",
+            "id": "f19-3"
+          },
+          {
+            "floor": 20,
+            "type": "boss",
+            "id": "f20-0"
+          },
+          {
+            "floor": 21,
+            "type": "fight",
+            "id": "f21-0"
+          },
+          {
+            "floor": 22,
+            "type": "event",
+            "id": "f22-0",
+            "storyId": "mirror_trial"
+          },
+          {
+            "floor": 23,
+            "type": "event",
+            "id": "f23-5",
+            "storyId": "liu_final"
+          },
+          {
+            "floor": 24,
+            "type": "rest",
+            "id": "f24-1"
+          },
+          {
+            "floor": 25,
+            "type": "rest",
+            "id": "f25-2"
+          },
+          {
+            "floor": 26,
+            "type": "rest",
+            "id": "f26-1"
+          },
+          {
+            "floor": 27,
+            "type": "event",
+            "id": "f27-0",
+            "storyId": "demon_manual"
+          },
+          {
+            "floor": 28,
+            "type": "shop",
+            "id": "f28-1"
+          },
+          {
+            "floor": 29,
+            "type": "rest",
+            "id": "f29-1"
+          },
+          {
+            "floor": 30,
+            "type": "boss",
+            "id": "f30-0"
+          }
+        ],
+        "events": [
+          {
+            "floor": 2,
+            "id": "relic_dispute",
+            "choice": 0
+          },
+          {
+            "floor": 3,
+            "id": "liu_first",
+            "choice": 2
+          },
+          {
+            "floor": 4,
+            "id": "moon_trace",
+            "choice": 1
+          },
+          {
+            "floor": 5,
+            "id": "tainted_mercy",
+            "choice": 0
+          },
+          {
+            "floor": 7,
+            "id": "demonic_offer",
+            "choice": 0
+          },
+          {
+            "floor": 13,
+            "id": "liu_return",
+            "choice": 0
+          },
+          {
+            "floor": 15,
+            "id": "herb_caravan",
+            "choice": 1
+          },
+          {
+            "floor": 17,
+            "id": "demonic_warning",
+            "choice": 0
+          },
+          {
+            "floor": 22,
+            "id": "mirror_trial",
+            "choice": 0
+          },
+          {
+            "floor": 23,
+            "id": "liu_final",
+            "choice": 0
+          },
+          {
+            "floor": 27,
+            "id": "demon_manual",
+            "choice": 0
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "battles": [
+          {
+            "floor": 1,
+            "id": "bone",
+            "power": 0
+          },
+          {
+            "floor": 8,
+            "id": "lantern",
+            "power": 0
+          },
+          {
+            "floor": 10,
+            "id": "gate_boss",
+            "power": 0
+          },
+          {
+            "floor": 11,
+            "id": "bone",
+            "power": 0
+          },
+          {
+            "floor": 20,
+            "id": "camp_boss",
+            "power": 0
+          },
+          {
+            "floor": 21,
+            "id": "paper",
+            "power": 0
+          },
+          {
+            "floor": 30,
+            "id": "snake",
+            "power": 0
+          }
+        ]
+      }
+    ],
+    "mark": [
+      {
+        "result": "victory",
+        "hp": 53,
+        "maxHp": 53,
+        "level": 6,
+        "power": 0,
+        "history": 30,
+        "route": [
+          {
+            "floor": 1,
+            "type": "fight",
+            "id": "f1-0"
+          },
+          {
+            "floor": 2,
+            "type": "event",
+            "id": "f2-2"
+          },
+          {
+            "floor": 3,
+            "type": "event",
+            "id": "f3-3",
+            "storyId": "ji_first"
+          },
+          {
+            "floor": 4,
+            "type": "event",
+            "id": "f4-0",
+            "storyId": "moon_trace"
+          },
+          {
+            "floor": 5,
+            "type": "fight",
+            "id": "f5-0"
+          },
+          {
+            "floor": 6,
+            "type": "fox",
+            "id": "f6-1"
+          },
+          {
+            "floor": 7,
+            "type": "event",
+            "id": "f7-1"
+          },
+          {
+            "floor": 8,
+            "type": "event",
+            "id": "f8-1"
+          },
+          {
+            "floor": 9,
+            "type": "shop",
+            "id": "f9-2"
+          },
+          {
+            "floor": 10,
+            "type": "boss",
+            "id": "f10-0"
+          },
+          {
+            "floor": 11,
+            "type": "fight",
+            "id": "f11-0"
+          },
+          {
+            "floor": 12,
+            "type": "shop",
+            "id": "f12-1"
+          },
+          {
+            "floor": 13,
+            "type": "event",
+            "id": "f13-1",
+            "storyId": "ji_return"
+          },
+          {
+            "floor": 14,
+            "type": "event",
+            "id": "f14-0",
+            "storyId": "sealed_name"
+          },
+          {
+            "floor": 15,
+            "type": "event",
+            "id": "f15-1"
+          },
+          {
+            "floor": 16,
+            "type": "fox",
+            "id": "f16-0"
+          },
+          {
+            "floor": 17,
+            "type": "event",
+            "id": "f17-0"
+          },
+          {
+            "floor": 18,
+            "type": "shop",
+            "id": "f18-1"
+          },
+          {
+            "floor": 19,
+            "type": "event",
+            "id": "f19-1"
+          },
+          {
+            "floor": 20,
+            "type": "boss",
+            "id": "f20-0"
+          },
+          {
+            "floor": 21,
+            "type": "fight",
+            "id": "f21-0"
+          },
+          {
+            "floor": 22,
+            "type": "shop",
+            "id": "f22-3"
+          },
+          {
+            "floor": 23,
+            "type": "event",
+            "id": "f23-3",
+            "storyId": "ji_final"
+          },
+          {
+            "floor": 24,
+            "type": "event",
+            "id": "f24-0",
+            "storyId": "moon_vow"
+          },
+          {
+            "floor": 25,
+            "type": "event",
+            "id": "f25-2"
+          },
+          {
+            "floor": 26,
+            "type": "fox",
+            "id": "f26-1"
+          },
+          {
+            "floor": 27,
+            "type": "event",
+            "id": "f27-1"
+          },
+          {
+            "floor": 28,
+            "type": "rest",
+            "id": "f28-1"
+          },
+          {
+            "floor": 29,
+            "type": "event",
+            "id": "f29-1"
+          },
+          {
+            "floor": 30,
+            "type": "boss",
+            "id": "f30-0"
+          }
+        ],
+        "events": [
+          {
+            "floor": 2,
+            "id": "broker",
+            "choice": 0
+          },
+          {
+            "floor": 3,
+            "id": "ji_first",
+            "choice": 1
+          },
+          {
+            "floor": 4,
+            "id": "moon_trace",
+            "choice": 1
+          },
+          {
+            "floor": 7,
+            "id": "herb_caravan",
+            "choice": 1
+          },
+          {
+            "floor": 8,
+            "id": "sect_duel",
+            "choice": 0
+          },
+          {
+            "floor": 13,
+            "id": "ji_return",
+            "choice": 0
+          },
+          {
+            "floor": 14,
+            "id": "sealed_name",
+            "choice": 1
+          },
+          {
+            "floor": 15,
+            "id": "riftwatch",
+            "choice": 2
+          },
+          {
+            "floor": 17,
+            "id": "echo",
+            "choice": 0
+          },
+          {
+            "floor": 19,
+            "id": "swordgrave",
+            "choice": 2
+          },
+          {
+            "floor": 23,
+            "id": "ji_final",
+            "choice": 0
+          },
+          {
+            "floor": 24,
+            "id": "moon_vow",
+            "choice": 2
+          },
+          {
+            "floor": 25,
+            "id": "shrine",
+            "choice": 0
+          },
+          {
+            "floor": 27,
+            "id": "cultlab",
+            "choice": 1
+          },
+          {
+            "floor": 29,
+            "id": "supply",
+            "choice": 0
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "battles": [
+          {
+            "floor": 1,
+            "id": "paper",
+            "power": 0
+          },
+          {
+            "floor": 5,
+            "id": "ape",
+            "power": 0
+          },
+          {
+            "floor": 8,
+            "id": "raider",
+            "power": 0
+          },
+          {
+            "floor": 10,
+            "id": "gate_boss",
+            "power": 0
+          },
+          {
+            "floor": 11,
+            "id": "paper",
+            "power": 0
+          },
+          {
+            "floor": 20,
+            "id": "camp_boss",
+            "power": 0
+          },
+          {
+            "floor": 21,
+            "id": "bone",
+            "power": 0
+          },
+          {
+            "floor": 30,
+            "id": "snake",
+            "power": 0
+          }
+        ]
+      }
+    ],
+    "sovereign": [
+      {
+        "result": "victory",
+        "hp": 22,
+        "maxHp": 52,
+        "level": 6,
+        "power": 3,
+        "history": 30,
+        "route": [
+          {
+            "floor": 1,
+            "type": "fight",
+            "id": "f1-0"
+          },
+          {
+            "floor": 2,
+            "type": "shop",
+            "id": "f2-0"
+          },
+          {
+            "floor": 3,
+            "type": "event",
+            "id": "f3-1",
+            "storyId": "sovereign_wake"
+          },
+          {
+            "floor": 4,
+            "type": "event",
+            "id": "f4-0",
+            "storyId": "moon_trace"
+          },
+          {
+            "floor": 5,
+            "type": "event",
+            "id": "f5-1"
+          },
+          {
+            "floor": 6,
+            "type": "fox",
+            "id": "f6-0"
+          },
+          {
+            "floor": 7,
+            "type": "event",
+            "id": "f7-0"
+          },
+          {
+            "floor": 8,
+            "type": "shop",
+            "id": "f8-3"
+          },
+          {
+            "floor": 9,
+            "type": "event",
+            "id": "f9-3"
+          },
+          {
+            "floor": 10,
+            "type": "boss",
+            "id": "f10-0"
+          },
+          {
+            "floor": 11,
+            "type": "fight",
+            "id": "f11-0"
+          },
+          {
+            "floor": 12,
+            "type": "event",
+            "id": "f12-4"
+          },
+          {
+            "floor": 13,
+            "type": "event",
+            "id": "f13-0",
+            "storyId": "sovereign_recall"
+          },
+          {
+            "floor": 14,
+            "type": "event",
+            "id": "f14-0",
+            "storyId": "sealed_name"
+          },
+          {
+            "floor": 15,
+            "type": "fight",
+            "id": "f15-0"
+          },
+          {
+            "floor": 16,
+            "type": "fox",
+            "id": "f16-0"
+          },
+          {
+            "floor": 17,
+            "type": "shop",
+            "id": "f17-0"
+          },
+          {
+            "floor": 18,
+            "type": "event",
+            "id": "f18-3"
+          },
+          {
+            "floor": 19,
+            "type": "rest",
+            "id": "f19-3"
+          },
+          {
+            "floor": 20,
+            "type": "boss",
+            "id": "f20-0"
+          },
+          {
+            "floor": 21,
+            "type": "fight",
+            "id": "f21-0"
+          },
+          {
+            "floor": 22,
+            "type": "shop",
+            "id": "f22-3"
+          },
+          {
+            "floor": 23,
+            "type": "event",
+            "id": "f23-3",
+            "storyId": "sovereign_memory"
+          },
+          {
+            "floor": 24,
+            "type": "event",
+            "id": "f24-0",
+            "storyId": "moon_vow"
+          },
+          {
+            "floor": 25,
+            "type": "event",
+            "id": "f25-2"
+          },
+          {
+            "floor": 26,
+            "type": "fight",
+            "id": "f26-0"
+          },
+          {
+            "floor": 27,
+            "type": "fight",
+            "id": "f27-0"
+          },
+          {
+            "floor": 28,
+            "type": "event",
+            "id": "f28-2"
+          },
+          {
+            "floor": 29,
+            "type": "fight",
+            "id": "f29-3"
+          },
+          {
+            "floor": 30,
+            "type": "boss",
+            "id": "f30-0"
+          }
+        ],
+        "events": [
+          {
+            "floor": 3,
+            "id": "sovereign_wake",
+            "choice": 1
+          },
+          {
+            "floor": 4,
+            "id": "moon_trace",
+            "choice": 1
+          },
+          {
+            "floor": 5,
+            "id": "relic_dispute",
+            "choice": 0
+          },
+          {
+            "floor": 7,
+            "id": "shrine",
+            "choice": 2
+          },
+          {
+            "floor": 9,
+            "id": "broker",
+            "choice": 2
+          },
+          {
+            "floor": 12,
+            "id": "swordgrave",
+            "choice": 2
+          },
+          {
+            "floor": 13,
+            "id": "sovereign_recall",
+            "choice": 1
+          },
+          {
+            "floor": 14,
+            "id": "sealed_name",
+            "choice": 1
+          },
+          {
+            "floor": 18,
+            "id": "prisoner",
+            "choice": 0
+          },
+          {
+            "floor": 23,
+            "id": "sovereign_memory",
+            "choice": 1
+          },
+          {
+            "floor": 24,
+            "id": "moon_vow",
+            "choice": 2
+          },
+          {
+            "floor": 25,
+            "id": "armory",
+            "choice": 2
+          },
+          {
+            "floor": 28,
+            "id": "well",
+            "choice": 0
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "battles": [
+          {
+            "floor": 1,
+            "id": "bone",
+            "power": 0
+          },
+          {
+            "floor": 10,
+            "id": "feiye_echo",
+            "power": 0
+          },
+          {
+            "floor": 11,
+            "id": "paper",
+            "power": 1
+          },
+          {
+            "floor": 15,
+            "id": "paper",
+            "power": 1
+          },
+          {
+            "floor": 20,
+            "id": "retainer",
+            "power": 1
+          },
+          {
+            "floor": 21,
+            "id": "ape",
+            "power": 2
+          },
+          {
+            "floor": 26,
+            "id": "heart",
+            "power": 2
+          },
+          {
+            "floor": 27,
+            "id": "lantern",
+            "power": 3
+          },
+          {
+            "floor": 29,
+            "id": "bone",
+            "power": 3
+          },
+          {
+            "floor": 30,
+            "id": "snake_ascended",
+            "power": 3
+          }
+        ]
+      }
+    ]
+  },
+  "browser": "154.0.8037.57",
+  "passed": 2,
+  "failed": 0
+}

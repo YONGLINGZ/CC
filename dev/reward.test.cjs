@@ -3,7 +3,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {createGame,CARDS,RELICS,TREASURE_RELICS,EVENT_IDS,CHAIN_EVENT_IDS}=require('./engine.js');
-const EVENTS=EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory'].includes(id));
+const EVENTS=EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 function random(seed){let n=seed>>>0;return()=>((n=(1664525*n+1013904223)>>>0)/4294967296);}
 function run(seed=1,starter='mark',rng){const g=createGame({environment:false,rng:rng||random(seed)});g.newRun(starter); g.enterRegion();return g;}
 function enter(g,type){const s=g.state,n=s.map.flat().find(n=>n.type===type)||s.map[3][0];n.type=type;delete n.encounter;assert.ok(n,type);s.floor=n.floor;s.availableNodes=[n.id];s.screen='map';s.journey.regionIndex=n.regionIndex;n.revealed=true;delete n.storyId;s.history=[];assert.equal(g.enterNode(n.id),true);return s.battle;}
@@ -16,8 +16,8 @@ test('1000局随机地图狐妖出现有覆盖且可达，各节点连通到蛇�
   for(let seed=1;seed<=1000;seed++){
     const g=run(seed),s=g.state,all=s.map.flat(),byId=Object.fromEntries(all.map(n=>[n.id,n]));
     const seen=new Set(['f1-0']);
-    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));for(const next of n.next){assert.equal(byId[next].floor,n.floor+1);seen.add(next);}if(n.floor<12)assert.ok(n.next.length>0);}
-    assert.equal(seen.size,all.length);const foxes=all.filter(n=>n.type==='fox');if(foxes.length)foxMaps++;assert.ok(foxes.every(n=>seen.has(n.id)));assert.ok(seen.has('f12-0'));
+    for(const row of s.map)for(const n of row){assert.ok(seen.has(n.id));for(const next of n.next){assert.equal(byId[next].floor,n.floor+1);seen.add(next);}if(n.floor<30)assert.ok(n.next.length>0);}
+    assert.equal(seen.size,all.length);const foxes=all.filter(n=>n.type==='fox');if(foxes.length)foxMaps++;assert.ok(foxes.every(n=>seen.has(n.id)));assert.ok(seen.has('f30-0'));
   }
   assert.ok(foxMaps>500,'fox encounters remain common across the distribution');
 });
