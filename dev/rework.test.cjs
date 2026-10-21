@@ -12,7 +12,7 @@ function seeded(seed) {
 
 function run(seed = 1, starter = 'mark') {
   const game = NightPact.createGame({ rng: seeded(seed) });
-  game.newRun(starter);
+  game.newRun(starter); game.enterRegion();
   return game;
 }
 
@@ -21,7 +21,7 @@ test('可规划地图每段都有分支，所有节点可达且能抵达 Boss', 
   for (let seed = 1; seed <= 160; seed++) {
     const game = run(seed, ['mark', 'combo', 'blood'][seed % 3]);
     const state = game.state, map = state.map, byId = Object.fromEntries(map.flat().map(node => [node.id, node]));
-    assert.deepEqual(map.map(floor => floor.length), [1, 3, 4, 4, 4, 4, 4, 4, 3, 1]);
+    assert.deepEqual(map.map(floor => floor.length), [1,3,3,2,2,4,3,3,2,3,2,1]);
     layouts.add(map.map(floor => floor.map(node => node.type).join(',')).join('|'));
     for (let floor = 0; floor < map.length - 1; floor++) {
       assert.ok(map[floor].length > 1 || floor === 0, `第 ${floor + 1} 层没有分支`);
@@ -30,12 +30,12 @@ test('可规划地图每段都有分支，所有节点可达且能抵达 Boss', 
         for (const next of node.next) {
           assert.equal(byId[next].floor, node.floor + 1);
         }
-        if (node.floor > 1 && node.floor < 10) {
+        if (node.floor > 1 && node.floor < 12) {
           assert.ok(map.flat().some(previous => previous.next.includes(node.id)), `${node.id} 没有入口`);
         }
       }
     }
-    for (const node of map[8]) assert.ok(node.next.includes('f10-0'));
+    for (const node of map[10]) assert.ok(node.next.includes('f12-0'));
 
     const seen = new Set(['f1-0']), queue = ['f1-0'];
     while (queue.length) {
@@ -43,13 +43,13 @@ test('可规划地图每段都有分支，所有节点可达且能抵达 Boss', 
       for (const next of node.next) if (!seen.has(next)) { seen.add(next); queue.push(next); }
     }
     assert.equal(seen.size, map.flat().length, `seed ${seed} 有节点不可达`);
-    assert.ok(seen.has('f10-0'));
+    assert.ok(seen.has('f12-0'));
   }
   assert.ok(layouts.size > 20, '地图类型分布过于固定');
 });
 
-test('十四种剧情奇遇的每个选项都能结算，并停留在结局页', () => {
-  const eventIds = NightPact.EVENT_IDS;
+test('十八种独立剧情奇遇的每个选项都能结算，并停留在结局页', () => {
+  const eventIds = NightPact.EVENT_IDS.filter(id=>!NightPact.CHAIN_EVENT_IDS.includes(id));
   for (const target of eventIds) {
     for (let index = 0; index < 3; index++) {
       const game = run(77 + index, 'mark');
@@ -59,7 +59,7 @@ test('十四种剧情奇遇的每个选项都能结算，并停留在结局页',
       state.availableNodes = ['f2-0'];
       state.history = [];
       state.seenEvents = eventIds.filter(id => id !== target);
-      state.map[1][0].type = 'event';
+      state.map[1][0].type = 'event'; delete state.map[1][0].storyId;
       state.player.hp = 180;
       state.player.maxHp = 200;
       state.player.gold = 1000;
@@ -67,7 +67,7 @@ test('十四种剧情奇遇的每个选项都能结算，并停留在结局页',
       assert.equal(game.enterNode('f2-0'), true);
       assert.equal(state.screen, 'event');
       assert.equal(state.event.id, target);
-      assert.equal(state.event.choices.length, 3);
+      assert.ok(state.event.choices.length>=3);
       assert.equal(game.chooseEvent(index), true);
       assert.equal(state.event.resolved, true);
       assert.equal(state.floor, 2, '选择后不应直接离开奇遇');
@@ -75,8 +75,8 @@ test('十四种剧情奇遇的每个选项都能结算，并停留在结局页',
       assert.ok(state.event.received.length > 0);
       assert.equal(game.chooseEvent(index), false, '结局页不能重复领取');
       assert.equal(game.leaveEvent(), true);
-      assert.equal(state.floor, 3);
-      assert.equal(state.screen, 'map');
+      if(state.event?.battle){ assert.equal(state.screen,'battle');assert.equal(state.floor,2); }
+      else{assert.equal(state.floor,3);assert.equal(state.screen,'map');}
     }
   }
 });
@@ -104,7 +104,7 @@ test('无面神血增加最大生命，九命铃每场战斗挡一次致死', ()
   eventState.availableNodes = ['f2-0'];
   eventState.history = [];
   eventState.seenEvents = NightPact.EVENT_IDS.filter(id=>id!=='shrine');
-  eventState.map[1][0].type = 'event';
+  eventState.map[1][0].type = 'event'; delete eventState.map[1][0].storyId;
   eventState.player.hp = 60;
   eventState.player.maxHp = 60;
   eventState.player.gold = 100;

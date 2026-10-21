@@ -61,15 +61,16 @@ function nextCard(s) {
 }
 function playRun(seed,starter,lane){
   const g=createGame({rng:random(seed)});g.newRun(starter);
-  let actions=0,turns=0;const encounters=[];
+  let actions=0,turns=0;const encounters=[],regions=[],storyEvents=[];
   while(!['victory','defeat'].includes(g.state.screen)){
     assert.ok(++actions<4000,'run did not terminate');
     const s=g.state,p=s.player;
     assert.ok(p.hp>=0&&p.hp<=p.maxHp&&p.gold>=0,'nonnegative bounded resources');
     assert.equal(new Set(p.deck.map(c=>c.uid)).size,p.deck.length,'unique card instances');
     switch(s.screen){
+      case 'arrival':regions.push(s.journey.regionIndex);assert.equal(g.enterRegion(),true);break;
       case 'map':{
-        const nodes=s.map.flat().filter(n=>s.availableNodes.includes(n.id));
+        const nodes=g.getAvailableNodes();
         assert.ok(nodes.length,'reachable next node');
         nodes.sort((a,b)=>Math.abs(a.lane-lane)-Math.abs(b.lane-lane));
         const n=nodes[0];encounters.push(n.type);assert.equal(g.enterNode(n.id),true);break;
@@ -101,6 +102,7 @@ function playRun(seed,starter,lane){
       }
       case 'event':{
         if(s.event.resolved){assert.equal(g.leaveEvent(),true);break;}
+        storyEvents.push(s.event.id);
         // Read visible availability only. All options are processed by engine.
         let chosen=false;
         for(let i=0;i<(s.event.options||s.event.choices).length;i++){if(g.chooseEvent(i)){chosen=true;break;}}
@@ -109,7 +111,7 @@ function playRun(seed,starter,lane){
       default:throw new Error('Unexpected screen '+s.screen);
     }
   }
-  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters};
+  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length};
 }
 function main(){
   const runs=[];
@@ -119,7 +121,7 @@ function main(){
     const selected=runs.filter(r=>r.starter===starter&&r.lane===lane);
     summary.push({starter,lane,wins:selected.filter(r=>r.result==='victory').length,runs:selected.length,averageEnemyTurns:+(selected.reduce((n,r)=>n+r.turns,0)/selected.length).toFixed(1)});
   }
-  const report={method:'Public API only; 120 seeded heuristic simulations across two professions and four starters, no state fixtures. Not human balance or time-to-play validation.',runs:runs.length,wins:runs.filter(r=>r.result==='victory').length,summary,details:runs};
+  const report={method:'Public API only; 120 seeded heuristic simulations across two professions and four starters, no state fixtures. Not human balance or time-to-play validation.',runs:runs.length,completed:runs.length,wins:runs.filter(r=>r.result==='victory').length,defeats:runs.filter(r=>r.result==='defeat').length,summary,details:runs};
   const reportPath=process.env.PLAYTEST_REPORT||path.join(__dirname,'playtest-report.json');
   fs.mkdirSync(path.dirname(reportPath),{recursive:true});
   fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');

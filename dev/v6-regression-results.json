@@ -1,0 +1,38 @@
+{
+  "version": "寒渊因缘版",
+  "engine": {
+    "passed": 123,
+    "failed": 0,
+    "total": 123,
+    "skipped": 0,
+    "legacy_checks": 105,
+    "new_checks": 18
+  },
+  "public_api": {
+    "completed": 120,
+    "wins": 119,
+    "defeats": 1,
+    "method": "Public API only; 120 seeded heuristic simulations across two professions and four starters, no state fixtures. Not human balance or time-to-play validation.",
+    "report": "dev/v6-playtest-report.json",
+    "all_victories_crossed_regions": true,
+    "known_chains": [
+      "ji",
+      "liu",
+      "wen"
+    ]
+  },
+  "inputs": {
+    "dev/engine.js": "9e81e473841e02505d7cedeb3fd308d0adfc0481fe4eddc2b1a1761a56761f49",
+    "dev/engine.test.cjs": "e3063415e3287d513034adb096b6fb80bbb5c99693d1782b37d379f0b84da304",
+    "dev/rework.test.cjs": "499674b9f9b5f67d035fcfd56912f140b0f3bcb00f57c8a0caeb5df858353342",
+    "dev/reward.test.cjs": "338dc12b4ee74b7169d395a095036a3e3e33a1dd29fb37dc7abba597fe7f5071",
+    "dev/v5-engine.test.cjs": "1ab11a0502f877ab0c63e1cbd93c616fba311dbe93043f31a75fc48a0eed7358",
+    "dev/v6-engine.test.cjs": "a086a80029385894f3973b7a98cb1f6cd0e43b51fee15cf84a26130de9209a84",
+    "dev/playtest.cjs": "7aeb963f0e19f4e9fad1c2325ed1bce3cbee7cd80450becf2acc29bceef81cb5"
+  },
+  "commands": [
+    "node --test --test-reporter=tap dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs dev/v6-engine.test.cjs",
+    "PLAYTEST_REPORT=dev/v6-playtest-report.json node dev/playtest.cjs"
+  ],
+  "note": "Executed deterministic rule tests and public-API heuristic runs. Fixture state edits are confined to rule tests. Simulation reads visible hand/intent/resources and calls public actions only; not a human balance test."
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package and test non-destructive, offline v5 game recovery.
+"""Package and test non-destructive, offline v6 game recovery.
 
 Python 3 and Node.js are needed only for rebuilding/recovery. Playing either
 finished HTML product needs only a browser. This tool never changes cloud
@@ -26,9 +26,10 @@ SOURCE_NAMES = (
     "dev/puppet.js", "dev/puppet-rig.json", "dev/scene.js",
 )
 ASSET_GROUPS = {
-    "portraits": ("cat", "fox", "snake", "paper", "lantern", "ape", "bone", "yaksha"),
+    "regions": ("fog_gate", "broken_camp", "ritual_core"),
+    "portraits": ("cat", "fox", "snake", "paper", "lantern", "ape", "bone", "yaksha", "raider", "liu", "ji", "wen"),
     "cards": tuple(f"C{number:02}" for number in range(1, 37)) + tuple(f"S{number:02}" for number in range(1, 17)),
-    "events": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop"),
+    "events": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "liu_first", "liu_return", "liu_final", "ji_first", "ji_return", "ji_final", "wen_first", "wen_return", "wen_final", "sect_duel", "herb_caravan", "relic_dispute", "night_watch"),
     "relics": ("bell", "jade", "moon", "fox", "fang", "silk", "vial", "bloodstone", "moonheart", "mirror", "dream", "godblood", "ninelives", "frostseal"),
     "puppet": ("cat-normal", "cat-wounded", "cat-critical", "cat-blink", "sword-normal", "sword-wounded", "sword-critical"),
 }
@@ -90,7 +91,7 @@ def package_bytes(files: dict[str, bytes]) -> bytes:
 def script_body(payload: str, manifest: dict) -> str:
     # The literal quoted heredoc permits no shell interpolation of project data.
     template = r'''#!/bin/sh
-# 百妖夜契 v5 离线恢复。仅补缺失文件；已有改动、符号链接均拒绝。
+# 百妖夜契 v6 离线恢复。仅补缺失文件；已有改动、符号链接均拒绝。
 # 需要 Python 3 和 Node.js；游玩生成的 HTML 无需安装任何依赖。
 # 可选：BAIYAO_RESTORE_ROOT=/absolute/empty/directory sh restore.sh
 set -eu
@@ -167,7 +168,7 @@ if MANIFEST["mode"] == "source-svg":
 
 # Rebuild in isolation and require byte-exact accepted outputs before touching
 # the destination. No images.js or old PNG originals are needed in either mode.
-with tempfile.TemporaryDirectory(prefix="baiyao-v5-verify-") as folder:
+with tempfile.TemporaryDirectory(prefix="baiyao-v6-verify-") as folder:
     staging = Path(folder)
     for name, data in contents.items():
         path = staging / name
@@ -231,7 +232,7 @@ for name, data in contents.items():
 for name, data in contents.items():
     if (root / name).read_bytes() != data:
         fail("写入后核验失败：" + name)
-print("百妖夜契 v5 离线恢复成功：" + str(root))
+print("百妖夜契 v6 离线恢复成功：" + str(root))
 print("模式：" + MANIFEST["mode"] + "；新增 " + str(created) + " 个文件；核验 " + str(len(contents)) + " 个文件。")
 for name in MANIFEST["outputs"]:
     print(name + " SHA256: " + digest(contents[name]))
@@ -245,7 +246,7 @@ def build(source_only: bool = False) -> tuple[Path, dict]:
     assets = collect(ASSET_NAMES, assets=True)
     # Verify current release products first. Stale root HTML must never become
     # the reference hash for a newly generated recovery package.
-    with tempfile.TemporaryDirectory(prefix="baiyao-v5-package-", dir="/tmp") as folder:
+    with tempfile.TemporaryDirectory(prefix="baiyao-v6-package-", dir="/tmp") as folder:
         staging = Path(folder)
         write_files(staging, {**sources, **assets})
         full_outputs = build_at(staging)
@@ -263,7 +264,7 @@ def build(source_only: bool = False) -> tuple[Path, dict]:
     files = sources if source_only else {**sources, **assets}
     archive = package_bytes(files)
     manifest = {
-        "format": "baiyao-offline-recovery-v5",
+        "format": "baiyao-offline-recovery-v6",
         "mode": "source-svg" if source_only else "full-webp",
         "files": {name: sha256(data) for name, data in sorted(files.items())},
         "outputs": {name: sha256(data) for name, data in outputs.items()},
@@ -318,7 +319,7 @@ def succeeded(result: subprocess.CompletedProcess) -> None:
 def exercise(script: Path, manifest: dict) -> dict:
     checks = []
     source_only = manifest["mode"] == "source-svg"
-    with tempfile.TemporaryDirectory(prefix="baiyao-v5-recovery-test-", dir="/tmp") as folder:
+    with tempfile.TemporaryDirectory(prefix="baiyao-v6-recovery-test-", dir="/tmp") as folder:
         area = Path(folder)
         game = area / "game"
         succeeded(run_restore(script, game))
@@ -462,7 +463,7 @@ def exercise(script: Path, manifest: dict) -> dict:
             succeeded(run_restore(script, folder_release))
             after_release = snapshot(folder_release)
             assert all(after_release[name] == value for name, value in before_release.items())
-            checks.append("existing folder release with all 98 WebPs: preserved byte-for-byte while sources restored")
+            checks.append("existing folder release with all 118 WebPs: preserved byte-for-byte while sources restored")
 
             incomplete = area / "incomplete-folder-release"
             write_files(incomplete, {"index.html": (ROOT / "index.html").read_bytes(),
@@ -486,7 +487,7 @@ def exercise(script: Path, manifest: dict) -> dict:
             assert snapshot(changed_inline) == before_inline
             checks.append("modified standalone HTML: refused before writing any source, resource or folder index")
     report = {
-        "format": "baiyao-recovery-tests-v5", "mode": manifest["mode"],
+        "format": "baiyao-recovery-tests-v6", "mode": manifest["mode"],
         "passed": len(checks), "failed": 0, "checks": checks,
         "script_sha256": sha256(script.read_bytes()), "outputs": manifest["outputs"],
         "release_outputs": manifest["release_outputs"],

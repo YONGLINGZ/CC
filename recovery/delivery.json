@@ -1,32 +1,32 @@
 {
-  "version": "寒渊问剑版",
-  "date": "2026-10-20",
-  "based_on": "user 33.zip and v4 game",
+  "version": "寒渊因缘版",
+  "date": "2026-10-21",
+  "based_on": "user 33.zip and v5 game",
   "game_html": {
-    "bytes": 349834,
-    "sha256": "e4b49022cb1e4c13ec2b71da7787fc2b20bebe728b4060b104c503f245b311c6"
+    "bytes": 419356,
+    "sha256": "8f74ed5e108e2c932efacec8696cd468dab70120c759279da9f0c9942d21759b"
   },
   "standalone_html": {
-    "bytes": 8768687,
-    "sha256": "1135a132873593364b0cc832c34bb3679ff3161e95e28c8d2ae0f6b900e84041"
+    "bytes": 9732100,
+    "sha256": "91f39db7af9302c771aa7d8ac7c9a520d1e6446c9882a200aa8dfc8c7556bca2"
   },
   "play_zip": {
-    "bytes": 13520970,
-    "sha256": "d87331a026747606cb485c70405f6c26874a21b6834b7d05b99ab325b15a037a"
+    "bytes": 15184524,
+    "sha256": "2f94315434619dc86e332090c9b351d388c304f5f62a45d26138e2a6a45214b6"
   },
   "zip_crc": "PASS",
   "runtime_art": {
     "portraits": {
-      "count": 8,
-      "bytes": 1256610
+      "count": 12,
+      "bytes": 1371644
     },
     "cards": {
       "count": 52,
       "bytes": 1977414
     },
     "events": {
-      "count": 17,
-      "bytes": 1005352
+      "count": 30,
+      "bytes": 1304590
     },
     "relics": {
       "count": 14,
@@ -35,34 +35,43 @@
     "puppet": {
       "count": 7,
       "bytes": 1554294
+    },
+    "regions": {
+      "count": 3,
+      "bytes": 256204
     }
   },
   "professions": [
     "影契刺客",
     "霜华剑修"
   ],
-  "map_stages": 10,
-  "story_events": 14,
+  "map_stages": 12,
+  "regions": 3,
+  "story_events": 27,
+  "linked_story_chains": 3,
   "cards": 52,
   "sound_profiles": 52,
+  "event_sound_profiles": 30,
   "formal_cubism_model_exported": false,
   "scene_models": "procedural WebGL low-poly geometry, articulated parts; not production sculpted/skinned assets",
   "engine_tests": {
-    "command": "node --test dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs",
-    "passed": 105,
+    "passed": 123,
     "failed": 0,
-    "skipped": 0
+    "total": 123,
+    "skipped": 0,
+    "legacy_checks": 105,
+    "new_checks": 18
   },
   "audio_tests": {
-    "passed": 19,
+    "passed": 22,
     "failed": 0
   },
   "scene_tests": {
-    "passed": 12,
+    "passed": 18,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 12,
+    "passed": 13,
     "failed": 0
   },
   "export_roundtrip_checks": {
@@ -71,14 +80,14 @@
   },
   "public_api_simulations": {
     "completed": 120,
-    "wins": 120,
-    "defeats": 0
+    "wins": 119,
+    "defeats": 1
   },
   "full_recovery_checks": 17,
   "source_recovery_checks": 21,
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v5": false,
+  "cloud_configuration_updated_for_v6": false,
   "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"

@@ -1,0 +1,910 @@
+{
+  "runtimeSha256": "046e32b2cb0f84199a9d6fe65560b7ad1dc5154457742c4e30936a5568860dd3",
+  "renderer": "Actual offline WebGL triangle meshes; procedural low-poly regional prototype",
+  "results": [
+    {
+      "name": "initial real run reveals only the first region in WebGL geometry and labels",
+      "ok": true
+    },
+    {
+      "name": "same map instance progresses across three distinct actual modeled regions without future projections",
+      "ok": true
+    },
+    {
+      "name": "arrival models rebuild their regional geometry even when only region options change",
+      "ok": true
+    },
+    {
+      "name": "robbery combat renders a distinct human raider model with the hero intact",
+      "ok": true
+    },
+    {
+      "name": "region scope survives blocked WebGL and keeps a readable nonblocking fallback",
+      "ok": true
+    },
+    {
+      "name": "regional lifecycle disposes every context and sends zero runtime network requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "initial": {
+    "id": 1,
+    "alive": true,
+    "supported": true,
+    "ready": true,
+    "mode": "map",
+    "type": "map",
+    "character": "sword",
+    "frames": 3,
+    "rebuilds": 1,
+    "vertices": 15864,
+    "meshVertices": 15864,
+    "triangles": 5288,
+    "triangleCount": 5288,
+    "parts": 7,
+    "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+    "worldSignature": "2ddc0d81",
+    "enemySignature": "",
+    "regionIndex": 0,
+    "regionId": "fog_gate",
+    "fogColor": [
+      0.035,
+      0.09,
+      0.115
+    ],
+    "visibleNodeIds": [
+      "f1-0",
+      "f2-0",
+      "f2-1",
+      "f2-2",
+      "f3-0",
+      "f3-1",
+      "f3-2",
+      "f4-0",
+      "f4-1"
+    ],
+    "pose": {
+      "breath": 0,
+      "headYaw": 0,
+      "hair": 0,
+      "tail": 0,
+      "leftArm": 0,
+      "rightArm": 0,
+      "lean": 0,
+      "shift": 0,
+      "kind": null,
+      "p": 0
+    },
+    "animation": null,
+    "availableNodes": [
+      "f1-0"
+    ],
+    "projections": [
+      {
+        "nodeId": "f1-0",
+        "x": 406.65110587162576,
+        "y": 198.7119070337534,
+        "available": true,
+        "visited": false
+      },
+      {
+        "nodeId": "f2-0",
+        "x": 546.4592443472751,
+        "y": 111.39829394267258,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f2-1",
+        "x": 535.839487206999,
+        "y": 207.63080602177408,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f2-2",
+        "x": 525.219730066723,
+        "y": 303.8633181008756,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f3-0",
+        "x": 675.9099882612146,
+        "y": 117.93975532289494,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f3-1",
+        "x": 665.2902311209385,
+        "y": 214.17226740199644,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f3-2",
+        "x": 654.6704739806626,
+        "y": 310.4047794810979,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f4-0",
+        "x": 800.2555035461087,
+        "y": 170.74300680073992,
+        "available": false,
+        "visited": false
+      },
+      {
+        "nodeId": "f4-1",
+        "x": 789.6357464058326,
+        "y": 266.9755188798414,
+        "available": false,
+        "visited": false
+      }
+    ],
+    "canvasCount": 1,
+    "width": 1202,
+    "height": 442,
+    "look": {
+      "x": 0,
+      "y": 0
+    },
+    "visible": true,
+    "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+  },
+  "regions": [
+    {
+      "region": {
+        "id": "fog_gate",
+        "name": "雾锁山门",
+        "subtitle": "第一幕 · 雾外来客",
+        "stages": [
+          1,
+          4
+        ],
+        "description": "封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。",
+        "palette": {
+          "sky": "#15232b",
+          "ground": "#49626a",
+          "accent": "#abd9d1"
+        }
+      },
+      "result": {
+        "id": 1,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 4,
+        "rebuilds": 2,
+        "vertices": 15864,
+        "meshVertices": 15864,
+        "triangles": 5288,
+        "triangleCount": 5288,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "2ddc0d81",
+        "enemySignature": "",
+        "regionIndex": 0,
+        "regionId": "fog_gate",
+        "fogColor": [
+          0.035,
+          0.09,
+          0.115
+        ],
+        "visibleNodeIds": [
+          "f1-0",
+          "f2-0",
+          "f2-1",
+          "f2-2",
+          "f3-0",
+          "f3-1",
+          "f3-2",
+          "f4-0",
+          "f4-1"
+        ],
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f1-0"
+        ],
+        "projections": [
+          {
+            "nodeId": "f1-0",
+            "x": 406.65110587162576,
+            "y": 198.7119070337534,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-0",
+            "x": 546.4592443472751,
+            "y": 111.39829394267258,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-1",
+            "x": 535.839487206999,
+            "y": 207.63080602177408,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-2",
+            "x": 525.219730066723,
+            "y": 303.8633181008756,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-0",
+            "x": 675.9099882612146,
+            "y": 117.93975532289494,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-1",
+            "x": 665.2902311209385,
+            "y": 214.17226740199644,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-2",
+            "x": 654.6704739806626,
+            "y": 310.4047794810979,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-0",
+            "x": 800.2555035461087,
+            "y": 170.74300680073992,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-1",
+            "x": 789.6357464058326,
+            "y": 266.9755188798414,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1202,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "rendered": {
+        "hash": 1791759015,
+        "solid": 64841,
+        "colors": 1410,
+        "error": 0,
+        "background": "radial-gradient(at 50% 35%, rgb(41, 67, 75), rgba(0, 0, 0, 0) 72%), linear-gradient(145deg, rgb(11, 25, 36), rgb(16, 32, 40))"
+      }
+    },
+    {
+      "region": {
+        "id": "broken_camp",
+        "name": "断桥诸营",
+        "subtitle": "第二幕 · 灯下故人",
+        "stages": [
+          5,
+          8
+        ],
+        "description": "断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋金币更重。",
+        "palette": {
+          "sky": "#252019",
+          "ground": "#6c5342",
+          "accent": "#e4b56e"
+        }
+      },
+      "result": {
+        "id": 1,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 6,
+        "rebuilds": 3,
+        "vertices": 18654,
+        "meshVertices": 18654,
+        "triangles": 6218,
+        "triangleCount": 6218,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "41298720",
+        "enemySignature": "",
+        "regionIndex": 1,
+        "regionId": "broken_camp",
+        "fogColor": [
+          0.1,
+          0.085,
+          0.065
+        ],
+        "visibleNodeIds": [
+          "f5-0",
+          "f5-1",
+          "f6-0",
+          "f6-1",
+          "f6-2",
+          "f6-3",
+          "f7-0",
+          "f7-1",
+          "f7-2",
+          "f8-0",
+          "f8-1",
+          "f8-2"
+        ],
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f5-0"
+        ],
+        "projections": [
+          {
+            "nodeId": "f5-0",
+            "x": 412.5752312333638,
+            "y": 145.0295621457096,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-1",
+            "x": 401.95547409308773,
+            "y": 241.26207422481107,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-0",
+            "x": 552.7371669306417,
+            "y": 54.509962801439855,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-1",
+            "x": 542.1174097903657,
+            "y": 150.74247488054135,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-2",
+            "x": 531.4976526500897,
+            "y": 246.97498695964282,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-3",
+            "x": 520.8778955098136,
+            "y": 343.2074990387443,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-0",
+            "x": 676.7123555277332,
+            "y": 110.66898475373618,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-1",
+            "x": 666.0925983874571,
+            "y": 206.90149683283764,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-2",
+            "x": 655.4728412471811,
+            "y": 303.1340089119391,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-0",
+            "x": 805.7715044983389,
+            "y": 120.75894207569348,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-1",
+            "x": 795.1517473580628,
+            "y": 216.99145415479495,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-2",
+            "x": 784.5319902177869,
+            "y": 313.2239662338964,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1202,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "rendered": {
+        "hash": 919662233,
+        "solid": 67200,
+        "colors": 2433,
+        "error": 0,
+        "background": "radial-gradient(at 50% 35%, rgb(75, 67, 50), rgba(0, 0, 0, 0) 72%), linear-gradient(145deg, rgb(33, 30, 25), rgb(16, 32, 40))"
+      }
+    },
+    {
+      "region": {
+        "id": "ritual_core",
+        "name": "逆仪腹地",
+        "subtitle": "第三幕 · 因果入井",
+        "stages": [
+          9,
+          12
+        ],
+        "description": "归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。",
+        "palette": {
+          "sky": "#221728",
+          "ground": "#4c3c61",
+          "accent": "#c5a1e4"
+        }
+      },
+      "result": {
+        "id": 1,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 8,
+        "rebuilds": 4,
+        "vertices": 16500,
+        "meshVertices": 16500,
+        "triangles": 5500,
+        "triangleCount": 5500,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "c6708906",
+        "enemySignature": "",
+        "regionIndex": 2,
+        "regionId": "ritual_core",
+        "fogColor": [
+          0.09,
+          0.04,
+          0.11
+        ],
+        "visibleNodeIds": [
+          "f9-0",
+          "f9-1",
+          "f10-0",
+          "f10-1",
+          "f10-2",
+          "f11-0",
+          "f11-1",
+          "f12-0"
+        ],
+        "pose": {
+          "breath": 0,
+          "headYaw": 0,
+          "hair": 0,
+          "tail": 0,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f9-0"
+        ],
+        "projections": [
+          {
+            "nodeId": "f9-0",
+            "x": 412.07449887205036,
+            "y": 149.56702306614227,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-1",
+            "x": 401.4547417317744,
+            "y": 245.79953514524374,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-0",
+            "x": 546.4884053882956,
+            "y": 111.1340468233474,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-1",
+            "x": 535.8686482480196,
+            "y": 207.36655890244887,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-2",
+            "x": 525.2488911077436,
+            "y": 303.59907098155037,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f11-0",
+            "x": 670.529268879029,
+            "y": 166.69794593882162,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f11-1",
+            "x": 659.9095117387529,
+            "y": 262.9304580179231,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f12-0",
+            "x": 794.8127970676758,
+            "y": 220.06290272777483,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1202,
+        "height": 442,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "rendered": {
+        "hash": 333176640,
+        "solid": 56444,
+        "colors": 2159,
+        "error": 0,
+        "background": "radial-gradient(at 50% 35%, rgb(68, 34, 57), rgba(0, 0, 0, 0) 72%), linear-gradient(145deg, rgb(24, 14, 34), rgb(16, 32, 40))"
+      }
+    }
+  ],
+  "arrivals": [
+    {
+      "id": 2,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "arrival",
+      "type": "arrival",
+      "character": "sword",
+      "frames": 3,
+      "rebuilds": 1,
+      "vertices": 7344,
+      "meshVertices": 7344,
+      "triangles": 2448,
+      "triangleCount": 2448,
+      "parts": 7,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "worldSignature": "f62310a5",
+      "enemySignature": "",
+      "regionIndex": 0,
+      "regionId": "fog_gate",
+      "fogColor": [
+        0.035,
+        0.09,
+        0.115
+      ],
+      "visibleNodeIds": [],
+      "pose": {
+        "breath": 0,
+        "headYaw": 0,
+        "hair": 0,
+        "tail": 0,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1202,
+      "height": 362,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    },
+    {
+      "id": 2,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "arrival",
+      "type": "arrival",
+      "character": "sword",
+      "frames": 4,
+      "rebuilds": 2,
+      "vertices": 7566,
+      "meshVertices": 7566,
+      "triangles": 2522,
+      "triangleCount": 2522,
+      "parts": 7,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "worldSignature": "2db81b57",
+      "enemySignature": "",
+      "regionIndex": 1,
+      "regionId": "broken_camp",
+      "fogColor": [
+        0.1,
+        0.085,
+        0.065
+      ],
+      "visibleNodeIds": [],
+      "pose": {
+        "breath": 0,
+        "headYaw": 0,
+        "hair": 0,
+        "tail": 0,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1202,
+      "height": 362,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    },
+    {
+      "id": 2,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "arrival",
+      "type": "arrival",
+      "character": "sword",
+      "frames": 5,
+      "rebuilds": 3,
+      "vertices": 8448,
+      "meshVertices": 8448,
+      "triangles": 2816,
+      "triangleCount": 2816,
+      "parts": 7,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "worldSignature": "92d0d257",
+      "enemySignature": "",
+      "regionIndex": 2,
+      "regionId": "ritual_core",
+      "fogColor": [
+        0.09,
+        0.04,
+        0.11
+      ],
+      "visibleNodeIds": [],
+      "pose": {
+        "breath": 0,
+        "headYaw": 0,
+        "hair": 0,
+        "tail": 0,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1202,
+      "height": 362,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    }
+  ],
+  "raider": {
+    "snake": {
+      "id": 3,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "battle",
+      "type": "battle",
+      "character": "assassin",
+      "frames": 3,
+      "rebuilds": 1,
+      "vertices": 10548,
+      "meshVertices": 10548,
+      "triangles": 3516,
+      "triangleCount": 3516,
+      "parts": 8,
+      "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+      "worldSignature": "4570731b",
+      "enemySignature": "82e9e234",
+      "regionIndex": 2,
+      "regionId": "ritual_core",
+      "fogColor": [
+        0.09,
+        0.04,
+        0.11
+      ],
+      "visibleNodeIds": [],
+      "pose": {
+        "breath": 0,
+        "headYaw": 0,
+        "hair": 0,
+        "tail": 0,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1202,
+      "height": 442,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    },
+    "raider": {
+      "id": 3,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "battle",
+      "type": "battle",
+      "character": "assassin",
+      "frames": 4,
+      "rebuilds": 2,
+      "vertices": 10650,
+      "meshVertices": 10650,
+      "triangles": 3550,
+      "triangleCount": 3550,
+      "parts": 8,
+      "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+      "worldSignature": "4570731b",
+      "enemySignature": "47c3f03b",
+      "regionIndex": 2,
+      "regionId": "ritual_core",
+      "fogColor": [
+        0.09,
+        0.04,
+        0.11
+      ],
+      "visibleNodeIds": [],
+      "pose": {
+        "breath": 0,
+        "headYaw": 0,
+        "hair": 0,
+        "tail": 0,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [],
+      "projections": [],
+      "canvasCount": 1,
+      "width": 1202,
+      "height": 442,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    },
+    "rendered": {
+      "hash": 3493938794,
+      "solid": 134542,
+      "colors": 2976,
+      "error": 0,
+      "background": "radial-gradient(at 50% 35%, rgb(68, 34, 57), rgba(0, 0, 0, 0) 72%), linear-gradient(145deg, rgb(24, 14, 34), rgb(16, 32, 40))"
+    }
+  },
+  "fallback": {
+    "info": {
+      "supported": false,
+      "ready": false,
+      "alive": false,
+      "mode": "map",
+      "reason": "WebGL unavailable"
+    },
+    "text": "立体沙盘暂未启用，可使用下方路线。",
+    "canvas": 0
+  },
+  "browser": "154.0.8037.57",
+  "passed": 6,
+  "failed": 0
+}

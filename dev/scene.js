@@ -22,6 +22,21 @@
   const ortho=(l,r,b,t,n,f)=>[2/(r-l),0,0,0,0,2/(t-b),0,0,0,0,-2/(f-n),0,-(r+l)/(r-l),-(t+b)/(t-b),-(f+n)/(f-n),1];
   function point(m,p,w=1){return[0,1,2,3].map(r=>m[r]*p[0]+m[r+4]*p[1]+m[r+8]*p[2]+m[r+12]*w);}
   const C={stone:[.10,.18,.21],rock:[.055,.105,.13],edge:[.19,.33,.36],ice:[.34,.76,.85],white:[.80,.90,.91],gold:[.69,.54,.29],red:[.58,.13,.16],ink:[.055,.07,.10],skin:[.85,.74,.67],hair:[.045,.075,.11],violet:[.37,.20,.44],bone:[.58,.60,.53]};
+  const REGIONAL_SCENES=[
+    {id:'gate',name:'雾锁山门',fog:[.035,.09,.115],deep:'#0b1924',light:'#29434b',accent:[.39,.68,.73]},
+    {id:'camp',name:'断桥诸营',fog:[.10,.085,.065],deep:'#211e19',light:'#4b4332',accent:[.72,.54,.32]},
+    {id:'core',name:'逆仪腹地',fog:[.09,.04,.11],deep:'#180e22',light:'#442239',accent:[.62,.24,.39]}
+  ];
+  function regional(options){const index=Number.isInteger(options.regionIndex)?clamp(options.regionIndex,0,2):Number.isInteger(options.region?.index)?clamp(options.region.index,0,2):0;return{...REGIONAL_SCENES[index],...options.region,index};}
+  function localMap(options){
+    let rows=Array.isArray(options.map)?options.map:[];
+    // The scene never draws later-region geometry or labels, even if a caller
+    // supplies the whole run graph. Old unscoped callers retain their map API.
+    const scoped=Number.isInteger(options.regionIndex)||options.region;
+    const area=regional(options),start=Number(area.start||area.stages?.[0])||area.index*4+1,end=Number(area.end||area.stages?.[1])||area.index*4+4;
+    rows=rows.map(row=>row.filter(n=>n.revealed!==false&&(!scoped||(n.floor>=start&&n.floor<=end)))).filter(row=>row.length);
+    return rows;
+  }
   function color(c,scale=1){return c.map(v=>clamp(v*scale,0,1));}
   function tri(g,a,b,c,shade){const n=unit(cross(sub(b,a),sub(c,a)));for(const v of [a,b,c])g.push(...v,...n,...shade);}
   function quad(g,a,b,c,d,shade){tri(g,a,b,c,shade);tri(g,a,c,d,shade);}
@@ -129,6 +144,19 @@
       rings(g,[0,2.10,-.07],[[-.48,.25,.14],[.27,.22,.17],[.39,0,0]],C.ink,9);
       for(const s of [-1,1]){beam(g,[s*.04,2.02,.178],[s*.13,2.02,.15],.025,[.76,.34,.31]);crystal(g,[s*.17,2.21,-.02],.045,.26,C.gold);}
       beam(g,[-.29,1.65,0],[-.53,1.30,.18],.14,[.21,.37,.36]);beam(g,[.29,1.65,0],[.56,1.52,.19],.14,[.21,.37,.36]);
+    }else if(kind==='raider'){
+      // A living cultivator has boots, a hooded travel coat and a single jian,
+      // rather than borrowing the horned guardian silhouette.
+      const robe=[.19,.19,.24],leather=[.24,.15,.12],face=[.66,.51,.43];
+      for(const s of [-1,1]){box(g,[s*.15,.21,.02],[.19,.34,.28],C.ink);beam(g,[s*.16,.38,.02],[s*.14,1.13,0],.22,robe);}
+      rings(g,[0,.62,0],[[0,.37,.23],[.60,.23,.17],[1.13,.35,.21]],robe,8,.12);
+      box(g,[0,1.22,.02],[.48,.10,.38],leather);box(g,[.08,1.23,.23],[.14,.13,.04],C.gold);
+      ellipsoid(g,[0,1.98,.045],[.19,.25,.17],face,9,5);
+      rings(g,[0,1.94,-.045],[[-.25,.26,.20],[.25,.22,.20],[.41,.05,.04]],C.ink,8);
+      box(g,[0,1.90,.185],[.30,.13,.055],robe);
+      for(const s of [-1,1]){beam(g,[s*.045,2.015,.205],[s*.12,2.03,.193],.02,[.18,.13,.11]);beam(g,[s*.31,1.66,0],[s*.43,1.25,.09],.18,robe);ellipsoid(g,[s*.43,1.20,.10],[.07,.10,.075],face,6,4);}
+      beam(g,[.45,1.23,.12],[.53,.94,.15],.055,leather);beam(g,[.39,1.00,.15],[.67,.97,.15],.04,C.gold);beam(g,[.54,.96,.15],[.85,.21,.19],.065,[.52,.59,.65]);
+      beam(g,[-.25,1.70,.17],[.22,1.22,.22],.055,leather);
     }else{
       rings(g,[0,0,0],[[.12,.46,.25],[.66,.29,.20],[1.37,.24,.19],[1.75,.40,.24]],C.rock,7);
       box(g,[0,1.48,.05],[.53,.46,.31],C.bone);box(g,[0,1.93,.04],[.31,.36,.26],C.bone);
@@ -142,13 +170,60 @@
     for(let floor=0;floor<rows.length;floor++){
       const row=rows[floor];for(let lane=0;lane<row.length;lane++){
         const n=row[lane],f=Number(n.floor)||floor+1,l=Number.isFinite(n.lane)?n.lane:lane;
-        result.set(n.id,{node:n,position:[(f-1-(count-1)/2)*2.85,(f-1)*.075,(l-(row.length-1)/2)*2.60+Math.sin(f*.75)*.12]});
+        result.set(n.id,{node:n,position:[(floor-(count-1)/2)*2.85,floor*.075,(l-(row.length-1)/2)*2.60+Math.sin(f*.75)*.12]});
       }
     }return result;
   }
+  function regionalLandmarks(g,index,{map=false,extent=6,battle=false}={}){
+    const scale=map?1:.72,z=map?-4.9:-2.0,local=[];
+    if(index===0){
+      // A broken ceremonial gate flanked by steep slate mountain spires.
+      for(const s of [-1,1]){
+        box(local,[s*1.10,1.04,z],[.36,2.4,.42],C.edge);
+        box(local,[s*1.10,-.13,z],[.64,.22,.64],C.stone);
+        crystal(local,[s*(map?extent-1:2.8),-.6,z+.4],.75,3.5,C.rock);
+        crystal(local,[s*(map?extent:3.3),-.6,z-.4],.58,2.8,color(C.edge,.6));
+        crystal(local,[s*1.10,2.30,z],.13,.52,C.ice);
+      }
+      box(local,[0,2.24,z],[2.85,.25,.62],C.stone);
+      beam(local,[-1.58,2.35,z],[0,2.65,z],.19,C.edge);beam(local,[0,2.65,z],[1.58,2.35,z],.19,C.edge);
+      box(local,[0,1.90,z+.27],[.59,.38,.08],C.rock);
+      for(let k=0;k<4;k++)box(local,[(k-1.5)*.58,-.23,z+1.2+(k%2)*.1],[.48,.10,.86],C.stone);
+    }else if(index===1){
+      // An interrupted timber bridge and independent triangular camp tents.
+      for(const s of [-1,1]){
+        const x=s*2.0;
+        for(let k=0;k<4;k++)box(local,[x+s*k*.31,.04,z+1.0],[.25,.12,.72],color(C.gold,.55));
+        for(const dz of [-.4,.4]){box(local,[x+s*.72,.45,z+1+dz],[.09,.95,.09],color(C.gold,.7));beam(local,[x,.65,z+1+dz],[x+s*1.5,.78,z+1+dz],.045,C.gold);}
+        const cx=s*(map?extent-1.2:2.4),cz=z-.05;
+        tri(local,[cx-.72,0,cz+.55],[cx+.72,0,cz+.55],[cx,.95,cz+.55],[.36,.25,.19]);
+        quad(local,[cx-.72,0,cz-.55],[cx-.72,0,cz+.55],[cx,.95,cz+.55],[cx,.95,cz-.55],[.46,.34,.22]);
+        quad(local,[cx+.72,0,cz+.55],[cx+.72,0,cz-.55],[cx,.95,cz-.55],[cx,.95,cz+.55],[.30,.27,.23]);
+        beam(local,[cx,.95,cz-.70],[cx,.95,cz+.72],.06,C.gold);
+        rings(local,[cx-s*.9,.08,cz+.9],[[0,.19,.18],[.13,.17,.16]],C.stone,7);
+        crystal(local,[cx-s*.9,.19,cz+.9],.12,.38,[.96,.50,.16]);
+      }
+      for(let k=0;k<4;k++)box(local,[(k-1.5)*.37,-.45-Math.abs(k-1.5)*.08,z+1.10],[.25,.07,.56],color(C.gold,.35),k*.29);
+      for(const x of [-.8,.8]){box(local,[x,1.05,z-.25],[.06,2.1,.06],C.edge);box(local,[x+.19,1.72,z-.25],[.39,.55,.03],x<0?C.red:C.gold);}
+    }else{
+      // Concentric experimental well, oblique pylons and red suspended shards.
+      rings(local,[0,.05,z],[[0,1.62,1.05],[.25,1.60,1.04]],C.rock,14);
+      rings(local,[0,.31,z],[[0,1.31,.85],[.11,1.30,.84]],C.violet,14);
+      rings(local,[0,.43,z],[[0,1.05,.67],[.02,1.05,.67]],[.14,.04,.16],14);
+      for(let j=0;j<8;j++){
+        const a=j/8*Math.PI*2,x=Math.sin(a)*1.45,zz=z+Math.cos(a)*.94;
+        beam(local,[x,.14,zz],[x*1.15,1.14+(j%2)*.55,z+(zz-z)*1.15],.15,C.edge);
+        crystal(local,[x*1.15,1.14+(j%2)*.55,z+(zz-z)*1.15],.12,.55,C.red);
+        if(j%2===0)beam(local,[0,.46,z],[x,.46,zz],.025,[.73,.24,.40]);
+      }
+      crystal(local,[0,1.22,z],.28,1.18,[.56,.18,.37]);
+      for(const s of [-1,1])crystal(local,[s*(map?extent-.6:2.8),-.5,z+.5],.63,2.4,C.violet);
+    }
+    g.push(...transformed(local,S(scale)));
+  }
   function makeMap(instance){
     const g=[],details=[],o=instance.options,available=new Set(o.availableNodes||[]),visited=new Set((o.history||[]).map(n=>typeof n==='string'?n:n.id));
-    const positions=nodePositions(o.map),chosen=o.currentNode||[...positions.keys()][0];
+    const rows=localMap(o),region=regional(o),positions=nodePositions(rows),chosen=positions.has(o.currentNode)?o.currentNode:[...positions.keys()].find(id=>available.has(id))||[...positions.keys()][0];
     // Bridges are actual rectangular beams joining only engine-defined edges.
     for(const {node,position:p}of positions.values())for(const target of node.next||[]){
       const next=positions.get(target);if(!next)continue;
@@ -188,11 +263,12 @@
       details.push({nodeId:id,node,position:[p[0],p[1]+1.12,p[2]],available:open,visited:done});
     }
     // Broken perimeter pillars hint at the failed experiment beyond the route.
-    const extent=Math.max(8,(o.map?.length||8)*1.45);
+    const extent=Math.max(6,(rows.length||4)*1.45);
     for(let k=0;k<12;k++){
       const x=-extent+k/11*extent*2,z=(k%2?-1:1)*(5.2+(k%3)*.25),h=.8+(k%4)*.45;
-      rings(g,[x,-.6,z],[[0,.37,.31],[h,.19,.18]],C.rock,5,k);crystal(g,[x,h-.55,z],.13,.56,color(C.ice,.45));
+      rings(g,[x,-.6,z],[[0,.37,.31],[h,.19,.18]],C.rock,5,k);crystal(g,[x,h-.55,z],.13,.56,color(region.accent,.55));
     }
+    regionalLandmarks(g,region.index,{map:true,extent});
     const anchor=positions.get(chosen)?.position||[0,0,0];
     return{parts:[part('world',[0,0,0],g)],details,actors:[{kind:o.character==='sword'?'sword':'assassin',position:[anchor[0],anchor[1]+.16,anchor[2]+.26],scale:.43,rotation:.10}]};
   }
@@ -206,6 +282,7 @@
       crystal(world,[Math.sin(a)*r,.08,Math.cos(a)*r*(battle?.65:1)],.075,.19+(j%3)*.12,accent);
     }
     if(battle){for(const s of [-1,1])for(let j=0;j<3;j++)rings(world,[s*(2.8+j*.4),-.08,-1.5-j*.4],[[0,.16,.14],[1.1+j*.45,.11,.10]],C.rock,5);}
+    if(mode==='arrival'||battle)regionalLandmarks(world,regional(instance.options).index,{map:false,battle});
     // A dark geometric footprint and calibrated sole height keep the figure
     // grounded on the platform instead of hovering above the scene.
     rings(world,battle?[-1.15,.067,.15]:[0,.067,0],[[0,.38,.25],[.001,.38,.25]],color(C.rock,.42),12);
@@ -215,12 +292,12 @@
   }
   function checksum(geometry){let n=2166136261;for(const v of geometry){n^=Math.round(v*10000);n=Math.imul(n,16777619);}return(n>>>0).toString(16).padStart(8,'0');}
   const vertexSource='attribute vec3 aPosition;attribute vec3 aNormal;attribute vec3 aColor;uniform mat4 uProjection,uView,uModel;varying vec3 vColor;varying float vDepth;void main(){vec4 p=uView*uModel*vec4(aPosition,1.0);vec3 n=normalize(mat3(uModel)*aNormal);float light=.37+max(dot(n,normalize(vec3(-.50,.90,.65))),0.0)*.63;vColor=aColor*light;vDepth=-p.z;gl_Position=uProjection*p;}';
-  const fragmentSource='precision mediump float;varying vec3 vColor;varying float vDepth;uniform float uFogNear,uFogFar;void main(){float fog=clamp((vDepth-uFogNear)/(uFogFar-uFogNear),0.0,.58);gl_FragColor=vec4(mix(vColor,vec3(.035,.09,.115),fog),1.0);}';
+  const fragmentSource='precision mediump float;varying vec3 vColor;varying float vDepth;uniform float uFogNear,uFogFar;uniform vec3 uFogColor;void main(){float fog=clamp((vDepth-uFogNear)/(uFogFar-uFogNear),0.0,.58);gl_FragColor=vec4(mix(vColor,uFogColor,fog),1.0);}';
   function shader(gl,type,source){const s=gl.createShader(type);if(!s)throw Error('Shader unavailable');gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){const reason=gl.getShaderInfoLog(s);gl.deleteShader(s);throw Error(reason||'Shader compilation failed');}return s;}
   function programFor(gl){const vs=shader(gl,gl.VERTEX_SHADER,vertexSource),fs=shader(gl,gl.FRAGMENT_SHADER,fragmentSource),p=gl.createProgram();if(!p)throw Error('Program unavailable');gl.attachShader(p,vs);gl.attachShader(p,fs);gl.linkProgram(p);gl.deleteShader(vs);gl.deleteShader(fs);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){const reason=gl.getProgramInfoLog(p);gl.deleteProgram(p);throw Error(reason||'Program linking failed');}return p;}
   function upload(instance,p){const gl=instance.gl,buffer=gl.createBuffer();if(!buffer)throw Error('Buffer unavailable');gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(p.geometry),gl.STATIC_DRAW);return{...p,buffer,count:p.geometry.length/9,signature:checksum(p.geometry)};}
   function deleteMeshes(instance){for(const p of instance.meshes||[])instance.gl.deleteBuffer(p.buffer);instance.meshes=[];}
-  function buildKey(o){return JSON.stringify([o.mode,o.character,o.enemyId,o.map,o.availableNodes,o.history,o.currentNode]);}
+  function buildKey(o){return JSON.stringify([o.mode,o.character,o.enemyId,o.regionIndex,o.region,o.map,o.availableNodes,o.history,o.currentNode]);}
   function build(instance){
     deleteMeshes(instance);const built=instance.options.mode==='map'?makeMap(instance):makeCharacterScene(instance);
     instance.details=built.details;instance.actors=[];instance.meshes=built.parts.map(p=>upload(instance,{...p,actor:null}));
@@ -230,6 +307,11 @@
     }
     instance.vertices=instance.meshes.reduce((n,p)=>n+p.count,0);instance.triangles=instance.vertices/3;
     instance.modelSignature=instance.meshes.filter(p=>p.actor?.index===0).map(p=>p.signature).join('-');
+    instance.worldSignature=instance.meshes.filter(p=>!p.actor).map(p=>p.signature).join('-');
+    instance.enemySignature=instance.meshes.filter(p=>p.actor?.kind==='enemy').map(p=>p.signature).join('-');
+    const area=regional(instance.options);instance.root.dataset.sceneRegion=area.id;
+    instance.root.style.setProperty('--scene-deep',area.deep);instance.root.style.setProperty('--scene-light',area.light);
+    instance.caption.textContent=instance.options.mode==='map'?`${area.name} · 只显示本境相连的道路`:instance.options.mode==='arrival'?`${area.name} · 进入眼前这一境`:instance.options.mode==='battle'?`${area.name} · 交锋之地`:'行旅身影';
     makeButtons(instance);instance.rebuilds++;instance.builtKey=buildKey(instance.options);instance.dirty=true;
   }
   const nodeSymbols={fight:'战',elite:'险',rest:'憩',shop:'商',fox:'契',event:'异',boss:'魇'};
@@ -240,9 +322,10 @@
     for(const d of instance.details){
       const b=document.createElement('button');b.type='button';b.className='scene-node'+(d.available?' scene-node-current':'')+(d.visited?' scene-node-visited':'');
       b.dataset.sceneNode=d.nodeId;b.dataset.action='node';b.dataset.node=d.nodeId;b.disabled=!d.available;
-      const name=nodeNames[d.node.type]||'奇遇';b.title=`第 ${d.node.floor} 层 · ${d.node.name||name} · ${d.node.description||''}`;
-      b.setAttribute('aria-label',`第${d.node.floor}层 ${d.node.name||name} ${d.visited?'已完成':d.available?'可前往':'尚不可达'}`);
-      const sigil=document.createElement('b');sigil.textContent=nodeSymbols[d.node.type]||'异';const label=document.createElement('span');label.textContent=`${d.node.floor} · ${name}`;b.append(sigil,label);
+      const name=nodeNames[d.node.type]||'奇遇',scoped=Number.isInteger(instance.options.regionIndex)||instance.options.region,step=scoped?d.node.floor-(regional(instance.options).stages?.[0]||regional(instance.options).index*4+1)+1:d.node.floor;
+      b.title=`第 ${step} 段 · ${d.node.name||name} · ${d.node.description||''}`;
+      b.setAttribute('aria-label',`第${step}段 ${d.node.name||name} ${d.visited?'已完成':d.available?'可前往':'尚不可达'}`);
+      const sigil=document.createElement('b');sigil.textContent=nodeSymbols[d.node.type]||'异';const label=document.createElement('span');label.textContent=`${step} · ${name}`;b.append(sigil,label);
       b.addEventListener('click',event=>{
         if(!instance.alive||instance.locked||!(instance.options.availableNodes||[]).includes(d.nodeId)){event.preventDefault();event.stopImmediatePropagation();return;}
         if(typeof instance.options.onNode==='function'){
@@ -260,7 +343,7 @@
   function camera(instance){
     const aspect=instance.width/instance.height,map=instance.options.mode==='map',battle=instance.options.mode==='battle';
     let extent,eye,target;
-    if(map){const length=instance.options.map?.length||10;extent=Math.max(9.7,(length*2.85+3)/aspect);eye=[1.8,29,20];target=[0,.7,0];}
+    if(map){const length=localMap(instance.options).length||4;extent=Math.max(9.7,(length*2.85+3)/aspect);eye=[1.8,29,20];target=[0,.7,0];}
     else{extent=battle?4.25:3.25;eye=battle?[6.8,4.5,8.2]:[3.7,2.6,7.5];target=battle?[.05,1.20,0]:[0,1.43,0];}
     instance.view=lookAt(eye,target);instance.projection=ortho(-extent*aspect/2,extent*aspect/2,-extent/2,extent/2,.1,100);instance.viewProjection=mul(instance.projection,instance.view);instance.cameraEye=eye;
   }
@@ -291,6 +374,7 @@
     const gl=instance.gl,pose=poseFor(instance,time);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(instance.program);
     gl.uniformMatrix4fv(instance.uniforms.uProjection,false,new Float32Array(instance.projection));gl.uniformMatrix4fv(instance.uniforms.uView,false,new Float32Array(instance.view));
     gl.uniform1f(instance.uniforms.uFogNear,instance.options.mode==='map'?24:8);gl.uniform1f(instance.uniforms.uFogFar,instance.options.mode==='map'?60:24);
+    gl.uniform3fv(instance.uniforms.uFogColor,new Float32Array(regional(instance.options).fog));
     for(const mesh of instance.meshes){
       gl.bindBuffer(gl.ARRAY_BUFFER,mesh.buffer);for(const [name,size,offset]of [['aPosition',3,0],['aNormal',3,12],['aColor',3,24]]){const loc=instance.attributes[name];gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,size,gl.FLOAT,false,36,offset);}
       gl.uniformMatrix4fv(instance.uniforms.uModel,false,new Float32Array(mesh.actor?localFor(mesh,pose,mesh.actor):I()));gl.drawArrays(gl.TRIANGLES,0,mesh.count);
@@ -305,7 +389,7 @@
   function tick(time){raf=0;pruneDetached();if(time-lastTick>=1000/30){lastTick=time;for(const i of instances.values())if(visible(i)&&i.options.motion!=='reduced')render(i,time);}schedule();}
   function installStyle(){
     if(document.querySelector('style[data-night-scene]'))return;const style=document.createElement('style');style.dataset.nightScene='';
-    style.textContent='.night-scene{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#1d3b43aa,transparent 72%),linear-gradient(145deg,#0c1d25,#102c35);border:1px solid #7ea7ad38}.night-scene canvas{position:absolute;inset:0;display:block;width:100%;height:100%}.scene-node-layer{position:absolute;inset:0;pointer-events:none}.scene-node{position:absolute;width:72px;min-height:39px;transform:translate(-50%,-92%);padding:3px 5px;display:flex;align-items:center;justify-content:center;gap:5px;pointer-events:auto;border:1px solid #63818b55;color:#a0b3b6;background:#10242bd9;border-radius:3px;font:10px/1.2 system-ui,sans-serif;text-align:left;box-shadow:0 3px 15px #06131e77}.scene-node b{font-size:17px;font-weight:500;color:#b0c7c9}.scene-node span{max-width:40px}.scene-node:disabled{opacity:.80;cursor:default}.scene-node-visited:disabled{opacity:.65}.scene-node-current{color:#eff8f3;border-color:#9ce6e1;background:#1b444be8;box-shadow:0 0 18px #7ce3e32b}.scene-node-current b{color:#b0f3ef}.scene-node-current:hover,.scene-node-current:focus-visible{outline:2px solid #dfdfad;outline-offset:2px;background:#2a5259}.scene-node-visited{border-color:#c5a87177;color:#d4c099}.scene-node-visited b{color:#dcc490}.scene-fallback{position:absolute;inset:0;display:grid;place-items:center;padding:20px;color:#a7c5c5;font:12px/1.7 system-ui,sans-serif;text-align:center}.scene-model-caption{position:absolute;left:12px;bottom:8px;color:#8eafb6;font:10px/1.4 system-ui,sans-serif;pointer-events:none;letter-spacing:.05em}';document.head.append(style);
+    style.textContent='.night-scene{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,var(--scene-light,#1d3b43),transparent 72%),linear-gradient(145deg,var(--scene-deep,#0c1d25),#102028);border:1px solid #7ea7ad38}.night-scene canvas{position:absolute;inset:0;display:block;width:100%;height:100%}.scene-node-layer{position:absolute;inset:0;pointer-events:none}.scene-node{position:absolute;width:72px;min-height:39px;transform:translate(-50%,-92%);padding:3px 5px;display:flex;align-items:center;justify-content:center;gap:5px;pointer-events:auto;border:1px solid #63818b55;color:#a0b3b6;background:#10242bd9;border-radius:3px;font:10px/1.2 system-ui,sans-serif;text-align:left;box-shadow:0 3px 15px #06131e77}.scene-node b{font-size:17px;font-weight:500;color:#b0c7c9}.scene-node span{max-width:40px}.scene-node:disabled{opacity:.80;cursor:default}.scene-node-visited:disabled{opacity:.65}.scene-node-current{color:#eff8f3;border-color:#9ce6e1;background:#1b444be8;box-shadow:0 0 18px #7ce3e32b}.scene-node-current b{color:#b0f3ef}.scene-node-current:hover,.scene-node-current:focus-visible{outline:2px solid #dfdfad;outline-offset:2px;background:#2a5259}.scene-node-visited{border-color:#c5a87177;color:#d4c099}.scene-node-visited b{color:#dcc490}.scene-fallback{position:absolute;inset:0;display:grid;place-items:center;padding:20px;color:#a7c5c5;font:12px/1.7 system-ui,sans-serif;text-align:center}.scene-model-caption{position:absolute;left:12px;bottom:8px;color:#8eafb6;font:10px/1.4 system-ui,sans-serif;pointer-events:none;letter-spacing:.05em}';document.head.append(style);
   }
   function failed(root,reason,mode){if(getComputedStyle(root).position==='static')root.style.position='relative';root.dataset.sceneSupported='false';root.dataset.sceneReady='false';root.classList.add('night-scene');root._nightSceneFailure={supported:false,ready:false,alive:false,mode,reason};const message=document.createElement('div');message.className='scene-fallback';message.textContent=mode==='map'?'立体沙盘暂未启用，可使用下方路线。':'行旅模型暂未启用，人物立绘仍可查看。';root.append(message);return root._nightSceneFailure;}
   function mount(root,options={}){
@@ -315,7 +399,7 @@
     if(!gl)return failed(root,'WebGL unavailable',options.mode);
     const instance={id:++serial,root,canvas,gl,options:{mode:'character',character:'assassin',motion:'full',...options},alive:true,supported:true,ready:false,active:options.active!==false,intersects:true,meshes:[],frames:0,rebuilds:0,birth:now(),look:{x:0,y:0},pose:null,action:null,locked:false,projections:[]};
     try{
-      instance.program=programFor(gl);instance.attributes=Object.fromEntries(['aPosition','aNormal','aColor'].map(n=>[n,gl.getAttribLocation(instance.program,n)]));instance.uniforms=Object.fromEntries(['uProjection','uView','uModel','uFogNear','uFogFar'].map(n=>[n,gl.getUniformLocation(instance.program,n)]));
+      instance.program=programFor(gl);instance.attributes=Object.fromEntries(['aPosition','aNormal','aColor'].map(n=>[n,gl.getAttribLocation(instance.program,n)]));instance.uniforms=Object.fromEntries(['uProjection','uView','uModel','uFogNear','uFogFar','uFogColor'].map(n=>[n,gl.getUniformLocation(instance.program,n)]));
       gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(.03,.07,.09,0);gl.disable(gl.CULL_FACE);
       instance.originalPosition=root.style.position;instance.positionChanged=getComputedStyle(root).position==='static';if(instance.positionChanged)root.style.position='relative';
       root.classList.add('night-scene');root.dataset.sceneSupported='true';root.dataset.sceneReady='false';root.dataset.sceneMode=instance.options.mode;root.dataset.sceneCharacter=instance.options.character;
@@ -347,7 +431,7 @@
   function inspect(root){
     if(!root)return{instances:instances.size,rafCount:raf?1:0,frames:globalFrames,webglInstances:[...instances.values()].filter(i=>i.supported).length};
     const i=instances.get(root);if(!i)return root._nightSceneFailure||{alive:false,supported:false,ready:false};
-    return{id:i.id,alive:i.alive,supported:i.supported,ready:i.ready,mode:i.options.mode,type:i.options.mode,character:i.options.character,frames:i.frames,rebuilds:i.rebuilds,vertices:i.vertices,meshVertices:i.vertices,triangles:i.triangles,triangleCount:i.triangles,parts:i.meshes.length,modelSignature:i.modelSignature,pose:i.pose?{...i.pose}:null,animation:i.action?.type||null,availableNodes:[...(i.options.availableNodes||[])],projections:i.projections.map(p=>({...p})),canvasCount:i.root.querySelectorAll('[data-scene-canvas]').length,width:i.width,height:i.height,look:{...i.look},visible:i.intersects,renderer:'WebGL triangle meshes; procedural low-poly prototype'};
+    return{id:i.id,alive:i.alive,supported:i.supported,ready:i.ready,mode:i.options.mode,type:i.options.mode,character:i.options.character,frames:i.frames,rebuilds:i.rebuilds,vertices:i.vertices,meshVertices:i.vertices,triangles:i.triangles,triangleCount:i.triangles,parts:i.meshes.length,modelSignature:i.modelSignature,worldSignature:i.worldSignature,enemySignature:i.enemySignature,regionIndex:regional(i.options).index,regionId:regional(i.options).id,fogColor:[...regional(i.options).fog],visibleNodeIds:i.details.map(d=>d.nodeId),pose:i.pose?{...i.pose}:null,animation:i.action?.type||null,availableNodes:[...(i.options.availableNodes||[])],projections:i.projections.map(p=>({...p})),canvasCount:i.root.querySelectorAll('[data-scene-canvas]').length,width:i.width,height:i.height,look:{...i.look},visible:i.intersects,renderer:'WebGL triangle meshes; procedural low-poly prototype'};
   }
   if(hasDOM)document.addEventListener('visibilitychange',()=>{if(document.hidden){if(raf){cancelAnimationFrame(raf);raf=0;}}else{for(const i of instances.values())if(visible(i))render(i);schedule();}});
   const api={mount,sync,act,dispose,inspect};global.NightScene=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;

@@ -1,0 +1,2219 @@
+{
+  "format": "baiyao-v6-browser",
+  "target": "/workspace/CC/index.html",
+  "inlineTarget": "/workspace/CC/baiyao-standalone.html",
+  "results": [
+    {
+      "name": "渐进探索：到达页、当前场景四段路线、未来场景未泄露且不能跳段",
+      "ok": true
+    },
+    {
+      "name": "fixture 三场景依次解锁并保留已走历史：A→B→C真实换景",
+      "ok": true
+    },
+    {
+      "name": "fixture 柳照青三段因果：救助、再会、援手兑现与因缘簿",
+      "ok": true
+    },
+    {
+      "name": "fixture 季临川识宝后伏击：先读结局、实际敌人战斗、胜利只推进一次",
+      "ok": true
+    },
+    {
+      "name": "fixture 同门人心有别：守信者还恩，戒备露宝可避开贪者伏击",
+      "ok": true
+    },
+    {
+      "name": "fixture 闻人烛被救后的麻烦与追兵：前事被后续事件记住",
+      "ok": true
+    },
+    {
+      "name": "fixture 新增独立门派奇遇可选择，贫穷低血仍有安全选项",
+      "ok": true
+    },
+    {
+      "name": "fixture 追兵战败进入死亡结算，重开清空因缘与追踪",
+      "ok": true
+    },
+    {
+      "name": "新事件画像、三场景和夺宝者资源实际解码且相互独立",
+      "ok": true
+    },
+    {
+      "name": "双职业正常DOM十二段完整通关、三次抵达与重开，不修改资源路线",
+      "ok": true
+    },
+    {
+      "name": "图片和WebGL不可用时仍可抵达场景、选择路线并开始战斗",
+      "ok": true
+    },
+    {
+      "name": "完整单文件独立空白页启动并抵达首战，运行不联网",
+      "ok": true
+    },
+    {
+      "name": "运行时外网请求及未捕获JavaScript异常为零",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localRequests": [
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_first.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_return.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_final.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_first.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_return.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/events/ji_final.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S13.webp",
+    "/assets/cards/S11.webp",
+    "/assets/cards/S08.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_first.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_return.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/events/ji_final.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_first.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_return.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/events/ji_final.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_first.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_return.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_final.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/sect_duel.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/herb_caravan.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/relic_dispute.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/events/night_watch.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_first.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_return.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/portraits/wen.webp",
+    "/assets/events/wen_final.webp",
+    "/assets/portraits/raider.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/puppet/sword-critical.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/events/well.webp",
+    "/assets/events/shrine.webp",
+    "/assets/events/dreamshop.webp",
+    "/assets/events/theatre.webp",
+    "/assets/events/umbrella.webp",
+    "/assets/events/pawnshop.webp",
+    "/assets/events/riftwatch.webp",
+    "/assets/events/supply.webp",
+    "/assets/events/cultlab.webp",
+    "/assets/events/swordgrave.webp",
+    "/assets/events/pilgrims.webp",
+    "/assets/events/prisoner.webp",
+    "/assets/events/echo.webp",
+    "/assets/events/broker.webp",
+    "/assets/events/liu_first.webp",
+    "/assets/events/liu_return.webp",
+    "/assets/events/liu_final.webp",
+    "/assets/events/ji_first.webp",
+    "/assets/events/ji_return.webp",
+    "/assets/events/ji_final.webp",
+    "/assets/events/wen_first.webp",
+    "/assets/events/wen_return.webp",
+    "/assets/events/wen_final.webp",
+    "/assets/events/sect_duel.webp",
+    "/assets/events/herb_caravan.webp",
+    "/assets/events/relic_dispute.webp",
+    "/assets/events/night_watch.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/portraits/ji.webp",
+    "/assets/portraits/wen.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S08.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S15.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_first.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S05.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S12.webp",
+    "/assets/cards/S07.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_return.webp",
+    "/assets/events/fox.webp",
+    "/assets/relics/fox.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S08.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S15.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/S10.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S12.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_final.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S10.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S12.webp",
+    "/assets/cards/S13.webp",
+    "/assets/cards/S16.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S06.webp",
+    "/assets/cards/S09.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S10.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S12.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S12.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S16.webp",
+    "/assets/cards/S01.webp",
+    "/assets/cards/S03.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S15.webp",
+    "/assets/cards/S09.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S16.webp",
+    "/assets/regions/fog_gate.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/portraits/ape.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C08.webp",
+    "/assets/cards/C23.webp",
+    "/assets/cards/C33.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_first.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C30.webp",
+    "/assets/portraits/yaksha.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C04.webp",
+    "/assets/relics/mirror.webp",
+    "/assets/relics/dream.webp",
+    "/assets/cards/C27.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C16.webp",
+    "/assets/regions/broken_camp.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_return.webp",
+    "/assets/events/fox.webp",
+    "/assets/relics/fox.webp",
+    "/assets/portraits/paper.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C10.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C13.webp",
+    "/assets/cards/C31.webp",
+    "/assets/regions/ritual_core.webp",
+    "/assets/portraits/liu.webp",
+    "/assets/events/liu_final.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C34.webp",
+    "/assets/cards/C25.webp",
+    "/assets/events/shop.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C09.webp",
+    "/assets/portraits/snake.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C34.webp",
+    "/assets/cards/C28.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C03.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C04.webp",
+    "/assets/cards/C02.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C26.webp",
+    "/assets/cards/C09.webp",
+    "/assets/cards/C18.webp",
+    "/assets/cards/C01.webp",
+    "/assets/cards/C33.webp",
+    "/assets/cards/C17.webp",
+    "/assets/cards/C34.webp",
+    "/assets/regions/fog_gate.webp",
+    "/index.html",
+    "/assets/puppet/cat-normal.webp",
+    "/assets/puppet/cat-blink.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/regions/fog_gate.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/puppet/sword-normal.webp",
+    "/assets/portraits/lantern.webp",
+    "/assets/cards/S04.webp",
+    "/assets/cards/S02.webp",
+    "/assets/cards/S01.webp"
+  ],
+  "expectedMissingRequests": [
+    "http://127.0.0.1:38393/assets/puppet/cat-normal.webp",
+    "http://127.0.0.1:38393/assets/puppet/cat-blink.webp",
+    "http://127.0.0.1:38393/assets/puppet/sword-normal.webp",
+    "http://127.0.0.1:38393/assets/regions/fog_gate.webp",
+    "http://127.0.0.1:38393/assets/puppet/sword-normal.webp",
+    "http://127.0.0.1:38393/assets/puppet/sword-normal.webp",
+    "http://127.0.0.1:38393/assets/portraits/lantern.webp",
+    "http://127.0.0.1:38393/assets/cards/S04.webp",
+    "http://127.0.0.1:38393/assets/cards/S02.webp",
+    "http://127.0.0.1:38393/assets/cards/S01.webp"
+  ],
+  "sha256": "8f74ed5e108e2c932efacec8696cd468dab70120c759279da9f0c9942d21759b",
+  "inputs": {
+    "dev/engine.js": "9e81e473841e02505d7cedeb3fd308d0adfc0481fe4eddc2b1a1761a56761f49",
+    "dev/ui.js": "12e8916867d2ffac987a5aea22eb7789daad634623d288f9e2536bf0be8a3dd8",
+    "dev/shell.html": "7f037387bac5b32354d021122cee220f75f775e0c12d3e65102e9fc99d7add9f",
+    "dev/scene.js": "046e32b2cb0f84199a9d6fe65560b7ad1dc5154457742c4e30936a5568860dd3",
+    "dev/art.js": "482a9d11fd453f410203efa3f120ac795b49c8decfb0950c2b05012702e54af5"
+  },
+  "fileNavigation": {
+    "allowed": false,
+    "error": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/CC/index.html\", waiting until \"load\"\u001b[22m\n"
+  },
+  "map": {
+    "initial": {
+      "id": 4,
+      "alive": true,
+      "supported": true,
+      "ready": true,
+      "mode": "map",
+      "type": "map",
+      "character": "sword",
+      "frames": 22,
+      "rebuilds": 1,
+      "vertices": 15828,
+      "meshVertices": 15828,
+      "triangles": 5276,
+      "triangleCount": 5276,
+      "parts": 7,
+      "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+      "worldSignature": "01471fe8",
+      "enemySignature": "",
+      "regionIndex": 0,
+      "regionId": "fog_gate",
+      "fogColor": [
+        0.035,
+        0.09,
+        0.115
+      ],
+      "visibleNodeIds": [
+        "f1-0",
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f3-0",
+        "f3-1",
+        "f3-2",
+        "f4-0",
+        "f4-1"
+      ],
+      "pose": {
+        "breath": 0.01192317803360593,
+        "headYaw": 0.009360557038859258,
+        "hair": 0.034855615755514956,
+        "tail": 0.18742646320778125,
+        "leftArm": 0,
+        "rightArm": 0,
+        "lean": 0,
+        "shift": 0,
+        "kind": null,
+        "p": 0
+      },
+      "animation": null,
+      "availableNodes": [
+        "f1-0"
+      ],
+      "projections": [
+        {
+          "nodeId": "f1-0",
+          "x": 498.7216140438158,
+          "y": 184.32552462406989,
+          "available": true,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-0",
+          "x": 628.4078963402326,
+          "y": 103.33325908709448,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-1",
+          "x": 618.5569903956326,
+          "y": 192.5987114681615,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f2-2",
+          "x": 608.7060844510327,
+          "y": 281.8641638492285,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-0",
+          "x": 748.4866406947917,
+          "y": 109.40113050313785,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-1",
+          "x": 738.6357347501919,
+          "y": 198.66658288420484,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f3-2",
+          "x": 728.7848288055919,
+          "y": 287.9320352652718,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-0",
+          "x": 863.8297657328158,
+          "y": 158.38152214548273,
+          "available": false,
+          "visited": false
+        },
+        {
+          "nodeId": "f4-1",
+          "x": 853.9788597882158,
+          "y": 247.64697452654968,
+          "available": false,
+          "visited": false
+        }
+      ],
+      "canvasCount": 1,
+      "width": 1358,
+      "height": 410,
+      "look": {
+        "x": 0,
+        "y": 0
+      },
+      "visible": true,
+      "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+    }
+  },
+  "regions": [
+    {
+      "region": 0,
+      "model": {
+        "id": 7,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 8,
+        "rebuilds": 1,
+        "vertices": 15756,
+        "meshVertices": 15756,
+        "triangles": 5252,
+        "triangleCount": 5252,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "0733cde8",
+        "enemySignature": "",
+        "regionIndex": 0,
+        "regionId": "fog_gate",
+        "fogColor": [
+          0.035,
+          0.09,
+          0.115
+        ],
+        "visibleNodeIds": [
+          "f1-0",
+          "f2-0",
+          "f2-1",
+          "f2-2",
+          "f3-0",
+          "f3-1",
+          "f3-2",
+          "f4-0",
+          "f4-1"
+        ],
+        "pose": {
+          "breath": 0.015300640522885293,
+          "headYaw": 0.005705236639280253,
+          "hair": 0.02784902494722146,
+          "tail": 0.13343115052164847,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f1-0"
+        ],
+        "projections": [
+          {
+            "nodeId": "f1-0",
+            "x": 498.7216140438158,
+            "y": 184.32552462406989,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-0",
+            "x": 628.4078963402326,
+            "y": 103.33325908709448,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-1",
+            "x": 618.5569903956326,
+            "y": 192.5987114681615,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f2-2",
+            "x": 608.7060844510327,
+            "y": 281.8641638492285,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-0",
+            "x": 748.4866406947917,
+            "y": 109.40113050313785,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-1",
+            "x": 738.6357347501919,
+            "y": 198.66658288420484,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f3-2",
+            "x": 728.7848288055919,
+            "y": 287.9320352652718,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-0",
+            "x": 863.8297657328158,
+            "y": 158.38152214548273,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f4-1",
+            "x": 853.9788597882158,
+            "y": 247.64697452654968,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1358,
+        "height": 410,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "visibleIds": [
+        "f1-0",
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f3-0",
+        "f3-1",
+        "f3-2",
+        "f4-0",
+        "f4-1",
+        "f1-0",
+        "f1-0",
+        "f2-0",
+        "f2-1",
+        "f2-2",
+        "f3-0",
+        "f3-1",
+        "f3-2",
+        "f4-0",
+        "f4-1"
+      ]
+    },
+    {
+      "region": 1,
+      "model": {
+        "id": 13,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 25,
+        "rebuilds": 1,
+        "vertices": 18654,
+        "meshVertices": 18654,
+        "triangles": 6218,
+        "triangleCount": 6218,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "d102d6f4",
+        "enemySignature": "",
+        "regionIndex": 1,
+        "regionId": "broken_camp",
+        "fogColor": [
+          0.1,
+          0.085,
+          0.065
+        ],
+        "visibleNodeIds": [
+          "f5-0",
+          "f5-1",
+          "f6-0",
+          "f6-1",
+          "f6-2",
+          "f6-3",
+          "f7-0",
+          "f7-1",
+          "f7-2",
+          "f8-0",
+          "f8-1",
+          "f8-2"
+        ],
+        "pose": {
+          "breath": 0.000519151320321313,
+          "headYaw": 0.011223617325298453,
+          "hair": 0.027331441805487296,
+          "tail": 0.17979517382977342,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f5-0",
+          "f5-1"
+        ],
+        "projections": [
+          {
+            "nodeId": "f5-0",
+            "x": 504.2168434517628,
+            "y": 134.5296843433053,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f5-1",
+            "x": 494.3659375071629,
+            "y": 223.79513672437224,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-0",
+            "x": 634.2313086913192,
+            "y": 50.56354015518176,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-1",
+            "x": 624.3804027467193,
+            "y": 139.82899253624876,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-2",
+            "x": 614.5294968021194,
+            "y": 229.09444491731574,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f6-3",
+            "x": 604.6785908575195,
+            "y": 318.35989729838275,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-0",
+            "x": 749.2309180234629,
+            "y": 102.65675056342043,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-1",
+            "x": 739.3800120788629,
+            "y": 191.9222029444874,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f7-2",
+            "x": 729.529106134263,
+            "y": 281.1876553255544,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-0",
+            "x": 868.9464181998167,
+            "y": 112.01621323763423,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-1",
+            "x": 859.0955122552167,
+            "y": 201.2816656187012,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f8-2",
+            "x": 849.2446063106169,
+            "y": 290.54711799976815,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1358,
+        "height": 410,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "visibleIds": [
+        "f5-0",
+        "f5-1",
+        "f6-0",
+        "f6-1",
+        "f6-2",
+        "f6-3",
+        "f7-0",
+        "f7-1",
+        "f7-2",
+        "f8-0",
+        "f8-1",
+        "f8-2",
+        "f5-0",
+        "f5-1",
+        "f5-0",
+        "f5-1",
+        "f6-0",
+        "f6-1",
+        "f6-2",
+        "f6-3",
+        "f7-0",
+        "f7-1",
+        "f7-2",
+        "f8-0",
+        "f8-1",
+        "f8-2"
+      ]
+    },
+    {
+      "region": 2,
+      "model": {
+        "id": 19,
+        "alive": true,
+        "supported": true,
+        "ready": true,
+        "mode": "map",
+        "type": "map",
+        "character": "sword",
+        "frames": 10,
+        "rebuilds": 1,
+        "vertices": 16428,
+        "meshVertices": 16428,
+        "triangles": 5476,
+        "triangleCount": 5476,
+        "parts": 7,
+        "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "e098672a",
+        "enemySignature": "",
+        "regionIndex": 2,
+        "regionId": "ritual_core",
+        "fogColor": [
+          0.09,
+          0.04,
+          0.11
+        ],
+        "visibleNodeIds": [
+          "f9-0",
+          "f9-1",
+          "f10-0",
+          "f10-1",
+          "f10-2",
+          "f11-0",
+          "f11-1",
+          "f12-0"
+        ],
+        "pose": {
+          "breath": 0.0122878721911762,
+          "headYaw": 0.004008066680865911,
+          "hair": 0.020689292931446935,
+          "tail": 0.0968943140569737,
+          "leftArm": 0,
+          "rightArm": 0,
+          "lean": 0,
+          "shift": 0,
+          "kind": null,
+          "p": 0
+        },
+        "animation": null,
+        "availableNodes": [
+          "f9-0",
+          "f9-1"
+        ],
+        "projections": [
+          {
+            "nodeId": "f9-0",
+            "x": 503.75236320710565,
+            "y": 138.73864130569757,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f9-1",
+            "x": 493.9014572625057,
+            "y": 228.00409368676458,
+            "available": true,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-0",
+            "x": 628.4349461746634,
+            "y": 103.08814298093311,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-1",
+            "x": 618.5840402300635,
+            "y": 192.35359536200008,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f10-2",
+            "x": 608.7331342854635,
+            "y": 281.6190477430671,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f11-0",
+            "x": 743.4954756570178,
+            "y": 154.6293163685902,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f11-1",
+            "x": 733.6445697124178,
+            "y": 243.89476874965717,
+            "available": false,
+            "visited": false
+          },
+          {
+            "nodeId": "f12-0",
+            "x": 858.7811013523689,
+            "y": 204.1307468741803,
+            "available": false,
+            "visited": false
+          }
+        ],
+        "canvasCount": 1,
+        "width": 1358,
+        "height": 410,
+        "look": {
+          "x": 0,
+          "y": 0
+        },
+        "visible": true,
+        "renderer": "WebGL triangle meshes; procedural low-poly prototype"
+      },
+      "visibleIds": [
+        "f9-0",
+        "f9-1",
+        "f10-0",
+        "f10-1",
+        "f10-2",
+        "f11-0",
+        "f11-1",
+        "f12-0",
+        "f9-0",
+        "f9-1",
+        "f9-0",
+        "f9-1",
+        "f10-0",
+        "f10-1",
+        "f10-2",
+        "f11-0",
+        "f11-1",
+        "f12-0"
+      ]
+    }
+  ],
+  "liuReturn": {
+    "received": "生命 +6 · 下一战首回合护盾 +8",
+    "journey": {
+      "regionIndex": 1,
+      "chain": "liu",
+      "step": 2,
+      "flags": {
+        "liuAid": true,
+        "liuReturned": true
+      },
+      "relationships": {
+        "liu": {
+          "status": "可信同路人",
+          "text": "柳照青为你疗伤，并留下只用一次的护身药符。"
+        }
+      },
+      "journal": [
+        {
+          "floor": 2,
+          "region": 0,
+          "npc": "liu",
+          "title": "药箱旁的求援",
+          "text": "师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”",
+          "tone": "good"
+        },
+        {
+          "floor": 5,
+          "region": 1,
+          "npc": "liu",
+          "title": "青绦再逢",
+          "text": "她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。",
+          "tone": "good"
+        }
+      ],
+      "hidden": {
+        "jiIntent": "greedy"
+      },
+      "nextCombatBlock": 8
+    }
+  },
+  "liu": {
+    "journal": [
+      {
+        "floor": 2,
+        "region": 0,
+        "npc": "liu",
+        "title": "药箱旁的求援",
+        "text": "师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”",
+        "tone": "good"
+      },
+      {
+        "floor": 5,
+        "region": 1,
+        "npc": "liu",
+        "title": "青绦再逢",
+        "text": "她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。",
+        "tone": "good"
+      },
+      {
+        "floor": 9,
+        "region": 2,
+        "npc": "liu",
+        "title": "留给你的那盏灯",
+        "text": "你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。",
+        "tone": "good"
+      }
+    ],
+    "relationships": {
+      "liu": {
+        "status": "生死之交",
+        "text": "她留到最后，为你点亮归路。"
+      }
+    },
+    "final": {
+      "id": "liu_final",
+      "npc": "liu",
+      "chapter": 3,
+      "name": "留给你的那盏灯",
+      "faction": "丹霞谷",
+      "glyph": "药",
+      "kicker": "故人行迹 · 3 / 3",
+      "whisper": "丹霞谷的成年女药修，背着药箱入域寻找失踪师姐。说话直率，仍相信救人不该先问价钱。",
+      "description": "观测井外围，柳照青把最后一盏药灯挂在岔路口。她与师姐已经找到了归路，却仍等在这里。",
+      "story": [
+        "观测井外围，柳照青把最后一盏药灯挂在岔路口。她与师姐已经找到了归路，却仍等在这里。",
+        "“知道你还没出来。”她说。青色药灯照亮了一截安全石阶，灯罩上的名字只有你的。"
+      ],
+      "connection": "你当初伸出的那只手，换来了井边迟迟未灭的灯。",
+      "choices": [
+        {
+          "label": "循药灯前行 · 恢复 12 生命，下一战护盾 +12",
+          "text": "护盾仅在下一场战斗首回合获得，与尚未使用的援护叠加。",
+          "heal": 12,
+          "guard": 12,
+          "flags": {
+            "liuFinished": true
+          },
+          "relationship": {
+            "status": "生死之交",
+            "text": "她留到最后，为你点亮归路。"
+          },
+          "tone": "good",
+          "outcome": "你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。",
+          "disabled": false
+        },
+        {
+          "label": "请教破瘴手法 · 失去 5 生命，获得「碎霜」",
+          "text": "移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。",
+          "hpCost": 5,
+          "cardIds": [
+            "S15"
+          ],
+          "flags": {
+            "liuFinished": true
+          },
+          "relationship": {
+            "status": "互授所长",
+            "text": "柳照青替你引出瘴气，你也记下了她的破势手法。"
+          },
+          "outcome": "以伤口为引，她从你经络里挑出一道黑线。疼痛之后，一个从未有过的出手顺序清楚起来。",
+          "disabled": false
+        },
+        {
+          "label": "托她带一句平安回去",
+          "text": "没有即时数值变化，记下这段相逢。",
+          "flags": {
+            "liuFinished": true
+          },
+          "relationship": {
+            "status": "旧恩未忘",
+            "text": "她答应将你仍活着的消息带到雾外。"
+          },
+          "tone": "good",
+          "outcome": "她把你的话记在药方背面，字很端正。你们没有许下不可能的承诺，只互道一句保重。",
+          "disabled": false
+        }
+      ],
+      "resolved": true,
+      "outcome": "你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。",
+      "received": "生命 +0 · 下一战首回合护盾 +12",
+      "choiceLabel": "循药灯前行 · 恢复 12 生命，下一战护盾 +12"
+    }
+  },
+  "ambush": {
+    "before": {
+      "id": "ji_final",
+      "npc": "ji",
+      "chapter": 3,
+      "name": "旧恩，夺宝",
+      "faction": "太微剑宗外门",
+      "glyph": "剑",
+      "kicker": "故人行迹 · 3 / 3",
+      "whisper": "太微外门的成年男弟子，自称走散了队伍。待人谦和，却总在谈话时留意别人的行囊。",
+      "description": "你在逆仪石阶再次看见季临川。这次他没有行礼，两名同伙堵在身后，他的剑尖指着的正是你在灯下打开过的匣子。",
+      "story": [
+        "你在逆仪石阶再次看见季临川。这次他没有行礼，两名同伙堵在身后，他的剑尖指着的正是你在灯下打开过的匣子。",
+        "“你救过我，我记得。”他避开你的目光，“但那件东西，够我换一生的前程。”旧恩没有让剑尖退后半寸。"
+      ],
+      "connection": "断桥诸营：你曾让季临川知道宝物在你身上。如今追来的，是同一个人的剑。",
+      "risk": "夺宝者已经现身。此处可战斗、花钱脱身或带伤绕行。",
+      "choices": [
+        {
+          "label": "拔刃迎战 · 击败季临川，守住宝物",
+          "text": "进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20金币与选牌；失败结束本局。",
+          "battle": {
+            "enemyId": "raider",
+            "name": "季临川·夺宝剑客",
+            "kind": "fight"
+          },
+          "flags": {
+            "jiRobbery": true
+          },
+          "relationship": {
+            "status": "反目成仇",
+            "text": "季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。"
+          },
+          "tone": "warning",
+          "outcome": "你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。",
+          "disabled": false
+        },
+        {
+          "label": "付 35 金币买断此路",
+          "text": "保留全部遗物，支付35金币后脱离伏击。",
+          "goldCost": 35,
+          "flags": {
+            "jiRobbery": true,
+            "jiEscaped": true
+          },
+          "relationship": {
+            "status": "人情已断",
+            "text": "你付钱换路，保住了宝物，也看清了这个人。"
+          },
+          "tone": "warning",
+          "outcome": "钱袋落地，你没有弯腰。季临川让开半步；在他数清钱以前，你已越过最后一道雾墙。",
+          "disabled": false
+        },
+        {
+          "label": "用瘴雾断后 · 失去 8 生命，保住宝物",
+          "text": "当前生命须大于8。付出明确生命代价绕开战斗；不丢失遗物。",
+          "hpCost": 8,
+          "flags": {
+            "jiRobbery": true,
+            "jiEscaped": true
+          },
+          "relationship": {
+            "status": "避开仇敌",
+            "text": "你带伤脱身，保住了行囊。"
+          },
+          "tone": "warning",
+          "outcome": "你划破掌心，将血撒入嗜灵雾中。雾追着血气合拢，你忍痛从另一侧翻下石阶。",
+          "disabled": false
+        }
+      ],
+      "resolved": true,
+      "outcome": "你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。",
+      "received": "没有取走任何东西",
+      "choiceLabel": "拔刃迎战 · 击败季临川，守住宝物",
+      "battle": {
+        "enemyId": "raider",
+        "name": "季临川·夺宝剑客",
+        "kind": "fight"
+      }
+    },
+    "battle": {
+      "kind": "fight",
+      "phase": "ended",
+      "hand": [],
+      "draw": [
+        {
+          "uid": "card-4",
+          "id": "S01"
+        },
+        {
+          "uid": "card-2",
+          "id": "S01"
+        },
+        {
+          "uid": "card-5",
+          "id": "S02"
+        },
+        {
+          "uid": "card-3",
+          "id": "S01"
+        },
+        {
+          "uid": "card-10",
+          "id": "S04"
+        },
+        {
+          "uid": "card-6",
+          "id": "S02"
+        }
+      ],
+      "discard": [
+        {
+          "id": "S01",
+          "uid": "v6-fixture-kill"
+        }
+      ],
+      "exhaust": [],
+      "resolving": [],
+      "enemy": {
+        "id": "raider",
+        "name": "季临川·夺宝剑客",
+        "hp": 0,
+        "maxHp": 42,
+        "block": 0,
+        "mark": 0,
+        "poison": 0,
+        "chill": 0,
+        "intentIndex": 0
+      },
+      "block": 0,
+      "energy": 0,
+      "poison": 0,
+      "swordIntent": 0,
+      "frostsealUsed": false,
+      "turn": 1,
+      "played": 1,
+      "nextAttack": 0,
+      "nextEnergy": 0,
+      "nextDraw": 0,
+      "bellUsed": false,
+      "jadeUsed": false,
+      "bloodPower": 0,
+      "riposte": 0,
+      "fangUsed": false,
+      "silkUsed": false,
+      "bloodstoneUsed": false,
+      "events": [
+        {
+          "id": 7,
+          "type": "card",
+          "source": "player",
+          "target": "player",
+          "cardId": "S01",
+          "name": "霜锋",
+          "cost": 1
+        },
+        {
+          "id": 8,
+          "type": "relic",
+          "source": "player",
+          "target": "player",
+          "relic": "mirror",
+          "name": "照魂镜",
+          "amount": 7,
+          "cardId": "S01"
+        },
+        {
+          "id": 9,
+          "type": "attack",
+          "source": "player",
+          "target": "enemy",
+          "amount": 13,
+          "absorbed": 0,
+          "damage": 13,
+          "hitIndex": 0,
+          "kind": "card",
+          "cardId": "S01"
+        },
+        {
+          "id": 10,
+          "type": "victory",
+          "source": "player",
+          "target": "enemy",
+          "cardId": "S01"
+        }
+      ],
+      "hitIndex": 1,
+      "mirrorUsed": true,
+      "nineUsed": false,
+      "logs": [
+        "进入第 9 段，与季临川·夺宝剑客交战。",
+        "—— 玩家第 1 回合：旧护盾清空 ——",
+        "这是先前奇遇引出的交战；获胜后正常选牌，只完成当前道路一次。",
+        "打出「霜锋」，消耗 1 灵力。",
+        "照魂镜触发：本场首张攻击牌第一段伤害增加 7。",
+        "首段增伤：第一段伤害增加 7。",
+        "对季临川·夺宝剑客造成 13 点伤害：护盾抵挡 0，生命伤害 13。",
+        "击败季临川·夺宝剑客！"
+      ],
+      "storyEncounter": {
+        "npc": "ji",
+        "title": "旧恩，夺宝",
+        "enemy": "季临川·夺宝剑客"
+      }
+    },
+    "reward": {
+      "cards": [
+        "S13",
+        "S11",
+        "S08"
+      ],
+      "gold": 20,
+      "relic": null,
+      "relicChoices": [],
+      "relicPending": false,
+      "rerolled": false
+    },
+    "journal": [
+      {
+        "floor": 2,
+        "region": 0,
+        "npc": "ji",
+        "title": "断剑客的请求",
+        "text": "季临川递出剑诀，行礼十分周到。他多问了一句你要去哪里，随后沿着与你相近的方向离开。",
+        "tone": "neutral"
+      },
+      {
+        "floor": 5,
+        "region": 1,
+        "npc": "ji",
+        "title": "灯下验宝",
+        "text": "奇物入手，确实有灵。季临川替你合上匣盖，却将匣边的纹路看了很久。你把这件事记在心里。",
+        "tone": "warning"
+      },
+      {
+        "floor": 9,
+        "region": 2,
+        "npc": "ji",
+        "title": "旧恩，夺宝",
+        "text": "你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。",
+        "tone": "warning"
+      },
+      {
+        "floor": 9,
+        "region": 2,
+        "npc": "ji",
+        "title": "伏击已破",
+        "text": "击退季临川·夺宝剑客。你没有失去随身宝物；这段交锋已经结束。",
+        "tone": "warning"
+      }
+    ]
+  },
+  "jiAlternatives": [
+    {
+      "branch": {
+        "intent": "grateful",
+        "choice": 0
+      },
+      "event": {
+        "id": "ji_final",
+        "npc": "ji",
+        "chapter": 3,
+        "name": "还你一剑",
+        "faction": "太微剑宗外门",
+        "glyph": "剑",
+        "kicker": "故人行迹 · 3 / 3",
+        "whisper": "太微外门的成年男弟子，自称走散了队伍。待人谦和，却总在谈话时留意别人的行囊。",
+        "description": "季临川守在井外的断墙边。他把前来打听你行踪的人打发走了，自己却留着一柄未曾收鞘的剑。",
+        "story": [
+          "季临川守在井外的断墙边。他把前来打听你行踪的人打发走了，自己却留着一柄未曾收鞘的剑。",
+          "“山门那次，我还记得。”他把一页剑诀推给你，“我进不了井底，至少替你守住这条退路。”"
+        ],
+        "connection": "你的援手遇见了一个愿意偿还的人。",
+        "choices": [
+          {
+            "label": "接受回礼 · 获得「万川归寂」，下一战护盾 +10",
+            "text": "消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。",
+            "cardIds": [
+              "S16"
+            ],
+            "guard": 10,
+            "flags": {
+              "jiFinished": true
+            },
+            "relationship": {
+              "status": "知恩守信",
+              "text": "季临川兑现了承诺，替你守住退路。"
+            },
+            "tone": "good",
+            "outcome": "他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。",
+            "disabled": false
+          },
+          {
+            "label": "收紧护符，独自离去 · 下一战护盾 +5",
+            "text": "下一场战斗首回合获得5护盾，不收人情。",
+            "guard": 5,
+            "flags": {
+              "jiFinished": true
+            },
+            "relationship": {
+              "status": "人情未散",
+              "text": "你谢过他的守望，独自走向井口。"
+            },
+            "outcome": "你留下一句保重，顺着另一侧石阶离开。包裹仍封得严实，剑也仍在自己手中。",
+            "disabled": false
+          }
+        ],
+        "resolved": true,
+        "outcome": "他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。",
+        "received": "卡牌「万川归寂」 · 下一战首回合护盾 +10",
+        "choiceLabel": "接受回礼 · 获得「万川归寂」，下一战护盾 +10"
+      },
+      "relationship": {
+        "status": "知恩守信",
+        "text": "季临川兑现了承诺，替你守住退路。"
+      }
+    },
+    {
+      "branch": {
+        "intent": "greedy",
+        "choice": 2
+      },
+      "event": {
+        "id": "ji_final",
+        "npc": "ji",
+        "chapter": 3,
+        "name": "未出的那一剑",
+        "faction": "太微剑宗外门",
+        "glyph": "剑",
+        "kicker": "故人行迹 · 3 / 3",
+        "whisper": "太微外门的成年男弟子，自称走散了队伍。待人谦和，却总在谈话时留意别人的行囊。",
+        "description": "井外有一串熟悉的脚印，季临川站在石柱后面。你看见他看了看行囊，随后又将剑收回鞘中。",
+        "story": [
+          "井外有一串熟悉的脚印，季临川站在石柱后面。你看见他看了看行囊，随后又将剑收回鞘中。",
+          "你一直封着行囊，他没有摸清你带着什么，也没找到值得下手的机会。"
+        ],
+        "connection": "你没有让季临川看清行囊，后来的相逢仍留着余地。",
+        "choices": [
+          {
+            "label": "相互让路 · 获得 12 金币",
+            "text": "交换最后一段安全路讯，不展示宝物。",
+            "goldGain": 12,
+            "flags": {
+              "jiFinished": true
+            },
+            "relationship": {
+              "status": "相安无事",
+              "text": "你们保持距离，各走各的路。"
+            },
+            "outcome": "你卖给他一段刚刚走过的路讯。他付钱，让路；这一回，相逢没有变成刀剑。",
+            "disabled": false
+          },
+          {
+            "label": "收紧护符，独自离去 · 下一战护盾 +5",
+            "text": "下一场战斗首回合获得5护盾，不收人情。",
+            "guard": 5,
+            "flags": {
+              "jiFinished": true
+            },
+            "relationship": {
+              "status": "谨慎作别",
+              "text": "你没有放下戒备，也没有主动拔剑。"
+            },
+            "outcome": "你留下一句保重，顺着另一侧石阶离开。包裹仍封得严实，剑也仍在自己手中。",
+            "disabled": false
+          }
+        ],
+        "resolved": true,
+        "outcome": "你卖给他一段刚刚走过的路讯。他付钱，让路；这一回，相逢没有变成刀剑。",
+        "received": "金币 +12",
+        "choiceLabel": "相互让路 · 获得 12 金币"
+      },
+      "relationship": {
+        "status": "相安无事",
+        "text": "你们保持距离，各走各的路。"
+      }
+    }
+  ],
+  "wenMiddle": {
+    "id": "wen_return",
+    "npc": "wen",
+    "chapter": 2,
+    "name": "符息追来时",
+    "faction": "玄烬叛徒",
+    "glyph": "烛",
+    "kicker": "故人行迹 · 2 / 3",
+    "whisper": "曾替归墟引灵仪记载试验结果的成年女修。她知道一些出口，也背着一份不肯放下的罪证。",
+    "description": "断桥下，闻人烛果然带着洗符砂等你。她瘦了许多，手里的实验残页却用油纸包得很严。",
+    "story": [
+      "断桥下，闻人烛果然带着洗符砂等你。她瘦了许多，手里的实验残页却用油纸包得很严。",
+      "你腕上的黑印忽然发烫。追兵已循锁息靠近，她能现在洗去印记，也能带着证据抢先闯过封锁。"
+    ],
+    "connection": "雾锁山门：你释放闻人烛时，沾上了符锁的追踪印记。",
+    "risk": "黑印尚未洗净时，追猎可能继续。",
+    "choices": [
+      {
+        "label": "付 15 金币买洗符砂 · 洗去追踪，恢复 6 生命",
+        "text": "支付15金币，消除这条故事的追踪风险；闻人烛仍会继续携证前行。",
+        "goldCost": 15,
+        "heal": 6,
+        "flags": {
+          "wenCleansed": true,
+          "wenEvidence": true
+        },
+        "relationship": {
+          "status": "并肩脱险",
+          "text": "你们洗去符息，约好在观测井外碰面。"
+        },
+        "tone": "good",
+        "outcome": "黑印在砂中化开。闻人烛把追兵的方向标在地上：“下一次，我把完整的那页给你。”",
+        "disabled": false
+      },
+      {
+        "label": "保住残页，暂不洗印 · 获得 35 金币",
+        "text": "保留追踪风险；到逆仪腹地可能面对追猎者。",
+        "goldGain": 35,
+        "flags": {
+          "wenCleansed": false,
+          "wenEvidence": true
+        },
+        "relationship": {
+          "status": "仍被追踪",
+          "text": "你保住残页却未洗去符息，追兵仍可能找到你。"
+        },
+        "tone": "warning",
+        "outcome": "你们把钱和残页分装，赶在追兵前穿过断桥。手腕上的黑印没有消失，仿佛在替别人记住方向。",
+        "disabled": false
+      },
+      {
+        "label": "各走各路，不再交易",
+        "text": "不支付代价；此前留下的追踪印记仍未消除。",
+        "flags": {
+          "wenCleansed": false
+        },
+        "relationship": {
+          "status": "追踪未解",
+          "text": "你先行离开，手腕仍留着可追踪的黑印。"
+        },
+        "tone": "warning",
+        "outcome": "你没有停下来洗印。闻人烛没有追赶，只远远提醒你，到了井边先看身后的路。",
+        "disabled": false
+      }
+    ]
+  },
+  "wen": {
+    "journal": [
+      {
+        "floor": 2,
+        "region": 0,
+        "npc": "wen",
+        "title": "符锁下的叛徒",
+        "text": "铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛没有隐瞒：“到断桥，我找材料替你洗掉。”",
+        "tone": "warning"
+      },
+      {
+        "floor": 5,
+        "region": 1,
+        "npc": "wen",
+        "title": "符息追来时",
+        "text": "黑印在砂中化开。闻人烛把追兵的方向标在地上：“下一次，我把完整的那页给你。”",
+        "tone": "good"
+      },
+      {
+        "floor": 9,
+        "region": 2,
+        "npc": "wen",
+        "title": "留存之证",
+        "text": "你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。",
+        "tone": "good"
+      }
+    ],
+    "final": {
+      "id": "wen_final",
+      "npc": "wen",
+      "chapter": 3,
+      "name": "留存之证",
+      "faction": "玄烬叛徒",
+      "glyph": "烛",
+      "kicker": "故人行迹 · 3 / 3",
+      "whisper": "曾替归墟引灵仪记载试验结果的成年女修。她知道一些出口，也背着一份不肯放下的罪证。",
+      "description": "闻人烛在观测井外等你。她将最后几页实验记录放在石头上，纸上列着被抹去的姓名，而非可供修炼的口诀。",
+      "story": [
+        "闻人烛在观测井外等你。她将最后几页实验记录放在石头上，纸上列着被抹去的姓名，而非可供修炼的口诀。",
+        "“你替我记住了那些名字。”她把一份破阵手法夹进记录，“这份不用再付钱。”"
+      ],
+      "connection": "你曾救她，也及时处理了追踪。旧恩于是有机会成为回报。",
+      "choices": [
+        {
+          "label": "带出记录 · 获得「万川归寂」，下一战护盾 +8",
+          "text": "消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。",
+          "cardIds": [
+            "S16"
+          ],
+          "guard": 8,
+          "flags": {
+            "wenFinished": true,
+            "wenEvidence": true
+          },
+          "relationship": {
+            "status": "证词同行者",
+            "text": "你带走了实验记录，闻人烛将破阵手法留给你。"
+          },
+          "tone": "good",
+          "outcome": "你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。",
+          "disabled": false
+        },
+        {
+          "label": "让她保管记录 · 恢复 10 生命",
+          "text": "接受一份洗符余药，不带走故事证词。",
+          "heal": 10,
+          "flags": {
+            "wenFinished": true
+          },
+          "relationship": {
+            "status": "各自求生",
+            "text": "你收下余药，托她自己带出记录。"
+          },
+          "outcome": "闻人烛把余药递来，重新将记录包好。你们选择不同的出口，至少都不再被黑印牵着走。",
+          "disabled": false
+        },
+        {
+          "label": "记住她的名字，独自离开",
+          "text": "没有数值变化。",
+          "flags": {
+            "wenFinished": true
+          },
+          "relationship": {
+            "status": "一段旧事",
+            "text": "你记住了闻人烛这个名字。"
+          },
+          "outcome": "她报过许多试验编号，直到这时，你才郑重地叫了她一声闻人烛。",
+          "disabled": false
+        }
+      ],
+      "resolved": true,
+      "outcome": "你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。",
+      "received": "卡牌「万川归寂」 · 下一战首回合护盾 +8",
+      "choiceLabel": "带出记录 · 获得「万川归寂」，下一战护盾 +8"
+    }
+  },
+  "standaloneEvents": [
+    {
+      "id": "sect_duel",
+      "choice": 2,
+      "received": "没有取走任何东西"
+    },
+    {
+      "id": "herb_caravan",
+      "choice": 0,
+      "received": "生命 +12 · 金币 +10"
+    },
+    {
+      "id": "relic_dispute",
+      "choice": 2,
+      "received": "没有取走任何东西"
+    },
+    {
+      "id": "night_watch",
+      "choice": 0,
+      "received": "下一战首回合护盾 +10"
+    }
+  ],
+  "defeat": {
+    "result": {
+      "won": false,
+      "floor": 9,
+      "enemy": "玄烬追猎者"
+    },
+    "restarted": true
+  },
+  "art": [
+    {
+      "id": "event:well",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 156112580
+    },
+    {
+      "id": "event:shrine",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 375431054
+    },
+    {
+      "id": "event:dreamshop",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1388479284
+    },
+    {
+      "id": "event:theatre",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1126715449
+    },
+    {
+      "id": "event:umbrella",
+      "width": 512,
+      "height": 512,
+      "fingerprint": -3962544
+    },
+    {
+      "id": "event:pawnshop",
+      "width": 512,
+      "height": 512,
+      "fingerprint": 1693553035
+    },
+    {
+      "id": "event:riftwatch",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 1734039583
+    },
+    {
+      "id": "event:supply",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -103871926
+    },
+    {
+      "id": "event:cultlab",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -1209189166
+    },
+    {
+      "id": "event:swordgrave",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 2013565862
+    },
+    {
+      "id": "event:pilgrims",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -1318219591
+    },
+    {
+      "id": "event:prisoner",
+      "width": 418,
+      "height": 418,
+      "fingerprint": -630662881
+    },
+    {
+      "id": "event:echo",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 846685204
+    },
+    {
+      "id": "event:broker",
+      "width": 418,
+      "height": 418,
+      "fingerprint": 630193730
+    },
+    {
+      "id": "event:liu_first",
+      "width": 311,
+      "height": 311,
+      "fingerprint": -1902019777
+    },
+    {
+      "id": "event:liu_return",
+      "width": 312,
+      "height": 311,
+      "fingerprint": -1460256078
+    },
+    {
+      "id": "event:liu_final",
+      "width": 311,
+      "height": 311,
+      "fingerprint": 446154339
+    },
+    {
+      "id": "event:ji_first",
+      "width": 312,
+      "height": 311,
+      "fingerprint": -1912774625
+    },
+    {
+      "id": "event:ji_return",
+      "width": 311,
+      "height": 312,
+      "fingerprint": -953138866
+    },
+    {
+      "id": "event:ji_final",
+      "width": 312,
+      "height": 312,
+      "fingerprint": -1497593125
+    },
+    {
+      "id": "event:wen_first",
+      "width": 311,
+      "height": 312,
+      "fingerprint": -608250260
+    },
+    {
+      "id": "event:wen_return",
+      "width": 312,
+      "height": 312,
+      "fingerprint": 1336432095
+    },
+    {
+      "id": "event:wen_final",
+      "width": 311,
+      "height": 311,
+      "fingerprint": -15312501
+    },
+    {
+      "id": "event:sect_duel",
+      "width": 312,
+      "height": 311,
+      "fingerprint": 1774469781
+    },
+    {
+      "id": "event:herb_caravan",
+      "width": 311,
+      "height": 311,
+      "fingerprint": 1694586821
+    },
+    {
+      "id": "event:relic_dispute",
+      "width": 312,
+      "height": 311,
+      "fingerprint": -1618690136
+    },
+    {
+      "id": "event:night_watch",
+      "width": 311,
+      "height": 312,
+      "fingerprint": 1940263226
+    },
+    {
+      "id": "region:fog_gate",
+      "width": 764,
+      "height": 508,
+      "fingerprint": 1063326819
+    },
+    {
+      "id": "region:broken_camp",
+      "width": 764,
+      "height": 508,
+      "fingerprint": 319824231
+    },
+    {
+      "id": "region:ritual_core",
+      "width": 764,
+      "height": 508,
+      "fingerprint": 725634364
+    },
+    {
+      "id": "portrait:raider",
+      "width": 508,
+      "height": 508,
+      "fingerprint": 1307496140
+    },
+    {
+      "id": "portrait:liu",
+      "width": 312,
+      "height": 312,
+      "fingerprint": 538419117
+    },
+    {
+      "id": "portrait:ji",
+      "width": 311,
+      "height": 312,
+      "fingerprint": -1820756875
+    },
+    {
+      "id": "portrait:wen",
+      "width": 312,
+      "height": 312,
+      "fingerprint": -1589251856
+    }
+  ],
+  "naturalRuns": {
+    "sword": [
+      {
+        "result": "victory",
+        "hp": 35,
+        "maxHp": 52,
+        "route": [
+          {
+            "floor": 1,
+            "id": "f1-0",
+            "type": "fight"
+          },
+          {
+            "floor": 2,
+            "id": "f2-0",
+            "type": "event"
+          },
+          {
+            "floor": 3,
+            "id": "f3-0",
+            "type": "shop"
+          },
+          {
+            "floor": 4,
+            "id": "f4-0",
+            "type": "fight"
+          },
+          {
+            "floor": 5,
+            "id": "f5-0",
+            "type": "event"
+          },
+          {
+            "floor": 6,
+            "id": "f6-0",
+            "type": "fox"
+          },
+          {
+            "floor": 7,
+            "id": "f7-0",
+            "type": "fight"
+          },
+          {
+            "floor": 8,
+            "id": "f8-1",
+            "type": "shop"
+          },
+          {
+            "floor": 9,
+            "id": "f9-0",
+            "type": "event"
+          },
+          {
+            "floor": 10,
+            "id": "f10-1",
+            "type": "fight"
+          },
+          {
+            "floor": 11,
+            "id": "f11-0",
+            "type": "shop"
+          },
+          {
+            "floor": 12,
+            "id": "f12-0",
+            "type": "boss"
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "events": [
+          {
+            "floor": 2,
+            "id": "liu_first",
+            "choice": 2,
+            "label": "留下方向，独自前行"
+          },
+          {
+            "floor": 5,
+            "id": "liu_return",
+            "choice": 0,
+            "label": "买一包伤药 · 支付 15 金币，恢复 18 生命"
+          },
+          {
+            "floor": 9,
+            "id": "liu_final",
+            "choice": 0,
+            "label": "付 20 金币取药 · 恢复 16 生命"
+          }
+        ],
+        "history": 12,
+        "journal": [
+          {
+            "floor": 2,
+            "region": 0,
+            "npc": "liu",
+            "title": "药箱旁的求援",
+            "text": "你告诉她最近的营火在哪里。她点点头，背起师姐，药箱沿着石阶磕出很慢的响声。",
+            "tone": "neutral"
+          },
+          {
+            "floor": 5,
+            "region": 1,
+            "npc": "liu",
+            "title": "青绦再逢",
+            "text": "她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。",
+            "tone": "neutral"
+          },
+          {
+            "floor": 9,
+            "region": 2,
+            "npc": "liu",
+            "title": "留给你的那盏灯",
+            "text": "你把药钱压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。",
+            "tone": "good"
+          }
+        ]
+      }
+    ],
+    "mark": [
+      {
+        "result": "victory",
+        "hp": 36,
+        "maxHp": 52,
+        "route": [
+          {
+            "floor": 1,
+            "id": "f1-0",
+            "type": "fight"
+          },
+          {
+            "floor": 2,
+            "id": "f2-0",
+            "type": "event"
+          },
+          {
+            "floor": 3,
+            "id": "f3-0",
+            "type": "shop"
+          },
+          {
+            "floor": 4,
+            "id": "f4-0",
+            "type": "elite"
+          },
+          {
+            "floor": 5,
+            "id": "f5-0",
+            "type": "event"
+          },
+          {
+            "floor": 6,
+            "id": "f6-0",
+            "type": "fox"
+          },
+          {
+            "floor": 7,
+            "id": "f7-0",
+            "type": "fight"
+          },
+          {
+            "floor": 8,
+            "id": "f8-0",
+            "type": "shop"
+          },
+          {
+            "floor": 9,
+            "id": "f9-0",
+            "type": "event"
+          },
+          {
+            "floor": 10,
+            "id": "f10-1",
+            "type": "fight"
+          },
+          {
+            "floor": 11,
+            "id": "f11-1",
+            "type": "shop"
+          },
+          {
+            "floor": 12,
+            "id": "f12-0",
+            "type": "boss"
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2
+        ],
+        "events": [
+          {
+            "floor": 2,
+            "id": "liu_first",
+            "choice": 2,
+            "label": "留下方向，独自前行"
+          },
+          {
+            "floor": 5,
+            "id": "liu_return",
+            "choice": 0,
+            "label": "买一包伤药 · 支付 15 金币，恢复 18 生命"
+          },
+          {
+            "floor": 9,
+            "id": "liu_final",
+            "choice": 0,
+            "label": "付 20 金币取药 · 恢复 16 生命"
+          }
+        ],
+        "history": 12,
+        "journal": [
+          {
+            "floor": 2,
+            "region": 0,
+            "npc": "liu",
+            "title": "药箱旁的求援",
+            "text": "你告诉她最近的营火在哪里。她点点头，背起师姐，药箱沿着石阶磕出很慢的响声。",
+            "tone": "neutral"
+          },
+          {
+            "floor": 5,
+            "region": 1,
+            "npc": "liu",
+            "title": "青绦再逢",
+            "text": "她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。",
+            "tone": "neutral"
+          },
+          {
+            "floor": 9,
+            "region": 2,
+            "npc": "liu",
+            "title": "留给你的那盏灯",
+            "text": "你把药钱压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。",
+            "tone": "good"
+          }
+        ]
+      }
+    ]
+  },
+  "fallback": true,
+  "inline": {
+    "bytes": 9732100,
+    "sha256": "91f39db7af9302c771aa7d8ac7c9a520d1e6446c9882a200aa8dfc8c7556bca2",
+    "requests": []
+  },
+  "browser": "154.0.8037.57",
+  "passed": 13,
+  "failed": 0
+}

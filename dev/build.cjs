@@ -13,7 +13,7 @@ const output = outputIndex >= 0 ? path.resolve(root, args[outputIndex + 1]) : pa
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const script = text => text.replace(/^\s*<script[^>]*>/, '').replace(/<\/script>\s*$/, '').trimEnd();
 const gameData = require('./engine.js');
-const portraitIds = ['cat','fox','snake','paper','lantern','ape','bone','yaksha'];
+const portraitIds = ['cat','fox','snake','paper','lantern','ape','bone','yaksha','raider','liu','ji','wen'];
 const cardIds = Object.keys(gameData.CARDS);
 const eventIds = [...new Set([...(gameData.EVENT_IDS || ['well','shrine','dreamshop','theatre','umbrella','pawnshop']),'fox','rest','shop'])];
 const relicIds = Object.keys(gameData.RELICS);
@@ -25,7 +25,7 @@ function asset(folder,id){
   return inline?'data:image/webp;base64,'+fs.readFileSync(path.join(root,relative)).toString('base64'):relative;
 }
 const resources={};
-for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds]]){
+for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',['fog_gate','broken_camp','ritual_core']]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
 resources.puppet=Object.fromEntries(['normal','wounded','critical','blink'].map(id=>[id,asset('puppet','cat-'+id)]));

@@ -21,7 +21,7 @@ function digest(value){return crypto.createHash('sha256').update(value).digest('
   await test('old 36 assassin signatures are byte-identical to v4; 16 sword signatures are independent',async()=>{
     const old=audio.assassinProfiles.map(id=>audio.profile(id));
     assert.equal(digest(JSON.stringify(old)),'fdfea696abffe826a17d8aeccb35007954fe6fe131ccb2f587a510261d872b53');
-    assert.deepEqual(audio.swordProfiles,swordIds);assert.equal(audio.profiles.length,52);assert.equal(audio.encounters.length,17);
+    assert.deepEqual(audio.swordProfiles,swordIds);assert.equal(audio.profiles.length,52);assert.equal(audio.encounters.length,30);
     assert.equal(new Set(audio.profiles.map(id=>audio.profile(id).signature)).size,52);
     assert.ok(swordIds.every(id=>!['claw','pounce','tear'].includes(audio.profile(id).kind)));
     report.assassinProfilesPreserved=36;report.newProfiles=swordIds.map(id=>({id,...audio.profile(id)}));
@@ -116,7 +116,7 @@ function digest(value){return crypto.createHash('sha256').update(value).digest('
     report.browser=await browser.version();
   }finally{
     if(browser)await browser.close();report.passed=report.results.filter(r=>r.ok).length;report.failed=report.results.filter(r=>!r.ok).length;
-    fs.writeFileSync(path.join(__dirname,'v5-audio-results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+    fs.writeFileSync(path.join(__dirname,'v6-sword-audio-results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
   }
   if(report.failed)process.exitCode=1;
 })().catch(error=>{console.error(error.stack);process.exitCode=1;});

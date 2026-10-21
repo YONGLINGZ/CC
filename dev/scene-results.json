@@ -1,6 +1,6 @@
 {
   "renderer": "Procedural WebGL triangle meshes, not production model assets",
-  "runtimeSha256": "b9c36d15b1a1c23d717515eed2df77b709b62cbd8cd94ccf81ecf5e24263cc6a",
+  "runtimeSha256": "046e32b2cb0f84199a9d6fe65560b7ad1dc5154457742c4e30936a5568860dd3",
   "results": [
     {
       "name": "default Chromium creates actual WebGL meshes and colored depth-tested pixels",
@@ -69,12 +69,57 @@
         "character": "sword",
         "frames": 7,
         "rebuilds": 1,
-        "vertices": 38628,
-        "meshVertices": 38628,
-        "triangles": 12876,
-        "triangleCount": 12876,
+        "vertices": 39780,
+        "meshVertices": 39780,
+        "triangles": 13260,
+        "triangleCount": 13260,
         "parts": 7,
         "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "5ed39a40",
+        "enemySignature": "",
+        "regionIndex": 0,
+        "regionId": "gate",
+        "fogColor": [
+          0.035,
+          0.09,
+          0.115
+        ],
+        "visibleNodeIds": [
+          "f1-0",
+          "f2-0",
+          "f2-1",
+          "f2-2",
+          "f2-3",
+          "f3-0",
+          "f3-1",
+          "f3-2",
+          "f3-3",
+          "f4-0",
+          "f4-1",
+          "f4-2",
+          "f4-3",
+          "f5-0",
+          "f5-1",
+          "f5-2",
+          "f5-3",
+          "f6-0",
+          "f6-1",
+          "f6-2",
+          "f6-3",
+          "f7-0",
+          "f7-1",
+          "f7-2",
+          "f7-3",
+          "f8-0",
+          "f8-1",
+          "f8-2",
+          "f8-3",
+          "f9-0",
+          "f9-1",
+          "f9-2",
+          "f9-3",
+          "f10-0"
+        ],
         "pose": {
           "breath": 0,
           "headYaw": 0,
@@ -342,8 +387,8 @@
         "visible": true,
         "renderer": "WebGL triangle meshes; procedural low-poly prototype"
       },
-      "solid": 103110,
-      "colors": 3123,
+      "solid": 118358,
+      "colors": 3220,
       "glError": 0,
       "depthTest": true,
       "contextVersion": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
@@ -366,6 +411,16 @@
         "triangleCount": 2054,
         "parts": 7,
         "modelSignature": "337f7a3b-6e330dac-1f851b05-4bbaa411-7ab7874d-f83f486c",
+        "worldSignature": "a7a7b7c5",
+        "enemySignature": "",
+        "regionIndex": 0,
+        "regionId": "gate",
+        "fogColor": [
+          0.035,
+          0.09,
+          0.115
+        ],
+        "visibleNodeIds": [],
         "pose": {
           "breath": 0,
           "headYaw": 0,
@@ -415,6 +470,16 @@
         "triangleCount": 2064,
         "parts": 7,
         "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+        "worldSignature": "20631905",
+        "enemySignature": "",
+        "regionIndex": 0,
+        "regionId": "gate",
+        "fogColor": [
+          0.035,
+          0.09,
+          0.115
+        ],
+        "visibleNodeIds": [],
         "pose": {
           "breath": 0,
           "headYaw": 0,
@@ -455,7 +520,7 @@
     {
       "id": "f1-0",
       "action": "node",
-      "label": "第1层 封域节点 已完成",
+      "label": "第1段 封域节点 已完成",
       "disabled": true,
       "opacity": 0.65,
       "left": 113.305,
@@ -464,7 +529,7 @@
     {
       "id": "f2-0",
       "action": "node",
-      "label": "第2层 封域节点 已完成",
+      "label": "第2段 封域节点 已完成",
       "disabled": true,
       "opacity": 0.65,
       "left": 234.829,
@@ -473,7 +538,7 @@
     {
       "id": "f2-1",
       "action": "node",
-      "label": "第2层 封域节点 尚不可达",
+      "label": "第2段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 225.936,
@@ -482,7 +547,7 @@
     {
       "id": "f2-2",
       "action": "node",
-      "label": "第2层 封域节点 尚不可达",
+      "label": "第2段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 217.043,
@@ -491,7 +556,7 @@
     {
       "id": "f2-3",
       "action": "node",
-      "label": "第2层 封域节点 尚不可达",
+      "label": "第2段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 208.15,
@@ -500,7 +565,7 @@
     {
       "id": "f3-0",
       "action": "node",
-      "label": "第3层 封域节点 可前往",
+      "label": "第3段 封域节点 可前往",
       "disabled": false,
       "opacity": 1,
       "left": 343.234,
@@ -509,7 +574,7 @@
     {
       "id": "f3-1",
       "action": "node",
-      "label": "第3层 封域节点 可前往",
+      "label": "第3段 封域节点 可前往",
       "disabled": false,
       "opacity": 1,
       "left": 334.341,
@@ -518,7 +583,7 @@
     {
       "id": "f3-2",
       "action": "node",
-      "label": "第3层 封域节点 尚不可达",
+      "label": "第3段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 325.448,
@@ -527,7 +592,7 @@
     {
       "id": "f3-3",
       "action": "node",
-      "label": "第3层 封域节点 尚不可达",
+      "label": "第3段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 316.554,
@@ -536,7 +601,7 @@
     {
       "id": "f4-0",
       "action": "node",
-      "label": "第4层 封域节点 尚不可达",
+      "label": "第4段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 451.81,
@@ -545,7 +610,7 @@
     {
       "id": "f4-1",
       "action": "node",
-      "label": "第4层 封域节点 尚不可达",
+      "label": "第4段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 442.917,
@@ -554,7 +619,7 @@
     {
       "id": "f4-2",
       "action": "node",
-      "label": "第4层 封域节点 尚不可达",
+      "label": "第4段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 434.024,
@@ -563,7 +628,7 @@
     {
       "id": "f4-3",
       "action": "node",
-      "label": "第4层 封域节点 尚不可达",
+      "label": "第4段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 425.13,
@@ -572,7 +637,7 @@
     {
       "id": "f5-0",
       "action": "node",
-      "label": "第5层 封域节点 尚不可达",
+      "label": "第5段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 560.417,
@@ -581,7 +646,7 @@
     {
       "id": "f5-1",
       "action": "node",
-      "label": "第5层 封域节点 尚不可达",
+      "label": "第5段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 551.524,
@@ -590,7 +655,7 @@
     {
       "id": "f5-2",
       "action": "node",
-      "label": "第5层 封域节点 尚不可达",
+      "label": "第5段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 542.631,
@@ -599,7 +664,7 @@
     {
       "id": "f5-3",
       "action": "node",
-      "label": "第5层 封域节点 尚不可达",
+      "label": "第5段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 533.738,
@@ -608,7 +673,7 @@
     {
       "id": "f6-0",
       "action": "node",
-      "label": "第6层 封域节点 尚不可达",
+      "label": "第6段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 668.898,
@@ -617,7 +682,7 @@
     {
       "id": "f6-1",
       "action": "node",
-      "label": "第6层 封域节点 尚不可达",
+      "label": "第6段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 660.005,
@@ -626,7 +691,7 @@
     {
       "id": "f6-2",
       "action": "node",
-      "label": "第6层 封域节点 尚不可达",
+      "label": "第6段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 651.112,
@@ -635,7 +700,7 @@
     {
       "id": "f6-3",
       "action": "node",
-      "label": "第6层 封域节点 尚不可达",
+      "label": "第6段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 642.219,
@@ -644,7 +709,7 @@
     {
       "id": "f7-0",
       "action": "node",
-      "label": "第7层 封域节点 尚不可达",
+      "label": "第7段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 777.164,
@@ -653,7 +718,7 @@
     {
       "id": "f7-1",
       "action": "node",
-      "label": "第7层 封域节点 尚不可达",
+      "label": "第7段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 768.271,
@@ -662,7 +727,7 @@
     {
       "id": "f7-2",
       "action": "node",
-      "label": "第7层 封域节点 尚不可达",
+      "label": "第7段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 759.378,
@@ -671,7 +736,7 @@
     {
       "id": "f7-3",
       "action": "node",
-      "label": "第7层 封域节点 尚不可达",
+      "label": "第7段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 750.485,
@@ -680,7 +745,7 @@
     {
       "id": "f8-0",
       "action": "node",
-      "label": "第8层 封域节点 尚不可达",
+      "label": "第8段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 885.241,
@@ -689,7 +754,7 @@
     {
       "id": "f8-1",
       "action": "node",
-      "label": "第8层 封域节点 尚不可达",
+      "label": "第8段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 876.348,
@@ -698,7 +763,7 @@
     {
       "id": "f8-2",
       "action": "node",
-      "label": "第8层 封域节点 尚不可达",
+      "label": "第8段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 867.455,
@@ -707,7 +772,7 @@
     {
       "id": "f8-3",
       "action": "node",
-      "label": "第8层 封域节点 尚不可达",
+      "label": "第8段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 858.561,
@@ -716,7 +781,7 @@
     {
       "id": "f9-0",
       "action": "node",
-      "label": "第9层 封域节点 尚不可达",
+      "label": "第9段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 993.256,
@@ -725,7 +790,7 @@
     {
       "id": "f9-1",
       "action": "node",
-      "label": "第9层 封域节点 尚不可达",
+      "label": "第9段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 984.363,
@@ -734,7 +799,7 @@
     {
       "id": "f9-2",
       "action": "node",
-      "label": "第9层 封域节点 尚不可达",
+      "label": "第9段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 975.47,
@@ -743,7 +808,7 @@
     {
       "id": "f9-3",
       "action": "node",
-      "label": "第9层 封域节点 尚不可达",
+      "label": "第9段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 966.577,
@@ -752,7 +817,7 @@
     {
       "id": "f10-0",
       "action": "node",
-      "label": "第10层 封域节点 尚不可达",
+      "label": "第10段 封域节点 尚不可达",
       "disabled": true,
       "opacity": 0.8,
       "left": 1088.03,
@@ -761,72 +826,72 @@
   ],
   "actionPoses": [
     {
-      "breath": -0.015322955850123974,
-      "headYaw": 0.011868348729009099,
-      "hair": -0.001782385821218969,
-      "tail": 0.08096505228304712,
-      "leftArm": 0.2231070945326894,
-      "rightArm": -0.8031855403176819,
-      "lean": -0.11601568915699849,
-      "shift": 0.26772851343922727,
+      "breath": 0.015782645416293793,
+      "headYaw": 0.00027708721449047613,
+      "hair": -0.01652392773577736,
+      "tail": -0.18664825439113372,
+      "leftArm": 0.20117165150445832,
+      "rightArm": -0.72421794541605,
+      "lean": -0.10460925878231833,
+      "shift": 0.24140598180534997,
       "kind": "attack",
-      "p": 0.35100000000496645
+      "p": 0.29766666664679786
     },
     {
-      "breath": -0.015247112071678531,
-      "headYaw": -0.014643781483841866,
-      "hair": -0.016293673319253077,
-      "tail": 0.013968091393219322,
+      "breath": 0.01154257903812515,
+      "headYaw": 0.060265066553811426,
+      "hair": -0.0020426743654164423,
+      "tail": -0.16150700715190355,
       "leftArm": 0,
       "rightArm": 0,
-      "lean": 0.14498563363593434,
-      "shift": -0.14498563363593434,
+      "lean": 0.11709274367444572,
+      "shift": -0.11709274367444572,
       "kind": "hurt",
-      "p": 0.3610000000024835
+      "p": 0.26133333330353103
     },
     {
-      "breath": -0.0019580442980071046,
-      "headYaw": 0.008143091929672337,
-      "hair": -0.03379523866735199,
-      "tail": -0.11088437171083897,
-      "leftArm": -0.3664793452514164,
-      "rightArm": -0.14095359432746785,
+      "breath": 0.001374590787918162,
+      "headYaw": -0.005649070699671592,
+      "hair": 0.015584415907789173,
+      "tail": -0.10351434422616375,
+      "leftArm": -0.5809969256619372,
+      "rightArm": -0.22346035602382197,
       "lean": 0,
       "shift": 0,
       "kind": "guard",
-      "p": 0.1906666666691505
+      "p": 0.3519999999602624
     },
     {
-      "breath": 0.029434607215982553,
-      "headYaw": 0.005515070980967818,
-      "hair": -0.03403677082344683,
-      "tail": -0.16431537955879166,
-      "leftArm": -0.15003005295459623,
-      "rightArm": -0.15003005295459623,
+      "breath": 0.008530138153218878,
+      "headYaw": -0.007838712521555186,
+      "hair": 0.026823252120552553,
+      "tail": -0.04290776382200117,
+      "leftArm": -0.11502654293810781,
+      "rightArm": -0.11502654293810781,
       "lean": 0,
       "shift": 0,
       "kind": "heal",
-      "p": 0.31366666667411663
+      "p": 0.22066666664679965
     },
     {
-      "breath": 0.04020089536736124,
-      "headYaw": 0.0024923948174190363,
-      "hair": -0.026000634930183026,
-      "tail": -0.18896591707348334,
-      "leftArm": -0.17986490201841887,
-      "rightArm": -0.17986490201841887,
+      "breath": 0.006575136730111668,
+      "headYaw": -0.010120458952745541,
+      "hair": 0.03457551771978795,
+      "tail": 0.04342203853871532,
+      "leftArm": -0.15607272620121257,
+      "rightArm": -0.15607272620121257,
       "lean": 0,
       "shift": 0,
       "kind": "revive",
-      "p": 0.5123333333432675
+      "p": 0.3339999999701983
     }
   ],
   "pointer": {
     "left": {
-      "breath": 0.011956890431816155,
-      "headYaw": -0.11432964059170922,
-      "hair": -0.0030047325744139335,
-      "tail": -0.16379668709770825,
+      "breath": -0.01166805911652429,
+      "headYaw": -0.12387703737569943,
+      "hair": 0.028249828023279137,
+      "tail": 0.1484587121879135,
       "leftArm": 0,
       "rightArm": 0,
       "lean": 0,
@@ -835,10 +900,10 @@
       "p": 0
     },
     "right": {
-      "breath": 0.007018717463850399,
-      "headYaw": 0.10791909213908153,
-      "hair": 0.0068032772693297884,
-      "tail": -0.13644521044812685,
+      "breath": -0.008732090051712946,
+      "headYaw": 0.10001497827701626,
+      "hair": 0.024263979771144743,
+      "tail": 0.16419001572146202,
       "leftArm": 0,
       "rightArm": 0,
       "lean": 0,
@@ -858,12 +923,22 @@
     "character": "sword",
     "frames": 3,
     "rebuilds": 1,
-    "vertices": 8322,
-    "meshVertices": 8322,
-    "triangles": 2774,
-    "triangleCount": 2774,
+    "vertices": 9474,
+    "meshVertices": 9474,
+    "triangles": 3158,
+    "triangleCount": 3158,
     "parts": 8,
     "modelSignature": "947b8e0e-4c11521f-338f60b9-2d1592e1-4cd61de1-7d38fc30",
+    "worldSignature": "ed4b7729",
+    "enemySignature": "82e9e234",
+    "regionIndex": 0,
+    "regionId": "gate",
+    "fogColor": [
+      0.035,
+      0.09,
+      0.115
+    ],
+    "visibleNodeIds": [],
     "pose": {
       "breath": 0,
       "headYaw": 0,

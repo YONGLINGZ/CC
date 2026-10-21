@@ -78,7 +78,20 @@
     pilgrims: { name:'失序行营', notes:[196,294,415], kind:'ritual', air:960 },
     prisoner: { name:'锁魂囚笼', notes:[185,370,554], kind:'chain', air:2100 },
     echo: { name:'异声裂隙', notes:[415,622,932,1397], kind:'echo', air:1270 },
-    broker: { name:'千灯密约', notes:[659,988,1318], kind:'coin', air:3700 }
+    broker: { name:'千灯密约', notes:[659,988,1318], kind:'coin', air:3700 },
+    liu_first: { name:'雾中采药人', notes:[330,440,659], kind:'wind', air:760 },
+    liu_return: { name:'一灯相候', notes:[440,659,880,988], kind:'water', air:920 },
+    liu_final: { name:'药香归路', notes:[523,659,784,1046], kind:'bell', air:1190 },
+    ji_first: { name:'断剑问路', notes:[294,440,622], kind:'steel', air:2600 },
+    ji_return: { name:'袖中宝光', notes:[294,415,622,740], kind:'coin', air:2900 },
+    ji_final: { name:'暗巷故人', notes:[147,220,311,466], kind:'chain', air:3450 },
+    wen_first: { name:'负伤叛徒', notes:[165,247,370], kind:'ritual', air:660 },
+    wen_return: { name:'追缉黑符', notes:[185,277,392,554], kind:'rift', air:980 },
+    wen_final: { name:'余烬中的证词', notes:[220,330,494,740], kind:'echo', air:1350 },
+    sect_duel: { name:'宗门试剑', notes:[698,1046,1397], kind:'steel', air:3800 },
+    herb_caravan: { name:'药车留灯', notes:[349,523,698], kind:'wood', air:870 },
+    relic_dispute: { name:'残宝争执', notes:[196,294,440,659], kind:'gong', air:1700 },
+    night_watch: { name:'异派守夜', notes:[262,392,587,880], kind:'wind', air:550 }
   });
   const MAX_VOICES = 56;
   const state = { context:null, bus:null, muted:false, volume:.30, unlocked:false, lastError:'', attempts:0, contextsCreated:0 };

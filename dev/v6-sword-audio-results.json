@@ -1,0 +1,746 @@
+{
+  "audioSha256": "2de7ad9662f8cd56761e5d7325dee2de3a3ea23d37d6a3b9b57f63657918e94e",
+  "results": [
+    {
+      "name": "old 36 assassin signatures are byte-identical to v4; 16 sword signatures are independent",
+      "ok": true
+    },
+    {
+      "name": "new card and status requests never auto-create audio and unsupported browsers degrade safely",
+      "ok": true
+    },
+    {
+      "name": "all 16 new sounds actually render non-silent unique unclipped audio, distinct from cat attacks",
+      "ok": true
+    },
+    {
+      "name": "eight new regions render eight distinct non-silent offline motifs without touching live state",
+      "ok": true
+    },
+    {
+      "name": "context cardId routes actual metal/ice sources; later attack segments shift pitch",
+      "ok": true
+    },
+    {
+      "name": "chill, sword-intent and frostseal events create live sources once; zero changes remain silent",
+      "ok": true
+    },
+    {
+      "name": "mute, zero volume and voice cap also govern sword storms and new-region sounds",
+      "ok": true
+    },
+    {
+      "name": "live new encounter requests succeed; no runtime network or uncaught script errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "note": "Actual Chromium AudioContext/OfflineAudioContext. No human listening evaluation.",
+  "assassinProfilesPreserved": 36,
+  "newProfiles": [
+    {
+      "id": "S01",
+      "name": "霜锋",
+      "kind": "sword",
+      "pitch": 2290,
+      "tail": 1420,
+      "length": 0.23,
+      "body": 392,
+      "weight": 0.16,
+      "notes": [
+        784,
+        1175,
+        1568
+      ],
+      "signature": "sword:2290:1420:0.23:392:0.16:784:1175:1568"
+    },
+    {
+      "id": "S02",
+      "name": "凝霜",
+      "kind": "iceguard",
+      "pitch": 698,
+      "tail": 2093,
+      "length": 0.43,
+      "body": 233,
+      "weight": 0.15,
+      "notes": [
+        698,
+        1046,
+        1397
+      ],
+      "signature": "iceguard:698:2093:0.43:233:0.15:698:1046:1397"
+    },
+    {
+      "id": "S03",
+      "name": "听雪",
+      "kind": "swordfocus",
+      "pitch": 880,
+      "tail": 1760,
+      "length": 0.49,
+      "body": 294,
+      "weight": 0.14,
+      "notes": [
+        587,
+        880,
+        1175,
+        1760
+      ],
+      "signature": "swordfocus:880:1760:0.49:294:0.14:587:880:1175:1760"
+    },
+    {
+      "id": "S04",
+      "name": "断流",
+      "kind": "swordburst",
+      "pitch": 1760,
+      "tail": 4400,
+      "length": 0.49,
+      "body": 147,
+      "weight": 0.23,
+      "notes": [
+        440,
+        880,
+        1320,
+        1760
+      ],
+      "signature": "swordburst:1760:4400:0.49:147:0.23:440:880:1320:1760"
+    },
+    {
+      "id": "S05",
+      "name": "寒芒",
+      "kind": "iceblade",
+      "pitch": 3136,
+      "tail": 1568,
+      "length": 0.29,
+      "body": 330,
+      "weight": 0.16,
+      "notes": [
+        1046,
+        1568,
+        2093
+      ],
+      "signature": "iceblade:3136:1568:0.29:330:0.16:1046:1568:2093"
+    },
+    {
+      "id": "S06",
+      "name": "踏雪",
+      "kind": "frostwind",
+      "pitch": 4100,
+      "tail": 1720,
+      "length": 0.26,
+      "body": 349,
+      "weight": 0.12,
+      "notes": [
+        698,
+        1046,
+        1760
+      ],
+      "signature": "frostwind:4100:1720:0.26:349:0.12:698:1046:1760"
+    },
+    {
+      "id": "S07",
+      "name": "冰镜",
+      "kind": "iceguard",
+      "pitch": 830,
+      "tail": 2490,
+      "length": 0.48,
+      "body": 277,
+      "weight": 0.16,
+      "notes": [
+        830,
+        1244,
+        1661
+      ],
+      "signature": "iceguard:830:2490:0.48:277:0.16:830:1244:1661"
+    },
+    {
+      "id": "S08",
+      "name": "三叠泉",
+      "kind": "sword",
+      "pitch": 2780,
+      "tail": 1850,
+      "length": 0.15,
+      "body": 440,
+      "weight": 0.14,
+      "notes": [
+        880,
+        1318,
+        1760
+      ],
+      "signature": "sword:2780:1850:0.15:440:0.14:880:1318:1760"
+    },
+    {
+      "id": "S09",
+      "name": "澄心",
+      "kind": "frostwind",
+      "pitch": 2670,
+      "tail": 5340,
+      "length": 0.35,
+      "body": 440,
+      "weight": 0.12,
+      "notes": [
+        880,
+        1175,
+        1568,
+        2349
+      ],
+      "signature": "frostwind:2670:5340:0.35:440:0.12:880:1175:1568:2349"
+    },
+    {
+      "id": "S10",
+      "name": "回锋",
+      "kind": "swordfocus",
+      "pitch": 1175,
+      "tail": 2349,
+      "length": 0.31,
+      "body": 392,
+      "weight": 0.14,
+      "notes": [
+        784,
+        1175,
+        1568
+      ],
+      "signature": "swordfocus:1175:2349:0.31:392:0.14:784:1175:1568"
+    },
+    {
+      "id": "S11",
+      "name": "藏剑",
+      "kind": "swordfocus",
+      "pitch": 523,
+      "tail": 2093,
+      "length": 0.56,
+      "body": 175,
+      "weight": 0.15,
+      "notes": [
+        523,
+        784,
+        1046,
+        2093
+      ],
+      "signature": "swordfocus:523:2093:0.56:175:0.15:523:784:1046:2093"
+    },
+    {
+      "id": "S12",
+      "name": "霜天壁",
+      "kind": "iceguard",
+      "pitch": 466,
+      "tail": 1864,
+      "length": 0.65,
+      "body": 156,
+      "weight": 0.2,
+      "notes": [
+        466,
+        698,
+        932,
+        1397
+      ],
+      "signature": "iceguard:466:1864:0.65:156:0.2:466:698:932:1397"
+    },
+    {
+      "id": "S13",
+      "name": "以血淬刃",
+      "kind": "frostblood",
+      "pitch": 659,
+      "tail": 2637,
+      "length": 0.46,
+      "body": 82,
+      "weight": 0.17,
+      "notes": [
+        330,
+        659,
+        988,
+        1318
+      ],
+      "signature": "frostblood:659:2637:0.46:82:0.17:330:659:988:1318"
+    },
+    {
+      "id": "S14",
+      "name": "剑鸣",
+      "kind": "sword",
+      "pitch": 1976,
+      "tail": 2960,
+      "length": 0.38,
+      "body": 494,
+      "weight": 0.17,
+      "notes": [
+        988,
+        1480,
+        1976,
+        2960
+      ],
+      "signature": "sword:1976:2960:0.38:494:0.17:988:1480:1976:2960"
+    },
+    {
+      "id": "S15",
+      "name": "碎霜",
+      "kind": "iceshatter",
+      "pitch": 3520,
+      "tail": 880,
+      "length": 0.47,
+      "body": 196,
+      "weight": 0.22,
+      "notes": [
+        880,
+        1760,
+        2637,
+        3520
+      ],
+      "signature": "iceshatter:3520:880:0.47:196:0.22:880:1760:2637:3520"
+    },
+    {
+      "id": "S16",
+      "name": "万川归寂",
+      "kind": "swordstorm",
+      "pitch": 1568,
+      "tail": 4704,
+      "length": 0.72,
+      "body": 98,
+      "weight": 0.25,
+      "notes": [
+        392,
+        784,
+        1175,
+        1568,
+        2349
+      ],
+      "signature": "swordstorm:1568:4704:0.72:98:0.25:392:784:1175:1568:2349"
+    }
+  ],
+  "cardWaveforms": {
+    "values": [
+      {
+        "id": "S01",
+        "rms": 0.0028920433380311673,
+        "peak": 0.034570466727018356,
+        "hash": 1677100916
+      },
+      {
+        "id": "S02",
+        "rms": 0.0044309813939341115,
+        "peak": 0.041941627860069275,
+        "hash": 3622529147
+      },
+      {
+        "id": "S03",
+        "rms": 0.003865957796320092,
+        "peak": 0.03707001358270645,
+        "hash": 241377615
+      },
+      {
+        "id": "S04",
+        "rms": 0.010748174354825042,
+        "peak": 0.11433214694261551,
+        "hash": 1277151367
+      },
+      {
+        "id": "S05",
+        "rms": 0.005555927147763335,
+        "peak": 0.061507031321525574,
+        "hash": 3705805524
+      },
+      {
+        "id": "S06",
+        "rms": 0.0025836808562496737,
+        "peak": 0.03038625791668892,
+        "hash": 2369316859
+      },
+      {
+        "id": "S07",
+        "rms": 0.005412474044584581,
+        "peak": 0.04787539690732956,
+        "hash": 1303562915
+      },
+      {
+        "id": "S08",
+        "rms": 0.0032530061691643927,
+        "peak": 0.0531817302107811,
+        "hash": 1048679635
+      },
+      {
+        "id": "S09",
+        "rms": 0.0026111544348066344,
+        "peak": 0.02806216850876808,
+        "hash": 3115905505
+      },
+      {
+        "id": "S10",
+        "rms": 0.003350037021613188,
+        "peak": 0.03520460054278374,
+        "hash": 883912865
+      },
+      {
+        "id": "S11",
+        "rms": 0.004367460378113299,
+        "peak": 0.03571876138448715,
+        "hash": 2054716749
+      },
+      {
+        "id": "S12",
+        "rms": 0.007204043676525461,
+        "peak": 0.06853275001049042,
+        "hash": 1027425052
+      },
+      {
+        "id": "S13",
+        "rms": 0.004590181683057184,
+        "peak": 0.030157161876559258,
+        "hash": 509574735
+      },
+      {
+        "id": "S14",
+        "rms": 0.006008882703997668,
+        "peak": 0.07452790439128876,
+        "hash": 2912090382
+      },
+      {
+        "id": "S15",
+        "rms": 0.0075719181423867556,
+        "peak": 0.23965540528297424,
+        "hash": 726877628
+      },
+      {
+        "id": "S16",
+        "rms": 0.01200800518471147,
+        "peak": 0.08840157836675644,
+        "hash": 3615962322
+      },
+      {
+        "id": "C01",
+        "rms": 0.003335057542685818,
+        "peak": 0.093873031437397,
+        "hash": 1966257985
+      },
+      {
+        "id": "C05",
+        "rms": 0.0027350554861246632,
+        "peak": 0.08144799619913101,
+        "hash": 443960308
+      },
+      {
+        "id": "C16",
+        "rms": 0.008725996967508875,
+        "peak": 0.11341793090105057,
+        "hash": 370562547
+      }
+    ],
+    "sources": 159,
+    "rejected": 0
+  },
+  "encounterWaveforms": [
+    {
+      "id": "riftwatch",
+      "rms": 0.0045521410784590075,
+      "peak": 0.026344213634729385,
+      "hash": 2261648215
+    },
+    {
+      "id": "supply",
+      "rms": 0.0063554001709712595,
+      "peak": 0.049419987946748734,
+      "hash": 216284951
+    },
+    {
+      "id": "cultlab",
+      "rms": 0.004506730549188493,
+      "peak": 0.02268059179186821,
+      "hash": 1419672038
+    },
+    {
+      "id": "swordgrave",
+      "rms": 0.005220710504510546,
+      "peak": 0.03700246661901474,
+      "hash": 1608552832
+    },
+    {
+      "id": "pilgrims",
+      "rms": 0.00450828993416773,
+      "peak": 0.03062545135617256,
+      "hash": 3415839429
+    },
+    {
+      "id": "prisoner",
+      "rms": 0.005305990638776944,
+      "peak": 0.03886103257536888,
+      "hash": 2018480837
+    },
+    {
+      "id": "echo",
+      "rms": 0.0035073200562120814,
+      "peak": 0.02243492752313614,
+      "hash": 2477267371
+    },
+    {
+      "id": "broker",
+      "rms": 0.007756727902540315,
+      "peak": 0.04912656545639038,
+      "hash": 985668397
+    }
+  ],
+  "routing": {
+    "played": true,
+    "state": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 1,
+      "eventsPlayed": 1,
+      "sourcesCreated": 8,
+      "activeVoices": 8,
+      "peakScheduled": 8,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [
+        "S05"
+      ],
+      "encountersUsed": [],
+      "lastCue": "hit:S05",
+      "lastError": ""
+    },
+    "first": [
+      330,
+      663.3,
+      1280.3999999999999,
+      2016.3000000000002,
+      1568,
+      2348.864,
+      4321.407999999999
+    ],
+    "segment0": [
+      440,
+      884.3999999999999,
+      1707.2,
+      2688.4,
+      1760,
+      2636.48,
+      4850.5599999999995
+    ],
+    "segment2": [
+      485.76000000000005,
+      976.3776,
+      1884.7488,
+      2967.9936000000002,
+      1760,
+      2636.48,
+      4850.5599999999995
+    ]
+  },
+  "statusEvents": [
+    {
+      "event": {
+        "type": "chill",
+        "amount": 2,
+        "total": 2
+      },
+      "ok": true,
+      "created": 4,
+      "cue": "cue:chill",
+      "frequencies": [
+        1563,
+        2341.374,
+        4307.628
+      ]
+    },
+    {
+      "event": {
+        "type": "chill",
+        "amount": -2,
+        "total": 0
+      },
+      "ok": true,
+      "created": 4,
+      "cue": "cue:chill",
+      "frequencies": [
+        2093,
+        1568,
+        1175
+      ]
+    },
+    {
+      "event": {
+        "type": "swordIntent",
+        "amount": 2,
+        "total": 4
+      },
+      "ok": true,
+      "created": 5,
+      "cue": "cue:swordIntent",
+      "frequencies": [
+        987.7781031175806,
+        1985.4339872663368,
+        3832.579040096213,
+        6035.324210048418,
+        1481.667154676371
+      ]
+    },
+    {
+      "event": {
+        "type": "swordIntent",
+        "amount": -4,
+        "total": 0
+      },
+      "ok": true,
+      "created": 5,
+      "cue": "cue:swordIntent",
+      "frequencies": [
+        392,
+        787.92,
+        1520.96,
+        2395.1200000000003
+      ]
+    },
+    {
+      "event": {
+        "type": "relic",
+        "relic": "frostseal"
+      },
+      "ok": true,
+      "created": 4,
+      "cue": "cue:frostseal",
+      "frequencies": [
+        1568,
+        2348.864,
+        4321.407999999999,
+        784
+      ]
+    }
+  ],
+  "soundLimits": {
+    "before": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 9,
+      "eventsPlayed": 9,
+      "sourcesCreated": 65,
+      "activeVoices": 19,
+      "peakScheduled": 24,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [
+        "S05",
+        "S08",
+        "S15",
+        "S16"
+      ],
+      "encountersUsed": [],
+      "lastCue": "preview:S16",
+      "lastError": ""
+    },
+    "muted": {
+      "supported": true,
+      "unlocked": true,
+      "muted": true,
+      "volume": 0.3,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 9,
+      "eventsPlayed": 9,
+      "sourcesCreated": 65,
+      "activeVoices": 0,
+      "peakScheduled": 24,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [
+        "S05",
+        "S08",
+        "S15",
+        "S16"
+      ],
+      "encountersUsed": [],
+      "lastCue": "preview:S16",
+      "lastError": ""
+    },
+    "blocked": false,
+    "silent": false,
+    "burst": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 51,
+      "eventsPlayed": 12,
+      "sourcesCreated": 121,
+      "activeVoices": 56,
+      "peakScheduled": 56,
+      "maxVoices": 56,
+      "rejectedVoices": 704,
+      "profilesUsed": [
+        "S05",
+        "S08",
+        "S15",
+        "S16"
+      ],
+      "encountersUsed": [],
+      "lastCue": "preview:S16",
+      "lastError": ""
+    },
+    "after": {
+      "supported": true,
+      "unlocked": true,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "running",
+      "contextsCreated": 1,
+      "attempts": 51,
+      "eventsPlayed": 12,
+      "sourcesCreated": 121,
+      "activeVoices": 0,
+      "peakScheduled": 56,
+      "maxVoices": 56,
+      "rejectedVoices": 704,
+      "profilesUsed": [
+        "S05",
+        "S08",
+        "S15",
+        "S16"
+      ],
+      "encountersUsed": [],
+      "lastCue": "preview:S16",
+      "lastError": ""
+    }
+  },
+  "finalLiveState": {
+    "supported": true,
+    "unlocked": true,
+    "muted": false,
+    "volume": 0.3,
+    "contextState": "running",
+    "contextsCreated": 1,
+    "attempts": 59,
+    "eventsPlayed": 20,
+    "sourcesCreated": 205,
+    "activeVoices": 16,
+    "peakScheduled": 56,
+    "maxVoices": 56,
+    "rejectedVoices": 704,
+    "profilesUsed": [
+      "S05",
+      "S08",
+      "S15",
+      "S16"
+    ],
+    "encountersUsed": [
+      "riftwatch",
+      "supply",
+      "cultlab",
+      "swordgrave",
+      "pilgrims",
+      "prisoner",
+      "echo",
+      "broker"
+    ],
+    "lastCue": "encounter:broker",
+    "lastError": ""
+  },
+  "browser": "154.0.8037.57",
+  "passed": 8,
+  "failed": 0
+}

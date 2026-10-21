@@ -24,8 +24,8 @@ function wav(samples, rate) {
 (async () => {
   let browser;
   try {
-    await check('52 independent signatures: 36 assassin, 16 sword; 17 encounter motifs', () => {
-      assert.equal(audio.profiles.length,52); assert.equal(audio.encounters.length,17);
+    await check('52 independent signatures: 36 assassin, 16 sword; 30 encounter motifs', () => {
+      assert.equal(audio.profiles.length,52); assert.equal(audio.encounters.length,30);
       assert.equal(audio.assassinProfiles.length,36);assert.equal(audio.swordProfiles.length,16);
       const profiles = audio.profiles.map(id => audio.profile(id));
       assert.equal(new Set(profiles.map(p => p.signature)).size,52);
@@ -81,7 +81,7 @@ function wav(samples, rate) {
       assert.equal(result.state.rejectedVoices,0);assert.ok(result.state.peakScheduled<=result.state.maxVoices);
       return { sourcesCreated:result.state.sourcesCreated,oscillators:result.graph.oscillators,noiseSources:result.graph.buffers };
     });
-    await check('17 encounters, snake intents, defense/poison/relic/reward cues all produce graph',async()=>{
+    await check('30 encounters, snake intents, defense/poison/relic/reward cues all produce graph',async()=>{
       const checks=await page.evaluate(async()=>{
         const out=[];
         for(const id of NightAudio.encounters){out.push(NightAudio.playEncounter(id));await new Promise(r=>setTimeout(r,260));}
@@ -90,7 +90,7 @@ function wav(samples, rate) {
         }
         return {out,state:NightAudio.getState()};
       });
-      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,17);assert.equal(checks.state.rejectedVoices,0);
+      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,30);assert.equal(checks.state.rejectedVoices,0);
     });
     await check('ordinary enemy and snake intent events select matching attack sound',async()=>{
       const result=await page.evaluate(async()=>{
@@ -137,7 +137,7 @@ function wav(samples, rate) {
     assert.deepEqual(errors,[]);
     const result={passed:report.length,failed:0,checks:report,preview:output,audioSha256:crypto.createHash('sha256').update(source).digest('hex'),note:'Programmatically synthesized effects; real Chromium AudioContext/OfflineAudioContext executed. Listening quality is not a test assertion.'};
     fs.writeFileSync('/workspace/scratch/audio-test-report.json',JSON.stringify(result,null,2));
-    fs.writeFileSync(path.join(__dirname,'v5-audio-regression-results.json'),JSON.stringify(result,null,2)+'\n');
+    fs.writeFileSync(path.join(__dirname,'v6-audio-regression-results.json'),JSON.stringify(result,null,2)+'\n');
     console.log(JSON.stringify(result,null,2));
   }catch(error){console.error(JSON.stringify({passed:report.length,failed:1,checks:report,error:error.stack},null,2));process.exitCode=1;}
   finally{if(browser)await browser.close();}

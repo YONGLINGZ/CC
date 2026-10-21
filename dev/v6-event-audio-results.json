@@ -1,0 +1,129 @@
+{
+  "audioSha256": "2de7ad9662f8cd56761e5d7325dee2de3a3ea23d37d6a3b9b57f63657918e94e",
+  "passed": 3,
+  "failed": 0,
+  "errors": [],
+  "externalRequests": [],
+  "note": "Actual Chromium OfflineAudioContext; no human listening evaluation.",
+  "waveforms": {
+    "values": [
+      {
+        "id": "liu_first",
+        "peak": 0.05209768936038017,
+        "rms": 0.00697516154201204,
+        "hash": 3210072072
+      },
+      {
+        "id": "liu_return",
+        "peak": 0.060418736189603806,
+        "rms": 0.008865450735100535,
+        "hash": 2103893239
+      },
+      {
+        "id": "liu_final",
+        "peak": 0.04837607219815254,
+        "rms": 0.008363257815605271,
+        "hash": 3931094663
+      },
+      {
+        "id": "ji_first",
+        "peak": 0.03969511762261391,
+        "rms": 0.005230872282112772,
+        "hash": 783594519
+      },
+      {
+        "id": "ji_return",
+        "peak": 0.0511145256459713,
+        "rms": 0.008403443057553518,
+        "hash": 181700203
+      },
+      {
+        "id": "ji_final",
+        "peak": 0.037797220051288605,
+        "rms": 0.0056837203087468135,
+        "hash": 3856995805
+      },
+      {
+        "id": "wen_first",
+        "peak": 0.027036385610699654,
+        "rms": 0.004476572812651803,
+        "hash": 2913068906
+      },
+      {
+        "id": "wen_return",
+        "peak": 0.02756359428167343,
+        "rms": 0.004817076165497219,
+        "hash": 1782207573
+      },
+      {
+        "id": "wen_final",
+        "peak": 0.022804267704486847,
+        "rms": 0.0035516643384203915,
+        "hash": 1746648160
+      },
+      {
+        "id": "sect_duel",
+        "peak": 0.04065697267651558,
+        "rms": 0.005228032635121121,
+        "hash": 3106654216
+      },
+      {
+        "id": "herb_caravan",
+        "peak": 0.05354689806699753,
+        "rms": 0.006366722274403227,
+        "hash": 2317140631
+      },
+      {
+        "id": "relic_dispute",
+        "peak": 0.04968816041946411,
+        "rms": 0.008269295669320408,
+        "hash": 219908450
+      },
+      {
+        "id": "night_watch",
+        "peak": 0.05319393426179886,
+        "rms": 0.00843038499201815,
+        "hash": 2233872011
+      }
+    ],
+    "before": {
+      "supported": true,
+      "unlocked": false,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "not-created",
+      "contextsCreated": 0,
+      "attempts": 0,
+      "eventsPlayed": 0,
+      "sourcesCreated": 0,
+      "activeVoices": 0,
+      "peakScheduled": 0,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [],
+      "encountersUsed": [],
+      "lastCue": "",
+      "lastError": ""
+    },
+    "after": {
+      "supported": true,
+      "unlocked": false,
+      "muted": false,
+      "volume": 0.3,
+      "contextState": "not-created",
+      "contextsCreated": 0,
+      "attempts": 0,
+      "eventsPlayed": 0,
+      "sourcesCreated": 0,
+      "activeVoices": 0,
+      "peakScheduled": 0,
+      "maxVoices": 56,
+      "rejectedVoices": 0,
+      "profilesUsed": [],
+      "encountersUsed": [],
+      "lastCue": "",
+      "lastError": ""
+    },
+    "rejected": 0
+  }
+}

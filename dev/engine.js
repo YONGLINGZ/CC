@@ -99,7 +99,18 @@
     guild: { name: '千灯商盟', motive: '收购奇物与情报，抢占无人知晓的代价。' },
     wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
   };
-  const EVENT_IDS = ['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker'];
+  const REGIONS = [
+    { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,4], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
+    { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [5,8], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋金币更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
+    { id: 'ritual_core', name: '逆仪腹地', subtitle: '第三幕 · 因果入井', stages: [9,12], description: '归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。', palette: { sky: '#221728', ground: '#4c3c61', accent: '#c5a1e4' } }
+  ];
+  const NPCS = {
+    liu: { id: 'liu', name: '柳照青', faction: '丹霞谷', portrait: 'liu', adult: true, description: '丹霞谷的成年女药修，背着药箱入域寻找失踪师姐。说话直率，仍相信救人不该先问价钱。' },
+    ji: { id: 'ji', name: '季临川', faction: '太微剑宗外门', portrait: 'ji', adult: true, description: '太微外门的成年男弟子，自称走散了队伍。待人谦和，却总在谈话时留意别人的行囊。' },
+    wen: { id: 'wen', name: '闻人烛', faction: '玄烬叛徒', portrait: 'wen', adult: true, description: '曾替归墟引灵仪记载试验结果的成年女修。她知道一些出口，也背着一份不肯放下的罪证。' }
+  };
+  const CHAIN_EVENT_IDS = ['liu_first','liu_return','liu_final','ji_first','ji_return','ji_final','wen_first','wen_return','wen_final'];
+  const EVENT_IDS = ['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker', ...CHAIN_EVENT_IDS, 'sect_duel','herb_caravan','relic_dispute','night_watch'];
 
   const ENEMIES = {
     paper: { name: '纸人', hp: 26, intents: [
@@ -122,6 +133,11 @@
       { name: '破阵', text: '攻击 12', hits: [12] },
       { name: '夜甲', text: '获得护盾 10', block: 10 },
       { name: '镇魂', text: '攻击 16', hits: [16] }
+    ] },
+    raider: { name: '夺宝伏客', hp: 42, intents: [
+      { name: '试探剑', text: '攻击 7', hits: [7] },
+      { name: '封路', text: '获得护盾 5，然后攻击 6', block: 5, hits: [6] },
+      { name: '夺命连斩', text: '连续攻击 2 次，每次 6', hits: [6,6] }
     ] },
     snake: { name: '蛇妖·绛鳞', hp: 100, intents: [
       { name: '鳞刃', text: '攻击 10', hits: [10] },
@@ -159,10 +175,9 @@
     boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
   };
   const MAP_BLUEPRINTS = [
-    ['fight'], ['fight','event','rest'], ['fight','event','shop','elite'],
-    ['fight','fight','elite','fight'], ['event','fox','shop','event'],
-    ['rest','shop','event','elite'], ['fight','elite','fight','fight'],
-    ['event','shop','event','rest'], ['rest','shop','elite'], ['boss']
+    ['fight'], ['event','event','event'], ['rest','shop','event'], ['fight','elite'],
+    ['event','event'], ['rest','fox','event','shop'], ['fight','elite','fight'], ['rest','shop','event'],
+    ['event','event'], ['fight','event','elite'], ['rest','shop'], ['boss']
   ];
   const FLOORS = MAP_BLUEPRINTS.map((types, floor) => types.map((type, lane) => ({
     id: `f${floor + 1}-${lane}`, type, name: NODE_INFO[type][0], description: NODE_INFO[type][1],
@@ -204,11 +219,18 @@
       const map = FLOORS.map((row, floor) => {
         const types = floor > 0 && floor < FLOORS.length - 1 ? shuffle(row.map(n => n.type)) : row.map(n => n.type);
         return types.map((type, lane) => ({
-          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane, revealed: true,
+          id: `f${floor + 1}-${lane}`, type, floor: floor + 1, lane, regionIndex: Math.floor(floor / 4), revealed: false,
           name: NODE_INFO[type][0], description: NODE_INFO[type][1],
           omen: OMENS[type][rand(OMENS[type].length)], next: []
         }));
       });
+      const introductions = shuffle(['liu','ji','wen']);
+      for (const node of map[1]) {
+        const npc = NPCS[introductions[node.lane]];
+        node.storyId = npc.id + '_first'; node.npc = npc.id;
+        node.name = ({liu:'药箱旁的求援',ji:'断剑客的请求',wen:'符锁下的叛徒'})[npc.id];
+        node.description = `${npc.faction} · ${npc.name}，结识后将在后面的地域再相逢。`;
+      }
       // Typed, connected routes: middle nodes have one or two nearby exits.
       // Mandatory combat rows 1/4/7 plus the final guardian prevent an all-event run.
       for (let floor = 0; floor < map.length - 1; floor++) {
@@ -249,6 +271,8 @@
           relics: [character === 'sword' ? 'frostseal' : 'bell']
         },
         floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null,
+        journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
+          hidden: { jiIntent: rand(2) ? 'greedy' : 'grateful' }, nextCombatBlock: 0 },
         notice: '', result: null, rewardRerolls: 1,
         stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0 }
       };
@@ -443,6 +467,11 @@
       clearCombatStatuses();
       state.stats.battles++;
       log(`击败${b.enemy.name}！`);
+      if (b.storyEncounter) {
+        const npc = b.storyEncounter.npc;
+        if (npc) state.journey.relationships[npc] = { status: '交锋已了', text: `你击退了${b.enemy.name}，守住了携带的物品。` };
+        recordJourney(npc, '伏击已破', `击退${b.enemy.name}。你没有失去随身宝物；这段交锋已经结束。`, 'warning');
+      }
       if (b.kind === 'boss') {
         completeNode();
         state.screen = 'victory';
@@ -550,22 +579,32 @@
       drawCards(draw);
       b.phase = 'player';
     }
-    function startBattle(kind) {
-      const id = kind === 'boss' ? 'snake' : kind === 'elite' ? 'yaksha' : ORDINARY[rand(ORDINARY.length)];
+    function startBattle(kind, encounter = null) {
+      const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? 'yaksha' : ORDINARY[rand(ORDINARY.length)]);
       const def = ENEMIES[id];
       state.battle = {
         kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, intentIndex: 0 },
+        enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, intentIndex: 0 },
         block: 0, energy: 0, poison: 0, swordIntent: 0, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
-        logs: [`进入第 ${state.floor} 段，与${def.name}交战。`]
+        logs: [`进入第 ${state.floor} 段，与${encounter?.name || def.name}交战。`]
       };
       state.screen = 'battle';
       state.reward = null;
       startPlayerTurn();
+      if (state.journey.nextCombatBlock > 0) {
+        const amount = state.journey.nextCombatBlock;
+        state.journey.nextCombatBlock = 0;
+        gainBlock(amount, '故人护符');
+        log(`故人留下的护符生效：首回合获得 ${amount} 点护盾，本次援护已用尽。`);
+      }
+      if (encounter) {
+        state.battle.storyEncounter = { npc: state.event?.npc || null, title: state.event?.name || '', enemy: state.battle.enemy.name };
+        log('这是先前奇遇引出的交战；获胜后正常选牌，只完成当前道路一次。');
+      }
     }
     function completeNode() {
       if (!activeNode) return;
@@ -577,7 +616,11 @@
     function advance() {
       completeNode();
       state.floor++;
-      state.screen = 'map';
+      const regionIndex = Math.min(REGIONS.length - 1, Math.floor((state.floor - 1) / 4));
+      const crossed = regionIndex !== state.journey.regionIndex;
+      state.journey.regionIndex = regionIndex;
+      state.screen = crossed ? 'arrival' : 'map';
+      if (crossed) prepareChapter();
       state.reward = null;
       state.shop = null;
       state.event = null;
@@ -586,14 +629,35 @@
 
     function newRun(starter = 'mark') {
       if (!STARTERS[starter] && starter !== 'classic') return false;
-      state = freshState('map', starter);
+      state = freshState('arrival', starter);
       activeNode = null;
       note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
       emit();
       return true;
     }
+    function enterRegion() {
+      if (state.screen !== 'arrival') return false;
+      for (const row of state.map) for (const node of row) if (node.regionIndex === state.journey.regionIndex) node.revealed = true;
+      state.screen = 'map';
+      note(`抵达${REGIONS[state.journey.regionIndex].name}。这里只显现当前地域的道路。`);
+      emit(); return true;
+    }
     function getAvailableNodes() {
-      return (state.map[state.floor - 1] || []).filter(node => state.availableNodes.includes(node.id));
+      if (state.screen === 'arrival') return [];
+      return (state.map[state.floor - 1] || []).filter(node => node.revealed && node.regionIndex === state.journey.regionIndex && state.availableNodes.includes(node.id));
+    }
+    function prepareChapter() {
+      const j = state.journey;
+      if (!j.chain) return;
+      const suffix = j.regionIndex === 1 ? 'return' : 'final';
+      for (const node of state.map[state.floor - 1]) {
+        node.storyId = j.chain + '_' + suffix; node.npc = j.chain;
+        node.name = suffix === 'return' ? `再逢 · ${NPCS[j.chain].name}` : `旧缘 · ${NPCS[j.chain].name}`;
+        node.description = `来自${NPCS[j.chain].faction}的旧识；先前的选择已经留在途中。`;
+      }
+    }
+    function recordJourney(npc, title, text, tone = 'neutral') {
+      state.journey.journal.push({ floor: state.floor, region: state.journey.regionIndex, npc: npc || null, title, text, tone });
     }
     function enterNode(idOrType) {
       if (state.screen !== 'map') return false;
@@ -992,6 +1056,188 @@
       }
       return received;
     }
+    function makeJourneyBuilders(p, rare) {
+      const j = state.journey, f = j.flags;
+      const card = () => sample(rare, 1)[0];
+      const eventFor = (id, npc, chapter, name, story, choices, extra = {}) => ({
+        id, npc, chapter, name, faction: npc ? NPCS[npc].faction : extra.faction,
+        glyph: npc === 'liu' ? '药' : npc === 'ji' ? '剑' : npc === 'wen' ? '烛' : '缘',
+        kicker: chapter ? `故人行迹 · ${chapter} / 3` : '封域行旅 · 门派众生',
+        whisper: extra.whisper || (npc ? NPCS[npc].description : ''),
+        description: story[0], story, ...extra, choices: finishChoices(choices, p)
+      });
+      const relation = (status, text) => ({ status, text });
+      const fight = name => ({ enemyId: 'raider', name, kind: 'fight' });
+      return {
+        liu_first() {
+          return eventFor('liu_first','liu',1,'药箱旁的求援',[
+            '一名丹霞谷弟子跪在坏掉的药箱旁，怀里抱着被瘴气侵蚀的师姐。她报了名字：柳照青。她的手一直在抖，针却没有落错一根。',
+            '“借我一点真气，或者替我买一包引灵砂。”她抬头望向你，“师姐醒了，我们会去断桥营地。若你也过去，我一定认得你。”'
+          ],[
+            {label:'渡气救人 · 失去 6 生命',text:'当前生命须大于 6。柳照青会记住这次援手。',hpCost:6,flags:{liuAid:true},relationship:relation('有恩','你替她救回了师姐。她说会在断桥营地等你。'),tone:'good',outcome:'师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”'},
+            {label:'留 15 金币买药 · 帮她安置伤者',text:'支付 15 金币，同样结下救命的人情。',goldCost:15,flags:{liuAid:true},relationship:relation('有恩','你留下药钱，帮她安置了伤者。'),tone:'good',outcome:'柳照青把钱握得很紧，只郑重向你行了一礼。临走，她把断桥营地的方向指给你。'},
+            {label:'留下方向，独自前行',text:'没有即时数值变化；她只能另寻援手。',flags:{liuAid:false},relationship:relation('一面之缘','你没有留下救人，指给她营地的方向。'),outcome:'你告诉她最近的营火在哪里。她点点头，背起师姐，药箱沿着石阶磕出很慢的响声。'}
+          ]);
+        },
+        liu_return() {
+          const helped = !!f.liuAid;
+          return eventFor('liu_return','liu',2,'青绦再逢',helped ? [
+            '断桥下的药棚里，柳照青一眼看见你袖口的青绦。她师姐坐在火边，已经能自己端碗。',
+            '“这回不收钱。”她把你按在凳上，取出早留好的一包伤药，“我认得这份恩。”'
+          ] : [
+            '你在断桥药棚再次遇见柳照青。她的师姐裹着厚被，靠着商盟借来的药活了下来。',
+            '她认出你，神色并不怨怼：“药材是借来的，我还要还账。你若要药，和旁人同价。”'
+          ],[
+            helped ? {label:'接受她的谢礼 · 恢复 18 生命，下一战护盾 +8',text:'下一场战斗首回合获得 8 护盾，用后消失。治疗不超过上限。',heal:18,guard:8,flags:{liuReturned:true},relationship:relation('可信同路人','柳照青为你疗伤，并留下只用一次的护身药符。'),tone:'good',outcome:'她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。'} : {label:'买一包伤药 · 支付 15 金币，恢复 18 生命',text:'治疗不超过最大生命。',goldCost:15,heal:18,flags:{liuReturned:true},relationship:relation('相识','你向她买了药，彼此都记住了名字。'),outcome:'她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。'},
+            {label:'替药棚守夜 · 失去 4 生命，获得 25 金币',text:'当前生命须大于 4；守夜后她愿与你互相照应。',hpCost:4,goldGain:25,flags:{liuReturned:true,liuAid:true},relationship:relation('互相照应','你替药棚守了一夜，柳照青答应照应你的后路。'),tone:'good',outcome:'你挡住了夜里摸来的影子，袖口被瘴刃划开。天亮前，柳照青把药棚凑出的盘缠塞给你。'},
+            {label:'只报平安，继续深入',text:'不支付代价，也不领取药物。',flags:{liuReturned:false},relationship:relation(helped?'仍记旧恩':'一面之缘',helped?'你谢过她，未收药物。旧恩并未因此散去。':'你报了平安，没有在药棚停留。'),outcome:'柳照青替你拨正衣领，只说：“到了井边，先听风，不要先看水。”'}
+          ],{connection:helped?'雾锁山门：你曾出手帮她救人。':'雾锁山门：你曾指路，却没有留下救人。'});
+        },
+        liu_final() {
+          const helped = !!f.liuAid, id = card();
+          return eventFor('liu_final','liu',3,'留给你的那盏灯',[
+            '观测井外围，柳照青把最后一盏药灯挂在岔路口。她与师姐已经找到了归路，却仍等在这里。',
+            helped ? '“知道你还没出来。”她说。青色药灯照亮了一截安全石阶，灯罩上的名字只有你的。' : '“没人该死在看得见出口的地方。”她留了一瓶药，旁边放着补齐药材欠账的木牌。'
+          ],[
+            helped ? {label:'循药灯前行 · 恢复 12 生命，下一战护盾 +12',text:'护盾仅在下一场战斗首回合获得，与尚未使用的援护叠加。',heal:12,guard:12,flags:{liuFinished:true},relationship:relation('生死之交','她留到最后，为你点亮归路。'),tone:'good',outcome:'你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。'} : {label:'付 20 金币取药 · 恢复 16 生命',text:'她留药救急，也仍须偿还药材钱。',goldCost:20,heal:16,flags:{liuFinished:true},relationship:relation('守望相助','你补齐药钱，带走了她留在井边的药。'),tone:'good',outcome:'你把药钱压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。'},
+            {label:`请教破瘴手法 · 失去 5 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:5,cardIds:[id],flags:{liuFinished:true},relationship:relation('互授所长','柳照青替你引出瘴气，你也记下了她的破势手法。'),outcome:'以伤口为引，她从你经络里挑出一道黑线。疼痛之后，一个从未有过的出手顺序清楚起来。'},
+            {label:'托她带一句平安回去',text:'没有即时数值变化，记下这段相逢。',flags:{liuFinished:true},relationship:relation(helped?'旧恩未忘':'萍水善缘','她答应将你仍活着的消息带到雾外。'),tone:'good',outcome:'她把你的话记在药方背面，字很端正。你们没有许下不可能的承诺，只互道一句保重。'}
+          ],{connection:helped?'你当初伸出的那只手，换来了井边迟迟未灭的灯。':'你们未结救命之恩；她仍留了一条能够交易的活路。'});
+        },
+        ji_first() {
+          const id = card();
+          return eventFor('ji_first','ji',1,'断剑客的请求',[
+            '一位衣领整齐的太微外门弟子被困在塌落剑阵边。他自称季临川，佩剑断了一截，目光却总在你的行囊边停留。',
+            '“同在雾中，能否搭一把手？”他许诺以剑诀相谢。手腕上的宗门名牌是真的，至于承诺，尚需等到后来。'
+          ],[
+            {label:`替他破阵 · 失去 5 生命，获得「${CARDS[id].name}」`,text:`${CARDS[id].text} 他会在断桥一带与你再会。`,hpCost:5,cardIds:[id],flags:{jiHelp:true},relationship:relation('受你援手','你把他从剑阵里救出，收下了约好的剑诀。'),outcome:'季临川递出剑诀，行礼十分周到。他多问了一句你要去哪里，随后沿着与你相近的方向离开。'},
+            {label:'给他 12 金币请向导 · 得一枚护符',text:'下一场战斗首回合护盾 +5；护符只能用一次。',goldCost:12,guard:5,flags:{jiHelp:true},relationship:relation('欠你人情','你留钱替他脱困，收下一枚一次性的护符。'),outcome:'他把护符送给你，说这是外门弟子出门时的规矩。接钱时，他记住了你钱袋系结的样子。'},
+            {label:'不近剑阵，提醒他另寻出口',text:'没有数值变化。对方的真实打算尚不清楚。',flags:{jiHelp:false},relationship:relation('彼此戒备','你没有靠近，他记住了你的面容。'),outcome:'季临川收回伸出的手，仍向你道谢。等你走远，他脸上的笑意才慢慢淡下去。'}
+          ],{risk:'他留意你的行囊。帮助他未必能看清他的本心。'});
+        },
+        ji_return() {
+          const relic = chooseTreasure('mirror');
+          const greedy = j.hidden.jiIntent === 'greedy';
+          const hasTreasure = p.relics.some(id => TREASURE_RELICS.includes(id));
+          const clue = greedy ? '他身后的脚印不止一串。有个陌生人看见你便转过身，季临川的手却还按着你的包裹。' : '他把一路借来的药钱逐一记在纸上，又主动退开半步，让你自己收好行囊。';
+          return eventFor('ji_return','ji',2,'灯下验宝',[
+            '断桥边，季临川又认出了你。他说自己刚从一处密室取出奇物，也听说你身上有了值钱的东西。', clue
+          ],[
+            {label:`收下他带出的奇物 · 支付 ${f.jiHelp?10:25} 金币，获得${relic?`「${RELICS[relic].name}」`:'60 金币'}`,text:`${relic?RELICS[relic].text:'秘宝已齐，改得60金币。'} 他将知道你带着这件宝物；可能引来后患。`,goldCost:f.jiHelp?10:25,relic,fallbackGold:60,flags:{jiExposed:true},relationship:relation('宝物已被看见','你从季临川手中取得奇物；他已知道宝物在你身上。'),tone:'warning',outcome:'奇物入手，确实有灵。季临川替你合上匣盖，却将匣边的纹路看了很久。你把这件事记在心里。'},
+            hasTreasure ? {label:'请他验看随身秘宝 · 获得 25 金币',text:'得到一笔鉴宝情报费；他与旁人可能记住这件秘宝。',goldGain:25,flags:{jiExposed:true},relationship:relation('露宝','你给他看过随身秘宝，也收下了情报费。'),tone:'warning',outcome:'他准确报出秘宝的名字，钱也当场付清。灯罩后面响了一声，你回头时只看见晃动的影子。'} : {label:'只交换路讯 · 获得 10 金币',text:'不展示行囊，不取来历不明的奇物。',goldGain:10,flags:{jiExposed:false},relationship:relation('保持距离','你交换了路讯，却没有给他看行囊。'),outcome:'你们各说了一段走过的路。季临川没能把话题引向你的行囊，只付了约好的路讯钱。'},
+            {label:'封好行囊，先走一步 · 下一战护盾 +6',text:'收紧护身符。下一战首回合 +6 护盾；不让他验看宝物。',guard:6,flags:{jiExposed:false},relationship:relation('心存戒备','你察觉他的打量，拒绝露出随身物品。'),outcome:'你借整理护符的动作封住包裹。季临川没有拦路，但这一次你没有把背影留给他。'}
+          ],{connection:f.jiHelp?'雾锁山门：你帮过季临川；这份人情尚未证明它的分量。':'雾锁山门：你们只打过照面，并未结下恩情。',risk:clue});
+        },
+        ji_final() {
+          const robbery = f.jiExposed && j.hidden.jiIntent === 'greedy';
+          const grateful = !!f.jiHelp && j.hidden.jiIntent === 'grateful';
+          const id = card();
+          if (robbery) return eventFor('ji_final','ji',3,'旧恩，夺宝',[
+            '你在逆仪石阶再次看见季临川。这次他没有行礼，两名同伙堵在身后，他的剑尖指着的正是你在灯下打开过的匣子。',
+            f.jiHelp ? '“你救过我，我记得。”他避开你的目光，“但那件东西，够我换一生的前程。”旧恩没有让剑尖退后半寸。' : '“你既然敢把宝物拿出来，就该知道有人会跟。”他的声音很轻，路却已被封住。'
+          ],[
+            {label:'拔刃迎战 · 击败季临川，守住宝物',text:'进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20金币与选牌；失败结束本局。',battle:fight('季临川·夺宝剑客'),flags:{jiRobbery:true},relationship:relation('反目成仇','季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。'),tone:'warning',outcome:'你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。'},
+            {label:'付 35 金币买断此路',text:'保留全部遗物，支付35金币后脱离伏击。',goldCost:35,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('人情已断','你付钱换路，保住了宝物，也看清了这个人。'),tone:'warning',outcome:'钱袋落地，你没有弯腰。季临川让开半步；在他数清钱以前，你已越过最后一道雾墙。'},
+            {label:'用瘴雾断后 · 失去 8 生命，保住宝物',text:'当前生命须大于8。付出明确生命代价绕开战斗；不丢失遗物。',hpCost:8,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('避开仇敌','你带伤脱身，保住了行囊。'),tone:'warning',outcome:'你划破掌心，将血撒入嗜灵雾中。雾追着血气合拢，你忍痛从另一侧翻下石阶。'}
+          ],{connection:'断桥诸营：你曾让季临川知道宝物在你身上。如今追来的，是同一个人的剑。',risk:'夺宝者已经现身。此处可战斗、花钱脱身或带伤绕行。'});
+          return eventFor('ji_final','ji',3,grateful?'还你一剑':'未出的那一剑',grateful?[
+            '季临川守在井外的断墙边。他把前来打听你行踪的人打发走了，自己却留着一柄未曾收鞘的剑。',
+            '“山门那次，我还记得。”他把一页剑诀推给你，“我进不了井底，至少替你守住这条退路。”'
+          ]:[
+            '井外有一串熟悉的脚印，季临川站在石柱后面。你看见他看了看行囊，随后又将剑收回鞘中。',
+            j.hidden.jiIntent === 'greedy' ? '你一直封着行囊，他没有摸清你带着什么，也没找到值得下手的机会。' : '他不欠你救命的人情，却也没有把萍水相逢当成拔剑的理由。'
+          ],[
+            grateful ? {label:`接受回礼 · 获得「${CARDS[id].name}」，下一战护盾 +10`,text:CARDS[id].text,cardIds:[id],guard:10,flags:{jiFinished:true},relationship:relation('知恩守信','季临川兑现了承诺，替你守住退路。'),tone:'good',outcome:'他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。'} : {label:'相互让路 · 获得 12 金币',text:'交换最后一段安全路讯，不展示宝物。',goldGain:12,flags:{jiFinished:true},relationship:relation('相安无事','你们保持距离，各走各的路。'),outcome:'你卖给他一段刚刚走过的路讯。他付钱，让路；这一回，相逢没有变成刀剑。'},
+            {label:'收紧护符，独自离去 · 下一战护盾 +5',text:'下一场战斗首回合获得5护盾，不收人情。',guard:5,flags:{jiFinished:true},relationship:relation(grateful?'人情未散':'谨慎作别',grateful?'你谢过他的守望，独自走向井口。':'你没有放下戒备，也没有主动拔剑。'),outcome:'你留下一句保重，顺着另一侧石阶离开。包裹仍封得严实，剑也仍在自己手中。'}
+          ],{connection:grateful?'你的援手遇见了一个愿意偿还的人。':f.jiExposed?'他知道你带着宝物，却选择让你过去。':'你没有让季临川看清行囊，后来的相逢仍留着余地。'});
+        },
+        wen_first() {
+          return eventFor('wen_first','wen',1,'符锁下的叛徒',[
+            '玄烬符锁把一个削瘦的人钉在山门残柱上。她说自己叫闻人烛，曾为实验记数，直到记录里出现了同门的名字。',
+            '“我知道她们如何封路。”她抬起染黑的手，“你解开我，追兵也可能循着符锁找到你。这个风险，我先说在前面。”'
+          ],[
+            {label:'断开符锁 · 失去 5 生命，获得 20 金币',text:'当前生命须大于5。释放她会留下可被追踪的符息，之后可能遇到追猎。',hpCost:5,goldGain:20,flags:{wenFreed:true},relationship:relation('共担追踪','你释放了闻人烛，也沾上了锁中的符息。'),tone:'warning',outcome:'铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛没有隐瞒：“到断桥，我找材料替你洗掉。”'},
+            {label:'付 15 金币买一页记录，不解锁',text:'取得实验线索，下一战首回合护盾 +6，不沾追踪符息。',goldCost:15,guard:6,flags:{wenFreed:false,wenEvidence:true},relationship:relation('只谈交易','你买走了一页记录，没有替她断锁。'),outcome:'她把记录卷成细条递给你，指明一处可避开的阵眼。你记下了手法，却没有伸手碰锁。'},
+            {label:'留下水，继续寻找出路',text:'没有数值变化，也不沾追踪符息。',flags:{wenFreed:false},relationship:relation('未施援手','你留下水，没有介入她的追逃。'),outcome:'她喝得很慢，没有再许诺什么。你走开时，听见她重新开始数锁上那些符文。'}
+          ],{risk:'释放她有明确的追踪风险，但也可能让她带回更重要的证据。'});
+        },
+        wen_return() {
+          const freed = !!f.wenFreed;
+          return eventFor('wen_return','wen',2,'符息追来时',freed?[
+            '断桥下，闻人烛果然带着洗符砂等你。她瘦了许多，手里的实验残页却用油纸包得很严。',
+            '你腕上的黑印忽然发烫。追兵已循锁息靠近，她能现在洗去印记，也能带着证据抢先闯过封锁。'
+          ]:[
+            '闻人烛坐在断桥阴影里，手腕血肉模糊。她自己撬断了符锁，留下了一只无法再握笔的手。',
+            '“账归账，路归路。”她认出你，却没有责问。她愿意卖出最后一段阵眼记录，换一包止痛药。'
+          ],[
+            freed ? {label:'付 15 金币买洗符砂 · 洗去追踪，恢复 6 生命',text:'支付15金币，消除这条故事的追踪风险；闻人烛仍会继续携证前行。',goldCost:15,heal:6,flags:{wenCleansed:true,wenEvidence:true},relationship:relation('并肩脱险','你们洗去符息，约好在观测井外碰面。'),tone:'good',outcome:'黑印在砂中化开。闻人烛把追兵的方向标在地上：“下一次，我把完整的那页给你。”'} : {label:'付 15 金币买记录 · 下一战护盾 +8',text:'明确支付15金币，获得下一战首回合8护盾。',goldCost:15,guard:8,flags:{wenEvidence:true},relationship:relation('证据买主','你买走阵眼记录，替她付了药钱。'),outcome:'她把阵眼一一指给你，直到你能独自复述。纸页边缘的血早已干了，字却仍辨认得清。'},
+            freed ? {label:'保住残页，暂不洗印 · 获得 35 金币',text:'保留追踪风险；到逆仪腹地可能面对追猎者。',goldGain:35,flags:{wenCleansed:false,wenEvidence:true},relationship:relation('仍被追踪','你保住残页却未洗去符息，追兵仍可能找到你。'),tone:'warning',outcome:'你们把钱和残页分装，赶在追兵前穿过断桥。手腕上的黑印没有消失，仿佛在替别人记住方向。'} : {label:'替她送一段口供 · 获得 20 金币',text:'只带走证言，不留下新的追踪印记。',goldGain:20,flags:{wenEvidence:true},relationship:relation('替她作证','你答应把一段实验记录带出雾外。'),outcome:'她把那几个名字念了两遍，你也复述了两遍。如今至少有另一个活人知道她们曾经存在。'},
+            {label:'各走各路，不再交易',text:freed?'不支付代价；此前留下的追踪印记仍未消除。':'不支付代价，也不领取奖励。',flags:{wenCleansed:!!f.wenCleansed},relationship:relation(freed?'追踪未解':'分道而行',freed?'你先行离开，手腕仍留着可追踪的黑印。':'你与闻人烛分开，未再做交易。'),tone:freed?'warning':'neutral',outcome:freed?'你没有停下来洗印。闻人烛没有追赶，只远远提醒你，到了井边先看身后的路。':'你将水囊放回腰侧，朝井口走去。闻人烛留在桥下，继续寻找愿意听的人。'}
+          ],{connection:freed?'雾锁山门：你释放闻人烛时，沾上了符锁的追踪印记。':'雾锁山门：你没有解开符锁，也没有沾上黑印。',risk:freed?'黑印尚未洗净时，追猎可能继续。':'这次交易不会留下追踪印记。'});
+        },
+        wen_final() {
+          const hunted = f.wenFreed && !f.wenCleansed, id = card();
+          if (hunted) return eventFor('wen_final','wen',3,'证词与追猎',[
+            '逆仪石阶上的黑印同时亮起。你腕上的锁息把玄烬追猎者引到了这里；她没有看闻人烛，只要求交出带走的记录。',
+            '闻人烛挡在半步之外：“是我把你卷进来的。”她撕下一页阵图递来，至少还给你留下选择。'
+          ],[
+            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20金币与选牌，失败结束本局。',battle:fight('玄烬追猎者'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
+            {label:'焚毁口供诱开追兵 · 失去 6 生命',text:'当前生命须大于6。保留自己的卡牌遗物，放弃故事中的证词；不触发战斗。',hpCost:6,flags:{wenFinished:true,wenEvidence:false,wenCleansed:true},relationship:relation('带伤脱身','你烧掉口供引开追兵，结束了这段追踪。'),tone:'warning',outcome:'符火吞下纸页，也灼伤了你手腕。追兵追着假阵眼远去，那些名字只剩你和闻人烛还记得。'},
+            {label:'付 30 金币借暗道撤离',text:'保留卡牌、遗物及证词，支付30金币结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的路钱，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收钱，不问名字；门在追猎者的脚步到来前重新合拢。'}
+          ],{connection:'你当初断锁救人，又没有在断桥洗去黑印。追踪终于抵达了这里。',risk:'这是未解除的追踪造成的后果，仍有付费与带伤脱身的选择。'});
+          return eventFor('wen_final','wen',3,'留存之证',[
+            '闻人烛在观测井外等你。她将最后几页实验记录放在石头上，纸上列着被抹去的姓名，而非可供修炼的口诀。',
+            f.wenEvidence ? '“你替我记住了那些名字。”她把一份破阵手法夹进记录，“这份不用再付钱。”' : '她已经不再求你救她，只问你愿不愿意让雾外的人知道，这里发生过什么。'
+          ],[
+            {label:`带出记录 · 获得「${CARDS[id].name}」，下一战护盾 +8`,text:CARDS[id].text,cardIds:[id],guard:8,flags:{wenFinished:true,wenEvidence:true},relationship:relation('证词同行者','你带走了实验记录，闻人烛将破阵手法留给你。'),tone:'good',outcome:'你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。'},
+            {label:'让她保管记录 · 恢复 10 生命',text:'接受一份洗符余药，不带走故事证词。',heal:10,flags:{wenFinished:true},relationship:relation('各自求生','你收下余药，托她自己带出记录。'),outcome:'闻人烛把余药递来，重新将记录包好。你们选择不同的出口，至少都不再被黑印牵着走。'},
+            {label:'记住她的名字，独自离开',text:'没有数值变化。',flags:{wenFinished:true},relationship:relation('一段旧事','你记住了闻人烛这个名字。'),outcome:'她报过许多试验编号，直到这时，你才郑重地叫了她一声闻人烛。'}
+          ],{connection:f.wenFreed?'你曾救她，也及时处理了追踪。旧恩于是有机会成为回报。':'你没有卷入断锁追逃，却仍走到了这份记录的终点。'});
+        },
+        sect_duel() {
+          const id = card();
+          return eventFor('sect_duel',null,0,'玄照门的试剑帖',[
+            '玄照门弟子陆闻刀横剑拦住窄路，口称切磋，身后三人却正用脚踢开旁人的包袱。',
+            '她不信有人能平安从雾里走来：“出一招，让我看看你有没有藏着别家的传承。”'
+          ],[
+            {label:'接下实战试剑 · 胜后领取正常战利品',text:'对战玄照门拦路客：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。失败结束本局。',battle:fight('玄照门·拦路客'),tone:'warning',outcome:'你将包袱移到身后，示意她让同伴退开。所谓切磋，终于有了必须付出的分量。'},
+            {label:`以伤换招 · 失去 6 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:6,cardIds:[id],outcome:'三招之后，你退了半步，衣袖被划开。陆闻刀收剑，一招破绽也同时被你牢牢记住。'},
+            {label:'绕开窄路，暂避锋芒',text:'没有代价，也没有奖励。',outcome:'你不必回答每一个伸来的剑尖。雾中还有别的路，这一次你自己选。'}
+          ],{faction:'玄照门',whisper:'有些人以宗门为名，有些人只借宗门的名字。'});
+        },
+        herb_caravan() {
+          return eventFor('herb_caravan',null,0,'百草庵的归程',[
+            '百草庵弟子苏芩正把一车药草往雾外推。车上坐着两名并非她同门的伤者，她一边推车，一边埋怨他们太重。',
+            '看见你来，她把车停稳：“救人归救人，可别踩我的药。你若愿意帮忙，我分你一包。”'
+          ],[
+            {label:'扶车过坎 · 恢复 12 生命，得 10 金币',text:'接受她的伤药和同行者凑出的谢礼。',heal:12,goldGain:10,tone:'good',outcome:'你把车轮抬过断阶。苏芩分药时多抓了一把，嘴上仍说是药草自己掉进去的。'},
+            {label:'付 20 金币买足一程的伤药 · 恢复 24 生命',text:'治疗不超过最大生命。',goldCost:20,heal:24,outcome:'她收下钱，认真检查封口。你买的是药，也是他们下一段归路的盘缠。'},
+            {label:'留出道路，互道平安',text:'没有数值变化。',outcome:'苏芩推车经过时，提醒你井边有一段石阶会回响。善意很短，却足够记住。'}
+          ],{faction:'百草庵',whisper:'她救的人不全是同门，药却一份也没少给。'});
+        },
+        relic_dispute() {
+          const relic = chooseTreasure('dream');
+          return eventFor('relic_dispute',null,0,'两宗一匣',[
+            '栖霞观与断岳宗各有一名弟子按住同一只匣子。匣子原本属于一个已经死去的散修，两人却都拿出了足够古老的宗门印信。',
+            '“替我断个公道。”他们同时说。无论你向谁点头，另一只手都会离剑柄更近。'
+          ],[
+            {label:`以 35 金币买断争执 · 获得${relic?`「${RELICS[relic].name}」`:'60金币'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60金币。',goldCost:35,relic,fallbackGold:60,outcome:'两宗弟子先分了钱，才肯松开手。匣里的奇物归你，关于公道的话也忽然没人再提。'},
+            {label:'替散修收殓 · 失去 4 生命，得 20 金币',text:'当前生命须大于4。取墓边未被污染的盘缠，不碰争议宝物。',hpCost:4,goldGain:20,outcome:'你替死者合眼，瘴气刺入指尖。那两人终于停下争吵，你只取走明白留给送葬人的铜钱。'},
+            {label:'不替任何一宗背书',text:'没有数值变化。',outcome:'你将两份印信推回去。古老不等于有理，更不等于值得把命赔上。'}
+          ],{faction:'栖霞观 / 断岳宗',whisper:'宝物只有一件，替它作证的印信却有两枚。'});
+        },
+        night_watch() {
+          return eventFor('night_watch',null,0,'同一盏守夜灯',[
+            '一位太微剑宗内门弟子与一位玄烬弃徒背靠背坐着，中间只有一盏防瘴灯。天亮以前，他们约好不问旧怨。',
+            '守灯的青年许星沉挪出半个位置：“帮着守一刻，灯灭了，我们都得死。”'
+          ],[
+            {label:'接过守灯符 · 下一战护盾 +10',text:'下一场战斗首回合获得10护盾，用后消失。',guard:10,tone:'good',outcome:'这一刻没有人问你属于哪边。换班时，许星沉把余下的守灯符留给你，玄烬弃徒替你指出了背风的小路。'},
+            {label:'分享 12 金币补给 · 恢复 14 生命，得 5 护盾援护',text:'支付12金币；护盾在下一场战斗首回合生效。',goldCost:12,heal:14,guard:5,outcome:'干粮按三份分开，灯油也添到正好的高度。你们没有成为朋友，却一起等过一阵风。'},
+            {label:'独自绕过灯火',text:'没有代价，也没有奖励。',outcome:'你没有坐下。守灯的人仍将灯挪开半寸，让你看清面前的路。'}
+          ],{faction:'太微剑宗 / 玄烬弃徒',whisper:'旧仇还在，今夜却得先活下去。'});
+        }
+      };
+    }
     function makeEvent() {
       const p = state.player;
       const rare = cardPool().filter(id => CARDS[id].rarity === 'rare');
@@ -1230,9 +1476,11 @@
           };
         }
       };
-      const ids = Object.keys(builders);
+      Object.assign(builders, makeJourneyBuilders(p, rare));
+      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id));
       const unseen = ids.filter(id => !state.seenEvents.includes(id));
-      const id = (unseen.length ? unseen : ids)[rand((unseen.length ? unseen : ids).length)];
+      const pool = unseen.length ? unseen : ids;
+      const id = activeNode?.storyId || pool[rand(pool.length)];
       state.seenEvents.push(id);
       return builders[id]();
     }
@@ -1245,6 +1493,17 @@
       state.event.outcome = choice.outcome;
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       state.event.choiceLabel = choice.label;
+      if (choice.flags) Object.assign(state.journey.flags, choice.flags);
+      if (choice.guard) { state.journey.nextCombatBlock += choice.guard; received.push(`下一战首回合护盾 +${choice.guard}`); }
+      if (state.event.npc) {
+        const npc = state.event.npc;
+        if (state.event.chapter === 1) state.journey.chain = npc;
+        state.journey.step = Math.max(state.journey.step, state.event.chapter || 0);
+        if (choice.relationship) state.journey.relationships[npc] = { ...choice.relationship };
+      }
+      if (choice.battle) state.event.battle = { ...choice.battle };
+      recordJourney(state.event.npc, state.event.name, choice.journal || choice.outcome, choice.tone || 'neutral');
+      state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       note('异闻已了。看过这段结局，再决定是否继续深入封域。');
       emit();
       return true;
@@ -1252,6 +1511,12 @@
     function leaveEvent() {
       if (state.screen !== 'event' || !state.event || !state.event.resolved) return false;
       const name = state.event.name;
+      if (state.event.battle) {
+        const encounter = state.event.battle;
+        startBattle(encounter.kind || 'fight', encounter);
+        note(`${encounter.name || ENEMIES[encounter.enemyId].name}已经封住去路。击退对方，才能继续。`);
+        emit(); return true;
+      }
       advance();
       note(`离开「${name}」，第 ${state.floor} 段已开放。`);
       emit();
@@ -1275,12 +1540,12 @@
 
     state = freshState('title');
     return {
-      get state() { return state; }, newRun, enterNode, playCard, endTurn, resolveEnemyTurn,
+      get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
       chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
     };
   }
 
-  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

@@ -1,0 +1,424 @@
+{
+  "version": "寒渊因缘版",
+  "format": "baiyao-v6-art-manifest",
+  "source": {
+    "path": "/workspace/generated_images/exec-818dbd3b-f3a7-42c8-8400-6d9867c609ef.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "90f1a0bb2c10f1fae99688c58d3fd0647ccccbada4a8d5088c6ecec35d234fa0",
+    "layout": "4 by 4, row-major; technical crop only; 1-pixel inset removes separators"
+  },
+  "count": 20,
+  "eventCount": 13,
+  "portraitCount": 4,
+  "bytes": 670476,
+  "allDecoded": true,
+  "uniqueThumbnails": 20,
+  "entries": [
+    {
+      "id": "liu_first",
+      "kind": "event",
+      "path": "assets/events/liu_first.webp",
+      "bytes": 25720,
+      "sha256": "a8ea83504f65c50f8a1ccb69de56e6a0a3ccc122552b36c8692d7adb5b90732c",
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "6a1d07bdead032dcabc767479bbd7622e34301cccd1ba83ba92ce39d3af14d43",
+      "sourceCell": {
+        "row": 0,
+        "col": 0,
+        "left": 1,
+        "top": 1,
+        "width": 311,
+        "height": 311
+      }
+    },
+    {
+      "id": "liu_return",
+      "kind": "event",
+      "path": "assets/events/liu_return.webp",
+      "bytes": 21614,
+      "sha256": "f6d52e5315cfefb5750284f14c8f8fc50a7aa446e44df142335f67424c986218",
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "799d0e1442068a975be42b45512942efc7a60671fce1495c58856abc6dc30cbc",
+      "sourceCell": {
+        "row": 0,
+        "col": 1,
+        "left": 314,
+        "top": 1,
+        "width": 312,
+        "height": 311
+      }
+    },
+    {
+      "id": "liu_final",
+      "kind": "event",
+      "path": "assets/events/liu_final.webp",
+      "bytes": 27328,
+      "sha256": "4415b41f5e224e1993193d81690505b8edd8170b3c58d254c42fc04f4b78fae2",
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "3e5c51d339c5234d1e3d505ad6d72297abc927dde26092fcf274b6d911ea48ee",
+      "sourceCell": {
+        "row": 0,
+        "col": 2,
+        "left": 628,
+        "top": 1,
+        "width": 311,
+        "height": 311
+      }
+    },
+    {
+      "id": "ji_first",
+      "kind": "event",
+      "path": "assets/events/ji_first.webp",
+      "bytes": 21656,
+      "sha256": "e52677721cd0fd9dcf1381870cbfa52d3c9b99b2cf38ea0dd77878a05915cd27",
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "7e0500b2aebc7a29eddffdcc4d547beceac54ffcc3404faf470b0cdcdee4893b",
+      "sourceCell": {
+        "row": 0,
+        "col": 3,
+        "left": 941,
+        "top": 1,
+        "width": 312,
+        "height": 311
+      }
+    },
+    {
+      "id": "ji_return",
+      "kind": "event",
+      "path": "assets/events/ji_return.webp",
+      "bytes": 21302,
+      "sha256": "d27440c261378ee854b794349b23e6cfb8cd3b66936eed0a6d1abdda37738bc1",
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "8bdd496c4ef822b08019ba5a3ef244a27321dae11f3bde3159b0942f810ecd60",
+      "sourceCell": {
+        "row": 1,
+        "col": 0,
+        "left": 1,
+        "top": 314,
+        "width": 311,
+        "height": 312
+      }
+    },
+    {
+      "id": "ji_final",
+      "kind": "event",
+      "path": "assets/events/ji_final.webp",
+      "bytes": 20038,
+      "sha256": "af1e8769f865d1e41f249c5e8833c406933402472b2e4aab68c4bba23528a829",
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "ab5decbde4e56955a29eba5e3d09635cfee87ed4b074664554c65a9ec194f16d",
+      "sourceCell": {
+        "row": 1,
+        "col": 1,
+        "left": 314,
+        "top": 314,
+        "width": 312,
+        "height": 312
+      }
+    },
+    {
+      "id": "wen_first",
+      "kind": "event",
+      "path": "assets/events/wen_first.webp",
+      "bytes": 23364,
+      "sha256": "860f0a0478477e4aba6b8d0be594548f4516f981b5066bad08e2688846fddef8",
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "b6ee9047aac9eb2c660f08dbf4ff84f5e8ab2d41e5629660d77d2338b66e6ca8",
+      "sourceCell": {
+        "row": 1,
+        "col": 2,
+        "left": 628,
+        "top": 314,
+        "width": 311,
+        "height": 312
+      }
+    },
+    {
+      "id": "wen_return",
+      "kind": "event",
+      "path": "assets/events/wen_return.webp",
+      "bytes": 18314,
+      "sha256": "fdb62b2d7e14a04cce599cee12e56ca2f5dc55aeb8ce55b19e81a284cb3deaa6",
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "86e8d2975aaeae9aceb6b43cdc6e13d7121dfa4f27d8d3465caaecc92e75c235",
+      "sourceCell": {
+        "row": 1,
+        "col": 3,
+        "left": 941,
+        "top": 314,
+        "width": 312,
+        "height": 312
+      }
+    },
+    {
+      "id": "wen_final",
+      "kind": "event",
+      "path": "assets/events/wen_final.webp",
+      "bytes": 22842,
+      "sha256": "84f19cd5508da0f7e689ac5c783eca535b4a1aa41d44239a6337787ba05df416",
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "d86d0543cc75cbeab60ae9163a1176acf4c76651b1dfc0be3340ae4f7a8b6292",
+      "sourceCell": {
+        "row": 2,
+        "col": 0,
+        "left": 1,
+        "top": 628,
+        "width": 311,
+        "height": 311
+      }
+    },
+    {
+      "id": "sect_duel",
+      "kind": "event",
+      "path": "assets/events/sect_duel.webp",
+      "bytes": 26944,
+      "sha256": "228c9665481636b0aa3625c438ac5beb0ee4966f107c9af9318b79b06209c254",
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "6ca6cb55ed5dfbe385e12d9ee7f7e7e9b4d8109434612f50711e4c2f9b0bdc6d",
+      "sourceCell": {
+        "row": 2,
+        "col": 1,
+        "left": 314,
+        "top": 628,
+        "width": 312,
+        "height": 311
+      }
+    },
+    {
+      "id": "herb_caravan",
+      "kind": "event",
+      "path": "assets/events/herb_caravan.webp",
+      "bytes": 26082,
+      "sha256": "a151773da70006493a79dd44ae7e1a58c1aab9f2b104bdbdf3e55f84c2e9de9a",
+      "width": 311,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "79d3fc90dcebe0843b8bce4087c2dbf89552fdeb8a8654539f1cf8e03b901521",
+      "sourceCell": {
+        "row": 2,
+        "col": 2,
+        "left": 628,
+        "top": 628,
+        "width": 311,
+        "height": 311
+      }
+    },
+    {
+      "id": "relic_dispute",
+      "kind": "event",
+      "path": "assets/events/relic_dispute.webp",
+      "bytes": 22078,
+      "sha256": "b4ead7c11f6e92c68ce560051c6845e6d95d08826472b9e804bbef4fee3cd486",
+      "width": 312,
+      "height": 311,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "453833fba3ca1fe81bb988b46ec53c6f84d306eb1c24dfd0eadde9df2e730b6c",
+      "sourceCell": {
+        "row": 2,
+        "col": 3,
+        "left": 941,
+        "top": 628,
+        "width": 312,
+        "height": 311
+      }
+    },
+    {
+      "id": "night_watch",
+      "kind": "event",
+      "path": "assets/events/night_watch.webp",
+      "bytes": 21956,
+      "sha256": "544544b2c9693fe96f7277d8d28d340b318a1477dbd089a3c4341103c2419598",
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "dd2a986a58421b6a55ee4075ba9d9bbda61415bff8fe25f9ac6a37e46fe34de6",
+      "sourceCell": {
+        "row": 3,
+        "col": 0,
+        "left": 1,
+        "top": 941,
+        "width": 311,
+        "height": 312
+      }
+    },
+    {
+      "id": "liu",
+      "kind": "portrait",
+      "path": "assets/portraits/liu.webp",
+      "bytes": 21580,
+      "sha256": "192d85b17bb7f14bf390b21ed90a537c50c8e51430df9844a95e82ea33bee3b4",
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "af24600078704c3d5f71c396f6135a4f2dc6ca81bed5646a535d162152cbf9e0",
+      "sourceCell": {
+        "row": 3,
+        "col": 1,
+        "left": 314,
+        "top": 941,
+        "width": 312,
+        "height": 312
+      }
+    },
+    {
+      "id": "ji",
+      "kind": "portrait",
+      "path": "assets/portraits/ji.webp",
+      "bytes": 18138,
+      "sha256": "43c8cfec1fd911188bb37af3979282548a4b705099742d02da5d1a2702df4c8d",
+      "width": 311,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "caaa3a37a8b90769ef2c6f7d5e3734b2268b1cbd2532716338b784dbac5e75a8",
+      "sourceCell": {
+        "row": 3,
+        "col": 2,
+        "left": 628,
+        "top": 941,
+        "width": 311,
+        "height": 312
+      }
+    },
+    {
+      "id": "wen",
+      "kind": "portrait",
+      "path": "assets/portraits/wen.webp",
+      "bytes": 17402,
+      "sha256": "50fb6e7f547017b50740da7618897b38a3c0804d958c7ec769383d8b95956965",
+      "width": 312,
+      "height": 312,
+      "channels": 3,
+      "decoded": true,
+      "thumbnailSha256": "0f41207bb8de469eba4d0f34662414e985e7b940e5df37d0dc5e0084a59758ed",
+      "sourceCell": {
+        "row": 3,
+        "col": 3,
+        "left": 941,
+        "top": 941,
+        "width": 312,
+        "height": 312
+      }
+    },
+    {
+      "id": "fog_gate",
+      "kind": "region",
+      "path": "assets/regions/fog_gate.webp",
+      "bytes": 95452,
+      "sha256": "6ded0a8c83e3e9ad8e75dd62d470b5f0b3359dd30f7bdfe029078a7bbb642529",
+      "width": 764,
+      "height": 508,
+      "channels": 3,
+      "crop": {
+        "left": 2,
+        "top": 2,
+        "width": 764,
+        "height": 508
+      },
+      "thumbnailSha256": "ba7f8d89f36ba17a41d694a61ca75c515d8a56f5c47e384bb6853f03e8b6db4a"
+    },
+    {
+      "id": "broken_camp",
+      "kind": "region",
+      "path": "assets/regions/broken_camp.webp",
+      "bytes": 71760,
+      "sha256": "7fb97fa3a984f19f079bf5b5dee79d9ea5f52356477df1f234d19d3640d668d6",
+      "width": 764,
+      "height": 508,
+      "channels": 3,
+      "crop": {
+        "left": 770,
+        "top": 2,
+        "width": 764,
+        "height": 508
+      },
+      "thumbnailSha256": "46843c91be3382c47561d731ece9a93632291597ccf903d279df5f5680211ebe"
+    },
+    {
+      "id": "ritual_core",
+      "kind": "region",
+      "path": "assets/regions/ritual_core.webp",
+      "bytes": 88992,
+      "sha256": "4201f4b4803e501c894063e757ad49fca223337d8c83cc640037b1908e513849",
+      "width": 764,
+      "height": 508,
+      "channels": 3,
+      "crop": {
+        "left": 2,
+        "top": 514,
+        "width": 764,
+        "height": 508
+      },
+      "thumbnailSha256": "7b779aa16f76e3c313987edbddea4d4424bbc7f00854f65c5c43ff8c5b29b0ba"
+    },
+    {
+      "id": "raider",
+      "kind": "portrait",
+      "path": "assets/portraits/raider.webp",
+      "bytes": 57914,
+      "sha256": "64a7b603ea21eb6b8243cd5b98d9becfb43fc31d617a56aafbdd0fad377cc6a7",
+      "width": 508,
+      "height": 508,
+      "channels": 3,
+      "crop": {
+        "left": 898,
+        "top": 514,
+        "width": 508,
+        "height": 508
+      },
+      "thumbnailSha256": "7c64fd987205927da91ef07c3f7a23a74e822264283b225a95ceca610e64a090"
+    }
+  ],
+  "sources": [
+    {
+      "path": "/workspace/generated_images/exec-818dbd3b-f3a7-42c8-8400-6d9867c609ef.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "90f1a0bb2c10f1fae99688c58d3fd0647ccccbada4a8d5088c6ecec35d234fa0",
+      "layout": "4 by 4, row-major; technical crop only; 1-pixel inset removes separators"
+    },
+    {
+      "path": "/workspace/generated_images/exec-34c10c53-2646-4b94-94ef-2e4a6350a91e.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "09c17c5d556e370189a8fad7b4866c95cb7dd0d746d12cb357de6906ec7ca344",
+      "layout": "2 by 2; three regional landscapes and independent human raider"
+    }
+  ],
+  "regionCount": 3
+}

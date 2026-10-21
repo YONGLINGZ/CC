@@ -36,7 +36,7 @@ const delay=ms=>page.waitForTimeout(ms);
     await check('3D map follows engine graph, readable future labels and keyboard-ready current nodes',async()=>{
       const map=await info('map');assert.equal(map.projections.length,34);assert.deepEqual(map.availableNodes,['f3-0','f3-1']);assert.equal(await page.locator('#map button:not(:disabled)').count(),2);
       const buttons=await page.locator('#map button').evaluateAll(elements=>elements.map(el=>({id:el.dataset.node,action:el.dataset.action,label:el.getAttribute('aria-label'),disabled:el.disabled,opacity:Number(getComputedStyle(el).opacity),left:parseFloat(el.style.left),top:parseFloat(el.style.top)})));
-      assert.equal(buttons.filter(b=>!b.disabled).length,2);for(const b of buttons){assert.equal(b.action,'node');assert.ok(b.label.includes('层'));assert.ok(b.left>0&&b.left<1200);assert.ok(b.top>0&&b.top<440);if(!['f1-0','f2-0'].includes(b.id))assert.ok(b.opacity>=.70);}
+      assert.equal(buttons.filter(b=>!b.disabled).length,2);for(const b of buttons){assert.equal(b.action,'node');assert.ok(b.label.includes('段'));assert.ok(b.left>0&&b.left<1200);assert.ok(b.top>0&&b.top<440);if(!['f1-0','f2-0'].includes(b.id))assert.ok(b.opacity>=.70);}
       await page.locator('#map').screenshot({path:'/workspace/scratch/v5-scene-map.png'});report.mapLabels=buttons;
     });
     await check('available projected node really calls once; unavailable and duplicate activation are refused',async()=>{
