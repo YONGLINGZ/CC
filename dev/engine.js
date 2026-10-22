@@ -149,6 +149,19 @@
       { name: '夜甲', text: '清除全部霜寒与流血，获得护盾 10，架势反击 2', clearChill:true,clearBleed:true,block:10,counter:2 },
       { name: '镇魂', text: '攻击 16，下个玩家回合灵力减少 1', hits:[16],energyPenalty:1 }
     ] },
+    e_mist: { name:'雾中伥', rank:'elite', hp:56, intents:[
+      {name:'牵魂',text:'攻击 10，然后施加 1 层猎记',hits:[10],playerMark:1},
+      {name:'蔽目',text:'攻击 8，然后施加 2 层猎记',hits:[8],playerMark:2},
+      {name:'雾遁',text:'获得护盾 12',block:12}
+    ]},
+    e_lantern: { name:'断桥灯魁', rank:'elite', hp:76, intents:[
+      {name:'引焰',text:'攻击 14',hits:[14]}
+    ]},
+    e_priest: { name:'逆仪祭司', rank:'elite', hp:92, intents:[
+      {name:'祭仪',text:'获得护盾 10，然后施加 1 层猎记',block:10,playerMark:1},
+      {name:'咒刃',text:'攻击 16',hits:[16]},
+      {name:'逆祝',text:'恢复 8 点生命，再获得护盾 8',heal:8,block:8}
+    ]},
     raider: { name: '来客', hp: 42, intents: [
       { name: '试探剑', text: '攻击 7', hits: [7] },
       { name: '封路', text: '获得护盾 5，然后攻击 6，架势反击 2', block:5,hits:[6],counter:2 },
@@ -190,6 +203,7 @@
     abyss_throne: {id:'namelessmist',name:'无名雾幕',text:'本境每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1}
   });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
+  const LEGACY_EVENT_IDS = EVENT_IDS.slice();
   for (const id of Object.keys(SEVEN.EVENTS || {})) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
@@ -228,6 +242,9 @@
 
   const REWARD_POOL = Object.keys(CARDS).filter(id => Number(id.slice(1)) >= 3);
   const ORDINARY = ['paper', 'lantern', 'ape', 'bone'];
+  const ELITE_POOL = Object.freeze([
+    Object.freeze(['yaksha','e_mist']), Object.freeze(['e_lantern']), Object.freeze(['e_priest'])
+  ]);
 
   function createGame(options = {}) {
     const rng = typeof options.rng === 'function' ? options.rng : Math.random;
@@ -237,6 +254,7 @@
     let state;
     let activeNode = null;
     const environmentEnabled = options.environment !== false;
+    const scalingEnabled = options.scaling !== false;
     const legacyCampaign = options.campaign === 'legacy';
     const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
     const totalFloors = regions.length * 10;
@@ -258,7 +276,7 @@
       }
     }
     function getEnvironment() {
-      const index=state?.journey?.regionIndex||0,id=REGIONS[index].id;
+      const index=state?.journey?.regionIndex||0,id=regions[index].id;
       return {...(ENVIRONMENTS[id]||{}),id,regionIndex:index,enabled:environmentEnabled};
     }
     function getAffliction() {
@@ -500,9 +518,30 @@
         }
       }
     }
+    function sevenEventAvailable(def, floor=state?.floor||1, regionIndex=state?.journey?.regionIndex||0) {
+      if (legacyCampaign || !def) return false;
+      if (Number.isInteger(def.minFloor) && floor < def.minFloor) return false;
+      if (Number.isInteger(def.maxFloor) && floor > def.maxFloor) return false;
+      if (Number.isInteger(def.regionIndex) && regionIndex !== def.regionIndex) return false;
+      if (Array.isArray(def.regionIndex) && !def.regionIndex.includes(regionIndex)) return false;
+      return true;
+    }
+    function makeSevenBuilders(p) {
+      return Object.fromEntries(Object.entries(SEVEN.EVENTS || {}).map(([id,def])=>[id,()=>{
+        const choices=def.choices.map(original=>{
+          const choice={...original};
+          if (choice.cardRarity) {
+            const pool=cardPool().filter(cardId=>CARDS[cardId].rarity===choice.cardRarity);
+            choice.cardIds=sample(pool.length?pool:cardPool(),Math.max(1,choice.cardCount||1));
+          }
+          return choice;
+        });
+        return {id,name:def.name,glyph:def.glyph||'异',kicker:def.kicker||'雾后见闻',description:def.description||def.story[0],story:def.story.slice(),choices:finishChoices(choices,p)};
+      }]));
+    }
     function makeMap() {
       const weighted=['fight','fight','event','event','rest','rest','shop','elite','cave'],map=[],templates=[];
-      for(let chapter=0;chapter<3;chapter++){
+      for(let chapter=0;chapter<regions.length;chapter++){
         const configured=Array.isArray(options.routeTemplate)?options.routeTemplate[chapter]:options.routeTemplate;
         const template=ROUTE_TEMPLATES[Number.isInteger(configured)&&configured>=0&&configured<20?configured:rand(20)];templates.push({id:template.id,name:template.name,chapter:chapter+1,nodeCount:template.widths.reduce((a,b)=>a+b,0)});
         const rows=template.widths.map((width,local)=>{
@@ -532,7 +571,21 @@
       }
       const introductions=shuffle(['liu','ji','wen']);for(const node of map[2]){const npc=NPCS[introductions[node.lane%3]];node.storyId=npc.id+'_first';node.npc=npc.id;node.name=({liu:'药箱旁的身影',ji:'剑阵旁的人',wen:'符锁旁的低语'})[npc.id];node.description='雾中有人停在路边。';}
       for(const [floor,id]of [[4,'moon_trace'],[14,'sealed_name'],[24,'moon_vow']])setStoryNode(map,floor,id);
-      for(const [floor,enemyId]of [[10,'gate_boss'],[20,'camp_boss'],[30,'snake']]){const node=map[floor-1][0];node.encounter={enemyId:ENEMIES[enemyId]?enemyId:(floor===10?'yaksha':floor===20?'retainer':'snake'),kind:'boss'};node.name=ENEMIES[node.encounter.enemyId].name;node.description='本章最后一道关口。';}
+      const earlyBosses = legacyCampaign ? ['gate_boss','camp_boss','snake'] : shuffle(SEVEN.EARLY_BOSSES || ['gate_boss','camp_boss','snake']).slice(0,3);
+      const bossIds = legacyCampaign ? earlyBosses : [...earlyBosses,...(SEVEN.MID_BOSSES || []),SEVEN.FINAL_BOSS];
+      for (let chapter=0;chapter<regions.length;chapter++) {
+        const enemyId=bossIds[chapter],node=map[(chapter+1)*10-1][0];
+        if (!ENEMIES[enemyId]) throw new Error('Missing chapter boss: '+enemyId);
+        node.encounter={enemyId,kind:'boss'};node.name=ENEMIES[enemyId].name;node.description='本境最后一道关口。';
+      }
+      if (!legacyCampaign) for (let chapter=3;chapter<regions.length;chapter++) {
+        const floor=chapter*10+3,eligible=Object.entries(SEVEN.EVENTS || {}).filter(([,def])=>sevenEventAvailable(def,floor,chapter)).map(([id])=>id);
+        if (!eligible.length) continue;
+        const choices=shuffle(eligible);
+        for (const node of map[floor-1]) {
+          const id=choices[node.lane%choices.length];node.storyId=id;node.name=SEVEN.EVENTS[id].name;node.description='雾后的新一段见闻。';
+        }
+      }
       map.chapterTemplates=templates;map.templateId=templates[0].id;map.templateName=templates[0].name;return map;
     }
     function configureSwordMap(map) {
@@ -549,7 +602,7 @@
       if (character === 'sovereign') configureSovereignMap(map);
       if (character === 'sword') configureSwordMap(map);
       return {
-        screen, starter, character, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
+        screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
           hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
           deck: cards.map(makeCard),
@@ -599,7 +652,7 @@
     }
     function clearCombatStatuses() {
       const b = state.battle;
-      b.block = b.energy = b.poison = 0;
+      b.block = b.energy = b.poison = b.playerMark = 0;
       b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = b.enemy.chillProgress = b.enemy.bleed = b.enemy.counter = 0;
       b.enemy.frozen = null;
       b.swordIntent = 0; b.soul = 0;
@@ -796,8 +849,9 @@
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
-      if (b.kind === 'boss' && state.floor < 30) {
-        state.stats.chapterBosses++;heal(18,'关口之后的补给');
+      if (b.kind === 'boss') state.stats.chapterBosses++;
+      if (b.kind === 'boss' && state.floor < totalFloors) {
+        heal(18,'关口之后的补给');
         state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
       }
       if (b.kind === 'boss') {
@@ -805,7 +859,7 @@
         state.screen = canMeetHidden() ? 'threshold' : 'victory';
         state.availableNodes = [];
         state.result = { won: true, floor: state.map.length, enemy: b.enemy.name, character:state.character, power:state.player.power };
-        note('绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。');
+        note(legacyCampaign?'绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。':'无名王座终于沉寂。你带着七境中收回的证据，走向重新出现的归路。');
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
@@ -855,7 +909,7 @@
         const added=b.hitIndex===0?(b.cardBonus||0):0;
         let base=Math.max(0,amount-added);
         if(b.resolving?.[0]?.id.startsWith('S')&&state.player.path.fallen)base=Math.floor(base/2);
-        if(b.hitIndex===0&&b.corePenalty)base=Math.max(0,base-1);
+        if(b.hitIndex===0&&b.corePenalty)base=Math.max(0,base-b.environment.firstAttackPenalty);
         amount=base+added;
       }
       amount=Math.max(0,amount);
@@ -907,14 +961,14 @@
         log(`封脉余势：本回合灵力减少 ${b.nextEnergyPenalty}。`);
         b.nextEnergyPenalty = 0;
       }
-      if(environmentEnabled && b.environment.regionIndex===1 && b.turn===1){turnEnergy=Math.max(0,turnEnergy-1);log('逆灵风：首回合灵力减少1。');event('environment',{name:b.environment.name,amount:-1,kind:'energy'});}
+      if(environmentEnabled && b.environment.energy && b.turn===1){turnEnergy=Math.max(0,turnEnergy-b.environment.energy);log(`${b.environment.name}：首回合灵力减少${b.environment.energy}。`);event('environment',{name:b.environment.name,amount:-b.environment.energy,kind:'energy'});}
       let draw = 5 + b.nextDraw;
       if (b.nextDrawPenalty) {
         draw = Math.max(0, draw - b.nextDrawPenalty);
         log(`扰心余势：本回合少抽 ${b.nextDrawPenalty} 张牌。`);
         b.nextDrawPenalty = 0;
       }
-      if(environmentEnabled&&b.environment.regionIndex===0&&b.turn===1){draw=Math.max(0,draw-1);log('入骨瘴：首回合少抽1张牌。');event('environment',{name:b.environment.name,amount:-1,kind:'draw'});}
+      if(environmentEnabled&&b.environment.firstTurnDrawPenalty&&b.turn===1){draw=Math.max(0,draw-b.environment.firstTurnDrawPenalty);log(`${b.environment.name}：首回合少抽${b.environment.firstTurnDrawPenalty}张牌。`);event('environment',{name:b.environment.name,amount:-b.environment.firstTurnDrawPenalty,kind:'draw'});}
       if (hasRelic('moonheart')) {
         turnEnergy += 1;
         log('月髓触发：本回合额外获得 1 点灵力。');
@@ -943,14 +997,30 @@
       drawCards(draw);
       b.phase = 'player';
     }
+    function combatScaling(id, kind) {
+      const def = ENEMIES[id], clampedFloor = Math.max(1, Math.min(BALANCE.hpMaxFloor, state.floor));
+      const enabled = scalingEnabled && BALANCE.scalingWhitelist.includes(id);
+      const rank = def.rank === 'boss' || kind === 'boss' || kind === 'hidden' ? 'boss' : def.rank === 'elite' || kind === 'elite' ? 'elite' : 'normal';
+      const cap = rank === 'boss' ? BALANCE.atkCapBoss : rank === 'elite' ? BALANCE.atkCapElite : BALANCE.atkCapNormal;
+      return {enabled, baseHp:def.hp, clampedFloor,
+        hpMultiplier:enabled ? 1 + BALANCE.hpSlope * (clampedFloor - 1) : 1,
+        attackBonus:enabled ? Math.min(cap, Math.floor((clampedFloor - 1) * BALANCE.atkStep)) : 0};
+    }
+    function pickElite() {
+      const chapter = Math.max(0, Math.min(ELITE_POOL.length - 1, Math.floor((state.floor - 1) / 10)));
+      const pool = ELITE_POOL[chapter];
+      return pool[rand(pool.length)];
+    }
     function startBattle(kind, encounter = null) {
-      const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? 'yaksha' : ORDINARY[rand(ORDINARY.length)]);
+      // Ordinary selection stays at this exact call site and executes once per ordinary encounter.
+      const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? pickElite() : ORDINARY[rand(ORDINARY.length)]);
       const def = ENEMIES[id];
+      const scaling = combatScaling(id, kind), hp = Math.round(def.hp * scaling.hpMultiplier);
       state.battle = {
-        kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
+        kind, scaling, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: 0 },
-        block: 0, energy: 0, poison: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
+        enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: 0 },
+        block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, pillPower:Math.max(0,Math.min(4,state.player.pendingPillPower||0)), itemUsedTurn:0, nextEnergyPenalty:0, nextDrawPenalty:0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
@@ -983,7 +1053,7 @@
     function advance() {
       completeNode();
       state.floor++;
-      const regionIndex = Math.min(REGIONS.length - 1, Math.floor((state.floor - 1) / 10));
+      const regionIndex = Math.min(regions.length - 1, Math.floor((state.floor - 1) / 10));
       const crossed = regionIndex !== state.journey.regionIndex;
       state.journey.regionIndex = regionIndex;
       state.screen = crossed ? 'arrival' : 'map';
@@ -1001,7 +1071,7 @@
       state = freshState('arrival', starter);
       expedition.resetRun();
       activeNode = null;
-      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
+      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
       emit();
       return true;
     }
@@ -1009,7 +1079,7 @@
       if (state.screen !== 'arrival') return false;
       for (const row of state.map) for (const node of row) if (node.regionIndex === state.journey.regionIndex) node.revealed = true;
       state.screen = 'map';
-      note(`抵达${REGIONS[state.journey.regionIndex].name}。这里只显现当前地域的道路。`);
+      note(`抵达${regions[state.journey.regionIndex].name}。这里只显现当前地域的道路。`);
       emit(); return true;
     }
     function getAvailableNodes() {
@@ -1019,6 +1089,7 @@
     function prepareChapter() {
       const j = state.journey;
       if (state.character==='sovereign') return;
+      if (j.regionIndex < 1 || j.regionIndex > 2) return;
       if (!j.chain) return;
       const suffix = j.regionIndex === 1 ? 'return' : 'final';
       for (const node of state.map[j.regionIndex*10+2]) {
@@ -1103,8 +1174,8 @@
           log('夜牙簪触发：首张攻击第一段伤害增加 2。');
           event('relic', { relic: 'fang', name: RELICS.fang.name, amount: 2 });
         }
-        b.corePenalty=environmentEnabled&&b.environment.regionIndex===2&&!b.coreStrikeUsed;
-        if(b.corePenalty){b.coreStrikeUsed=true;log('离魂隙：本回合首次攻击首段基础伤害减少1，额外增伤照常。');}
+        b.corePenalty=environmentEnabled&&b.environment.firstAttackPenalty&&!b.coreStrikeUsed;
+        if(b.corePenalty){b.coreStrikeUsed=true;log(`${b.environment.name}：本回合首次攻击首段基础伤害减少${b.environment.firstAttackPenalty}，额外增伤照常。`);}
         bonus = Math.min(bonus, BALANCE.firstHitBonusCap);
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
@@ -1314,10 +1385,21 @@
           if(enemy.chill)addChill(-enemy.chill,intent.name+'清霜');
         }
         if (intent.clearBleed && enemy.bleed) addBleed(-enemy.bleed,intent.name+'止血');
+        if (intent.heal) {
+          const amount = Math.min(intent.heal, enemy.maxHp - enemy.hp);
+          enemy.hp += amount;
+          log(`${enemy.name}恢复 ${amount} 点生命。`);
+          event('heal', {source:'enemy',target:'enemy',amount,reason:intent.name});
+        }
         if (intent.block) {
           enemy.block += intent.block;
           log(`${enemy.name}获得 ${intent.block} 点护盾。`);
           event('block', { source:'enemy',target:'enemy',amount:intent.block,total:enemy.block });
+        }
+        if ((intent.hits || []).length && b.playerMark > 0) {
+          const spent = b.playerMark; b.playerMark = 0;
+          log(`猎记发动：本次首段额外 ${spent} 伤害，猎记随之散去。`);
+          event('playerMark',{source:'enemy',target:'player',amount:-spent,total:0});
         }
         for (let i=0;i<(intent.hits||[]).length;i++) {
           if(!playerHit(intent.hits[i],i)){emit();return true;}
@@ -1328,6 +1410,7 @@
           event('poison',{source:'enemy',target:'player',amount:intent.poison,total:b.poison});
         }
         if(intent.counter){
+          // Counter is a stance, separate from a marked enemy action's first segment.
           enemy.counter=intent.counter;
           log(`${enemy.name}摆出反击架势：每张攻击牌首次伤及生命时，反击 ${intent.counter} 点；持续到下个敌方回合。`);
           event('enemySkill',{source:'enemy',target:'enemy',kind:'counter',name:intent.name,amount:intent.counter,text:'反击架势'});
@@ -1339,6 +1422,12 @@
         if(intent.drawPenalty){
           b.nextDrawPenalty+=intent.drawPenalty;
           event('enemySkill',{source:'enemy',target:'player',kind:'drawPenalty',name:intent.name,amount:intent.drawPenalty,text:`下个回合少抽 ${intent.drawPenalty} 张牌`});
+        }
+        if (intent.playerMark) {
+          const before = b.playerMark || 0;
+          b.playerMark = Math.min(BALANCE.playerMarkCap, before + intent.playerMark);
+          log(`你获得 ${b.playerMark - before} 层猎记（共 ${b.playerMark} 层）；下一次敌方行动首段攻击每层额外造成 1 伤害，然后清除。`);
+          event('playerMark',{source:'enemy',target:'player',amount:b.playerMark-before,total:b.playerMark});
         }
       }
       if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
@@ -1492,6 +1581,10 @@
       if (choice.goldGain) {
         p.gold += choice.goldGain;
         received.push(`金币 +${choice.goldGain}`);
+      }
+      for (const grant of choice.itemGrants || []) {
+        const count=grant.count||grant.amount||1;
+        if (expedition.grantItem(grant.id,count)) received.push(`${EXPEDITION.ITEMS[grant.id].name} ×${count}`);
       }
       if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon))p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`); }
       if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
@@ -1924,9 +2017,9 @@
           };
         }
       };
-      Object.assign(builders, makeJourneyBuilders(p, rare), makeExpansionBuilders(p), makeSwordBuilders(p));
+      Object.assign(builders, makeJourneyBuilders(p, rare), makeExpansionBuilders(p), makeSwordBuilders(p), makeSevenBuilders(p));
       const fixedEvents=['moon_trace','sealed_name','moon_vow','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'];
-      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id));
+      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id)&&(!SEVEN.EVENTS?.[id]||sevenEventAvailable(SEVEN.EVENTS[id])));
       const unseen = ids.filter(id => !state.seenEvents.includes(id));
       const pool = unseen.length ? unseen : ids;
       const id = activeNode?.storyId || pool[rand(pool.length)];
@@ -1975,16 +2068,19 @@
       const b=state.battle;if(!b)return null;
       const intent=ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
       const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
+      const attackBonus = b.scaling?.attackBonus || 0;
       // A cleansing action removes frost before attacking; preview the resulting actual hits.
       const reduction=chill>=5&&!intent.clearChill?1:0;
-      const hits=baseHits.map(amount=>Math.max(0,amount-reduction)),parts=[];
+      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
       if(intent.clearMark)parts.push('清除全部标记');
       if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
       if(intent.clearBleed)parts.push('清除全部流血');
+      if(intent.heal)parts.push(`恢复 ${intent.heal} 点生命（不超过上限）`);
       if(intent.block)parts.push(`获得护盾 ${intent.block}`);
       if(hits.length===1)parts.push(`攻击 ${hits[0]}`);
       else if(hits.length>1)parts.push(hits.every(x=>x===hits[0])?`连续攻击 ${hits.length} 次，每次 ${hits[0]}`:`连续攻击 ${hits.join('／')}`);
       if(intent.poison)parts.push(`再施加 ${intent.poison} 层毒`);
+      if(intent.playerMark)parts.push(`再施加 ${intent.playerMark} 层猎记（下一次敌方行动首段每层 +1，触发后清除）`);
       if(intent.counter)parts.push(`架势反击 ${intent.counter}（每张伤及生命的攻击牌一次，到下个敌方回合开始）`);
       if(intent.energyPenalty)parts.push(`下个玩家回合灵力 −${intent.energyPenalty}`);
       if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
@@ -1993,7 +2089,7 @@
       if(reduction)text+='（霜寒压制：每段攻击 −1）';
       if(frozen)text='冰封：本次无法行动';
       else if(freezeChance&&b.enemy.frozen===null)text+='；10% 几率冰封，本次无法行动';
-      return {...intent,hits:frozen?[]:hits,baseHits,chill,frozen,freezeChance,text};
+      return {...intent,hits:frozen?[]:hits,baseHits,attackBonus,chill,frozen,freezeChance,text};
     }
 
     state = freshState('title');
@@ -2006,7 +2102,7 @@
     };
   }
 
-  const api = { BALANCE, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);
