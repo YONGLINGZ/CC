@@ -20,7 +20,7 @@
     D01:{name:'借煞回生',cost:1,text:'造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。',target:true,attack:true},
     D02:{name:'饮魄',cost:1,text:'造成 8 点伤害，恢复 3 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
     D03:{name:'夺脉',cost:2,text:'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
-    D04:{name:'魔躯',cost:1,text:'获得 12 护盾，抽 1 张牌。',target:false},
+    D04:{name:'魔躯',cost:1,text:'获得 10 护盾。',target:false},
     D05:{name:'狂念',cost:0,text:'抽 2 张牌。消耗。',target:false,exhaust:true},
     D06:{name:'万煞归心',cost:3,text:'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true}
   });

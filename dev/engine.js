@@ -39,7 +39,7 @@
     C32: { name: '绕指柔', cost: 0, text: '获得 3 点护盾；若此前本回合已打出至少 2 张牌，改为 6 点。消耗。', target: false, exhaust: true },
     C33: { name: '逆鳞', cost: 1, text: '获得 6 点护盾；本轮敌人每段攻击被护盾抵挡时，反击 3 点伤害。反击可叠加，到下个玩家回合清除。', target: false },
     C34: { name: '护心', cost: 2, text: '获得 18 点护盾，移除自己 2 层毒。', target: false },
-    C35: { name: '盾返', cost: 1, text: '造成 4＋当前护盾的伤害（护盾贡献上限 16），不消耗护盾。', target: true, attack: true },
+    C35: { name: '盾返', cost: 1, text: '造成 4＋当前护盾的伤害（护盾贡献上限 10），不消耗护盾。', target: true, attack: true },
     C36: { name: '归息', cost: 1, text: '恢复 4 点生命。消耗。', target: false, exhaust: true }
   };
   Object.assign(CARDS, {
@@ -77,7 +77,7 @@
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
     card.character = id.startsWith('F') ? 'sovereign' : /^[SD]/.test(id) ? 'sword' : 'assassin';
-    card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
+    card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','C35','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
   const STARTERS = {
@@ -291,7 +291,7 @@
     function getEffectiveCard(id) {
       const card=CARDS[id];if(!card)return null;
       const fallenPenalty=id.startsWith('S')&&state.player.path.fallen;
-      const values={S01:{damage:6},S02:{block:6},S04:{damage:10},S05:{damage:4},S06:{block:3},S07:{block:7},S08:{damage:3},S12:{block:14},S14:{damage:5},S15:{damage:12},S16:{damage:16},D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:12},D06:{damage:26,heal:6}};
+      const values={S01:{damage:6},S02:{block:6},S04:{damage:10},S05:{damage:4},S06:{block:3},S07:{block:7},S08:{damage:3},S12:{block:14},S14:{damage:5},S15:{damage:12},S16:{damage:16},D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:10},D06:{damage:26,heal:6}};
       const value={...(values[id]||{})};if(fallenPenalty)for(const key of ['damage','block'])if(value[key]!=null)value[key]=Math.floor(value[key]/2);
       const altered={
         S01:'造成 3 点伤害；若敌人仍存活，获得 1 层剑意，且敌人已有霜寒时再施加 1 层霜寒。',S02:'获得 3 点护盾，使敌人获得 1 层霜寒。',
@@ -1090,7 +1090,7 @@
         case 'D01': enemyHit(4+bonus,0,6);break;
         case 'D02': enemyHit(8+bonus,0,3);break;
         case 'D03': enemyHit(16+bonus,0,5);break;
-        case 'D04': gainBlock(12,def.name);drawCards(1);break;
+        case 'D04': gainBlock(10,def.name);break;
         case 'D05': drawCards(2);break;
         case 'D06': enemyHit(26+bonus,0,6);break;
         case 'F01': enemyHit(6+bonus);if(liveBattle())addSoul(1,def.name);break;
@@ -1216,7 +1216,7 @@
           gainBlock(18, def.name); const removed = Math.min(2, b.poison); b.poison -= removed;
           event('poison', { amount: -removed, total: b.poison }); log(`护心移除 ${removed} 层毒。`); break;
         }
-        case 'C35': enemyHit(4 + Math.min(16, b.block) + bonus); break;
+        case 'C35': enemyHit(4 + Math.min(10, b.block) + bonus); break;
         case 'C36': heal(4, def.name); break;
       }
       if(card.id.startsWith('D')&&state.player.hp>0)useDemonicCard(card.id);
