@@ -399,6 +399,14 @@
   document.addEventListener('focusin',event=>showPreview(event.target.closest('.card[data-preview]')));
   document.addEventListener('focusout',hidePreview);
   window.addEventListener('scroll',hidePreview,true);
+  // beforeunload is cancellable after user interaction; pagehide is best-effort only.
+  // No progress is saved and no request is sent by either lifecycle handler.
+  function guardUnfinishedRun(event){
+    if(!game||['title','victory','defeat'].includes(game.state.screen))return;
+    event.preventDefault();event.returnValue='';
+  }
+  window.addEventListener('beforeunload',guardUnfinishedRun);
+  window.addEventListener('pagehide',guardUnfinishedRun);
   window.addEventListener('pagehide',()=>{disposePortraits(document);});
   document.addEventListener('keydown',event=>{if(window.uiBusy)return;if(event.key==='Escape'){hidePreview();if(modal)closeModal();else if(selected){selected=null;syncTargetSelection();}}if(event.key==='Tab'&&modal){const buttons=[...modalRoot.querySelectorAll('button:not(:disabled),[tabindex="0"]')],first=buttons[0],last=buttons.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}}});
   game=makeGame();window.game=game;window.renderGame=render;render();
