@@ -1,13 +1,14 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { createGame, CARDS, CHARACTERS, STARTERS, EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, RELICS } = require('./engine.js');
+const { createGame, CARDS, CHARACTERS, STARTERS, LEGACY_EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, RELICS } = require('./engine.js');
 const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 let uid = 0;
 function random(seed=5) { let n=seed>>>0; return()=>((n=(n*1664525+1013904223)>>>0)/4294967296); }
 function battle(starter='sword') {
-  const g=createGame({environment:false,rng:random()});g.newRun(starter); g.enterRegion();g.enterNode('f1-0');
+  const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random()});g.newRun(starter); g.enterRegion();g.enterNode('f1-0');
   const b=g.state.battle;b.enemy.id='ape';b.enemy.name='山魈';b.enemy.hp=b.enemy.maxHp=500;b.enemy.block=0;b.enemy.intentIndex=0;
   b.hand=[];b.draw=[];b.discard=[];b.energy=50;return g;
 }
@@ -18,7 +19,7 @@ function kill(g) {const b=g.state.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=1
 
 test('两职业与四开局真实独立：牌组、初始遗物、成年角色元数据和重开',()=>{
   assert.deepEqual(Object.keys(CHARACTERS),['assassin','sword','sovereign']);assert.equal(CHARACTERS.sword.adult,true);assert.match(CHARACTERS.sword.description,/清冷|寡言/);
-  const g=createGame({environment:false,rng:random()});g.newRun('sword'); g.enterRegion();let s=g.state;
+  const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random()});g.newRun('sword'); g.enterRegion();let s=g.state;
   assert.equal(s.character,'sword');assert.equal(s.player.character,'sword');assert.deepEqual(s.player.relics,['frostseal']);
   assert.deepEqual(s.player.deck.map(c=>c.id),STARTERS.sword.cards);assert.equal(new Set(s.player.deck.map(c=>c.uid)).size,10);
   s.player.hp=2;s.player.maxHp=40;s.player.gold=999;s.player.deck.pop();s.player.relics.push('fox');
@@ -101,16 +102,16 @@ test('淬刃自损死亡停止抽牌剑意，狐契免死后才继续，剑鸣�
 
 test('职业卡池覆盖普通精英奖励、一次换牌、商店和18独立事件授牌，专属遗物不混入精英',()=>{
   for(const starter of ['mark','sword'])for(let seed=1;seed<=30;seed++){
-    const g=createGame({environment:false,rng:random(seed)});g.newRun(starter); g.enterRegion();injectNode(g,'elite');kill(g);let s=g.state;
+    const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(seed)});g.newRun(starter); g.enterRegion();injectNode(g,'elite');kill(g);let s=g.state;
     const prefix=starter==='sword'?'S':'C';assert.ok(s.reward.cards.every(id=>id.startsWith(prefix)));assert.ok(s.reward.cards.some(id=>CARDS[id].rarity==='rare'));assert.ok(s.reward.relicChoices.every(id=>!['bell','frostseal','veil'].includes(id)));
     g.rerollReward();assert.ok(s.reward.cards.every(id=>id.startsWith(prefix)));g.chooseRelic(s.reward.relicChoices[0]);g.chooseReward(null);injectNode(g,'shop');assert.ok(s.shop.cards.every(c=>c.id.startsWith(prefix)));
   }
-  for(const id of EVENT_IDS){const g=createGame({environment:false,rng:random(55)});g.newRun('sword'); g.enterRegion();g.state.seenEvents=ALL_EVENT_IDS.filter(x=>x!==id);const s=injectNode(g,'event');assert.equal(s.event.id,id);for(const c of s.event.choices)assert.ok((c.cardIds||[]).every(id=>id.startsWith('S')));}
+  for(const id of EVENT_IDS){const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(55)});g.newRun('sword'); g.enterRegion();g.state.seenEvents=ALL_EVENT_IDS.filter(x=>x!==id);const s=injectNode(g,'event');assert.equal(s.event.id,id);for(const c of s.event.choices)assert.ok((c.cardIds||[]).every(id=>id.startsWith('S')));}
 });
 
 test('1000张三章三十步路线所有节点可达、实际合法出口，任意完整路线至少四场含Boss',()=>{
   for(let seed=1;seed<=1000;seed++){
-    const g=createGame({environment:false,rng:random(seed)});g.newRun(); g.enterRegion();const map=g.state.map,seen=new Set(['f1-0']);let min=new Map([['f1-0',1]]);
+    const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(seed)});g.newRun(); g.enterRegion();const map=g.state.map,seen=new Set(['f1-0']);let min=new Map([['f1-0',1]]);
     assert.equal(map.length,30);
     for(const row of map)for(const n of row){assert.ok(seen.has(n.id));assert.equal(n.revealed,n.regionIndex===0);if(n.floor>1&&n.floor<30)assert.ok(n.next.length>=1&&n.next.length<=map[n.floor].length&&new Set(n.next).size===n.next.length);for(const id of n.next){const target=map[n.floor].find(x=>x.id===id);assert.ok(target);seen.add(id);const v=min.get(n.id)+(['fight','elite','boss'].includes(target.type)?1:0);min.set(id,Math.min(min.get(id)??Infinity,v));}}
     assert.equal(seen.size,map.flat().length);assert.ok(min.get('f30-0')>=6);assert.ok(map.flat().filter(n=>n.type==='fox').every(n=>seen.has(n.id)));
@@ -119,14 +120,14 @@ test('1000张三章三十步路线所有节点可达、实际合法出口，任�
 
 test('十八独立事件不重抽不重复、所有54选择明确兑现代价收益，低资源均有可行出口',()=>{
   for(const character of ['mark','sword']){
-    const g=createGame({environment:false,rng:random(75)});g.newRun(character); g.enterRegion();g.state.seenEvents=ALL_EVENT_IDS.filter(id=>!EVENT_IDS.includes(id));const ids=[];
+    const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(75)});g.newRun(character); g.enterRegion();g.state.seenEvents=ALL_EVENT_IDS.filter(id=>!EVENT_IDS.includes(id));const ids=[];
     for(let i=0;i<EVENT_IDS.length;i++){const s=injectNode(g,'event');ids.push(s.event.id);g.chooseEvent(s.event.choices.findIndex(c=>!c.disabled));g.leaveEvent();}
     assert.equal(new Set(ids).size,18);
     for(const id of EVENT_IDS)for(let index=0;index<3;index++){
-      const x=createGame({environment:false,rng:random(index+40)});x.newRun(character); x.enterRegion();const s=x.state;s.player.hp=180;s.player.maxHp=200;s.player.gold=1000;s.seenEvents=ALL_EVENT_IDS.filter(v=>v!==id);injectNode(x,'event');const choice=s.event.choices[index],old=structuredClone(s.player);assert.equal(s.event.id,id);assert.equal(choice.disabled,false);assert.equal(x.chooseEvent(index),true);
+      const x=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(index+40)});x.newRun(character); x.enterRegion();const s=x.state;s.player.hp=180;s.player.maxHp=200;s.player.gold=1000;s.seenEvents=ALL_EVENT_IDS.filter(v=>v!==id);injectNode(x,'event');const choice=s.event.choices[index],old=structuredClone(s.player);assert.equal(s.event.id,id);assert.equal(choice.disabled,false);assert.equal(x.chooseEvent(index),true);
       let max=old.maxHp-(choice.maxHpCost||0),hp=Math.min(max,old.hp-(choice.hpCost||0));if(choice.relic==='godblood'){max+=12;hp=Math.min(max,hp+12);}hp=Math.min(max,hp+(choice.heal||0));
       assert.equal(s.player.hp,hp);assert.equal(s.player.maxHp,max);assert.equal(s.player.gold,old.gold-(choice.goldCost||0)+(choice.goldGain||0));assert.equal(s.player.deck.length,old.deck.length-(choice.removeBasic?1:0)+(choice.cardIds?.length||0));const fixed=JSON.stringify(s.player);assert.equal(x.chooseEvent(index),false);assert.equal(JSON.stringify(s.player),fixed);
     }
-    for(const id of EVENT_IDS){const x=createGame({environment:false,rng:random()});x.newRun(character); x.enterRegion();x.state.player.hp=1;x.state.player.gold=0;x.state.player.deck=x.state.player.deck.slice(0,5);x.state.seenEvents=ALL_EVENT_IDS.filter(e=>e!==id);injectNode(x,'event');const choice=x.state.event.choices.findIndex(c=>!c.disabled);assert.ok(choice>=0);assert.equal(x.chooseEvent(choice),true);assert.ok(x.state.player.hp>0);assert.equal(x.leaveEvent(),true);}
+    for(const id of EVENT_IDS){const x=createGame({campaign:'legacy',scaling:false,environment:false,rng:random()});x.newRun(character); x.enterRegion();x.state.player.hp=1;x.state.player.gold=0;x.state.player.deck=x.state.player.deck.slice(0,5);x.state.seenEvents=ALL_EVENT_IDS.filter(e=>e!==id);injectNode(x,'event');const choice=x.state.event.choices.findIndex(c=>!c.disabled);assert.ok(choice>=0);assert.equal(x.chooseEvent(choice),true);assert.ok(x.state.player.hp>0);assert.equal(x.leaveEvent(),true);}
   }
 });

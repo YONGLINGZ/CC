@@ -1,3 +1,4 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Arranged integration boundary fixtures. These tests deliberately arrange map
  * types, wounds, inventory and hands; they are not natural-playthrough claims. */
 'use strict';
@@ -7,7 +8,7 @@ const N=require('./engine.js');
 let uid=0;
 function setup(starter='mark'){
  let seed=101,queue=[];const rng=()=>queue.length?queue.shift():((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
- const game=N.createGame({rng,environment:false});assert.equal(game.newRun(starter),true);assert.equal(game.enterRegion(),true);
+ const game=N.createGame({campaign:'legacy',scaling:false,rng,environment:false});assert.equal(game.newRun(starter),true);assert.equal(game.enterRegion(),true);
  return {game,roll:(...values)=>queue=values};
 }
 function node(game,type,enemyId='paper'){
@@ -20,7 +21,7 @@ function advanceReward(game){if(game.state.reward.relicPending)assert.equal(game
 
 test('integration: every profession and all 20 templates keep ten-stage chapters with reachable cave choices',()=>{
  for(const starter of ['mark','combo','blood','sword','sovereign'])for(let template=0;template<20;template++){
-  const game=N.createGame({routeTemplate:template,profile:{version:1,unlocks:['feiye']},rng:()=>.4});assert.equal(game.newRun(starter),true);
+  const game=N.createGame({campaign:'legacy',scaling:false,routeTemplate:template,profile:{version:1,unlocks:['feiye']},rng:()=>.4});assert.equal(game.newRun(starter),true);
   assert.deepEqual(game.state.player.inventory,{herb:2});assert.equal(game.state.player.pendingPillPower,0);
   for(let chapter=0;chapter<3;chapter++){
    const rows=game.state.map.slice(chapter*10,chapter*10+10),all=rows.flat();assert.equal(rows.length,10);assert.ok(all.length>=40);assert.ok(all.some(n=>n.type==='cave'));

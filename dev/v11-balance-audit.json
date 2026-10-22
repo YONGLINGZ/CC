@@ -1,0 +1,52 @@
+{
+  "method": "Read-only audit of actual fixed-policy simulation and elite-probe records. Measurement-only amendment compared with complete first baseline; all non-measurement fields must be identical for all150 runs. No gameplay is changed by this script.",
+  "all150OutcomesOutsideMeasurementsIdentical": true,
+  "rawMaxHitSources": {
+    "assassin": {
+      "runs": 50,
+      "maxHitMedian": 53,
+      "cardsTiedForEachRunsActualMaximum": {
+        "C21": 36,
+        "C04": 14
+      }
+    },
+    "sword": {
+      "runs": 50,
+      "maxHitMedian": 49,
+      "cardsTiedForEachRunsActualMaximum": {
+        "S16": 49,
+        "S04": 1
+      }
+    },
+    "sovereign": {
+      "runs": 50,
+      "maxHitMedian": 47,
+      "cardsTiedForEachRunsActualMaximum": {
+        "F12": 50
+      }
+    }
+  },
+  "baseFinisherConflict": {
+    "C21": "12 + 6×5 marks + 2×7 bleed =56 base, up to64 with shared cap8 bonus",
+    "S16": "16 +4×8 sword intent =48 base, up to56 with cap8",
+    "F12": "18 +4×6 soul =42 base, up to50 with cap8",
+    "D06": "26 base +8 shared capped bonus =34"
+  },
+  "healthMeasurement": {
+    "start": "Observed health after the initial player-turn setup; subsequent combat damage/healing is included.",
+    "end": "First battle-ended snapshot, frozen before card rewards, later camps and story healing; actual heals after victory marker are subtracted for combat-only health.",
+    "victoriousEliteOrBossEncounters": 334,
+    "combatOnlyNetLifeLossMedian": 13,
+    "immediatePostVictoryNetLifeLossMedian": 3,
+    "actualPostVictoryHealingMedian": 8,
+    "note": "No maximum HP or net-loss clamp is used. Negative loss means genuine net healing during that encounter."
+  },
+  "inputs": {
+    "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
+    "dev/v11-policy-freeze.json": "3cee579d4bc308d2d4e2ea1fca233cc703d6e182b8e1aec1c848aac98a92d464",
+    "dev/v11-baseline-playtest-report.json": "efd0fa3626f2fd18bdf07539d9652fc42e907879a97b7e4f350c6ae03aa09abb",
+    "dev/v11-playtest-report.json": "8e7611cff4d79d7761e2b62d1fd5648a2348ee2867d7b907e3d89002ff548552",
+    "dev/v11-elite-probe-report.json": "6f71db69ef471e36464d8b17ebeb6e6b520286769a5856d14c0179826b83c2e8",
+    "dev/v11-audit.cjs": "eedb9622111af23e4b01e9f6dfb8980c2ed9a392942bf683d6dbe61f30f5627d"
+  }
+}

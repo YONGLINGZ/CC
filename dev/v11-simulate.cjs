@@ -1,0 +1,16 @@
+/* Fixed seeds/policy are chosen before calibration. Public API only, no resource edits. */
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {playRun}=require('./playtest.cjs'),N=require('./engine.js');
+const root=path.resolve(__dirname,'..'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
+const median=xs=>{const a=xs.slice().sort((x,y)=>x-y);return a.length?(a[(a.length-1)>>1]+a[a.length>>1])/2:null;};
+const runs=[];
+for(const character of ['assassin','sword','sovereign'])for(let i=0;i<50;i++){
+ const starter=character==='assassin'?['mark','combo','blood'][i%3]:character;
+ const run=playRun(1000+i,starter,i%4,{demonicPath:i%2?'learn':'refuse',rescueStranger:i%3!==0});run.character=character;runs.push(run);
+}
+const wins=runs.filter(r=>r.result==='victory'),byProfession=Object.fromEntries(['assassin','sword','sovereign'].map(character=>{const rows=runs.filter(r=>r.character===character),won=rows.filter(r=>r.result==='victory');return[character,{runs:rows.length,wins:won.length,defeats:rows.length-won.length,winRate:won.length/rows.length,hpMedian:median(won.map(r=>r.hp)),normalizedHpMedian:median(won.map(r=>r.normalizedHp)),maxHitMedian:median(rows.map(r=>r.maxHit))}];}));
+const maxHitMedian=median(runs.map(r=>r.maxHit)),hpMedian=median(wins.map(r=>r.hp)),rate=wins.length/150;
+const gates={overallWinRate:{actual:rate,min:.4,max:.6,passed:rate>=.4&&rate<=.6},survivorHealthMedian:{actual:hpMedian,min:15,max:25,passed:hpMedian!==null&&hpMedian>=15&&hpMedian<=25},professionWinRates:{actual:Object.fromEntries(Object.entries(byProfession).map(([k,v])=>[k,v.winRate])),min:.25,max:.75,passed:Object.values(byProfession).every(v=>v.winRate>=.25&&v.winRate<=.75)},maxHitMedian:{actual:maxHitMedian,max:34,passed:maxHitMedian<=34}};
+const report={version:'v11 seven-region numeric calibration',method:'150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Policy frozen before calibration; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.',seeds:{first:1000,last:1049,perProfession:50},completed:150,wins:wins.length,defeats:150-wins.length,byProfession,hpMedian,normalizedHpMedian:median(wins.map(r=>r.normalizedHp)),maxHitMedian,all_victories_completed_70_nodes:wins.every(r=>r.completedNodes===70&&r.chapterBosses===7),gates,gatePassed:Object.values(gates).every(g=>g.passed),balance:N.BALANCE,inputs:Object.fromEntries(['dev/engine.js','dev/expansion.js','dev/expedition.js','dev/seven.js','dev/playtest.cjs','dev/v11-simulate.cjs'].map(f=>[f,hash(f)])),details:runs,note:'MaxHit is an aggregate median, not a blanket per-card ceiling. Existing S16/F12/C21 have naturally higher base finishers; the shared extra first-hit bonus is separately capped.'};
+const dest=process.env.V11_SIMULATION_REPORT||path.join(__dirname,'v11-playtest-report.json');fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({report:dest,completed:150,wins:report.wins,byProfession,gates},null,2));

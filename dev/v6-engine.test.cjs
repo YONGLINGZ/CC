@@ -1,13 +1,14 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
 /* V6 region progression and causal encounters. Mutating helpers below are fixtures;
  * the final test advances through all regions using public actions only. */
 'use strict';
 const test=require('node:test'), assert=require('node:assert/strict');
-const {createGame,REGIONS,NPCS,EVENT_IDS:ALL_EVENT_IDS,CHAIN_EVENT_IDS,ENEMIES,TREASURE_RELICS}=require('./engine.js');
+const {createGame,LEGACY_REGIONS:REGIONS,NPCS,LEGACY_EVENT_IDS:ALL_EVENT_IDS,CHAIN_EVENT_IDS,ENEMIES,TREASURE_RELICS}=require('./engine.js');
 const EVENT_IDS=ALL_EVENT_IDS.filter(id=>!['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 const {nextCard}=require('./playtest.cjs');
 function random(seed=7){let n=seed>>>0;return()=>((n=(Math.imul(n,1664525)+1013904223)>>>0)/4294967296);}
-function run(seed=7,starter='sword'){const g=createGame({environment:false,rng:random(seed)});g.newRun(starter);return g;}
+function run(seed=7,starter='sword'){const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random(seed)});g.newRun(starter);return g;}
 function regionFor(floor){return REGIONS.findIndex(r=>floor>=r.stages[0]&&floor<=r.stages[1]);}
 function eventAt(g,id,{poor=false}={}){
   const floor=id.endsWith('_first')?3:id.endsWith('_return')?13:id.endsWith('_final')?23:6;

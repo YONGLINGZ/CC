@@ -11,15 +11,23 @@ Object.assign(value,{S01:5,S02:7,S03:8,S04:9,S05:8,S06:8,S07:8,S08:9,S09:7,S10:8
 Object.assign(value,{D01:11,D02:9,D03:11,D04:8,D05:10,D06:12});
 Object.assign(value,{F01:6,F02:7,F03:10,F04:10,F05:9,F06:10,F07:10,F08:8,F09:11,F10:10,F11:9,F12:11});
 function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
-function nextCard(s) {
-  const b=s.battle,e=b.enemy,p=s.player,intent=ENEMIES[e.id].intents[e.intentIndex];
-  const incoming=(intent.hits||[]).reduce((a,n)=>a+Math.max(0,n-((e.chill||0)>=5?1:0)),0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0,soul=b.soul||0;
+// Forecasts only visible intent and state. Pass the actual game for the authoritative preview.
+function observedIntent(s){
+  const b=s.battle,e=b.enemy,def=ENEMIES[e.id].intents[e.intentIndex];
+  const bonus=b.scaling?.attackBonus??b.scaling?.atkBonus??e.attackBonus??0;
+  const cold=(e.chill||0)>=5&&!def.clearChill?1:0;
+  const hits=(def.hits||[]).map((n,i)=>Math.max(0,n+bonus-cold+(i===0?(b.playerMark||0):0)));
+  return {...def,hits:e.frozen===true?[]:hits};
+}
+function nextCard(s,game=null) {
+  const b=s.battle,e=b.enemy,p=s.player,intent=game?.getIntent?.()||observedIntent(s);
+  const incoming=(intent.hits||[]).reduce((a,n)=>a+n,0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0,soul=b.soul||0;
   let best=null;
   for(const card of b.hand){
     const c=CARDS[card.id],id=card.id;if(c.cost>b.energy)continue;
     let raw={C01:6,C04:10+4*e.mark,C05:9,C08:4,C14:5,C15:9,C16:16,C18:5+2*e.mark,C21:12+6*e.mark+2*(e.bleed||0),C22:b.played>=2?12:8,C23:3,C24:b.played>=2?20:16,C26:4,C28:10,C30:p.hp<=p.maxHp/2?16:8,C35:4+Math.min(10,b.block),S01:6,S04:10+3*swordIntent,S05:4,S08:swordIntent>=3?12:9,S14:5,S15:12+2*(e.chill||0),S16:16+4*swordIntent,F01:6,F04:10+3*soul,F05:9,F09:5,F10:16,F12:18+4*soul,D01:4,D02:8,D03:16,D06:26}[id]||0;
     if(id.startsWith('S')&&p.path?.fallen)raw=Math.floor(raw/2);
-    const damage=raw+(c.attack?b.nextAttack+(b.bloodPower||0)+(b.pillPower||0)+(p.power||0):0);
+    const damage=raw+(c.attack?Math.min(8,b.nextAttack+(b.bloodPower||0)+(b.pillPower||0)+(p.power||0)):0);
     let score=damage/Math.max(1,c.cost);
     if(raw&&damage>=e.hp+e.block)score+=150;
     let shield={C02:5,C06:3,C07:7,C12:14,C19:8,C26:4,C31:12,C32:b.played>=2?6:3,C33:6,C34:18,S02:6,S06:3,S07:7,S12:14,F02:6,F06:3,F07:8,D04:10}[id]||0;
@@ -93,12 +101,38 @@ function nextItem(s){
   return null;
 }
 function playRun(seed,starter,lane,options={}){
-  const g=createGame({rng:random(seed),...(starter==='sovereign'?{profile:{unlocks:['feiye']}}:{}),...(options.environment===false?{environment:false}:{})});assert.equal(g.newRun(starter),true);
-  let actions=0,turns=0,hiddenBossStarted=false;const encounters=[],regions=[],storyEvents=[],eventChoices=[],poisonTreatments=[],itemUses=[],caves=[];
+  const g=createGame({rng:random(seed),...(options.campaign?{campaign:options.campaign}:{}),...(options.scaling===false?{scaling:false}:{}),...(starter==='sovereign'?{profile:{unlocks:['feiye']}}:{}),...(options.environment===false?{environment:false}:{})});assert.equal(g.newRun(starter),true);
+  let actions=0,turns=0,hiddenBossStarted=false,observedBattle=null;const encounters=[],regions=[],storyEvents=[],eventChoices=[],poisonTreatments=[],itemUses=[],caves=[],battleMetrics=[],observedEvents=new Set();
+  // Measurement only. Freeze the first battle-end snapshot so later camps/events
+  // cannot overwrite encounter health, and separate actual victory-only healing.
+  function trackBattle(){
+    const b=g.state.battle;if(!b)return;
+    if(b!==observedBattle){
+      observedBattle=b;observedEvents.clear();
+      battleMetrics.push({floor:g.state.floor,id:b.enemy.id,kind:b.kind,hpStart:g.state.player.hp,enemyMaxHp:b.enemy.maxHp,turnStart:b.turn,damageTaken:0,healReceived:0,postVictoryHealing:0,cardHitMax:{},finalized:false});
+    }
+    const m=battleMetrics.at(-1);if(m.finalized)return;
+    for(const e of b.events||[]){
+      if(observedEvents.has(e.id))continue;observedEvents.add(e.id);
+      if(e.type==='victory')m.victorySeen=true;
+      if(e.type==='attack'&&e.target==='enemy'&&e.kind==='card'&&e.cardId)m.cardHitMax[e.cardId]=Math.max(m.cardHitMax[e.cardId]||0,e.amount||0);
+      if((e.target||'player')==='player'){
+        if(e.type==='heal'){m.healReceived+=e.amount||0;if(m.victorySeen)m.postVictoryHealing+=e.amount||0;}
+        if(['attack','poison','affliction','selfDamage'].includes(e.type))m.damageTaken+=e.damage||0;
+      }
+    }
+    m.turns=b.turn;m.hpEnd=g.state.player.hp;m.won=b.enemy.hp<=0;m.playerDefeated=g.state.screen==='defeat';m.netLifeLoss=m.hpStart-m.hpEnd;
+    if(b.phase==='ended'){
+      m.hpBeforeVictoryRewards=Math.max(0,m.hpEnd-m.postVictoryHealing);
+      m.combatOnlyNetLifeLoss=m.hpStart-m.hpBeforeVictoryRewards;
+      m.finalized=true;
+    }
+  }
+
   const demonicPath=options.demonicPath||'refuse',rescueStranger=options.rescueStranger??demonicPath==='learn';
   function equipBest(){const p=g.state.player;const available=p.weaponInventory.filter(id=>id==='training'||(id==='divine'?p.level>=4:p.level>=2));const best=['divine','rime','spirit','training'].find(id=>available.includes(id));if(best&&p.equippedWeapon!==best)assert.equal(g.equipWeapon(best),true);}
   while(!['victory','defeat'].includes(g.state.screen)){
-    assert.ok(++actions<4000,'run did not terminate');
+    assert.ok(++actions<12000,'run did not terminate');trackBattle();
     const s=g.state,p=s.player;
     assert.ok(p.hp>=0&&p.hp<=p.maxHp&&p.gold>=0,'nonnegative bounded resources');
     assert.equal(new Set(p.deck.map(c=>c.uid)).size,p.deck.length,'unique card instances');
@@ -109,7 +143,7 @@ function playRun(seed,starter,lane,options={}){
         const nodes=g.getAvailableNodes();
         assert.ok(nodes.length,'reachable next node');
         equipBest();
-        const routeValue=n=>(n.type==='rest'?(p.affliction.active&&!(p.affliction.suppressed>0)?80:Math.min(18,p.maxHp-p.hp)*4):n.type==='shop'?(p.affliction.active&&!(p.affliction.suppressed>0)&&p.gold>=65?60:8):n.type==='event'?15:n.type==='cave'?12:n.type==='elite'?-12:0)-Math.abs(n.lane-lane)*3;
+        const routeValue=n=>(n.type==='rest'?(p.affliction.active&&!(p.affliction.suppressed>0)?80:Math.min(18,p.maxHp-p.hp)*4):n.type==='shop'?(p.affliction.active&&!(p.affliction.suppressed>0)&&p.gold>=65?60:8):n.type==='event'?15:n.type==='cave'?12:n.type==='elite'?(options.preferElite?1000:-12):0)-Math.abs(n.lane-lane)*3;
         nodes.sort((a,b)=>routeValue(b)-routeValue(a));
         const clue=options.hiddenChallenge?nodes.find(n=>['moon_trace','sealed_name','moon_vow'].includes(n.storyId)):null;
         const n=clue||nodes[0];encounters.push(n.type);assert.equal(g.enterNode(n.id),true);break;
@@ -117,7 +151,7 @@ function playRun(seed,starter,lane,options={}){
       case 'battle':{
         const b=s.battle;assert.ok(b.energy>=0&&b.block>=0&&b.enemy.block>=0&&b.enemy.mark<=5);
         if(b.phase==='enemy'){assert.equal(g.resolveEnemyTurn(),true);break;}
-        const c=nextCard(s);
+        const c=nextCard(s,g);
         if(c)assert.equal(g.playCard(c.uid,CARDS[c.id].target),true);
         else{turns++;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);}
         break;
@@ -175,7 +209,8 @@ function playRun(seed,starter,lane,options={}){
       default:throw new Error('Unexpected screen '+s.screen);
     }
   }
-  return {seed,starter,lane,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length,profile:g.getProfile?.(),environment:options.environment!==false,unlockedProfileAtStart:starter==='sovereign',hiddenChallenge:!!options.hiddenChallenge,hiddenBossStarted,hiddenWin:!!g.state.result?.hiddenWin,power:g.state.player.power,demonicPath,rescueStranger,eventChoices,poisonTreatments,itemUses,caves,inventory:{...g.state.player.inventory},affliction:g.getAffliction(),corruption:g.getCorruptionStatus(),chapterBosses:g.state.stats.chapterBosses,completedNodes:g.state.history.length,demonicCards:g.state.player.deck.filter(c=>c.id.startsWith('D')).map(c=>c.id),demonicUses:g.state.stats.demonicUses,questItems:[...g.state.player.questItems],level:g.state.player.level,equippedWeapon:g.state.player.equippedWeapon};
+  trackBattle();
+  return {seed,starter,lane,battleMetrics,maxHp:g.state.player.maxHp,normalizedHp:g.state.player.hp/g.state.player.maxHp*60,totalFloors:g.state.totalFloors||g.state.map.length,campaign:g.state.campaign||'legacy',scaling:options.scaling!==false,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length,profile:g.getProfile?.(),environment:options.environment!==false,unlockedProfileAtStart:starter==='sovereign',hiddenChallenge:!!options.hiddenChallenge,hiddenBossStarted,hiddenWin:!!g.state.result?.hiddenWin,power:g.state.player.power,demonicPath,rescueStranger,eventChoices,poisonTreatments,itemUses,caves,inventory:{...g.state.player.inventory},affliction:g.getAffliction(),corruption:g.getCorruptionStatus(),chapterBosses:g.state.stats.chapterBosses,completedNodes:g.state.history.length,demonicCards:g.state.player.deck.filter(c=>c.id.startsWith('D')).map(c=>c.id),demonicUses:g.state.stats.demonicUses,questItems:[...g.state.player.questItems],level:g.state.player.level,equippedWeapon:g.state.player.equippedWeapon};
 }
 function main(){
   const runs=[];
@@ -185,11 +220,11 @@ function main(){
     const selected=runs.filter(r=>r.starter===starter&&r.lane===lane);
     summary.push({starter,lane,wins:selected.filter(r=>r.result==='victory').length,runs:selected.length,averageEnemyTurns:+(selected.reduce((n,r)=>n+r.turns,0)/selected.length).toFixed(1)});
   }
-  const report={method:'Public API only; 150 seeded heuristic simulations across three professions and five starters, active chapter hazards, 30 global steps, logical poison suppression, late story cures, herbs/pills from the bag, randomized cave searches and visible equipment choices, no run-state/resource fixtures. Sword attempts alternate refusing and learning demonic skills; each policy includes ten stranger rescues and five refusals, through actual event choices. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.',runs:runs.length,completed:runs.length,wins:runs.filter(r=>r.result==='victory').length,defeats:runs.filter(r=>r.result==='defeat').length,summary,details:runs};
+  const report={method:'Public API only; 150 seeded heuristic simulations across three professions and five starters, active chapter hazards, complete configured campaign, logical poison suppression, late story cures, herbs/pills from the bag, randomized cave searches and visible equipment choices, no run-state/resource fixtures. Sword attempts alternate refusing and learning demonic skills; each policy includes ten stranger rescues and five refusals, through actual event choices. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.',runs:runs.length,completed:runs.length,wins:runs.filter(r=>r.result==='victory').length,defeats:runs.filter(r=>r.result==='defeat').length,summary,details:runs};
   const reportPath=process.env.PLAYTEST_REPORT||path.join(__dirname,'playtest-report.json');
   fs.mkdirSync(path.dirname(reportPath),{recursive:true});
   fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({runs:report.runs,wins:report.wins,summary},null,2));
 }
 if(require.main===module)main();
-module.exports={nextCard,nextItem,playRun,random};
+module.exports={nextCard,nextItem,playRun,random,observedIntent};

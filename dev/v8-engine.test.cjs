@@ -1,3 +1,4 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* V8 chapter routes, persistent affliction and the sword's demonic path.
  * State mutations below arrange bounded rule fixtures; progression uses public actions. */
 'use strict';
@@ -7,7 +8,7 @@ const N=require('./engine.js');
 const random=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
 let cardSerial=0;
 function run(starter='sword',extra={}) {
-  const game=N.createGame({environment:false,rng:random(10),...extra});
+  const game=N.createGame({campaign:'legacy',scaling:false,environment:false,rng:random(10),...extra});
   assert.equal(game.newRun(starter),true);return game;
 }
 function enter(game,floor=1,type='fight',storyId) {
@@ -39,7 +40,7 @@ function choose(game,index=0) {assert.equal(game.chooseEvent(index),true);assert
 
 test('twenty templates generate three independent ten-step, forty-plus-node connected chapter maps',()=>{
   assert.equal(N.ROUTE_TEMPLATES.length,20);
-  assert.deepEqual(N.REGIONS.map(r=>r.stages),[[1,10],[11,20],[21,30]]);
+  assert.deepEqual(N.LEGACY_REGIONS.map(r=>r.stages),[[1,10],[11,20],[21,30]]);
   const layouts=new Set(),placements=new Map();
   for(let template=0;template<20;template++)for(let seed=1;seed<=20;seed++){
     const game=run('mark',{routeTemplate:template,rng:random(seed)}),s=game.state;
@@ -219,10 +220,10 @@ test('six demonic uses trigger irreversible falling; jade acquired before the th
   durableBattle(edge);play(edge,'D01');assert.equal(p.path.corruption,5);assert.equal(p.path.fallen,false);
 });
 
-test('falling halves old sword attack and block bases but keeps weapon, power and relic additions whole',()=>{
+test('falling halves sword bases while additive weapon, power and relic gains share the eight-point cap',()=>{
   const game=run(),p=game.state.player;p.path.fallen=true;p.level=4;p.power=2;p.weaponInventory.push('divine');p.equippedWeapon='divine';p.relics.push('silk');
   const b=durableBattle(game);b.bloodPower=2;b.nextAttack=4;b.energy=99;
-  assert.equal(play(game,'S01'),true);assert.equal(b.events.find(e=>e.type==='attack').amount,3+4+2+2+4);
+  assert.equal(play(game,'S01'),true);assert.equal(b.events.find(e=>e.type==='attack').amount,3+Math.min(8,4+2+2+4));
   assert.equal(play(game,'S02'),true);assert.equal(b.block,3+2);
   assert.equal(play(game,'S08'),true);assert.deepEqual(b.events.filter(e=>e.type==='attack').map(e=>e.amount),[5,1,1]);
   const effective=game.getEffectiveCard('S01');assert.ok(effective.text);assert.notEqual(effective.text,N.CARDS.S01.text);
@@ -230,7 +231,7 @@ test('falling halves old sword attack and block bases but keeps weapon, power an
 });
 
 test('all six demonic techniques retain their full damage, block, draw, heal and exhaust rules after falling',()=>{
-  const expected={D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:12,draw:1},D05:{draw:2,exhaust:true},D06:{damage:26,heal:6}};
+  const expected={D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:10},D05:{draw:2,exhaust:true},D06:{damage:26,heal:6}};
   for(const[id,want]of Object.entries(expected)){
     const game=run(),p=game.state.player;p.path.fallen=true;p.path.corruption=6;p.path.learned=true;
     const b=durableBattle(game);p.hp=20;b.energy=99;b.hand=[];b.draw=Array.from({length:5},(_,i)=>({id:'S01',uid:`draw-${id}-${i}`}));
@@ -310,7 +311,7 @@ test('a public journey visits exactly thirty connected nodes and carries one NPC
       assert.fail(`unexpected screen ${s.screen}`);
     }
     assert.equal(s.screen,'victory');assert.equal(s.history.length,30);assert.deepEqual(s.history.map(h=>h.floor),Array.from({length:30},(_,i)=>i+1));
-    assert.equal(s.stats.chapterBosses,2);assert.equal(s.journey.step,3);assert.ok(s.journey.chain);
+    assert.equal(s.stats.chapterBosses,3);assert.equal(s.journey.step,3);assert.ok(s.journey.chain);
     assert.equal(s.journey.journal.filter(j=>j.npc===s.journey.chain&&[3,13,23].includes(j.floor)).length,3);
     assert.equal(game.enterNode('f30-0'),false);
   }

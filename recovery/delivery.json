@@ -1,35 +1,35 @@
 {
-  "version": "洞府寻珍版 · 五角行旅与霜血战法",
+  "version": "寒渊七境 · 九曜镇关",
   "date": "2026-10-22",
-  "based_on": "user 33.zip and v9 game",
+  "based_on": "user 33.zip, v10 and audited numerical proposal",
   "game_html": {
-    "bytes": 531143,
-    "sha256": "e8c5bd49dead491ef2778563777704e8fb501be9a3b8a8ee7ec61d065eb90f94"
+    "bytes": 585079,
+    "sha256": "bf73de5a1ba23c91cdd5da2e843e72b90463bb2aa6b4ce5d5b7f0e06fdaae74b"
   },
   "standalone_html": {
-    "bytes": 15360013,
-    "sha256": "65882415a7cf6054dd608c67070098d90bdeee273ead27e825d1e2c7c08dc5d7"
+    "bytes": 28745506,
+    "sha256": "c18e3dd42db96c3cf44bb41077ad9be6b64dafbaf9829e248d05251de0743eff"
   },
   "play_zip": {
-    "bytes": 25164619,
-    "sha256": "7643c915349c84cac8d1291b960f4432be1added23aa0308c7282b44a4cf5bd4"
+    "bytes": 47070368,
+    "sha256": "64eea12ffdd2d2ced7417e684d0a6d20853d7564c13bc4c5a9317512ebb9c6c6"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 422,
+  "zip_members": 484,
   "editable_shell_in_zip": true,
   "runtime_art": {
     "portraits": {
-      "count": 21,
-      "bytes": 1941920
+      "count": 30,
+      "bytes": 5337984
     },
     "cards": {
       "count": 70,
       "bytes": 2444278
     },
     "events": {
-      "count": 43,
-      "bytes": 1586006
+      "count": 55,
+      "bytes": 6108292
     },
     "relics": {
       "count": 15,
@@ -40,8 +40,8 @@
       "bytes": 2875770
     },
     "regions": {
-      "count": 3,
-      "bytes": 256204
+      "count": 7,
+      "bytes": 2336672
     },
     "weapons": {
       "count": 4,
@@ -64,8 +64,8 @@
       "bytes": 506266
     }
   },
-  "runtime_art_total": 233,
-  "retained_v8_art_files": 41,
+  "runtime_art_total": 258,
+  "new_generated_art_files": 28,
   "inline_vector_icons": 34,
   "universal_map_icons": 8,
   "inline_cave_scene": true,
@@ -79,9 +79,9 @@
     "霜华剑修",
     "无相宫主"
   ],
-  "map_stages": 30,
+  "map_stages": 70,
   "steps_per_chapter": 10,
-  "regions": 3,
+  "regions": 7,
   "route_templates": 20,
   "chapter_templates_selected_independently": true,
   "nodes_per_chapter": [
@@ -89,17 +89,24 @@
     46
   ],
   "nodes_per_run": [
-    126,
-    138
+    294,
+    322
   ],
   "random_node_types": true,
-  "story_events": 40,
+  "story_events": 52,
   "linked_story_chains": 3,
   "cards": 70,
   "sound_profiles": 70,
   "event_sound_profiles": 43,
   "role_specific_event_variants": 63,
   "weapons": 4,
+  "boss_roster": {
+    "early": 5,
+    "middle": 3,
+    "final": 1
+  },
+  "enemies": 24,
+  "boss_illustrations": 9,
   "quest_items": 1,
   "meta_unlock_storage": true,
   "formal_cubism_model_exported": false,
@@ -123,20 +130,72 @@
   },
   "runtime_3d": false,
   "scene_models": "removed; painted regional backgrounds, 2D routes and static character art",
+  "numeric_calibration": {
+    "numeric": {
+      "overallWinRate": {
+        "actual": 0.6,
+        "min": 0.4,
+        "max": 0.6,
+        "passed": true
+      },
+      "survivorHealthMedian": {
+        "actual": 39,
+        "min": 15,
+        "max": 25,
+        "passed": false
+      },
+      "professionWinRates": {
+        "actual": {
+          "assassin": 0.72,
+          "sword": 0.34,
+          "sovereign": 0.74
+        },
+        "min": 0.25,
+        "max": 0.75,
+        "passed": true
+      },
+      "maxHitMedian": {
+        "actual": 49,
+        "max": 34,
+        "passed": false
+      }
+    },
+    "eliteProbe": {
+      "eliteTurns": {
+        "actual": 7,
+        "min": 5,
+        "max": 9,
+        "passed": true
+      },
+      "bossTurns": {
+        "actual": 5,
+        "min": 8,
+        "max": 14,
+        "passed": false
+      },
+      "defendingNetLifeLoss": {
+        "actual": 13,
+        "maxExclusive": 20,
+        "passed": true
+      }
+    },
+    "allNumericGates": false,
+    "allProbeGates": false
+  },
   "engine_tests": {
-    "passed": 219,
+    "passed": 252,
     "failed": 0,
-    "total": 219,
+    "total": 252,
     "skipped": 0,
-    "legacy_checks": 170,
-    "new_checks": 49
+    "legacy_checks": 219,
+    "new_checks": 33
   },
   "audio_tests": {
     "passed": 23,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 15,
+    "passed": 17,
     "failed": 0
   },
   "natural_dom_professions": 1,
@@ -146,18 +205,18 @@
   },
   "public_api_simulations": {
     "completed": 150,
-    "wins": 150,
-    "defeats": 0
+    "wins": 90,
+    "defeats": 60
   },
   "hidden_route_simulations": {
-    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 24,
-    "defeats": 0,
-    "unlocks": 24,
-    "hidden_challenges": 24,
-    "hidden_wins": 24,
-    "report": "dev/v10-hidden-playtest-report.json"
+    "wins": 11,
+    "defeats": 13,
+    "unlocks": 11,
+    "hidden_challenges": 12,
+    "hidden_wins": 11,
+    "report": "dev/v11-hidden-playtest-report.json"
   },
   "full_recovery_checks": 17,
   "source_recovery_checks": 21,
@@ -165,28 +224,29 @@
   "local_file_browser": {
     "passed": 0,
     "failed": 1,
-    "evidence_scope": "Historical v8 cloud-browser file URL probe; v10 verified through local HTTP and direct standalone HTML.",
+    "evidence_scope": "Historical v8 cloud-browser file URL probe; v11 verified through local HTTP and direct standalone HTML.",
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/v10-results.json": "cd62d1dd0258a068386992ddab39666d24dff440e024046b12432667f5408e9f",
-    "dev/v10-export-results.json": "7d54af1f9548baf476d59d0e52f0be547940a53502b5720d617dd02f5432cecc",
+    "dev/v11-results.json": "04d4b8c4ce3f4e0e770c0b3965748d97e56bdd587ff0840f18a3c9bb2c971a2a",
+    "dev/v11-export-results.json": "861556aa452449dfa3f90c3e71147e4cf4ce5782ca25dd1266c72d418c66de33",
     "dev/v8-audio-regression-results.json": "c29cbeda79ccef1f4b330e936de1f0e94e149df9c453b8175f2f3d1da8aa3044",
     "dev/v8-sword-audio-results.json": "51c11468725f80b3d19103decd404e184dac4276f9d4020a65688cd4fbf99059",
     "dev/v8-audio-results.json": "a903a1bb5525d6f069156398266106675c9357c020a46687a6663780a8abd438",
-    "dev/v10-regression-results.json": "b7408c8fd36efdca4a4c8aff8be350f1e379b4550552b9cf0bd12a0408433b7e",
-    "dev/v10-source-browser-results.json": "2efeb31af81f864501c820a96ba2a7da49fdbdd9eea68c41a25e1286e8072f51",
-    "dev/v8-art-manifest.json": "6ada753715f11933adb767d6cdaa84327a502aa5411b178984c4bc12465df3e9",
+    "dev/v11-regression-results.json": "b37dbb3cb859887f2967b70065b9e317a196f87c17fea1f96fa2759d47e4b124",
+    "dev/v11-source-browser-results.json": "73c7b22940d8b6d44c1c3b99195f6cf5317a0f8c126923d72990dcb4e4044c8c",
+    "dev/v11-art-manifest.json": "1bf90af7ba61707dcf027d3aa1f33b1d52be1aa2be15368ce78202d1f095d67b",
+    "dev/v11-scene-art-manifest.json": "915a3355a15b21bfbf89152a2ede4772db922b9c16a3bcc63b4278e18747f8b4",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "2b05e303c9bfe39d2f4aee1147090b7aae6c6115ede2e2712a297474ae9d3edb",
-    "recovery/source-tests.json": "c44e8e7db917c78fc9211078dbc3cf59998a5e85ed48526d771c9df5b9dc19ad",
-    "recovery/manifest.json": "c26122d8fe03b675242ef1fb8f667277c8c0dc24bd49c1189848920a251ea864",
-    "recovery/source-manifest.json": "40c5ac1397829d623ab2b0b33be04c6fdf4f51c646f84ce9002cc563dbc72fd1"
+    "recovery/tests.json": "e190ce94ffb965fbac7d580c219842f5da0ba51712e2f9b5575c6673531d75f5",
+    "recovery/source-tests.json": "653b6307e5dce5c7a46fa7551b233569773361217ab6577a470c27bc48dbd8e3",
+    "recovery/manifest.json": "41c086c15b8b9f76f6956e4079279da37169e2587f998162f12ba14f961b5b35",
+    "recovery/source-manifest.json": "2d987679674b70eb0572326c17147421ff949c5eb61b83cbfb102d6681bfbf8a"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,
-  "cloud_configuration_updated_for_v10": false,
+  "cloud_configuration_updated_for_v11": false,
   "cloud_environment_published": false,
   "github_repository": "YONGLINGZ/CC",
   "github_branch": "main"

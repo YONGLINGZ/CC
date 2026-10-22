@@ -1,11 +1,12 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Explicit bounded combat fixtures: not natural play or balance measurements. */
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),N=require('./engine.js');
 let serial=0;
 function fixture(starter='sword',kind='fight',enemy='paper'){
- let values=[],calls=0;const g=N.createGame({environment:false,rng:()=>{calls++;return values.length?values.shift():.8;}});g.newRun(starter);g.enterRegion();
+ let values=[],calls=0;const g=N.createGame({campaign:'legacy',scaling:false,environment:false,rng:()=>{calls++;return values.length?values.shift():.8;}});g.newRun(starter);g.enterRegion();
  const node=g.getAvailableNodes()[0];node.type=kind==='hidden'?'boss':kind;node.encounter={enemyId:enemy};g.enterNode(node.id);
- const b=g.state.battle;b.kind=kind;b.enemy.hp=b.enemy.maxHp=1000;b.hand=[];b.draw=[];b.discard=[];b.energy=99;g.state.player.hp=g.state.player.maxHp=1000;
+ const b=g.state.battle;b.enemy.intentIndex=0;b.kind=kind;b.enemy.hp=b.enemy.maxHp=1000;b.hand=[];b.draw=[];b.discard=[];b.energy=99;g.state.player.hp=g.state.player.maxHp=1000;
  return {g,b,roll:(...v)=>{values=v;},calls:()=>calls};
 }
 function play(f,id){const card={id,uid:'v10-test-'+(++serial)};f.b.hand.push(card);assert.equal(f.g.playCard(card.uid,true),true);}

@@ -1,3 +1,4 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* V9 keeps story decisions and path rules internal while showing current effects. */
 'use strict';
 const {test}=require('node:test');
@@ -7,7 +8,7 @@ const X=require('./expansion.js');
 const random=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
 let serial=0;
 function run(starter='sword') {
-  const g=N.createGame({environment:false,rng:random(10)});
+  const g=N.createGame({campaign:'legacy',scaling:false,environment:false,rng:random(10)});
   assert.equal(g.newRun(starter),true);return g;
 }
 function enter(g,floor=8,type='fight',storyId) {
@@ -35,7 +36,7 @@ test('demonic cards retain complete immediate effects without path instructions'
     D01:[1,'造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。'],
     D02:[1,'造成 8 点伤害，恢复 3 生命。击杀或被护盾阻挡仍治疗。'],
     D03:[2,'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。'],
-    D04:[1,'获得 12 护盾，抽 1 张牌。'],D05:[0,'抽 2 张牌。消耗。'],
+    D04:[1,'获得 10 护盾。'],D05:[0,'抽 2 张牌。消耗。'],
     D06:[3,'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。']
   };
   const g=run();
@@ -102,7 +103,7 @@ test('effective sword cards show actual current values without explaining the hi
 });
 
 test('all event choices keep their mechanics internal across hidden NPC and sword branches',()=>{
-  for(const fallen of[false,true])for(const intent of['grateful','greedy'])for(const aided of[false,true])for(const id of N.EVENT_IDS){
+  for(const fallen of[false,true])for(const intent of['grateful','greedy'])for(const aided of[false,true])for(const id of N.LEGACY_EVENT_IDS){
     const g=run();g.state.player.path.fallen=fallen;g.state.player.path.learned=fallen;
     g.state.journey.hidden.jiIntent=intent;
     Object.assign(g.state.journey.flags,{liuAid:aided,jiHelp:aided,jiExposed:aided,wenFreed:aided,wenCleansed:false,wenEvidence:aided});

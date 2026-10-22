@@ -214,8 +214,19 @@ body[data-character="sovereign"]{--bg:#1a1624;--panel:#2b2238;--gold:#d5b1e7;--l
 body[data-motion="reduced"] .cave-loot,body[data-motion="reduced"] .fx-bleed,body[data-motion="reduced"] .fx-freeze{animation:none}
 @media(prefers-reduced-motion:reduce){.cave-loot,.fx-bleed,.fx-freeze{animation:none}.painted-map .painted-node .node-emblem{transition:none}.painted-map .painted-node.current:hover .node-emblem{transform:none}}
 
+
+/* 七境行旅与人物画卷 */
+.journey-strip{grid-template-columns:repeat(var(--region-count,7),minmax(0,1fr));overflow-x:auto}.journey-strip li{padding:13px 12px;gap:8px}.journey-strip li>span{font-size:24px}.journey-strip b{font-size:16px;letter-spacing:.03em}.journey-strip small{font-size:9px;letter-spacing:0}.journey-strip .unreached b{letter-spacing:.05em}
+.boss-battle{min-height:505px}.boss-battle .enemy-combatant .portrait{height:400px;max-height:none}.boss-battle .enemy-combatant .portrait img{object-position:50% 12%;object-fit:contain}.boss-battle-lore{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 20px;margin-top:8px;border:1px solid #bc9b733b;background:linear-gradient(100deg,#4e2b3f20,#1c2e3210)}.boss-battle-lore span{display:block;font-size:10px;color:var(--gold);letter-spacing:.17em}.boss-battle-lore p{font:16px/1.8 var(--serif);color:#daccc6;margin-top:3px}.boss-battle-lore .btn{flex:none}
+.boss-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.boss-gallery-card{display:block;position:relative;padding:0;text-align:left;background:#13252c;border:1px solid #c2a5854d;overflow:hidden}.boss-gallery-card>.portrait{height:320px;width:100%;background:radial-gradient(ellipse,#76536828,transparent 72%)}.boss-gallery-card>.portrait img{object-fit:cover;object-position:50% 14%;transition:transform .4s}.boss-gallery-card:hover>.portrait img{transform:scale(1.035)}.boss-gallery-card>div:last-child{padding:16px 18px 20px;position:relative;background:linear-gradient(#172a2c,#14262b)}.boss-gallery-card small{font-size:10px;color:#c2aa83;letter-spacing:.13em}.boss-gallery-card h3{font-size:25px;color:#f0dfc4;margin:4px 0}.boss-gallery-card p{font-size:11px;color:#b8c3bc}.boss-gallery-card span{display:block;font-size:10px;margin-top:14px;color:#c9b994}
+.boss-dossier{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:30px;align-items:start}.boss-dossier>.portrait{height:690px;position:sticky;top:0;background:radial-gradient(ellipse at 50% 40%,#6b3e4c2b,transparent 70%);border:1px solid #ad8d744d}.boss-dossier>.portrait img{object-fit:contain;object-position:50% 0}.boss-dossier-copy{min-width:0}.boss-dossier-copy h3{font-size:34px;letter-spacing:.1em;margin:9px 0 15px}.boss-biography{font:16px/2.1 var(--serif);color:#e0d4c2}.boss-dossier blockquote{font:16px/1.9 var(--serif);color:#c7b18b;margin:18px 0;padding:0 0 0 15px;border-left:2px solid #c0a06b65}.boss-trait{padding:14px 16px;margin:18px 0;background:#b18b5d0a;border:1px solid #c0a06b35}.boss-trait b{font-size:11px;font-weight:400;color:#cdb78f}.boss-trait p{font-size:12px;line-height:1.9;color:#bac7c1;margin-top:6px}.boss-moves{margin:17px 0 0;padding:0 0 0 24px}.boss-moves li{padding:9px 0;border-bottom:1px solid #ab94792b;color:#d0b999}.boss-moves b{font:18px var(--serif);color:#e3d2b6}.boss-moves p{font-size:11px;color:#b9c6bd;line-height:1.9;margin-top:5px}
+.fx-boss-spell{width:330px;height:330px;filter:drop-shadow(0 0 15px #c26d9b66);animation:boss-cast .45s ease-out both}.fx-boss-spell svg{width:100%;height:100%}.boss-fx-fire{filter:drop-shadow(0 0 22px #ec713688)}.boss-fx-mirror{filter:drop-shadow(0 0 20px #82c9ef88)}.boss-fx-vines{filter:drop-shadow(0 0 19px #82c58f80)}.boss-fx-abyss{filter:drop-shadow(0 0 25px #e877b288)}
+@keyframes boss-cast{0%{opacity:0;transform:scale(.7) rotate(-12deg)}35%{opacity:1;transform:scale(1.04) rotate(2deg)}100%{opacity:0;transform:scale(1.13) rotate(5deg)}}
+@media(max-width:1050px){.journey-strip{grid-template-columns:repeat(var(--region-count,7),minmax(115px,1fr))}.boss-gallery{gap:14px}.boss-gallery-card>.portrait{height:270px}.boss-dossier{gap:22px}.boss-dossier>.portrait{height:610px}.boss-biography{font-size:15px}.boss-dossier-copy h3{font-size:29px}}
+@media(max-width:760px){.journey-strip{grid-template-columns:repeat(var(--region-count,7),minmax(105px,1fr))}.journey-strip li{gap:6px;padding:10px}.journey-strip li>span{font-size:21px}.journey-strip b{font-size:15px}.journey-strip small{font-size:8px}.boss-battle{min-height:360px}.boss-battle .enemy-combatant .portrait{height:245px}.boss-battle-lore{padding:12px;gap:10px}.boss-battle-lore p{font-size:13px}.boss-battle-lore span{font-size:9px;letter-spacing:.06em}.boss-battle-lore .btn{font-size:10px;padding:7px 9px}.boss-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.boss-gallery-card>.portrait{height:230px}.boss-gallery-card>div:last-child{padding:12px 11px 15px}.boss-gallery-card small{font-size:8px}.boss-gallery-card h3{font-size:20px}.boss-gallery-card p{font-size:10px}.boss-gallery-card span{font-size:9px}.boss-dossier{grid-template-columns:1fr;gap:20px}.boss-dossier>.portrait{position:relative;height:480px}.boss-dossier-copy h3{font-size:30px}.boss-biography{font-size:15px}.boss-dossier blockquote{font-size:15px}.fx-boss-spell{width:240px;height:240px}}
+body[data-motion="reduced"] .fx-boss-spell{animation:none}@media(prefers-reduced-motion:reduce){.fx-boss-spell{animation:none}.boss-gallery-card>.portrait img{transition:none}}
 </style></head><body>
-<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身剑匣</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">洞府寻珍版</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 三境三十段 · 洞府寻珍</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
+<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身剑匣</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">七境归墟版</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
 <script>
 /* 内联 SVG 后备立绘；无需联网，亦作为图片缺失时的替代图。 */
 (function () {
@@ -426,7 +437,7 @@ body[data-motion="reduced"] .cave-loot,body[data-motion="reduced"] .fx-bleed,bod
 })();
 </script>
 <script>
-globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"assets/portraits/fox.webp","snake":"assets/portraits/snake.webp","paper":"assets/portraits/paper.webp","lantern":"assets/portraits/lantern.webp","ape":"assets/portraits/ape.webp","bone":"assets/portraits/bone.webp","yaksha":"assets/portraits/yaksha.webp","raider":"assets/portraits/raider.webp","liu":"assets/portraits/liu.webp","ji":"assets/portraits/ji.webp","wen":"assets/portraits/wen.webp","feiye":"assets/portraits/feiye.webp","feiye_echo":"assets/portraits/feiye_echo.webp","retainer":"assets/portraits/retainer.webp","heart":"assets/portraits/heart.webp","snake_ascended":"assets/portraits/snake_ascended.webp","sword_fallen":"assets/portraits/sword_fallen.webp","gate_boss":"assets/portraits/gate_boss.webp","camp_boss":"assets/portraits/camp_boss.webp","apothecary":"assets/portraits/apothecary.webp","sword":"assets/puppet/sword-normal.webp"},"cards":{"C01":"assets/cards/C01.webp","C02":"assets/cards/C02.webp","C03":"assets/cards/C03.webp","C04":"assets/cards/C04.webp","C05":"assets/cards/C05.webp","C06":"assets/cards/C06.webp","C07":"assets/cards/C07.webp","C08":"assets/cards/C08.webp","C09":"assets/cards/C09.webp","C10":"assets/cards/C10.webp","C11":"assets/cards/C11.webp","C12":"assets/cards/C12.webp","C13":"assets/cards/C13.webp","C14":"assets/cards/C14.webp","C15":"assets/cards/C15.webp","C16":"assets/cards/C16.webp","C17":"assets/cards/C17.webp","C18":"assets/cards/C18.webp","C19":"assets/cards/C19.webp","C20":"assets/cards/C20.webp","C21":"assets/cards/C21.webp","C22":"assets/cards/C22.webp","C23":"assets/cards/C23.webp","C24":"assets/cards/C24.webp","C25":"assets/cards/C25.webp","C26":"assets/cards/C26.webp","C27":"assets/cards/C27.webp","C28":"assets/cards/C28.webp","C29":"assets/cards/C29.webp","C30":"assets/cards/C30.webp","C31":"assets/cards/C31.webp","C32":"assets/cards/C32.webp","C33":"assets/cards/C33.webp","C34":"assets/cards/C34.webp","C35":"assets/cards/C35.webp","C36":"assets/cards/C36.webp","S01":"assets/cards/S01.webp","S02":"assets/cards/S02.webp","S03":"assets/cards/S03.webp","S04":"assets/cards/S04.webp","S05":"assets/cards/S05.webp","S06":"assets/cards/S06.webp","S07":"assets/cards/S07.webp","S08":"assets/cards/S08.webp","S09":"assets/cards/S09.webp","S10":"assets/cards/S10.webp","S11":"assets/cards/S11.webp","S12":"assets/cards/S12.webp","S13":"assets/cards/S13.webp","S14":"assets/cards/S14.webp","S15":"assets/cards/S15.webp","S16":"assets/cards/S16.webp","F01":"assets/cards/F01.webp","F02":"assets/cards/F02.webp","F03":"assets/cards/F03.webp","F04":"assets/cards/F04.webp","F05":"assets/cards/F05.webp","F06":"assets/cards/F06.webp","F07":"assets/cards/F07.webp","F08":"assets/cards/F08.webp","F09":"assets/cards/F09.webp","F10":"assets/cards/F10.webp","F11":"assets/cards/F11.webp","F12":"assets/cards/F12.webp","D01":"assets/cards/D01.webp","D02":"assets/cards/D02.webp","D03":"assets/cards/D03.webp","D04":"assets/cards/D04.webp","D05":"assets/cards/D05.webp","D06":"assets/cards/D06.webp"},"events":{"well":"assets/events/well.webp","shrine":"assets/events/shrine.webp","dreamshop":"assets/events/dreamshop.webp","theatre":"assets/events/theatre.webp","umbrella":"assets/events/umbrella.webp","pawnshop":"assets/events/pawnshop.webp","riftwatch":"assets/events/riftwatch.webp","supply":"assets/events/supply.webp","cultlab":"assets/events/cultlab.webp","swordgrave":"assets/events/swordgrave.webp","pilgrims":"assets/events/pilgrims.webp","prisoner":"assets/events/prisoner.webp","echo":"assets/events/echo.webp","broker":"assets/events/broker.webp","liu_first":"assets/events/liu_first.webp","liu_return":"assets/events/liu_return.webp","liu_final":"assets/events/liu_final.webp","ji_first":"assets/events/ji_first.webp","ji_return":"assets/events/ji_return.webp","ji_final":"assets/events/ji_final.webp","wen_first":"assets/events/wen_first.webp","wen_return":"assets/events/wen_return.webp","wen_final":"assets/events/wen_final.webp","sect_duel":"assets/events/sect_duel.webp","herb_caravan":"assets/events/herb_caravan.webp","relic_dispute":"assets/events/relic_dispute.webp","night_watch":"assets/events/night_watch.webp","moon_trace":"assets/events/moon_trace.webp","sealed_name":"assets/events/sealed_name.webp","moon_vow":"assets/events/moon_vow.webp","armory":"assets/events/armory.webp","sovereign_wake":"assets/events/sovereign_wake.webp","sovereign_recall":"assets/events/sovereign_recall.webp","sovereign_memory":"assets/events/sovereign_memory.webp","tainted_mercy":"assets/events/tainted_mercy.webp","demonic_offer":"assets/events/demonic_offer.webp","demonic_warning":"assets/events/demonic_warning.webp","mirror_trial":"assets/events/mirror_trial.webp","demon_manual":"assets/events/demon_manual.webp","fallen_hunt":"assets/events/fallen_hunt.webp","fox":"assets/events/fox.webp","rest":"assets/events/rest.webp","shop":"assets/events/shop.webp"},"relics":{"frostseal":"assets/relics/frostseal.webp","bell":"assets/relics/bell.webp","jade":"assets/relics/jade.webp","moon":"assets/relics/moon.webp","fox":"assets/relics/fox.webp","fang":"assets/relics/fang.webp","silk":"assets/relics/silk.webp","vial":"assets/relics/vial.webp","bloodstone":"assets/relics/bloodstone.webp","moonheart":"assets/relics/moonheart.webp","mirror":"assets/relics/mirror.webp","dream":"assets/relics/dream.webp","godblood":"assets/relics/godblood.webp","ninelives":"assets/relics/ninelives.webp","veil":"assets/relics/veil.webp"},"regions":{"fog_gate":"assets/regions/fog_gate.webp","broken_camp":"assets/regions/broken_camp.webp","ritual_core":"assets/regions/ritual_core.webp"},"weapons":{"training":"assets/weapons/training.webp","rime":"assets/weapons/rime.webp","spirit":"assets/weapons/spirit.webp","divine":"assets/weapons/divine.webp"},"items":{"clearheart_jade":"assets/items/clearheart_jade.webp"},"eventsByCharacter":{"sword":{"well":"assets/events-sword/well.webp","shrine":"assets/events-sword/shrine.webp","dreamshop":"assets/events-sword/dreamshop.webp","theatre":"assets/events-sword/theatre.webp","umbrella":"assets/events-sword/umbrella.webp","pawnshop":"assets/events-sword/pawnshop.webp","riftwatch":"assets/events-sword/riftwatch.webp","supply":"assets/events-sword/supply.webp","cultlab":"assets/events-sword/cultlab.webp","swordgrave":"assets/events-sword/swordgrave.webp","pilgrims":"assets/events-sword/pilgrims.webp","prisoner":"assets/events-sword/prisoner.webp","echo":"assets/events-sword/echo.webp","broker":"assets/events-sword/broker.webp","fox":"assets/events-sword/fox.webp","rest":"assets/events-sword/rest.webp","shop":"assets/events-sword/shop.webp","moon_trace":"assets/events-sword/moon_trace.webp","sealed_name":"assets/events-sword/sealed_name.webp","moon_vow":"assets/events-sword/moon_vow.webp","armory":"assets/events-sword/armory.webp"},"sovereign":{"well":"assets/events-sovereign/well.webp","shrine":"assets/events-sovereign/shrine.webp","dreamshop":"assets/events-sovereign/dreamshop.webp","theatre":"assets/events-sovereign/theatre.webp","umbrella":"assets/events-sovereign/umbrella.webp","pawnshop":"assets/events-sovereign/pawnshop.webp","riftwatch":"assets/events-sovereign/riftwatch.webp","supply":"assets/events-sovereign/supply.webp","cultlab":"assets/events-sovereign/cultlab.webp","swordgrave":"assets/events-sovereign/swordgrave.webp","pilgrims":"assets/events-sovereign/pilgrims.webp","prisoner":"assets/events-sovereign/prisoner.webp","echo":"assets/events-sovereign/echo.webp","broker":"assets/events-sovereign/broker.webp","fox":"assets/events-sovereign/fox.webp","rest":"assets/events-sovereign/rest.webp","shop":"assets/events-sovereign/shop.webp","moon_trace":"assets/events-sovereign/moon_trace.webp","sealed_name":"assets/events-sovereign/sealed_name.webp","moon_vow":"assets/events-sovereign/moon_vow.webp","armory":"assets/events-sovereign/armory.webp"},"sword_fallen":{"well":"assets/events-sword_fallen/well.webp","shrine":"assets/events-sword_fallen/shrine.webp","dreamshop":"assets/events-sword_fallen/dreamshop.webp","theatre":"assets/events-sword_fallen/theatre.webp","umbrella":"assets/events-sword_fallen/umbrella.webp","pawnshop":"assets/events-sword_fallen/pawnshop.webp","riftwatch":"assets/events-sword_fallen/riftwatch.webp","supply":"assets/events-sword_fallen/supply.webp","cultlab":"assets/events-sword_fallen/cultlab.webp","swordgrave":"assets/events-sword_fallen/swordgrave.webp","pilgrims":"assets/events-sword_fallen/pilgrims.webp","prisoner":"assets/events-sword_fallen/prisoner.webp","echo":"assets/events-sword_fallen/echo.webp","broker":"assets/events-sword_fallen/broker.webp","fox":"assets/events-sword_fallen/fox.webp","rest":"assets/events-sword_fallen/rest.webp","shop":"assets/events-sword_fallen/shop.webp","moon_trace":"assets/events-sword_fallen/moon_trace.webp","sealed_name":"assets/events-sword_fallen/sealed_name.webp","moon_vow":"assets/events-sword_fallen/moon_vow.webp","armory":"assets/events-sword_fallen/armory.webp"}},"puppet":{"normal":"assets/puppet/cat-normal.webp","wounded":"assets/puppet/cat-wounded.webp","critical":"assets/puppet/cat-critical.webp","blink":"assets/puppet/cat-blink.webp","sword":{"normal":"assets/puppet/sword-normal.webp","wounded":"assets/puppet/sword-wounded.webp","critical":"assets/puppet/sword-critical.webp"},"feiye":{"normal":"assets/puppet/feiye-normal.webp","wounded":"assets/puppet/feiye-wounded.webp","critical":"assets/puppet/feiye-critical.webp"},"sword_fallen":{"normal":"assets/puppet/sword_fallen-normal.webp","wounded":"assets/puppet/sword_fallen-wounded.webp","critical":"assets/puppet/sword_fallen-critical.webp"}},"puppetRig":{},"mode":"folder"};
+globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"assets/portraits/fox.webp","sword_fallen":"assets/portraits/sword_fallen.webp","paper":"assets/portraits/paper.webp","lantern":"assets/portraits/lantern.webp","ape":"assets/portraits/ape.webp","bone":"assets/portraits/bone.webp","yaksha":"assets/portraits/yaksha.webp","e_mist":"assets/portraits/e_mist.webp","e_lantern":"assets/portraits/e_lantern.webp","e_priest":"assets/portraits/e_priest.webp","raider":"assets/portraits/raider.webp","snake":"assets/portraits/snake.webp","gate_boss":"assets/portraits/gate_boss.webp","camp_boss":"assets/portraits/camp_boss.webp","apothecary":"assets/portraits/apothecary.webp","feiye":"assets/portraits/feiye.webp","feiye_echo":"assets/portraits/feiye_echo.webp","retainer":"assets/portraits/retainer.webp","heart":"assets/portraits/heart.webp","snake_ascended":"assets/portraits/snake_ascended.webp","bell_boss":"assets/portraits/bell_boss.webp","lotus_boss":"assets/portraits/lotus_boss.webp","marsh_boss":"assets/portraits/marsh_boss.webp","furnace_boss":"assets/portraits/furnace_boss.webp","mirror_boss":"assets/portraits/mirror_boss.webp","abyss_boss":"assets/portraits/abyss_boss.webp","liu":"assets/portraits/liu.webp","ji":"assets/portraits/ji.webp","wen":"assets/portraits/wen.webp","sword":"assets/puppet/sword-normal.webp"},"cards":{"C01":"assets/cards/C01.webp","C02":"assets/cards/C02.webp","C03":"assets/cards/C03.webp","C04":"assets/cards/C04.webp","C05":"assets/cards/C05.webp","C06":"assets/cards/C06.webp","C07":"assets/cards/C07.webp","C08":"assets/cards/C08.webp","C09":"assets/cards/C09.webp","C10":"assets/cards/C10.webp","C11":"assets/cards/C11.webp","C12":"assets/cards/C12.webp","C13":"assets/cards/C13.webp","C14":"assets/cards/C14.webp","C15":"assets/cards/C15.webp","C16":"assets/cards/C16.webp","C17":"assets/cards/C17.webp","C18":"assets/cards/C18.webp","C19":"assets/cards/C19.webp","C20":"assets/cards/C20.webp","C21":"assets/cards/C21.webp","C22":"assets/cards/C22.webp","C23":"assets/cards/C23.webp","C24":"assets/cards/C24.webp","C25":"assets/cards/C25.webp","C26":"assets/cards/C26.webp","C27":"assets/cards/C27.webp","C28":"assets/cards/C28.webp","C29":"assets/cards/C29.webp","C30":"assets/cards/C30.webp","C31":"assets/cards/C31.webp","C32":"assets/cards/C32.webp","C33":"assets/cards/C33.webp","C34":"assets/cards/C34.webp","C35":"assets/cards/C35.webp","C36":"assets/cards/C36.webp","S01":"assets/cards/S01.webp","S02":"assets/cards/S02.webp","S03":"assets/cards/S03.webp","S04":"assets/cards/S04.webp","S05":"assets/cards/S05.webp","S06":"assets/cards/S06.webp","S07":"assets/cards/S07.webp","S08":"assets/cards/S08.webp","S09":"assets/cards/S09.webp","S10":"assets/cards/S10.webp","S11":"assets/cards/S11.webp","S12":"assets/cards/S12.webp","S13":"assets/cards/S13.webp","S14":"assets/cards/S14.webp","S15":"assets/cards/S15.webp","S16":"assets/cards/S16.webp","F01":"assets/cards/F01.webp","F02":"assets/cards/F02.webp","F03":"assets/cards/F03.webp","F04":"assets/cards/F04.webp","F05":"assets/cards/F05.webp","F06":"assets/cards/F06.webp","F07":"assets/cards/F07.webp","F08":"assets/cards/F08.webp","F09":"assets/cards/F09.webp","F10":"assets/cards/F10.webp","F11":"assets/cards/F11.webp","F12":"assets/cards/F12.webp","D01":"assets/cards/D01.webp","D02":"assets/cards/D02.webp","D03":"assets/cards/D03.webp","D04":"assets/cards/D04.webp","D05":"assets/cards/D05.webp","D06":"assets/cards/D06.webp"},"events":{"well":"assets/events/well.webp","shrine":"assets/events/shrine.webp","dreamshop":"assets/events/dreamshop.webp","theatre":"assets/events/theatre.webp","umbrella":"assets/events/umbrella.webp","pawnshop":"assets/events/pawnshop.webp","riftwatch":"assets/events/riftwatch.webp","supply":"assets/events/supply.webp","cultlab":"assets/events/cultlab.webp","swordgrave":"assets/events/swordgrave.webp","pilgrims":"assets/events/pilgrims.webp","prisoner":"assets/events/prisoner.webp","echo":"assets/events/echo.webp","broker":"assets/events/broker.webp","liu_first":"assets/events/liu_first.webp","liu_return":"assets/events/liu_return.webp","liu_final":"assets/events/liu_final.webp","ji_first":"assets/events/ji_first.webp","ji_return":"assets/events/ji_return.webp","ji_final":"assets/events/ji_final.webp","wen_first":"assets/events/wen_first.webp","wen_return":"assets/events/wen_return.webp","wen_final":"assets/events/wen_final.webp","sect_duel":"assets/events/sect_duel.webp","herb_caravan":"assets/events/herb_caravan.webp","relic_dispute":"assets/events/relic_dispute.webp","night_watch":"assets/events/night_watch.webp","moon_trace":"assets/events/moon_trace.webp","sealed_name":"assets/events/sealed_name.webp","moon_vow":"assets/events/moon_vow.webp","armory":"assets/events/armory.webp","sovereign_wake":"assets/events/sovereign_wake.webp","sovereign_recall":"assets/events/sovereign_recall.webp","sovereign_memory":"assets/events/sovereign_memory.webp","tainted_mercy":"assets/events/tainted_mercy.webp","demonic_offer":"assets/events/demonic_offer.webp","demonic_warning":"assets/events/demonic_warning.webp","mirror_trial":"assets/events/mirror_trial.webp","demon_manual":"assets/events/demon_manual.webp","fallen_hunt":"assets/events/fallen_hunt.webp","marsh_pharmacy":"assets/events/marsh_pharmacy.webp","reed_procession":"assets/events/reed_procession.webp","drowned_archive":"assets/events/drowned_archive.webp","furnace_ledger":"assets/events/furnace_ledger.webp","captive_smith":"assets/events/captive_smith.webp","ash_orchard":"assets/events/ash_orchard.webp","mirror_guest":"assets/events/mirror_guest.webp","unfinished_portrait":"assets/events/unfinished_portrait.webp","glass_assembly":"assets/events/glass_assembly.webp","fate_tailor":"assets/events/fate_tailor.webp","silent_astrolabe":"assets/events/silent_astrolabe.webp","last_campfire":"assets/events/last_campfire.webp","fox":"assets/events/fox.webp","rest":"assets/events/rest.webp","shop":"assets/events/shop.webp"},"relics":{"frostseal":"assets/relics/frostseal.webp","bell":"assets/relics/bell.webp","jade":"assets/relics/jade.webp","moon":"assets/relics/moon.webp","fox":"assets/relics/fox.webp","fang":"assets/relics/fang.webp","silk":"assets/relics/silk.webp","vial":"assets/relics/vial.webp","bloodstone":"assets/relics/bloodstone.webp","moonheart":"assets/relics/moonheart.webp","mirror":"assets/relics/mirror.webp","dream":"assets/relics/dream.webp","godblood":"assets/relics/godblood.webp","ninelives":"assets/relics/ninelives.webp","veil":"assets/relics/veil.webp"},"regions":{"fog_gate":"assets/regions/fog_gate.webp","broken_camp":"assets/regions/broken_camp.webp","ritual_core":"assets/regions/ritual_core.webp","drowned_marsh":"assets/regions/drowned_marsh.webp","furnace_palace":"assets/regions/furnace_palace.webp","mirror_heaven":"assets/regions/mirror_heaven.webp","abyss_throne":"assets/regions/abyss_throne.webp"},"weapons":{"training":"assets/weapons/training.webp","rime":"assets/weapons/rime.webp","spirit":"assets/weapons/spirit.webp","divine":"assets/weapons/divine.webp"},"items":{"clearheart_jade":"assets/items/clearheart_jade.webp"},"eventsByCharacter":{"sword":{"well":"assets/events-sword/well.webp","shrine":"assets/events-sword/shrine.webp","dreamshop":"assets/events-sword/dreamshop.webp","theatre":"assets/events-sword/theatre.webp","umbrella":"assets/events-sword/umbrella.webp","pawnshop":"assets/events-sword/pawnshop.webp","riftwatch":"assets/events-sword/riftwatch.webp","supply":"assets/events-sword/supply.webp","cultlab":"assets/events-sword/cultlab.webp","swordgrave":"assets/events-sword/swordgrave.webp","pilgrims":"assets/events-sword/pilgrims.webp","prisoner":"assets/events-sword/prisoner.webp","echo":"assets/events-sword/echo.webp","broker":"assets/events-sword/broker.webp","fox":"assets/events-sword/fox.webp","rest":"assets/events-sword/rest.webp","shop":"assets/events-sword/shop.webp","moon_trace":"assets/events-sword/moon_trace.webp","sealed_name":"assets/events-sword/sealed_name.webp","moon_vow":"assets/events-sword/moon_vow.webp","armory":"assets/events-sword/armory.webp"},"sovereign":{"well":"assets/events-sovereign/well.webp","shrine":"assets/events-sovereign/shrine.webp","dreamshop":"assets/events-sovereign/dreamshop.webp","theatre":"assets/events-sovereign/theatre.webp","umbrella":"assets/events-sovereign/umbrella.webp","pawnshop":"assets/events-sovereign/pawnshop.webp","riftwatch":"assets/events-sovereign/riftwatch.webp","supply":"assets/events-sovereign/supply.webp","cultlab":"assets/events-sovereign/cultlab.webp","swordgrave":"assets/events-sovereign/swordgrave.webp","pilgrims":"assets/events-sovereign/pilgrims.webp","prisoner":"assets/events-sovereign/prisoner.webp","echo":"assets/events-sovereign/echo.webp","broker":"assets/events-sovereign/broker.webp","fox":"assets/events-sovereign/fox.webp","rest":"assets/events-sovereign/rest.webp","shop":"assets/events-sovereign/shop.webp","moon_trace":"assets/events-sovereign/moon_trace.webp","sealed_name":"assets/events-sovereign/sealed_name.webp","moon_vow":"assets/events-sovereign/moon_vow.webp","armory":"assets/events-sovereign/armory.webp"},"sword_fallen":{"well":"assets/events-sword_fallen/well.webp","shrine":"assets/events-sword_fallen/shrine.webp","dreamshop":"assets/events-sword_fallen/dreamshop.webp","theatre":"assets/events-sword_fallen/theatre.webp","umbrella":"assets/events-sword_fallen/umbrella.webp","pawnshop":"assets/events-sword_fallen/pawnshop.webp","riftwatch":"assets/events-sword_fallen/riftwatch.webp","supply":"assets/events-sword_fallen/supply.webp","cultlab":"assets/events-sword_fallen/cultlab.webp","swordgrave":"assets/events-sword_fallen/swordgrave.webp","pilgrims":"assets/events-sword_fallen/pilgrims.webp","prisoner":"assets/events-sword_fallen/prisoner.webp","echo":"assets/events-sword_fallen/echo.webp","broker":"assets/events-sword_fallen/broker.webp","fox":"assets/events-sword_fallen/fox.webp","rest":"assets/events-sword_fallen/rest.webp","shop":"assets/events-sword_fallen/shop.webp","moon_trace":"assets/events-sword_fallen/moon_trace.webp","sealed_name":"assets/events-sword_fallen/sealed_name.webp","moon_vow":"assets/events-sword_fallen/moon_vow.webp","armory":"assets/events-sword_fallen/armory.webp"}},"puppet":{"normal":"assets/puppet/cat-normal.webp","wounded":"assets/puppet/cat-wounded.webp","critical":"assets/puppet/cat-critical.webp","blink":"assets/puppet/cat-blink.webp","sword":{"normal":"assets/puppet/sword-normal.webp","wounded":"assets/puppet/sword-wounded.webp","critical":"assets/puppet/sword-critical.webp"},"feiye":{"normal":"assets/puppet/feiye-normal.webp","wounded":"assets/puppet/feiye-wounded.webp","critical":"assets/puppet/feiye-critical.webp"},"sword_fallen":{"normal":"assets/puppet/sword_fallen-normal.webp","wounded":"assets/puppet/sword_fallen-wounded.webp","critical":"assets/puppet/sword_fallen-critical.webp"}},"puppetRig":{},"mode":"folder"};
 </script>
 <script>
 /* 百妖夜契 · 离线程序合成音效。无录音、配音、音乐或运行时网络请求。 */
@@ -962,7 +973,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     D01:{name:'借煞回生',cost:1,text:'造成 4 点伤害，恢复 6 生命。击杀或伤害被护盾阻挡仍治疗。',target:true,attack:true},
     D02:{name:'饮魄',cost:1,text:'造成 8 点伤害，恢复 3 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
     D03:{name:'夺脉',cost:2,text:'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
-    D04:{name:'魔躯',cost:1,text:'获得 12 护盾，抽 1 张牌。',target:false},
+    D04:{name:'魔躯',cost:1,text:'获得 10 护盾。',target:false},
     D05:{name:'狂念',cost:0,text:'抽 2 张牌。消耗。',target:false,exhaust:true},
     D06:{name:'万煞归心',cost:3,text:'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true}
   });
@@ -1160,11 +1171,243 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
 })(typeof globalThis==='object'?globalThis:window);
 </script>
 <script>
+/* Seven painted realms. Content data only; choices and combat resolve in engine.js. */
+(function (root) {
+  'use strict';
+  const REGIONS = [
+    {id:'fog_gate',name:'雾锁山门',subtitle:'第一境 · 雾外来客',stages:[1,10],description:'封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。山口的灯还亮着，照不出更深处的归路。',palette:{sky:'#15232b',ground:'#49626a',accent:'#abd9d1'}},
+    {id:'broken_camp',name:'断桥诸营',subtitle:'第二境 · 灯下故人',stages:[11,20],description:'断桥两侧，药香、商灯与暗哨混在一起。失散的同伴留下字条，没署名的货匣摆在火边；先前的一句承诺，也许比钱袋更重。',palette:{sky:'#252019',ground:'#6c5342',accent:'#e4b56e'}},
+    {id:'ritual_core',name:'逆仪旧址',subtitle:'第三境 · 空井未终',stages:[21,30],description:'玄烬教引灵仪的旧址已经坍塌，观测井下却仍传来潮声。留守的妖物把这里当作最后一道门，门后的空间似乎不属于任何山川。',palette:{sky:'#221728',ground:'#4c3c61',accent:'#c5a1e4'}},
+    {id:'drowned_marsh',name:'沉月泽国',subtitle:'第四境 · 水中无月',stages:[31,40],description:'走出井门，脚下已是无边泽国。泥水里映着一轮天上没有的月，沉没的村楼偶尔浮出水面。药庐、送行的队伍与旧书楼，都在等待潮汐松手。',palette:{sky:'#102a32',ground:'#355e61',accent:'#9ad4ce'}},
+    {id:'furnace_palace',name:'焚愿天阙',subtitle:'第五境 · 愿作灯薪',stages:[41,50],description:'泽国尽头立着朱金宫阙，城中炉火烧的不是木炭。每一份写下的愿望都被登记、称量，再送进长明炉。有人想取回旧愿，有人还在添薪。',palette:{sky:'#321c23',ground:'#71402f',accent:'#efb66d'}},
+    {id:'mirror_heaven',name:'琉璃无相庭',subtitle:'第六境 · 镜外来人',stages:[51,60],description:'火光在琉璃长阶尽头凝成镜面。这里有许多与你同时抬手的影子，也有迟了一拍的。议席尚空，画卷未干，廊中的来客只肯隔镜说话。',palette:{sky:'#22213d',ground:'#4c5379',accent:'#c3bee9'}},
+    {id:'abyss_throne',name:'归墟命枢',subtitle:'第七境 · 万线归零',stages:[61,70],description:'镜庭碎裂后，黑色星海展开。无数赤线从已经走过的道路汇来，穿过停转的星盘与无人收信的驿台。最深处的织机仍在转动，等待活人递上最后一个名字。',palette:{sky:'#100f24',ground:'#3b3154',accent:'#e6c9a0'}}
+  ];
+
+  const BOSSES = {
+    gate_boss:{
+      name:'渡灯人',title:'照微',rank:'boss',tier:'early',hp:65,portrait:'gate_boss',adult:true,
+      lore:'照微曾替进入矿山的采灵人引路。实验反噬之夜，她用最后一盏渡灯照出山门，自己却留在了雾里。此后灯中不断响起已经归家的声音，她仍按旧名单一一应答，不肯让任何没有被灯认出的脚步越过山口。',
+      quotes:['灯照得见你，人未必还认得路。','把名字留下。若回不来，我替你点灯。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'护灯会清除流血后撑起护盾；引魂灯会留下追索印记，让下一段攻击更危险。',
+      appearance:{face:'成熟椭圆脸、古铜肤色、柔和厚唇、琥珀眼',hair:'深蓝长发编成侧辫',palette:'青玉、孔雀蓝、暖金',weapon:'悬着旧铜灯的长杖'},
+      intents:[
+        {name:'横灯',text:'攻击 9',hits:[9]},
+        {name:'护灯',text:'清除全部流血，获得护盾 8，然后攻击 6',clearBleed:true,block:8,hits:[6]},
+        {name:'双焰',text:'连续攻击 2 次，每次 5',hits:[5,5]},
+        {name:'引魂灯',text:'获得护盾 6，施加 1 层追索印',block:6,playerMark:1}
+      ]
+    },
+    camp_boss:{
+      name:'缚誓者',title:'闻铮',rank:'boss',tier:'early',hp:85,portrait:'camp_boss',adult:true,
+      lore:'闻铮是被派来封锁断桥的营将。诸宗曾在她面前盟誓共守封域，撤退时却各自带走了能带走的东西。她把被丢下的誓书铸进铠甲，替没有离开的守军继续值夜。如今桥头的锁链只认誓言，不认军令，也不肯分辨来人为何沉默。',
+      quotes:['桥后还有人。谁准你们把名字划掉？','说出口的话，总该有一样东西肯留下。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'旧甲清霜并进入反击架势；断誓锁会减少下一回合的灵力，爆发前要留意其固定轮转。',
+      appearance:{face:'棱角分明的晒褐面孔、断眉细疤、深棕眼',hair:'红棕高马尾、几缕散发',palette:'朱红、旧铜、墨黑',weapon:'刻满誓文的长枪与锁链'},
+      intents:[
+        {name:'缚誓',text:'攻击 12',hits:[12]},
+        {name:'旧甲',text:'清除全部霜寒，获得护盾 9，架势反击 2',clearChill:true,block:9,counter:2},
+        {name:'断桥三式',text:'连续攻击 3 次，每次 4',hits:[4,4,4]},
+        {name:'断誓锁',text:'攻击 7，下个玩家回合灵力减少 1',hits:[7],energyPenalty:1}
+      ]
+    },
+    snake:{
+      name:'蛇妖·绛鳞',title:'观测井守',rank:'boss',tier:'early',hp:100,portrait:'snake',adult:true,
+      lore:'绛鳞原本栖在旧山腹的暖泉中，与玄烬教换取能够温养鳞甲的丹砂。她察觉井底的东西不该被唤醒时，已经来不及游回泉眼。如今她以自身盘住观测井，把每次蜕下的旧鳞压进裂缝。她守门并非忠于魔教，只是不愿让井下的潮声追上自己。',
+      quotes:['这里已经不是终点。退回去。','每脱一层鳞，我便少记得一点岸上的事。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'蛇息施毒，蜕鳞清除标记、霜寒与流血，绞缠逐段攻击。她只是通往更深空间的一道关口。',
+      appearance:{face:'冷白细长脸、高颧骨、狭长翡翠眼、薄而深红的唇',hair:'红棕长发半挽，细辫垂肩',palette:'翡翠、绛红、旧金',weapon:'鳞刃与盘绕的蛇尾'},
+      intents:[
+        {name:'鳞刃',text:'攻击 10',hits:[10]},
+        {name:'蛇息',text:'先攻击 6，再施加 3 层毒',hits:[6],poison:3},
+        {name:'蜕鳞',text:'清除全部标记、霜寒与流血，再获得护盾 10',clearMark:true,clearChill:true,clearBleed:true,block:10},
+        {name:'绞缠',text:'连续攻击 3 次，每次 5',hits:[5,5,5]}
+      ]
+    },
+    bell_boss:{
+      name:'葬钟姬',title:'晚蘅',rank:'boss',tier:'early',hp:78,portrait:'bell_boss',adult:true,
+      lore:'晚蘅曾替无人认领的亡者主持送行。灾变后，送葬的钟声总在最后一响之前折回，棺中的名字也一次次从碑上脱落。她把丢失的名字系进三口铜钟，带着未能走完的送行队伍徘徊于山路。活人若听见自己的名字被钟声叫出，便会被她误认为又一位迟来的客人。',
+      quotes:['再等一声，路就该开了。','你听见的，是谁的名字？'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'第一声葬钟施加追索印，第二声扰乱抽牌，第三声连续敲击；停钟回合清除流血并防御。',
+      appearance:{face:'成年圆润面孔、低垂紫瞳、浅肤色、饱满下唇',hair:'靛青齐刘海、长发盘成低髻',palette:'象牙白、深紫、青铜',weapon:'三口悬空古钟和一枚手铃'},
+      intents:[
+        {name:'一声问名',text:'攻击 8，施加 1 层追索印',hits:[8],playerMark:1},
+        {name:'二声离念',text:'攻击 7，下个玩家回合少抽 1 张牌',hits:[7],drawPenalty:1},
+        {name:'三声送行',text:'连续攻击 3 次，每次 4',hits:[4,4,4]},
+        {name:'停钟',text:'清除全部流血，获得护盾 12',clearBleed:true,block:12}
+      ]
+    },
+    lotus_boss:{
+      name:'血莲医仙',title:'蘅芜',rank:'boss',tier:'early',hp:92,portrait:'lotus_boss',adult:true,
+      lore:'蘅芜带着丹霞谷的药箱进入寒渊，试过用每一种能够辨认的草药救人。后来她发现井边的血莲能让已经停息的脉搏重新跳动，却不知道花根从何处取养。她将救下的人安置在莲池旁，日夜换药。如今她仍认真诊脉，也仍相信，暂时不肯醒来的人只是需要再换一副方子。',
+      quotes:['脉还在。别急着叫它死去。','我收的是药钱，不是你的命。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'血莲回春恢复自身生命并清除流血；点穴封脉减少灵力，药针会逐步叠毒。',
+      appearance:{face:'成熟温润的长脸、深古铜肤色、绿色眼瞳、明显酒窝',hair:'栗色卷发高盘、银簪插药枝',palette:'珊瑚红、浅玉绿、银白',weapon:'血莲药碗与环绕银针'},
+      intents:[
+        {name:'药针',text:'攻击 8，再施加 1 层毒',hits:[8],poison:1},
+        {name:'血莲回春',text:'恢复 8 点生命，清除全部流血，获得护盾 6',heal:8,clearBleed:true,block:6},
+        {name:'点穴封脉',text:'攻击 10，下个玩家回合灵力减少 1',hits:[10],energyPenalty:1},
+        {name:'三针归脉',text:'连续攻击 3 次，每次 4',hits:[4,4,4]}
+      ]
+    },
+    marsh_boss:{
+      name:'溺月龙女',title:'泠汐',rank:'boss',tier:'middle',hp:155,portrait:'marsh_boss',adult:true,
+      lore:'泠汐守过一条已经干涸的支江，依照古约替沿岸村落分水。引灵仪把她与整条河的倒影一同拽进井下，河床从此向天空生长。她用借来的月光照着沉村，试图分清哪些房屋还有人居住。水里的人向她求晴，岸上的人向她求雨，她逐渐听不出两者的区别。',
+      quotes:['月沉下去之前，谁也不能从水里走。','我答应过他们，要把河送回家。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'潮印追索后接重击；逆潮清除霜寒并防御，龙渊三叠以连续攻击穿过薄盾。',
+      appearance:{face:'宽颧骨与坚毅下颌、灰蓝肤色、金色圆瞳',hair:'银白长发编成两束粗辫',palette:'冷青、珠白、深海蓝',weapon:'水镜长枪、珍珠龙冠与鹿角形龙角'},
+      intents:[
+        {name:'潮印',text:'攻击 12，施加 2 层追索印',hits:[12],playerMark:2},
+        {name:'月落',text:'攻击 17',hits:[17]},
+        {name:'逆潮',text:'清除全部霜寒，获得护盾 16',clearChill:true,block:16},
+        {name:'龙渊三叠',text:'连续攻击 3 次，每次 5',hits:[5,5,5]}
+      ]
+    },
+    furnace_boss:{
+      name:'焚愿宫主',title:'赤绫',rank:'boss',tier:'middle',hp:175,portrait:'furnace_boss',adult:true,
+      lore:'赤绫曾替求仙者保管愿帖，从未问过那些愿望值不值得。玄烬教买走长明炉后，她才看见愿望也会燃烧，人的执念比地火更久。如今她坐在炉城最高处，把未兑现的愿一卷卷送回火里。她相信只要炉火没有熄灭，世上便没有真正落空的承诺。',
+      quotes:['你的愿望，比你本人更耐烧。','火还没灭，谁说这是空许？'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'焚愿抽走下回合灵力；金乌羽扇连续攻击，烬衣清除流血并反击，须选择进攻窗口。',
+      appearance:{face:'心形面孔、铜色皮肤、高挑眉尾、金橙色瞳孔',hair:'火红棕色大卷长发',palette:'朱砂红、熔金、黑漆',weapon:'金乌羽扇、悬空愿帖与炉火'},
+      intents:[
+        {name:'焚愿',text:'攻击 12，下个玩家回合灵力减少 1',hits:[12],energyPenalty:1},
+        {name:'金乌羽扇',text:'连续攻击 3 次，每次 6',hits:[6,6,6]},
+        {name:'烬衣',text:'清除全部流血，获得护盾 14，架势反击 3',clearBleed:true,block:14,counter:3},
+        {name:'炉心倾泻',text:'攻击 19',hits:[19]}
+      ]
+    },
+    mirror_boss:{
+      name:'千面琉璃',title:'素照',rank:'boss',tier:'middle',hp:190,portrait:'mirror_boss',adult:true,
+      lore:'素照并不记得自己曾是哪一面镜子的主人。她替入域者映照容颜，镜中的恐惧、骄傲与后悔却一次次留在了她脸上。她把不能相容的面孔封进琉璃议席，只保留一张自己选定的脸。来客若坚持镜中另有其人，她便会亲手碎镜，请对方从碎片里指出唯一的真相。',
+      quotes:['你认得这张脸，还是只认得自己？','请选一面。碎掉的那面，也会记住你。'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'换相清除三类状态，回照架势反击；碎镜三问干扰抽牌，镜中判词施加追索印。',
+      appearance:{face:'菱形脸、瓷白肤色、金与淡紫异色瞳、短而清晰的唇线',hair:'光滑黑色短波波头、单侧银饰',palette:'靛蓝、银白、虹彩紫',weapon:'悬空破镜光环与银片折扇'},
+      intents:[
+        {name:'镜中判词',text:'攻击 13，施加 1 层追索印',hits:[13],playerMark:1},
+        {name:'回照',text:'获得护盾 14，架势反击 3',block:14,counter:3},
+        {name:'碎镜三问',text:'连续攻击 3 次，每次 5，下个玩家回合少抽 1 张牌',hits:[5,5,5],drawPenalty:1},
+        {name:'换相',text:'清除全部标记、霜寒与流血，恢复 8 点生命',clearMark:true,clearChill:true,clearBleed:true,heal:8}
+      ]
+    },
+    abyss_boss:{
+      name:'归墟司命',title:'无央',rank:'boss',tier:'final',hp:250,portrait:'abyss_boss',adult:true,
+      lore:'无央是引灵仪最初试图接触的存在，也可能只是仪式替那个存在织出的名字。玄烬教以为自己从地底借来了力量，实际上却给山川、亡者与活人的选择各牵上了一根线。她坐在命枢前，从不伸手追逐逃走的人；每一条试图离开的道路，都会在她掌中重新交汇。',
+      quotes:['走到这里，便不是谁引你来的了。','线尽之后，你仍肯用自己的名字作答么？'],
+      passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
+      signature:'赤线追索后接三段裁命，收束回合清除状态并修复命枢，天倾终线兼有重击与封脉。四式固定，可提前规划守势。',
+      appearance:{face:'四十余岁的威严修长面孔、深金褐眼、饱满鼻梁、额心细金命纹',hair:'紫黑长发高髻、金色星钗',palette:'象牙白、暗金、宇宙墨黑、极少赤线',weapon:'黑金天机织轮、红色命线与星盘光环'},
+      intents:[
+        {name:'赤线·问名',text:'攻击 13，施加 2 层追索印',hits:[13],playerMark:2},
+        {name:'万劫·裁命',text:'连续攻击 3 次，每次 6',hits:[6,6,6]},
+        {name:'命枢·收束',text:'清除全部标记、霜寒与流血，恢复 8 点生命，获得护盾 12',clearMark:true,clearChill:true,clearBleed:true,heal:8,block:12},
+        {name:'天倾·终线',text:'连续攻击 2 次，每次 10，下个玩家回合灵力减少 1',hits:[10,10],energyPenalty:1}
+      ]
+    }
+  };
+
+  // Exact elite base values. Engine owns their scaling, targeting marks and weighted choice.
+  const ELITES = {
+    e_mist:{name:'雾中伥',rank:'elite',hp:56,weights:[3,2,3],intents:[{name:'牵魂',text:'攻击 10，施加 1 层追索印',hits:[10],playerMark:1},{name:'蔽目',text:'攻击 8，施加 2 层追索印',hits:[8],playerMark:2},{name:'雾遁',text:'获得护盾 12',block:12}]},
+    e_lantern:{name:'断桥灯魁',rank:'elite',hp:76,weights:[3],intents:[{name:'引焰',text:'攻击 14',hits:[14]}]},
+    e_priest:{name:'逆仪祭司',rank:'elite',hp:92,weights:[3,2,3],intents:[{name:'祭仪',text:'获得护盾 10，施加 1 层追索印',block:10,playerMark:1},{name:'咒刃',text:'攻击 16',hits:[16]},{name:'逆祝',text:'恢复 8 点生命，获得护盾 8',heal:8,block:8}]}
+  };
+  const EARLY_BOSSES=['gate_boss','camp_boss','snake','bell_boss','lotus_boss'];
+  const MID_BOSSES=['marsh_boss','furnace_boss','mirror_boss'];
+  const FINAL_BOSS='abyss_boss';
+
+  const EVENTS = {
+    marsh_pharmacy:{name:'水上药庐',glyph:'药',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['一间药庐用粗绳系在老柳上，案边的年轻人正把浸水的药纸重新晾干。','她没有问你来自哪里，只把两只药包推到干燥的一侧：“这一包养伤，那一包拔毒。看清了再拿。”'],choices:[
+      {label:'付 18 金币，收一包凝露叶',text:'获得凝露叶 ×2，收入包裹；每份恢复 12 生命。',goldCost:18,itemGrants:[{id:'dewherb',count:2}],outcome:'你把钱压在药纸下。她在两包凝露叶上各系了一根防潮细绳。'},
+      {label:'付 35 金币，取拔毒丹',text:'获得百草解厄丹 ×1，收入包裹；服用时彻底解除毒素。',goldCost:35,itemGrants:[{id:'antidote',count:1}],outcome:'瓶口封蜡仍有余温。她确认你看清药名，才松开搭在瓶上的手。'},
+      {label:'帮她把药架搬上高处',text:'获得回春草 ×1，不花费金币。',itemGrants:[{id:'herb',count:1}],flags:{sevenPharmacyHelp:true},outcome:'药架稳稳落在梁上。临走时，一小束回春草被塞进了你的包裹。'}
+    ]},
+    reed_procession:{name:'苇间送行',glyph:'苇',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['一列白衣人从苇间走过，没有鼓乐，只有鞋底踏水的轻响。队尾一名女子抱着空盒，问你可曾看见盒盖上的那只纸鹤。','苇根下恰好压着半只纸翅，另一半已被水浸软。她看着纸片，迟迟没有伸手。'],choices:[
+      {label:'用护身符纸替她折一只',text:'失去 4 生命，获得 25 金币与回春草 ×1。',hpCost:4,goldGain:25,itemGrants:[{id:'herb',count:1}],outcome:'符纸折起时掠过掌心，留下一道细伤。女子把纸鹤放进盒中，向你行礼，铜钱与草束留在了岸边。'},
+      {label:'陪她把残翅烘干',text:'恢复 10 生命，不取得盒中的东西。',heal:10,outcome:'你们守着一小簇火。等纸翅重新挺起，她才轻轻说了一声谢谢；火边的暖意也让你的呼吸平稳下来。'},
+      {label:'告诉她纸鹤所在，然后离开',text:'不改变数值。',outcome:'她沿着你的指向慢慢走近苇根。送行队伍放慢了脚步，给她留下了一段距离。'}
+    ]},
+    drowned_archive:{name:'沉底书楼',glyph:'书',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['潮水退去半丈，一座书楼的二层露了出来。窗内的书页没有湿，墨迹却像鱼一样游动。','楼中有人隔窗递出一块木牌：“以一页换一页。不要把整本拿走。”'],choices:[
+      {label:'付 30 金币，换一页完整功诀',text:'随机获得一张本职业稀有技能，进入事件时固定。',goldCost:30,cardRarity:'rare',outcome:'你接过的一页不再游动。楼中人合上木窗，像完成了一笔极寻常的借阅。'},
+      {label:'把窗边散页按次序归好',text:'下场战斗首回合获得 10 护盾。',guard:10,flags:{sevenArchiveRepaired:true},outcome:'散页归位后，墨色沿着你的护符描出一圈细纹。水涨回窗下时，木牌已经不见了。'},
+      {label:'只读门上的题字',text:'获得 12 金币，不拿走书页。',goldGain:12,outcome:'题字读完，一枚旧书签落到掌中。夹在其中的铜钱不多，足够付下一段路的灯油。'}
+    ]},
+    furnace_ledger:{name:'焚愿账房',glyph:'账',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['长案后一位女子正在烧账。每烧掉一页，案上便多出一枚温热的铜钱。','她看见你停下，把一册尚未点燃的薄账移到灯下：“查自己的，还是替旁人付清？”'],choices:[
+      {label:'付 20 金币，结清一册旧账',text:'获得虎魄丹 ×1，收入包裹。',goldCost:20,itemGrants:[{id:'battle_pill',count:1}],outcome:'账页没有落入火中，而是化成一缕赤光，凝进你取走的药瓶。'},
+      {label:'把案上冷掉的炉钱收走',text:'获得 28 金币。',goldGain:28,outcome:'她没有拦你，只在空白处重新写下一行字。炉钱在掌心渐渐冷却，分量与寻常钱币无异。'},
+      {label:'不翻账，只添一盏灯油',text:'恢复 12 生命。',heal:12,outcome:'新灯照亮了帐房的门。你在门边坐了一会儿，手脚的僵硬逐渐散去。'}
+    ]},
+    captive_smith:{name:'炉侧敲声',glyph:'锻',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['偏殿传来极有节奏的敲击声。门没有锁，里面的铸匠却始终不肯跨过炉前的一道白线。','她把一段烧红的锁链送回砧上：“帮我压住炉门。最后这一下，我一个人落不准。”'],choices:[
+      {label:'替她压住炉门',text:'失去 5 生命，随机获得一张本职业稀有技能。',hpCost:5,cardRarity:'rare',flags:{sevenSmithHelped:true},outcome:'热浪擦过手臂，最后一锤落下。她将薄薄的淬刃札记递给你，自己仍站在白线另一侧。'},
+      {label:'付 25 金币，请她修整护符',text:'下场战斗首回合获得 14 护盾。',goldCost:25,guard:14,outcome:'她没有碰你的兵刃，只把护符背面的裂口锤合。细小的金属声久久不散。'},
+      {label:'把门边的冷水留给她',text:'获得回春草 ×2。',itemGrants:[{id:'herb',count:2}],outcome:'铸匠终于停了一锤。她用两束耐热灵草回礼，示意你从另一侧的阴影离开。'}
+    ]},
+    ash_orchard:{name:'灰烬果园',glyph:'果',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['烧成灰白的果树仍挂着三枚红果。树下没有脚印，只有一只盛着清水的瓷碗。','风过时，红果里传出很轻的笑声。你认得枝叶上留下的药性，却认不出这片果园原来的名字。'],choices:[
+      {label:'摘下一枚，炼成回气丹',text:'获得回气丹 ×1，收入包裹；恢复 24 生命。',itemGrants:[{id:'healing_pill',count:1}],outcome:'果肉遇火即化，留下了一枚温热的丹丸。枝头的笑声随着红色一同淡去。'},
+      {label:'付 22 金币，换枝上凝成的灵露',text:'恢复 20 生命。',goldCost:22,heal:20,outcome:'铜钱沉入碗底，树叶上凝出几滴澄澈灵露。你饮下它们，喉间没有半分灰味。'},
+      {label:'把碗里的清水浇在树根',text:'获得聚灵丹 ×1。',itemGrants:[{id:'spirit_pill',count:1}],outcome:'树根下露出一只细小玉瓶。你收走它时，枯枝轻轻垂低，像替你让开了道路。'}
+    ]},
+    mirror_guest:{name:'隔镜来客',glyph:'镜',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['廊中立着一面没有背板的镜子，一位衣着整齐的女子从镜里朝你颔首。她脚边也有一个包裹，系法与你眼前的商货很像。','“隔着镜子，谁也不能多拿。”她把三只药瓶放在镜前，瓶中各有不同颜色的光。'],choices:[
+      {label:'付 35 金币，交换九转还元丹',text:'获得九转还元丹 ×1，服用时完全恢复生命。',goldCost:35,itemGrants:[{id:'fullheal_pill',count:1}],outcome:'两边的手在镜面相抵，药瓶却真的落进你的掌中。她收好钱，重新把袖口抚平。'},
+      {label:'付 18 金币，交换虎魄丹',text:'获得虎魄丹 ×1。',goldCost:18,itemGrants:[{id:'battle_pill',count:1}],outcome:'赤色丹丸带着灼热的香气。镜里的女子把空位置轻轻擦净，没有再推销别的。'},
+      {label:'谢过她，沿着镜外走',text:'不改变数值。',outcome:'她也向镜子的另一侧走去。谁先离开了视线，你没有回头确认。'}
+    ]},
+    unfinished_portrait:{name:'未竟之像',glyph:'画',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['一幅大画铺在地上，衣冠、手势和背景都已画好，脸上却只有淡淡的底色。颜料旁压着一张小纸，写着：“请留一处你愿意记得的。”','画笔没有指向你。它只是搁在那里，像主人随时会回来。'],choices:[
+      {label:'以 4 点生命留下一抹颜色',text:'随机获得一张本职业稀有技能。',hpCost:4,cardRarity:'rare',outcome:'颜色落在画边的一朵花上。画没有长出你的脸，倒是笔下的一段运气之法清晰起来。'},
+      {label:'付 24 金币，买下旁边的旧画谱',text:'从本局牌组永久移除一张基础牌；牌组至少保留五张。',goldCost:24,removeBasic:true,outcome:'旧画谱只讲留白。你合上它，终于明白有一式熟练的旧招，不必再随身带着。'},
+      {label:'替画纸压住卷起的一角',text:'恢复 8 生命，获得回春草 ×1。',heal:8,itemGrants:[{id:'herb',count:1}],outcome:'窗缝里的风不再掀动画纸。你在廊下歇脚，起身时看见压纸石旁多了一束灵草。'}
+    ]},
+    glass_assembly:{name:'琉璃议席',glyph:'席',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['十二张琉璃椅围着一张无字石桌，其中十一张映着人影。空着的那一张朝向来路，扶手上放着一枚敲席的玉槌。','你站着不动，人影也没有催促。石桌中央有三个小匣，盖上分别刻着灯、刃与叶。'],choices:[
+      {label:'开启刻着灯的小匣',text:'获得聚灵丹 ×2。',itemGrants:[{id:'spirit_pill',count:2}],outcome:'匣中两枚丹药轻轻相碰。十一道人影依次低头，像为一件寻常事务作了见证。'},
+      {label:'开启刻着刃的小匣',text:'付 25 金币，随机获得一张本职业精巧技能。',goldCost:25,cardRarity:'uncommon',outcome:'小匣里不是兵刃，而是一页折成刃形的功诀。你收好它，空椅仍朝着来路。'},
+      {label:'开启刻着叶的小匣',text:'获得凝露叶 ×2。',itemGrants:[{id:'dewherb',count:2}],outcome:'绿叶上还凝着水。你没有坐下，匣盖合拢时，身后的廊门已重新映出前路。'}
+    ]},
+    fate_tailor:{name:'补命针线',glyph:'线',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['一位白发女子坐在星海旁补衣，脚边的线团全是黑色，针尖却每次都带出一缕金光。','她抬眼看了看你的袖口：“衣服能补，伤也能补。别急着把名字一并缝进去。”'],choices:[
+      {label:'付 30 金币，请她补一处旧伤',text:'恢复 24 生命，并获得回春草 ×1。',goldCost:30,heal:24,itemGrants:[{id:'herb',count:1}],outcome:'针尖并未碰到皮肤，衣上的裂口却一寸寸合拢。你再呼吸时，肋下旧痛已轻了许多。'},
+      {label:'付 36 金币，请她缝上拔毒纹',text:'彻底解除缠脉毒，不恢复生命；仅中毒时可选。',goldCost:36,cureAffliction:true,requiresAffliction:true,outcome:'一圈细密的针脚收住掌心黑线。她把末端剪断，连同针尖的一点暗色一并丢进星海。'},
+      {label:'替她收起散落的针',text:'下场战斗首回合获得 12 护盾。',guard:12,outcome:'针没有扎手，只在护符上落了三个细孔。女子把线团拨向一旁，为你让出了路。'}
+    ]},
+    silent_astrolabe:{name:'停转星盘',glyph:'星',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['一座巨大的星盘横卧在断阶上，指针指向一个被刮掉的字。盘沿仍有供人转动的握柄，上面留着不同深浅的指印。','你摸到了一处温热的刻槽。星盘没有转，远处命枢的细线却短暂地绷紧了。'],choices:[
+      {label:'付 28 金币，补回缺失的铜齿',text:'随机获得一张本职业稀有技能。',goldCost:28,cardRarity:'rare',outcome:'铜齿咬合时，盘面只前进了一格。刮掉的字没有回来，藏在刻槽中的一页功诀却完整展开。'},
+      {label:'顺着指针的方向运气',text:'恢复 15 生命，获得聚灵丹 ×1。',heal:15,itemGrants:[{id:'spirit_pill',count:1}],outcome:'一口浊气沿着指针散去。星光在掌心凝成一枚丹丸，盘面仍安静地停在原处。'},
+      {label:'不动星盘，绕过断阶',text:'获得 18 金币。',goldGain:18,outcome:'断阶另一侧有一袋旧钱，袋口扎着褪色绳结。你收好它，没有替星盘选择下一个方向。'}
+    ]},
+    last_campfire:{name:'最后一盏营火',glyph:'火',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['星海中有一块能够落脚的旧石地，篝火烧着从山门带来的松枝。火边没有人，只有三只杯子，杯中的水仍温着。','一张折起的纸压在杯下：“若还有后来的人，请留一杯。”字迹被热气晕开，看不出出自谁手。'],choices:[
+      {label:'坐下喝一杯水，把余下的留下',text:'恢复 18 生命。',heal:18,outcome:'杯里的水有淡淡松香。你把杯子放回原处，火光落在一路带来的行囊上，像远处仍有一扇门。'},
+      {label:'把松枝换成随身火符，取走炉边丹药',text:'失去 3 生命，获得九转还元丹 ×1。',hpCost:3,itemGrants:[{id:'fullheal_pill',count:1}],outcome:'火符引燃时烫过指节。炉边的小药瓶被你取走，松枝却还能为下一位来人继续燃上一阵。'},
+      {label:'把火拨旺，整理最后的护符',text:'下场战斗首回合获得 16 护盾。',guard:16,outcome:'火星没有升向天空，而是融进护符边沿。你看了看留下的两杯水，转身走向命枢。'}
+    ]}
+  };
+  for(const [id,boss] of Object.entries(BOSSES))boss.id=id;
+  for(const [id,event] of Object.entries(EVENTS))event.id=id;
+  const api={REGIONS,REGIONS7:REGIONS,BOSSES,ENEMIES:BOSSES,ELITES,EARLY_BOSSES,MID_BOSSES,FINAL_BOSS,EVENTS,
+    EVENT_IDS:Object.keys(EVENTS),PORTRAIT_IDS:[...Object.keys(BOSSES),...Object.keys(ELITES)],REGION_IDS:REGIONS.map(region=>region.id)};
+  root.NightSeven=api;
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis==='object'?globalThis:window);
+</script>
+<script>
 /* 百妖夜契 — deterministic, DOM-independent game rules. */
 (function (root) {
   'use strict';
   const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
   const EXPEDITION = root.NightExpedition || (typeof module !== 'undefined' && module.exports ? require('./expedition.js') : {});
+  const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
+
+  // Audited defaults are shared by runtime, probes and A/B rule fixtures.
+  const BALANCE = Object.freeze({
+    hpSlope: 0.05, hpMaxFloor: 30, atkStep: 1 / 4,
+    atkCapNormal: 4, atkCapElite: 6, atkCapBoss: 0, firstHitBonusCap: 8,
+    playerMarkCap: 5,
+    scalingWhitelist: Object.freeze(['paper','lantern','ape','bone','yaksha','e_mist','e_lantern','e_priest','gate_boss','camp_boss','snake'])
+  });
 
   const CARDS = {
     C01: { name: '爪击', cost: 1, text: '对敌人造成 6 点伤害。', target: true, attack: true },
@@ -1201,7 +1444,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     C32: { name: '绕指柔', cost: 0, text: '获得 3 点护盾；若此前本回合已打出至少 2 张牌，改为 6 点。消耗。', target: false, exhaust: true },
     C33: { name: '逆鳞', cost: 1, text: '获得 6 点护盾；本轮敌人每段攻击被护盾抵挡时，反击 3 点伤害。反击可叠加，到下个玩家回合清除。', target: false },
     C34: { name: '护心', cost: 2, text: '获得 18 点护盾，移除自己 2 层毒。', target: false },
-    C35: { name: '盾返', cost: 1, text: '造成 4＋当前护盾的伤害（护盾贡献上限 16），不消耗护盾。', target: true, attack: true },
+    C35: { name: '盾返', cost: 1, text: '造成 4＋当前护盾的伤害（护盾贡献上限 10），不消耗护盾。', target: true, attack: true },
     C36: { name: '归息', cost: 1, text: '恢复 4 点生命。消耗。', target: false, exhaust: true }
   };
   Object.assign(CARDS, {
@@ -1239,7 +1482,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
     card.character = id.startsWith('F') ? 'sovereign' : /^[SD]/.test(id) ? 'sword' : 'assassin';
-    card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
+    card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','C35','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
   const STARTERS = {
@@ -1266,11 +1509,12 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     guild: { name: '千灯商盟', motive: '收购奇物与情报，抢占无人知晓的代价。' },
     wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
   };
-  const REGIONS = [
+  const LEGACY_REGIONS = [
     { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,10], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
     { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋金币更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
     { id: 'ritual_core', name: '逆仪腹地', subtitle: '第三幕 · 因果入井', stages: [21,30], description: '归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。', palette: { sky: '#221728', ground: '#4c3c61', accent: '#c5a1e4' } }
   ];
+  const REGIONS = SEVEN.REGIONS7 || LEGACY_REGIONS;
   const NPCS = {
     liu: { id: 'liu', name: '柳照青', faction: '丹霞谷', portrait: 'liu', adult: true, description: '' },
     ji: { id: 'ji', name: '季临川', faction: '太微剑宗外门', portrait: 'ji', adult: true, description: '' },
@@ -1301,6 +1545,19 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       { name: '夜甲', text: '清除全部霜寒与流血，获得护盾 10，架势反击 2', clearChill:true,clearBleed:true,block:10,counter:2 },
       { name: '镇魂', text: '攻击 16，下个玩家回合灵力减少 1', hits:[16],energyPenalty:1 }
     ] },
+    e_mist: { name:'雾中伥', rank:'elite', hp:56, intents:[
+      {name:'牵魂',text:'攻击 10，然后施加 1 层猎记',hits:[10],playerMark:1},
+      {name:'蔽目',text:'攻击 8，然后施加 2 层猎记',hits:[8],playerMark:2},
+      {name:'雾遁',text:'获得护盾 12',block:12}
+    ]},
+    e_lantern: { name:'断桥灯魁', rank:'elite', hp:76, intents:[
+      {name:'引焰',text:'攻击 14',hits:[14]}
+    ]},
+    e_priest: { name:'逆仪祭司', rank:'elite', hp:92, intents:[
+      {name:'祭仪',text:'获得护盾 10，然后施加 1 层猎记',block:10,playerMark:1},
+      {name:'咒刃',text:'攻击 16',hits:[16]},
+      {name:'逆祝',text:'恢复 8 点生命，再获得护盾 8',heal:8,block:8}
+    ]},
     raider: { name: '来客', hp: 42, intents: [
       { name: '试探剑', text: '攻击 7', hits: [7] },
       { name: '封路', text: '获得护盾 5，然后攻击 6，架势反击 2', block:5,hits:[6],counter:2 },
@@ -1331,10 +1588,27 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
   };
   Object.assign(ENEMIES, EXPANSION.ENEMIES || {});
+  Object.assign(ENEMIES, SEVEN.BOSSES || {});
+  // Bosses have no weights: their authored opening and cycle remain learnable.
+  const INTENT_WEIGHTS = {paper:[1,1],lantern:[1,1],ape:[1,1],bone:[1,1],
+    yaksha:[3,2,3],e_mist:[3,2,3],e_lantern:[3],e_priest:[3,2,3]};
+  for (const [id, def] of Object.entries(ENEMIES)) {
+    if (def.rank === 'boss') { delete def.weights; continue; }
+    def.weights = (INTENT_WEIGHTS[id] || def.intents.map(() => 1)).slice();
+  }
+
   Object.assign(RELICS, EXPANSION.RELICS || {});
   const WEAPONS = EXPANSION.WEAPONS || {};
   const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
+  Object.assign(ENVIRONMENTS, {
+    drowned_marsh: {id:'reedmist',name:'沉泽湿雾',text:'本境每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1},
+    furnace_palace: {id:'ashbreath',name:'炉灰灼息',text:'本境每回合首张攻击牌的第一段基础伤害 −1，最低为 0；额外增伤照常。',firstAttackPenalty:1},
+    mirror_heaven: {id:'mirrorwind',name:'镜中逆风',text:'本境每场战斗首个玩家回合灵力 −1；之后恢复正常。',energy:1},
+    abyss_throne: {id:'namelessmist',name:'无名雾幕',text:'本境每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1}
+  });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
+  const LEGACY_EVENT_IDS = EVENT_IDS.slice();
+  for (const id of Object.keys(SEVEN.EVENTS || {})) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
@@ -1345,7 +1619,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
     cave: ['未知洞府','探宝 · 可能发现草药、丹药、遗宝，也可能惊动守藏者'],
-    boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
+    boss: ['镇境关口','固定招式 · 击败镇守者后可继续深入']
   };
   const ROUTE_NAMES = ['松门曲径','沉钟岔道','断碑回廊','乌灯古道','落霞别径','枯河石阶','照影荒庭','折柳旧路','长风栈桥','夜雨碑林','苍苔迷渡','流火废苑','月隙盘山','飞霜残驿','空响祭道','无字长廊','回灯密径','横雾孤城','青绦山隘','藏星回川'];
   const ROUTE_TEMPLATES = ROUTE_NAMES.map((name,index)=>({
@@ -1358,6 +1632,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     const floor=chapter*10+local+1,type=local===9?'boss':local===0?'fight':local===2?'event':['rest','shop','event','fight'][lane%4];
     return {id:`f${floor}-${lane}`,type,name:NODE_INFO[type][0],description:NODE_INFO[type][1],floor,lane,regionIndex:chapter};
   })));
+  const LEGACY_FLOORS = FLOORS.slice(0, LEGACY_REGIONS.length * 10);
   const OMENS = {
     fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
     elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在遗径上', '门缝里渗出铁锈与香灰味'],
@@ -1371,6 +1646,9 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
 
   const REWARD_POOL = Object.keys(CARDS).filter(id => Number(id.slice(1)) >= 3);
   const ORDINARY = ['paper', 'lantern', 'ape', 'bone'];
+  const ELITE_POOL = Object.freeze([
+    Object.freeze(['yaksha','e_mist']), Object.freeze(['e_lantern']), Object.freeze(['e_priest'])
+  ]);
 
   function createGame(options = {}) {
     const rng = typeof options.rng === 'function' ? options.rng : Math.random;
@@ -1380,6 +1658,10 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     let state;
     let activeNode = null;
     const environmentEnabled = options.environment !== false;
+    const scalingEnabled = options.scaling !== false;
+    const legacyCampaign = options.campaign === 'legacy';
+    const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
+    const totalFloors = regions.length * 10;
     let profile = normalProfile(options.profile);
     function normalProfile(value) { return { version: 1, unlocks: value && Array.isArray(value.unlocks) && value.unlocks.includes('feiye') ? ['feiye'] : [] }; }
     function getProfile() { return {version:1,unlocks:profile.unlocks.slice()}; }
@@ -1398,7 +1680,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       }
     }
     function getEnvironment() {
-      const index=state?.journey?.regionIndex||0,id=REGIONS[index].id;
+      const index=state?.journey?.regionIndex||0,id=regions[index].id;
       return {...(ENVIRONMENTS[id]||{}),id,regionIndex:index,enabled:environmentEnabled};
     }
     function getAffliction() {
@@ -1453,7 +1735,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     function getEffectiveCard(id) {
       const card=CARDS[id];if(!card)return null;
       const fallenPenalty=id.startsWith('S')&&state.player.path.fallen;
-      const values={S01:{damage:6},S02:{block:6},S04:{damage:10},S05:{damage:4},S06:{block:3},S07:{block:7},S08:{damage:3},S12:{block:14},S14:{damage:5},S15:{damage:12},S16:{damage:16},D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:12},D06:{damage:26,heal:6}};
+      const values={S01:{damage:6},S02:{block:6},S04:{damage:10},S05:{damage:4},S06:{block:3},S07:{block:7},S08:{damage:3},S12:{block:14},S14:{damage:5},S15:{damage:12},S16:{damage:16},D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:10},D06:{damage:26,heal:6}};
       const value={...(values[id]||{})};if(fallenPenalty)for(const key of ['damage','block'])if(value[key]!=null)value[key]=Math.floor(value[key]/2);
       const altered={
         S01:'造成 3 点伤害；若敌人仍存活，获得 1 层剑意，且敌人已有霜寒时再施加 1 层霜寒。',S02:'获得 3 点护盾，使敌人获得 1 层霜寒。',
@@ -1640,9 +1922,30 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         }
       }
     }
+    function sevenEventAvailable(def, floor=state?.floor||1, regionIndex=state?.journey?.regionIndex||0) {
+      if (legacyCampaign || !def) return false;
+      if (Number.isInteger(def.minFloor) && floor < def.minFloor) return false;
+      if (Number.isInteger(def.maxFloor) && floor > def.maxFloor) return false;
+      if (Number.isInteger(def.regionIndex) && regionIndex !== def.regionIndex) return false;
+      if (Array.isArray(def.regionIndex) && !def.regionIndex.includes(regionIndex)) return false;
+      return true;
+    }
+    function makeSevenBuilders(p) {
+      return Object.fromEntries(Object.entries(SEVEN.EVENTS || {}).map(([id,def])=>[id,()=>{
+        const choices=def.choices.map(original=>{
+          const choice={...original};
+          if (choice.cardRarity) {
+            const pool=cardPool().filter(cardId=>CARDS[cardId].rarity===choice.cardRarity);
+            choice.cardIds=sample(pool.length?pool:cardPool(),Math.max(1,choice.cardCount||1));
+          }
+          return choice;
+        });
+        return {id,name:def.name,glyph:def.glyph||'异',kicker:def.kicker||'雾后见闻',description:def.description||def.story[0],story:def.story.slice(),choices:finishChoices(choices,p)};
+      }]));
+    }
     function makeMap() {
       const weighted=['fight','fight','event','event','rest','rest','shop','elite','cave'],map=[],templates=[];
-      for(let chapter=0;chapter<3;chapter++){
+      for(let chapter=0;chapter<regions.length;chapter++){
         const configured=Array.isArray(options.routeTemplate)?options.routeTemplate[chapter]:options.routeTemplate;
         const template=ROUTE_TEMPLATES[Number.isInteger(configured)&&configured>=0&&configured<20?configured:rand(20)];templates.push({id:template.id,name:template.name,chapter:chapter+1,nodeCount:template.widths.reduce((a,b)=>a+b,0)});
         const rows=template.widths.map((width,local)=>{
@@ -1672,7 +1975,21 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       }
       const introductions=shuffle(['liu','ji','wen']);for(const node of map[2]){const npc=NPCS[introductions[node.lane%3]];node.storyId=npc.id+'_first';node.npc=npc.id;node.name=({liu:'药箱旁的身影',ji:'剑阵旁的人',wen:'符锁旁的低语'})[npc.id];node.description='雾中有人停在路边。';}
       for(const [floor,id]of [[4,'moon_trace'],[14,'sealed_name'],[24,'moon_vow']])setStoryNode(map,floor,id);
-      for(const [floor,enemyId]of [[10,'gate_boss'],[20,'camp_boss'],[30,'snake']]){const node=map[floor-1][0];node.encounter={enemyId:ENEMIES[enemyId]?enemyId:(floor===10?'yaksha':floor===20?'retainer':'snake'),kind:'boss'};node.name=ENEMIES[node.encounter.enemyId].name;node.description='本章最后一道关口。';}
+      const earlyBosses = legacyCampaign ? ['gate_boss','camp_boss','snake'] : shuffle(SEVEN.EARLY_BOSSES || ['gate_boss','camp_boss','snake']).slice(0,3);
+      const bossIds = legacyCampaign ? earlyBosses : [...earlyBosses,...(SEVEN.MID_BOSSES || []),SEVEN.FINAL_BOSS];
+      for (let chapter=0;chapter<regions.length;chapter++) {
+        const enemyId=bossIds[chapter],node=map[(chapter+1)*10-1][0];
+        if (!ENEMIES[enemyId]) throw new Error('Missing chapter boss: '+enemyId);
+        node.encounter={enemyId,kind:'boss'};node.name=ENEMIES[enemyId].name;node.description='本境最后一道关口。';
+      }
+      if (!legacyCampaign) for (let chapter=3;chapter<regions.length;chapter++) {
+        const floor=chapter*10+3,eligible=Object.entries(SEVEN.EVENTS || {}).filter(([,def])=>sevenEventAvailable(def,floor,chapter)).map(([id])=>id);
+        if (!eligible.length) continue;
+        const choices=shuffle(eligible);
+        for (const node of map[floor-1]) {
+          const id=choices[node.lane%choices.length];node.storyId=id;node.name=SEVEN.EVENTS[id].name;node.description='雾后的新一段见闻。';
+        }
+      }
       map.chapterTemplates=templates;map.templateId=templates[0].id;map.templateName=templates[0].name;return map;
     }
     function configureSwordMap(map) {
@@ -1689,7 +2006,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       if (character === 'sovereign') configureSovereignMap(map);
       if (character === 'sword') configureSwordMap(map);
       return {
-        screen, starter, character, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
+        screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
           hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
           deck: cards.map(makeCard),
@@ -1739,7 +2056,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     }
     function clearCombatStatuses() {
       const b = state.battle;
-      b.block = b.energy = b.poison = 0;
+      b.block = b.energy = b.poison = b.playerMark = 0;
       b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = b.enemy.chillProgress = b.enemy.bleed = b.enemy.counter = 0;
       b.enemy.frozen = null;
       b.swordIntent = 0; b.soul = 0;
@@ -1936,8 +2253,9 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
-      if (b.kind === 'boss' && state.floor < 30) {
-        state.stats.chapterBosses++;heal(18,'关口之后的补给');
+      if (b.kind === 'boss') state.stats.chapterBosses++;
+      if (b.kind === 'boss' && state.floor < totalFloors) {
+        heal(18,'关口之后的补给');
         state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
       }
       if (b.kind === 'boss') {
@@ -1945,7 +2263,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         state.screen = canMeetHidden() ? 'threshold' : 'victory';
         state.availableNodes = [];
         state.result = { won: true, floor: state.map.length, enemy: b.enemy.name, character:state.character, power:state.player.power };
-        note('绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。');
+        note(legacyCampaign?'绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。':'无名王座终于沉寂。你带着七境中收回的证据，走向重新出现的归路。');
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
@@ -1995,7 +2313,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         const added=b.hitIndex===0?(b.cardBonus||0):0;
         let base=Math.max(0,amount-added);
         if(b.resolving?.[0]?.id.startsWith('S')&&state.player.path.fallen)base=Math.floor(base/2);
-        if(b.hitIndex===0&&b.corePenalty)base=Math.max(0,base-1);
+        if(b.hitIndex===0&&b.corePenalty)base=Math.max(0,base-b.environment.firstAttackPenalty);
         amount=base+added;
       }
       amount=Math.max(0,amount);
@@ -2047,14 +2365,14 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         log(`封脉余势：本回合灵力减少 ${b.nextEnergyPenalty}。`);
         b.nextEnergyPenalty = 0;
       }
-      if(environmentEnabled && b.environment.regionIndex===1 && b.turn===1){turnEnergy=Math.max(0,turnEnergy-1);log('逆灵风：首回合灵力减少1。');event('environment',{name:b.environment.name,amount:-1,kind:'energy'});}
+      if(environmentEnabled && b.environment.energy && b.turn===1){turnEnergy=Math.max(0,turnEnergy-b.environment.energy);log(`${b.environment.name}：首回合灵力减少${b.environment.energy}。`);event('environment',{name:b.environment.name,amount:-b.environment.energy,kind:'energy'});}
       let draw = 5 + b.nextDraw;
       if (b.nextDrawPenalty) {
         draw = Math.max(0, draw - b.nextDrawPenalty);
         log(`扰心余势：本回合少抽 ${b.nextDrawPenalty} 张牌。`);
         b.nextDrawPenalty = 0;
       }
-      if(environmentEnabled&&b.environment.regionIndex===0&&b.turn===1){draw=Math.max(0,draw-1);log('入骨瘴：首回合少抽1张牌。');event('environment',{name:b.environment.name,amount:-1,kind:'draw'});}
+      if(environmentEnabled&&b.environment.firstTurnDrawPenalty&&b.turn===1){draw=Math.max(0,draw-b.environment.firstTurnDrawPenalty);log(`${b.environment.name}：首回合少抽${b.environment.firstTurnDrawPenalty}张牌。`);event('environment',{name:b.environment.name,amount:-b.environment.firstTurnDrawPenalty,kind:'draw'});}
       if (hasRelic('moonheart')) {
         turnEnergy += 1;
         log('月髓触发：本回合额外获得 1 点灵力。');
@@ -2083,14 +2401,42 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       drawCards(draw);
       b.phase = 'player';
     }
+    function combatScaling(id, kind) {
+      const def = ENEMIES[id], clampedFloor = Math.max(1, Math.min(BALANCE.hpMaxFloor, state.floor));
+      const enabled = scalingEnabled && BALANCE.scalingWhitelist.includes(id);
+      const rank = def.rank === 'boss' || kind === 'boss' || kind === 'hidden' ? 'boss' : def.rank === 'elite' || kind === 'elite' ? 'elite' : 'normal';
+      const cap = rank === 'boss' ? BALANCE.atkCapBoss : rank === 'elite' ? BALANCE.atkCapElite : BALANCE.atkCapNormal;
+      return {enabled, baseHp:def.hp, clampedFloor,
+        hpMultiplier:enabled ? 1 + BALANCE.hpSlope * (clampedFloor - 1) : 1,
+        attackBonus:enabled ? Math.min(cap, Math.floor((clampedFloor - 1) * BALANCE.atkStep)) : 0};
+    }
+    function pickElite() {
+      const chapter = Math.max(0, Math.min(ELITE_POOL.length - 1, Math.floor((state.floor - 1) / 10)));
+      const pool = ELITE_POOL[chapter];
+      return pool[rand(pool.length)];
+    }
+    function rollIntent(enemyId, previous = null) {
+      const def = ENEMIES[enemyId], weights = def.weights;
+      if (!Array.isArray(weights)) return previous === null ? 0 : (previous + 1) % def.intents.length;
+      let choices = def.intents.map((_,index)=>({index,weight:Math.max(0,weights[index]||0)}))
+        .filter(choice=>choice.weight>0 && choice.index!==previous);
+      // A single-action enemy necessarily repeats its only move.
+      if (!choices.length) choices=def.intents.map((_,index)=>({index,weight:Math.max(0,weights[index]||0)})).filter(choice=>choice.weight>0);
+      const total = choices.reduce((sum,choice)=>sum+choice.weight,0);
+      let ticket = rand(total);
+      for (const choice of choices) { if (ticket < choice.weight) return choice.index; ticket -= choice.weight; }
+      return choices[choices.length-1].index;
+    }
     function startBattle(kind, encounter = null) {
-      const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? 'yaksha' : ORDINARY[rand(ORDINARY.length)]);
+      // Ordinary selection stays at this exact call site and executes once per ordinary encounter.
+      const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? pickElite() : ORDINARY[rand(ORDINARY.length)]);
       const def = ENEMIES[id];
+      const scaling = combatScaling(id, kind), hp = Math.round(def.hp * scaling.hpMultiplier);
       state.battle = {
-        kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
+        kind, scaling, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: 0 },
-        block: 0, energy: 0, poison: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
+        enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: rollIntent(id, null) },
+        block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, pillPower:Math.max(0,Math.min(4,state.player.pendingPillPower||0)), itemUsedTurn:0, nextEnergyPenalty:0, nextDrawPenalty:0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
@@ -2123,7 +2469,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     function advance() {
       completeNode();
       state.floor++;
-      const regionIndex = Math.min(REGIONS.length - 1, Math.floor((state.floor - 1) / 10));
+      const regionIndex = Math.min(regions.length - 1, Math.floor((state.floor - 1) / 10));
       const crossed = regionIndex !== state.journey.regionIndex;
       state.journey.regionIndex = regionIndex;
       state.screen = crossed ? 'arrival' : 'map';
@@ -2141,7 +2487,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       state = freshState('arrival', starter);
       expedition.resetRun();
       activeNode = null;
-      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
+      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
       emit();
       return true;
     }
@@ -2149,7 +2495,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       if (state.screen !== 'arrival') return false;
       for (const row of state.map) for (const node of row) if (node.regionIndex === state.journey.regionIndex) node.revealed = true;
       state.screen = 'map';
-      note(`抵达${REGIONS[state.journey.regionIndex].name}。这里只显现当前地域的道路。`);
+      note(`抵达${regions[state.journey.regionIndex].name}。这里只显现当前地域的道路。`);
       emit(); return true;
     }
     function getAvailableNodes() {
@@ -2159,6 +2505,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     function prepareChapter() {
       const j = state.journey;
       if (state.character==='sovereign') return;
+      if (j.regionIndex < 1 || j.regionIndex > 2) return;
       if (!j.chain) return;
       const suffix = j.regionIndex === 1 ? 'return' : 'final';
       for (const node of state.map[j.regionIndex*10+2]) {
@@ -2243,8 +2590,9 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           log('夜牙簪触发：首张攻击第一段伤害增加 2。');
           event('relic', { relic: 'fang', name: RELICS.fang.name, amount: 2 });
         }
-        b.corePenalty=environmentEnabled&&b.environment.regionIndex===2&&!b.coreStrikeUsed;
-        if(b.corePenalty){b.coreStrikeUsed=true;log('离魂隙：本回合首次攻击首段基础伤害减少1，额外增伤照常。');}
+        b.corePenalty=environmentEnabled&&b.environment.firstAttackPenalty&&!b.coreStrikeUsed;
+        if(b.corePenalty){b.coreStrikeUsed=true;log(`${b.environment.name}：本回合首次攻击首段基础伤害减少${b.environment.firstAttackPenalty}，额外增伤照常。`);}
+        bonus = Math.min(bonus, BALANCE.firstHitBonusCap);
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
       b.cardBonus=bonus;
@@ -2252,7 +2600,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
         case 'D01': enemyHit(4+bonus,0,6);break;
         case 'D02': enemyHit(8+bonus,0,3);break;
         case 'D03': enemyHit(16+bonus,0,5);break;
-        case 'D04': gainBlock(12,def.name);drawCards(1);break;
+        case 'D04': gainBlock(10,def.name);break;
         case 'D05': drawCards(2);break;
         case 'D06': enemyHit(26+bonus,0,6);break;
         case 'F01': enemyHit(6+bonus);if(liveBattle())addSoul(1,def.name);break;
@@ -2378,7 +2726,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           gainBlock(18, def.name); const removed = Math.min(2, b.poison); b.poison -= removed;
           event('poison', { amount: -removed, total: b.poison }); log(`护心移除 ${removed} 层毒。`); break;
         }
-        case 'C35': enemyHit(4 + Math.min(16, b.block) + bonus); break;
+        case 'C35': enemyHit(4 + Math.min(10, b.block) + bonus); break;
         case 'C36': heal(4, def.name); break;
       }
       if(card.id.startsWith('D')&&state.player.hp>0)useDemonicCard(card.id);
@@ -2453,10 +2801,21 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           if(enemy.chill)addChill(-enemy.chill,intent.name+'清霜');
         }
         if (intent.clearBleed && enemy.bleed) addBleed(-enemy.bleed,intent.name+'止血');
+        if (intent.heal) {
+          const amount = Math.min(intent.heal, enemy.maxHp - enemy.hp);
+          enemy.hp += amount;
+          log(`${enemy.name}恢复 ${amount} 点生命。`);
+          event('heal', {source:'enemy',target:'enemy',amount,reason:intent.name});
+        }
         if (intent.block) {
           enemy.block += intent.block;
           log(`${enemy.name}获得 ${intent.block} 点护盾。`);
           event('block', { source:'enemy',target:'enemy',amount:intent.block,total:enemy.block });
+        }
+        if ((intent.hits || []).length && b.playerMark > 0) {
+          const spent = b.playerMark; b.playerMark = 0;
+          log(`猎记发动：本次首段额外 ${spent} 伤害，猎记随之散去。`);
+          event('playerMark',{source:'enemy',target:'player',amount:-spent,total:0});
         }
         for (let i=0;i<(intent.hits||[]).length;i++) {
           if(!playerHit(intent.hits[i],i)){emit();return true;}
@@ -2467,6 +2826,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           event('poison',{source:'enemy',target:'player',amount:intent.poison,total:b.poison});
         }
         if(intent.counter){
+          // Counter is a stance, separate from a marked enemy action's first segment.
           enemy.counter=intent.counter;
           log(`${enemy.name}摆出反击架势：每张攻击牌首次伤及生命时，反击 ${intent.counter} 点；持续到下个敌方回合。`);
           event('enemySkill',{source:'enemy',target:'enemy',kind:'counter',name:intent.name,amount:intent.counter,text:'反击架势'});
@@ -2479,10 +2839,16 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           b.nextDrawPenalty+=intent.drawPenalty;
           event('enemySkill',{source:'enemy',target:'player',kind:'drawPenalty',name:intent.name,amount:intent.drawPenalty,text:`下个回合少抽 ${intent.drawPenalty} 张牌`});
         }
+        if (intent.playerMark) {
+          const before = b.playerMark || 0;
+          b.playerMark = Math.min(BALANCE.playerMarkCap, before + intent.playerMark);
+          log(`你获得 ${b.playerMark - before} 层猎记（共 ${b.playerMark} 层）；下一次敌方行动首段攻击每层额外造成 1 伤害，然后清除。`);
+          event('playerMark',{source:'enemy',target:'player',amount:b.playerMark-before,total:b.playerMark});
+        }
       }
       if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
       enemy.frozen=null;
-      enemy.intentIndex=(enemy.intentIndex+1)%ENEMIES[enemy.id].intents.length;
+      enemy.intentIndex=rollIntent(enemy.id,enemy.intentIndex);
       note('你的回合。先看敌人意图，再决定攻守。');
       startPlayerTurn();emit();return true;
     }
@@ -2631,6 +2997,10 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       if (choice.goldGain) {
         p.gold += choice.goldGain;
         received.push(`金币 +${choice.goldGain}`);
+      }
+      for (const grant of choice.itemGrants || []) {
+        const count=grant.count||grant.amount||1;
+        if (expedition.grantItem(grant.id,count)) received.push(`${EXPEDITION.ITEMS[grant.id].name} ×${count}`);
       }
       if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon))p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`); }
       if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
@@ -3063,9 +3433,9 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
           };
         }
       };
-      Object.assign(builders, makeJourneyBuilders(p, rare), makeExpansionBuilders(p), makeSwordBuilders(p));
+      Object.assign(builders, makeJourneyBuilders(p, rare), makeExpansionBuilders(p), makeSwordBuilders(p), makeSevenBuilders(p));
       const fixedEvents=['moon_trace','sealed_name','moon_vow','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'];
-      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id));
+      const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id)&&(!SEVEN.EVENTS?.[id]||sevenEventAvailable(SEVEN.EVENTS[id])));
       const unseen = ids.filter(id => !state.seenEvents.includes(id));
       const pool = unseen.length ? unseen : ids;
       const id = activeNode?.storyId || pool[rand(pool.length)];
@@ -3114,16 +3484,19 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       const b=state.battle;if(!b)return null;
       const intent=ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
       const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
+      const attackBonus = b.scaling?.attackBonus || 0;
       // A cleansing action removes frost before attacking; preview the resulting actual hits.
       const reduction=chill>=5&&!intent.clearChill?1:0;
-      const hits=baseHits.map(amount=>Math.max(0,amount-reduction)),parts=[];
+      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
       if(intent.clearMark)parts.push('清除全部标记');
       if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
       if(intent.clearBleed)parts.push('清除全部流血');
+      if(intent.heal)parts.push(`恢复 ${intent.heal} 点生命（不超过上限）`);
       if(intent.block)parts.push(`获得护盾 ${intent.block}`);
       if(hits.length===1)parts.push(`攻击 ${hits[0]}`);
       else if(hits.length>1)parts.push(hits.every(x=>x===hits[0])?`连续攻击 ${hits.length} 次，每次 ${hits[0]}`:`连续攻击 ${hits.join('／')}`);
       if(intent.poison)parts.push(`再施加 ${intent.poison} 层毒`);
+      if(intent.playerMark)parts.push(`再施加 ${intent.playerMark} 层猎记（下一次敌方行动首段每层 +1，触发后清除）`);
       if(intent.counter)parts.push(`架势反击 ${intent.counter}（每张伤及生命的攻击牌一次，到下个敌方回合开始）`);
       if(intent.energyPenalty)parts.push(`下个玩家回合灵力 −${intent.energyPenalty}`);
       if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
@@ -3132,7 +3505,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       if(reduction)text+='（霜寒压制：每段攻击 −1）';
       if(frozen)text='冰封：本次无法行动';
       else if(freezeChance&&b.enemy.frozen===null)text+='；10% 几率冰封，本次无法行动';
-      return {...intent,hits:frozen?[]:hits,baseHits,chill,frozen,freezeChance,text};
+      return {...intent,hits:frozen?[]:hits,baseHits,attackBonus,chill,frozen,freezeChance,text};
     }
 
     state = freshState('title');
@@ -3145,7 +3518,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     };
   }
 
-  const api = { ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);
@@ -3196,14 +3569,16 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   function swordFallback(){return `<svg viewBox="0 0 500 760" aria-hidden="true"><defs><linearGradient id="sword-robes" x2="1" y2="1"><stop stop-color="#edf5f1"/><stop offset="1" stop-color="#476c8b"/></linearGradient></defs><path d="M166 200 Q92 220 86 516 L52 742 H429 L391 485 Q398 245 321 205Z" fill="#172938"/><path d="M169 214 L111 424 L79 754 H422 L373 425 L317 213Z" fill="url(#sword-robes)"/><path d="M196 237 L249 350 L301 239 L333 738 H173Z" fill="#b8d1db"/><path d="M171 335 Q254 372 331 335 L341 381 H158Z" fill="#284760"/><path d="M168 112 Q172 35 248 36 Q337 35 337 137 L319 278 L291 244 L297 144 L197 146 L196 270 L166 282Z" fill="#172330"/><ellipse cx="250" cy="157" rx="63" ry="84" fill="#eedbd2"/><path d="M186 128 Q200 43 273 65 L315 149 L281 109 L252 89 L214 142 L202 192 L184 214Z" fill="#182534"/><path d="M209 157 L236 159 M264 159 L291 155" stroke="#3a3542" stroke-width="4"/><path d="M214 161 L231 161 M269 160 L286 159" stroke="#9bddeb" stroke-width="3"/><path d="M240 205 Q252 200 264 204" fill="none" stroke="#985c6a" stroke-width="3"/><path d="M244 53 L267 20 L280 64" fill="#b3e9f7" stroke="#e7f6f9"/><path d="M366 271 L391 282 L337 662 L323 661Z" fill="#dfedee" stroke="#7cc3dc" stroke-width="3"/><path d="M350 319 L402 327 M376 283 L384 245" stroke="#aacbd3" stroke-width="8"/><g fill="#c2f4ff"><path d="M94 152 L103 174 L124 182 L103 190 L94 214 L87 190 L66 182 L87 174Z"/><path d="M373 98 L381 119 L398 126 L381 133 L373 155 L365 133 L348 126 L365 119Z"/></g></svg>`;}
   function isFallen(){return heroId()==='sword'&&game?.state.screen!=='title'&&!!game?.state.player?.path?.fallen;}
   function heroSources(kind){return kind==='feiye'?(assets.puppet?.feiye||{}):kind==='sword'?(isFallen()?(assets.puppet?.sword_fallen||{normal:images.sword_fallen}):(assets.puppet?.sword||{})):(assets.puppet||{});}
-  function heroPortraitAlt(kind,stage){return (kind==='sword'&&isFallen()?'沈霜白，银发赤瞳，黑红衣袍，含笑持霜剑':names[kind]||kind)+' · '+stageNames[stage];}
-  function portrait(kind,options={}){const player=options.player??(['cat','sword'].includes(kind)||(kind==='feiye'&&heroId()==='sovereign')),p=game?.state.player||{hp:60,maxHp:60},stage=options.previewStage||damageStage(p.hp,p.maxHp),src=player?(heroSources(kind)[stage]||images[kind]):images[kind],hp=options.previewStage?({normal:60,wounded:30,critical:15})[stage]:p.hp,maxHp=options.previewStage?60:p.maxHp;return `<div class="portrait ${player?'hero-portrait '+kind+'-portrait damage-'+stage+(kind==='sword'&&isFallen()?' fallen-portrait':''):''}" data-portrait="${kind}" ${player?`data-hp="${hp}" data-max-hp="${maxHp}" data-damage-stage="${stage}" ${options.previewStage?`data-preview-stage="${stage}"`:''}`:''}>${kind==='sword'?(YokaiArt[isFallen()?'sword_fallen':'sword']||swordFallback()):(YokaiArt[kind]||YokaiArt.paper)}${src&&!src.startsWith('__')?`<img src="${esc(src)}" alt="${esc(player?heroPortraitAlt(kind,stage):names[kind]||kind)}" onload="this.parentElement.classList.add('portrait-image-ready')" onerror="this.parentElement.classList.add('image-failed')">`:''}${player?`<span class="damage-stage-label" ${stage==='normal'?'hidden':''}>${stageNames[stage]}</span>`:''}</div>`;}
+  function heroPortraitAlt(kind,stage){return (kind==='sword'&&isFallen()?'沈霜白，银发赤瞳，黑红衣袍，含笑持霜剑':names[kind]||ENEMIES[kind]?.name||kind)+' · '+stageNames[stage];}
+  function portrait(kind,options={}){const player=options.player??(['cat','sword'].includes(kind)||(kind==='feiye'&&heroId()==='sovereign')),p=game?.state.player||{hp:60,maxHp:60},stage=options.previewStage||damageStage(p.hp,p.maxHp),src=player?(heroSources(kind)[stage]||images[kind]):images[kind],hp=options.previewStage?({normal:60,wounded:30,critical:15})[stage]:p.hp,maxHp=options.previewStage?60:p.maxHp;return `<div class="portrait ${player?'hero-portrait '+kind+'-portrait damage-'+stage+(kind==='sword'&&isFallen()?' fallen-portrait':''):''}" data-portrait="${kind}" ${player?`data-hp="${hp}" data-max-hp="${maxHp}" data-damage-stage="${stage}" ${options.previewStage?`data-preview-stage="${stage}"`:''}`:''}>${kind==='sword'?(YokaiArt[isFallen()?'sword_fallen':'sword']||swordFallback()):(YokaiArt[kind]||YokaiArt.paper)}${src&&!src.startsWith('__')?`<img src="${esc(src)}" alt="${esc(player?heroPortraitAlt(kind,stage):names[kind]||ENEMIES[kind]?.name||kind)}" onload="this.parentElement.classList.add('portrait-image-ready')" onerror="this.parentElement.classList.add('image-failed')">`:''}${player?`<span class="damage-stage-label" ${stage==='normal'?'hidden':''}>${stageNames[stage]}</span>`:''}</div>`;}
   function heroRoots(scope){return [...(scope?.matches?.('.hero-portrait')?[scope]:[]),...(scope?.querySelectorAll?.('.hero-portrait')||[])];}
   function disposePortraits(scope){for(const root of heroRoots(scope)){clearTimeout(root._reactionTimer);root.getAnimations?.().forEach(animation=>animation.cancel());}}
   function syncPlayerAppearance(player){for(const root of app.querySelectorAll('[data-combatant="player"] .hero-portrait')){const previous=root.dataset.damageStage,stage=damageStage(player.hp,player.maxHp),kind=root.dataset.portrait,src=heroSources(kind)[stage]||images[kind];root.dataset.hp=String(player.hp);root.dataset.maxHp=String(player.maxHp);root.dataset.damageStage=stage;for(const id of ['normal','wounded','critical'])root.classList.toggle('damage-'+id,id===stage);const image=root.querySelector(':scope > img');if(image&&src&&image.getAttribute('src')!==src){root.classList.remove('image-failed','portrait-image-ready');image.src=src;}if(image)image.alt=heroPortraitAlt(kind,stage);root.classList.toggle('fallen-portrait',kind==='sword'&&isFallen());const label=root.querySelector('.damage-stage-label');if(label){label.hidden=stage==='normal';label.textContent=stageNames[stage];}if(previous&&previous!==stage){root.dataset.stageChanged=stage;const mark=fx('damage-transition','player',`<span>${stage==='normal'?'重新稳住气息':stage==='wounded'?'衣染战痕':'命火未熄'}</span>`);setTimeout(()=>{mark.remove();delete root.dataset.stageChanged;},motionMode==='fast'?150:750);}}}
   function portraitAct(type,options={}){const root=app.querySelector('[data-combatant="player"] .hero-portrait');if(!root)return;root.dataset.reaction=type;clearTimeout(root._reactionTimer);root._reactionTimer=setTimeout(()=>{if(root.isConnected)delete root.dataset.reaction;},motionMode==='fast'?100:type==='revive'?700:430);}
-  function regionIndex(){const supplied=game.state.journey?.regionIndex;if(Number.isInteger(supplied))return Math.max(0,Math.min(REGIONS.length-1,supplied));const floor=game.state.floor||1,found=REGIONS.findIndex(r=>floor>=r.stages[0]&&floor<=r.stages[1]);return found<0?REGIONS.length-1:found;}
-  function currentRegion(){return REGIONS[regionIndex()];}
+  function regions(){return game?.state?.regions||REGIONS;}
+  function totalFloors(){return game?.state?.totalFloors||regions().at(-1)?.stages?.[1]||70;}
+  function regionIndex(){const supplied=game.state.journey?.regionIndex;if(Number.isInteger(supplied))return Math.max(0,Math.min(regions().length-1,supplied));const floor=game.state.floor||1,found=regions().findIndex(r=>floor>=r.stages[0]&&floor<=r.stages[1]);return found<0?regions().length-1:found;}
+  function currentRegion(){return regions()[regionIndex()];}
   function regionRange(){return currentRegion().stages||[1,10];}
   function regionLength(){const range=regionRange();return range[1]-range[0]+1;}
   function regionRows(){const range=regionRange();return (game.state.map||[]).filter(row=>row[0]&&row[0].floor>=range[0]&&row[0].floor<=range[1]);}
@@ -3226,6 +3601,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   }
   function combatStatusMarkup(b){const items=[];
     if(b.poison)items.push(statusIcon('poison','poison','查看伤势'));
+    if(b.playerMark)items.push(statusIcon('playerMark','event','查看符咒'));
     if(b.soul)items.push(statusIcon('soul','soul'));
     if(game.state.player.power)items.push(statusIcon('power','soul'));
     if(b.swordIntent)items.push(statusIcon('swordIntent','swordIntent'));
@@ -3254,6 +3630,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       environment:e?{title:e.name,key:'environment',text:e.text}:null,
       weapon:game.state.player.equippedWeapon?{title:w.name,key:'weapon',text:[WEAPONS[w.id]?.text||WEAPONS[w.id]?.description,weaponOmen()||(!w.controlled?'器中灵息躁动，尚难完全驾驭。':'掌中兵刃灵息平稳。')].filter(Boolean).join(' '),equipment:true}:null,
       poison:b.poison?{title:'毒附经脉',key:'poison',text:`当前附毒 ${b.poison} 层。玩家回合开始时，失去等同层数的生命，随后毒减少 1 层；毒伤无视护盾。`}:null,
+      playerMark:b.playerMark?{title:'魂标缠身',key:'event',text:`当前魂标 ${b.playerMark} / 5 层。敌人下一次有攻击的行动，第一段伤害额外增加 ${b.playerMark}，随后魂标全部消散。新施加的魂标会留到后续行动；护盾仍可抵挡这部分伤害。`}:null,
       soul:b.soul?{title:'魂息流转',key:'soul',text:`当前魂息 ${b.soul}，最多积蓄 6。依具体牌面蓄积或消耗，跨回合保留。`}:null,
       power:game.state.player.power?{title:'旧力归身',key:'soul',text:`当前归身之力 ${game.state.player.power}，每张攻击的第一段额外获得对应伤害。`}:null,
       swordIntent:b.swordIntent?{title:'剑意凝锋',key:'swordIntent',text:`当前剑意 ${b.swordIntent}，最多积蓄 8。剑意跨回合保留，只有指定剑诀会将其消耗。`}:null,
@@ -3295,7 +3672,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   function weaponOmen(){const w=weaponStatus(),omen=game.state.battle?.weaponOmen||w.omen;return typeof omen==='string'?omen:omen?.text||'';}
   function weaponCard(id,mode='inventory',index=0){const w=WEAPONS[id];if(!w)return '';const p=game.state.player,held=p.equippedWeapon===id,needed=w.requiredLevel||w.reqLevel||1,unruly=(p.level||1)<needed,rebellious=unruly&&id==='divine',entry=game.state.shop?.weapons?.[index],price=entry?.price??w.price??0,allowed=['arrival','map','rest','shop','threshold'].includes(game.state.screen)||(game.state.screen==='event'&&game.state.event?.resolved);return `<article class="weapon-card ${unruly?'unruly':''}" data-weapon="${esc(id)}"><span class="weapon-rank">${unruly?'灵识不足':'灵息相合'} · 要求灵识等级 ${needed}</span>${picture('weapons',id,'剑',w.name,'weapon-art')}<h3>${esc(w.name)}</h3><p>${esc(w.text||w.description||'')}</p>${rebellious?'<p class="weapon-warning">仍可佩带，但每回合按固定次序干扰持有者。可点开随身兵刃察看当前气息。</p>':unruly?'<p class="weapon-warning">灵识尚不足，需提升到要求等级后佩带。</p>':''}${mode==='shop'?btn('buy-weapon',entry?.bought?'已收入剑匣':`${price} 金币 · 收下此器`,'btn '+(!entry?.bought&&p.gold>=price?'primary':'ghost'),`data-index="${index}" ${entry?.bought||p.gold<price?'disabled':''}`):btn('equip-weapon',held?'当前佩带':unruly&&!rebellious?'灵识等级不足':allowed?'佩带此器':'战斗与战利结算中不能换器','btn '+(held?'ghost':'primary'),`data-id="${esc(id)}" ${held||!allowed||(unruly&&!rebellious)?'disabled':''}`)}${mode==='shop'&&p.gold<price?`<small class="reason">金币不足 ${price}</small>`:''}</article>`;}
   function profileSettings(){const current=game.getProfile?.()||savedProfile;return `<section class="profile-settings"><h3>留下的名字</h3><p>本局生命、卡牌与路线不会保存。已解锁的角色会单独记在此浏览器中。换设备或浏览器时，可复制凭证并在另一处载入。</p>${!profileStorage?'<p class="weapon-warning">此浏览器未允许本地保存。离开前请复制下方解锁凭证。</p>':''}<label for="profile-code">角色解锁凭证</label><textarea id="profile-code" rows="5" spellcheck="false" aria-label="角色解锁凭证">${esc(JSON.stringify(current))}</textarea><div class="actions">${btn('profile-export','生成并选中凭证','btn ghost')}${btn('profile-import','载入上方凭证','btn primary')}</div><small>凭证只包含角色解锁，不改变本局数值。</small></section>`;}
-  function thresholdScreen(){return `<section class="threshold-screen">${picture('events','hidden_threshold','月','井下的回响','threshold-art')}<div class="threshold-copy"><div class="eyebrow">BEYOND THE LAST STEP / 井声之外</div><h2>有一轮月，尚未落下</h2><p class="story">绛鳞沉入井底，归路已经打开。<br>你收过的残响却在此刻一齐应答。<br>石壁后，有人像认出了一位旧客，缓缓挪开了灯。</p><p class="description">可以带着此行所得离开。若继续走进去，将面对另一场真正的战斗；现有生命、牌组与装备会继续使用。</p><div class="actions">${btn('hidden-enter','循着回响，走下去 →','btn primary')}${btn('threshold-leave','收起行囊，离开寒渊','btn ghost')}${btn('equipment','最后检查剑匣','btn ghost')}</div></div></section>`;}
+  function thresholdScreen(){return `<section class="threshold-screen">${picture('events','hidden_threshold','月','井下的回响','threshold-art')}<div class="threshold-copy"><div class="eyebrow">BEYOND THE LAST STEP / 井声之外</div><h2>有一轮月，尚未落下</h2><p class="story">最深处的契印终于崩裂，归路已经打开。<br>你收过的残响却在此刻一齐应答。<br>石壁后，有人像认出了一位旧客，缓缓挪开了灯。</p><p class="description">可以带着此行所得离开。若继续走进去，将面对另一场真正的战斗；现有生命、牌组与装备会继续使用。</p><div class="actions">${btn('hidden-enter','循着回响，走下去 →','btn primary')}${btn('threshold-leave','收起行囊，离开寒渊','btn ghost')}${btn('equipment','最后检查剑匣','btn ghost')}</div></div></section>`;}
   function renderHud(){
     const s=game.state,p=s.player,b=s.battle,active=s.screen!=='title';
     document.getElementById('deck-nav').hidden=!active;document.getElementById('restart-nav').hidden=!active;document.getElementById('journal-nav').hidden=!active;const equipmentNav=document.getElementById('equipment-nav');if(equipmentNav)equipmentNav.hidden=!active;const bagNav=document.getElementById('bag-nav');if(bagNav){bagNav.hidden=!active;bagNav.innerHTML=symbol('bag')+'包裹';}
@@ -3304,17 +3681,17 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   function starterCards(ids){const grouped={};for(const id of ids||[])grouped[id]=(grouped[id]||0)+1;return Object.entries(grouped).map(([id,count])=>`${CARDS[id]?.name||id}×${count}`).join(' · ');}
   function titleScreen(){
     const h=hero(),isSword=heroId()==='sword',sovereign=heroId()==='sovereign',ids=h.starters||[isSword?'sword':sovereign?'sovereign':'mark'],starters=Object.entries(STARTERS||{}).filter(([id])=>ids.includes(id));
-    return `<section class="intro expedition-intro"><div class="intro-copy"><div class="eyebrow">THE SEALED ABYSS / 寒渊封域</div><h1>百妖夜契</h1><p class="subtitle">有些秘藏，不该被唤醒。</p><p class="story">玄烬教的引灵实验失控，整片寒渊在一夜间反噬。<br>黑雾遮断窥视，山川变形，活物难以久留。<br>各方入域探查、寻人，或带走尚未有主的东西。<br>${sovereign?'而你，来取回被遗忘的名字。':'你也踏入此地——但并非为了同一个答案。'}</p><div class="character-options" role="group" aria-label="选择职业">${Object.entries(HEROES).map(([id,c])=>{const locked=!isUnlocked(id);return btn('character',`<span class="profession-mark">${locked?'？':id==='sovereign'?'月':id==='sword'?'剑':'影'}</span><span><b>${locked?'雾后之人':esc(c.name)}</b><small>${locked?'尚未相逢':esc(c.profession)}</small><em>${locked?'井声之外，还有未尽的回响。':id==='sovereign'?'魂息流转 · 旧力归身 · 重走故地':id==='sword'?'剑意蓄发 · 霜寒制敌':'猎印潜袭 · 连段收割'}</em></span>`,'character-option '+(locked?'locked ':heroId()===id?'chosen':''),`data-character="${id}" aria-pressed="${heroId()===id}" ${locked?'disabled':''}`);}).join('')}</div><div class="hero-introduction"><span>${esc(h.profession)}</span><p>${sovereign?'你听见三个地方有人用自己的声音呼唤。破碎的影子、改换门庭的旧人、镜里未肯退让的自己——那些被分走的力量，仍认得原来的主人。':isSword?'沈霜白只接了探查失踪弟子的命令。她不惯解释，也不喜争辩；长剑出鞘时，霜声便是答复。':'夜铃擅长从最薄弱处切入，以猎印追踪，以连击终结。寻找解契之法仍是她的私心。'}</p><b>“${sovereign?'别跪了。我只是来取回自己的东西。':isSword?'跟紧。别碰雾。':'宝物归谁，活着再谈。'}”</b></div><div class="starter-label">选择出发构筑 <span>独立职业牌池 · 10 张起手</span></div><div class="starter-options ${starters.length===1?'single-starter':''}" role="group" aria-label="开局流派">${starters.map(([id,t])=>btn('starter',`<b>${esc(t.name)}</b><span>${esc(t.description)}</span><small>${esc(starterCards(t.cards))}</small>`,'starter-option '+(starter===id?'chosen':''),`data-starter="${id}" aria-pressed="${starter===id}"`)).join('')}</div><div class="actions">${btn('start','踏入封域　→','btn primary')}${btn('world','封域与势力','btn ghost')}${btn('catalogue',`查阅 ${Object.keys(CARDS).filter(catalogueVisible).length} 张技能`,'btn ghost')}${btn('profile','解锁凭证','btn ghost')}</div><p class="note">离线单人试玩 · 本局进度不保存；已解锁角色单独记在此浏览器中。</p></div><div class="hero-showcase"><div class="intro-art">${portrait(heroKind())}<div class="nameplate">${esc(h.name)}<small>${esc(h.profession)} · ${sovereign?'月落归身':isSword?'剑出霜生':'影落无声'}</small></div></div></div></section>`;
+    return `<section class="intro expedition-intro"><div class="intro-copy"><div class="eyebrow">THE SEALED ABYSS / 寒渊封域</div><h1>百妖夜契</h1><p class="subtitle">有些秘藏，不该被唤醒。</p><p class="story">玄烬教的引灵实验失控，整片寒渊在一夜间反噬。<br>黑雾遮断窥视，山川变形，活物难以久留。<br>各方入域探查、寻人，或带走尚未有主的东西。<br>${sovereign?'而你，来取回被遗忘的名字。':'你也踏入此地——但并非为了同一个答案。'}</p><div class="character-options" role="group" aria-label="选择职业">${Object.entries(HEROES).map(([id,c])=>{const locked=!isUnlocked(id);return btn('character',`<span class="profession-mark">${locked?'？':id==='sovereign'?'月':id==='sword'?'剑':'影'}</span><span><b>${locked?'雾后之人':esc(c.name)}</b><small>${locked?'尚未相逢':esc(c.profession)}</small><em>${locked?'井声之外，还有未尽的回响。':id==='sovereign'?'魂息流转 · 旧力归身 · 重走故地':id==='sword'?'剑意蓄发 · 霜寒制敌':'猎印潜袭 · 连段收割'}</em></span>`,'character-option '+(locked?'locked ':heroId()===id?'chosen':''),`data-character="${id}" aria-pressed="${heroId()===id}" ${locked?'disabled':''}`);}).join('')}</div><div class="hero-introduction"><span>${esc(h.profession)}</span><p>${sovereign?'你听见三个地方有人用自己的声音呼唤。破碎的影子、改换门庭的旧人、镜里未肯退让的自己——那些被分走的力量，仍认得原来的主人。':isSword?'沈霜白只接了探查失踪弟子的命令。她不惯解释，也不喜争辩；长剑出鞘时，霜声便是答复。':'夜铃擅长从最薄弱处切入，以猎印追踪，以连击终结。寻找解契之法仍是她的私心。'}</p><b>“${sovereign?'别跪了。我只是来取回自己的东西。':isSword?'跟紧。别碰雾。':'宝物归谁，活着再谈。'}”</b></div><div class="starter-label">选择出发构筑 <span>独立职业牌池 · 10 张起手</span></div><div class="starter-options ${starters.length===1?'single-starter':''}" role="group" aria-label="开局流派">${starters.map(([id,t])=>btn('starter',`<b>${esc(t.name)}</b><span>${esc(t.description)}</span><small>${esc(starterCards(t.cards))}</small>`,'starter-option '+(starter===id?'chosen':''),`data-starter="${id}" aria-pressed="${starter===id}"`)).join('')}</div><div class="actions">${btn('start','踏入封域　→','btn primary')}${btn('world','封域与势力','btn ghost')}${btn('bosses','镇境人物志','btn ghost')}${btn('catalogue',`查阅 ${Object.keys(CARDS).filter(catalogueVisible).length} 张技能`,'btn ghost')}${btn('profile','解锁凭证','btn ghost')}</div><p class="note">离线单人试玩 · 本局进度不保存；已解锁角色单独记在此浏览器中。</p></div><div class="hero-showcase"><div class="intro-art">${portrait(heroKind())}<div class="nameplate">${esc(h.name)}<small>${esc(h.profession)} · ${sovereign?'月落归身':isSword?'剑出霜生':'影落无声'}</small></div></div></div></section>`;
   }
   function head(eyebrow,title,description,tag=''){return `<div class="screen-head"><div><div class="eyebrow">${eyebrow}</div><h2>${title}</h2><p>${description}</p></div>${tag?`<span class="tag">${tag}</span>`:''}</div>`;}
-  function journeyStrip(){const index=regionIndex();return `<ol class="journey-strip" aria-label="行旅进程">${REGIONS.map((r,i)=>`<li class="${i<index?'visited':i===index?'present':'unreached'}" ${i===index?'aria-current="step"':''}><span>${['壹','贰','叁'][i]||i+1}</span><div><b>${i<=index?esc(r.name):'黑雾深处'}</b><small>${i<index?'已走过 · 不可返回':i===index?'当前所在':'尚未抵达'}</small></div></li>`).join('')}</ol>`;}
+  function journeyStrip(){const index=regionIndex();return `<ol class="journey-strip" style="--region-count:${regions().length}" aria-label="行旅进程">${regions().map((r,i)=>`<li class="${i<index?'visited':i===index?'present':'unreached'}" ${i===index?'aria-current="step"':''}><span>${['壹','贰','叁','肆','伍','陆','柒'][i]||i+1}</span><div><b>${i<=index?esc(r.name):'黑雾深处'}</b><small>${i<index?'已走过 · 不可返回':i===index?'当前所在':'尚未抵达'}</small></div></li>`).join('')}</ol>`;}
   function journalEntries(){return Array.isArray(game.state.journey?.journal)?game.state.journey.journal:[];}
   function npcLabel(id){return NPCS[id]?.name||({liu:'柳照青',ji:'季临川',wen:'闻人烛'})[id]||id||'行旅见闻';}
   function factionLabel(id){return NightPact.FACTIONS?.[id]?.name||id||'封域来客';}
   function relationsMarkup(){const known=[...new Set(journalEntries().map(entry=>entry.npc).filter(Boolean))];return known.length?`<div class="journey-people">${known.map(id=>`<article data-relation="${esc(id)}"><h3>${esc(npcLabel(id))}</h3><small>曾在途中相逢</small></article>`).join('')}</div>`:'';}
-  function journalMarkup(limit=0){let entries=journalEntries();if(limit)entries=entries.slice(-limit);return entries.length?`<ol class="journey-records">${entries.map(entry=>`<li class="tone-neutral"><div class="record-meta"><span>第 ${entry.floor||1} 段 · ${esc(REGIONS[entry.region]?.name||'寒渊封域')}</span>${entry.npc?`<b>${esc(npcLabel(entry.npc))}</b>`:''}</div><h4>${esc(entry.title||'行旅记事')}</h4><p>${esc(entry.text||'')}</p></li>`).join('')}</ol>`:'<div class="journal-empty"><span>缘起未书</span><p>雾里的人还未与你相逢。此后认得的名字、做过的选择，都会记在这里。</p></div>';}
+  function journalMarkup(limit=0){let entries=journalEntries();if(limit)entries=entries.slice(-limit);return entries.length?`<ol class="journey-records">${entries.map(entry=>`<li class="tone-neutral"><div class="record-meta"><span>第 ${entry.floor||1} 段 · ${esc(regions()[entry.region]?.name||'寒渊封域')}</span>${entry.npc?`<b>${esc(npcLabel(entry.npc))}</b>`:''}</div><h4>${esc(entry.title||'行旅记事')}</h4><p>${esc(entry.text||'')}</p></li>`).join('')}</ol>`:'<div class="journal-empty"><span>缘起未书</span><p>雾里的人还未与你相逢。此后认得的名字、做过的选择，都会记在这里。</p></div>';}
   function journeyPreview(){const recent=journalEntries().at(-1);return `<aside class="journey-preview"><div><span class="eyebrow">TRACES / 此行留下的事</span><h3>${recent?esc(recent.title||'新的一笔'):'前路还没有熟人'}</h3><p>${recent?esc(recent.text||''): '足迹尚浅，纸页空白。'}</p></div>${btn('journal','查看行旅手记 →','btn ghost small')}</aside>`;}
-  function arrivalScreen(){const index=regionIndex(),r=currentRegion(),artId=({gate:'fog_gate',camp:'broken_camp',core:'ritual_core'})[r.id]||r.id,range=regionRange(),length=regionLength();return `<section class="arrival-screen" data-region="${esc(r.id)}">${journeyStrip()}<div class="arrival-stage"><div class="arrival-art">${picture('regions',artId,['门','桥','仪'][index],r.name,'region-art')}<div class="arrival-art-shade"></div><div class="arrival-inscription"><span>${index?'前路已尽，新境初开':'黑雾之后，便无旧路'}</span><b>第${cn[index]}境</b></div></div><div class="arrival-copy"><div class="eyebrow">${['BEYOND THE GATE','ACROSS THE BROKEN BRIDGE','AT THE HEART OF THE RITUAL'][index]} / 行旅渐深</div><h2>${esc(r.name)}</h2><p class="arrival-subtitle">${esc(r.subtitle||['山门已闭，雾中仍有人呼救。','营火未灭，人心各有所求。','仪式还在运转，旧约正在索还。'][index])}</p><p class="arrival-description">${esc(r.description||'走过这一境，才能看见下一片山川。')}</p><div class="arrival-memory">${index?`<b>${esc(REGIONS[index-1].name)}已留在身后</b><span>你的伤势、行囊，以及与他人的旧事，会一起带入此地。</span>`:'<b>从山门开始，一境一境深入</b><span>先走完眼前的十段路，后方地形才会在雾中显现。</span>'}</div><div class="actions">${btn('arrival-enter',`进入${esc(r.name)}　→`,'btn primary')}${btn('journal','翻看行旅手记','btn ghost')}</div><p class="note">本境 ${length} 段路径 · 第 ${range[0]}—${range[1]} 段 · 进入后沿相连地标前进</p></div></div></section>`;}
+  function arrivalScreen(){const index=regionIndex(),r=currentRegion(),artId=({gate:'fog_gate',camp:'broken_camp',core:'ritual_core'})[r.id]||r.id,range=regionRange(),length=regionLength();return `<section class="arrival-screen" data-region="${esc(r.id)}">${journeyStrip()}<div class="arrival-stage"><div class="arrival-art">${picture('regions',artId,['门','桥','仪','泽','炉','镜','渊'][index],r.name,'region-art')}<div class="arrival-art-shade"></div><div class="arrival-inscription"><span>${index?'前路已尽，新境初开':'黑雾之后，便无旧路'}</span><b>第${cn[index]}境</b></div></div><div class="arrival-copy"><div class="eyebrow">${['BEYOND THE GATE','ACROSS THE BROKEN BRIDGE','AT THE HEART OF THE RITUAL','BENEATH THE BLACK WATERS','WITHIN THE SCARLET FURNACE','ABOVE THE SHATTERED SKY','BEFORE THE NAMELESS THRONE'][index]} / 行旅渐深</div><h2>${esc(r.name)}</h2><p class="arrival-subtitle">${esc(r.subtitle||'再走十段，探向更深的寒渊。')}</p><p class="arrival-description">${esc(r.description||'走过这一境，才能看见下一片山川。')}</p><div class="arrival-memory">${index?`<b>${esc(regions()[index-1].name)}已留在身后</b><span>你的伤势、行囊，以及与他人的旧事，会一起带入此地。</span>`:'<b>从山门开始，一境一境深入</b><span>先走完眼前的十段路，后方地形才会在雾中显现。</span>'}</div><div class="actions">${btn('arrival-enter',`进入${esc(r.name)}　→`,'btn primary')}${btn('journal','翻看行旅手记','btn ghost')}</div><p class="note">本境 ${length} 段路径 · 第 ${range[0]}—${range[1]} 段 · 进入后沿相连地标前进</p></div></div></section>`;}
   function regionBackground(className=''){const r=currentRegion();return `<div class="painted-background ${className}" data-painted-region="${esc(r.id)}">${picture('regions',r.id,'境',r.name,'painted-region')}<div class="painted-shade"></div></div>`;}
   function mapScreen(){
     const s=game.state,r=currentRegion(),rows=regionRows(),all=rows.flat(),available=new Set(s.availableNodes||[]),done=new Set(s.history.map(h=>h.id)),byId=Object.fromEntries(all.map(n=>[n.id,n])),reachable=new Set(available),queue=[...available],rowGap=132,mapHeight=Math.max(380,rows.length*rowGap+100);
@@ -3339,7 +3716,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   function battleScreen(){
     const s=game.state,b=s.battle,e=b.enemy,intent=game.getIntent?.()||ENEMIES[e.id].intents[e.intentIndex],active=b.phase==='player'&&!window.uiBusy,h=hero(),sword=heroId()==='sword';
     if(!active||!b.hand.some(c=>c.uid===selected))selected=null;
-    return `<div class="battle-top"><span class="gold">第 ${b.turn} 回合 / ${active?'你的回合':'敌人行动中…'}</span><span class="muted">${selected?'点击敌人结算 · 再点同牌或 Esc 取消':'攻击／施加状态的牌先选牌再点敌人；其他牌点击即用'}</span></div><section class="battle-stage">${regionBackground('battle-background')}<div class="stage-mist" aria-hidden="true"></div><div class="combatant player-combatant" data-combatant="player">${portrait(heroKind())}<div class="combatant-title"><h3>${esc(h.name)} <small class="muted">${esc(h.profession)}</small></h3><div class="stats"><span>护盾 <b class="gold" id="player-block">${b.block}</b></span></div>${combatStatusMarkup(b)}</div></div><div class="intent"><small>下个敌方回合</small><h3>${esc(intent.name)}</h3><p id="intent-text">${esc(intent.text)}</p><div class="cycle">${e.id==='snake'?'鳞刃 → 蛇息 → 蜕鳞 → 绞缠':'按固定行动顺序循环'}</div><div class="combo-meter" id="combo-meter"><b>${b.played}</b><span>本回合出牌</span></div></div><div class="combatant enemy-combatant" data-combatant="enemy"><button class="enemy-target ${selected?'targetable':''}" data-action="target" ${!selected||!active?'disabled':''} aria-label="目标：${esc(e.name)}，生命 ${e.hp}，护盾 ${e.block}，猎印 ${e.mark}">${portrait(e.id==='raider'&&b.storyEncounter?.npc==='ji'?'ji':e.id)}<div class="combatant-title"><h3>${esc(e.name)}</h3><div class="stats"><span>生命 <b id="enemy-hp">${e.hp}</b> / ${e.maxHp}</span><span>护盾 <b class="gold" id="enemy-block">${e.block}</b></span><span ${sword&&!e.mark?'hidden':''}>猎印 <b class="gold" id="enemy-mark">${e.mark}</b> / 5</span></div><div class="enemy-bar"><i id="enemy-hp-bar" style="width:${100*e.hp/e.maxHp}%"></i></div></div></button>${enemyStatusMarkup(e)}${selected?`<div class="target-tip">点击敌人，${heroId()==='sovereign'?'引魂':sword?'出剑':'发动潜袭'}</div>`:''}</div></section><div class="build-hint">${battleHint(b)}</div><div class="battle-tools"><div class="pile-buttons">${[['draw','抽牌堆'],['discard','弃牌堆'],['exhaust','消耗区']].map(([id,name])=>btn('pile',`${name}<b>${b[id].length}</b>`,'',`data-pile="${id}"`)).join('')}${btn('deck',`本局牌组<b>${s.player.deck.length}</b>`,'')}${btn('log','完整日志','')}${btn('bag',symbol('bag')+'包裹','battle-bag')}</div>${btn('end-turn',active?'结束回合 →':'结算中…','btn primary',!active?'disabled':'')}</div><div class="hand-caption"><span>手牌 ${b.hand.length} / 10 · 本回合已打出 ${b.played} 张</span><span>表现：${({full:'完整',fast:'快速',reduced:'减少动态'})[motionMode]} · 顶部「声画设置」可切换</span></div><section class="hand" aria-label="手牌">${b.hand.length?b.hand.map(c=>cardMarkup(c,'hand')).join(''):'<div class="empty">手牌已空，可以结束回合。</div>'}</section><div class="log-row"><span>战斗记录</span><div class="logs" id="recent-logs" aria-live="polite">${visibleLogs(b.logs,true).slice(-8).map(log=>`<p>${esc(log)}</p>`).join('')}</div></div>`;
+    return `<div class="battle-top"><span class="gold">第 ${b.turn} 回合 / ${active?'你的回合':'敌人行动中…'}</span><span class="muted">${selected?'点击敌人结算 · 再点同牌或 Esc 取消':'攻击／施加状态的牌先选牌再点敌人；其他牌点击即用'}</span></div><section class="battle-stage ${bossData(e.id)?'boss-battle':''}" data-enemy="${esc(e.id)}">${regionBackground('battle-background')}<div class="stage-mist" aria-hidden="true"></div><div class="combatant player-combatant" data-combatant="player">${portrait(heroKind())}<div class="combatant-title"><h3>${esc(h.name)} <small class="muted">${esc(h.profession)}</small></h3><div class="stats"><span>护盾 <b class="gold" id="player-block">${b.block}</b></span></div>${combatStatusMarkup(b)}</div></div><div class="intent"><small>下个敌方回合</small><h3>${esc(intent.name)}</h3><p id="intent-text">${esc(intent.text)}</p><div class="cycle">${ENEMIES[e.id].weights?'招式随局势变化 · 下一招已确定':'固定招式次序 · 可据此安排攻守'}</div><div class="combo-meter" id="combo-meter"><b>${b.played}</b><span>本回合出牌</span></div></div><div class="combatant enemy-combatant" data-combatant="enemy"><button class="enemy-target ${selected?'targetable':''}" data-action="target" ${!selected||!active?'disabled':''} aria-label="目标：${esc(e.name)}，生命 ${e.hp}，护盾 ${e.block}，猎印 ${e.mark}">${portrait(e.id==='raider'&&b.storyEncounter?.npc==='ji'?'ji':e.id)}<div class="combatant-title"><h3>${esc(e.name)}</h3><div class="stats"><span>生命 <b id="enemy-hp">${e.hp}</b> / ${e.maxHp}</span><span>护盾 <b class="gold" id="enemy-block">${e.block}</b></span><span ${sword&&!e.mark?'hidden':''}>猎印 <b class="gold" id="enemy-mark">${e.mark}</b> / 5</span></div><div class="enemy-bar"><i id="enemy-hp-bar" style="width:${100*e.hp/e.maxHp}%"></i></div></div></button>${enemyStatusMarkup(e)}${selected?`<div class="target-tip">点击敌人，${heroId()==='sovereign'?'引魂':sword?'出剑':'发动潜袭'}</div>`:''}</div></section>${bossBattleLore(e)}<div class="build-hint">${battleHint(b)}</div><div class="battle-tools"><div class="pile-buttons">${[['draw','抽牌堆'],['discard','弃牌堆'],['exhaust','消耗区']].map(([id,name])=>btn('pile',`${name}<b>${b[id].length}</b>`,'',`data-pile="${id}"`)).join('')}${btn('deck',`本局牌组<b>${s.player.deck.length}</b>`,'')}${btn('log','完整日志','')}${btn('bag',symbol('bag')+'包裹','battle-bag')}</div>${btn('end-turn',active?'结束回合 →':'结算中…','btn primary',!active?'disabled':'')}</div><div class="hand-caption"><span>手牌 ${b.hand.length} / 10 · 本回合已打出 ${b.played} 张</span><span>表现：${({full:'完整',fast:'快速',reduced:'减少动态'})[motionMode]} · 顶部「声画设置」可切换</span></div><section class="hand" aria-label="手牌">${b.hand.length?b.hand.map(c=>cardMarkup(c,'hand')).join(''):'<div class="empty">手牌已空，可以结束回合。</div>'}</section><div class="log-row"><span>战斗记录</span><div class="logs" id="recent-logs" aria-live="polite">${visibleLogs(b.logs,true).slice(-8).map(log=>`<p>${esc(log)}</p>`).join('')}</div></div>`;
   }
   function rewardScreen(){
     const s=game.state,r=s.reward,fresh=!seenRewards.has(r)||(!r.relicPending&&!seenCardRewards.has(r));seenRewards.add(r);if(!r.relicPending)seenCardRewards.add(r);
@@ -3363,16 +3740,24 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
 
   function eventLootPreview(e){const chosen=e.choices?.find(c=>c.label===e.choiceLabel),held=game.state.player.relics;return `<div class="event-loot-preview">${chosen?.relic&&held.includes(chosen.relic)&&e.received?.includes(`秘宝「${RELICS[chosen.relic]?.name}」`)?relicCard(chosen.relic):''}${(chosen?.cardIds||[]).map(id=>cardMarkup(id)).join('')}</div>`;}
   function shopScreen(){const s=game.state,p=s.player,shop=s.shop,a=afflictionStatus();return head('THE NIGHT MARKET / 无名夜市','钱货两清，不问来处','非基础牌每张 35 金币，每件商品每次到访仅能购买一次。',`可用金币 ${p.gold}`)+`<div class="shop-layout">${encounterArt('shop','夜市珍阁','市','金铃作响，钱货两清。')}<aside class="shop-note">${a.revealed?`<section class="antidote-service"><h3>药匣 · 抑毒散</h3><p>恢复 6 生命，温养经脉，暂缓异样。<br>每次到访仅能服用一次。</p>${btn('buy-antidote',!a.active?'此刻无需服药':shop.antidoteBought?'本次抑毒散已用':p.gold<30?'30 金币 · 金币不足':'30 金币 · 服用抑毒散','btn '+(a.active&&p.gold>=30?'primary':'ghost'),!a.active||shop.antidoteBought||p.gold<30?'disabled':'')}<small>药气温润，只解一时急迫。</small></section>`:''}<h3>断契 · 删牌</h3><p>永久移除本局牌组中的一个指定实例。<br>牌组最少保留 5 张。</p><p>每次到访仅一次，价格 40 金币。</p>${btn('remove-panel',shop.removed?'本次删牌已使用':'40 金币 · 选择要移除的牌','btn ghost',shop.removed||p.gold<40||p.deck.length<=5?'disabled':'')}<div class="reason">${shop.removed?'已完成本次服务':p.deck.length<=5?'牌组已达 5 张下限':p.gold<40?'金币不足 40':'选中具体实例后才扣款'}</div></aside><div class="shop-goods">${shop.cards.map((c,i)=>`<div class="shop-item">${cardMarkup(c.id)}${btn('buy',c.bought?'已售出':'35 金币 · 购买',`btn ${!c.bought&&p.gold>=35?'primary':'ghost'}`,`data-index="${i}" ${c.bought||p.gold<35?'disabled':''}`)}<div class="reason">${c.bought?'已加入本局牌组':p.gold<35?'金币不足 35':'下场战斗洗入牌堆'}</div></div>`).join('')}</div></div>${shop.weapons?.length?`<section class="shop-weapons"><div class="screen-head"><div><div class="eyebrow">SWORDS THAT REMEMBER / 器有其主</div><h2>灯下剑匣</h2><p>灵识等级不足也能佩带高阶剑器，收下前请读清反噬。</p></div></div><div class="weapon-grid">${shop.weapons.map((w,i)=>weaponCard(w.id,'shop',i)).join('')}</div></section>`:''}${shopSupplies(shop)}<div class="shop-bottom"><span>商品进入时固定，查看牌组不会刷新。</span>${btn('leave-shop','离开商店 →','btn primary')}</div>`;}
-  function endingScreen(win){const s=game.state,p=s.player,hiddenWon=win&&s.battle?.enemy.id==='feiye',sovereign=heroId()==='sovereign';return `<section class="ending"><div class="ending-copy"><div class="eyebrow">${win?'THE ABYSS REMAINS / 封域初探完结':'THE FOG REMEMBERS / 探查未归'}</div><h2>${hiddenWon?'月后的名字，终于落定':win&&sovereign?'散落之身，归于一人':win?'雾未散，人已归':'此行，未能归'}</h2><p class="story">${win&&hiddenWon?`那道身影放下指尖的月光。她没有说认输，只报出了自己的名字。<br>绯夜已解锁，可返回首页开启她自己的旅程。`:win&&sovereign?`旧影散去，三处失落的力量回到掌心。<br>变心者的誓言已经结束，镜里的声音也终于安静。<br>“现在，轮到雾外的人还账了。”`:win?`绛鳞倒下，实验核心的裂隙暂时沉寂。<br>你带回一枚残缺的实验铭牌，各方已经等在雾外。<br>“${heroQuote('价钱，得重新谈。','人未找全。我会再来。')}”<br>寒渊的真相，仍有一半藏在黑雾里。`:`你倒在第${chineseNumber(s.result?.floor||s.floor)}段，败于${esc(s.result?.enemy||'封域异物')}。<br>黑雾再次合拢，留下无人认领的脚印。<br>下一次，换一条路，或换一种出牌的方式。`}</p><div class="ending-stats"><span>生命 <b>${p.hp}</b> / ${p.maxHp}</span><span>金币 <b>${p.gold}</b></span><span>牌组 <b>${p.deck.length}</b> 张</span><span>战胜 <b>${s.stats.battles}</b> 场</span><span>最高连招 <b>${s.stats.maxCombo||0}</b></span><span>最强一击 <b>${s.stats.maxHit||0}</b></span></div><div class="ending-relics">${relics(p.relics)}</div><div class="ending-journey"><h3>雾中结下的因缘</h3>${relationsMarkup()}${journalMarkup(3)}${btn('journal','翻看完整行旅手记','btn ghost small')}</div><div class="ending-route">本次路线：${s.history.map(h=>esc(h.name||nodes[h.type]?.[1]||h.type)).join(' → ')}</div><div class="actions">${btn('start','再入寒渊封域 · 相同职业','btn primary')}${btn('title','返回首页，切换职业','btn ghost')}${btn('deck','查看最终牌组','btn ghost')}${hiddenWon?btn('profile','查看解锁凭证','btn ghost'):''}</div><p class="note">重新开始将清空本局生命变化、金币、牌组增删、遗物与路线进度。</p></div>${portrait(heroKind())}</section>`;}
+  function endingScreen(win){const s=game.state,p=s.player,hiddenWon=win&&s.battle?.enemy.id==='feiye',sovereign=heroId()==='sovereign';return `<section class="ending"><div class="ending-copy"><div class="eyebrow">${win?'THE ABYSS REMAINS / 封域初探完结':'THE FOG REMEMBERS / 探查未归'}</div><h2>${hiddenWon?'月后的名字，终于落定':win&&sovereign?'散落之身，归于一人':win?'雾未散，人已归':'此行，未能归'}</h2><p class="story">${win&&hiddenWon?`那道身影放下指尖的月光。她没有说认输，只报出了自己的名字。<br>绯夜已解锁，可返回首页开启她自己的旅程。`:win&&sovereign?`旧影散去，三处失落的力量回到掌心。<br>变心者的誓言已经结束，镜里的声音也终于安静。<br>“现在，轮到雾外的人还账了。”`:win?`${esc(s.result?.enemy||'深渊之主')}倒下，七境深处的裂隙终于沉寂。<br>你带回一枚残缺的实验铭牌，各方已经等在雾外。<br>“${heroQuote('价钱，得重新谈。','人未找全。我会再来。')}”<br>寒渊的真相，仍有一半藏在黑雾里。`:`你倒在第${chineseNumber(s.result?.floor||s.floor)}段，败于${esc(s.result?.enemy||'封域异物')}。<br>黑雾再次合拢，留下无人认领的脚印。<br>下一次，换一条路，或换一种出牌的方式。`}</p><div class="ending-stats"><span>生命 <b>${p.hp}</b> / ${p.maxHp}</span><span>金币 <b>${p.gold}</b></span><span>牌组 <b>${p.deck.length}</b> 张</span><span>战胜 <b>${s.stats.battles}</b> 场</span><span>最高连招 <b>${s.stats.maxCombo||0}</b></span><span>最强一击 <b>${s.stats.maxHit||0}</b></span></div><div class="ending-relics">${relics(p.relics)}</div><div class="ending-journey"><h3>雾中结下的因缘</h3>${relationsMarkup()}${journalMarkup(3)}${btn('journal','翻看完整行旅手记','btn ghost small')}</div><div class="ending-route">本次路线：${s.history.map(h=>esc(h.name||nodes[h.type]?.[1]||h.type)).join(' → ')}</div><div class="actions">${btn('start','再入寒渊封域 · 相同职业','btn primary')}${btn('title','返回首页，切换职业','btn ghost')}${btn('deck','查看最终牌组','btn ghost')}${hiddenWon?btn('profile','查看解锁凭证','btn ghost'):''}</div><p class="note">重新开始将清空本局生命变化、金币、牌组增删、遗物与路线进度。</p></div>${portrait(heroKind())}</section>`;}
   function render(){if(!game||holdRender)return;rememberMapScroll();if(game.state.screen==='title'&&!isUnlocked(chosenCharacter)){chosenCharacter='assassin';starter='mark';}if(game.state.screen!=='title'){starter=game.state.starter;chosenCharacter=game.state.character||chosenCharacter;}hidePreview();disposePortraits(app);renderAudioToggle();renderHud();const previous=lastScreen;lastScreen=game.state.screen;document.body.dataset.screen=lastScreen;document.body.dataset.character=heroId();document.body.dataset.fallen=String(isFallen());const pages={title:titleScreen,arrival:arrivalScreen,map:mapScreen,threshold:thresholdScreen,battle:battleScreen,reward:rewardScreen,rest:restScreen,fox:foxScreen,event:eventScreen,cave:caveScreen,shop:shopScreen,victory:()=>endingScreen(true),defeat:()=>endingScreen(false)};app.innerHTML=(pages[game.state.screen]||titleScreen)();if(game.state.screen==='map')requestAnimationFrame(focusCurrentMap);if(modal)renderModal();const logs=document.getElementById('recent-logs');if(logs)logs.scrollTop=logs.scrollHeight;if(previous!==lastScreen)screenCue(lastScreen);}
   function renderAudioToggle(){const state=audio()?.getState?.()||{muted:false,volume:.3},el=document.getElementById('audio-nav');if(el){el.textContent=state.muted?'声音：关':'声音：开';el.setAttribute('aria-pressed',String(state.muted));}}
   function screenCue(screen){if(screen==='reward')audio()?.playCue?.(game.state.reward?.cards.some(id=>CARDS[id].rarity==='rare')?'rareReveal':'rewardReveal');if(['fox','rest','shop','event','cave'].includes(screen)){const id=screen==='event'?game.state.event.id:screen;lastEncounter=id;audio()?.playEncounter?.(id);}if(screen==='victory')audio()?.playCue?.('win');if(screen==='defeat')audio()?.playCue?.('death');}
   function openModal(kind,pile){if(window.uiBusy)return;selected=null;modal={kind,pile};render();modalRoot.querySelector('button')?.focus();}
   function closeModal(){disposePortraits(modalRoot);modal=null;modalRoot.innerHTML='';render();}
-  function rules(){return `<div class="rules"><section><h3>灵力与回合</h3><p>玩家先手。每回合先清空旧护盾，结算毒，再恢复基础 3 灵力、抽 5 张牌。手牌上限 10，溢出进入弃牌堆。</p><p>攻击／施加状态的牌先点卡牌，再点敌人；再次点同牌或 Esc 取消，不扣灵力。无目标牌点击即用。动作结算期间暂不能重复出牌。</p><p>结束回合弃掉剩余手牌并清除临时蓄势，敌人执行展示的固定行动。敌人旧护盾在其自己回合开始时清空。</p></section><section><h3>影契刺客 · 夜铃</h3><p>「猎印」即卡牌上的标记，最多 5 层，跨回合保留；窥隙铺垫，扑杀兑现。只有写明互动的牌受到标记影响。</p><p>「连段」用低费、抽牌和返还灵力延长出牌。候机只增强下一张攻击的第一段，连爪每爪独立结算。</p><p>「流血」由特定爪技施加，最多 7 层。敌方回合开始时，按每层 3% 概率触发一次，等概率损失 1 至当前层数的生命，无视护盾；7 层即 21% 几率损失 1—7 生命。创口跨回合保留，也能与猎印、连击和汲取招式互动。血契自损无视护盾，生命不足会死亡。</p></section><section><h3>霜华剑修 · 沈霜白</h3><p>「剑意」上限 8，跨回合保留。剑诀按各自说明蓄积或消耗剑意；没有写消耗的剑招不会自动扣层。</p><p>「霜寒」上限 10，跨回合保留，敌方回合结束后减少 1 层。5 层起降低行动力：每段攻击伤害 −1；10 层时有 10% 几率无法行动。特定净化招式能清除霜寒。精英与 Boss 需要两张施霜技能才能叠加 1 层，连击按一张技能计数。</p><p>霜寒减伤计入敌人意图；满层时显示冻结概率，结束回合后只判定一次。冰镜、三叠泉与碎霜可围绕寒意衔接，具体以牌面为准。</p></section><section><h3>伤害、牌堆与秘宝</h3><p>普通伤害先扣护盾再扣生命；自损和毒无视护盾。毒在持有者回合开始造成当前层数的直接生命伤害，随后减 1。</p><p>消耗牌本场不再抽回，下场恢复。商店删除指定实例，本局永久移除。抽牌堆空时重洗弃牌，正在结算的牌不会抽回自己。</p><p>遗物与秘宝的完整效果可点击顶栏查看。精英珍藏先二选一，再选卡；同一份战利只会发放一次。休息恢复 18，狐契以 8 最大生命换一次免死。</p></section><section><h3>包裹与未知洞府</h3><p>草药、丹药收入包裹后可随时查看。草药小幅疗伤，九转还元丹补满生命，解毒丹祛除余毒，战丹强化本场或下一场攻击；完整效果写在物品上。</p><p>玩家回合每回合只能服用一件，且不消耗灵力；敌方行动与动画结算中不能用药。战后仍保留未用物品，重新开始会清空。无效果时不会消耗。</p><p>洞府里可能有守卫、药草、遗留丹药或秘宝。入口不会提前揭示所藏之物；一旦探索，结果便不会重抽。击败守卫后才取得它看守的宝物。</p></section><section><h3>器灵与归月</h3><p>战斗后获得历练，提高本局灵识等级。剑匣中的装备只能在战斗与战利结算之外更换。高阶器灵可提前佩带；若灵识尚浅，器中躁动也会随之而来。可点开随身兵刃，察看此刻的气息。</p><p>绯夜解锁后可使用独立牌组。魂息上限 6，按具体牌面积蓄和消耗；归身之力来自专属道路上的交锋，每层强化一张攻击牌的第一段，最多 3 层。解锁只保存可选角色，本局养成仍在重开时清空。</p></section><section><h3>封域路线与异闻</h3><p>本幕分为雾锁山门、断桥诸营、逆仪腹地三境，每境十段，第十段为镇境 Boss。走完 A 境才会抵达 B 境，再向 C 境深入；只显示当前一境的路线。地标由真实连线连接，不能跳段、返回，或进入未连接的分支。</p><p>每境至少 40 处地标，第一段位于画面底部，第十段镇境之敌位于上方。向上滚动可察看前路。连线与下方路线卡使用相同状态，每境独立抽取路线样式，只有亮起且相连的地标能进入。</p><p>异闻包含数段人物的连续故事：初逢、重遇、余波会跨越三境。有人会报答援手，有人会带来麻烦，也有人觊觎你的宝物；戒备、交易和应战会改变后果。行旅手记只记录你已经知道的事，战斗与选择都只能结算一次。全程离线，本局不存档；角色解锁会单独保存。</p></section></div>`;}
+  function rules(){return `<div class="rules"><section><h3>灵力与回合</h3><p>玩家先手。每回合先清空旧护盾，结算毒，再恢复基础 3 灵力、抽 5 张牌。手牌上限 10，溢出进入弃牌堆。</p><p>攻击／施加状态的牌先点卡牌，再点敌人；再次点同牌或 Esc 取消，不扣灵力。无目标牌点击即用。动作结算期间暂不能重复出牌。</p><p>结束回合弃掉剩余手牌并清除临时蓄势，敌人执行当前已展示的行动；普通与精英可能变招，镇境之敌保持固定轮转。敌人旧护盾在其自己回合开始时清空。</p></section><section><h3>影契刺客 · 夜铃</h3><p>「猎印」即卡牌上的标记，最多 5 层，跨回合保留；窥隙铺垫，扑杀兑现。只有写明互动的牌受到标记影响。</p><p>所有攻击牌第一段的附加增伤合计最多 ${NightPact.BALANCE?.firstHitBonusCap||8}；牌面基础伤害与按猎印、剑意计算的招式伤害分别结算。</p><p>「连段」用低费、抽牌和返还灵力延长出牌。候机只增强下一张攻击的第一段，连爪每爪独立结算。</p><p>「流血」由特定爪技施加，最多 7 层。敌方回合开始时，按每层 3% 概率触发一次，等概率损失 1 至当前层数的生命，无视护盾；7 层即 21% 几率损失 1—7 生命。创口跨回合保留，也能与猎印、连击和汲取招式互动。血契自损无视护盾，生命不足会死亡。</p></section><section><h3>霜华剑修 · 沈霜白</h3><p>「剑意」上限 8，跨回合保留。剑诀按各自说明蓄积或消耗剑意；没有写消耗的剑招不会自动扣层。</p><p>「霜寒」上限 10，跨回合保留，敌方回合结束后减少 1 层。5 层起降低行动力：每段攻击伤害 −1；10 层时有 10% 几率无法行动。特定净化招式能清除霜寒。精英与 Boss 需要两张施霜技能才能叠加 1 层，连击按一张技能计数。</p><p>霜寒减伤计入敌人意图；满层时显示冻结概率，结束回合后只判定一次。冰镜、三叠泉与碎霜可围绕寒意衔接，具体以牌面为准。</p></section><section><h3>伤害、牌堆与秘宝</h3><p>普通伤害先扣护盾再扣生命；自损和毒无视护盾。毒在持有者回合开始造成当前层数的直接生命伤害，随后减 1。</p><p>消耗牌本场不再抽回，下场恢复。商店删除指定实例，本局永久移除。抽牌堆空时重洗弃牌，正在结算的牌不会抽回自己。</p><p>遗物与秘宝的完整效果可点击顶栏查看。精英珍藏先二选一，再选卡；同一份战利只会发放一次。休息恢复 ${NightPact.BALANCE?.restHeal||18}，狐契以 8 最大生命换一次免死。</p></section><section><h3>包裹与未知洞府</h3><p>草药、丹药收入包裹后可随时查看。草药小幅疗伤，九转还元丹补满生命，解毒丹祛除余毒，战丹强化本场或下一场攻击；完整效果写在物品上。</p><p>玩家回合每回合只能服用一件，且不消耗灵力；敌方行动与动画结算中不能用药。战后仍保留未用物品，重新开始会清空。无效果时不会消耗。</p><p>洞府里可能有守卫、药草、遗留丹药或秘宝。入口不会提前揭示所藏之物；一旦探索，结果便不会重抽。击败守卫后才取得它看守的宝物。</p></section><section><h3>器灵与归月</h3><p>战斗后获得历练，提高本局灵识等级。剑匣中的装备只能在战斗与战利结算之外更换。高阶器灵可提前佩带；若灵识尚浅，器中躁动也会随之而来。可点开随身兵刃，察看此刻的气息。</p><p>绯夜解锁后可使用独立牌组。魂息上限 6，按具体牌面积蓄和消耗；归身之力来自专属道路上的交锋，每层强化一张攻击牌的第一段，最多 3 层。解锁只保存可选角色，本局养成仍在重开时清空。</p></section><section><h3>封域路线与异闻</h3><p>本局逐境深入，共 ${chineseNumber(regions().length)} 境、${chineseNumber(totalFloors())} 段。每境十段，第十段迎战镇境 Boss。走完当前地域，才会看见下一境；只显示当前一境的路线。地标由真实连线连接，不能跳段、返回，或进入未连接的分支。</p><p>每境至少 40 处地标，第一段位于画面底部，第十段镇境之敌位于上方。向上滚动可察看前路。连线与下方路线卡使用相同状态，每境独立抽取路线样式，只有亮起且相连的地标能进入。</p><p>异闻包含数段人物的连续故事：初逢、重遇、余波会沿行程逐渐展开。有人会报答援手，有人会带来麻烦，也有人觊觎你的宝物；戒备、交易和应战会改变后果。行旅手记只记录你已经知道的事，战斗与选择都只能结算一次。全程离线，本局不存档；角色解锁会单独保存。</p></section></div>`;}
   function worldLore(){return `<div class="world-lore"><p class="world-prologue">寒渊原是群山之间的采灵之地。玄烬教试图从地底引出一段不属于此世的灵性，却在最后一夜被仪式反噬。黑雾封住整片区域，山路和建筑渐渐失去原本的形状。外界的占卜、传讯与窥视均告失效，只能让活人走进去。</p><div class="faction-grid"><article><i>剑</i><h3>太微剑宗</h3><p>受托探查并寻找失踪弟子。有人只想救人，也有人想替正道先封存禁术。</p></article><article><i>烬</i><h3>玄烬残众</h3><p>回收实验记录与失控造物；想补救的人和想继续实验的人同行，却互不信任。</p></article><article><i>灯</i><h3>千灯商盟</h3><p>以补给换取遗物、记忆与情报。危险会抬高价钱，也会催生别人的机会。</p></article><article><i>影</i><h3>夜契盟与散修</h3><p>受雇寻物，或为自身执念而来。身上的契约、未偿的债与想带走的东西各不相同。</p></article></div><p class="note">雾外无人看清寒渊全貌。同行者未必同心，偶遇者也未必无害；你能带回多少真相，取决于你愿意走进哪些地方。</p></div>`;}
+  function bossData(id){return globalThis.NightSeven?.BOSSES?.[id]||((ENEMIES[id]?.rank==='boss')?ENEMIES[id]:null);}
+  function bossIds(){return Object.keys(globalThis.NightSeven?.BOSSES||{});}
+  function intentSummary(intent){const parts=[];if(intent.clearMark)parts.push('清除猎印');if(intent.clearChill)parts.push('清除霜寒');if(intent.clearBleed)parts.push('清除流血');if(intent.heal)parts.push(`恢复 ${intent.heal} 生命`);if(intent.block)parts.push(`护盾 ${intent.block}`);const hits=intent.hits||[];if(hits.length)parts.push(hits.length===1?`攻击 ${hits[0]}`:`${hits.length} 段攻击 × ${hits.join(' / ')}`);if(intent.poison)parts.push(`毒 ${intent.poison} 层`);if(intent.playerMark)parts.push(`对你施加 ${intent.playerMark} 层魂标`);if(intent.counter)parts.push(`反击 ${intent.counter}`);if(intent.energyPenalty)parts.push(`下回合灵力 −${intent.energyPenalty}`);if(intent.drawPenalty)parts.push(`下回合少抽 ${intent.drawPenalty}`);return parts.join(' · ')||intent.text||'气息未定';}
+  function bossGallery(){return `<div class="boss-gallery">${bossIds().map(id=>{const boss=bossData(id);return `<button class="boss-gallery-card" data-action="boss-detail" data-boss="${esc(id)}">${portrait(id,{player:false})}<div><small>${({early:'雾外守关',middle:'封域深处',final:'终极之敌'})[boss.tier]||'镇境之敌'}</small><h3>${esc(boss.name)}</h3><p>${esc(boss.title||'')}</p><span>展开人物画卷 →</span></div></button>`;}).join('')}</div>`;}
+  function bossDetail(id){const boss=bossData(id);if(!boss)return '<p class="muted">这卷人物志尚未展开。</p>';return `<article class="boss-dossier" data-boss="${esc(id)}">${portrait(id,{player:false})}<div class="boss-dossier-copy"><div class="eyebrow">${esc(boss.title||'封域之主')}</div><h3>${esc(boss.name)}</h3><p class="boss-biography">${esc(boss.lore||'雾中的故事，尚待亲眼见证。')}</p>${(boss.quotes||[]).map(quote=>`<blockquote>“${esc(quote.replace(/^[“”]|[“”]$/g,''))}”</blockquote>`).join('')}${boss.passive?`<div class="boss-trait"><b>战斗气质</b><p>${esc(boss.passive)}</p></div>`:''}<ol class="boss-moves">${(boss.intents||[]).map(intent=>`<li><b>${esc(intent.name)}</b><p>${esc(intentSummary(intent))}</p></li>`).join('')}</ol><p class="note">镇境之敌按固定次序使用招式。实际生命与下次行动以战斗界面的数值为准。</p><div class="actions">${btn('bosses','返回人物志','btn ghost small')}</div></div></article>`;}
+  function bossBattleLore(enemy){const boss=bossData(enemy.id);return boss?`<aside class="boss-battle-lore"><div><span>${esc(boss.title||'镇境之敌')}</span><p>“${esc(boss.quotes?.[0]||'雾深处，并无归途。')}”</p></div>${btn('boss-detail','读她的故事','btn ghost small',`data-boss="${esc(enemy.id)}"`)}</aside>`:'';}
   function renderModal(){
     const s=game.state;let title='',hint='',body='';
+    if(modal.kind==='bosses'){title='封域人物志';hint='九位镇境之敌，各有旧事、所执与出手之法。';body=bossGallery();}
+    if(modal.kind==='boss-detail'){const boss=bossData(modal.pile);title=boss?.name||'镇境人物';hint=boss?.title||'';body=bossDetail(modal.pile);}
     if(modal.kind==='bag'){title='随身包裹';hint='旅途中采得的药草与丹药。未用的物品会随你进入下一处地标。';body=bagContents();}
     if(modal.kind==='equipment'){title='随身剑匣';hint=`灵识等级 ${s.player.level||1} · 历练 ${s.player.xp||0}。只在战斗与战利结算之外换器；装备跟随本局，重开清空。`;body=`<div class="weapon-grid">${(s.player.weaponInventory||[]).map(id=>weaponCard(id)).join('')}</div>`;}
     if(modal.kind==='status'){const detail=statusDetail(modal.pile);title=detail.title;body=`<section class="status-detail" data-status="${esc(modal.pile)}">${symbol(detail.key)}<div><p>${esc(detail.text)}</p>${detail.equipment?`<div class="actions">${btn('equipment','打开随身剑匣','btn ghost')}</div>`:''}</div></section>`;}
@@ -3405,7 +3790,21 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   function serpentSVG(){return '<svg viewBox="0 0 280 260" aria-hidden="true"><path d="M35 196 C-10 95 256 35 245 130 C239 190 54 230 65 140 C70 83 180 77 211 92" fill="none" stroke="#9ed3aa" stroke-width="12" opacity=".9"/><path d="M35 196 C-10 95 256 35 245 130 C239 190 54 230 65 140 C70 83 180 77 211 92" fill="none" stroke="#264d48" stroke-width="5" stroke-dasharray="5 8"/><path d="M92 60 L127 157 L137 68 M153 62 L161 158 L195 64" fill="#ddf2c9" stroke="#5e927a" stroke-width="2"/><path d="M126 165 L122 188 M162 165 L167 185" stroke="#b5e19b" stroke-width="5" stroke-linecap="round"/></svg>';}
   function swordSlashSVG(heavy=false){return `<svg viewBox="0 0 320 280" aria-hidden="true"><defs><linearGradient id="frost-blade"><stop stop-color="#d9fcff"/><stop offset=".5" stop-color="#e9ffff"/><stop offset="1" stop-color="#54b5e6"/></linearGradient></defs><path d="M${heavy?16:40} 225 Q120 78 296 32 Q199 95 67 244Z" fill="url(#frost-blade)"/><path d="M20 247 L302 23 M62 257 L283 64" stroke="#b7f2ff" stroke-width="${heavy?6:3}" stroke-linecap="round"/><g fill="#c2f1ff" stroke="#f2ffff" stroke-width="1"><path d="M74 88 L87 117 L76 148 L63 119Z"/><path d="M223 145 L238 173 L226 204 L215 176Z"/><path d="M154 35 L165 55 L154 79 L145 56Z"/><path d="M127 182 L142 209 L130 240 L117 212Z"/></g><path d="M48 151 L78 149 M64 135 L63 165 M254 97 L278 95 M266 84 L266 110" stroke="#d8fcff" stroke-width="2"/></svg>`;}
   function frostSVG(){return '<svg viewBox="0 0 280 280" aria-hidden="true"><g fill="none" stroke="#a8eafa" stroke-width="3"><circle cx="140" cy="140" r="81" opacity=".5"/><path d="M140 22V258 M38 81L242 199 M38 199L242 81 M140 45L121 65 M140 45L159 65 M140 235L121 215 M140 235L159 215 M59 93L63 121 M59 93L83 86 M221 187L217 159 M221 187L197 194 M59 187L82 194 M59 187L63 159 M221 93L197 86 M221 93L217 121"/></g></svg>';}
-  function attackStyle(id,enemy,snake){if(!enemy&&String(id).startsWith('D'))return{type:'demonic-slash',svg:swordSlashSVG(['D03','D06'].includes(id))};if(!enemy&&String(id).startsWith('F'))return {type:'soulveil',svg:'<svg viewBox="0 0 280 260"><defs><radialGradient id="soulflare"><stop stop-color="#f2c8ff"/><stop offset=".6" stop-color="#ad67cb" stop-opacity=".65"/><stop offset="1" stop-color="#3f185f" stop-opacity="0"/></radialGradient></defs><circle cx="140" cy="130" r="117" fill="url(#soulflare)"/><path d="M225 40Q53 26 54 176Q96 247 201 216Q82 183 153 64" fill="none" stroke="#f3d6ff" stroke-width="9"/><ellipse cx="140" cy="130" rx="112" ry="73" fill="none" stroke="#b791de" stroke-width="3" transform="rotate(-24 140 130)"/></svg>'};if(!enemy&&String(id).startsWith('S'))return {type:'iceblade',svg:swordSlashSVG(['S04','S08','S11','S16'].includes(id))};if(snake)return{type:'serpent',svg:serpentSVG()};if(enemy)return{type:'strike',svg:clawSVG(true)};if(['C15'].includes(id))return{type:'fire',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 C195 100 239 120 198 205 C185 235 95 252 65 198 C32 138 105 94 140 20" fill="#cf543f" opacity=".8"/><path d="M143 70 C169 140 205 160 168 206 C150 224 103 221 93 192 C85 160 132 129 143 70" fill="#ffe9a9"/><path d="M130 25 L169 89 L107 130 L175 183" fill="none" stroke="#ffe8b4" stroke-width="5"/></svg>'};if(['C16','C21'].includes(id))return{type:'moonblade',svg:'<svg viewBox="0 0 280 260"><path d="M226 28 C75 18 21 168 97 240 C81 146 156 54 226 28" fill="#f4e0bb"/><path d="M221 39 C90 62 52 180 94 229" fill="none" stroke="#e9b978" stroke-width="7"/><circle cx="176" cy="100" r="75" fill="none" stroke="#cfb981" opacity=".45"/></svg>'};if(['C14','C28','C30'].includes(id))return{type:'bloodclaw',svg:clawSVG(false)};if(id==='C35')return{type:'shieldbash',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 L232 70 L218 161 Q195 220 140 244 Q78 216 61 159 L48 70 Z" fill="#84bfa868" stroke="#e4e6b5" stroke-width="7"/><path d="M140 58 V203 M78 103 H202 M100 66 L179 197" stroke="#cce8c2" stroke-width="5"/><path d="M230 72 L263 54 M238 125 H277 M230 177 L262 196" stroke="#ffe3a0" stroke-width="7"/></svg>'};return{type:'claw',svg:clawSVG(false)};}
+  function bossSpell(id){
+    const motifs={
+      gate_boss:['lamp','#f0d78b',`<path d="M101 59h98l12 123-61 40-61-40Z"/><path d="M108 59V36h84v23M101 86h98M100 170h100M150 87v81M124 87l-8 81M176 87l8 81M150 223v30"/>`],
+      camp_boss:['chain','#ee9e97',Array.from({length:5},(_,i)=>`<ellipse cx="${67+i*42}" cy="${55+i*40}" rx="22" ry="35" transform="rotate(-45 ${67+i*42} ${55+i*40})"/>`).join('')],
+      bell_boss:['bell','#e9c36f',`<path d="M82 190q14-20 17-77 2-57 51-58 49 1 51 58 3 57 17 77Z"/><path d="M126 53q24-28 48 0M76 203h148M132 217q18 28 36 0M72 84q-34 54 0 96M228 84q34 54 0 96"/>`],
+      lotus_boss:['lotus','#f1b2d6',Array.from({length:8},(_,i)=>`<path d="M150 151q-53-59 0-117 53 58 0 117Z" transform="rotate(${i*45} 150 151)"/>`).join('')],
+      marsh_boss:['vines','#a9ddad',`<path d="M37 241Q22 111 117 53q-16 55 35 88 69 48 103-88M75 244q-14-90 60-89 64 1 87 91M71 131l-26-21m46-7-6-36m78 72 13-31m22 10 18 28M118 196l-30 12m100-20 26 24"/>`],
+      furnace_boss:['fire','#f5a369',`<path d="M149 29q75 69 61 131 39-13 39-52 42 145-97 150C29 257 30 161 71 113q-7 49 22 60-11-73 56-144Z"/><path d="M153 117q58 58 15 111-61-5-59-53 26 13 44-58Z"/>`],
+      mirror_boss:['mirror','#b9dcff',Array.from({length:6},(_,i)=>`<path d="M150 25l24 47-24 47-24-47Z" transform="rotate(${i*60} 150 150)"/>`).join('')+`<circle cx="150" cy="150" r="35"/><path d="m130 134 40 32m-8-47-24 62"/>`],
+      abyss_boss:['abyss','#edb2cf',`<ellipse cx="150" cy="151" rx="114" ry="74"/><ellipse cx="150" cy="151" rx="84" ry="112" transform="rotate(29 150 151)"/><path d="M192 42Q44 68 81 220 69 115 192 42Z" fill="#b95482" stroke="none"/><path d="m31 224 238-146M41 75l215 151M149 24v253" stroke-dasharray="5 9"/><circle cx="150" cy="151" r="45" fill="#111c2a"/>`]
+    };
+    const [theme,color,geometry]=motifs[id]||['abyss','#d3b2e8','<circle cx="150" cy="150" r="90"/>'];
+    return{type:'boss-spell boss-fx-'+theme,svg:`<svg viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="126" fill="${color}" opacity=".06"/><g fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${geometry}</g><g fill="${color}"><circle cx="37" cy="56" r="3"/><circle cx="260" cy="235" r="3"/><circle cx="241" cy="37" r="2"/><circle cx="59" cy="260" r="2"/></g></svg>`};
+  }
+  function attackStyle(id,enemy,snake){if(!enemy&&String(id).startsWith('D'))return{type:'demonic-slash',svg:swordSlashSVG(['D03','D06'].includes(id))};if(!enemy&&String(id).startsWith('F'))return {type:'soulveil',svg:'<svg viewBox="0 0 280 260"><defs><radialGradient id="soulflare"><stop stop-color="#f2c8ff"/><stop offset=".6" stop-color="#ad67cb" stop-opacity=".65"/><stop offset="1" stop-color="#3f185f" stop-opacity="0"/></radialGradient></defs><circle cx="140" cy="130" r="117" fill="url(#soulflare)"/><path d="M225 40Q53 26 54 176Q96 247 201 216Q82 183 153 64" fill="none" stroke="#f3d6ff" stroke-width="9"/><ellipse cx="140" cy="130" rx="112" ry="73" fill="none" stroke="#b791de" stroke-width="3" transform="rotate(-24 140 130)"/></svg>'};if(!enemy&&String(id).startsWith('S'))return {type:'iceblade',svg:swordSlashSVG(['S04','S08','S11','S16'].includes(id))};if(snake)return{type:'serpent',svg:serpentSVG()};if(enemy&&bossData(game.state.battle?.enemy.id))return bossSpell(game.state.battle.enemy.id);if(enemy)return{type:'strike',svg:clawSVG(true)};if(['C15'].includes(id))return{type:'fire',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 C195 100 239 120 198 205 C185 235 95 252 65 198 C32 138 105 94 140 20" fill="#cf543f" opacity=".8"/><path d="M143 70 C169 140 205 160 168 206 C150 224 103 221 93 192 C85 160 132 129 143 70" fill="#ffe9a9"/><path d="M130 25 L169 89 L107 130 L175 183" fill="none" stroke="#ffe8b4" stroke-width="5"/></svg>'};if(['C16','C21'].includes(id))return{type:'moonblade',svg:'<svg viewBox="0 0 280 260"><path d="M226 28 C75 18 21 168 97 240 C81 146 156 54 226 28" fill="#f4e0bb"/><path d="M221 39 C90 62 52 180 94 229" fill="none" stroke="#e9b978" stroke-width="7"/><circle cx="176" cy="100" r="75" fill="none" stroke="#cfb981" opacity=".45"/></svg>'};if(['C14','C28','C30'].includes(id))return{type:'bloodclaw',svg:clawSVG(false)};if(id==='C35')return{type:'shieldbash',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 L232 70 L218 161 Q195 220 140 244 Q78 216 61 159 L48 70 Z" fill="#84bfa868" stroke="#e4e6b5" stroke-width="7"/><path d="M140 58 V203 M78 103 H202 M100 66 L179 197" stroke="#cce8c2" stroke-width="5"/><path d="M230 72 L263 54 M238 125 H277 M230 177 L262 196" stroke="#ffe3a0" stroke-width="7"/></svg>'};return{type:'claw',svg:clawSVG(false)};}
   // Selecting a target changes only controls; preserve the current portrait and artwork.
   function syncTargetSelection(){
     if(game.state.screen!=='battle')return;
@@ -3461,6 +3860,8 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
       keep(fx('enemy-skill',target,`${symbol(event.kind==='counter'?'counter':'resistance')}<b>${esc(event.name||'异术')}</b>${event.text?`<small>${esc(event.text)}</small>`:''}`));await delay(220);
     }else if(type==='item'){
       keep(fx('heal','player',symbol(ITEMS[event.itemId||event.id]?.icon||'pill')));await delay(180);
+    }else if(type==='playerMark'){
+      keep(fx('mark','player',symbol('event')));keep(numberFX('player',event.amount<0?'魂标散去':`魂标 +${event.amount||0}`,'下次攻击首段增伤','gold'));await delay(220);
     }else if(type==='soul'){
       keep(fx('soul-rise','player',symbol('soul')));await delay(190);
     }else if(type==='weapon'||type==='environment'){
@@ -3520,7 +3921,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
     if(event.target.matches('[data-overlay]'))return closeModal();
     const el=event.target.closest('button[data-action]');if(!el||el.disabled)return;if(modal&&!el.closest('#modal-root'))return;const a=el.dataset.action;
     if(window.uiBusy)return;
-    if(a==='start')return start();if(a==='title')return title();if(a==='export')return exportHTML();if(['rules','world','journal','deck','restart','log','catalogue','settings','equipment','bag','profile','relics','portrait-gallery'].includes(a))return openModal(a);if(a==='close')return closeModal();if(a==='pile')return openModal('pile',el.dataset.pile);if(a==='status')return openModal('status',el.dataset.status);
+    if(a==='start')return start();if(a==='title')return title();if(a==='export')return exportHTML();if(['rules','world','journal','deck','restart','log','catalogue','settings','equipment','bag','profile','relics','portrait-gallery','bosses'].includes(a))return openModal(a);if(a==='boss-detail')return openModal('boss-detail',el.dataset.boss);if(a==='close')return closeModal();if(a==='pile')return openModal('pile',el.dataset.pile);if(a==='status')return openModal('status',el.dataset.status);
     if(a==='use-item'){const id=el.dataset.item;if(!game.getItemUse?.(id)?.usable)return;selected=null;if(game.state.screen==='battle'){closeModal();void battleAction(()=>game.useItem(id),ITEMS[id]?.name||'服药');}else if(act(()=>game.useItem(id))){audio()?.playCue?.('heal');}return;}
     if(a==='buy-item'){if(act(()=>game.buyItem(Number(el.dataset.index))))audio()?.playCue?.('rewardReveal');return;}
     if(a==='cave-explore'){selected=null;if(act(()=>game.exploreCave())){audio()?.playCue?.(game.state.screen==='battle'?'power':game.state.cave?.result?.rarity==='rare'?'treasure':'rewardReveal');scrollAfterAction();}return;}
@@ -3552,6 +3953,14 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   document.addEventListener('focusin',event=>showPreview(event.target.closest('.card[data-preview]')));
   document.addEventListener('focusout',hidePreview);
   window.addEventListener('scroll',hidePreview,true);
+  // beforeunload is cancellable after user interaction; pagehide is best-effort only.
+  // No progress is saved and no request is sent by either lifecycle handler.
+  function guardUnfinishedRun(event){
+    if(!game||['title','victory','defeat'].includes(game.state.screen))return;
+    event.preventDefault();event.returnValue='';
+  }
+  window.addEventListener('beforeunload',guardUnfinishedRun);
+  window.addEventListener('pagehide',guardUnfinishedRun);
   window.addEventListener('pagehide',()=>{disposePortraits(document);});
   document.addEventListener('keydown',event=>{if(window.uiBusy)return;if(event.key==='Escape'){hidePreview();if(modal)closeModal();else if(selected){selected=null;syncTargetSelection();}}if(event.key==='Tab'&&modal){const buttons=[...modalRoot.querySelectorAll('button:not(:disabled),[tabindex="0"]')],first=buttons[0],last=buttons.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}}});
   game=makeGame();window.game=game;window.renderGame=render;render();

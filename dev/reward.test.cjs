@@ -1,11 +1,12 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
 'use strict';
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {createGame,CARDS,RELICS,TREASURE_RELICS,EVENT_IDS,CHAIN_EVENT_IDS}=require('./engine.js');
+const {createGame,CARDS,RELICS,TREASURE_RELICS,LEGACY_EVENT_IDS:EVENT_IDS,CHAIN_EVENT_IDS}=require('./engine.js');
 const EVENTS=EVENT_IDS.filter(id=>!CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 function random(seed){let n=seed>>>0;return()=>((n=(1664525*n+1013904223)>>>0)/4294967296);}
-function run(seed=1,starter='mark',rng){const g=createGame({environment:false,rng:rng||random(seed)});g.newRun(starter); g.enterRegion();return g;}
+function run(seed=1,starter='mark',rng){const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:rng||random(seed)});g.newRun(starter); g.enterRegion();return g;}
 function enter(g,type){const s=g.state,n=s.map.flat().find(n=>n.type===type)||s.map[3][0];n.type=type;delete n.encounter;assert.ok(n,type);s.floor=n.floor;s.availableNodes=[n.id];s.screen='map';s.journey.regionIndex=n.regionIndex;n.revealed=true;delete n.storyId;s.history=[];assert.equal(g.enterNode(n.id),true);return s.battle;}
 let serial=0;
 function win(g){const b=g.state.battle;b.energy=50;b.enemy.hp=1;b.enemy.block=0;const c={uid:`kill-${++serial}`,id:'C01'};b.hand.push(c);assert.equal(g.playCard(c.uid,true),true);assert.equal(g.state.screen,'reward');}

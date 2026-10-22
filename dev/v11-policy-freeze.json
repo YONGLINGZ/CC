@@ -1,0 +1,31 @@
+{
+  "description": "Frozen public-action heuristic and fixed seeds before measured numeric calibration. No resources, routes or decks edited by the policy. Changes after this point must be explicitly justified and every prior result retained.",
+  "seeds": {
+    "first": 1000,
+    "last": 1049,
+    "perProfession": 50
+  },
+  "inputs": {
+    "dev/playtest.cjs": "55d284739f6bdd4283748812a76a6cd90fa925f996cdfe74b5266152255df92e",
+    "dev/v11-simulate.cjs": "497f871a5cf44c595935bb81006e789e509c5e0c7269e468e4f559df635c89b1",
+    "dev/elite-probe.cjs": "69cd462b1f4ba088b91688b45298bf208bcfa35ffbaea9fbae30e801e9783c12"
+  },
+  "measurementAmendments": [
+    {
+      "reason": "Fix encounter tracker: freeze first ended snapshot, exclude actual post-victory healing, and audit per-card hits; all decision code and seeds untouched.",
+      "beforeSha256": "55d284739f6bdd4283748812a76a6cd90fa925f996cdfe74b5266152255df92e",
+      "afterSha256": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
+      "allSourceOutsideTrackBattleByteIdentical": true,
+      "sourceExcludingMeasurementSha256": "c7803db1735fecb73d2ec83da986d989968da52edd9374ae2c2960f42b41aa53",
+      "file": "dev/playtest.cjs"
+    },
+    {
+      "file": "dev/elite-probe.cjs",
+      "reason": "Report actual combat-only net life loss, first ended snapshot and immediate victory recovery separately. Public-action run loop, fixed seeds and heuristic unchanged.",
+      "beforeSha256": "69cd462b1f4ba088b91688b45298bf208bcfa35ffbaea9fbae30e801e9783c12",
+      "afterSha256": "593dca97fda8d10573b4bb47c6497b186b5f7876a2cfa0bddc716d645f78d44d",
+      "allPublicRunCodeByteIdentical": true,
+      "publicRunCodeSha256": "01d7d0f7b2222a5e63e4b31320e8fda30cd4c591e78ce229bbb341e796bbc93b"
+    }
+  ]
+}

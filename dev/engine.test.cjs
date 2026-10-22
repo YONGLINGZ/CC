@@ -1,8 +1,9 @@
+/* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { CARDS, ENEMIES, RELICS, FLOORS, REGIONS, STARTERS, EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, createGame } = require('./engine.js');
+const { CARDS, ENEMIES, RELICS, LEGACY_FLOORS: FLOORS, LEGACY_REGIONS: REGIONS, STARTERS, LEGACY_EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, createGame } = require('./engine.js');
 
 const EVENT_IDS = ALL_EVENT_IDS.filter(id => !CHAIN_EVENT_IDS.includes(id) && !['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'].includes(id));
 let fixtureSerial = 0;
@@ -12,7 +13,7 @@ function seeded(seed) {
 }
 function card(id) { return { uid: `fixture-${++fixtureSerial}`, id }; }
 function setup(options) {
-  const game = createGame({environment:false, rng: seeded(123), ...options });
+  const game = createGame({campaign:'legacy',scaling:false,environment:false, rng: seeded(123), ...options });
   game.newRun('classic'); game.enterRegion(); game.enterNode('fight');
   const b = game.state.battle;
   b.hand = []; b.draw = []; b.discard = []; b.exhaust = [];
@@ -31,7 +32,7 @@ function forceWin(game) {
   play(game, 'C01');
 }
 function atNode(type, floor) {
-  const game = createGame({environment:false, rng: seeded(10) }); game.newRun('classic'); game.enterRegion();
+  const game = createGame({campaign:'legacy',scaling:false,environment:false, rng: seeded(10) }); game.newRun('classic'); game.enterRegion();
   const targetFloor = type === 'boss' ? REGIONS.at(-1).stages[1] : floor;
   const node = game.state.map.flat().find(n => n.type === type && n.floor === targetFloor) || game.state.map.flat().find(n => n.type === type);
   assert.ok(node); game.state.floor = node.floor; game.state.availableNodes = [node.id];
@@ -41,9 +42,9 @@ function atNode(type, floor) {
 }
 function battleCards(b) { return [...b.hand, ...b.draw, ...b.discard, ...b.exhaust, ...b.resolving]; }
 
-test('数据完整：70 卡、15 敌人、15 遗物及三章三十步路线地图', () => {
+test('数据完整：70 卡、24 敌人、15 遗物及隔离的三章三十步路线地图', () => {
   assert.equal(Object.keys(CARDS).length, 70);
-  assert.equal(Object.keys(ENEMIES).length, 15);
+  assert.equal(Object.keys(ENEMIES).length, 24);
   assert.equal(Object.keys(RELICS).length, 15);
   assert.equal(FLOORS.length, 30);
   assert.ok(FLOORS.flat().length>=120);assert.ok(FLOORS.every(row=>row.length>0));
@@ -53,7 +54,7 @@ test('数据完整：70 卡、15 敌人、15 遗物及三章三十步路线地�
 });
 
 test('初始状态与独立牌实例正确；title 不允许跳入节点', () => {
-  const game = createGame({environment:false});
+  const game = createGame({campaign:'legacy',scaling:false,environment:false});
   assert.equal(game.state.screen, 'title'); assert.equal(game.enterNode('fight'), false);
   game.newRun('classic'); game.enterRegion(); const p = game.state.player;
   assert.equal(p.hp, 60); assert.equal(p.maxHp, 60); assert.equal(p.gold, 60);
@@ -63,7 +64,7 @@ test('初始状态与独立牌实例正确；title 不允许跳入节点', () =>
 });
 
 test('地图不能跳层或同时进入节点；未完成节点不计入历史', () => {
-  const game = createGame({environment:false}); game.newRun('classic'); game.enterRegion();
+  const game = createGame({campaign:'legacy',scaling:false,environment:false}); game.newRun('classic'); game.enterRegion();
   assert.equal(game.enterNode('boss'), false); assert.equal(game.enterNode('shop'), false);
   assert.equal(game.enterNode('fight'), true); assert.equal(game.enterNode('fight'), false);
   assert.equal(game.state.history.length, 0);
@@ -287,7 +288,7 @@ test('磨爪玉在第 3 张牌结算后触发，每回合一次并重置', () =>
 });
 
 test('残月坠每场首回合多抽 2 张，第二回合不额外抽', () => {
-  const game=createGame({environment:false,rng:seeded(2)}); game.newRun('classic'); game.enterRegion(); game.state.player.relics.push('moon');
+  const game=createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(2)}); game.newRun('classic'); game.enterRegion(); game.state.player.relics.push('moon');
   game.enterNode('fight'); const b=game.state.battle;
   assert.equal(b.hand.length,7); nextTurn(game); assert.equal(b.hand.length,5);
 });
@@ -395,14 +396,14 @@ test('蜕鳞明确清标记且给盾 10，敌人旧盾在其下个回合清空',
   nextTurn(game); assert.equal(b.enemy.block,0); assert.equal(b.enemy.intentIndex,0);
 });
 
-test('普通敌人和 Boss 意图严格固定循环，动作与数据一致', () => {
+test('普通与精英按权重避开上一意图，Boss固定循环；动作与展示一致', () => {
   for (const [id,def] of Object.entries(ENEMIES)) {
     const game=setup(); const s=game.state,b=s.battle;
-    s.player.hp=s.player.maxHp=1000; b.enemy.id=id; b.enemy.name=def.name;
+    s.player.hp=s.player.maxHp=1000; b.enemy.id=id; b.enemy.name=def.name; b.enemy.intentIndex=0;
     for (let i=0;i<def.intents.length*2;i++) {
       const intent=game.getIntent(); b.block=100;
-      const expected=(b.enemy.intentIndex+1)%def.intents.length;
-      nextTurn(game); assert.equal(b.enemy.intentIndex,expected);
+      const previous=b.enemy.intentIndex,expected=(previous+1)%def.intents.length;
+      nextTurn(game); if(def.weights&&def.intents.length>1)assert.notEqual(b.enemy.intentIndex,previous);else assert.equal(b.enemy.intentIndex,expected);
       assert.ok(b.logs.some(l=>l.includes(`使用「${intent.name}」：${intent.text}`)));
     }
   }
@@ -454,7 +455,7 @@ test('失败后重新开始彻底还原生命、牌组、遗物、地图与临�
 
 test('四个职业流派开局各 10 个独立实例，首战真实使用所选职业牌组', () => {
   for (const [id, starter] of Object.entries(STARTERS).filter(([id])=>id!=='sovereign')) {
-    const game = createGame({environment:false,rng:seeded(9)}); assert.equal(game.newRun(id),true); game.enterRegion();
+    const game = createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(9)}); assert.equal(game.newRun(id),true); game.enterRegion();
     const s = game.state;
     assert.equal(s.starter,id); assert.equal(s.player.deck.length,10);
     assert.deepEqual(s.player.deck.map(c=>c.id),starter.cards);
@@ -464,7 +465,7 @@ test('四个职业流派开局各 10 个独立实例，首战真实使用所选�
     game.enterNode(s.availableNodes[0]);
     assert.deepEqual(battleCards(s.battle).map(c=>c.id).sort(),starter.cards.slice().sort());
   }
-  const game=createGame({environment:false});const old=game.state;assert.equal(game.newRun('invalid'),false); game.enterRegion();assert.equal(game.state,old);
+  const game=createGame({campaign:'legacy',scaling:false,environment:false});const old=game.state;assert.equal(game.newRun('invalid'),false); game.enterRegion();assert.equal(game.state,old);
 });
 
 test('三十步地图只开放真实后继，锁定节点不能跨层或重复进入', () => {
@@ -492,7 +493,7 @@ test('三十步地图只开放真实后继，锁定节点不能跨层或重复�
 test('地图每局生成一次且有随机节点，宽度和首尾战斗固定', () => {
   const layouts=new Set();
   for(let seed=1;seed<=30;seed++) {
-    const game=createGame({environment:false,rng:seeded(seed)});game.newRun(); game.enterRegion();const map=JSON.stringify(game.state.map);
+    const game=createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(seed)});game.newRun(); game.enterRegion();const map=JSON.stringify(game.state.map);
     layouts.add(map);for(let i=0;i<4;i++)game.getAvailableNodes();assert.equal(JSON.stringify(game.state.map),map);
     assert.equal(game.state.map[0][0].type,'fight');assert.equal(game.state.map.at(-1)[0].type,'boss');
     assert.equal(game.state.map.length,30);assert.ok(game.state.map.flat().length>=120);
@@ -572,7 +573,7 @@ test('绕指柔按此前两张阈值加盾且消耗；护心清毒；盾返上�
   const game=setup(),s=game.state,b=s.battle;const c=play(game,'C32');assert.equal(b.block,3);assert.ok(b.exhaust.includes(c));
   play(game,'C10');play(game,'C32');assert.equal(b.block,9);b.poison=3;
   play(game,'C34');assert.equal(b.block,27);assert.equal(b.poison,1);
-  play(game,'C35');assert.equal(b.enemy.hp,476);assert.equal(b.block,27);
+  play(game,'C35');assert.equal(b.enemy.hp,482);assert.equal(b.block,27);
   s.player.hp=59;const r=play(game,'C36');assert.equal(s.player.hp,60);assert.ok(b.exhaust.includes(r));
 });
 
@@ -633,7 +634,7 @@ test('朱砂心只对本回合首个存活自损给灵力，毒与敌方伤害�
 test('事件每次进入只生成一次，至少一个有效选项，接受后不能重复领取', () => {
   const kinds=new Set();
   for(let seed=1;seed<=200;seed++) {
-    const game=createGame({environment:false,rng:seeded(seed)});game.newRun(); game.enterRegion();const s=game.state;
+    const game=createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(seed)});game.newRun(); game.enterRegion();const s=game.state;
     const node=s.map[1][0];node.type='event';delete node.encounter;s.floor=2;s.availableNodes=[node.id];delete node.storyId;s.seenEvents=ALL_EVENT_IDS.filter(id=>!EVENT_IDS.includes(id));game.enterNode(node.id);
     const before=JSON.stringify(s.event);kinds.add(s.event.id);assert.equal(game.enterNode(node.id),false);
     assert.equal(JSON.stringify(s.event),before);const index=s.event.choices.findIndex(c=>!c.disabled);assert.ok(index>=0);
@@ -647,7 +648,7 @@ test('事件每次进入只生成一次，至少一个有效选项，接受后�
 test('异闻代价与收益精确兑现，贫穷或低血时仍有免费出路', () => {
   const eventIds=EVENT_IDS;
   for (const id of eventIds) for (const poor of [false,true]) {
-    const game=createGame({environment:false,rng:seeded(60)});game.newRun(); game.enterRegion();const s=game.state;
+    const game=createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(60)});game.newRun(); game.enterRegion();const s=game.state;
     const node=s.map[1][0];node.type='event';delete node.encounter;s.floor=2;s.availableNodes=[node.id];delete node.storyId;
     s.seenEvents=ALL_EVENT_IDS.filter(other=>other!==id);
     if(poor){s.player.hp=1;s.player.gold=0;s.player.deck=s.player.deck.slice(0,5);}
@@ -679,7 +680,7 @@ test('结构化事件逐段准确、ID唯一、每行动重置并在致死后保
 test('公开 API 四种开局和三条路线共 36 固定种子自然走完三章三十步封域', () => {
   const {playRun}=require('./playtest.cjs');let wins=0;
   for(const starter of Object.keys(STARTERS).filter(id=>id!=='sovereign'))for(let lane=0;lane<3;lane++)for(let seed=1;seed<=3;seed++) {
-    const result=playRun(1000+lane*100+seed,starter,lane,{environment:false});
+    const result=playRun(1000+lane*100+seed,starter,lane,{campaign:'legacy',scaling:false,environment:false});
     assert.ok(['victory','defeat'].includes(result.result));
     if(result.result==='victory'){wins++;assert.equal(result.floor,30);assert.equal(result.encounters.length,30);assert.equal(result.encounters[0],'fight');}
   }
