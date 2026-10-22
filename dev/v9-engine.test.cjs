@@ -96,8 +96,8 @@ test('effective sword cards show actual current values without explaining the hi
     const current=run();current.state.player.path.fallen=true;const b=battle(current);b.swordIntent=intent;
     play(current,'S04');assert.equal(1000-b.enemy.hp,5+Math.floor(3*intent/2),`intent ${intent}`);
   }
-  assert.equal(g.getEffectiveCard('S04').text,'消耗全部剑意，造成 5＋⌊3×消耗层数÷2⌋ 点伤害。');
-  assert.equal(g.getEffectiveCard('S08').text,'连续攻击 3 次，每次 1 点伤害；若结算前剑意至少 3 层，每次改为 2 点。不消耗剑意。');
+  assert.equal(g.getEffectiveCard('S04').text,'消耗全部剑意，造成 5＋⌊3×消耗层数÷2⌋ 点伤害；敌人仍存活且霜寒至少 5 层时，抽 1 张牌。');
+  assert.equal(g.getEffectiveCard('S08').text,'连续攻击 3 次，每次 1 点伤害；若结算前剑意至少 3 层，每次改为 2 点。不消耗剑意。敌人存活且已有霜寒时，再施加 1 层霜寒。');
   assert.equal(g.getEffectiveCard('S03').text,N.CARDS.S03.text);
 });
 

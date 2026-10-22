@@ -1,5 +1,5 @@
 {
-  "format": "baiyao-offline-recovery-v9",
+  "format": "baiyao-offline-recovery-v10",
   "mode": "full-webp",
   "files": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -235,22 +235,23 @@
     "assets/weapons/rime.webp": "be2c55497aeb1e4aa2ed0819b717e9321525aac8dfc31e79d2f269074d86c35b",
     "assets/weapons/spirit.webp": "a5f8e05b4eacf42dd705121ee7fd4c6e67fe6f9cbbe193f3172c200ca3d53036",
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945",
-    "dev/art.js": "455029bd309f3096e03f9e5781dccf5e1376b0fe74e4b7fda1746e154748eaec",
+    "dev/art.js": "ac38e7559786a6e51b0084eeccc37ee35e2e23e84dcb8f783d3e26deeefc7d0d",
     "dev/audio.js": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
-    "dev/build.cjs": "19357b392fc9be59e599ecdb39807325206fa629799211822a05dfe644ea4d17",
+    "dev/build.cjs": "9ed4e42f43526192602834c9b0d22aa17c2d26d3088906d67b281d19d399d7f6",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "2bde7db56354496b4f7183096725502a778cbd9aef1b254d455cc35b1f5d0a37",
-    "dev/expansion.js": "982ac39c995f93cb14c934cadd12488d19113efa8ebb808743ce00acc12d197f",
-    "dev/shell.html": "b276149af2cef7045fdd0d1449982fa0108af0a033528b0b649b1ab7fd2a86f0",
-    "dev/ui.js": "11f3996d2fd2a6bd3db96d22b4deb7e7ff57cdcd0fe2f5d744543f639c002dc0"
+    "dev/engine.js": "ecac07609cca21e2636411822fb6b7ee5f44344d5e9da02d18b20d5bb38dcbba",
+    "dev/expansion.js": "1163a4ccb2e1a7534816b45a8a7f20bab28e52c2a9aca5b35b1931dacf0bc34a",
+    "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
+    "dev/shell.html": "29338ba58bdbb2e319dc0d8dd37e99d18cc381016b2285eb2307d91790350663",
+    "dev/ui.js": "f2f1a58537d9f936eb727f4b821df283fd09f4d33c4ffadbe04ce58e61fb96ce"
   },
   "outputs": {
-    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
-    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
+    "index.html": "e8c5bd49dead491ef2778563777704e8fb501be9a3b8a8ee7ec61d065eb90f94",
+    "baiyao-standalone.html": "65882415a7cf6054dd608c67070098d90bdeee273ead27e825d1e2c7c08dc5d7"
   },
   "release_outputs": {
-    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
-    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
+    "index.html": "e8c5bd49dead491ef2778563777704e8fb501be9a3b8a8ee7ec61d065eb90f94",
+    "baiyao-standalone.html": "65882415a7cf6054dd608c67070098d90bdeee273ead27e825d1e2c7c08dc5d7"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -488,10 +489,10 @@
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945"
   },
   "asset_count": 233,
-  "source_count": 8,
-  "archive_sha256": "243cb3a60daa1d0b42626980acc3e5c88ef04e7e0ea285d1a382b40defb237d0",
-  "archive_bytes": 11083812,
-  "uncompressed_bytes": 11366041,
+  "source_count": 9,
+  "archive_sha256": "54a85190015c8c837fcd59762170e84b8eae987e8d28ae2b00848be69db1ed38",
+  "archive_bytes": 11102322,
+  "uncompressed_bytes": 11424990,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

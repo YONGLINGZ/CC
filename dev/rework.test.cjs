@@ -121,6 +121,7 @@ test('无面神血增加最大生命，九命铃每场战斗挡一次致死', ()
   battleState.player.relics.push('ninelives');
   battleGame.enterNode('f1-0');
   const battle = battleState.battle;
+  battle.enemy.id = 'paper'; // isolate lethal guard from new poison/secondary skills
   battle.enemy.intentIndex = 1;
   battleState.player.hp = 1;
   battle.block = 0;

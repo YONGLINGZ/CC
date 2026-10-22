@@ -2,16 +2,17 @@
 (function (root) {
   'use strict';
   const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
+  const EXPEDITION = root.NightExpedition || (typeof module !== 'undefined' && module.exports ? require('./expedition.js') : {});
 
   const CARDS = {
     C01: { name: '爪击', cost: 1, text: '对敌人造成 6 点伤害。', target: true, attack: true },
     C02: { name: '敛息', cost: 1, text: '获得 5 点护盾。', target: false },
     C03: { name: '窥隙', cost: 0, text: '使敌人获得 2 层标记。', target: true },
     C04: { name: '扑杀', cost: 2, text: '造成 10＋4×敌人当前标记层数的伤害，然后清除敌人全部标记。', target: true, attack: true },
-    C05: { name: '连爪', cost: 1, text: '连续造成 3 次、每次 3 点伤害。', target: true, attack: true },
+    C05: { name: '连爪', cost: 1, text: '连续造成 3 次、每次 3 点伤害；若敌人仍存活且带有标记，再施加 1 层流血。', target: true, attack: true },
     C06: { name: '猫步', cost: 0, text: '获得 3 点护盾，抽 1 张牌。消耗。', target: false, exhaust: true },
     C07: { name: '流影', cost: 1, text: '获得 7 点护盾；若此前本回合已打出至少 2 张牌，再抽 1 张牌。', target: false },
-    C08: { name: '戏鼠', cost: 1, text: '造成 4 点伤害，然后使敌人获得 2 层标记。', target: true, attack: true },
+    C08: { name: '戏鼠', cost: 1, text: '造成 4 点伤害；若敌人仍存活，施加 2 层标记与 2 层流血。', target: true, attack: true },
     C09: { name: '夜猎', cost: 1, text: '抽 2 张牌。', target: false },
     C10: { name: '候机', cost: 0, text: '本回合下一张攻击牌的第一段伤害增加 4。可叠加，触发后全部清除；回合结束也清除。', target: false },
     C11: { name: '蓄爪', cost: 1, text: '下个玩家回合额外获得 1 点灵力，并额外抽 1 张牌。可叠加，触发后清除。', target: false },
@@ -21,19 +22,19 @@
     C15: { name: '妖火符', cost: 1, text: '先失去 1 点生命，再对敌人造成 9 点伤害。', target: true, attack: true },
     C16: { name: '残月', cost: 2, text: '造成 16 点伤害；若结算前敌人带有标记，再抽 1 张牌，不消耗标记。', target: true, attack: true },
     C17: { name: '金瞳', cost: 1, text: '施加 4 层标记，抽 1 张牌。', target: true },
-    C18: { name: '追猎', cost: 1, text: '造成 5＋2×敌人标记层数的伤害，不消耗标记。', target: true, attack: true },
+    C18: { name: '追猎', cost: 1, text: '造成 5＋2×敌人标记层数的伤害，不消耗标记；若敌人仍存活且带有标记，施加 1 层流血。', target: true, attack: true },
     C19: { name: '缚影', cost: 1, text: '获得 8 点护盾，施加 1 层标记。', target: true },
     C20: { name: '铃音', cost: 0, text: '若敌人有标记，移除 1 层，获得 1 灵力并抽 1 张牌。消耗。', target: true, exhaust: true },
-    C21: { name: '终夜', cost: 3, text: '造成 12＋6×敌人标记层数的伤害，然后清除全部标记。', target: true, attack: true },
-    C22: { name: '裂帛', cost: 1, text: '连续攻击 2 次，每次 4 伤害；若此前本回合已打出至少 2 张牌，每次改为 6。', target: true, attack: true },
+    C21: { name: '终夜', cost: 3, text: '造成 12＋6×标记层数＋2×流血层数的伤害，然后清除敌人全部标记与流血。', target: true, attack: true },
+    C22: { name: '裂帛', cost: 1, text: '连续攻击 2 次，每次 4 伤害，再施加 1 层流血；此前本回合已打出至少 2 张牌时，每次伤害改为 6、流血改为 2 层。', target: true, attack: true },
     C23: { name: '逐影', cost: 0, text: '造成 3 点伤害，抽 1 张牌。消耗。', target: true, attack: true, exhaust: true },
     C24: { name: '狂爪', cost: 2, text: '连续攻击 4 次，每次 4 伤害；若此前本回合已打出至少 2 张牌，再攻击 1 次。', target: true, attack: true },
     C25: { name: '灵巧', cost: 0, text: '先失去 1 点生命，再获得 1 点灵力。消耗。', target: false, exhaust: true },
     C26: { name: '翻檐', cost: 1, text: '造成 4 点伤害，获得 4 点护盾，抽 1 张牌。', target: true, attack: true },
     C27: { name: '歃血', cost: 1, text: '先失去 4 点生命；本场战斗每张攻击牌的第一段伤害增加 2，可叠加。消耗。', target: false, exhaust: true },
-    C28: { name: '血饮', cost: 2, text: '造成 10 点伤害，恢复 4 点生命（即使击杀或被护盾阻挡也治疗）。', target: true, attack: true },
+    C28: { name: '血饮', cost: 2, text: '造成 10 点伤害，恢复 4＋敌人流血层数的生命（额外治疗最多 3）；击杀或被护盾阻挡仍治疗。敌人存活时再施加 1 层流血。', target: true, attack: true },
     C29: { name: '献寿', cost: 0, text: '先失去 5 点生命，再获得 2 点灵力。消耗。', target: false, exhaust: true },
-    C30: { name: '残心', cost: 1, text: '造成 8 点伤害；若当前生命不高于最大生命的一半，改为 16 点。', target: true, attack: true },
+    C30: { name: '残心', cost: 1, text: '造成 8 点伤害；若当前生命不高于最大生命的一半，改为 16 点，并在敌人存活时施加 2 层流血。', target: true, attack: true },
     C31: { name: '借命', cost: 1, text: '先失去 2 点生命，再获得 12 点护盾。', target: false },
     C32: { name: '绕指柔', cost: 0, text: '获得 3 点护盾；若此前本回合已打出至少 2 张牌，改为 6 点。消耗。', target: false, exhaust: true },
     C33: { name: '逆鳞', cost: 1, text: '获得 6 点护盾；本轮敌人每段攻击被护盾抵挡时，反击 3 点伤害。反击可叠加，到下个玩家回合清除。', target: false },
@@ -42,20 +43,20 @@
     C36: { name: '归息', cost: 1, text: '恢复 4 点生命。消耗。', target: false, exhaust: true }
   };
   Object.assign(CARDS, {
-    S01: { name: '霜锋', cost: 1, text: '造成 6 点伤害；若敌人仍存活，获得 1 层剑意。', target: true, attack: true },
+    S01: { name: '霜锋', cost: 1, text: '造成 6 点伤害；若敌人仍存活，获得 1 层剑意，且敌人已有霜寒时再施加 1 层霜寒。', target: true, attack: true },
     S02: { name: '凝霜', cost: 1, text: '获得 6 点护盾，使敌人获得 1 层霜寒。', target: true },
     S03: { name: '听雪', cost: 0, text: '获得 2 层剑意。剑意上限 8，跨回合保留。', target: false },
-    S04: { name: '断流', cost: 2, text: '消耗全部剑意，造成 10＋3×消耗层数的伤害。', target: true, attack: true },
+    S04: { name: '断流', cost: 2, text: '消耗全部剑意，造成 10＋3×消耗层数的伤害；敌人仍存活且霜寒至少 5 层时，抽 1 张牌。', target: true, attack: true },
     S05: { name: '寒芒', cost: 1, text: '造成 4 点伤害；若敌人仍存活，使其获得 2 层霜寒。', target: true, attack: true },
     S06: { name: '踏雪', cost: 0, text: '获得 3 点护盾，抽 1 张牌。消耗。', target: false, exhaust: true },
     S07: { name: '冰镜', cost: 1, text: '获得 7 点护盾；若敌人已有霜寒，再抽 1 张牌。', target: false },
-    S08: { name: '三叠泉', cost: 1, text: '连续攻击 3 次，每次 3 点伤害；若结算前剑意至少 3 层，每次改为 4 点。不消耗剑意。', target: true, attack: true },
+    S08: { name: '三叠泉', cost: 1, text: '连续攻击 3 次，每次 3 点伤害；若结算前剑意至少 3 层，每次改为 4 点。不消耗剑意。敌人存活且已有霜寒时，再施加 1 层霜寒。', target: true, attack: true },
     S09: { name: '澄心', cost: 1, text: '抽 2 张牌。', target: false },
     S10: { name: '回锋', cost: 0, text: '若剑意至少 2 层，消耗 2 层剑意，获得 1 灵力并抽 1 张牌；不足时无收益。消耗。', target: false, exhaust: true },
     S11: { name: '藏剑', cost: 1, text: '下个玩家回合额外获得 1 灵力，并额外抽 1 张牌。可叠加。', target: false },
     S12: { name: '霜天壁', cost: 2, text: '获得 14 点护盾，使敌人获得 2 层霜寒。', target: true },
     S13: { name: '以血淬刃', cost: 0, text: '先失去 3 点生命，再抽 2 张牌并获得 1 层剑意。消耗。', target: false, exhaust: true },
-    S14: { name: '剑鸣', cost: 1, text: '造成 5 点伤害；若敌人仍存活，获得 2 层剑意。', target: true, attack: true },
+    S14: { name: '剑鸣', cost: 1, text: '造成 5 点伤害；若敌人仍存活，获得 2 层剑意，敌人霜寒至少 5 层时改为 3 层。', target: true, attack: true },
     S15: { name: '碎霜', cost: 2, text: '移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。', target: true, attack: true },
     S16: { name: '万川归寂', cost: 3, text: '消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。', target: true, attack: true }
   });
@@ -82,7 +83,7 @@
   const STARTERS = {
     mark: { name: '金瞳猎印', description: '窥隙叠印 → 追猎压血 → 扑杀收割。以标记换取爆发。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C17','C18'] },
     combo: { name: '月影连爪', description: '猫步与窥隙穿插，第三张触发裂帛连段；快速连续出牌。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C06','C22'] },
-    sword: { character: 'sword', name: '霜华剑道', description: '霜寒削弱敌人下一次行动的每段攻击，积蓄跨回合剑意，以断流一剑收束。', cards: ['S01','S01','S01','S01','S02','S02','S02','S02','S03','S04'] },
+    sword: { character: 'sword', name: '霜华剑道', description: '霜寒跨回合保留，霜锋追寒、剑意收束；五层霜寒压低敌人杀势，十层有机会封住整次行动。', cards: ['S01','S01','S01','S01','S02','S02','S02','S02','S03','S04'] },
     blood: { name: '赤契噬魂', description: '歃血付出生命，换整场攻击增伤；血饮边进攻边疗伤。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C27','C28'] }
   };
 
@@ -123,36 +124,36 @@
     ] },
     lantern: { name: '灯鬼', hp: 28, intents: [
       { name: '灯罩', text: '获得护盾 6', block: 6 },
-      { name: '烛焰', text: '攻击 9', hits: [9] }
+      { name: '烛焰', text: '攻击 9，再施加 1 层毒', hits: [9], poison:1 }
     ] },
     ape: { name: '山魈', hp: 32, intents: [
       { name: '乱爪', text: '连击 3×3', hits: [3, 3, 3] },
-      { name: '山崩', text: '攻击 10', hits: [10] }
+      { name: '山崩', text: '攻击 10，下个玩家回合少抽 1 张牌', hits: [10], drawPenalty:1 }
     ] },
     bone: { name: '白骨侍', hp: 30, intents: [
       { name: '骨刃', text: '攻击 7', hits: [7] },
-      { name: '骨甲突刺', text: '获得护盾 4，然后攻击 6', block: 4, hits: [6] }
+      { name: '骨甲突刺', text: '获得护盾 4，然后攻击 6，架势反击 2', block: 4, hits: [6], counter:2 }
     ] },
-    yaksha: { name: '精英·夜叉', hp: 62, intents: [
+    yaksha: { name: '精英·夜叉', rank:'elite', hp: 62, intents: [
       { name: '破阵', text: '攻击 12', hits: [12] },
-      { name: '夜甲', text: '获得护盾 10', block: 10 },
-      { name: '镇魂', text: '攻击 16', hits: [16] }
+      { name: '夜甲', text: '清除全部霜寒与流血，获得护盾 10，架势反击 2', clearChill:true,clearBleed:true,block:10,counter:2 },
+      { name: '镇魂', text: '攻击 16，下个玩家回合灵力减少 1', hits:[16],energyPenalty:1 }
     ] },
     raider: { name: '来客', hp: 42, intents: [
       { name: '试探剑', text: '攻击 7', hits: [7] },
-      { name: '封路', text: '获得护盾 5，然后攻击 6', block: 5, hits: [6] },
+      { name: '封路', text: '获得护盾 5，然后攻击 6，架势反击 2', block:5,hits:[6],counter:2 },
       { name: '夺命连斩', text: '连续攻击 2 次，每次 6', hits: [6,6] }
     ] },
-    snake: { name: '蛇妖·绛鳞', hp: 100, intents: [
+    snake: { name: '蛇妖·绛鳞', rank:'boss', hp: 100, intents: [
       { name: '鳞刃', text: '攻击 10', hits: [10] },
       { name: '蛇息', text: '先攻击 6，再施加 3 层毒', hits: [6], poison: 3 },
-      { name: '蜕鳞', text: '清除全部标记，再获得护盾 10', clearMark: true, block: 10 },
+      { name: '蜕鳞', text: '清除全部标记、霜寒与流血，再获得护盾 10', clearMark:true,clearChill:true,clearBleed:true,block:10 },
       { name: '绞缠', text: '连续攻击 3 次，每次 5', hits: [5, 5, 5] }
     ] }
   };
 
   const RELICS = {
-    frostseal: { name: '霜魄剑穗', text: '剑修初始遗物：每个玩家回合第一次实际增加敌人霜寒时，获得 1 层剑意。霜寒上限 4，剑意上限 8。' },
+    frostseal: { name: '霜魄剑穗', text: '剑修初始遗物：每个玩家回合第一次实际增加敌人霜寒时，获得 1 层剑意。霜寒上限 10，剑意上限 8。' },
     bell: { name: '金铃', text: '每个玩家回合首次实际增加敌人标记时，获得 3 点护盾。标记上限 5。' },
     jade: { name: '磨爪玉', text: '每个玩家回合第 3 张牌结算后，获得 1 点灵力，每回合一次。' },
     moon: { name: '残月坠', text: '每场战斗第一个玩家回合额外抽 2 张牌。' },
@@ -181,6 +182,7 @@
     shop: ['千灯补给站','商店 · 本职业卡牌 35 金币；删牌 40'],
     fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
+    cave: ['未知洞府','探宝 · 可能发现草药、丹药、遗宝，也可能惊动守藏者'],
     boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
   };
   const ROUTE_NAMES = ['松门曲径','沉钟岔道','断碑回廊','乌灯古道','落霞别径','枯河石阶','照影荒庭','折柳旧路','长风栈桥','夜雨碑林','苍苔迷渡','流火废苑','月隙盘山','飞霜残驿','空响祭道','无字长廊','回灯密径','横雾孤城','青绦山隘','藏星回川'];
@@ -201,6 +203,7 @@
     shop: ['有人拨弄算盘，也有人在数铜钱', '一缕货香混着旧纸味', '檐下挂着会自己响的铃串'],
     fox: ['一尾赤色影子从墙后掠过', '风里有一点甜腻的狐香', '有人隔着帘子问：今夜还赊账吗'],
     event: ['纸灯无风自转', '雾中传来半句没说完的话', '门牌上的字被谁故意擦掉了'],
+    cave: ['石门半掩，缝隙里透出微光', '青苔下有丹香，也有脚步声', '断裂的禁制后传来空旷回声'],
     boss: ['观测井的鳞片擦过屋瓦', '整片封域忽然安静下来', '金铃自己响了一声']
   };
 
@@ -291,11 +294,11 @@
       const values={S01:{damage:6},S02:{block:6},S04:{damage:10},S05:{damage:4},S06:{block:3},S07:{block:7},S08:{damage:3},S12:{block:14},S14:{damage:5},S15:{damage:12},S16:{damage:16},D01:{damage:4,heal:6},D02:{damage:8,heal:3},D03:{damage:16,heal:5},D04:{block:12},D06:{damage:26,heal:6}};
       const value={...(values[id]||{})};if(fallenPenalty)for(const key of ['damage','block'])if(value[key]!=null)value[key]=Math.floor(value[key]/2);
       const altered={
-        S01:'造成 3 点伤害；若敌人仍存活，获得 1 层剑意。',S02:'获得 3 点护盾，使敌人获得 1 层霜寒。',
-        S04:'消耗全部剑意，造成 5＋⌊3×消耗层数÷2⌋ 点伤害。',S05:'造成 2 点伤害；若敌人仍存活，使其获得 2 层霜寒。',
+        S01:'造成 3 点伤害；若敌人仍存活，获得 1 层剑意，且敌人已有霜寒时再施加 1 层霜寒。',S02:'获得 3 点护盾，使敌人获得 1 层霜寒。',
+        S04:'消耗全部剑意，造成 5＋⌊3×消耗层数÷2⌋ 点伤害；敌人仍存活且霜寒至少 5 层时，抽 1 张牌。',S05:'造成 2 点伤害；若敌人仍存活，使其获得 2 层霜寒。',
         S06:'获得 1 点护盾，抽 1 张牌。消耗。',S07:'获得 3 点护盾；若敌人已有霜寒，再抽 1 张牌。',
-        S08:'连续攻击 3 次，每次 1 点伤害；若结算前剑意至少 3 层，每次改为 2 点。不消耗剑意。',
-        S12:'获得 7 点护盾，使敌人获得 2 层霜寒。',S14:'造成 2 点伤害；若敌人仍存活，获得 2 层剑意。',
+        S08:'连续攻击 3 次，每次 1 点伤害；若结算前剑意至少 3 层，每次改为 2 点。不消耗剑意。敌人存活且已有霜寒时，再施加 1 层霜寒。',
+        S12:'获得 7 点护盾，使敌人获得 2 层霜寒。',S14:'造成 2 点伤害；若敌人仍存活，获得 2 层剑意，敌人霜寒至少 5 层时改为 3 层。',
         S15:'移除敌人全部霜寒，造成 6＋移除层数的伤害；若敌人仍存活，获得等量剑意。',
         S16:'消耗全部剑意，造成 8＋2×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。'
       };
@@ -476,14 +479,14 @@
       }
     }
     function makeMap() {
-      const weighted=['fight','fight','event','event','rest','rest','shop','elite'],map=[],templates=[];
+      const weighted=['fight','fight','event','event','rest','rest','shop','elite','cave'],map=[],templates=[];
       for(let chapter=0;chapter<3;chapter++){
         const configured=Array.isArray(options.routeTemplate)?options.routeTemplate[chapter]:options.routeTemplate;
         const template=ROUTE_TEMPLATES[Number.isInteger(configured)&&configured>=0&&configured<20?configured:rand(20)];templates.push({id:template.id,name:template.name,chapter:chapter+1,nodeCount:template.widths.reduce((a,b)=>a+b,0)});
         const rows=template.widths.map((width,local)=>{
           const floor=chapter*10+local+1;let types;
           if(local===0)types=['fight'];else if(local===9)types=['boss'];else if(local===2)types=Array(width).fill('event');
-          else{types=Array.from({length:width},()=>weighted[rand(weighted.length)]);if([1,3,5,7,8].includes(local)){types[0]='rest';types[1]='shop';}if(local===5)types[2]='fox';types=shuffle(types);}
+          else{types=Array.from({length:width},()=>weighted[rand(weighted.length)]);if([1,3,5,7,8].includes(local)){types[0]='rest';types[1]='shop';}if([1,7].includes(local))types[2]='cave';if(local===5)types[2]='fox';types=shuffle(types);}
           return types.map((type,lane)=>({id:`f${floor}-${lane}`,type,floor,lane,regionIndex:chapter,xJitter:(rng()-.5)*.28,yJitter:(rng()-.5)*.35,revealed:false,name:NODE_INFO[type][0],description:NODE_INFO[type][1],omen:OMENS[type][rand(OMENS[type].length)],next:[]}));
         });
         for(let local=0;local<9;local++){
@@ -530,7 +533,7 @@
           deck: cards.map(makeCard),
           relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell']
         },
-        floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null,
+        floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null, cave: null,
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
           hidden: { jiIntent: rand(2) ? 'greedy' : 'grateful' }, nextCombatBlock: 0 },
         notice: '', result: null, rewardRerolls: 1,
@@ -575,10 +578,11 @@
     function clearCombatStatuses() {
       const b = state.battle;
       b.block = b.energy = b.poison = 0;
-      b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = 0;
+      b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = b.enemy.chillProgress = b.enemy.bleed = b.enemy.counter = 0;
+      b.enemy.frozen = null;
       b.swordIntent = 0; b.soul = 0;
       b.nextAttack = b.nextEnergy = b.nextDraw = 0;
-      b.bloodPower = b.riposte = 0;
+      b.bloodPower = b.riposte = b.pillPower = b.nextEnergyPenalty = b.nextDrawPenalty = 0;
       b.bellUsed = b.jadeUsed = b.frostsealUsed = false;
       b.fangUsed = b.silkUsed = b.bloodstoneUsed = false;
     }
@@ -685,18 +689,45 @@
       if (used) addSwordIntent(-used, '收束剑意');
       return used;
     }
+    function frostResistant() {
+      const b = state.battle;
+      return !!b && (['elite','boss','hidden'].includes(b.kind) || ['elite','boss','hidden'].includes(ENEMIES[b.enemy.id]?.rank));
+    }
     function addChill(amount, reason = '霜寒') {
       if (!liveBattle()) return 0;
       const b = state.battle, before = b.enemy.chill || 0;
-      b.enemy.chill = Math.max(0, Math.min(4, before + amount));
+      // Tough enemies count distinct frost-applying cards, never hit segments or requested layers.
+      if (amount > 0 && before < 10 && frostResistant()) {
+        const card = b.resolving?.[0];
+        if (!card || b.chillCardUid === card.uid) return 0;
+        b.chillCardUid = card.uid;
+        b.enemy.chillProgress = (b.enemy.chillProgress || 0) + 1;
+        if (b.enemy.chillProgress < 2) {
+          log(`${reason}：寒息渗入${b.enemy.name}的护体气息，下一张施霜技能可凝成 1 层霜寒。`);
+          event('chill', { target: 'enemy', amount: 0, total: before, progress: 1, resisted: true, reason });
+          return 0;
+        }
+        b.enemy.chillProgress = 0;
+        amount = 1;
+      }
+      b.enemy.chill = Math.max(0, Math.min(10, before + amount));
       const gained = b.enemy.chill - before;
-      event('chill', { target: 'enemy', amount: gained, total: b.enemy.chill, reason });
-      log(`${reason}：${b.enemy.name}霜寒 ${gained >= 0 ? '+' : ''}${gained}（${b.enemy.chill}/4）；下次行动每段攻击减少 ${b.enemy.chill}。`);
+      event('chill', { target: 'enemy', amount: gained, total: b.enemy.chill, progress:b.enemy.chillProgress||0, reason });
+      log(`${reason}：${b.enemy.name}霜寒 ${gained >= 0 ? '+' : ''}${gained}（${b.enemy.chill}/10）。`);
       if (gained > 0 && hasRelic('frostseal') && !b.frostsealUsed) {
         b.frostsealUsed = true;
         event('relic', { relic: 'frostseal', name: RELICS.frostseal.name, amount: 1 });
         addSwordIntent(1, '霜魄剑穗触发');
       }
+      return gained;
+    }
+    function addBleed(amount, reason = '流血') {
+      if (!liveBattle()) return 0;
+      const enemy = state.battle.enemy, before = enemy.bleed || 0;
+      enemy.bleed = Math.max(0, Math.min(7, before + amount));
+      const gained = enemy.bleed - before;
+      log(`${reason}：${enemy.name}流血 ${gained >= 0 ? '+' : ''}${gained}（${enemy.bleed}/7）。`);
+      event('bleed', { target:'enemy', amount:gained, total:enemy.bleed, reason });
       return gained;
     }
     function drawCards(count) {
@@ -775,6 +806,8 @@
       state.player.gold += gold;
       state.reward = { cards: rewardCards(b.kind), gold, relic: null, relicChoices,
         relicPending: relicChoices.length > 0, rerolled: false };
+      const caveLoot = expedition.onBattleWin(b);
+      if (caveLoot) state.reward.caveLoot = caveLoot;
       state.screen = 'reward';
       note(`胜利：${gold} 金币已入账。${relicChoices.length ? '先选一件精英珍藏，再选择卡牌。' : '请选一张牌或跳过。'}${gold === 55 ? '遗物已集齐，包含额外 20 金币。' : ''}`);
     }
@@ -815,6 +848,11 @@
       if (b.enemy.hp <= 0) {
         if (killingHeal) heal(killingHeal, '噬魂击杀');
         winBattle();
+      } else if (kind === 'card' && damage > 0 && b.enemy.counter > 0 && !b.enemyCounterUsedForCard) {
+        b.enemyCounterUsedForCard = true;
+        log(`${b.enemy.name}的架势反击：本张攻击牌首次伤及生命，反击 ${b.enemy.counter} 点。`);
+        event('enemySkill', {target:'player',kind:'counter',amount:b.enemy.counter,name:'架势反击'});
+        playerHit(b.enemy.counter, -1);
       }
     }
     function startPlayerTurn() {
@@ -842,8 +880,18 @@
       }
       if(!tickAffliction('turn'))return;
       let turnEnergy = 3 + b.nextEnergy;
+      if (b.nextEnergyPenalty) {
+        turnEnergy = Math.max(0, turnEnergy - b.nextEnergyPenalty);
+        log(`封脉余势：本回合灵力减少 ${b.nextEnergyPenalty}。`);
+        b.nextEnergyPenalty = 0;
+      }
       if(environmentEnabled && b.environment.regionIndex===1 && b.turn===1){turnEnergy=Math.max(0,turnEnergy-1);log('逆灵风：首回合灵力减少1。');event('environment',{name:b.environment.name,amount:-1,kind:'energy'});}
       let draw = 5 + b.nextDraw;
+      if (b.nextDrawPenalty) {
+        draw = Math.max(0, draw - b.nextDrawPenalty);
+        log(`扰心余势：本回合少抽 ${b.nextDrawPenalty} 张牌。`);
+        b.nextDrawPenalty = 0;
+      }
       if(environmentEnabled&&b.environment.regionIndex===0&&b.turn===1){draw=Math.max(0,draw-1);log('入骨瘴：首回合少抽1张牌。');event('environment',{name:b.environment.name,amount:-1,kind:'draw'});}
       if (hasRelic('moonheart')) {
         turnEnergy += 1;
@@ -879,13 +927,14 @@
       state.battle = {
         kind, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, intentIndex: 0 },
+        enemy: { id, name: encounter?.name || def.name, hp: def.hp, maxHp: def.hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: 0 },
         block: 0, energy: 0, poison: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
-        bloodPower: 0, riposte: 0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
+        bloodPower: 0, riposte: 0, pillPower:Math.max(0,Math.min(4,state.player.pendingPillPower||0)), itemUsedTurn:0, nextEnergyPenalty:0, nextDrawPenalty:0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
         mirrorUsed: false, nineUsed: false,
         logs: [`进入第 ${state.floor} 段，与${encounter?.name || def.name}交战。`]
       };
+      state.player.pendingPillPower = 0;
       state.screen = 'battle';
       state.reward = null;
       startPlayerTurn();
@@ -897,7 +946,7 @@
         gainBlock(amount, '故人护符');
         log(`故人留下的护符生效：首回合获得 ${amount} 点护盾，本次援护已用尽。`);
       }
-      if (encounter) {
+      if (encounter && !encounter.caveId) {
         state.battle.storyEncounter = { npc: state.event?.npc || null, title: state.event?.name || '', enemy: state.battle.enemy.name, lootCards:(encounter.lootCards||[]).slice() };
         log('这是先前奇遇引出的交战；获胜后正常选牌，只完成当前道路一次。');
       }
@@ -921,12 +970,14 @@
       state.reward = null;
       state.shop = null;
       state.event = null;
+      state.cave = null;
       note(`第 ${state.floor} 段已开放。沿已连接的道路继续前行。`);
     }
 
     function newRun(starter = 'mark') {
       if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
       state = freshState('arrival', starter);
+      expedition.resetRun();
       activeNode = null;
       note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，前往逆仪观测井。`);
       emit();
@@ -971,8 +1022,10 @@
         state.screen = type;
         if (type === 'shop') {
           state.shop = { cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
+          state.shop.items = expedition.makeShopStock();
         }
         if (type === 'event') state.event = makeEvent();
+        if (type === 'cave') expedition.enterCave(node);
       }
       emit();
       return true;
@@ -1004,6 +1057,8 @@
       b.energy -= def.cost;
       b.hand.splice(index, 1);
       b.resolving.push(card);
+      b.chillCardUid = null;
+      b.enemyCounterUsedForCard = false;
       const previousPlayed = b.played;
       b.played++;
       state.stats.maxCombo = Math.max(state.stats.maxCombo, b.played);
@@ -1012,7 +1067,7 @@
       event('card', { cardId: card.id, name: def.name, cost: def.cost });
       let bonus = 0;
       if (def.attack) {
-        bonus = b.nextAttack + b.bloodPower + state.player.power;
+        bonus = b.nextAttack + b.bloodPower + state.player.power + (b.pillPower || 0);
         if(!b.weaponUsed){const w=WEAPONS[state.player.equippedWeapon];b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
         b.nextAttack = 0;
         if (hasRelic('mirror') && !b.mirrorUsed) {
@@ -1050,16 +1105,17 @@
         case 'F10': enemyHit(16+bonus);if(liveBattle()&&state.player.power>=2)drawCards(1);break;
         case 'F11': if(b.soul>=2){addSoul(-2,def.name);b.energy++;drawCards(1);}else log('魂息不足2，没有收益。');break;
         case 'F12': {const soul=consumeSoul();enemyHit(18+4*soul+bonus);break;}
-        case 'S01': enemyHit(6 + bonus); if (liveBattle()) addSwordIntent(1, def.name); break;
+        case 'S01': enemyHit(6 + bonus); if (liveBattle()) {addSwordIntent(1, def.name);if(b.enemy.chill>0)addChill(1,def.name);} break;
         case 'S02': gainBlock(6, def.name); addChill(1, def.name); break;
         case 'S03': addSwordIntent(2, def.name); break;
-        case 'S04': { const used = consumeSwordIntent(8); enemyHit(10 + 3 * used + bonus); break; }
+        case 'S04': { const used = consumeSwordIntent(8); enemyHit(10 + 3 * used + bonus); if(liveBattle()&&b.enemy.chill>=5)drawCards(1);break; }
         case 'S05': enemyHit(4 + bonus); if (liveBattle()) addChill(2, def.name); break;
         case 'S06': gainBlock(3, def.name); drawCards(1); break;
         case 'S07': gainBlock(7, def.name); if (b.enemy.chill > 0) drawCards(1); break;
         case 'S08': {
           const amount = b.swordIntent >= 3 ? 4 : 3;
           for (let i = 0; i < 3 && liveBattle(); i++) enemyHit(amount + (i === 0 ? bonus : 0));
+          if(liveBattle()&&b.enemy.chill>0)addChill(1,def.name);
           break;
         }
         case 'S09': drawCards(2); break;
@@ -1070,7 +1126,7 @@
         case 'S11': b.nextEnergy++; b.nextDraw++; log('藏剑：下回合额外 1 灵力、抽 1 张牌。'); break;
         case 'S12': gainBlock(14, def.name); addChill(2, def.name); break;
         case 'S13': if (loseLife(3, '以血淬刃自损（无视护盾）', true)) { drawCards(2); addSwordIntent(1, def.name); } break;
-        case 'S14': enemyHit(5 + bonus); if (liveBattle()) addSwordIntent(2, def.name); break;
+        case 'S14': enemyHit(5 + bonus); if (liveBattle()) addSwordIntent(b.enemy.chill>=5?3:2, def.name); break;
         case 'S15': {
           const removed = b.enemy.chill || 0;
           if (removed) addChill(-removed, '碎霜清除');
@@ -1096,13 +1152,14 @@
         }
         case 'C05':
           for (let i = 0; i < 3 && liveBattle(); i++) enemyHit(3 + (i === 0 ? bonus : 0));
+          if(liveBattle()&&b.enemy.mark>0)addBleed(1,def.name);
           break;
         case 'C06': gainBlock(3, def.name); drawCards(1); break;
         case 'C07':
           gainBlock(7, def.name);
           if (previousPlayed >= 2) { log('流影连段：额外抽 1 张牌。'); drawCards(1); }
           break;
-        case 'C08': enemyHit(4 + bonus); if (liveBattle()) addMark(2); break;
+        case 'C08': enemyHit(4 + bonus); if (liveBattle()) {addMark(2);addBleed(2,def.name);} break;
         case 'C09': drawCards(2); break;
         case 'C10': b.nextAttack += 4; log(`候机：下一张攻击牌第一段额外 ${b.nextAttack} 点伤害。`); break;
         case 'C11': b.nextEnergy++; b.nextDraw++; log('蓄爪：下回合额外 1 灵力、抽 1 张牌。'); break;
@@ -1117,7 +1174,7 @@
           break;
         }
         case 'C17': addMark(4); drawCards(1); break;
-        case 'C18': enemyHit(5 + 2 * b.enemy.mark + bonus); break;
+        case 'C18': enemyHit(5 + 2 * b.enemy.mark + bonus); if(liveBattle()&&b.enemy.mark>0)addBleed(1,def.name);break;
         case 'C19': gainBlock(8, def.name); addMark(1); break;
         case 'C20':
           if (b.enemy.mark > 0) {
@@ -1127,13 +1184,15 @@
           } else log('铃音：敌人没有标记，没有获得灵力或抽牌。');
           break;
         case 'C21': {
-          const mark = b.enemy.mark;
-          enemyHit(12 + 6 * mark + bonus); b.enemy.mark = 0;
+          const mark = b.enemy.mark, bleed = b.enemy.bleed || 0;
+          enemyHit(12 + 6 * mark + 2 * bleed + bonus); b.enemy.mark = 0;
           event('mark', { target: 'enemy', amount: -mark, total: 0 });
-          log(`终夜清除全部 ${mark} 层标记。`); break;
+          if(liveBattle()&&bleed)addBleed(-bleed,def.name);
+          log(`终夜清除全部 ${mark} 层标记与 ${bleed} 层流血。`); break;
         }
         case 'C22':
           for (let i = 0; i < 2 && liveBattle(); i++) enemyHit((previousPlayed >= 2 ? 6 : 4) + (i === 0 ? bonus : 0));
+          if(liveBattle())addBleed(previousPlayed>=2?2:1,def.name);
           break;
         case 'C23': enemyHit(3 + bonus); if (liveBattle()) drawCards(1); break;
         case 'C24':
@@ -1147,9 +1206,9 @@
             event('power', { amount: 2, total: b.bloodPower });
           }
           break;
-        case 'C28': enemyHit(10 + bonus, 0, 4); break;
+        case 'C28': enemyHit(10 + bonus, 0, 4+Math.min(3,b.enemy.bleed||0));if(liveBattle())addBleed(1,def.name);break;
         case 'C29': if (loseLife(5, '献寿自损（无视护盾）', true)) { b.energy += 2; log('献寿：获得 2 灵力。'); } break;
-        case 'C30': enemyHit((state.player.hp <= state.player.maxHp / 2 ? 16 : 8) + bonus); break;
+        case 'C30': {const desperate=state.player.hp<=state.player.maxHp/2;enemyHit((desperate?16:8)+bonus);if(liveBattle()&&desperate)addBleed(2,def.name);break;}
         case 'C31': if (loseLife(2, '借命自损（无视护盾）', true)) gainBlock(12, def.name); break;
         case 'C32': gainBlock(previousPlayed >= 2 ? 6 : 3, def.name); break;
         case 'C33': gainBlock(6, def.name); b.riposte += 3; log(`逆鳞：本轮每次护盾抵挡攻击，反击 ${b.riposte}。`); break;
@@ -1182,6 +1241,8 @@
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
       beginEvents();
       b.phase = 'enemy';
+      // Finalise the only freeze roll here. Reading intent or reopening a panel never rolls again.
+      b.enemy.frozen = (b.enemy.chill || 0) >= 10 ? rng() < .10 : false;
       b.nextAttack = 0;
       b.discard.push(...b.hand);
       b.hand = [];
@@ -1198,44 +1259,70 @@
       const enemy = b.enemy;
       event('blockClear', { source: 'enemy', target: 'enemy', amount: -enemy.block, total: 0 });
       enemy.block = 0;
+      enemy.counter = 0;
       if (enemy.poison > 0) {
         const damage = enemy.poison;
         enemy.hp = Math.max(0, enemy.hp - damage);
         enemy.poison--;
         log(`${enemy.name}受到 ${damage} 点毒伤害（无视护盾），毒减至 ${enemy.poison}。`);
         event('poison', { target: 'enemy', amount: damage, damage, tick: true });
-        if (enemy.hp <= 0) {
-          winBattle();
-          emit();
-          return true;
-        }
+        if (enemy.hp <= 0) { winBattle(); emit(); return true; }
+      }
+      const bleed = Math.min(7, Math.max(0, enemy.bleed || 0));
+      if (bleed && rng() < bleed * .03) {
+        const damage = 1 + rand(bleed);
+        enemy.hp = Math.max(0, enemy.hp - damage);
+        log(`创口迸血：${enemy.name}失去 ${damage} 生命（无视护盾），流血仍为 ${bleed} 层。`);
+        event('bleed', { source:'status', target:'enemy', amount:0, total:bleed, damage, tick:true });
+        if (enemy.hp <= 0) { winBattle(); emit(); return true; }
       }
       const intent = getIntent();
-      log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
-      if (intent.clearMark) {
-        log(`蜕鳞：清除 ${enemy.mark} 层标记。`);
-        event('mark', { source: 'enemy', target: 'enemy', amount: -enemy.mark, total: 0 });
-        enemy.mark = 0;
+      if (enemy.frozen) {
+        log(`${enemy.name}被寒意封住，跳过「${intent.name}」的整次行动。`);
+        event('freeze', { source:'status',target:'enemy',skipped:true,name:intent.name });
+      } else {
+        log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
+        if (intent.clearMark) {
+          event('mark', { source:'enemy',target:'enemy',amount:-enemy.mark,total:0 });
+          log(`${intent.name}：清除 ${enemy.mark} 层标记。`);enemy.mark=0;
+        }
+        if (intent.clearChill) {
+          enemy.chillProgress=0;
+          if(enemy.chill)addChill(-enemy.chill,intent.name+'清霜');
+        }
+        if (intent.clearBleed && enemy.bleed) addBleed(-enemy.bleed,intent.name+'止血');
+        if (intent.block) {
+          enemy.block += intent.block;
+          log(`${enemy.name}获得 ${intent.block} 点护盾。`);
+          event('block', { source:'enemy',target:'enemy',amount:intent.block,total:enemy.block });
+        }
+        for (let i=0;i<(intent.hits||[]).length;i++) {
+          if(!playerHit(intent.hits[i],i)){emit();return true;}
+        }
+        if (intent.poison) {
+          b.poison += intent.poison;
+          log(`你获得 ${intent.poison} 层毒（共 ${b.poison} 层）。`);
+          event('poison',{source:'enemy',target:'player',amount:intent.poison,total:b.poison});
+        }
+        if(intent.counter){
+          enemy.counter=intent.counter;
+          log(`${enemy.name}摆出反击架势：每张攻击牌首次伤及生命时，反击 ${intent.counter} 点；持续到下个敌方回合。`);
+          event('enemySkill',{source:'enemy',target:'enemy',kind:'counter',name:intent.name,amount:intent.counter,text:'反击架势'});
+        }
+        if(intent.energyPenalty){
+          b.nextEnergyPenalty+=intent.energyPenalty;
+          event('enemySkill',{source:'enemy',target:'player',kind:'energyPenalty',name:intent.name,amount:intent.energyPenalty,text:`下个回合灵力 −${intent.energyPenalty}`});
+        }
+        if(intent.drawPenalty){
+          b.nextDrawPenalty+=intent.drawPenalty;
+          event('enemySkill',{source:'enemy',target:'player',kind:'drawPenalty',name:intent.name,amount:intent.drawPenalty,text:`下个回合少抽 ${intent.drawPenalty} 张牌`});
+        }
       }
-      if (intent.block) {
-        enemy.block += intent.block;
-        log(`${enemy.name}获得 ${intent.block} 点护盾。`);
-        event('block', { source: 'enemy', target: 'enemy', amount: intent.block, total: enemy.block });
-      }
-      for (let i = 0; i < (intent.hits || []).length; i++) {
-        if (!playerHit(intent.hits[i], i)) { emit(); return true; }
-      }
-      if (intent.poison) {
-        b.poison += intent.poison;
-        log(`你获得 ${intent.poison} 层毒（共 ${b.poison} 层）。`);
-        event('poison', { source: 'enemy', target: 'player', amount: intent.poison, total: b.poison });
-      }
-      if (enemy.chill > 0) addChill(-enemy.chill, '敌人行动结束');
-      enemy.intentIndex = (enemy.intentIndex + 1) % ENEMIES[enemy.id].intents.length;
+      if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
+      enemy.frozen=null;
+      enemy.intentIndex=(enemy.intentIndex+1)%ENEMIES[enemy.id].intents.length;
       note('你的回合。先看敌人意图，再决定攻守。');
-      startPlayerTurn();
-      emit();
-      return true;
+      startPlayerTurn();emit();return true;
     }
     function chooseReward(idOrNull) {
       if (state.screen !== 'reward' || !state.reward) return false;
@@ -1862,29 +1949,41 @@
       return true;
     }
     function getIntent() {
-      const b = state.battle;
-      if (!b) return null;
-      const intent = ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
-      const baseHits = (intent.hits || []).slice(), chill = Math.max(0, b.enemy.chill || 0);
-      const hits = baseHits.map(amount => Math.max(0, amount - chill));
-      if (!chill) return { ...intent, hits, baseHits, chill: 0 };
-      const parts = [];
-      if (intent.clearMark) parts.push('清除全部标记');
-      if (intent.block) parts.push(`获得护盾 ${intent.block}`);
-      if (hits.length === 1) parts.push(`攻击 ${hits[0]}`);
-      else if (hits.length > 1) parts.push(hits.every(x => x === hits[0]) ? `连续攻击 ${hits.length} 次，每次 ${hits[0]}` : `连续攻击 ${hits.join('／')}`);
-      if (intent.poison) parts.push(`再施加 ${intent.poison} 层毒`);
-      return { ...intent, hits, baseHits, chill, text: `${parts.join('，')}（霜寒 ${chill}：本次行动每段减伤，行动后清除）` };
+      const b=state.battle;if(!b)return null;
+      const intent=ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
+      const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
+      // A cleansing action removes frost before attacking; preview the resulting actual hits.
+      const reduction=chill>=5&&!intent.clearChill?1:0;
+      const hits=baseHits.map(amount=>Math.max(0,amount-reduction)),parts=[];
+      if(intent.clearMark)parts.push('清除全部标记');
+      if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
+      if(intent.clearBleed)parts.push('清除全部流血');
+      if(intent.block)parts.push(`获得护盾 ${intent.block}`);
+      if(hits.length===1)parts.push(`攻击 ${hits[0]}`);
+      else if(hits.length>1)parts.push(hits.every(x=>x===hits[0])?`连续攻击 ${hits.length} 次，每次 ${hits[0]}`:`连续攻击 ${hits.join('／')}`);
+      if(intent.poison)parts.push(`再施加 ${intent.poison} 层毒`);
+      if(intent.counter)parts.push(`架势反击 ${intent.counter}（每张伤及生命的攻击牌一次，到下个敌方回合开始）`);
+      if(intent.energyPenalty)parts.push(`下个玩家回合灵力 −${intent.energyPenalty}`);
+      if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
+      const frozen=b.enemy.frozen===true, freezeChance=chill>=10?.10:0;
+      let text=parts.join('，');
+      if(reduction)text+='（霜寒压制：每段攻击 −1）';
+      if(frozen)text='冰封：本次无法行动';
+      else if(freezeChance&&b.enemy.frozen===null)text+='；10% 几率冰封，本次无法行动';
+      return {...intent,hits:frozen?[]:hits,baseHits,chill,frozen,freezeChance,text};
     }
 
     state = freshState('title');
+    const expedition = EXPEDITION.create({getState:()=>state,rng,heal,note,emit,event,log,beginEvents,cureAffliction,startBattle,advance,addRelic,relics:RELICS});
+    expedition.resetRun();
     return {
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
+      getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
       getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
     };
   }
 
-  const api = { ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

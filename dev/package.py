@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Package the verified v9 offline game and editable sources."""
+"""Package the verified v10 offline game and editable sources."""
 from pathlib import Path, PurePosixPath
 import hashlib
 import json
 import os
 import re
+import subprocess
 import tempfile
 import zipfile
 
@@ -14,7 +15,7 @@ EXPECTED_ART = {
     'puppet': 13, 'regions': 3, 'weapons': 4, 'items': 1,
     'events-sword': 21, 'events-sovereign': 21, 'events-sword_fallen': 21,
 }
-ZIP_DATE = (2026, 10, 21, 0, 0, 0)
+ZIP_DATE = (2026, 10, 22, 0, 0, 0)
 
 
 def require(condition, message):
@@ -94,10 +95,10 @@ def verify_new_art():
 
 def verify_recovery(evidence_name, manifest_name, script_name, count, mode, outputs):
     evidence, manifest = report(evidence_name), report(manifest_name)
-    require(evidence.get('format') == 'baiyao-recovery-tests-v9', 'Stale recovery test format')
+    require(evidence.get('format') == 'baiyao-recovery-tests-v10', 'Stale recovery test format')
     passed(evidence, count, evidence_name)
     require(len(evidence['checks']) == count, 'Incomplete recovery checks: ' + evidence_name)
-    require(manifest.get('format') == 'baiyao-offline-recovery-v9', 'Stale recovery manifest')
+    require(manifest.get('format') == 'baiyao-offline-recovery-v10', 'Stale recovery manifest')
     require(evidence['mode'] == manifest['mode'] == mode, 'Recovery mode mismatch')
     require(evidence['release_outputs'] == manifest['release_outputs'] == outputs,
             'Recovery release outputs are stale')
@@ -112,8 +113,8 @@ def verify_recovery(evidence_name, manifest_name, script_name, count, mode, outp
 
 
 def main():
-    browser = report('dev/v9-results.json')
-    require(browser.get('format') == 'baiyao-v9-browser', 'Stale browser format')
+    browser = report('dev/v10-results.json')
+    require(browser.get('format') == 'baiyao-v10-browser', 'Stale browser format')
     require(browser['passed'] >= 10, 'Insufficient current browser coverage')
     passed(browser, browser['passed'], 'full browser integration')
     verify_hash('index.html', browser['sha256'])
@@ -138,7 +139,7 @@ def main():
             local_file['passed'] == 0 and local_file['failed'] == 1 and
             'ERR_BLOCKED_BY_ADMINISTRATOR' in local_file.get('error', ''),
             'Unexpected local file browser result; investigate before packaging')
-    exports = report('dev/v9-export-results.json')
+    exports = report('dev/v10-export-results.json')
     passed(exports, 4, 'export round trips')
     require(exports['folderSha256'] == outputs['index.html'] and
             exports['inlineSha256'] == outputs['baiyao-standalone.html'], 'Export result is stale')
@@ -148,12 +149,12 @@ def main():
         passed(evidence, count, 'audio regression')
         verify_hash('dev/audio.js', evidence['audioSha256'])
 
-    regression = report('dev/v9-regression-results.json')
+    regression = report('dev/v10-regression-results.json')
     engine = regression['engine']
-    require(engine['passed'] == engine['total'] and engine['total'] > 161 and engine['failed'] == engine['skipped'] == 0,
+    require(engine['passed'] == engine['total'] and engine['total'] > 170 and engine['failed'] == engine['skipped'] == 0,
             'Expected retained and new engine checks to pass')
-    require(engine['legacy_checks'] == 161 and engine['new_checks'] == engine['total'] - 161,
-            'Retained or v9 engine checks missing')
+    require(engine['legacy_checks'] == 170 and engine['new_checks'] == engine['total'] - 170,
+            'Retained or v10 engine checks missing')
     verify_inputs(regression)
     require(regression['public_api']['completed'] == 150 and regression['hidden_api']['completed'] == 24,
             'Public simulation coverage incomplete')
@@ -161,7 +162,7 @@ def main():
                                          'recovery/restore.sh', 17, 'full-webp', outputs)
     source, source_manifest = verify_recovery('recovery/source-tests.json', 'recovery/source-manifest.json',
                                              'recovery/restore-source.sh', 21, 'source-svg', outputs)
-    slim_smoke = report('dev/v9-source-browser-results.json')
+    slim_smoke = report('dev/v10-source-browser-results.json')
     passed(slim_smoke, 3, 'source recovery browser smoke')
     verify_hash('dev/ui.js', slim_smoke['uiSha256'])
     verify_hash('recovery/restore-source.sh', slim_smoke['restoreScriptSha256'])
@@ -232,21 +233,27 @@ def main():
             temporary.unlink(missing_ok=True)
 
     play = regression['public_api']
-    evidence_names = ['dev/v9-results.json', 'dev/v9-export-results.json',
+    vectors = json.loads(subprocess.check_output(['node', '-e',
+        "require('./dev/art.js');console.log(JSON.stringify({icons:Object.keys(YokaiArt.icons),items:Object.keys(YokaiArt.items||{}),cave:!!YokaiArt.events.cave}))"],
+        cwd=ROOT, text=True))
+    require(vectors['cave'] and len(vectors['items']) >= 7, 'Missing cave or consumable vector artwork')
+    require(set(['fight','elite','boss','rest','shop','fox','event','cave']).issubset(vectors['icons']),
+            'Missing universal route symbol')
+    evidence_names = ['dev/v10-results.json', 'dev/v10-export-results.json',
                       'dev/v8-audio-regression-results.json', 'dev/v8-sword-audio-results.json',
-                      'dev/v8-audio-results.json', 'dev/v9-regression-results.json',
-                      'dev/v9-source-browser-results.json', 'dev/v8-art-manifest.json',
+                      'dev/v8-audio-results.json', 'dev/v10-regression-results.json',
+                      'dev/v10-source-browser-results.json', 'dev/v8-art-manifest.json',
                       'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '蚀心长夜版 · 隐契登楼更新', 'date': '2026-10-21', 'based_on': 'user 33.zip and v8 game',
+        'version': '洞府寻珍版 · 五角行旅与霜血战法', 'date': '2026-10-22', 'based_on': 'user 33.zip and v9 game',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
         'zip_members': len(payload), 'editable_shell_in_zip': True,
         'runtime_art': {folder: {'count': count, 'bytes': sum(p.stat().st_size for p in
                         (ROOT / 'assets' / folder).glob('*.webp'))} for folder, count in EXPECTED_ART.items()},
-        'runtime_art_total': 233, 'retained_v8_art_files': 41, 'inline_vector_icons': 21, 'universal_map_icons': 7, 'map_direction': 'bottom-to-top', 'hidden_narrative_counters': True, 'status_details_on_click_only': True,
+        'runtime_art_total': 233, 'retained_v8_art_files': 41, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True,
         'professions': ['影契刺客', '霜华剑修', '无相宫主'],
         'map_stages': 30, 'steps_per_chapter': 10, 'regions': 3,
         'route_templates': 20, 'chapter_templates_selected_independently': True,
@@ -254,6 +261,9 @@ def main():
         'story_events': 40, 'linked_story_chains': 3, 'cards': 70, 'sound_profiles': 70,
         'event_sound_profiles': 43, 'role_specific_event_variants': 63, 'weapons': 4,
         'quest_items': 1, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
+        'consumables':7, 'cave_loot_fixed_on_entry':True, 'combat_consumable_limit_per_turn':1,
+        'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},
+        'bleed':{'cap':7,'chance_per_stack':0.03,'damage':'uniform 1..stacks, bypass shield','tick':'enemy turn start'},
         'runtime_3d': False, 'scene_models': 'removed; painted regional backgrounds, 2D routes and static character art',
         'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0},
         'browser_groups': {'passed': browser['passed'], 'failed': 0}, 'natural_dom_professions': 1,
@@ -263,11 +273,11 @@ def main():
         'full_recovery_checks': full['passed'], 'source_recovery_checks': source['passed'],
         'source_browser_checks': slim_smoke['passed'],
         'local_file_browser': {'passed': local_file['passed'], 'failed': local_file['failed'],
-            'evidence_scope': 'Historical v8 cloud-browser file URL probe; v9 verified through local HTTP and direct standalone HTML.',
+            'evidence_scope': 'Historical v8 cloud-browser file URL probe; v10 verified through local HTTP and direct standalone HTML.',
             'status': 'blocked by cloud browser administrator before game load; no desktop double-click verification' if local_file['failed'] else 'verified'},
         'verification_inputs': {name: describe(root_file(name))['sha256'] for name in evidence_names},
         'attachment_export_available': False, 'published_new_instance_verified': False,
-        'cloud_configuration_updated_for_v9': False, 'cloud_environment_published': False,
+        'cloud_configuration_updated_for_v10': False, 'cloud_environment_published': False,
         'github_repository': 'YONGLINGZ/CC', 'github_branch': 'main',
     }
     (ROOT / 'recovery/delivery.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n',

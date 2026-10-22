@@ -1,5 +1,5 @@
 {
-  "format": "baiyao-recovery-tests-v9",
+  "format": "baiyao-recovery-tests-v10",
   "mode": "full-webp",
   "passed": 17,
   "failed": 0,
@@ -22,14 +22,14 @@
     "symlinked assets directory: refused before writes",
     "modified standalone HTML: refused before writing any source, resource or folder index"
   ],
-  "script_sha256": "0bc37ad9bc2c0c5021d0b3214bddaca49c6f9c74168764678b20400d0bd35a1c",
+  "script_sha256": "0682ba367761ba10fd94d52527907631b7d55c966e741cc4f5e6d5dc14b00709",
   "outputs": {
-    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
-    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
+    "index.html": "e8c5bd49dead491ef2778563777704e8fb501be9a3b8a8ee7ec61d065eb90f94",
+    "baiyao-standalone.html": "65882415a7cf6054dd608c67070098d90bdeee273ead27e825d1e2c7c08dc5d7"
   },
   "release_outputs": {
-    "index.html": "f75aa6aa80d0480ca6bfc113a552c93eb84ab88bd1a2a1d876315ce5b51ced9c",
-    "baiyao-standalone.html": "35dfcb60edad00bff624a7d93d508115169571cf2b2dca0f2526bacb65e4e3c9"
+    "index.html": "e8c5bd49dead491ef2778563777704e8fb501be9a3b8a8ee7ec61d065eb90f94",
+    "baiyao-standalone.html": "65882415a7cf6054dd608c67070098d90bdeee273ead27e825d1e2c7c08dc5d7"
   },
   "asset_count_in_payload": 233,
   "new_cloud_instance_tested": false,

@@ -302,6 +302,7 @@ test('a public journey visits exactly thirty connected nodes and carries one NPC
         if(!s.event.resolved){let safe=s.event.choices.findIndex(c=>!c.disabled&&!c.goldCost&&!c.hpCost&&!c.maxHpCost&&!c.battle);if(safe<0)safe=s.event.choices.findIndex(c=>!c.disabled&&!c.battle);if(safe<0)safe=s.event.choices.findIndex(c=>!c.disabled);assert.ok(safe>=0,s.event.id);assert.equal(game.chooseEvent(safe),true);}
         assert.equal(game.leaveEvent(),true);continue;
       }
+      if(s.screen==='cave'){assert.equal(game.leaveCave(),true);continue;}
       if(s.screen==='rest'){assert.equal(game.rest(true),true);continue;}
       if(s.screen==='shop'){assert.equal(game.leaveShop(),true);continue;}
       if(s.screen==='fox'){assert.equal(game.fox(false),true);continue;}

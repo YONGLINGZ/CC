@@ -40,26 +40,26 @@ test('霜锋与听雪剑意跨回合、上限8，断流消耗并逐步发状态�
   const status=b.events.find(e=>e.type==='swordIntent');assert.deepEqual([status.amount,status.total],[-8,0]);assert.ok(b.events.indexOf(status)<b.events.findIndex(e=>e.type==='attack'));
 });
 
-test('霜寒上限4，剑穗每回合仅首次实际增层触发，封顶不触发',()=>{
+test('霜寒上限10，剑穗每回合仅首次实际增层触发，封顶不触发',()=>{
   const g=battle(),b=g.state.battle;play(g,'S02');assert.equal(b.block,6);assert.equal(b.enemy.chill,1);assert.equal(b.swordIntent,1);
-  play(g,'S05');assert.equal(b.enemy.chill,3);assert.equal(b.swordIntent,1);play(g,'S05');assert.equal(b.enemy.chill,4);assert.equal(b.swordIntent,1);
-  b.frostsealUsed=false;play(g,'S02');assert.equal(b.enemy.chill,4);assert.equal(b.swordIntent,1);assert.equal(b.frostsealUsed,false);
-  turn(g);assert.equal(b.enemy.chill,0);b.energy=50;play(g,'S02');assert.equal(b.swordIntent,2);assert.equal(b.frostsealUsed,true);
+  play(g,'S05');assert.equal(b.enemy.chill,3);play(g,'S05');assert.equal(b.enemy.chill,5);assert.equal(b.swordIntent,1);
+  b.enemy.chill=10;b.frostsealUsed=false;play(g,'S02');assert.equal(b.enemy.chill,10);assert.equal(b.swordIntent,1);assert.equal(b.frostsealUsed,false);
+  turn(g);assert.equal(b.enemy.chill,9);b.energy=50;play(g,'S02');assert.equal(b.enemy.chill,10);assert.equal(b.swordIntent,2);assert.equal(b.frostsealUsed,true);
 });
 
-test('霜寒显示与实际每段减伤一致，行动后清空，下轮恢复原意图',()=>{
-  const g=battle(),b=g.state.battle;play(g,'S05');assert.equal(b.enemy.chill,2);assert.deepEqual(g.getIntent().baseHits,[3,3,3]);assert.deepEqual(g.getIntent().hits,[1,1,1]);assert.match(g.getIntent().text,/每次 1/);
-  b.block=0;turn(g);assert.equal(g.state.player.hp,57);assert.equal(b.enemy.chill,0);
-  assert.deepEqual(b.events.filter(e=>e.type==='attack'&&e.source==='enemy').map(e=>e.amount),[1,1,1]);
-  assert.ok(b.events.some(e=>e.type==='chill'&&e.amount===-2&&e.total===0));assert.deepEqual(g.getIntent().hits,[10]);
+test('霜寒五层压制每段1伤，行动后只减一层，下轮仍保留',()=>{
+  const g=battle(),b=g.state.battle;b.enemy.chill=5;assert.deepEqual(g.getIntent().baseHits,[3,3,3]);assert.deepEqual(g.getIntent().hits,[2,2,2]);assert.match(g.getIntent().text,/每次 2/);
+  b.block=0;turn(g);assert.equal(g.state.player.hp,54);assert.equal(b.enemy.chill,4);
+  assert.deepEqual(b.events.filter(e=>e.type==='attack'&&e.source==='enemy').map(e=>e.amount),[2,2,2]);
+  assert.ok(b.events.some(e=>e.type==='chill'&&e.amount===-1&&e.total===4));assert.deepEqual(g.getIntent().hits,[10]);
 });
 
-test('霜寒不会冻结附毒或防御动作，零伤害连段仍逐段结算',()=>{
-  const g=battle(),b=g.state.battle;b.enemy.id='snake';b.enemy.intentIndex=1;b.enemy.chill=4;b.block=0;
-  assert.deepEqual(g.getIntent().hits,[2]);assert.equal(g.getIntent().poison,3);turn(g);
-  assert.equal(g.state.player.hp,55);assert.equal(b.poison,2);assert.equal(b.enemy.chill,0);
-  b.enemy.chill=4;assert.match(g.getIntent().text,/清除全部标记/);turn(g);assert.equal(b.enemy.block,10);assert.equal(b.enemy.chill,0);
-  const z=battle(),zb=z.state.battle;zb.enemy.chill=4;turn(z);assert.deepEqual(zb.events.filter(e=>e.type==='attack'&&e.source==='enemy').map(e=>e.amount),[0,0,0]);assert.equal(z.state.player.hp,60);
+test('不足十层霜寒不阻止附毒，蜕鳞明确清霜；普通连段仍逐段结算',()=>{
+  const g=battle(),b=g.state.battle;b.enemy.id='snake';b.enemy.intentIndex=1;b.enemy.chill=5;b.block=0;
+  assert.deepEqual(g.getIntent().hits,[5]);assert.equal(g.getIntent().poison,3);turn(g);
+  assert.equal(g.state.player.hp,52);assert.equal(b.poison,2);assert.equal(b.enemy.chill,4);
+  assert.match(g.getIntent().text,/清除全部霜寒/);turn(g);assert.equal(b.enemy.block,10);assert.equal(b.enemy.chill,0);
+  const z=battle(),zb=z.state.battle;zb.enemy.chill=4;turn(z);assert.deepEqual(zb.events.filter(e=>e.type==='attack'&&e.source==='enemy').map(e=>e.amount),[3,3,3]);assert.equal(z.state.player.hp,51);
 });
 
 test('碎霜以防御换爆发：先清全部霜寒、护盾全挡也获得等量剑意',()=>{

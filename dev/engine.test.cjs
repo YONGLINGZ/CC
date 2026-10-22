@@ -400,7 +400,7 @@ test('普通敌人和 Boss 意图严格固定循环，动作与数据一致', ()
     const game=setup(); const s=game.state,b=s.battle;
     s.player.hp=s.player.maxHp=1000; b.enemy.id=id; b.enemy.name=def.name;
     for (let i=0;i<def.intents.length*2;i++) {
-      const intent=def.intents[b.enemy.intentIndex]; b.block=100;
+      const intent=game.getIntent(); b.block=100;
       const expected=(b.enemy.intentIndex+1)%def.intents.length;
       nextTurn(game); assert.equal(b.enemy.intentIndex,expected);
       assert.ok(b.logs.some(l=>l.includes(`使用「${intent.name}」：${intent.text}`)));
@@ -547,7 +547,7 @@ test('歃血可叠加并跨回合，只增每张攻击第一段，胜利清除',
 test('血饮即使护盾完全阻挡也治疗，击杀治疗在奖励前完成', () => {
   const game=setup(),b=game.state.battle;game.state.player.hp=40;b.enemy.block=50;
   play(game,'C28');assert.equal(game.state.player.hp,44);assert.equal(b.enemy.hp,500);
-  b.enemy.block=0;b.enemy.hp=10;play(game,'C28');assert.equal(game.state.screen,'reward');assert.equal(game.state.player.hp,48);
+  b.enemy.block=0;b.enemy.hp=10;play(game,'C28');assert.equal(game.state.screen,'reward');assert.equal(game.state.player.hp,49); // second blood-drink benefits from its first wound
   const types=b.events.map(e=>e.type);assert.ok(types.indexOf('heal')<types.indexOf('victory'));
 });
 

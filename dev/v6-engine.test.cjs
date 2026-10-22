@@ -181,11 +181,12 @@ test('public actions naturally cross all three regions and finish chosen story w
     for(let seed=1;seed<=12&&!successful;seed++){
       const g=run(seed,starter),s=g.state,regions=[];
       for(let step=0;step<4000&&!['victory','defeat'].includes(s.screen);step++){
+        if(s.screen==='threshold'){g.leaveThreshold();continue;}
         if(s.screen==='arrival'){regions.push(s.journey.regionIndex);assert.equal(g.enterRegion(),true);continue;}
         if(s.screen==='battle'){const c=nextCard(s);if(c)assert.equal(g.playCard(c.uid,true),true);else {assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);}continue;}
         if(s.screen==='reward'){if(s.reward.relicPending)g.chooseRelic(s.reward.relicChoices[0]);g.chooseReward(s.reward.cards[0]);continue;}
         if(s.screen==='event'){if(!s.event.resolved){const choices=s.event.choices;const index=choices.findIndex(c=>!c.disabled&&!c.battle&&!c.hpCost);g.chooseEvent(index>=0?index:choices.findIndex(c=>!c.disabled));}else g.leaveEvent();continue;}
-        if(s.screen==='rest'){g.rest(true);continue;}if(s.screen==='shop'){g.leaveShop();continue;}if(s.screen==='fox'){g.fox(false);continue;}
+        if(s.screen==='cave'){assert.equal(g.leaveCave(),true);continue;}if(s.screen==='rest'){g.rest(true);continue;}if(s.screen==='shop'){g.leaveShop();continue;}if(s.screen==='fox'){g.fox(false);continue;}
         assert.equal(s.screen,'map');const priority={rest:90,event:70,shop:50,fox:40,fight:30,elite:10,boss:0};const candidates=g.getAvailableNodes();
         candidates.sort((a,b)=>priority[b.type]-priority[a.type]);let n=candidates.find(n=>n.storyId==='liu_first')||candidates[0];assert.ok(n);assert.equal(g.enterNode(n.id),true);
       }

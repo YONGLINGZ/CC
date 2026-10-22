@@ -1,0 +1,81 @@
+{
+  "version": "v10 pentagon exploration, inventory and status combat",
+  "engine": {
+    "passed": 219,
+    "failed": 0,
+    "total": 219,
+    "skipped": 0,
+    "legacy_checks": 170,
+    "new_checks": 49
+  },
+  "data_contract": {
+    "cards": 70,
+    "enemies": 15,
+    "events": 40,
+    "relics": 15
+  },
+  "public_api": {
+    "method": "Public API only; 150 seeded heuristic simulations across three professions and five starters, active chapter hazards, 30 global steps, logical poison suppression, late story cures, herbs/pills from the bag, randomized cave searches and visible equipment choices, no run-state/resource fixtures. Sword attempts alternate refusing and learning demonic skills; each policy includes ten stranger rescues and five refusals, through actual event choices. Sovereign runs begin with an explicitly supplied already-unlocked profile (not claimed as a natural unlock). Not human balance or time-to-play validation.",
+    "completed": 150,
+    "wins": 150,
+    "defeats": 0,
+    "all_victories_completed_30_nodes": true,
+    "sword_policies": [
+      {
+        "policy": "refuse",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "poisoned": 10,
+        "demonicUses": 0,
+        "fallen": 0
+      },
+      {
+        "policy": "learn",
+        "completed": 15,
+        "wins": 15,
+        "defeats": 0,
+        "poisoned": 10,
+        "demonicUses": 104,
+        "fallen": 0
+      }
+    ],
+    "report": "dev/v10-playtest-report.json"
+  },
+  "hidden_api": {
+    "method": "Public API only; 24 active-environment 30-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "completed": 24,
+    "wins": 24,
+    "defeats": 0,
+    "unlocks": 24,
+    "hidden_challenges": 24,
+    "hidden_wins": 24,
+    "report": "dev/v10-hidden-playtest-report.json"
+  },
+  "inputs": {
+    "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
+    "dev/engine.js": "ecac07609cca21e2636411822fb6b7ee5f44344d5e9da02d18b20d5bb38dcbba",
+    "dev/expansion.js": "1163a4ccb2e1a7534816b45a8a7f20bab28e52c2a9aca5b35b1931dacf0bc34a",
+    "dev/engine.test.cjs": "36c20a42e8a13e4a3a5e23d48ea7bb9dd55174ef3f38821998b8e0afcaaf1a61",
+    "dev/rework.test.cjs": "cc0988cf94163fcdbee40aebc6d5bb10400e08dd3bf2f1eb8a8a0313869ec399",
+    "dev/reward.test.cjs": "14006e7fa69ead55fabc6161f487bb8b6b99e7bb1be590b8a46d071a0b3d0d1b",
+    "dev/v5-engine.test.cjs": "60d2546ff88f9c9a0e9eb9ffad31677a43917017befb2298851e6b0b7516c8c1",
+    "dev/v6-engine.test.cjs": "91eeed472407492278c5e364006feb1a4f709a83a3fb3020123177c1adaaf748",
+    "dev/v7-engine.test.cjs": "a362b42af4ae420e62a1671f8283f4feb0592513cf9851f1a77f877a99a9ba02",
+    "dev/v8-engine.test.cjs": "fe9266ca45a6ffec89c5ad75f058bc09feb21a805dc4e1800ed45313a4fbf36c",
+    "dev/v9-engine.test.cjs": "3cc2a4c8ec2c0528f45d105b8307311c1771ea781ab9b40bee71cb1939897936",
+    "dev/v10-combat.test.cjs": "45a0c4185110d13ead8f3d0a3f9f67883d5cface06f6595fa37b7cc340ad1ac4",
+    "dev/v10-expedition.test.cjs": "84385e15fd9679ff1b5cede0ebc20bcf0cb9a5fe305d107d963f14d57f83c19f",
+    "dev/v10-integration.test.cjs": "3a7c6df129cc242fbbbb7a9494848558d059f26a3a18b9d5f27cc9682ecc6b7f",
+    "dev/playtest.cjs": "1880bcd15fa61d8a00f7cf406147f46e95573ce6613378b1cb3266bbfae52d04",
+    "dev/v7-hidden-playtest.cjs": "635e3e3e7a65305991c88580070ebb49f8989c4f8764ececa3f13d245d0e1be8",
+    "dev/v10-regression.cjs": "df3aac58a9e407284c691384c82d030348cb86045093597979692f04d43e34d7",
+    "dev/v10-engine-results.json": "06327ed936b05ed3d5d95e9b51a35951dbfb829271fe1b239d136d451b277ca0",
+    "dev/v10-playtest-report.json": "1b2e2db548127c4c61a23692b909634c576c67da4d494c9acae607400991cab1",
+    "dev/v10-hidden-playtest-report.json": "7cad67f6ca21d64a819c8511c246b6bde04f7fbf91db175049e531dc368fa7ca"
+  },
+  "commands": [
+    "node dev/v10-regression.cjs"
+  ],
+  "note": "Actual rule tests and seeded public-action heuristic runs. New frost, bleed, enemy skills and usable consumables are exercised through actual game calls; narrative progression remains hidden in the UI. Sovereign public simulations explicitly begin with a pre-unlocked profile; hidden-route attempts begin with an empty profile. Not human balance or time-to-complete validation."
+}
