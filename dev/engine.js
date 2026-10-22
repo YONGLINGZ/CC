@@ -3,6 +3,15 @@
   'use strict';
   const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
   const EXPEDITION = root.NightExpedition || (typeof module !== 'undefined' && module.exports ? require('./expedition.js') : {});
+  const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
+
+  // Audited defaults are shared by runtime, probes and A/B rule fixtures.
+  const BALANCE = Object.freeze({
+    hpSlope: 0.05, hpMaxFloor: 30, atkStep: 1 / 4,
+    atkCapNormal: 4, atkCapElite: 6, atkCapBoss: 0, firstHitBonusCap: 8,
+    playerMarkCap: 5,
+    scalingWhitelist: Object.freeze(['paper','lantern','ape','bone','yaksha','e_mist','e_lantern','e_priest','gate_boss','camp_boss','snake'])
+  });
 
   const CARDS = {
     C01: { name: '爪击', cost: 1, text: '对敌人造成 6 点伤害。', target: true, attack: true },
@@ -104,11 +113,12 @@
     guild: { name: '千灯商盟', motive: '收购奇物与情报，抢占无人知晓的代价。' },
     wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
   };
-  const REGIONS = [
+  const LEGACY_REGIONS = [
     { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,10], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
     { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋金币更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
     { id: 'ritual_core', name: '逆仪腹地', subtitle: '第三幕 · 因果入井', stages: [21,30], description: '归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。', palette: { sky: '#221728', ground: '#4c3c61', accent: '#c5a1e4' } }
   ];
+  const REGIONS = SEVEN.REGIONS7 || LEGACY_REGIONS;
   const NPCS = {
     liu: { id: 'liu', name: '柳照青', faction: '丹霞谷', portrait: 'liu', adult: true, description: '' },
     ji: { id: 'ji', name: '季临川', faction: '太微剑宗外门', portrait: 'ji', adult: true, description: '' },
@@ -169,10 +179,18 @@
     ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
   };
   Object.assign(ENEMIES, EXPANSION.ENEMIES || {});
+  Object.assign(ENEMIES, SEVEN.BOSSES || {});
   Object.assign(RELICS, EXPANSION.RELICS || {});
   const WEAPONS = EXPANSION.WEAPONS || {};
   const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
+  Object.assign(ENVIRONMENTS, {
+    drowned_marsh: {id:'reedmist',name:'沉泽湿雾',text:'本境每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1},
+    furnace_palace: {id:'ashbreath',name:'炉灰灼息',text:'本境每回合首张攻击牌的第一段基础伤害 −1，最低为 0；额外增伤照常。',firstAttackPenalty:1},
+    mirror_heaven: {id:'mirrorwind',name:'镜中逆风',text:'本境每场战斗首个玩家回合灵力 −1；之后恢复正常。',energy:1},
+    abyss_throne: {id:'namelessmist',name:'无名雾幕',text:'本境每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1}
+  });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
+  for (const id of Object.keys(SEVEN.EVENTS || {})) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
@@ -183,7 +201,7 @@
     fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
     cave: ['未知洞府','探宝 · 可能发现草药、丹药、遗宝，也可能惊动守藏者'],
-    boss: ['逆仪观测井','受侵蚀看守 · 蛇妖绛鳞，生命 100']
+    boss: ['镇境关口','固定招式 · 击败镇守者后可继续深入']
   };
   const ROUTE_NAMES = ['松门曲径','沉钟岔道','断碑回廊','乌灯古道','落霞别径','枯河石阶','照影荒庭','折柳旧路','长风栈桥','夜雨碑林','苍苔迷渡','流火废苑','月隙盘山','飞霜残驿','空响祭道','无字长廊','回灯密径','横雾孤城','青绦山隘','藏星回川'];
   const ROUTE_TEMPLATES = ROUTE_NAMES.map((name,index)=>({
@@ -196,6 +214,7 @@
     const floor=chapter*10+local+1,type=local===9?'boss':local===0?'fight':local===2?'event':['rest','shop','event','fight'][lane%4];
     return {id:`f${floor}-${lane}`,type,name:NODE_INFO[type][0],description:NODE_INFO[type][1],floor,lane,regionIndex:chapter};
   })));
+  const LEGACY_FLOORS = FLOORS.slice(0, LEGACY_REGIONS.length * 10);
   const OMENS = {
     fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
     elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在遗径上', '门缝里渗出铁锈与香灰味'],
@@ -218,6 +237,9 @@
     let state;
     let activeNode = null;
     const environmentEnabled = options.environment !== false;
+    const legacyCampaign = options.campaign === 'legacy';
+    const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
+    const totalFloors = regions.length * 10;
     let profile = normalProfile(options.profile);
     function normalProfile(value) { return { version: 1, unlocks: value && Array.isArray(value.unlocks) && value.unlocks.includes('feiye') ? ['feiye'] : [] }; }
     function getProfile() { return {version:1,unlocks:profile.unlocks.slice()}; }
@@ -1083,6 +1105,7 @@
         }
         b.corePenalty=environmentEnabled&&b.environment.regionIndex===2&&!b.coreStrikeUsed;
         if(b.corePenalty){b.coreStrikeUsed=true;log('离魂隙：本回合首次攻击首段基础伤害减少1，额外增伤照常。');}
+        bonus = Math.min(bonus, BALANCE.firstHitBonusCap);
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
       b.cardBonus=bonus;
@@ -1983,7 +2006,7 @@
     };
   }
 
-  const api = { ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
+  const api = { BALANCE, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);
