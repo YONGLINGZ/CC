@@ -193,6 +193,14 @@
   };
   Object.assign(ENEMIES, EXPANSION.ENEMIES || {});
   Object.assign(ENEMIES, SEVEN.BOSSES || {});
+  // Bosses have no weights: their authored opening and cycle remain learnable.
+  const INTENT_WEIGHTS = {paper:[1,1],lantern:[1,1],ape:[1,1],bone:[1,1],
+    yaksha:[3,2,3],e_mist:[3,2,3],e_lantern:[3],e_priest:[3,2,3]};
+  for (const [id, def] of Object.entries(ENEMIES)) {
+    if (def.rank === 'boss') { delete def.weights; continue; }
+    def.weights = (INTENT_WEIGHTS[id] || def.intents.map(() => 1)).slice();
+  }
+
   Object.assign(RELICS, EXPANSION.RELICS || {});
   const WEAPONS = EXPANSION.WEAPONS || {};
   const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
@@ -1011,6 +1019,18 @@
       const pool = ELITE_POOL[chapter];
       return pool[rand(pool.length)];
     }
+    function rollIntent(enemyId, previous = null) {
+      const def = ENEMIES[enemyId], weights = def.weights;
+      if (!Array.isArray(weights)) return previous === null ? 0 : (previous + 1) % def.intents.length;
+      let choices = def.intents.map((_,index)=>({index,weight:Math.max(0,weights[index]||0)}))
+        .filter(choice=>choice.weight>0 && choice.index!==previous);
+      // A single-action enemy necessarily repeats its only move.
+      if (!choices.length) choices=def.intents.map((_,index)=>({index,weight:Math.max(0,weights[index]||0)})).filter(choice=>choice.weight>0);
+      const total = choices.reduce((sum,choice)=>sum+choice.weight,0);
+      let ticket = rand(total);
+      for (const choice of choices) { if (ticket < choice.weight) return choice.index; ticket -= choice.weight; }
+      return choices[choices.length-1].index;
+    }
     function startBattle(kind, encounter = null) {
       // Ordinary selection stays at this exact call site and executes once per ordinary encounter.
       const id = encounter?.enemyId || (kind === 'boss' ? 'snake' : kind === 'elite' ? pickElite() : ORDINARY[rand(ORDINARY.length)]);
@@ -1019,7 +1039,7 @@
       state.battle = {
         kind, scaling, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
-        enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: 0 },
+        enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank), intentIndex: rollIntent(id, null) },
         block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
         bloodPower: 0, riposte: 0, pillPower:Math.max(0,Math.min(4,state.player.pendingPillPower||0)), itemUsedTurn:0, nextEnergyPenalty:0, nextDrawPenalty:0, fangUsed: false, silkUsed: false, bloodstoneUsed: false, events: [], hitIndex: 0,
@@ -1432,7 +1452,7 @@
       }
       if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
       enemy.frozen=null;
-      enemy.intentIndex=(enemy.intentIndex+1)%ENEMIES[enemy.id].intents.length;
+      enemy.intentIndex=rollIntent(enemy.id,enemy.intentIndex);
       note('你的回合。先看敌人意图，再决定攻守。');
       startPlayerTurn();emit();return true;
     }
