@@ -1,0 +1,9 @@
+{
+  "format": "baiyao-batch-a-outcome-comparison",
+  "baseline_commit": "17d107681f36478fcee7cf17b6203ab058a21a71",
+  "baseline_report_sha256": "50cbf6f4ffc140619dc15dd76412526382cae8b40026a9e888039b1210e74152",
+  "current_report_sha256": "1e10e5d543b0672519a53526aed8a6abd698952c82403a5396fc0f3d461469e5",
+  "compared_runs": 150,
+  "all_details_equal": true,
+  "scope": "Entire per-run public simulation details equal; UI-only changes, not a balance claim."
+}

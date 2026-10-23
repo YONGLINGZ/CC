@@ -6,19 +6,19 @@
     "dev/audio.js": "4bb3ac7f9a83d28702607a804f1633f43beffb790d75dffdbb141fa266f2d21b",
     "dev/build.cjs": "d6610b1790df5d187b04f059a14284c690d7e3d83f1f0ad63cc34524a1a2c5d4",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "21a5c58341467b6ed92aee031a22a1f8ed97ec0d26d2e43f844a65efb829cb42",
-    "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
+    "dev/engine.js": "1aeb0aca3ea8cf6ade09fdb2374f8e73afc7dccaf957565d6eb0e06004ba45b8",
+    "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/seven.js": "c6f8a8c07b6d61d2b390bc83aacad724b84918b601dbfb62679d1468abab9f77",
-    "dev/shell.html": "c49bcb2a63087f8f4027619be62a0bc9c0e4fbc7bdd579eb04cbf5aa73f1c84f",
-    "dev/ui.js": "1759bb84ed9c9bef21b87a55486004fb204d772485d28f57c3aa64af57977d9a"
+    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
+    "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
+    "dev/ui.js": "f83a14d1f21d32422a60efcf35252cb63407a0bf29da51881d423a6866ca94d2"
   },
   "outputs": {
-    "index.html": "cac6d6ec030577970c4d2361f7fcb82aada4d9181752cbdde7d2d39757e46774"
+    "index.html": "c03b5e0e9293cf5427d7e9438cb90c89bf15847014e0a6b6ebfda3c70944798d"
   },
   "release_outputs": {
-    "index.html": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c",
-    "baiyao-standalone.html": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3"
+    "index.html": "f532c2d61c77abb9ce65e1cd1e039d4c960e2fb157d3440550ee19de0f7ea041",
+    "baiyao-standalone.html": "40b9006d3f0f09941109d891095ff9d3ff3c24a3a44f841c3768f78a48d3cdde"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -282,9 +282,9 @@
   },
   "asset_count": 0,
   "source_count": 10,
-  "archive_sha256": "109a471c26c16d5376787278541b362346b95721e44ad5901c83d9c727f55734",
-  "archive_bytes": 192738,
-  "uncompressed_bytes": 586482,
+  "archive_sha256": "90a8b690f819f7826d9a2dcf4daa644e4eaa5dbdeaf6a162c9ff4edc50f02b19",
+  "archive_bytes": 199185,
+  "uncompressed_bytes": 609525,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

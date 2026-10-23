@@ -391,7 +391,7 @@ test('蜕鳞明确清标记且给盾 10，敌人旧盾在其下个回合清空',
   const game=setup(); const b=game.state.battle;
   b.enemy.id='snake'; b.enemy.name=ENEMIES.snake.name; b.enemy.intentIndex=2;
   b.enemy.mark=5; b.enemy.block=22;
-  assert.match(ENEMIES.snake.intents[2].text,/清除全部标记.*10/);
+  assert.match(ENEMIES.snake.intents[2].text,/清除全部猎印.*10/);
   nextTurn(game); assert.equal(b.enemy.mark,0); assert.equal(b.enemy.block,10); assert.equal(b.enemy.intentIndex,3);
   nextTurn(game); assert.equal(b.enemy.block,0); assert.equal(b.enemy.intentIndex,0);
 });
@@ -436,7 +436,7 @@ test('胜败结算均清除双方护盾、毒、标记、临时增伤和下回�
     assert.equal(b.enemy.block,0); assert.equal(b.enemy.mark,0); assert.equal(b.enemy.poison,0);
     assert.equal(b.nextAttack,0); assert.equal(b.nextEnergy,0); assert.equal(b.nextDraw,0);
     assert.equal(b.bellUsed,false); assert.equal(b.jadeUsed,false);
-    if(outcome==='win') assert.ok(b.logs.some(l=>l.includes('扑杀清除全部 4 层标记')));
+    if(outcome==='win') assert.ok(b.logs.some(l=>l.includes('扑杀清除全部 4 层猎印')));
   }
 });
 
@@ -534,7 +534,7 @@ test('灵巧与献寿先自损再回灵力；翻檐逐项结算攻击、护盾�
   const a=play(game,'C25');assert.equal(game.state.player.hp,59);assert.equal(b.energy,e+1);assert.ok(b.exhaust.includes(a));
   const c=play(game,'C29');assert.equal(game.state.player.hp,54);assert.equal(b.energy,e+3);assert.ok(b.exhaust.includes(c));
   play(game,'C26');assert.equal(b.enemy.hp,496);assert.equal(b.block,4);assert.equal(b.hand.length,1);
-  assert.deepEqual(b.events.map(e=>e.type),['card','attack','block','draw']);
+  assert.deepEqual(b.events.map(e=>e.type),['card','attack','block','draw','resources']);
 });
 
 test('歃血可叠加并跨回合，只增每张攻击第一段，胜利清除', () => {

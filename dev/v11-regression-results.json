@@ -1,12 +1,12 @@
 {
   "version": "v11 seven maps, boss roster and audited additive scaling",
   "engine": {
-    "passed": 264,
+    "passed": 279,
     "failed": 0,
-    "total": 264,
+    "total": 279,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 45
+    "new_checks": 60
   },
   "data_contract": {
     "cards": 70,
@@ -116,11 +116,11 @@
     "allProbeGates": false
   },
   "inputs": {
-    "dev/engine.js": "21a5c58341467b6ed92aee031a22a1f8ed97ec0d26d2e43f844a65efb829cb42",
-    "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
+    "dev/engine.js": "1aeb0aca3ea8cf6ade09fdb2374f8e73afc7dccaf957565d6eb0e06004ba45b8",
+    "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/seven.js": "c6f8a8c07b6d61d2b390bc83aacad724b84918b601dbfb62679d1468abab9f77",
-    "dev/engine.test.cjs": "17f6e768d279f216b95e5892d0e68470eb967f878d247cb0982123128edb7b6a",
+    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
+    "dev/engine.test.cjs": "91fe77761763f42ac8afa1c35df64b567b741537f6aefb6703793cff57a87242",
     "dev/rework.test.cjs": "4217273ef41fc3f517235a8ba7d1ab1a7d40800b5fa2700529e35310abe6b54a",
     "dev/reward.test.cjs": "6c9edd6e572c9c87b50f39accb7a6b215956e580e52b56670b9b2822a58dd524",
     "dev/v5-engine.test.cjs": "923b2c76645b6ac2fa515b0c1202114f90e1a2244917fab49f3c9c0253dbc175",
@@ -134,15 +134,16 @@
     "dev/v11-balance.test.cjs": "c30d99f813d9e0c439c78b554788b4f5104391901d5f3e21ffb525a46ab1e3b0",
     "dev/v11-campaign.test.cjs": "e2e662ddbb8fc30219532b10471feec00141b8af3cb599ecab00739c84b5a108",
     "dev/automaton.test.cjs": "772b8baad4e384c7d2103d8b783b6a2d540e81850877f35adc88e912ac5a2318",
+    "dev/batch-a-engine.test.cjs": "7a9ed6c7ffaba7966fc9ab15681b51265d765de130762580d0f3032ee43f3dc6",
     "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
     "dev/v11-hidden-playtest.cjs": "9e4149f7b110204daf625707f2c9474196fce6b61922af9e3c2bf41e8f76ce85",
-    "dev/v11-regression.cjs": "b24ba35f820a44715a123756670f104c2363be08e54194c7dbbc2bea467815f5",
+    "dev/v11-regression.cjs": "e5040203b89564bb2771888a7b96b85b8427e00500b7fd102620beb4c9f442d1",
     "dev/v11-simulate.cjs": "497f871a5cf44c595935bb81006e789e509c5e0c7269e468e4f559df635c89b1",
     "dev/elite-probe.cjs": "593dca97fda8d10573b4bb47c6497b186b5f7876a2cfa0bddc716d645f78d44d",
-    "dev/v11-engine-results.json": "505b87d28d61f3f2506d79e66b4c0ed0591513dc9fe6932f82fe714d9659aa2a",
-    "dev/v11-playtest-report.json": "50cbf6f4ffc140619dc15dd76412526382cae8b40026a9e888039b1210e74152",
+    "dev/v11-engine-results.json": "16bb0f3abf855707a10a795d19579395f79e351585f5370fde362f737dd8232f",
+    "dev/v11-playtest-report.json": "1e10e5d543b0672519a53526aed8a6abd698952c82403a5396fc0f3d461469e5",
     "dev/v11-hidden-playtest-report.json": "4ac71ccd007e06790283532a04fe7226b31f777454065a80b44ff43f5d955184",
-    "dev/v11-elite-probe-report.json": "1b49dfa39439411e61dedd967cfa7cfc35e19c72fbde62b6535a116723272c45"
+    "dev/v11-elite-probe-report.json": "50ac8e09d8dbf25ed10e8448ec73cc7754f6ac4ead71f6f7c21f3ecaa560c8c3"
   },
   "note": "Engine correctness and calibration gates are reported separately. Failed target percentages are not relabelled as passed; no seeds/policy/resource edits to manufacture balance numbers. Human difficulty remains unevaluated."
 }

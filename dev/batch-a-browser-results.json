@@ -1,0 +1,647 @@
+{
+  "format": "baiyao-batch-a-browser",
+  "method": "Actual Chromium, real character/tactic/start/cast buttons. Explicit battle fixtures for rare resources and lethal conditions. Not a human or physical-phone test.",
+  "results": [
+    {
+      "name": "one title, distinct character screen, uniform unknown locked card and collapsed starting deck",
+      "ok": true
+    },
+    {
+      "name": "all five existing starters use the selected character and exact ten-card starting deck",
+      "ok": true
+    },
+    {
+      "name": "sword and soul resource names, zeroes, caps and zero-state details stay visible",
+      "ok": true
+    },
+    {
+      "name": "full, fast and reduced motion render event-time sword 0→2→8→0 and preserve it across a turn",
+      "ok": true
+    },
+    {
+      "name": "soul accumulation caps at six, survives turns and consumes to visible zero",
+      "ok": true
+    },
+    {
+      "name": "resource animation does not reveal final sword/energy values before corresponding events",
+      "ok": true
+    },
+    {
+      "name": "selected-card forecast shows real resource spend, shield and cap; Escape cancels without fees",
+      "ok": true
+    },
+    {
+      "name": "enemy hunter mark, frost and resistant condensation are labelled separately from player pursuit",
+      "ok": true
+    },
+    {
+      "name": "360,390,430 portrait layouts retain readable digits and 44px controls without clipping or overlap",
+      "ok": true
+    },
+    {
+      "name": "return-to-selection and same-character restart use explicit tactic labels and preserve unlock profile",
+      "ok": true
+    },
+    {
+      "name": "frozen current sources and artifacts, no JavaScript errors or outside requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "inputs": {
+    "index.html": "f532c2d61c77abb9ce65e1cd1e039d4c960e2fb157d3440550ee19de0f7ea041",
+    "baiyao-standalone.html": "40b9006d3f0f09941109d891095ff9d3ff3c24a3a44f841c3768f78a48d3cdde",
+    "dev/ui.js": "f83a14d1f21d32422a60efcf35252cb63407a0bf29da51881d423a6866ca94d2",
+    "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
+    "dev/engine.js": "1aeb0aca3ea8cf6ade09fdb2374f8e73afc7dccaf957565d6eb0e06004ba45b8",
+    "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
+    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
+    "dev/batch-a-browser.test.cjs": "04c65d88623981d1e838e65c5785f8260b47c8354748b126673922eba722f7dd"
+  },
+  "screenshots": [
+    "/workspace/scratch/batch-a-selection.png",
+    "/workspace/scratch/batch-a-mobile-360.png",
+    "/workspace/scratch/batch-a-mobile-390.png",
+    "/workspace/scratch/batch-a-mobile-430.png"
+  ],
+  "starters": [
+    {
+      "character": "assassin",
+      "starter": "mark",
+      "deck": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C17",
+        "C18"
+      ],
+      "wanted": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C17",
+        "C18"
+      ]
+    },
+    {
+      "character": "assassin",
+      "starter": "combo",
+      "deck": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C06",
+        "C22"
+      ],
+      "wanted": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C06",
+        "C22"
+      ]
+    },
+    {
+      "character": "assassin",
+      "starter": "blood",
+      "deck": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C27",
+        "C28"
+      ],
+      "wanted": [
+        "C01",
+        "C01",
+        "C01",
+        "C02",
+        "C02",
+        "C02",
+        "C03",
+        "C04",
+        "C27",
+        "C28"
+      ]
+    },
+    {
+      "character": "sword",
+      "starter": "sword",
+      "deck": [
+        "S01",
+        "S01",
+        "S01",
+        "S01",
+        "S02",
+        "S02",
+        "S02",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "wanted": [
+        "S01",
+        "S01",
+        "S01",
+        "S01",
+        "S02",
+        "S02",
+        "S02",
+        "S02",
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "character": "sovereign",
+      "starter": "sovereign",
+      "deck": [
+        "F01",
+        "F01",
+        "F01",
+        "F01",
+        "F02",
+        "F02",
+        "F02",
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "wanted": [
+        "F01",
+        "F01",
+        "F01",
+        "F01",
+        "F02",
+        "F02",
+        "F02",
+        "F02",
+        "F03",
+        "F04"
+      ]
+    }
+  ],
+  "motion": [
+    {
+      "mode": "full",
+      "zeroVisible": true,
+      "fullTicks": 8,
+      "spentToZero": true
+    },
+    {
+      "mode": "fast",
+      "zeroVisible": true,
+      "fullTicks": 8,
+      "spentToZero": true
+    },
+    {
+      "mode": "reduced",
+      "zeroVisible": true,
+      "fullTicks": 8,
+      "spentToZero": true
+    }
+  ],
+  "swordFrames": [
+    {
+      "display": 0,
+      "actual": 0,
+      "busy": false
+    },
+    {
+      "display": 0,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 0,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 0,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 0,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 1,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 1,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 1,
+      "actual": 1,
+      "busy": true
+    },
+    {
+      "display": 1,
+      "actual": 1,
+      "busy": false
+    }
+  ],
+  "energyFrames": [
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": false
+    },
+    {
+      "display": 2,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 2,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 2,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 2,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": true
+    },
+    {
+      "display": 3,
+      "actual": 3,
+      "busy": false
+    }
+  ],
+  "mobile": [
+    {
+      "width": 360,
+      "body": 360,
+      "panel": {
+        "x": 16,
+        "w": 328,
+        "y": 84.03125
+      },
+      "rects": [
+        {
+          "text": "剑意 8/8已满",
+          "x": 64,
+          "y": 108.1875,
+          "w": 92.390625,
+          "h": 28.390625,
+          "scroll": 92,
+          "client": 92
+        },
+        {
+          "text": "灵力 30",
+          "x": 265,
+          "y": 95.03125,
+          "w": 55.015625,
+          "h": 34,
+          "scroll": 55,
+          "client": 55
+        },
+        {
+          "text": "护盾 0",
+          "x": 265,
+          "y": 132.03125,
+          "w": 43.578125,
+          "h": 34,
+          "scroll": 44,
+          "client": 44
+        },
+        {
+          "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
+          "x": 27,
+          "y": 166.03125,
+          "w": 306,
+          "h": 27.6875,
+          "scroll": 306,
+          "client": 306
+        },
+        {
+          "text": "追索印 2/5",
+          "x": 27,
+          "y": 201.71875,
+          "w": 107.609375,
+          "h": 44,
+          "scroll": 106,
+          "client": 106
+        }
+      ],
+      "buttons": [
+        {
+          "w": 230,
+          "h": 71
+        },
+        {
+          "w": 107.609375,
+          "h": 44
+        }
+      ],
+      "value": "8"
+    },
+    {
+      "width": 390,
+      "body": 390,
+      "panel": {
+        "x": 16,
+        "w": 358,
+        "y": 83.640625
+      },
+      "rects": [
+        {
+          "text": "剑意 8/8已满",
+          "x": 64,
+          "y": 107.796875,
+          "w": 92.390625,
+          "h": 28.390625,
+          "scroll": 92,
+          "client": 92
+        },
+        {
+          "text": "灵力 30",
+          "x": 295,
+          "y": 94.640625,
+          "w": 55.015625,
+          "h": 34,
+          "scroll": 55,
+          "client": 55
+        },
+        {
+          "text": "护盾 0",
+          "x": 295,
+          "y": 131.640625,
+          "w": 43.578125,
+          "h": 34,
+          "scroll": 44,
+          "client": 44
+        },
+        {
+          "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
+          "x": 27,
+          "y": 165.640625,
+          "w": 336,
+          "h": 27.6875,
+          "scroll": 336,
+          "client": 336
+        },
+        {
+          "text": "追索印 2/5",
+          "x": 27,
+          "y": 201.328125,
+          "w": 107.609375,
+          "h": 44,
+          "scroll": 106,
+          "client": 106
+        }
+      ],
+      "buttons": [
+        {
+          "w": 260,
+          "h": 71
+        },
+        {
+          "w": 107.609375,
+          "h": 44
+        }
+      ],
+      "value": "8"
+    },
+    {
+      "width": 430,
+      "body": 430,
+      "panel": {
+        "x": 16,
+        "w": 398,
+        "y": 100.640625
+      },
+      "rects": [
+        {
+          "text": "剑意 8/8已满",
+          "x": 64,
+          "y": 124.796875,
+          "w": 92.390625,
+          "h": 28.390625,
+          "scroll": 92,
+          "client": 92
+        },
+        {
+          "text": "灵力 30",
+          "x": 335,
+          "y": 111.640625,
+          "w": 55.015625,
+          "h": 34,
+          "scroll": 55,
+          "client": 55
+        },
+        {
+          "text": "护盾 0",
+          "x": 335,
+          "y": 148.640625,
+          "w": 43.578125,
+          "h": 34,
+          "scroll": 44,
+          "client": 44
+        },
+        {
+          "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
+          "x": 27,
+          "y": 182.640625,
+          "w": 376,
+          "h": 27.6875,
+          "scroll": 376,
+          "client": 376
+        },
+        {
+          "text": "追索印 2/5",
+          "x": 27,
+          "y": 218.328125,
+          "w": 107.609375,
+          "h": 44,
+          "scroll": 106,
+          "client": 106
+        }
+      ],
+      "buttons": [
+        {
+          "w": 300,
+          "h": 71
+        },
+        {
+          "w": 107.609375,
+          "h": 44
+        }
+      ],
+      "value": "8"
+    }
+  ],
+  "mobileEntry": [
+    {
+      "width": 360,
+      "body": 360,
+      "roles": [
+        {
+          "x": 16,
+          "width": 328,
+          "height": 188,
+          "scroll": 326,
+          "client": 326
+        },
+        {
+          "x": 16,
+          "width": 328,
+          "height": 188,
+          "scroll": 326,
+          "client": 326
+        },
+        {
+          "x": 16,
+          "width": 328,
+          "height": 188,
+          "scroll": 326,
+          "client": 326
+        }
+      ],
+      "start": {
+        "x": 34,
+        "y": 1281.375,
+        "width": 292,
+        "height": 49.796875,
+        "top": 1281.375,
+        "right": 326,
+        "bottom": 1331.171875,
+        "left": 34
+      }
+    },
+    {
+      "width": 390,
+      "body": 390,
+      "roles": [
+        {
+          "x": 16,
+          "width": 358,
+          "height": 188,
+          "scroll": 356,
+          "client": 356
+        },
+        {
+          "x": 16,
+          "width": 358,
+          "height": 188,
+          "scroll": 356,
+          "client": 356
+        },
+        {
+          "x": 16,
+          "width": 358,
+          "height": 188,
+          "scroll": 356,
+          "client": 356
+        }
+      ],
+      "start": {
+        "x": 34,
+        "y": 1240.59375,
+        "width": 322,
+        "height": 49.796875,
+        "top": 1240.59375,
+        "right": 356,
+        "bottom": 1290.390625,
+        "left": 34
+      }
+    },
+    {
+      "width": 430,
+      "body": 430,
+      "roles": [
+        {
+          "x": 16,
+          "width": 398,
+          "height": 188,
+          "scroll": 396,
+          "client": 396
+        },
+        {
+          "x": 16,
+          "width": 398,
+          "height": 188,
+          "scroll": 396,
+          "client": 396
+        },
+        {
+          "x": 16,
+          "width": 398,
+          "height": 188,
+          "scroll": 396,
+          "client": 396
+        }
+      ],
+      "start": {
+        "x": 34,
+        "y": 1220.203125,
+        "width": 362,
+        "height": 49.796875,
+        "top": 1220.203125,
+        "right": 396,
+        "bottom": 1270,
+        "left": 34
+      }
+    }
+  ],
+  "passed": 11,
+  "failed": 0
+}

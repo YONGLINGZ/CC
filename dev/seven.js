@@ -45,12 +45,12 @@
       lore:'绛鳞原本栖在旧山腹的暖泉中，与玄烬教换取能够温养鳞甲的丹砂。她察觉井底的东西不该被唤醒时，已经来不及游回泉眼。如今她以自身盘住观测井，把每次蜕下的旧鳞压进裂缝。她守门并非忠于魔教，只是不愿让井下的潮声追上自己。',
       quotes:['这里已经不是终点。退回去。','每脱一层鳞，我便少记得一点岸上的事。'],
       passive:'御寒灵躯：每两张实际施霜技能才凝成一层霜寒。',
-      signature:'蛇息施毒，蜕鳞清除标记、霜寒与流血，绞缠逐段攻击。她只是通往更深空间的一道关口。',
+      signature:'蛇息施毒，蜕鳞清除猎印、霜寒与流血，绞缠逐段攻击。她只是通往更深空间的一道关口。',
       appearance:{face:'冷白细长脸、高颧骨、狭长翡翠眼、薄而深红的唇',hair:'红棕长发半挽，细辫垂肩',palette:'翡翠、绛红、旧金',weapon:'鳞刃与盘绕的蛇尾'},
       intents:[
         {name:'鳞刃',text:'攻击 10',hits:[10]},
         {name:'蛇息',text:'先攻击 6，再施加 3 层毒',hits:[6],poison:3},
-        {name:'蜕鳞',text:'清除全部标记、霜寒与流血，再获得护盾 10',clearMark:true,clearChill:true,clearBleed:true,block:10},
+        {name:'蜕鳞',text:'清除全部猎印、霜寒与流血，再获得护盾 10',clearMark:true,clearChill:true,clearBleed:true,block:10},
         {name:'绞缠',text:'连续攻击 3 次，每次 5',hits:[5,5,5]}
       ]
     },
@@ -122,7 +122,7 @@
         {name:'镜中判词',text:'攻击 13，施加 1 层追索印',hits:[13],playerMark:1},
         {name:'回照',text:'获得护盾 14，架势反击 3',block:14,counter:3},
         {name:'碎镜三问',text:'连续攻击 3 次，每次 5，下个玩家回合少抽 1 张牌',hits:[5,5,5],drawPenalty:1},
-        {name:'换相',text:'清除全部标记、霜寒与流血，恢复 8 点生命',clearMark:true,clearChill:true,clearBleed:true,heal:8}
+        {name:'换相',text:'清除全部猎印、霜寒与流血，恢复 8 点生命',clearMark:true,clearChill:true,clearBleed:true,heal:8}
       ]
     },
     abyss_boss:{
@@ -135,7 +135,7 @@
       intents:[
         {name:'赤线·问名',text:'攻击 13，施加 2 层追索印',hits:[13],playerMark:2},
         {name:'万劫·裁命',text:'连续攻击 3 次，每次 6',hits:[6,6,6]},
-        {name:'命枢·收束',text:'清除全部标记、霜寒与流血，恢复 8 点生命，获得护盾 12',clearMark:true,clearChill:true,clearBleed:true,heal:8,block:12},
+        {name:'命枢·收束',text:'清除全部猎印、霜寒与流血，恢复 8 点生命，获得护盾 12',clearMark:true,clearChill:true,clearBleed:true,heal:8,block:12},
         {name:'天倾·终线',text:'连续攻击 2 次，每次 10，下个玩家回合灵力减少 1',hits:[10,10],energyPenalty:1}
       ]
     }

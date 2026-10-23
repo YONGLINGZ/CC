@@ -1,22 +1,22 @@
 {
-  "version": "寒渊七境 · 故宅机仆",
+  "version": "寒渊七境 · 批次A入口与可读性",
   "date": "2026-10-23",
   "based_on": "user 33.zip, v10 and audited numerical proposal",
   "game_html": {
-    "bytes": 592738,
-    "sha256": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c"
+    "bytes": 615781,
+    "sha256": "f532c2d61c77abb9ce65e1cd1e039d4c960e2fb157d3440550ee19de0f7ea041"
   },
   "standalone_html": {
-    "bytes": 28774101,
-    "sha256": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3"
+    "bytes": 28797144,
+    "sha256": "40b9006d3f0f09941109d891095ff9d3ff3c24a3a44f841c3768f78a48d3cdde"
   },
   "play_zip": {
-    "bytes": 47803860,
-    "sha256": "a173fbbca8bf467291b2bcfd20ccbcd80b3102364bacc87c643cf67c6e80569d"
+    "bytes": 47837815,
+    "sha256": "d9dc45204a12cf1a0e9c9aefa68a6d21b5be6f3ae41585347e19605b8f4dcedb"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 491,
+  "zip_members": 496,
   "editable_shell_in_zip": true,
   "runtime_art": {
     "portraits": {
@@ -65,7 +65,8 @@
     }
   },
   "runtime_art_total": 258,
-  "new_generated_art_files": 28,
+  "new_generated_art_files": 0,
+  "retained_v11_generated_art_files": 28,
   "inline_vector_icons": 35,
   "universal_map_icons": 8,
   "inline_cave_scene": true,
@@ -74,6 +75,28 @@
   "map_node_shape": "pentagon",
   "hidden_narrative_counters": true,
   "status_details_on_click_only": true,
+  "core_resources_always_labelled": true,
+  "batch_a": {
+    "browser_groups": 11,
+    "new_rule_checks": 15,
+    "existing_starters": 5,
+    "mobile_css_widths": [
+      360,
+      390,
+      430
+    ],
+    "motion_modes": [
+      "full",
+      "fast",
+      "reduced"
+    ],
+    "core_resource_zeroes_visible": true,
+    "rule_layer_preview": true,
+    "single_run_save_implemented": false,
+    "new_proposed_story_endings_implemented": false,
+    "physical_phone_tested": false,
+    "cross_browser_tested": false
+  },
   "professions": [
     "影契刺客",
     "霜华剑修",
@@ -193,16 +216,18 @@
     "allProbeGates": false
   },
   "engine_tests": {
-    "passed": 264,
+    "passed": 279,
     "failed": 0,
-    "total": 264,
+    "total": 279,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 45
+    "new_checks": 60
   },
   "audio_tests": {
     "passed": 23,
-    "failed": 0
+    "failed": 0,
+    "rerun_in_batch_a": false,
+    "scope": "Retained actual reports with unchanged audio.js SHA256; household audio integration rerun in full browser acceptance"
   },
   "browser_groups": {
     "passed": 18,
@@ -238,21 +263,23 @@
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/v11-results.json": "67ee2f66a8821e7146c538a504dbd49c9c0037dba8939b66ffa145e8733b7e29",
-    "dev/v11-export-results.json": "d2ffe72b262f08224d437aa37325c4d97c2fcd55c6703f8450595ef299b99c9d",
+    "dev/batch-a-outcomes.json": "6c9180866b946e754b417ef7acb9b404fd603743725d87e7282a23e637bf0876",
+    "dev/batch-a-browser-results.json": "5e49a3c6eced0ec75405c7ab085a8faf775c34f23729b479c50f7e3a4ed154bb",
+    "dev/v11-results.json": "1c9ee462e45a3dd5773d0cc92381f8a89557591afa4e3e61c1b2752f99a07c8c",
+    "dev/v11-export-results.json": "534b15448840e3d21c06a625f26da67858ab0b57aab143ec42d44a25b02378f8",
     "dev/v8-audio-regression-results.json": "34854d70c6c76d4b4044d25f787f25235bfde3bd1ea5c701d326664a8a4cb196",
     "dev/v8-sword-audio-results.json": "e84d4f5a7a927ce1cf34f5acc0c6ec03d64ae5ab1df69917c3a0b54c6bf6fa53",
     "dev/v8-audio-results.json": "c41d8992d362c0b29c1a6e71ad10113892a139569e00e1a3d6f838a92721e2dd",
-    "dev/v11-regression-results.json": "b9e60ad7bdc48bdded0775be1a4dee33e2a8353da3141557943377c46cb30219",
-    "dev/v11-source-browser-results.json": "c943e7f95aeb0bc9f13358878990e326fa919624b2ea9fa3e9347eb1aadd4dbb",
+    "dev/v11-regression-results.json": "768d1c2011e705d9d9803f7f0f3a384f041840799165ca524088b443f0df941c",
+    "dev/v11-source-browser-results.json": "954bb1b8f146cfd86339793d62ef4abba599a8e084e1594973addad1676836a6",
     "dev/v11-art-manifest.json": "fb67119f00b52259397a5d461ded71f1188d6826bd87f5dad500cc9412f165d0",
     "dev/v11-scene-art-manifest.json": "915a3355a15b21bfbf89152a2ede4772db922b9c16a3bcc63b4278e18747f8b4",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "679bd590dd697bb46998d9643fb8c35aa35b84da5aee166b0c9caaa73ddedc84",
-    "recovery/source-tests.json": "ef2e8710536c898075c88467496b702eb6cb9042fe60c1dea62e14d3a98e15cb",
-    "recovery/manifest.json": "6646d0b72c7bc7f4b2e468cb11efbaca7ccf41affbd3cf426b3f89eeabdc230a",
-    "recovery/source-manifest.json": "8ea335688838670d325f401656e732870b81f720dcd60db435a25afc6db9b01e"
+    "recovery/tests.json": "39b3e2ff2bff029cfb843828a9cb1a6cbf0380419f879a5653c97c60739a4909",
+    "recovery/source-tests.json": "906f65c46f4e0b2a537851f0cc793eed3013b370c2b0ddb4cd1afac8e6493ca3",
+    "recovery/manifest.json": "1b24e01000125f064a0bbde78a6c3fd1aafbe6a8b4869f1dd9f42be0e6de87e7",
+    "recovery/source-manifest.json": "bf0b1fcb044691b304691d9dce4d529be1e338f83b5c198540a9fe59a6770ac0"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,

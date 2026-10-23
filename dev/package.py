@@ -135,6 +135,15 @@ def main():
             'Natural run omitted a chapter or boss')
     outputs = {'index.html': browser['sha256'], 'baiyao-standalone.html': browser['inline']['sha256']}
 
+    batch_a = report('dev/batch-a-browser-results.json')
+    require(batch_a.get('format') == 'baiyao-batch-a-browser', 'Missing Batch A browser evidence')
+    passed(batch_a, 11, 'Batch A focused browser acceptance')
+    verify_inputs(batch_a)
+    comparison = report('dev/batch-a-outcomes.json')
+    require(comparison['compared_runs'] == 150 and comparison['all_details_equal'],
+            'Public simulation outcome comparison failed')
+    verify_hash('dev/v11-playtest-report.json', comparison['current_report_sha256'])
+
     local_file = report('dev/v8-file-browser-results.json')
     require(local_file['passed'] == 2 and local_file['failed'] == 0 or
             local_file['passed'] == 0 and local_file['failed'] == 1 and
@@ -199,7 +208,7 @@ def main():
     members += sorted(p for p in (ROOT / 'dev').iterdir() if p.is_file() and
                       p.suffix in {'.html', '.js', '.cjs', '.py', '.md', '.json'})
     members += sorted((ROOT / 'docs/previews').glob('*.webp'))
-    members += [root_file('docs/BOSSES.md'), root_file('docs/BALANCE_AUDIT.md')]
+    members += sorted((ROOT / 'docs').glob('*.md'))
     members += [root_file('recovery/' + n) for n in ['manifest.json', 'source-manifest.json',
                 'tests.json', 'source-tests.json', 'cloud-v4-status.json', 'config-status.json']]
     members = sorted(set(members))
@@ -241,21 +250,27 @@ def main():
     require(vectors['cave'] and len(vectors['items']) >= 7, 'Missing cave or consumable vector artwork')
     require(set(['fight','elite','boss','rest','shop','fox','event','cave']).issubset(vectors['icons']),
             'Missing universal route symbol')
-    evidence_names = ['dev/v11-results.json', 'dev/v11-export-results.json',
+    evidence_names = ['dev/batch-a-outcomes.json', 'dev/batch-a-browser-results.json', 'dev/v11-results.json', 'dev/v11-export-results.json',
                       'dev/v8-audio-regression-results.json', 'dev/v8-sword-audio-results.json',
                       'dev/v8-audio-results.json', 'dev/v11-regression-results.json',
                       'dev/v11-source-browser-results.json', 'dev/v11-art-manifest.json', 'dev/v11-scene-art-manifest.json',
                       'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '寒渊七境 · 故宅机仆', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
+        'version': '寒渊七境 · 批次A入口与可读性', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
         'zip_members': len(payload), 'editable_shell_in_zip': True,
         'runtime_art': {folder: {'count': count, 'bytes': sum(p.stat().st_size for p in
                         (ROOT / 'assets' / folder).glob('*.webp'))} for folder, count in EXPECTED_ART.items()},
-        'runtime_art_total': 258, 'new_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True,
+        'runtime_art_total': 258, 'new_generated_art_files': 0, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
+        'batch_a': {'browser_groups': batch_a['passed'], 'new_rule_checks': 15,
+                    'existing_starters': 5, 'mobile_css_widths': [360,390,430],
+                    'motion_modes': ['full','fast','reduced'], 'core_resource_zeroes_visible': True,
+                    'rule_layer_preview': True, 'single_run_save_implemented': False,
+                    'new_proposed_story_endings_implemented': False,
+                    'physical_phone_tested': False, 'cross_browser_tested': False},
         'professions': ['影契刺客', '霜华剑修', '无相宫主'],
         'map_stages': 70, 'steps_per_chapter': 10, 'regions': 7,
         'route_templates': 20, 'chapter_templates_selected_independently': True,
@@ -268,7 +283,7 @@ def main():
         'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},
         'bleed':{'cap':7,'chance_per_stack':0.03,'damage':'uniform 1..stacks, bypass shield','tick':'enemy turn start'},
         'runtime_3d': False, 'scene_models': 'removed; painted regional backgrounds, 2D routes and static character art',
-        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0},
+        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0, 'rerun_in_batch_a': False, 'scope': 'Retained actual reports with unchanged audio.js SHA256; household audio integration rerun in full browser acceptance'},
         'browser_groups': {'passed': browser['passed'], 'failed': 0}, 'natural_dom_professions': 1,
         'export_roundtrip_checks': {'passed': exports['passed'], 'failed': 0},
         'public_api_simulations': {k: play[k] for k in ['completed', 'wins', 'defeats']},

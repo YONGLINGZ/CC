@@ -16,12 +16,12 @@
   const CARDS = {
     C01: { name: '爪击', cost: 1, text: '对敌人造成 6 点伤害。', target: true, attack: true },
     C02: { name: '敛息', cost: 1, text: '获得 5 点护盾。', target: false },
-    C03: { name: '窥隙', cost: 0, text: '使敌人获得 2 层标记。', target: true },
-    C04: { name: '扑杀', cost: 2, text: '造成 10＋4×敌人当前标记层数的伤害，然后清除敌人全部标记。', target: true, attack: true },
-    C05: { name: '连爪', cost: 1, text: '连续造成 3 次、每次 3 点伤害；若敌人仍存活且带有标记，再施加 1 层流血。', target: true, attack: true },
+    C03: { name: '窥隙', cost: 0, text: '使敌人获得 2 层猎印。', target: true },
+    C04: { name: '扑杀', cost: 2, text: '造成 10＋4×敌人当前猎印层数的伤害，然后清除敌人全部猎印。', target: true, attack: true },
+    C05: { name: '连爪', cost: 1, text: '连续造成 3 次、每次 3 点伤害；若敌人仍存活且带有猎印，再施加 1 层流血。', target: true, attack: true },
     C06: { name: '猫步', cost: 0, text: '获得 3 点护盾，抽 1 张牌。消耗。', target: false, exhaust: true },
     C07: { name: '流影', cost: 1, text: '获得 7 点护盾；若此前本回合已打出至少 2 张牌，再抽 1 张牌。', target: false },
-    C08: { name: '戏鼠', cost: 1, text: '造成 4 点伤害；若敌人仍存活，施加 2 层标记与 2 层流血。', target: true, attack: true },
+    C08: { name: '戏鼠', cost: 1, text: '造成 4 点伤害；若敌人仍存活，施加 2 层猎印与 2 层流血。', target: true, attack: true },
     C09: { name: '夜猎', cost: 1, text: '抽 2 张牌。', target: false },
     C10: { name: '候机', cost: 0, text: '本回合下一张攻击牌的第一段伤害增加 4。可叠加，触发后全部清除；回合结束也清除。', target: false },
     C11: { name: '蓄爪', cost: 1, text: '下个玩家回合额外获得 1 点灵力，并额外抽 1 张牌。可叠加，触发后清除。', target: false },
@@ -29,12 +29,12 @@
     C13: { name: '血契', cost: 0, text: '先失去 3 点生命，再抽 2 张牌。消耗。', target: false, exhaust: true },
     C14: { name: '噬魂', cost: 1, text: '造成 5 点伤害；若该次伤害击杀敌人，恢复 3 点生命。', target: true, attack: true },
     C15: { name: '妖火符', cost: 1, text: '先失去 1 点生命，再对敌人造成 9 点伤害。', target: true, attack: true },
-    C16: { name: '残月', cost: 2, text: '造成 16 点伤害；若结算前敌人带有标记，再抽 1 张牌，不消耗标记。', target: true, attack: true },
-    C17: { name: '金瞳', cost: 1, text: '施加 4 层标记，抽 1 张牌。', target: true },
-    C18: { name: '追猎', cost: 1, text: '造成 5＋2×敌人标记层数的伤害，不消耗标记；若敌人仍存活且带有标记，施加 1 层流血。', target: true, attack: true },
-    C19: { name: '缚影', cost: 1, text: '获得 8 点护盾，施加 1 层标记。', target: true },
-    C20: { name: '铃音', cost: 0, text: '若敌人有标记，移除 1 层，获得 1 灵力并抽 1 张牌。消耗。', target: true, exhaust: true },
-    C21: { name: '终夜', cost: 3, text: '造成 12＋6×标记层数＋2×流血层数的伤害，然后清除敌人全部标记与流血。', target: true, attack: true },
+    C16: { name: '残月', cost: 2, text: '造成 16 点伤害；若结算前敌人带有猎印，再抽 1 张牌，不消耗猎印。', target: true, attack: true },
+    C17: { name: '金瞳', cost: 1, text: '施加 4 层猎印，抽 1 张牌。', target: true },
+    C18: { name: '追猎', cost: 1, text: '造成 5＋2×敌人猎印层数的伤害，不消耗猎印；若敌人仍存活且带有猎印，施加 1 层流血。', target: true, attack: true },
+    C19: { name: '缚影', cost: 1, text: '获得 8 点护盾，施加 1 层猎印。', target: true },
+    C20: { name: '铃音', cost: 0, text: '若敌人有猎印，移除 1 层，获得 1 灵力并抽 1 张牌。消耗。', target: true, exhaust: true },
+    C21: { name: '终夜', cost: 3, text: '造成 12＋6×猎印层数＋2×流血层数的伤害，然后清除敌人全部猎印与流血。', target: true, attack: true },
     C22: { name: '裂帛', cost: 1, text: '连续攻击 2 次，每次 4 伤害，再施加 1 层流血；此前本回合已打出至少 2 张牌时，每次伤害改为 6、流血改为 2 层。', target: true, attack: true },
     C23: { name: '逐影', cost: 0, text: '造成 3 点伤害，抽 1 张牌。消耗。', target: true, attack: true, exhaust: true },
     C24: { name: '狂爪', cost: 2, text: '连续攻击 4 次，每次 4 伤害；若此前本回合已打出至少 2 张牌，再攻击 1 次。', target: true, attack: true },
@@ -90,7 +90,7 @@
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
   const STARTERS = {
-    mark: { name: '金瞳猎印', description: '窥隙叠印 → 追猎压血 → 扑杀收割。以标记换取爆发。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C17','C18'] },
+    mark: { name: '金瞳猎印', description: '窥隙叠印 → 追猎压血 → 扑杀收割。以猎印换取爆发。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C17','C18'] },
     combo: { name: '月影连爪', description: '猫步与窥隙穿插，第三张触发裂帛连段；快速连续出牌。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C06','C22'] },
     sword: { character: 'sword', name: '霜华剑道', description: '霜寒跨回合保留，霜锋追寒、剑意收束；五层霜寒压低敌人杀势，十层有机会封住整次行动。', cards: ['S01','S01','S01','S01','S02','S02','S02','S02','S03','S04'] },
     blood: { name: '赤契噬魂', description: '歃血付出生命，换整场攻击增伤；血饮边进攻边疗伤。', cards: ['C01','C01','C01','C02','C02','C02','C03','C04','C27','C28'] }
@@ -150,15 +150,15 @@
       { name: '镇魂', text: '攻击 16，下个玩家回合灵力减少 1', hits:[16],energyPenalty:1 }
     ] },
     e_mist: { name:'雾中伥', rank:'elite', hp:56, intents:[
-      {name:'牵魂',text:'攻击 10，然后施加 1 层猎记',hits:[10],playerMark:1},
-      {name:'蔽目',text:'攻击 8，然后施加 2 层猎记',hits:[8],playerMark:2},
+      {name:'牵魂',text:'攻击 10，然后施加 1 层追索印',hits:[10],playerMark:1},
+      {name:'蔽目',text:'攻击 8，然后施加 2 层追索印',hits:[8],playerMark:2},
       {name:'雾遁',text:'获得护盾 12',block:12}
     ]},
     e_lantern: { name:'断桥灯魁', rank:'elite', hp:76, intents:[
       {name:'引焰',text:'攻击 14',hits:[14]}
     ]},
     e_priest: { name:'逆仪祭司', rank:'elite', hp:92, intents:[
-      {name:'祭仪',text:'获得护盾 10，然后施加 1 层猎记',block:10,playerMark:1},
+      {name:'祭仪',text:'获得护盾 10，然后施加 1 层追索印',block:10,playerMark:1},
       {name:'咒刃',text:'攻击 16',hits:[16]},
       {name:'逆祝',text:'恢复 8 点生命，再获得护盾 8',heal:8,block:8}
     ]},
@@ -170,14 +170,14 @@
     snake: { name: '蛇妖·绛鳞', rank:'boss', hp: 100, intents: [
       { name: '鳞刃', text: '攻击 10', hits: [10] },
       { name: '蛇息', text: '先攻击 6，再施加 3 层毒', hits: [6], poison: 3 },
-      { name: '蜕鳞', text: '清除全部标记、霜寒与流血，再获得护盾 10', clearMark:true,clearChill:true,clearBleed:true,block:10 },
+      { name: '蜕鳞', text: '清除全部猎印、霜寒与流血，再获得护盾 10', clearMark:true,clearChill:true,clearBleed:true,block:10 },
       { name: '绞缠', text: '连续攻击 3 次，每次 5', hits: [5, 5, 5] }
     ] }
   };
 
   const RELICS = {
     frostseal: { name: '霜魄剑穗', text: '剑修初始遗物：每个玩家回合第一次实际增加敌人霜寒时，获得 1 层剑意。霜寒上限 10，剑意上限 8。' },
-    bell: { name: '金铃', text: '每个玩家回合首次实际增加敌人标记时，获得 3 点护盾。标记上限 5。' },
+    bell: { name: '金铃', text: '每个玩家回合首次实际增加敌人猎印时，获得 3 点护盾。猎印上限 5。' },
     jade: { name: '磨爪玉', text: '每个玩家回合第 3 张牌结算后，获得 1 点灵力，每回合一次。' },
     moon: { name: '残月坠', text: '每场战斗第一个玩家回合额外抽 2 张牌。' },
     fox: { name: '狐契', text: '本局下一次受到致命伤害时，免死并恢复至 12 点生命（不超过最大生命），随后消失。' },
@@ -624,10 +624,15 @@
       };
     }
     function emit() { onChange(state); }
+    // Only public combat resources, captured at this event rather than from the final queue state.
+    function combatResources() {
+      const b=state.battle;if(!b)return null;
+      return {energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed};
+    }
     function event(type, data = {}) {
       const b = state.battle;
       if (!b) return;
-      const entry = { id: ++eventSerial, type, source: 'player', target: 'player', ...data };
+      const entry = { id: ++eventSerial, type, source: 'player', target: 'player', ...data, resources:combatResources() };
       if (b.resolving && b.resolving[0] && !entry.cardId) entry.cardId = b.resolving[0].id;
       b.events.push(entry);
       return entry;
@@ -750,7 +755,7 @@
       const b = state.battle;
       const gained = Math.min(5 - b.enemy.mark, amount);
       b.enemy.mark += gained;
-      log(`${b.enemy.name}获得 ${gained} 层标记（${b.enemy.mark}/5）。`);
+      log(`${b.enemy.name}获得 ${gained} 层猎印（${b.enemy.mark}/5）。`);
       event('mark', { target: 'enemy', amount: gained, total: b.enemy.mark });
       if (gained > 0 && hasRelic('bell') && !b.bellUsed) {
         b.bellUsed = true;
@@ -1004,6 +1009,7 @@
       }
       drawCards(draw);
       b.phase = 'player';
+      event('resources',{reason:'玩家回合就绪'});
     }
     function combatScaling(id, kind) {
       const def = ENEMIES[id], clampedFloor = Math.max(1, Math.min(BALANCE.hpMaxFloor, state.floor));
@@ -1086,7 +1092,8 @@
       note(`第 ${state.floor} 段已开放。沿已连接的道路继续前行。`);
     }
 
-    function newRun(starter = 'mark') {
+    function newRun(starter = 'mark', character = null) {
+      if(character!==null&&(!CHARACTERS[character]||(STARTERS[starter]?.character||'assassin')!==character))return false;
       if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
       state = freshState('arrival', starter);
       expedition.resetRun();
@@ -1261,7 +1268,7 @@
           enemyHit(10 + 4 * mark + bonus);
           b.enemy.mark = 0;
           event('mark', { target: 'enemy', amount: -mark, total: 0 });
-          log(`扑杀清除全部 ${mark} 层标记。`);
+          log(`扑杀清除全部 ${mark} 层猎印。`);
           break;
         }
         case 'C05':
@@ -1294,15 +1301,15 @@
           if (b.enemy.mark > 0) {
             b.enemy.mark--; b.energy++;
             event('mark', { target: 'enemy', amount: -1, total: b.enemy.mark });
-            log('铃音消耗 1 层标记：获得 1 灵力并抽 1 张牌。'); drawCards(1);
-          } else log('铃音：敌人没有标记，没有获得灵力或抽牌。');
+            log('铃音消耗 1 层猎印：获得 1 灵力并抽 1 张牌。'); drawCards(1);
+          } else log('铃音：敌人没有猎印，没有获得灵力或抽牌。');
           break;
         case 'C21': {
           const mark = b.enemy.mark, bleed = b.enemy.bleed || 0;
           enemyHit(12 + 6 * mark + 2 * bleed + bonus); b.enemy.mark = 0;
           event('mark', { target: 'enemy', amount: -mark, total: 0 });
           if(liveBattle()&&bleed)addBleed(-bleed,def.name);
-          log(`终夜清除全部 ${mark} 层标记与 ${bleed} 层流血。`); break;
+          log(`终夜清除全部 ${mark} 层猎印与 ${bleed} 层流血。`); break;
         }
         case 'C22':
           for (let i = 0; i < 2 && liveBattle(); i++) enemyHit((previousPlayed >= 2 ? 6 : 4) + (i === 0 ? bonus : 0));
@@ -1346,6 +1353,7 @@
           event('relic', { relic: 'jade', name: RELICS.jade.name, amount: 1 });
         }
         b.phase = 'player';
+        event('resources',{reason:'卡牌结算完成'});
       }
       emit();
       return true;
@@ -1405,7 +1413,7 @@
         log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
         if (intent.clearMark) {
           event('mark', { source:'enemy',target:'enemy',amount:-enemy.mark,total:0 });
-          log(`${intent.name}：清除 ${enemy.mark} 层标记。`);enemy.mark=0;
+          log(`${intent.name}：清除 ${enemy.mark} 层猎印。`);enemy.mark=0;
         }
         if (intent.clearChill) {
           enemy.chillProgress=0;
@@ -1425,7 +1433,7 @@
         }
         if ((intent.hits || []).length && b.playerMark > 0) {
           const spent = b.playerMark; b.playerMark = 0;
-          log(`猎记发动：本次首段额外 ${spent} 伤害，猎记随之散去。`);
+          log(`追索印发动：本次首段额外 ${spent} 伤害，追索印随之散去。`);
           event('playerMark',{source:'enemy',target:'player',amount:-spent,total:0});
         }
         for (let i=0;i<(intent.hits||[]).length;i++) {
@@ -1453,7 +1461,7 @@
         if (intent.playerMark) {
           const before = b.playerMark || 0;
           b.playerMark = Math.min(BALANCE.playerMarkCap, before + intent.playerMark);
-          log(`你获得 ${b.playerMark - before} 层猎记（共 ${b.playerMark} 层）；下一次敌方行动首段攻击每层额外造成 1 伤害，然后清除。`);
+          log(`你获得 ${b.playerMark - before} 层追索印（共 ${b.playerMark} 层）；下一次敌方行动首段攻击每层额外造成 1 伤害，然后清除。`);
           event('playerMark',{source:'enemy',target:'player',amount:b.playerMark-before,total:b.playerMark});
         }
       }
@@ -2039,7 +2047,7 @@
             story: ['代理人关掉身后九盏灯，只留一盏照着契纸。他说宗门要真相，残众要证据，散修要活路；商盟可以同时买下它们。', '这份密约不要求你交出最终残页，只出售一份从实验里流出的奇物。至少契纸上是这么写的。'],
             choices: finishChoices([
               { label: `付 40 金币签下暗单 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，支付 40 后得到 60 金币。', goldCost: 40, relic, fallbackGold: 60, outcome: '代理人把奇物放在你面前，契纸立刻自行焚尽。账已结清；他提醒你，这句只对今晚有效。' },
-              { label: '替商盟探一条险路 · 失去 6 生命，得 55 金币', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人带走了你的标记。金币是真的，隐去名字的那一栏也是真的。' },
+              { label: '替商盟探一条险路 · 失去 6 生命，得 55 金币', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人带走了你的猎印。金币是真的，隐去名字的那一栏也是真的。' },
               { label: '婉拒暗单，借灯调息 · 恢复 6 生命', text: '不签契约，借灯休息片刻。', heal: 6, outcome: '他没有挽留，只替你拨亮最后一盏灯。灯光越过你肩头，照向了另一个将要入域的人。' }
             ], p)
           };
@@ -2102,7 +2110,7 @@
       // A cleansing action removes frost before attacking; preview the resulting actual hits.
       const reduction=chill>=5&&!intent.clearChill?1:0;
       const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus+revengeBonus-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
-      if(intent.clearMark)parts.push('清除全部标记');
+      if(intent.clearMark)parts.push('清除全部猎印');
       if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
       if(intent.clearBleed)parts.push('清除全部流血');
       if(intent.heal)parts.push(`恢复 ${intent.heal} 点生命（不超过上限）`);
@@ -2110,7 +2118,7 @@
       if(hits.length===1)parts.push(`攻击 ${hits[0]}`);
       else if(hits.length>1)parts.push(hits.every(x=>x===hits[0])?`连续攻击 ${hits.length} 次，每次 ${hits[0]}`:`连续攻击 ${hits.join('／')}`);
       if(intent.poison)parts.push(`再施加 ${intent.poison} 层毒`);
-      if(intent.playerMark)parts.push(`再施加 ${intent.playerMark} 层猎记（下一次敌方行动首段每层 +1，触发后清除）`);
+      if(intent.playerMark)parts.push(`再施加 ${intent.playerMark} 层追索印（下一次敌方行动首段每层 +1，触发后清除）`);
       if(intent.counter)parts.push(`架势反击 ${intent.counter}（每张伤及生命的攻击牌一次，到下个敌方回合开始）`);
       if(intent.energyPenalty)parts.push(`下个玩家回合灵力 −${intent.energyPenalty}`);
       if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
@@ -2123,13 +2131,32 @@
       return {...intent,hits:frozen?[]:hits,baseHits,attackBonus,revengeBonus,chill,frozen,freezeChance,text};
     }
 
+    // Isolated rule replay: never reads or advances the live RNG, emits to UI, or writes a profile.
+    // Only public results are returned; hidden drawn card identities and future rewards stay private.
+    function previewCard(uid) {
+      const b=state.battle,card=b?.hand.find(c=>c.uid===uid),def=card&&CARDS[card.id];
+      if(state.screen!=='battle'||!b||b.phase!=='player'||!def)return null;
+      if(def.cost>b.energy)return {available:false,reason:'灵力不足',cost:def.cost};
+      const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile()});
+      Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
+      const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
+      if(!shadow.playCard(uid,true))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
+      const after=shadow.state.battle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
+      const spent=type=>events.filter(e=>e.type===type&&e.amount<0).reduce((n,e)=>n-e.amount,0);
+      return {available:true,cardId:card.id,cost:def.cost,hits,firstHitBonus:def.attack?(after.cardBonus||0):0,firstHitBonusCap:BALANCE.firstHitBonusCap,
+        resources:{before,after:{swordIntent:after.swordIntent||0,soul:after.soul||0,energy:after.energy},spent:{swordIntent:spent('swordIntent'),soul:spent('soul')}},
+        enemyHpAfter:after.enemy.hp,enemyDefeated:after.enemy.hp<=0,playerHpAfter:shadow.state.player.hp,playerDefeated:shadow.state.screen==='defeat',
+        blockGained:events.filter(e=>e.type==='block'&&e.target==='player').reduce((n,e)=>n+e.amount,0),drawCount:events.filter(e=>e.type==='draw').length,
+        drawNotice:events.some(e=>e.type==='draw'||e.type==='shuffle')?'抽牌按牌堆与重洗结算，预览不公开将抽到的牌。':null};
+    }
+
     state = freshState('title');
     const expedition = EXPEDITION.create({getState:()=>state,rng,heal,note,emit,event,log,beginEvents,cureAffliction,startBattle,advance,addRelic,relics:RELICS});
     expedition.resetRun();
     return {
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
-      getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent
+      getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 
