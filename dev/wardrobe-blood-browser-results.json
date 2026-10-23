@@ -1,0 +1,145 @@
+{
+  "format": "baiyao-wardrobe-blood-browser",
+  "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
+  "inputs": {
+    "index.html": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7",
+    "baiyao-standalone.html": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7",
+    "dev/engine.js": "76819abb48bdc6cb119fc86d39566b517606005c8f1355e7af1f03d266b53ad4",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
+    "dev/ui.js": "fd87382d11a56c764b3ebfc140232a59596eee1a9e6acd929d7d053520589b5a",
+    "dev/shell.html": "83a6e07b31b949fa2cd21a0d1f6054c097ac95f6560576b119272ae05b654daf",
+    "dev/audio.js": "17851cba7ac8792f0506fba75e341ef6bdfc4cf1cfd002428b6507567c29adeb",
+    "dev/build.cjs": "add186dbdd6b31826f49afe73aa15ec214091737e570dcd53c63984f1bb4bab3",
+    "dev/wardrobe-blood-browser.test.cjs": "c425ce824e9d85c03c0473c1a063a5121692aaa5f611b4a7e7dbb176b32990e8"
+  },
+  "results": [
+    {
+      "name": "both heroines equip all five clothes through DOM and decode ten distinct portrait files",
+      "ok": true
+    },
+    {
+      "name": "fallen sword retains distinct expressive art in every outfit; low HP never reverts costume",
+      "ok": true
+    },
+    {
+      "name": "shop clothing costs once and is owned but not auto-equipped",
+      "ok": true
+    },
+    {
+      "name": "no next-action name, numbers or ordered move lists on any combat or boss dossier",
+      "ok": true
+    },
+    {
+      "name": "three blood acquisition events show unique paintings and acquire six real new cards by choices",
+      "ok": true
+    },
+    {
+      "name": "new drain skill previews and actual target clicks heal after shield correctly",
+      "ok": true
+    },
+    {
+      "name": "360/390/430 wardrobe is touchable and does not overflow",
+      "ok": true
+    },
+    {
+      "name": "all added card and story sounds generate finite nonzero offline samples",
+      "ok": true
+    },
+    {
+      "name": "new assets decode without external requests or runtime errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/workspace/scratch/boss-quests-wardrobe-mark.png",
+    "/workspace/scratch/boss-quests-wardrobe-sword.png",
+    "/workspace/scratch/boss-quests-wardrobe-fallen.png",
+    "/workspace/scratch/boss-quests-unpredicted-combat.png",
+    "/workspace/scratch/boss-quests-wardrobe-mobile.png"
+  ],
+  "outfits": [
+    {
+      "role": "mark",
+      "id": "mist",
+      "src": "assets/outfits/cat-mist.webp"
+    },
+    {
+      "role": "mark",
+      "id": "lotus",
+      "src": "assets/outfits/cat-lotus.webp"
+    },
+    {
+      "role": "mark",
+      "id": "ember",
+      "src": "assets/outfits/cat-ember.webp"
+    },
+    {
+      "role": "mark",
+      "id": "moon",
+      "src": "assets/outfits/cat-moon.webp"
+    },
+    {
+      "role": "mark",
+      "id": "blood",
+      "src": "assets/outfits/cat-blood.webp"
+    },
+    {
+      "role": "sword",
+      "id": "mist",
+      "src": "assets/outfits/sword-mist.webp"
+    },
+    {
+      "role": "sword",
+      "id": "lotus",
+      "src": "assets/outfits/sword-lotus.webp"
+    },
+    {
+      "role": "sword",
+      "id": "ember",
+      "src": "assets/outfits/sword-ember.webp"
+    },
+    {
+      "role": "sword",
+      "id": "moon",
+      "src": "assets/outfits/sword-moon.webp"
+    },
+    {
+      "role": "sword",
+      "id": "blood",
+      "src": "assets/outfits/sword-blood.webp"
+    }
+  ],
+  "events": [
+    {
+      "id": "blood_lesson",
+      "src": "assets/events/blood_lesson.webp"
+    },
+    {
+      "id": "blood_debt",
+      "src": "assets/events/blood_debt.webp"
+    },
+    {
+      "id": "blood_choice",
+      "src": "assets/events/blood_choice.webp"
+    }
+  ],
+  "audio": {
+    "keys": [
+      "sampleRate",
+      "duration",
+      "channels",
+      "peakScheduled",
+      "sourcesCreated",
+      "rejectedVoices"
+    ],
+    "frames": 343980
+  },
+  "passed": 9,
+  "failed": 0
+}

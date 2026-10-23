@@ -30,6 +30,7 @@ const resources={};
 for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',gameData.REGIONS.map(region=>region.id)],['weapons','weapons',Object.keys(gameData.WEAPONS||{})],['items','items',Object.keys(require('./expansion.js').ITEMS||{})]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
+resources.outfits=Object.fromEntries(Object.keys(gameData.OUTFITS||{}).flatMap(id=>['item','cat','sword','sword_fallen'].map(role=>[role+'-'+id,asset('outfits',role+'-'+id)])));
 const roleEventIds=['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker','fox','rest','shop','moon_trace','sealed_name','moon_vow','armory'];
 resources.eventsByCharacter=Object.fromEntries(['sword','sovereign','sword_fallen'].map(character=>[character,Object.fromEntries(roleEventIds.map(id=>[id,asset('events-'+character,id)]))]));
 resources.puppet=Object.fromEntries(['normal','wounded','critical','blink'].map(id=>[id,asset('puppet','cat-'+id)]));

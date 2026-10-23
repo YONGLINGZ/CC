@@ -22,13 +22,43 @@
     D03:{name:'夺脉',cost:2,text:'造成 16 点伤害，恢复 5 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true},
     D04:{name:'魔躯',cost:1,text:'获得 10 护盾。',target:false},
     D05:{name:'狂念',cost:0,text:'抽 2 张牌。消耗。',target:false,exhaust:true},
+    D07:{name:'焚血斩',cost:1,text:'先失去 5 生命，再造成 18 点伤害。自损无视护盾，可以致命。',target:true,attack:true},
+    D08:{name:'夺生指',cost:1,text:'造成 7 点伤害；恢复本次实际扣除敌人生命的数量，最多 7。护盾与过量伤害不计。',target:true,attack:true},
+    D09:{name:'血衣',cost:0,text:'先失去 4 生命，再获得 13 护盾。自损可以致命。消耗。',target:false,exhaust:true},
+    D10:{name:'逆脉',cost:0,text:'先失去 4 生命，再获得 1 灵力并抽 2 张牌。自损可以致命。消耗。',target:false,exhaust:true},
+    D11:{name:'三劫噬心',cost:2,text:'连续攻击 3 次，每次 4 伤害；每段恢复实际扣除敌人生命的数量，最多 4。护盾与过量伤害不计。',target:true,attack:true},
+    D12:{name:'血海归墟',cost:2,text:'先失去 8 生命，再造成 26 点伤害；恢复实际扣除敌人生命的数量，最多 10。自损可以致命。消耗。',target:true,attack:true,exhaust:true},
     D06:{name:'万煞归心',cost:3,text:'造成 26 点伤害，恢复 6 生命。击杀或被护盾阻挡仍治疗。',target:true,attack:true}
   });
   for(const [id,c]of Object.entries(CARDS))if(id.startsWith('D')){
     c.character='sword';c.category='demonic';c.locked=true;c.storyOnly=true;
-    c.corruption=1;c.rarity=id==='D06'?'rare':['D03','D04','D05'].includes(id)?'uncommon':'common';
+    c.corruption=1;c.rarity=['D06','D12'].includes(id)?'rare':['D03','D04','D05','D07','D09','D10','D11'].includes(id)?'uncommon':'common';
     c.attack=!!c.attack;c.exhaust=!!c.exhaust;
   }
+  const OUTFITS={
+    mist:{id:'mist',name:'墨羽行衣',price:30,text:'每场战斗首回合额外抽 1 张牌。轻羽暗纹不碍出手。',draw:1},
+    lotus:{id:'lotus',name:'青莲护心袍',price:45,text:'每个玩家回合开始时获得 2 护盾。莲纹随呼吸明灭。',block:2},
+    ember:{id:'ember',name:'烬霞战衣',price:50,text:'每回合首张攻击第一段额外伤害 +2，计入首段增伤上限。',bonus:2},
+    moon:{id:'moon',name:'月隐流纱',price:45,text:'每场战斗首回合额外获得 1 灵力。月纱只能在开战时聚灵。',energy:1},
+    blood:{id:'blood',name:'血誓绛绡',price:55,text:'每回合首次因卡牌自损且存活后，获得 4 护盾。不会阻止致命自损。',selfBlock:4}
+  };
+  const BLOOD_EVENTS={
+    blood_lesson:{name:'血盏中不肯散的光',story:['药阁的旧修将一缕血气压进剑锋：“命不能白取，自己的也一样。”她曾用禁术救回师妹，后来却开始把所有求医者当成试招的材料。','她愿意留下两种相反的手法：付出自己的生命换取爆发，或强行取走对手的生机。你也可以把经页封回匣中。'],choices:[
+      {label:'以身为价，学焚血之术',text:'获得「焚血斩」「血衣」。使用禁术会扰动心神；清心玉可护灵台。',cardIds:['D07','D09'],learnDemonic:true,flags:{bloodMethod:'sacrifice'},outcome:'你记下先付代价再落剑的次序，没有把损失写到别人的账上。但这并不能使禁术没有危险。'},
+      {label:'研读夺生经页',text:'获得「夺生指」。按实际生命伤害治疗；使用禁术会扰动心神。',cardIds:['D08'],learnDemonic:true,flags:{bloodMethod:'drain'},outcome:'指尖的热意来得太容易。药阁旧修看着你的神情，想起自己第一次不再嫌这术太快的时候。'},
+      {label:'坚持剑道，抄下护心正诀',text:'获得「霜天壁」，并恢复 6 生命；不学习禁术。',cardIds:['S12'],heal:6,flags:{bloodMethod:'refuse'},outcome:'你抄下如何护住经脉，而非如何向经脉索取。她没有再劝，只将血盏盖好。'},
+      {label:'不留下经页',text:'获得回春草 1 份，不学习禁术。',itemGrants:[{id:'herb',count:1}],flags:{bloodMethod:'leave'},outcome:'草药有用，劝诱仍留在药阁。你没有替那位从未见过的师妹判断这份救命之恩。'}]},
+    blood_debt:{name:'谁的命拿来续命',story:['药阁旧修托人送来一只空药瓶，附信承认她把最后的药给了付得起钱的人。棚下的伤者因此只能等。','守棚人建议用俘虏练夺生之术。伤者却说：“若救我需要替我杀人，至少让我先说愿不愿意。”你先前选择的手法，此刻有了具体的人。'],choices:[
+      {label:'以自身血气稳住伤者',text:'失去 5 生命，获得「逆脉」；当前生命须大于 5。',hpCost:5,cardIds:['D10'],learnDemonic:true,flags:{bloodDebt:'self'},outcome:'伤者得以等到下一次换药。你试着记住，这一次选择由你承担，不代表下次可以替别人承担。'},
+      {label:'研究封存的夺生残谱',text:'付 25 灵石，取得「三劫噬心」。不向俘虏施术，代价由实战承担。',goldCost:25,cardIds:['D11'],learnDemonic:true,flags:{bloodDebt:'study'},outcome:'你买下封存残谱，没有在棚下试招。经文并不保证持有者永远记得今天划下的线。'},
+      {label:'付药钱，护送双方出棚',text:'付 20 灵石，恢复 12 生命，获得解毒丹 1 份。',goldCost:20,heal:12,itemGrants:[{id:'antidote',count:1}],flags:{bloodDebt:'aid'},outcome:'俘虏帮着抬担架。敌对身份没有消失，但今天没有人被削成一瓶药。'},
+      {label:'拒绝此术，留下普通药草',text:'不改变数值，不获得禁术。',flags:{bloodDebt:'refuse'},outcome:'你指出丹霞谷药棚的方向，拒绝替守棚人赞同他的提议。离开不使困境消失，至少没有再替它增加一具尸体。'}]},
+    blood_choice:{name:'经末没有写下的人',story:['经卷最后一页写着“万命皆可为我”。下方有人补了一行小字，又被重重涂掉。','送信的人带来药棚的回执：仍有人活着，也仍有人死去，没有一种选择能抹掉所有损失。你终于读清被涂掉的字：“那我还算谁？”'],choices:[
+      {label:'收下血海终篇',text:'获得「血海归墟」。先付生命再伤敌吸血；死亡不会靠后续吸血挽回。',cardIds:['D12'],learnDemonic:true,flags:{bloodEnding:'power'},outcome:'你合上经卷。它没有替你决定下一个人的命，只让那个决定更容易被做出。'},
+      {label:'留一式夺生，不取血海',text:'获得「夺生指」「血衣」，不获得血海终篇。',cardIds:['D08','D09'],learnDemonic:true,flags:{bloodEnding:'limit'},outcome:'你给自己留下一条边界。边界不会自动守住，要靠以后的每一次出手。'},
+      {label:'封存终篇，磨成自己的剑诀',text:'获得 「万川归寂」；恢复 10 生命，不逆转已经发生的异变。',cardIds:['S16'],heal:10,flags:{bloodEnding:'seal'},outcome:'你没有宣称从此无错，只把尚未做出的选择留在自己手里。已经走过的路，也不会被封书抹去。'},
+      {label:'不再留卷，带走救命的药',text:'获得九转还元丹 1 份；不获得禁术，不逆转异变。',itemGrants:[{id:'fullheal_pill',count:1}],flags:{bloodEnding:'medicine'},outcome:'药放进包裹，书留在匣中。你没有为这一刻写一个永远有效的结论。'}]}
+  };
   const ITEMS={
     clearheart_jade:{name:'清心玉',text:'澄澈的凉意贴着剑穗，能护住灵台。',quest:true,preventsCorruption:true}
   };
@@ -58,6 +88,6 @@
     snake_ascended:{rank:'boss',name:'绛鳞',hp:120,intents:[{name:'黑鳞刃',text:'攻击 12',hits:[12]},{name:'蚀灵息',text:'先攻击 7，再施加 3 层毒',hits:[7],poison:3},{name:'逆仪蜕鳞',text:'清除全部猎印、霜寒与流血，获得护盾 12，然后攻击 5',clearMark:true,clearChill:true,clearBleed:true,block:12,hits:[5]},{name:'囚月',text:'连续攻击 3 次，每次 6',hits:[6,6,6]}]}
   };
   const EVENT_IDS=['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'];
-  const api={CARDS,STARTERS,CHARACTERS,RELICS,WEAPONS,ENVIRONMENTS,ENEMIES,EVENT_IDS,ITEMS,CORRUPTION};
+  const api={OUTFITS,BLOOD_EVENTS,CARDS,STARTERS,CHARACTERS,RELICS,WEAPONS,ENVIRONMENTS,ENEMIES,EVENT_IDS,ITEMS,CORRUPTION};
   root.NightExpansion=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis==='object'?globalThis:window);

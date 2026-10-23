@@ -11,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_ART = {
-    'portraits': 31, 'cards': 70, 'events': 88, 'relics': 15,
+    'outfits':20, 'portraits': 31, 'cards': 76, 'events': 91, 'relics': 15,
     'puppet': 13, 'regions': 7, 'weapons': 4, 'items': 1,
     'events-sword': 21, 'events-sovereign': 21, 'events-sword_fallen': 21,
 }
@@ -105,7 +105,7 @@ def verify_recovery(evidence_name, manifest_name, script_name, count, mode, outp
     verify_hash(script_name, evidence['script_sha256'])
     verify_inputs(manifest, 'files')
     verify_inputs(manifest, 'asset_sha256')
-    expected_assets = 292 if mode == 'full-webp' else 0
+    expected_assets = 321 if mode == 'full-webp' else 0
     require(evidence['asset_count_in_payload'] == manifest['asset_count'] == expected_assets,
             'Unexpected recovery payload asset count')
     return evidence, manifest
@@ -145,7 +145,7 @@ def main():
     boss_quests = report('dev/boss-quests-browser-results.json')
     passed(boss_quests, 9, 'boss task chains, actual status badges and spirit-stone commerce')
     verify_inputs(boss_quests)
-    require(len(boss_quests['audio']) == 16 and all(a['rms'] > 0 for a in boss_quests['audio']), 'Missing boss quest audio evidence')
+    require(len(boss_quests['audio']) == 43 and all(a['rms'] > 0 for a in boss_quests['audio']), 'Missing boss quest audio evidence')
     new_tales_art = report('dev/tales-art-manifest.json')['entries']
     require(len(new_tales_art) == 34, 'Missing independent cave/tale/patrol art')
     for entry in new_tales_art:
@@ -193,14 +193,27 @@ def main():
         images = sorted((ROOT / 'assets' / folder).glob('*.webp'))
         require(len(images) == count, 'Unexpected runtime art count: ' + folder)
         artwork.extend(images)
-    require(len(artwork) == 292, 'Expected 292 runtime WebPs')
+    require(len(artwork) == 321, 'Expected 321 runtime WebPs')
     artifact_paths = {p.relative_to(ROOT).as_posix() for p in artwork}
     require(set(browser['assetInputs']) == artifact_paths, 'Browser did not verify every runtime art file')
     require(set(full_manifest['asset_sha256']) == set(source_manifest['asset_sha256']) == artifact_paths,
             'Recovery art coverage differs from runtime art')
     decoded = browser.get('allAssetDecode', [])
-    require(len(decoded) >= 292 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
+    require(len(decoded) >= 321 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
             'Runtime image decoding was not verified')
+    wardrobe = report('dev/wardrobe-blood-browser-results.json')
+    passed(wardrobe, 9, 'outfits, hidden intent and blood skills')
+    verify_inputs(wardrobe)
+    wardrobe_art=report('dev/wardrobe-art-manifest.json')['entries']
+    require(len(wardrobe_art)==29,'Missing independent wardrobe/skill art')
+    for entry in wardrobe_art:
+        verify_hash(entry['path'],entry['sha256'])
+        require(entry['reviewed'] and min(entry['width'],entry['height'])>=768,'Unreviewed wardrobe art')
+    story_boss_art=report('dev/story-boss-art-manifest.json')['entries']
+    require(len(story_boss_art)==4,'Missing refreshed story-boss paintings')
+    for entry in story_boss_art:
+        verify_hash(entry['path'],entry['sha256'])
+        require(entry['reviewed'] and min(entry['width'],entry['height'])>=768,'Unreviewed story-boss painting')
     new_art = verify_new_art()
     require(new_art.issubset(artifact_paths), 'New v11 art is missing from runtime package')
     for html in ('index.html', 'baiyao-standalone.html'):
@@ -263,18 +276,18 @@ def main():
                       'dev/v8-audio-regression-results.json', 'dev/v8-sword-audio-results.json',
                       'dev/v8-audio-results.json', 'dev/v11-regression-results.json',
                       'dev/v11-source-browser-results.json', 'dev/v11-art-manifest.json', 'dev/v11-scene-art-manifest.json',
-                      'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
+                      'dev/wardrobe-art-manifest.json', 'dev/story-boss-art-manifest.json', 'dev/wardrobe-blood-browser-results.json', 'dev/wardrobe-blood.test.cjs', 'dev/boss-chain-reachability.test.cjs', 'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '寒渊七境 · 镇境旧事', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
+        'version': '寒渊七境 · 衣影与血誓', 'date': '2026-10-24', 'timezone': 'Asia/Shanghai', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
         'zip_members': len(payload), 'editable_shell_in_zip': True,
         'runtime_art': {folder: {'count': count, 'bytes': sum(p.stat().st_size for p in
                         (ROOT / 'assets' / folder).glob('*.webp'))} for folder, count in EXPECTED_ART.items()},
-        'runtime_art_total': 292, 'new_generated_art_files': 0, 'retained_tales_art_files': 34, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
-        'boss_quests': {'chains': 5, 'stages_per_chain': 3, 'choices_per_event': 4, 'awakening_event': 1, 'new_quest_items': 10, 'rule_checks': 19, 'browser_checks': boss_quests['passed'], 'art_source': 'existing five independently painted boss portraits', 'enemy_statuses_only_when_applied': True, 'corner_stack_badges': True, 'currency': '灵石', 'puppet_requires_both_witnessed_items': True},
+        'runtime_art_total': 321, 'new_generated_art_files': 33, 'retained_tales_art_files': 34, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
+        'boss_quests': {'chains': 14, 'stages_per_chain': 3, 'choices_per_event': 4, 'awakening_event': 1, 'new_quest_items': 28, 'rule_checks': 28, 'browser_checks': boss_quests['passed'], 'art_source': 'fourteen individual portraits; four legacy story thumbnails repainted at full resolution', 'enemy_statuses_only_when_applied': True, 'corner_stack_badges': True, 'currency': '灵石', 'puppet_requires_both_witnessed_items': True},
         'tales': {'browser_groups': tales['passed'], 'new_rule_checks': 23, 'cave_painted': True, 'fall_portrait_existing_three_states_verified': True, 'resume_rest_after_patrol_reward': True, 'new_art_files':34},
         'batch_a': {'browser_groups': batch_a['passed'], 'new_rule_checks': 15,
                     'existing_starters': 5, 'mobile_css_widths': [360,390,430],
@@ -282,19 +295,21 @@ def main():
                     'rule_layer_preview': True, 'single_run_save_implemented': False,
                     'new_proposed_story_endings_implemented': False,
                     'physical_phone_tested': False, 'cross_browser_tested': False},
+        'outfits': {'items':5,'item_paintings':5,'character_paintings':15,'browser_groups':wardrobe['passed'],'new_cards':6,'linked_acquisition_events':3,'separate_wounded_paintings':False},
+        'enemy_next_action_visible':False,
         'professions': ['影契刺客', '霜华剑修', '无相宫主'],
         'map_stages': 70, 'steps_per_chapter': 10, 'regions': 7,
         'route_templates': 20, 'chapter_templates_selected_independently': True,
         'nodes_per_chapter': [42, 46], 'nodes_per_run': [294, 322], 'random_node_types': True,
-        'story_events': 100, 'linked_story_chains': 18, 'new_chains': 5, 'new_linked_events': 15, 'chains_sampled_per_run': 3, 'travel_interruptions': 2, 'cards': 70, 'sound_profiles': 70,
-        'event_sound_profiles': 92, 'role_specific_event_variants': 63, 'weapons': 4,
+        'story_events': 130, 'linked_story_chains': 28, 'new_chains': 10, 'new_linked_events': 30, 'chains_sampled_per_run': 3, 'travel_interruptions': 2, 'cards': 76, 'sound_profiles': 76,
+        'event_sound_profiles': 122, 'role_specific_event_variants': 63, 'weapons': 4,
         'reworked_boss': {'id':'lotus_boss','name':'故宅机仆·缄红','new_portraits':1,'household_tools':4,'revenge_threshold':0.5,'revenge_per_hit':1,'new_sound_cues':5,'focused_rule_checks':12},
-        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':25, 'boss_illustrations':9, 'quest_items': 11, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
+        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':25, 'boss_illustrations':9, 'special_encounter_portraits':5, 'quest_items': 29, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
         'consumables':7, 'cave_loot_fixed_on_entry':True, 'combat_consumable_limit_per_turn':1,
         'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},
         'bleed':{'cap':7,'chance_per_stack':0.03,'damage':'uniform 1..stacks, bypass shield','tick':'enemy turn start'},
         'runtime_3d': False, 'scene_models': 'removed; painted regional backgrounds, 2D routes and static character art',
-        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0, 'rerun_for_current_release': True, 'new_encounter_waveforms': 16, 'retained_tale_waveforms': 33, 'scope': 'Actual AudioContext and OfflineAudioContext; no human listening evaluation'},
+        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0, 'rerun_for_current_release': True, 'new_encounter_waveforms': 43, 'new_blood_event_waveforms': 3, 'demonic_card_waveforms': 12, 'retained_tale_waveforms': 33, 'scope': 'Actual AudioContext and OfflineAudioContext; no human listening evaluation'},
         'browser_groups': {'passed': browser['passed'], 'failed': 0}, 'natural_dom_professions': 1,
         'export_roundtrip_checks': {'passed': exports['passed'], 'failed': 0},
         'public_api_simulations': {k: play[k] for k in ['completed', 'wins', 'defeats']},

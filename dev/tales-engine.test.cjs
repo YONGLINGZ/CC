@@ -10,7 +10,7 @@ function restTo(g,floor){while(g.state.floor<floor){if(g.state.screen==='arrival
 function finish(g){const b=g.state.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=20;b.hand=[{id:'C01',uid:'tale-finisher'}];assert.equal(g.playCard('tale-finisher',true),true);}
 
 test('ten coherent three-part chains, thirty unique event IDs, two interruptions and distinct chain art references',()=>{
- assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,100);
+ assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,130);
 });
 for(const chain of Object.keys(T.CHAINS))test('all 27 choice paths settle and preserve witnessed consequences: '+chain,()=>{
  for(let a=0;a<3;a++)for(let b=0;b<3;b++)for(let c=0;c<3;c++){

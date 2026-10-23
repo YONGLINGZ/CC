@@ -2,19 +2,19 @@
   "format": "baiyao-boss-quests-browser",
   "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
   "inputs": {
-    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
-    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273",
-    "dev/engine.js": "233cbce3b5243f0d9bd4e635082a73d1d0e8a2fe92b99170e9821c79d46b917c",
-    "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
+    "index.html": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7",
+    "baiyao-standalone.html": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7",
+    "dev/engine.js": "76819abb48bdc6cb119fc86d39566b517606005c8f1355e7af1f03d266b53ad4",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
-    "dev/seven.js": "4582596a1e24ee76dbe933afb731ca815892cab84eb39b9704bb8443c4505580",
+    "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
-    "dev/boss-quests.js": "ea8acde28e3a968232cf46eaa0afb1d710832fe558c52e5d1237f7357992ffaa",
-    "dev/ui.js": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8",
-    "dev/shell.html": "90951550281813d77e8dd57021bc3842a0ccd2053b6c2406d1f9be84a75b0742",
-    "dev/audio.js": "8755edaff3a2d524c94b197c59a5c4f18eabb0c8cf4fe847f428358f16e4cbe7",
-    "dev/build.cjs": "9557a946ccbdf65fd90d019d4f3b1f90b8bde21e0f2b8cf35f853b547684b743",
-    "dev/boss-quests-browser.test.cjs": "61532431881121ceebf5e772cf7575bc84d685eed4fb8e1198861ea2d86c3e53"
+    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
+    "dev/ui.js": "fd87382d11a56c764b3ebfc140232a59596eee1a9e6acd929d7d053520589b5a",
+    "dev/shell.html": "83a6e07b31b949fa2cd21a0d1f6054c097ac95f6560576b119272ae05b654daf",
+    "dev/audio.js": "17851cba7ac8792f0506fba75e341ef6bdfc4cf1cfd002428b6507567c29adeb",
+    "dev/build.cjs": "add186dbdd6b31826f49afe73aa15ec214091737e570dcd53c63984f1bb4bab3",
+    "dev/boss-quests-browser.test.cjs": "f64c11140b22a13eec07c8ada4047d4394616c0ceeaf34071b87d9e469106090"
   },
   "results": [
     {
@@ -30,7 +30,7 @@
       "ok": true
     },
     {
-      "name": "all five boss chains show four choices, correct decoded boss paintings and two non-consumable task objects",
+      "name": "all fourteen boss chains show four choices, correct decoded boss paintings and two non-consumable task objects",
       "ok": true
     },
     {
@@ -38,7 +38,7 @@
       "ok": true
     },
     {
-      "name": "serpent countermeasure forecast matches actual first poison prevention and is then spent",
+      "name": "serpent countermeasure is hidden but matches actual first poison prevention and is then spent",
       "ok": true
     },
     {
@@ -46,7 +46,7 @@
       "ok": true
     },
     {
-      "name": "sixteen new quest/awakening cues generate audible finite offline waveforms",
+      "name": "forty-three quest/awakening cues generate audible finite offline waveforms",
       "ok": true
     },
     {
@@ -193,6 +193,168 @@
       "step": 3,
       "w": 768,
       "h": 1152
+    },
+    {
+      "boss": "marsh_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "marsh_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "marsh_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "furnace_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "furnace_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "furnace_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "mirror_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "mirror_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "mirror_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "abyss_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "abyss_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "abyss_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "feiye",
+      "step": 1,
+      "w": 683,
+      "h": 1024
+    },
+    {
+      "boss": "feiye",
+      "step": 2,
+      "w": 683,
+      "h": 1024
+    },
+    {
+      "boss": "feiye",
+      "step": 3,
+      "w": 683,
+      "h": 1024
+    },
+    {
+      "boss": "feiye_echo",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "feiye_echo",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "feiye_echo",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "retainer",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "retainer",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "retainer",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "heart",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "heart",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "heart",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake_ascended",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake_ascended",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake_ascended",
+      "step": 3,
+      "w": 768,
+      "h": 1152
     }
   ],
   "awakening": {
@@ -215,7 +377,7 @@
         "id": "f10-0",
         "floor": 10,
         "type": "boss",
-        "name": "缚誓者",
+        "name": "蛇妖·绛鳞",
         "lane": 0,
         "resolution": "awakened"
       }
@@ -225,83 +387,218 @@
   "audio": [
     {
       "id": "boss_lotus_boss_1",
-      "rms": 0.0060467822639605475,
-      "peak": 0.040416792035102844
+      "rms": 0.006046781821447019,
+      "peak": 0.04041677340865135
     },
     {
       "id": "boss_lotus_boss_2",
-      "rms": 0.006794925667764199,
+      "rms": 0.0067949264115486335,
       "peak": 0.04809222370386124
     },
     {
       "id": "boss_lotus_boss_3",
-      "rms": 0.006881475654670948,
-      "peak": 0.05089078098535538
+      "rms": 0.0068814744678908045,
+      "peak": 0.05089060589671135
     },
     {
       "id": "boss_gate_boss_1",
-      "rms": 0.008411290221030392,
-      "peak": 0.049792930483818054
+      "rms": 0.008411287886564166,
+      "peak": 0.04979266971349716
     },
     {
       "id": "boss_gate_boss_2",
-      "rms": 0.008419740845170267,
-      "peak": 0.049477946013212204
+      "rms": 0.008419739367803734,
+      "peak": 0.049478013068437576
     },
     {
       "id": "boss_gate_boss_3",
-      "rms": 0.008453837487068171,
-      "peak": 0.05320511758327484
+      "rms": 0.00845383668678822,
+      "peak": 0.05320506915450096
     },
     {
       "id": "boss_camp_boss_1",
-      "rms": 0.005683959462182631,
-      "peak": 0.0401192232966423
+      "rms": 0.0056839563599319475,
+      "peak": 0.040119316428899765
     },
     {
       "id": "boss_camp_boss_2",
-      "rms": 0.0055286745751812,
-      "peak": 0.043208006769418716
+      "rms": 0.005528676285930713,
+      "peak": 0.04320801794528961
     },
     {
       "id": "boss_camp_boss_3",
-      "rms": 0.005586432610469055,
-      "peak": 0.045053280889987946
+      "rms": 0.005586435121707245,
+      "peak": 0.04505308344960213
     },
     {
       "id": "boss_snake_1",
-      "rms": 0.009004677946251921,
-      "peak": 0.055054645985364914
+      "rms": 0.009004675465490825,
+      "peak": 0.05505501478910446
     },
     {
       "id": "boss_snake_2",
-      "rms": 0.008891846858089917,
-      "peak": 0.05495216324925423
+      "rms": 0.008891846284045563,
+      "peak": 0.054951831698417664
     },
     {
       "id": "boss_snake_3",
-      "rms": 0.00887887829794267,
-      "peak": 0.05567336827516556
+      "rms": 0.008878879150556504,
+      "peak": 0.0556737445294857
     },
     {
       "id": "boss_bell_boss_1",
-      "rms": 0.008056289486556819,
-      "peak": 0.05007132142782211
+      "rms": 0.008056288105077605,
+      "peak": 0.05007116124033928
     },
     {
       "id": "boss_bell_boss_2",
-      "rms": 0.008272432777190895,
-      "peak": 0.05053272098302841
+      "rms": 0.008272432802615902,
+      "peak": 0.05053316801786423
     },
     {
       "id": "boss_bell_boss_3",
-      "rms": 0.008176489324601384,
+      "rms": 0.008176490145225812,
       "peak": 0.050689708441495895
     },
     {
+      "id": "boss_marsh_boss_1",
+      "rms": 0.0035303126264520776,
+      "peak": 0.02282697893679142
+    },
+    {
+      "id": "boss_marsh_boss_2",
+      "rms": 0.003543934404905552,
+      "peak": 0.022764528170228004
+    },
+    {
+      "id": "boss_marsh_boss_3",
+      "rms": 0.003549763704000852,
+      "peak": 0.023086799308657646
+    },
+    {
+      "id": "boss_furnace_boss_1",
+      "rms": 0.003528759418251732,
+      "peak": 0.02188352681696415
+    },
+    {
+      "id": "boss_furnace_boss_2",
+      "rms": 0.00352919015456194,
+      "peak": 0.02185254544019699
+    },
+    {
+      "id": "boss_furnace_boss_3",
+      "rms": 0.003549847316057257,
+      "peak": 0.02252219431102276
+    },
+    {
+      "id": "boss_mirror_boss_1",
+      "rms": 0.0035275842548132016,
+      "peak": 0.022587720304727554
+    },
+    {
+      "id": "boss_mirror_boss_2",
+      "rms": 0.003511634355536365,
+      "peak": 0.02201196365058422
+    },
+    {
+      "id": "boss_mirror_boss_3",
+      "rms": 0.0035372550303740965,
+      "peak": 0.02277061715722084
+    },
+    {
+      "id": "boss_abyss_boss_1",
+      "rms": 0.003524900253272284,
+      "peak": 0.022495439276099205
+    },
+    {
+      "id": "boss_abyss_boss_2",
+      "rms": 0.003533491864119092,
+      "peak": 0.02216373011469841
+    },
+    {
+      "id": "boss_abyss_boss_3",
+      "rms": 0.003555922799111194,
+      "peak": 0.022115696221590042
+    },
+    {
+      "id": "boss_feiye_1",
+      "rms": 0.0034925759887695644,
+      "peak": 0.02217377908527851
+    },
+    {
+      "id": "boss_feiye_2",
+      "rms": 0.003525406223394278,
+      "peak": 0.02270052582025528
+    },
+    {
+      "id": "boss_feiye_3",
+      "rms": 0.0035065583446554516,
+      "peak": 0.021918855607509613
+    },
+    {
+      "id": "boss_feiye_echo_1",
+      "rms": 0.0035531227742049126,
+      "peak": 0.02214799076318741
+    },
+    {
+      "id": "boss_feiye_echo_2",
+      "rms": 0.003509491353962245,
+      "peak": 0.022652557119727135
+    },
+    {
+      "id": "boss_feiye_echo_3",
+      "rms": 0.0035364058128036003,
+      "peak": 0.022385552525520325
+    },
+    {
+      "id": "boss_retainer_1",
+      "rms": 0.0035102635139146778,
+      "peak": 0.022085372358560562
+    },
+    {
+      "id": "boss_retainer_2",
+      "rms": 0.00356220840590001,
+      "peak": 0.022051269188523293
+    },
+    {
+      "id": "boss_retainer_3",
+      "rms": 0.003505405819058371,
+      "peak": 0.02235514670610428
+    },
+    {
+      "id": "boss_heart_1",
+      "rms": 0.0034860673526563002,
+      "peak": 0.022602032870054245
+    },
+    {
+      "id": "boss_heart_2",
+      "rms": 0.0034638633776439775,
+      "peak": 0.022449756041169167
+    },
+    {
+      "id": "boss_heart_3",
+      "rms": 0.0035788642858017358,
+      "peak": 0.022596213966608047
+    },
+    {
+      "id": "boss_snake_ascended_1",
+      "rms": 0.0034779939784522576,
+      "peak": 0.022147463634610176
+    },
+    {
+      "id": "boss_snake_ascended_2",
+      "rms": 0.00353158299874521,
+      "peak": 0.022239739075303078
+    },
+    {
+      "id": "boss_snake_ascended_3",
+      "rms": 0.003507606453769962,
+      "peak": 0.02218969538807869
+    },
+    {
       "id": "boss_lotus_awake",
-      "rms": 0.006868849850072274,
-      "peak": 0.04926169291138649
+      "rms": 0.006894310886545129,
+      "peak": 0.048421621322631836
     }
   ],
   "passed": 9,

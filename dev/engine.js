@@ -215,6 +215,7 @@
   });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const LEGACY_EVENT_IDS = EVENT_IDS.slice();
+  for(const id of Object.keys(EXPANSION.BLOOD_EVENTS||{}))EVENT_IDS.push(id);
   for (const id of [...Object.keys(SEVEN.EVENTS || {}),...(TALES.EVENT_IDS||[]),...(BOSS_QUESTS.EVENT_IDS||[])]) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
@@ -376,6 +377,18 @@
       if(id!=='divine'&&state.player.level<(WEAPONS[id].requiredLevel||1)){note('灵识尚不足以驾驭这柄剑。');emit();return false;}
       state.player.equippedWeapon=id;note(`已装备「${WEAPONS[id].name}」。`);emit();return true;
     }
+    function equipOutfit(id) {
+      const p=state.player;
+      if(!['assassin','sword'].includes(state.character)||!['arrival','map','shop','rest','event','threshold'].includes(state.screen)||(state.screen==='event'&&!state.event?.resolved))return false;
+      if(id!==null&&(!EXPANSION.OUTFITS[id]||!p.outfitInventory.includes(id)))return false;
+      if(p.equippedOutfit===id)return false;
+      p.equippedOutfit=id;note(id?`已穿上「${EXPANSION.OUTFITS[id].name}」。`:'已换回原装。');emit();return true;
+    }
+    function buyOutfit(id) {
+      const p=state.player,item=state.shop?.outfits?.find(x=>x.id===id);
+      if(state.screen!=='shop'||!item||item.bought||p.gold<item.price||p.outfitInventory.includes(id))return false;
+      item.bought=true;p.gold-=item.price;p.outfitInventory.push(id);note(`「${EXPANSION.OUTFITS[id].name}」已收入衣囊。可在装备中试穿。`);emit();return true;
+    }
     function buyWeapon(index) {
       if(state.screen!=='shop'||!Number.isInteger(index))return false;
       const item=state.shop?.weapons?.[index],p=state.player;
@@ -502,7 +515,7 @@
           p.path.fallen?'你听见自己的笑声。他袖口还系着替伤者包扎剩下的白绦，你的目光却只停在剑匣中的另外两页。':'魔躯可以守身，狂念可以寻招，万煞归心可以决胜。纸页被井风掀开，墨迹深处仍带着未散的热意。'
         ],[
           {label:'收下三页经文',text:'获得「魔躯」「狂念」「万煞归心」。',cardIds:['D04','D05','D06'],learnDemonic:true,flags:{demonicContact:true},outcome:'你将三页经文收进剑匣，压平被风卷起的纸角。'},refusal,
-          ...(p.path.fallen?[{label:'截住守卷弟子，夺走整部经卷',text:'主动开战：守卷弟子生命 42，攻击7 → 护盾5并攻击6 → 连击6×2。胜利取得「饮魄」「夺脉」「魔躯」「狂念」「万煞归心」及正常战利品；失败结束本局。',battle:{enemyId:'raider',kind:'fight',name:'守卷弟子',lootCards:['D02','D03','D04','D05','D06']},flags:{fallenPlunder:true},outcome:'他一直没有封住去路。你却将剑横了过去：“抄来太慢，整部留下。”他护住剑匣，终于拔剑；你已不再问那部经卷该属于谁。'}]:[])
+          ...(p.path.fallen?[{label:'截住守卷弟子，夺走整部经卷',text:'主动开战：守卷弟子生命 42，招式需在交锋中判断。胜利取得「饮魄」「夺脉」「魔躯」「狂念」「万煞归心」及正常战利品；失败结束本局。',battle:{enemyId:'raider',kind:'fight',name:'守卷弟子',lootCards:['D02','D03','D04','D05','D06']},flags:{fallenPlunder:true},outcome:'他一直没有封住去路。你却将剑横了过去：“抄来太慢，整部留下。”他护住剑匣，终于拔剑；你已不再问那部经卷该属于谁。'}]:[])
         ])
       };
     }
@@ -680,15 +693,17 @@
     }
     function initializeBossQuests(){
       const records={};
-      for(let region=0;region<3;region++){
+      for(let region=0;region<state.map.length/10;region++){
         const boss=state.map[region*10+9][0].encounter.enemyId;
         if(BOSS_QUESTS.QUESTS[boss])records[boss]={region,stage:0,choices:{},guard:0,lastOutcome:'',awakened:false};
       }
+      if(state.character==='sovereign')records.heart={region:2,stage:0,choices:{},guard:0,lastOutcome:'',floors:[21,24,25]};
+      else records.feiye={region:6,stage:0,choices:{},guard:0,lastOutcome:'',floors:[64,65,68]};
       state.journey.bossQuests={records,scheduled:[],resolutions:[]};
     }
     function prepareBossOpportunity(){
       const quests=state.journey.bossQuests;if(!bossQuestsEnabled||!quests)return;
-      const local=(state.floor-1)%10+1,step=[2,6,9].indexOf(local)+1;
+      const local=(state.floor-1)%10+1,step=(state.character==='sovereign'&&state.journey.regionIndex===2?[2,7,9]:[2,6,9]).indexOf(local)+1;
       if(!step||quests.scheduled.includes(state.floor))return;
       quests.scheduled.push(state.floor);
       const boss=state.map[state.journey.regionIndex*10+9][0].encounter.enemyId,record=quests.records[boss];
@@ -697,6 +712,17 @@
       if(!eligible.length)return;
       const node=eligible[rand(eligible.length)];
       node.type='event';node.storyId=`boss_${boss}_${step}`;node.name='灯下遗事';node.description='有人在这里拾起了一段与本境关口有关的旧事。';
+    }
+    function prepareExtraOpportunity(){
+      const eligible=()=> (state.map[state.floor-1]||[]).filter(n=>state.availableNodes.includes(n.id)&&!n.storyId&&!n.encounter&&n.type!=='boss');
+      const put=(id,name)=>{const nodes=eligible();if(!nodes.length)return false;const n=nodes[rand(nodes.length)];n.type='event';n.storyId=id;n.name=name;n.description='旧事尚未说完，灯下仍有人等候。';return true;};
+      if(bossQuestsEnabled)for(const [boss,r] of Object.entries(state.journey.bossQuests?.records||{})){
+        const step=r.floors?.indexOf(state.floor)+1;
+        if(step&&r.stage===step-1)put(`boss_${boss}_${step}`,'灯下遗事');
+      }
+      if(state.character==='sword'&&!legacyCampaign){const step=[34,44,54].indexOf(state.floor);
+        if(step>=0&&(state.journey.flags.bloodChapter||0)===step)put(['blood_lesson','blood_debt','blood_choice'][step],'一盏血光');
+      }
     }
     function awakenPuppet(node){
       if(!bossQuestsEnabled||node.type!=='boss'||node.encounter?.enemyId!=='lotus_boss')return false;
@@ -725,7 +751,7 @@
       return {
         screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
-          hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
+          hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', outfitInventory:character==='sovereign'?[]:['mist'], equippedOutfit:null, questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
           deck: cards.map(makeCard),
           relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell']
         },
@@ -830,6 +856,9 @@
       return false;
     }
     function bloodstone() {
+      const outfit=EXPANSION.OUTFITS[state.player.equippedOutfit];
+      if(liveBattle()&&outfit?.selfBlock&&!state.battle.outfitBloodUsed){state.battle.outfitBloodUsed=true;gainBlock(outfit.selfBlock,outfit.name);}
+
       const b = state.battle;
       if (hasRelic('bloodstone') && !b.bloodstoneUsed) {
         b.bloodstoneUsed = true; b.energy++;
@@ -955,6 +984,11 @@
       const b = state.battle;
       b.phase = 'ended';
       event('victory', { target: 'enemy' });
+      const testimony=state.journey.bossQuests?.records[b.enemy.id],oldStory=BOSS_QUESTS.QUESTS[b.enemy.id];
+      if(testimony&&oldStory&&!testimony.concluded){
+        testimony.concluded=true;const count=oldStory.items.filter(id=>state.player.questItems.includes(id)).length;
+        recordJourney(null,oldStory.title+' · 关口之后',`你亲历了 ${testimony.stage} 段旧事，带到交锋中的物证有 ${count} 件。${testimony.stage===3?'路上的声音没有因这一胜负消失；证词与代价都留在了手记里。':'尚未听完的部分仍是空白，这场胜利不能替它补写答案。'}`,'neutral');
+      }
       if (hasRelic('vial')) { heal(8, '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: 8 }); }
       clearCombatStatuses();
       state.stats.battles++;
@@ -1029,7 +1063,7 @@
       return cards;
     }
     // The killing heal is resolved before victory changes the screen.
-    function enemyHit(amount, killingHeal = 0, alwaysHeal = 0, kind = 'card') {
+    function enemyHit(amount, killingHeal = 0, alwaysHeal = 0, kind = 'card', drainCap = 0) {
       const b = state.battle;
       if(kind==='card'){
         const added=b.hitIndex===0?(b.cardBonus||0):0;
@@ -1043,9 +1077,11 @@
       b.enemy.block -= absorbed;
       const damage = Math.max(0, amount - absorbed);
       if (kind === 'card') state.stats.maxHit = Math.max(state.stats.maxHit, amount);
+      const actualLoss=Math.min(b.enemy.hp,damage);
       b.enemy.hp = Math.max(0, b.enemy.hp - damage);
       log(`对${b.enemy.name}造成 ${amount} 点伤害：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
       event('attack', { target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind });
+      if(drainCap&&actualLoss)heal(Math.min(drainCap,actualLoss),'夺生 · 实际生命汲取');
       if (alwaysHeal) heal(alwaysHeal, '血饮');
       if (b.enemy.hp <= 0) {
         if (killingHeal) heal(killingHeal, '噬魂击杀');
@@ -1065,6 +1101,7 @@
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
       b.block = 0;
       b.weaponUsed = false; b.veilUsed = false;b.coreStrikeUsed=false;
+      b.outfitBloodUsed=false;
       b.played = 0;
       b.bellUsed = false;
       b.frostsealUsed = false;
@@ -1099,6 +1136,10 @@
         turnEnergy += 1;
         log('月髓触发：本回合额外获得 1 点灵力。');
       }
+      const clothing=EXPANSION.OUTFITS[state.player.equippedOutfit];
+      if(clothing?.block)gainBlock(clothing.block,clothing.name);
+      if(b.turn===1&&clothing?.draw)draw+=clothing.draw;
+      if(b.turn===1&&clothing?.energy){turnEnergy+=clothing.energy;log(`${clothing.name}：灵力 +${clothing.energy}。`);event('energy',{amount:clothing.energy,total:turnEnergy});}
       if (b.turn === 1 && hasRelic('moon')) {
         draw += 2;
         log('残月坠触发：首回合额外抽 2 张牌。');
@@ -1171,7 +1212,7 @@
       startPlayerTurn();
       if(!liveBattle())return;
       const preparation=state.journey.bossQuests?.records[id],quest=BOSS_QUESTS.QUESTS[id];
-      if(kind==='boss'&&preparation&&preparation.region===state.journey.regionIndex){
+      if(['boss','hidden','fight'].includes(kind)&&preparation&&preparation.region===state.journey.regionIndex){
         const owns=item=>state.player.questItems.includes(item);
         const guard=(preparation.guard||0)+(quest&&preparation.stage>=2&&owns(quest.items[1])?8:0);
         if(guard)gainBlock(guard,'镇境旧事·事前准备');
@@ -1209,6 +1250,7 @@
       if (crossed) prepareChapter();
       prepareTaleOpportunity();
       prepareBossOpportunity();
+      prepareExtraOpportunity();
       state.mapTemplateId=state.chapterTemplates[regionIndex].id;state.mapTemplateName=state.chapterTemplates[regionIndex].name;
       state.reward = null;
       state.shop = null;
@@ -1272,7 +1314,7 @@
       else {
         state.screen = type;
         if (type === 'shop') {
-          state.shop = { cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
+          state.shop = { outfits:state.character==='sovereign'?[]:Object.values(EXPANSION.OUTFITS).filter(o=>!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
           state.shop.items = expedition.makeShopStock();
         }
         if (type === 'event') state.event = makeEvent();
@@ -1319,7 +1361,7 @@
       let bonus = 0;
       if (def.attack) {
         bonus = b.nextAttack + b.bloodPower + state.player.power + (b.pillPower || 0);
-        if(!b.weaponUsed){const w=WEAPONS[state.player.equippedWeapon];b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
+        if(!b.weaponUsed){bonus+=EXPANSION.OUTFITS[state.player.equippedOutfit]?.bonus||0;const w=WEAPONS[state.player.equippedWeapon];b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
         b.nextAttack = 0;
         if (hasRelic('mirror') && !b.mirrorUsed) {
           b.mirrorUsed = true;
@@ -1339,6 +1381,12 @@
       }
       b.cardBonus=bonus;
       switch (card.id) {
+        case 'D07': if(loseLife(5,def.name,true))enemyHit(18+bonus);break;
+        case 'D08': enemyHit(7+bonus,0,0,'card',7);break;
+        case 'D09': if(loseLife(4,def.name,true))gainBlock(13,def.name);break;
+        case 'D10': if(loseLife(4,def.name,true)){b.energy++;event('energy',{amount:1,total:b.energy});drawCards(2);}break;
+        case 'D11': for(let i=0;i<3&&liveBattle();i++)enemyHit(4+(i===0?bonus:0),0,0,'card',4);break;
+        case 'D12': if(loseLife(8,def.name,true))enemyHit(26+bonus,0,0,'card',10);break;
         case 'D01': enemyHit(4+bonus,0,6);break;
         case 'D02': enemyHit(8+bonus,0,3);break;
         case 'D03': enemyHit(16+bonus,0,5);break;
@@ -1606,7 +1654,7 @@
       enemy.frozen=null;
       delete b.revengeIntentBonus;
       enemy.intentIndex=rollIntent(enemy.id,enemy.intentIndex);
-      note('你的回合。先看敌人意图，再决定攻守。');
+      note('你的回合。观察已经发生的招式，再决定攻守。');
       startPlayerTurn();emit();return true;
     }
     function chooseReward(idOrNull) {
@@ -1895,7 +1943,7 @@
             '逆仪石阶上的黑印同时亮起。你腕上的锁息把玄烬追猎者引到了这里；她没有看闻人烛，只要求交出带走的记录。',
             '闻人烛挡在半步之外：“是我把你卷进来的。”她撕下一页阵图递来，至少还给你留下选择。'
           ],[
-            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20灵石与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
+            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，招式需在交锋中判断。胜利20灵石与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
             {label:'焚毁口供诱开追兵 · 失去 6 生命',text:'当前生命须大于6。保留自己的卡牌遗物，放弃故事中的证词；不触发战斗。',hpCost:6,flags:{wenFinished:true,wenEvidence:false,wenCleansed:true},relationship:relation('带伤脱身','你烧掉口供引开追兵，结束了这段追踪。'),tone:'warning',outcome:'符火吞下纸页，也灼伤了你手腕。追兵追着假阵眼远去，那些名字只剩你和闻人烛还记得。'},
             {label:'付 30 灵石借暗道撤离',text:'保留卡牌、遗物及证词，支付30灵石结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的通行灵石，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收灵石，不问名字；门在追猎者的脚步到来前重新合拢。'}
           ],{connection:'黑印与石阶上的阵纹一同发亮，追猎者的脚步近了。'});
@@ -1914,7 +1962,7 @@
             '玄照门弟子陆闻刀横剑拦住窄路，口称切磋，身后三人却正用脚踢开旁人的包袱。',
             '她不信有人能平安从雾里走来：“出一招，让我看看你有没有藏着别家的传承。”'
           ],[
-            {label:'接下实战试剑 · 胜后领取正常战利品',text:'对战玄照门拦路客：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。失败结束本局。',battle:fight('玄照门·拦路客'),tone:'warning',outcome:'你将包袱移到身后，示意她让同伴退开。所谓切磋，终于有了必须付出的分量。'},
+            {label:'接下实战试剑 · 胜后领取正常战利品',text:'对战玄照门拦路客：42生命，招式需在交锋中判断。失败结束本局。',battle:fight('玄照门·拦路客'),tone:'warning',outcome:'你将包袱移到身后，示意她让同伴退开。所谓切磋，终于有了必须付出的分量。'},
             {label:`以伤换招 · 失去 6 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:6,cardIds:[id],outcome:'三招之后，你退了半步，衣袖被划开。陆闻刀收剑，一招破绽也同时被你牢牢记住。'},
             {label:'绕开窄路，暂避锋芒',text:'没有代价，也没有奖励。',outcome:'你不必回答每一个伸来的剑尖。雾中还有别的路，这一次你自己选。'}
           ],{faction:'玄照门',whisper:'有些人以宗门为名，有些人只借宗门的名字。'});
@@ -1954,6 +2002,11 @@
     }
     function makeEvent() {
       const p = state.player;
+      const bloodId=activeNode?.storyId,bloodDef=EXPANSION.BLOOD_EVENTS?.[bloodId];
+      if(bloodDef&&state.character==='sword'&&(state.journey.flags.bloodChapter||0)===['blood_lesson','blood_debt','blood_choice'].indexOf(bloodId)){
+        state.seenEvents.push(bloodId);const prior=state.journey.flags.bloodMethod;
+        return {id:bloodId,...bloodDef,glyph:'血',kicker:'经页与代价',connection:prior?`你在药阁${({sacrifice:'选择以身为价',drain:'研读过夺生经页',refuse:'坚持自己的剑道',leave:'没有留下经页'})[prior]}。`:null,choices:finishChoices(bloodDef.choices,p)};
+      }
       const bossStory=bossQuestsEnabled&&BOSS_QUESTS.build(activeNode?.storyId,state);
       if(bossStory){state.seenEvents.push(bossStory.id);bossStory.choices=finishChoices(bossStory.choices,p);return bossStory;}
       const rare = cardPool().filter(id => CARDS[id].rarity === 'rare');
@@ -2215,6 +2268,7 @@
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       state.event.choiceLabel = choice.label;
       if (choice.flags) Object.assign(state.journey.flags, choice.flags);
+      if(EXPANSION.BLOOD_EVENTS?.[state.event.id])state.journey.flags.bloodChapter=(state.journey.flags.bloodChapter||0)+1;
       if(state.event.bossQuest){
         const {boss,step}=state.event.bossQuest,record=state.journey.bossQuests.records[boss];
         record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;
@@ -2269,7 +2323,7 @@
       const def=ENEMIES[b.enemy.id],intent={...def.intents[b.enemy.intentIndex]};
       const ward=b.bossWard;
       if(ward&&!ward.used&&intent[ward.effect]){
-        intent.wardedEffect=ward.effect;intent.wardedLabel=({poison:'施毒',playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'封住抽牌'})[ward.effect];
+        intent.wardedEffect=ward.effect;intent.wardedLabel=({poison:'施毒',playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'封住抽牌',counter:'反击架势'})[ward.effect];
         intent[ward.effect]=0;
       }
       const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
@@ -2326,11 +2380,11 @@
     return {
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
-      getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
+      getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 
-  const api = { BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

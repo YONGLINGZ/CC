@@ -8,10 +8,11 @@ const {createGame, CARDS, ENEMIES, ITEMS} = require('./engine.js');
 function random(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t ^= t + Math.imul(t ^ t >>> 7, 61 | t); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const value = {C01:2,C02:2,C03:6,C04:8,C05:7,C06:8,C07:7,C08:8,C09:7,C10:6,C11:5,C12:8,C13:6,C14:6,C15:6,C16:9,C17:10,C18:10,C19:9,C20:8,C21:9,C22:9,C23:8,C24:9,C25:6,C26:9,C27:9,C28:10,C29:6,C30:7,C31:7,C32:8,C33:10,C34:9,C35:8,C36:9};
 Object.assign(value,{S01:5,S02:7,S03:8,S04:9,S05:8,S06:8,S07:8,S08:9,S09:7,S10:8,S11:6,S12:8,S13:7,S14:9,S15:10,S16:10});
-Object.assign(value,{D01:11,D02:9,D03:11,D04:8,D05:10,D06:12});
+Object.assign(value,{D01:11,D02:9,D03:11,D04:8,D05:10,D06:12,D07:10,D08:12,D09:8,D10:10,D11:13,D12:14});
 Object.assign(value,{F01:6,F02:7,F03:10,F04:10,F05:9,F06:10,F07:10,F08:8,F09:11,F10:10,F11:9,F12:11});
 function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
-// Forecasts only visible intent and state. Pass the actual game for the authoritative preview.
+// Oracle regression policy: reads internal intent for a stable mechanics baseline.
+// The product UI hides future actions; this is not a human-difficulty estimate.
 function observedIntent(s){
   const b=s.battle,e=b.enemy,def=ENEMIES[e.id].intents[e.intentIndex];
   const bonus=b.scaling?.attackBonus??b.scaling?.atkBonus??e.attackBonus??0;
@@ -25,12 +26,12 @@ function nextCard(s,game=null) {
   let best=null;
   for(const card of b.hand){
     const c=CARDS[card.id],id=card.id;if(c.cost>b.energy)continue;
-    let raw={C01:6,C04:10+4*e.mark,C05:9,C08:4,C14:5,C15:9,C16:16,C18:5+2*e.mark,C21:12+6*e.mark+2*(e.bleed||0),C22:b.played>=2?12:8,C23:3,C24:b.played>=2?20:16,C26:4,C28:10,C30:p.hp<=p.maxHp/2?16:8,C35:4+Math.min(10,b.block),S01:6,S04:10+3*swordIntent,S05:4,S08:swordIntent>=3?12:9,S14:5,S15:12+2*(e.chill||0),S16:16+4*swordIntent,F01:6,F04:10+3*soul,F05:9,F09:5,F10:16,F12:18+4*soul,D01:4,D02:8,D03:16,D06:26}[id]||0;
+    let raw={C01:6,C04:10+4*e.mark,C05:9,C08:4,C14:5,C15:9,C16:16,C18:5+2*e.mark,C21:12+6*e.mark+2*(e.bleed||0),C22:b.played>=2?12:8,C23:3,C24:b.played>=2?20:16,C26:4,C28:10,C30:p.hp<=p.maxHp/2?16:8,C35:4+Math.min(10,b.block),S01:6,S04:10+3*swordIntent,S05:4,S08:swordIntent>=3?12:9,S14:5,S15:12+2*(e.chill||0),S16:16+4*swordIntent,F01:6,F04:10+3*soul,F05:9,F09:5,F10:16,F12:18+4*soul,D01:4,D02:8,D03:16,D06:26,D07:18,D08:7,D11:12,D12:26}[id]||0;
     if(id.startsWith('S')&&p.path?.fallen)raw=Math.floor(raw/2);
     const damage=raw+(c.attack?Math.min(8,b.nextAttack+(b.bloodPower||0)+(b.pillPower||0)+(p.power||0)):0);
     let score=damage/Math.max(1,c.cost);
     if(raw&&damage>=e.hp+e.block)score+=150;
-    let shield={C02:5,C06:3,C07:7,C12:14,C19:8,C26:4,C31:12,C32:b.played>=2?6:3,C33:6,C34:18,S02:6,S06:3,S07:7,S12:14,F02:6,F06:3,F07:8,D04:10}[id]||0;
+    let shield={C02:5,C06:3,C07:7,C12:14,C19:8,C26:4,C31:12,C32:b.played>=2?6:3,C33:6,C34:18,S02:6,S06:3,S07:7,S12:14,F02:6,F06:3,F07:8,D04:10,D09:13}[id]||0;
     if(id.startsWith('S')&&p.path?.fallen)shield=Math.floor(shield/2);
     score+=Math.min(shield,need)*(p.hp<25?2.15:1.45)/Math.max(1,c.cost);
     if(['C03','C17','C19','C08'].includes(id)&&e.mark<5)score+=id==='C03'?19:id==='C17'?17:5;
@@ -69,6 +70,8 @@ function nextCard(s,game=null) {
     if(id==='S11')score+=e.hp>18?8:1;
     if(id==='S13')score+=p.hp>8&&(b.energy>0||swordIntent<8)?18:-60;
     if(id==='S15'&&e.hp>damage&&need>0&&(e.chill||0)>=5)score-=Math.min(need,(intent.hits||[]).length)*.9;
+    const selfCost={D07:5,D09:4,D10:4,D12:8}[id]||0;if(selfCost>=p.hp&&!p.relics.includes('fox')&&!p.relics.includes('ninelives'))continue;
+    if(['D07','D08','D09','D10','D11','D12'].includes(id)&&game?.previewCard){const preview=game.previewCard(card.uid);if(preview?.playerDefeated)continue;if(preview?.available)score+=(preview.playerHpAfter-p.hp)*(p.hp<25?4:2);if(id==='D10'&&b.draw.length+b.discard.length>0)score+=18;}
     const demonicHeal={D01:6,D02:3,D03:5,D06:6}[id]||0;
     score+=Math.min(demonicHeal,p.maxHp-p.hp)*(p.hp<25?4:2)/Math.max(1,c.cost);
     if(id==='D05')score+=b.draw.length+b.discard.length>0?25:0;

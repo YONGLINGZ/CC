@@ -33,7 +33,7 @@ ASSET_GROUPS = {
     "weapons": ("training", "rime", "divine", "spirit"),
     "regions": ("fog_gate", "broken_camp", "ritual_core"),
     "portraits": ("cat", "fox", "snake", "paper", "lantern", "ape", "bone", "yaksha", "raider", "liu", "ji", "wen", "feiye", "feiye_echo", "retainer", "heart", "snake_ascended", "sword_fallen", "gate_boss", "camp_boss", "apothecary"),
-    "cards": tuple(f"C{number:02}" for number in range(1, 37)) + tuple(f"S{number:02}" for number in range(1, 17)) + tuple(f"F{number:02}" for number in range(1, 13)) + tuple(f"D{number:02}" for number in range(1, 7)),
+    "cards": tuple(f"C{number:02}" for number in range(1, 37)) + tuple(f"S{number:02}" for number in range(1, 17)) + tuple(f"F{number:02}" for number in range(1, 13)) + tuple(f"D{number:02}" for number in range(1, 13)),
     "events": ("well", "shrine", "dreamshop", "theatre", "umbrella", "pawnshop", "riftwatch", "supply", "cultlab", "swordgrave", "pilgrims", "prisoner", "echo", "broker", "fox", "rest", "shop", "liu_first", "liu_return", "liu_final", "ji_first", "ji_return", "ji_final", "wen_first", "wen_return", "wen_final", "sect_duel", "herb_caravan", "relic_dispute", "night_watch", "moon_trace", "sealed_name", "moon_vow", "armory", "sovereign_wake", "sovereign_recall", "sovereign_memory", "tainted_mercy", "demonic_offer", "demonic_warning", "mirror_trial", "demon_manual", "fallen_hunt"),
     "relics": ("bell", "jade", "moon", "fox", "fang", "silk", "vial", "bloodstone", "moonheart", "mirror", "dream", "godblood", "ninelives", "frostseal", "veil"),
     "puppet": ("cat-normal", "cat-wounded", "cat-critical", "cat-blink", "sword-normal", "sword-wounded", "sword-critical", "feiye-normal", "feiye-wounded", "feiye-critical", "sword_fallen-normal", "sword_fallen-wounded", "sword_fallen-critical"),
@@ -43,6 +43,7 @@ ASSET_GROUPS = {
 release_data = json.loads(subprocess.check_output(["node", "-e", "const n=require('./dev/engine.js');console.log(JSON.stringify({portraits:[...new Set(['cat','fox','sword_fallen',...Object.keys(n.ENEMIES),...Object.keys(n.NPCS)])],regions:n.REGIONS.map(r=>r.id),events:[...new Set([...(n.EVENT_ART_IDS||n.EVENT_IDS),'fox','rest','shop'])]}))"], cwd=ROOT, text=True))
 for group in ("portraits", "regions", "events"):
     ASSET_GROUPS[group] = tuple(release_data[group])
+ASSET_GROUPS['outfits'] = tuple(role+'-'+outfit for outfit in ('mist','lotus','ember','moon','blood') for role in ('item','cat','sword','sword_fallen'))
 ASSET_NAMES = tuple(f"assets/{group}/{name}.webp" for group, names in ASSET_GROUPS.items() for name in names)
 
 

@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "id": "feiye_echo",
+      "source": "/workspace/generated_images/exec-bc87cd9b-0587-4a23-be9e-776b29e83643.png",
+      "path": "assets/portraits/feiye_echo.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 295192,
+      "sha256": "8cc4af8b50fcf2a70bd85c23a34b921531e0699c2b29b3faa96955ca24a8cddc",
+      "reviewed": true,
+      "tool": "image_gen.imagegen"
+    },
+    {
+      "id": "retainer",
+      "source": "/workspace/generated_images/exec-6ab61f24-2192-491a-b4dd-41e681054458.png",
+      "path": "assets/portraits/retainer.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 298362,
+      "sha256": "685920466e932b25113b08a4e9f1bcbf16a0c7324b43733a00607683e4ab5031",
+      "reviewed": true,
+      "tool": "image_gen.imagegen"
+    },
+    {
+      "id": "heart",
+      "source": "/workspace/generated_images/exec-63bc9063-db8f-4f73-8228-39b540dc7877.png",
+      "path": "assets/portraits/heart.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 231672,
+      "sha256": "356284fa41189c4f786a1d0b6dcc754370e7ed784a4ced30ded4bef6bb890e24",
+      "reviewed": true,
+      "tool": "image_gen.imagegen"
+    },
+    {
+      "id": "snake_ascended",
+      "source": "/workspace/generated_images/exec-b70afa59-53c2-4173-8e6d-fd63a9f2e262.png",
+      "path": "assets/portraits/snake_ascended.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 273342,
+      "sha256": "4f725fd3c4ad434dc66c07a5f7d6d58d52891aaa12d980d739b114a0f3a14c1a",
+      "reviewed": true,
+      "tool": "image_gen.imagegen"
+    }
+  ],
+  "format": "baiyao-story-boss-portraits",
+  "method": "Four independent imagegen full portraits replacing small legacy thumbnails; reviewed contact sheet, format conversion/downsample only."
+}

@@ -22,17 +22,17 @@
     "symlinked assets directory: refused before writes",
     "partial WebP collection: no assets rewritten, exact single-file SVG fallback generated",
     "existing full inline HTML renamed index.html: preserved without external images",
-    "existing folder release with all 292 WebPs: preserved byte-for-byte while sources restored",
+    "existing folder release with all 321 WebPs: preserved byte-for-byte while sources restored",
     "existing folder release with missing WebPs: safely refused and untouched; requires full recovery or empty directory",
     "existing standalone release: preserved while independent slim index is restored"
   ],
-  "script_sha256": "7cab7aec091ff75dd68e38754664ced8aa35d4018ac0bda298b650688dc1549b",
+  "script_sha256": "d19122b30075fcf186d5fc9dabc311bd6c5b34cac961a920614a1b6df2ea1419",
   "outputs": {
-    "index.html": "822ad821d2fa9ed22aaeb20029fc01535eff80dec53eecab9b1ebcc0dd71bb7b"
+    "index.html": "976c4ce524245b08b3d137ef8a427f0199bb00336a79740c68364d59734cf7c6"
   },
   "release_outputs": {
-    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
-    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273"
+    "index.html": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7",
+    "baiyao-standalone.html": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7"
   },
   "asset_count_in_payload": 0,
   "new_cloud_instance_tested": false,
