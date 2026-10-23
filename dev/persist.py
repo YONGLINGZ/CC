@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_NAMES = (
     "dev/shell.html", "dev/art.js", "dev/audio.js", "dev/engine.js",
     "dev/ui.js", "dev/build.cjs", "dev/build.py",
-    "dev/expansion.js", "dev/expedition.js", "dev/seven.js",
+    "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js",
 )
 ASSET_GROUPS = {
     "items": ("clearheart_jade",),
@@ -40,7 +40,7 @@ ASSET_GROUPS = {
 }
 # Expected image IDs come from data definitions, never from a directory glob.
 # Missing release art therefore cannot disappear silently from recovery payloads.
-release_data = json.loads(subprocess.check_output(["node", "-e", "const n=require('./dev/engine.js');console.log(JSON.stringify({portraits:[...new Set(['cat','fox','sword_fallen',...Object.keys(n.ENEMIES),...Object.keys(n.NPCS)])],regions:n.REGIONS.map(r=>r.id),events:[...new Set([...n.EVENT_IDS,'fox','rest','shop'])]}))"], cwd=ROOT, text=True))
+release_data = json.loads(subprocess.check_output(["node", "-e", "const n=require('./dev/engine.js');console.log(JSON.stringify({portraits:[...new Set(['cat','fox','sword_fallen',...Object.keys(n.ENEMIES),...Object.keys(n.NPCS)])],regions:n.REGIONS.map(r=>r.id),events:[...new Set([...(n.EVENT_ART_IDS||n.EVENT_IDS),'fox','rest','shop'])]}))"], cwd=ROOT, text=True))
 for group in ("portraits", "regions", "events"):
     ASSET_GROUPS[group] = tuple(release_data[group])
 ASSET_NAMES = tuple(f"assets/{group}/{name}.webp" for group, names in ASSET_GROUPS.items() for name in names)
@@ -348,7 +348,7 @@ def exercise(script: Path, manifest: dict) -> dict:
         assert "新增 0 个文件" in result.stdout
         checks.append("idempotent restore: zero files rewritten and all timestamps preserved")
 
-        removed = ["dev/audio.js", "dev/expansion.js", "dev/expedition.js", "dev/seven.js", *manifest["outputs"]]
+        removed = ["dev/audio.js", "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", *manifest["outputs"]]
         if not source_only:
             removed += ["assets/cards/C01.webp", "assets/events/well.webp", "assets/puppet/cat-critical.webp", "assets/puppet/cat-blink.webp", "assets/puppet/sword-critical.webp"]
         for name in removed:

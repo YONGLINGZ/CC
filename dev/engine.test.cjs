@@ -42,9 +42,9 @@ function atNode(type, floor) {
 }
 function battleCards(b) { return [...b.hand, ...b.draw, ...b.discard, ...b.exhaust, ...b.resolving]; }
 
-test('数据完整：70 卡、24 敌人、15 遗物及隔离的三章三十步路线地图', () => {
+test('数据完整：70 卡、25 敌人、15 遗物及隔离的三章三十步路线地图', () => {
   assert.equal(Object.keys(CARDS).length, 70);
-  assert.equal(Object.keys(ENEMIES).length, 24);
+  assert.equal(Object.keys(ENEMIES).length, 25);
   assert.equal(Object.keys(RELICS).length, 15);
   assert.equal(FLOORS.length, 30);
   assert.ok(FLOORS.flat().length>=120);assert.ok(FLOORS.every(row=>row.length>0));

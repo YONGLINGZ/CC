@@ -1,35 +1,35 @@
 {
-  "version": "寒渊七境 · 批次A入口与可读性",
+  "version": "寒渊七境 · 十段人间事",
   "date": "2026-10-23",
   "based_on": "user 33.zip, v10 and audited numerical proposal",
   "game_html": {
-    "bytes": 615781,
-    "sha256": "f532c2d61c77abb9ce65e1cd1e039d4c960e2fb157d3440550ee19de0f7ea041"
+    "bytes": 662921,
+    "sha256": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98"
   },
   "standalone_html": {
-    "bytes": 28797144,
-    "sha256": "40b9006d3f0f09941109d891095ff9d3ff3c24a3a44f841c3768f78a48d3cdde"
+    "bytes": 39895804,
+    "sha256": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6"
   },
   "play_zip": {
-    "bytes": 47837815,
-    "sha256": "d9dc45204a12cf1a0e9c9aefa68a6d21b5be6f3ae41585347e19605b8f4dcedb"
+    "bytes": 65131106,
+    "sha256": "81f2160d08d0109127d9d60994c8e620600b334fdc4b1053b32d33a7816d9463"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 496,
+  "zip_members": 539,
   "editable_shell_in_zip": true,
   "runtime_art": {
     "portraits": {
-      "count": 30,
-      "bytes": 5353686
+      "count": 31,
+      "bytes": 5551732
     },
     "cards": {
       "count": 70,
       "bytes": 2444278
     },
     "events": {
-      "count": 55,
-      "bytes": 6108292
+      "count": 88,
+      "bytes": 14199076
     },
     "relics": {
       "count": 15,
@@ -64,8 +64,8 @@
       "bytes": 506266
     }
   },
-  "runtime_art_total": 258,
-  "new_generated_art_files": 0,
+  "runtime_art_total": 292,
+  "new_generated_art_files": 34,
   "retained_v11_generated_art_files": 28,
   "inline_vector_icons": 35,
   "universal_map_icons": 8,
@@ -76,6 +76,14 @@
   "hidden_narrative_counters": true,
   "status_details_on_click_only": true,
   "core_resources_always_labelled": true,
+  "tales": {
+    "browser_groups": 10,
+    "new_rule_checks": 23,
+    "cave_painted": true,
+    "fall_portrait_existing_three_states_verified": true,
+    "resume_rest_after_patrol_reward": true,
+    "new_art_files": 34
+  },
   "batch_a": {
     "browser_groups": 11,
     "new_rule_checks": 15,
@@ -116,11 +124,15 @@
     322
   ],
   "random_node_types": true,
-  "story_events": 52,
-  "linked_story_chains": 3,
+  "story_events": 84,
+  "linked_story_chains": 13,
+  "new_chains": 10,
+  "new_linked_events": 30,
+  "chains_sampled_per_run": 3,
+  "travel_interruptions": 2,
   "cards": 70,
   "sound_profiles": 70,
-  "event_sound_profiles": 43,
+  "event_sound_profiles": 76,
   "role_specific_event_variants": 63,
   "weapons": 4,
   "reworked_boss": {
@@ -138,7 +150,7 @@
     "middle": 3,
     "final": 1
   },
-  "enemies": 24,
+  "enemies": 25,
   "boss_illustrations": 9,
   "quest_items": 1,
   "meta_unlock_storage": true,
@@ -166,22 +178,22 @@
   "numeric_calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.62,
+        "actual": 0.5866666666666667,
         "min": 0.4,
         "max": 0.6,
-        "passed": false
+        "passed": true
       },
       "survivorHealthMedian": {
-        "actual": 36,
+        "actual": 37,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.7,
-          "sword": 0.42,
-          "sovereign": 0.74
+          "assassin": 0.74,
+          "sword": 0.34,
+          "sovereign": 0.68
         },
         "min": 0.25,
         "max": 0.75,
@@ -207,7 +219,7 @@
         "passed": false
       },
       "defendingNetLifeLoss": {
-        "actual": 14,
+        "actual": 13.5,
         "maxExclusive": 20,
         "passed": true
       }
@@ -216,18 +228,19 @@
     "allProbeGates": false
   },
   "engine_tests": {
-    "passed": 279,
+    "passed": 302,
     "failed": 0,
-    "total": 279,
+    "total": 302,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 60
+    "new_checks": 83
   },
   "audio_tests": {
     "passed": 23,
     "failed": 0,
-    "rerun_in_batch_a": false,
-    "scope": "Retained actual reports with unchanged audio.js SHA256; household audio integration rerun in full browser acceptance"
+    "rerun_for_current_release": true,
+    "new_encounter_waveforms": 33,
+    "scope": "Actual AudioContext and OfflineAudioContext; no human listening evaluation"
   },
   "browser_groups": {
     "passed": 18,
@@ -240,17 +253,17 @@
   },
   "public_api_simulations": {
     "completed": 150,
-    "wins": 93,
-    "defeats": 57
+    "wins": 88,
+    "defeats": 62
   },
   "hidden_route_simulations": {
     "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 13,
-    "defeats": 11,
-    "unlocks": 13,
-    "hidden_challenges": 13,
-    "hidden_wins": 13,
+    "wins": 14,
+    "defeats": 10,
+    "unlocks": 14,
+    "hidden_challenges": 14,
+    "hidden_wins": 14,
     "report": "dev/v11-hidden-playtest-report.json"
   },
   "full_recovery_checks": 17,
@@ -263,23 +276,24 @@
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/batch-a-outcomes.json": "6c9180866b946e754b417ef7acb9b404fd603743725d87e7282a23e637bf0876",
-    "dev/batch-a-browser-results.json": "5e49a3c6eced0ec75405c7ab085a8faf775c34f23729b479c50f7e3a4ed154bb",
-    "dev/v11-results.json": "1c9ee462e45a3dd5773d0cc92381f8a89557591afa4e3e61c1b2752f99a07c8c",
-    "dev/v11-export-results.json": "534b15448840e3d21c06a625f26da67858ab0b57aab143ec42d44a25b02378f8",
-    "dev/v8-audio-regression-results.json": "34854d70c6c76d4b4044d25f787f25235bfde3bd1ea5c701d326664a8a4cb196",
-    "dev/v8-sword-audio-results.json": "e84d4f5a7a927ce1cf34f5acc0c6ec03d64ae5ab1df69917c3a0b54c6bf6fa53",
-    "dev/v8-audio-results.json": "c41d8992d362c0b29c1a6e71ad10113892a139569e00e1a3d6f838a92721e2dd",
-    "dev/v11-regression-results.json": "768d1c2011e705d9d9803f7f0f3a384f041840799165ca524088b443f0df941c",
-    "dev/v11-source-browser-results.json": "954bb1b8f146cfd86339793d62ef4abba599a8e084e1594973addad1676836a6",
+    "dev/tales-browser-results.json": "f0a14db3227819f2ea7eec95ce57cc12bc01e3b1e46c8c1cd76b84fabac903d2",
+    "dev/tales-art-manifest.json": "eefde3fb025a527073c3fc049a228dd66ab69265f1a2af5580b4565503138199",
+    "dev/batch-a-browser-results.json": "3e46a422090b8e1bd48573cc4afc6515b737a98bfbbf8ed2fa9f54aa8ed3c2aa",
+    "dev/v11-results.json": "e5c22d81da19a21c129025661b834288b1e67b1d6ddb1bab9893b1f9f4bbc475",
+    "dev/v11-export-results.json": "44447df341897cfafee9b0447161f30399d8f92b5a93831087f23dbfd2985ca2",
+    "dev/v8-audio-regression-results.json": "22a6545d409e8a3e342e2dcc9351b9b7269c85c0f34f87d9abe41b154766f10d",
+    "dev/v8-sword-audio-results.json": "96311ba9ad5e38747014e0720d39e12d53fe1c1bef3afb47a353e4b77cabfca9",
+    "dev/v8-audio-results.json": "d11ecd059949aa56cc8b4311cf0cd8da9395c4a4b9ef422b65c8d8c9bc1d9812",
+    "dev/v11-regression-results.json": "c57d0cd9a2ae983c8500868c453c0d0997a60001e78231de8e36be669f4e2178",
+    "dev/v11-source-browser-results.json": "52d84e63a87bad5d7fb24cc71b3aa23b3ced8d8c7af19fd13eeeba3e033b51e3",
     "dev/v11-art-manifest.json": "fb67119f00b52259397a5d461ded71f1188d6826bd87f5dad500cc9412f165d0",
     "dev/v11-scene-art-manifest.json": "915a3355a15b21bfbf89152a2ede4772db922b9c16a3bcc63b4278e18747f8b4",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "39b3e2ff2bff029cfb843828a9cb1a6cbf0380419f879a5653c97c60739a4909",
-    "recovery/source-tests.json": "906f65c46f4e0b2a537851f0cc793eed3013b370c2b0ddb4cd1afac8e6493ca3",
-    "recovery/manifest.json": "1b24e01000125f064a0bbde78a6c3fd1aafbe6a8b4869f1dd9f42be0e6de87e7",
-    "recovery/source-manifest.json": "bf0b1fcb044691b304691d9dce4d529be1e338f83b5c198540a9fe59a6770ac0"
+    "recovery/tests.json": "b00021ba6738f40fb034c5d69d8af2473766d610dbaa762994e990a008f0e4ea",
+    "recovery/source-tests.json": "f4280eb9571b307a0e6644d05accbc08f0c5edc082809de0a7785e5a9b6b536b",
+    "recovery/manifest.json": "b110a548464efd97e635d8f437a0958e969eb81dd31482d65c3e0700bedc50b9",
+    "recovery/source-manifest.json": "e9e8acd807d8cc96ccdf3018e3b9c37113e9d7f95a06cd8a6af388b2483856ab"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,

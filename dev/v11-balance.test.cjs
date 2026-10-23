@@ -71,7 +71,7 @@ test('priest restoration is telegraphed, heals actual HP at most max, then grant
 });
 test('all exported weighted foes have positive weights matching actions while every authored boss has no weights',()=>{
  for(const [id,def]of Object.entries(N.ENEMIES)){
-  if(def.rank==='boss'){assert.equal(def.weights,undefined,id+' boss cycle');continue;}
+  if(def.rank==='boss'||def.fixedCycle){assert.equal(def.weights,undefined,id+' authored fixed cycle');continue;}
   assert.equal(def.weights.length,def.intents.length,id+' weight/action alignment');assert.ok(def.weights.every(w=>Number.isInteger(w)&&w>0),id+' positive weights');
  }
 });

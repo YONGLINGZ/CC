@@ -5,5 +5,6 @@
   "current_report_sha256": "1e10e5d543b0672519a53526aed8a6abd698952c82403a5396fc0f3d461469e5",
   "compared_runs": 150,
   "all_details_equal": true,
-  "scope": "Entire per-run public simulation details equal; UI-only changes, not a balance claim."
+  "scope": "Entire per-run public simulation details equal; UI-only changes, not a balance claim.",
+  "archival_scope": "Historical Batch A comparison at commit 90de01887a499ebf2545f579d1520345b7186b02; new linked-story release changes encounter RNG and is independently re-simulated. This is not a current-equality claim."
 }

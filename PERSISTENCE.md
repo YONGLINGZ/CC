@@ -14,10 +14,10 @@
 
 ## v11 恢复内容
 
-- `recovery/restore.sh`：十份构建源码及258张声明的本地图片，重建目录版与完整单文件。
-- `recovery/restore-source.sh`：同样十份源码，不含图片；重建可玩的 SVG 后备版本。
+- `recovery/restore.sh`：十一份构建源码及292张声明的本地图片，重建目录版与完整单文件。
+- `recovery/restore-source.sh`：同样十一份源码，不含图片；重建可玩的 SVG 后备版本。
 
-源码包括 `dev/seven.js` 中的七境、九位镇境者和新奇遇数据。素材名单根据游戏声明生成，不能通过遗漏文件悄悄缩减打包范围。完整包共268个源码／图片输入，各文件哈希见当前恢复清单。
+源码包括 `dev/seven.js` 中的七境、九位镇境者，以及 `dev/tales.js` 中的十套连续剧情。素材名单根据游戏声明生成，不能通过遗漏文件悄悄缩减打包范围。完整包共303个源码／图片输入，各文件哈希见当前恢复清单。
 
 在目标空目录运行：
 
@@ -30,6 +30,6 @@ BAIYAO_RESTORE_ROOT=/绝对路径 sh restore.sh
 
 ## 当前验收状态
 
-v11 已实际通过完整恢复 **17/17**、无图源码恢复 **21/21**、恢复后三职业首战与选牌 **3/3**、HTML真实下载与独立重开 **4/4**。成品 Chromium **18/18** 组通过，包括七境七十节点公开按钮整局、258张图片解码、完整单文件零网络请求和缺图后备。报告见 `recovery/tests.json`、`recovery/source-tests.json`、`dev/v11-source-browser-results.json`、`dev/v11-export-results.json` 与 `dev/v11-results.json`；实际范围与未达数值目标见 `TESTING.md`。
+v11 已实际通过完整恢复 **17/17**、无图源码恢复 **21/21**、恢复后三职业首战与选牌 **3/3**、HTML真实下载与独立重开 **4/4**。成品 Chromium **18/18** 组通过，包括七境七十节点公开按钮整局、292张图片解码、完整单文件零网络请求和缺图后备。报告见 `recovery/tests.json`、`recovery/source-tests.json`、`dev/v11-source-browser-results.json`、`dev/v11-export-results.json` 与 `dev/v11-results.json`；实际范围与未达数值目标见 `TESTING.md`。
 
 `--backup` 的同一实例副本不保证跨实例存在。本版未据此宣称已发布云环境、修改配置或完成全新云实例恢复。旧版文档见 `dev/v10-*.md`，历史云配置记录只对其注明版本有效。

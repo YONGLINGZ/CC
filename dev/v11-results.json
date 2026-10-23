@@ -1,6 +1,7 @@
 {
   "format": "baiyao-v11-browser",
-  "startedAt": "2026-10-23T06:14:02.661Z",
+  "startedAt": "2026-10-23T10:04:28.545Z",
+  "naturalPolicy": "v2 actual visible supply purchases, one-time jade then affordable cure; full healing when suppression already active. Original v1 six losses archived, fixed 150 numeric strategy unchanged.",
   "target": "/workspace/CC/index.html",
   "inlineTarget": "/workspace/CC/baiyao-standalone.html",
   "results": [
@@ -84,16 +85,17 @@
     "sword": [
       {
         "seed": 1000,
-        "result": "defeat",
-        "hp": 0,
-        "maxHp": 52,
+        "result": "victory",
+        "hp": 14,
+        "maxHp": 59,
         "level": 6,
         "power": 0,
-        "equippedWeapon": "training",
+        "equippedWeapon": "rime",
         "weaponInventory": [
-          "training"
+          "training",
+          "rime"
         ],
-        "history": 30,
+        "history": 70,
         "route": [
           {
             "floor": 1,
@@ -143,8 +145,9 @@
           },
           {
             "floor": 8,
-            "type": "shop",
+            "type": "event",
             "id": "f8-1",
+            "storyId": "tale_medicine_1",
             "y": 367.415
           },
           {
@@ -180,40 +183,41 @@
           },
           {
             "floor": 14,
-            "type": "shop",
-            "id": "f14-1",
-            "y": 886.53
+            "type": "event",
+            "id": "f14-0",
+            "storyId": "sealed_name",
+            "y": 899.034
           },
           {
             "floor": 15,
             "type": "rest",
-            "id": "f15-4",
-            "y": 765.556
+            "id": "f15-0",
+            "y": 767.873
           },
           {
             "floor": 16,
-            "type": "shop",
-            "id": "f16-3",
-            "y": 621.064
+            "type": "cave",
+            "id": "f16-4",
+            "y": 628.269
           },
           {
             "floor": 17,
             "type": "event",
-            "id": "f17-3",
+            "id": "f17-4",
             "storyId": "demonic_warning",
-            "y": 495.56
+            "y": 488.666
           },
           {
             "floor": 18,
-            "type": "rest",
-            "id": "f18-2",
-            "y": 361.058
+            "type": "cave",
+            "id": "f18-1",
+            "y": 363.395
           },
           {
             "floor": 19,
-            "type": "rest",
-            "id": "f19-2",
-            "y": 241.029
+            "type": "shop",
+            "id": "f19-1",
+            "y": 233.037
           },
           {
             "floor": 20,
@@ -275,9 +279,9 @@
           },
           {
             "floor": 29,
-            "type": "rest",
-            "id": "f29-4",
-            "y": 227.424
+            "type": "event",
+            "id": "f29-3",
+            "y": 225.713
           },
           {
             "floor": 30,
@@ -290,6 +294,245 @@
             "type": "fight",
             "id": "f31-0",
             "y": 1286.61
+          },
+          {
+            "floor": 32,
+            "type": "rest",
+            "id": "f32-1",
+            "y": 1151.48
+          },
+          {
+            "floor": 33,
+            "type": "event",
+            "id": "f33-1",
+            "storyId": "drowned_archive",
+            "y": 1017.29
+          },
+          {
+            "floor": 34,
+            "type": "shop",
+            "id": "f34-1",
+            "y": 888.458
+          },
+          {
+            "floor": 35,
+            "type": "cave",
+            "id": "f35-3",
+            "y": 766.762
+          },
+          {
+            "floor": 36,
+            "type": "shop",
+            "id": "f36-1",
+            "y": 621.373
+          },
+          {
+            "floor": 37,
+            "type": "rest",
+            "id": "f37-1",
+            "y": 488.536
+          },
+          {
+            "floor": 38,
+            "type": "event",
+            "id": "f38-0",
+            "storyId": "tale_medicine_2",
+            "y": 370.732
+          },
+          {
+            "floor": 39,
+            "type": "event",
+            "id": "f39-0",
+            "y": 238.124
+          },
+          {
+            "floor": 40,
+            "type": "boss",
+            "id": "f40-0",
+            "y": 107.955
+          },
+          {
+            "floor": 41,
+            "type": "fight",
+            "id": "f41-0",
+            "y": 1284.79
+          },
+          {
+            "floor": 42,
+            "type": "cave",
+            "id": "f42-1",
+            "y": 1160.16
+          },
+          {
+            "floor": 43,
+            "type": "event",
+            "id": "f43-0",
+            "storyId": "captive_smith",
+            "y": 1033.17
+          },
+          {
+            "floor": 44,
+            "type": "shop",
+            "id": "f44-1",
+            "y": 893.157
+          },
+          {
+            "floor": 45,
+            "type": "cave",
+            "id": "f45-3",
+            "y": 764.523
+          },
+          {
+            "floor": 46,
+            "type": "event",
+            "id": "f46-2",
+            "y": 634.119
+          },
+          {
+            "floor": 47,
+            "type": "fight",
+            "id": "f47-2",
+            "y": 498.823
+          },
+          {
+            "floor": 48,
+            "type": "cave",
+            "id": "f48-1",
+            "y": 360.455
+          },
+          {
+            "floor": 49,
+            "type": "rest",
+            "id": "f49-1",
+            "y": 229.473
+          },
+          {
+            "floor": 50,
+            "type": "boss",
+            "id": "f50-0",
+            "y": 95.7873
+          },
+          {
+            "floor": 51,
+            "type": "fight",
+            "id": "f51-0",
+            "y": 1296.93
+          },
+          {
+            "floor": 52,
+            "type": "cave",
+            "id": "f52-3",
+            "y": 1146.99
+          },
+          {
+            "floor": 53,
+            "type": "event",
+            "id": "f53-0",
+            "storyId": "glass_assembly",
+            "y": 1019.88
+          },
+          {
+            "floor": 54,
+            "type": "shop",
+            "id": "f54-1",
+            "y": 894.33
+          },
+          {
+            "floor": 55,
+            "type": "event",
+            "id": "f55-4",
+            "y": 755.06
+          },
+          {
+            "floor": 56,
+            "type": "shop",
+            "id": "f56-2",
+            "y": 633.574
+          },
+          {
+            "floor": 57,
+            "type": "cave",
+            "id": "f57-2",
+            "y": 487.101
+          },
+          {
+            "floor": 58,
+            "type": "cave",
+            "id": "f58-2",
+            "y": 369.705
+          },
+          {
+            "floor": 59,
+            "type": "shop",
+            "id": "f59-4",
+            "y": 240.723
+          },
+          {
+            "floor": 60,
+            "type": "boss",
+            "id": "f60-0",
+            "y": 101.239
+          },
+          {
+            "floor": 61,
+            "type": "fight",
+            "id": "f61-0",
+            "y": 1282.01
+          },
+          {
+            "floor": 62,
+            "type": "cave",
+            "id": "f62-2",
+            "y": 1161.28
+          },
+          {
+            "floor": 63,
+            "type": "event",
+            "id": "f63-3",
+            "storyId": "last_campfire",
+            "y": 1023
+          },
+          {
+            "floor": 64,
+            "type": "shop",
+            "id": "f64-2",
+            "y": 897.895
+          },
+          {
+            "floor": 65,
+            "type": "rest",
+            "id": "f65-5",
+            "y": 751.608
+          },
+          {
+            "floor": 66,
+            "type": "fox",
+            "id": "f66-2",
+            "y": 619.161
+          },
+          {
+            "floor": 67,
+            "type": "shop",
+            "id": "f67-3",
+            "y": 502.505
+          },
+          {
+            "floor": 68,
+            "type": "cave",
+            "id": "f68-1",
+            "y": 360.231
+          },
+          {
+            "floor": 69,
+            "type": "rest",
+            "id": "f69-2",
+            "y": 225.055
+          },
+          {
+            "floor": 70,
+            "type": "boss",
+            "id": "f70-0",
+            "y": 100.865
           }
         ],
         "events": [
@@ -314,14 +557,29 @@
             "choice": 0
           },
           {
+            "floor": 8,
+            "id": "tale_medicine_1",
+            "choice": 1
+          },
+          {
             "floor": 13,
             "id": "liu_return",
             "choice": 0
           },
           {
+            "floor": 14,
+            "id": "sealed_name",
+            "choice": 1
+          },
+          {
             "floor": 17,
             "id": "demonic_warning",
             "choice": 0
+          },
+          {
+            "floor": 21,
+            "id": "road_aftermath",
+            "choice": 1
           },
           {
             "floor": 22,
@@ -342,590 +600,40 @@
             "floor": 27,
             "id": "demon_manual",
             "choice": 0
-          }
-        ],
-        "arrivals": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "battles": [
-          {
-            "floor": 1,
-            "id": "ape",
-            "power": 0,
-            "hp": 60
-          },
-          {
-            "floor": 10,
-            "id": "bell_boss",
-            "power": 0,
-            "hp": 60
-          },
-          {
-            "floor": 11,
-            "id": "ape",
-            "power": 0,
-            "hp": 58
-          },
-          {
-            "floor": 20,
-            "id": "camp_boss",
-            "power": 0,
-            "hp": 60
-          },
-          {
-            "floor": 21,
-            "id": "lantern",
-            "power": 0,
-            "hp": 58
-          },
-          {
-            "floor": 30,
-            "id": "snake",
-            "power": 0,
-            "hp": 52
-          },
-          {
-            "floor": 31,
-            "id": "ape",
-            "power": 0,
-            "hp": 27
-          }
-        ],
-        "affliction": {
-          "active": true,
-          "revealed": true,
-          "ticks": 69,
-          "suppressed": 0,
-          "source": "tainted_mercy"
-        },
-        "path": {
-          "corruption": 2,
-          "fallen": false,
-          "protected": true,
-          "learned": true,
-          "uses": 18
-        }
-      },
-      {
-        "seed": 1001,
-        "result": "victory",
-        "hp": 16,
-        "maxHp": 53,
-        "level": 6,
-        "power": 0,
-        "equippedWeapon": "rime",
-        "weaponInventory": [
-          "training",
-          "rime"
-        ],
-        "history": 70,
-        "route": [
-          {
-            "floor": 1,
-            "type": "fight",
-            "id": "f1-0",
-            "y": 1279.12
-          },
-          {
-            "floor": 2,
-            "type": "cave",
-            "id": "f2-3",
-            "y": 1162.43
-          },
-          {
-            "floor": 3,
-            "type": "event",
-            "id": "f3-4",
-            "storyId": "liu_first",
-            "y": 1028.37
-          },
-          {
-            "floor": 4,
-            "type": "event",
-            "id": "f4-0",
-            "storyId": "moon_trace",
-            "y": 898.745
-          },
-          {
-            "floor": 5,
-            "type": "event",
-            "id": "f5-0",
-            "storyId": "tainted_mercy",
-            "y": 763.279
-          },
-          {
-            "floor": 6,
-            "type": "rest",
-            "id": "f6-3",
-            "y": 623.153
-          },
-          {
-            "floor": 7,
-            "type": "event",
-            "id": "f7-4",
-            "storyId": "demonic_offer",
-            "y": 501.769
-          },
-          {
-            "floor": 8,
-            "type": "shop",
-            "id": "f8-3",
-            "y": 369.543
-          },
-          {
-            "floor": 9,
-            "type": "shop",
-            "id": "f9-4",
-            "y": 235.411
-          },
-          {
-            "floor": 10,
-            "type": "boss",
-            "id": "f10-0",
-            "y": 98.6854
-          },
-          {
-            "floor": 11,
-            "type": "fight",
-            "id": "f11-0",
-            "y": 1283.26
-          },
-          {
-            "floor": 12,
-            "type": "rest",
-            "id": "f12-2",
-            "y": 1148.92
-          },
-          {
-            "floor": 13,
-            "type": "event",
-            "id": "f13-2",
-            "storyId": "liu_return",
-            "y": 1031.77
-          },
-          {
-            "floor": 14,
-            "type": "rest",
-            "id": "f14-0",
-            "y": 888.557
-          },
-          {
-            "floor": 15,
-            "type": "rest",
-            "id": "f15-0",
-            "y": 754.291
-          },
-          {
-            "floor": 16,
-            "type": "rest",
-            "id": "f16-0",
-            "y": 625.202
-          },
-          {
-            "floor": 17,
-            "type": "event",
-            "id": "f17-0",
-            "storyId": "demonic_warning",
-            "y": 494.023
-          },
-          {
-            "floor": 18,
-            "type": "rest",
-            "id": "f18-1",
-            "y": 356.92
-          },
-          {
-            "floor": 19,
-            "type": "rest",
-            "id": "f19-2",
-            "y": 222.863
-          },
-          {
-            "floor": 20,
-            "type": "boss",
-            "id": "f20-0",
-            "y": 92.6353
-          },
-          {
-            "floor": 21,
-            "type": "fight",
-            "id": "f21-0",
-            "y": 1285.57
-          },
-          {
-            "floor": 22,
-            "type": "event",
-            "id": "f22-0",
-            "storyId": "mirror_trial",
-            "y": 1148.74
-          },
-          {
-            "floor": 23,
-            "type": "event",
-            "id": "f23-1",
-            "storyId": "liu_final",
-            "y": 1020.31
-          },
-          {
-            "floor": 24,
-            "type": "shop",
-            "id": "f24-2",
-            "y": 901.463
-          },
-          {
-            "floor": 25,
-            "type": "event",
-            "id": "f25-5",
-            "y": 765.189
-          },
-          {
-            "floor": 26,
-            "type": "fox",
-            "id": "f26-4",
-            "y": 634.461
-          },
-          {
-            "floor": 27,
-            "type": "event",
-            "id": "f27-4",
-            "storyId": "demon_manual",
-            "y": 502.989
-          },
-          {
-            "floor": 28,
-            "type": "elite",
-            "id": "f28-2",
-            "y": 358.419
           },
           {
             "floor": 29,
-            "type": "shop",
-            "id": "f29-3",
-            "y": 238.061
-          },
-          {
-            "floor": 30,
-            "type": "boss",
-            "id": "f30-0",
-            "y": 102.619
-          },
-          {
-            "floor": 31,
-            "type": "fight",
-            "id": "f31-0",
-            "y": 1294.5
-          },
-          {
-            "floor": 32,
-            "type": "rest",
-            "id": "f32-3",
-            "y": 1156.09
+            "id": "dreamshop",
+            "choice": 0
           },
           {
             "floor": 33,
-            "type": "event",
-            "id": "f33-4",
-            "storyId": "reed_procession",
-            "y": 1014.92
-          },
-          {
-            "floor": 34,
-            "type": "rest",
-            "id": "f34-2",
-            "y": 895.209
-          },
-          {
-            "floor": 35,
-            "type": "shop",
-            "id": "f35-7",
-            "y": 762.749
-          },
-          {
-            "floor": 36,
-            "type": "shop",
-            "id": "f36-0",
-            "y": 624.088
-          },
-          {
-            "floor": 37,
-            "type": "rest",
-            "id": "f37-1",
-            "y": 504.699
+            "id": "drowned_archive",
+            "choice": 1
           },
           {
             "floor": 38,
-            "type": "rest",
-            "id": "f38-1",
-            "y": 359.207
+            "id": "tale_medicine_2",
+            "choice": 2
           },
           {
             "floor": 39,
-            "type": "shop",
-            "id": "f39-1",
-            "y": 223.267
-          },
-          {
-            "floor": 40,
-            "type": "boss",
-            "id": "f40-0",
-            "y": 90.9351
+            "id": "marsh_pharmacy",
+            "choice": 2
           },
           {
             "floor": 41,
-            "type": "fight",
-            "id": "f41-0",
-            "y": 1287.44
-          },
-          {
-            "floor": 42,
-            "type": "rest",
-            "id": "f42-1",
-            "y": 1147.44
-          },
-          {
-            "floor": 43,
-            "type": "event",
-            "id": "f43-1",
-            "storyId": "furnace_ledger",
-            "y": 1032.46
-          },
-          {
-            "floor": 44,
-            "type": "shop",
-            "id": "f44-0",
-            "y": 887.606
-          },
-          {
-            "floor": 45,
-            "type": "shop",
-            "id": "f45-0",
-            "y": 751.713
-          },
-          {
-            "floor": 46,
-            "type": "event",
-            "id": "f46-3",
-            "y": 620.828
-          },
-          {
-            "floor": 47,
-            "type": "event",
-            "id": "f47-4",
-            "y": 497.564
-          },
-          {
-            "floor": 48,
-            "type": "elite",
-            "id": "f48-3",
-            "y": 367.289
-          },
-          {
-            "floor": 49,
-            "type": "shop",
-            "id": "f49-4",
-            "y": 237.762
-          },
-          {
-            "floor": 50,
-            "type": "boss",
-            "id": "f50-0",
-            "y": 107.761
-          },
-          {
-            "floor": 51,
-            "type": "fight",
-            "id": "f51-0",
-            "y": 1288.39
-          },
-          {
-            "floor": 52,
-            "type": "rest",
-            "id": "f52-0",
-            "y": 1159.95
-          },
-          {
-            "floor": 53,
-            "type": "event",
-            "id": "f53-5",
-            "storyId": "glass_assembly",
-            "y": 1032.89
-          },
-          {
-            "floor": 54,
-            "type": "rest",
-            "id": "f54-1",
-            "y": 892.772
-          },
-          {
-            "floor": 55,
-            "type": "event",
-            "id": "f55-3",
-            "y": 752.762
-          },
-          {
-            "floor": 56,
-            "type": "rest",
-            "id": "f56-2",
-            "y": 627.877
-          },
-          {
-            "floor": 57,
-            "type": "cave",
-            "id": "f57-2",
-            "y": 487.724
-          },
-          {
-            "floor": 58,
-            "type": "shop",
-            "id": "f58-0",
-            "y": 370.14
-          },
-          {
-            "floor": 59,
-            "type": "rest",
-            "id": "f59-0",
-            "y": 224.231
-          },
-          {
-            "floor": 60,
-            "type": "boss",
-            "id": "f60-0",
-            "y": 91.6739
-          },
-          {
-            "floor": 61,
-            "type": "fight",
-            "id": "f61-0",
-            "y": 1286.11
-          },
-          {
-            "floor": 62,
-            "type": "rest",
-            "id": "f62-0",
-            "y": 1150.82
-          },
-          {
-            "floor": 63,
-            "type": "event",
-            "id": "f63-1",
-            "storyId": "fate_tailor",
-            "y": 1018.68
-          },
-          {
-            "floor": 64,
-            "type": "rest",
-            "id": "f64-0",
-            "y": 895.61
-          },
-          {
-            "floor": 65,
-            "type": "rest",
-            "id": "f65-0",
-            "y": 760.323
-          },
-          {
-            "floor": 66,
-            "type": "rest",
-            "id": "f66-1",
-            "y": 628.489
-          },
-          {
-            "floor": 67,
-            "type": "rest",
-            "id": "f67-1",
-            "y": 505.275
-          },
-          {
-            "floor": 68,
-            "type": "rest",
-            "id": "f68-2",
-            "y": 362.921
-          },
-          {
-            "floor": 69,
-            "type": "rest",
-            "id": "f69-2",
-            "y": 235.246
-          },
-          {
-            "floor": 70,
-            "type": "boss",
-            "id": "f70-0",
-            "y": 103.022
-          }
-        ],
-        "events": [
-          {
-            "floor": 3,
-            "id": "liu_first",
-            "choice": 2
-          },
-          {
-            "floor": 4,
-            "id": "moon_trace",
-            "choice": 1
-          },
-          {
-            "floor": 5,
-            "id": "tainted_mercy",
-            "choice": 0
-          },
-          {
-            "floor": 7,
-            "id": "demonic_offer",
-            "choice": 0
-          },
-          {
-            "floor": 13,
-            "id": "liu_return",
-            "choice": 0
-          },
-          {
-            "floor": 17,
-            "id": "demonic_warning",
-            "choice": 0
-          },
-          {
-            "floor": 22,
-            "id": "mirror_trial",
-            "choice": 0
-          },
-          {
-            "floor": 23,
-            "id": "liu_final",
-            "choice": 0
-          },
-          {
-            "floor": 25,
-            "id": "cultlab",
-            "choice": 1
-          },
-          {
-            "floor": 27,
-            "id": "demon_manual",
-            "choice": 0
-          },
-          {
-            "floor": 33,
-            "id": "reed_procession",
+            "id": "road_aftermath",
             "choice": 1
           },
           {
             "floor": 43,
-            "id": "furnace_ledger",
-            "choice": 2
+            "id": "captive_smith",
+            "choice": 1
           },
           {
             "floor": 46,
-            "id": "ash_orchard",
-            "choice": 0
-          },
-          {
-            "floor": 47,
-            "id": "echo",
+            "id": "pawnshop",
             "choice": 0
           },
           {
@@ -935,12 +643,17 @@
           },
           {
             "floor": 55,
-            "id": "dreamshop",
+            "id": "prisoner",
             "choice": 0
           },
           {
+            "floor": 61,
+            "id": "road_aftermath",
+            "choice": 1
+          },
+          {
             "floor": 63,
-            "id": "fate_tailor",
+            "id": "last_campfire",
             "choice": 0
           }
         ],
@@ -956,7 +669,7 @@
         "battles": [
           {
             "floor": 1,
-            "id": "lantern",
+            "id": "paper",
             "power": 0,
             "hp": 60
           },
@@ -964,41 +677,41 @@
             "floor": 10,
             "id": "bell_boss",
             "power": 0,
-            "hp": 60
+            "hp": 57
           },
           {
             "floor": 11,
-            "id": "lantern",
-            "power": 0,
-            "hp": 58
-          },
-          {
-            "floor": 20,
-            "id": "gate_boss",
+            "id": "ape",
             "power": 0,
             "hp": 60
           },
           {
-            "floor": 21,
-            "id": "ape",
+            "floor": 16,
+            "id": "raider",
             "power": 0,
-            "hp": 58
+            "hp": 60
           },
           {
-            "floor": 28,
-            "id": "e_priest",
+            "floor": 20,
+            "id": "camp_boss",
             "power": 0,
-            "hp": 58
+            "hp": 60
           },
           {
             "floor": 30,
-            "id": "lotus_boss",
+            "id": "snake",
             "power": 0,
-            "hp": 31
+            "hp": 52
           },
           {
             "floor": 31,
-            "id": "lantern",
+            "id": "ape",
+            "power": 0,
+            "hp": 49
+          },
+          {
+            "floor": 35,
+            "id": "yaksha",
             "power": 0,
             "hp": 47
           },
@@ -1006,43 +719,37 @@
             "floor": 40,
             "id": "marsh_boss",
             "power": 0,
-            "hp": 58
+            "hp": 64
           },
           {
-            "floor": 41,
+            "floor": 47,
             "id": "lantern",
             "power": 0,
-            "hp": 45
-          },
-          {
-            "floor": 48,
-            "id": "e_priest",
-            "power": 0,
-            "hp": 53
+            "hp": 59
           },
           {
             "floor": 50,
             "id": "furnace_boss",
             "power": 0,
-            "hp": 47
+            "hp": 59
           },
           {
             "floor": 51,
-            "id": "ape",
+            "id": "lantern",
             "power": 0,
-            "hp": 51
+            "hp": 59
           },
           {
             "floor": 60,
             "id": "mirror_boss",
             "power": 0,
-            "hp": 53
+            "hp": 57
           },
           {
-            "floor": 61,
-            "id": "bone",
+            "floor": 68,
+            "id": "yaksha",
             "power": 0,
-            "hp": 49
+            "hp": 59
           },
           {
             "floor": 70,
@@ -1052,14 +759,14 @@
           }
         ],
         "affliction": {
-          "active": true,
+          "active": false,
           "revealed": true,
-          "ticks": 157,
+          "ticks": 1,
           "suppressed": 0,
           "source": "tainted_mercy"
         },
         "path": {
-          "corruption": 1,
+          "corruption": 3,
           "fallen": false,
           "protected": true,
           "learned": true,
@@ -1089,19 +796,20 @@
     "/workspace/scratch/v11-boss-roster.png",
     "/workspace/scratch/v11-automaton-half-life.png"
   ],
-  "sha256": "f532c2d61c77abb9ce65e1cd1e039d4c960e2fb157d3440550ee19de0f7ea041",
+  "sha256": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
   "inputs": {
     "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
     "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
+    "dev/tales.js": "8c84b6bbb4c518add18e4adb819099780c6957085f3e9888de41ff614bd07034",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/engine.js": "1aeb0aca3ea8cf6ade09fdb2374f8e73afc7dccaf957565d6eb0e06004ba45b8",
+    "dev/engine.js": "55c68633f541da2e0624e95d1a728ec863bd73fc4850d53f6a7aeddf8aa2f439",
     "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
-    "dev/ui.js": "f83a14d1f21d32422a60efcf35252cb63407a0bf29da51881d423a6866ca94d2",
+    "dev/ui.js": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7",
     "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
     "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
-    "dev/audio.js": "4bb3ac7f9a83d28702607a804f1633f43beffb790d75dffdbb141fa266f2d21b",
-    "dev/build.cjs": "d6610b1790df5d187b04f059a14284c690d7e3d83f1f0ad63cc34524a1a2c5d4",
-    "dev/v11-browser.test.cjs": "d8d0acc2ce6646254a169b53d001816f27d81d18a7e02e49b1da58322522a3ce"
+    "dev/audio.js": "ba464e0748d507db987861a7866338e773ffcdec6a41c08580aa1a428d2719bc",
+    "dev/build.cjs": "c8ade24e67a4b28d39d5d81ace1116ec204fed77a8b5cc5d053dc492a4de6188",
+    "dev/v11-browser.test.cjs": "5a593ee5ea7e2be8980f5894b8e9840b80c055d1e7e81f05e522710c20be09b9"
   },
   "templates": [
     {
@@ -4125,322 +3833,14 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 2,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 3,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f31-0"
-      ],
       "scrollTop": 928,
       "overlaps": 0
     },
     {
       "template": 0,
-      "region": 4,
+      "region": 2,
       "width": 390,
       "nodes": 42,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 5,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 6,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
       "current": [
         "f21-0"
       ],
@@ -4448,186 +3848,32 @@
       "overlaps": 0
     },
     {
-      "template": 4,
+      "template": 0,
       "region": 3,
       "width": 390,
-      "nodes": 43,
+      "nodes": 42,
       "current": [
         "f31-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
       ],
       "scrollTop": 920,
       "overlaps": 0
     },
     {
-      "template": 5,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 932,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
+      "template": 0,
       "region": 4,
       "width": 390,
-      "nodes": 44,
+      "nodes": 42,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 921,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
-      "template": 5,
+      "template": 0,
       "region": 5,
       "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
+      "nodes": 42,
       "current": [
         "f51-0"
       ],
@@ -4635,216 +3881,216 @@
       "overlaps": 0
     },
     {
-      "template": 6,
+      "template": 0,
       "region": 6,
       "width": 390,
-      "nodes": 44,
+      "nodes": 42,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 924,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 1,
       "region": 0,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 930,
+      "scrollTop": 927,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 1,
       "region": 1,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 1,
       "region": 2,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 913,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 1,
       "region": 3,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f31-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
       ],
       "scrollTop": 912,
       "overlaps": 0
     },
     {
-      "template": 8,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
+      "template": 1,
       "region": 4,
       "width": 390,
       "nodes": 43,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 921,
+      "scrollTop": 928,
       "overlaps": 0
     },
     {
-      "template": 8,
+      "template": 1,
       "region": 5,
       "width": 390,
       "nodes": 43,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
-      "template": 8,
+      "template": 1,
       "region": 6,
       "width": 390,
       "nodes": 43,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 2,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
       "region": 0,
       "width": 390,
       "nodes": 44,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 924,
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 3,
       "region": 1,
       "width": 390,
       "nodes": 44,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 928,
+      "scrollTop": 924,
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 3,
       "region": 2,
       "width": 390,
       "nodes": 44,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 914,
+      "scrollTop": 923,
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 3,
       "region": 3,
       "width": 390,
       "nodes": 44,
       "current": [
         "f31-0"
       ],
-      "scrollTop": 915,
+      "scrollTop": 928,
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 3,
       "region": 4,
       "width": 390,
       "nodes": 44,
@@ -4855,10 +4101,87 @@
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 3,
       "region": 5,
       "width": 390,
       "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
       "current": [
         "f51-0"
       ],
@@ -4866,109 +4189,32 @@
       "overlaps": 0
     },
     {
-      "template": 9,
+      "template": 4,
       "region": 6,
       "width": 390,
-      "nodes": 44,
+      "nodes": 43,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 5,
       "region": 0,
       "width": 390,
       "nodes": 44,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
       "scrollTop": 930,
       "overlaps": 0
     },
     {
-      "template": 10,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
+      "template": 5,
       "region": 1,
       "width": 390,
-      "nodes": 45,
+      "nodes": 44,
       "current": [
         "f11-0"
       ],
@@ -4976,241 +4222,10 @@
       "overlaps": 0
     },
     {
-      "template": 11,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 912,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
+      "template": 5,
       "region": 2,
       "width": 390,
       "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
       "current": [
         "f21-0"
       ],
@@ -5218,87 +4233,10 @@
       "overlaps": 0
     },
     {
-      "template": 14,
+      "template": 5,
       "region": 3,
       "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 0,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 1,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 2,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 3,
-      "width": 390,
-      "nodes": 46,
+      "nodes": 44,
       "current": [
         "f31-0"
       ],
@@ -5306,87 +4244,318 @@
       "overlaps": 0
     },
     {
-      "template": 15,
+      "template": 5,
       "region": 4,
       "width": 390,
-      "nodes": 46,
+      "nodes": 44,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 922,
       "overlaps": 0
     },
     {
-      "template": 15,
+      "template": 5,
       "region": 5,
       "width": 390,
-      "nodes": 46,
+      "nodes": 44,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 913,
+      "scrollTop": 914,
       "overlaps": 0
     },
     {
-      "template": 15,
+      "template": 5,
       "region": 6,
       "width": 390,
-      "nodes": 46,
+      "nodes": 44,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 913,
+      "scrollTop": 922,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 6,
       "region": 0,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 6,
       "region": 1,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f11-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
       ],
       "scrollTop": 932,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 7,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 932,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
       "region": 2,
       "width": 390,
       "nodes": 43,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 922,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 8,
       "region": 3,
       "width": 390,
       "nodes": 43,
       "current": [
         "f31-0"
       ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
       "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 9,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
       "region": 4,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f41-0"
       ],
@@ -5394,40 +4563,40 @@
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 9,
       "region": 5,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 9,
       "region": 6,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 10,
       "region": 0,
       "width": 390,
       "nodes": 44,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 10,
       "region": 1,
       "width": 390,
       "nodes": 44,
@@ -5438,6 +4607,545 @@
       "overlaps": 0
     },
     {
+      "template": 10,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 0,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 1,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 2,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 3,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 4,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 5,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 6,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
       "template": 17,
       "region": 2,
       "width": 390,
@@ -5445,7 +5153,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 913,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
@@ -5456,7 +5164,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5478,7 +5186,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 921,
+      "scrollTop": 923,
       "overlaps": 0
     },
     {
@@ -5489,142 +5197,142 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
       "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 19,
+      "template": 18,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 912,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
       "region": 1,
       "width": 390,
-      "nodes": 45,
+      "nodes": 44,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 918,
       "overlaps": 0
     },
     {
-      "template": 19,
+      "template": 18,
       "region": 2,
       "width": 390,
-      "nodes": 45,
+      "nodes": 44,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 928,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
-      "template": 19,
+      "template": 18,
       "region": 3,
       "width": 390,
-      "nodes": 45,
+      "nodes": 44,
       "current": [
         "f31-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
       ],
       "scrollTop": 931,
       "overlaps": 0
     },
     {
+      "template": 18,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
       "template": 19,
       "region": 5,
       "width": 390,
@@ -5632,7 +5340,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 915,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
@@ -5643,7 +5351,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 916,
       "overlaps": 0
     }
   ],
@@ -5652,8 +5360,7 @@
     "sibling": "f2-1",
     "next": [
       "f3-6",
-      "f3-1",
-      "f3-2"
+      "f3-1"
     ],
     "rejected": "f3-0"
   },
@@ -5687,7 +5394,7 @@
     {
       "starter": "sword",
       "profileFixture": false,
-      "hp": 60,
+      "hp": 59,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5701,7 +5408,7 @@
     {
       "starter": "mark",
       "profileFixture": false,
-      "hp": 60,
+      "hp": 59,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5715,7 +5422,7 @@
     {
       "starter": "combo",
       "profileFixture": false,
-      "hp": 60,
+      "hp": 59,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5729,7 +5436,7 @@
     {
       "starter": "blood",
       "profileFixture": false,
-      "hp": 56,
+      "hp": 59,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5743,7 +5450,7 @@
     {
       "starter": "sovereign",
       "profileFixture": true,
-      "hp": 60,
+      "hp": 58,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5889,10 +5596,12 @@
     "assets/events-sword_fallen/theatre.webp": "005311628118c752fc52de59cf0d6f3736a2d943f4bc7262f20b5f2e939d9600",
     "assets/events-sword_fallen/umbrella.webp": "7b65f93de42da436b95c00f2184842a2ca88b42b420246e8680a060346e304b8",
     "assets/events-sword_fallen/well.webp": "3bb5ced39ce85098954d54e6a700051335e261d74d7f208016dad8b64fad7a34",
+    "assets/events/ambush_campfire.webp": "88d7cd7d31dae3d15d7c56fbce1ee0a09881aa9146b5c64d12f50e8a68e63894",
     "assets/events/armory.webp": "0645fc046f1809886fa3d50c1a9366fcbe771512e0b11f870083425e3e5b712b",
     "assets/events/ash_orchard.webp": "24a8cc01bcba8c37c8001f18d144fffa251769d02e30b9f3bbef2762b29d5b21",
     "assets/events/broker.webp": "34179ecf2ef6b9b965d88d8349215551b0d8011abd565748af635fd6bb4b9e79",
     "assets/events/captive_smith.webp": "e40a9d3396935964757b35cca4852bd605fb1b46419485d1d64a27eac6d58768",
+    "assets/events/cave.webp": "62aac3b8b209c71fb57f1f37c830dfc49906b9c0fea07532ac70293860658083",
     "assets/events/cultlab.webp": "5105eeb5e5a51c05bad8914fb4d361a9a640981a01af1c35bcb282e79630e8ed",
     "assets/events/demon_manual.webp": "c76dc9b298ff1bff3a0850520c44ba7d745aaa46d8991b037ab3a4be6b456d3f",
     "assets/events/demonic_offer.webp": "c8de1abbe28e1162989932ba6e7673e1173e4f34d6fed9113745a2e8830a0264",
@@ -5926,6 +5635,7 @@
     "assets/events/relic_dispute.webp": "b4ead7c11f6e92c68ce560051c6845e6d95d08826472b9e804bbef4fee3cd486",
     "assets/events/rest.webp": "4f338ef63b0bb76b550daf4232ced550d4e6f6663425e08a3e6b6c59ebeebac2",
     "assets/events/riftwatch.webp": "b5e3edea3498d1bb4ff20a50b916bdc690738d0e48f513a9de010bfb32bb9cbe",
+    "assets/events/road_aftermath.webp": "2a4fdffa13c7bfb1591010f1b6f0dfa5e2861a07c239beab5a226e1d732c1c9d",
     "assets/events/sealed_name.webp": "330056e983b27ac0f796b4f42c2e4a885ffb3ebe6eb58b5cf3f652c4f139a71e",
     "assets/events/sect_duel.webp": "228c9665481636b0aa3625c438ac5beb0ee4966f107c9af9318b79b06209c254",
     "assets/events/shop.webp": "a3e3bfffcf732d65474c4233584e127c3aceb0583d5656c6a4c86fe9627a1b33",
@@ -5937,6 +5647,36 @@
     "assets/events/supply.webp": "87a021a34ab5b9b5a4024180c691e4e0aed01ddeda1bda73a971a244f6b5bc66",
     "assets/events/swordgrave.webp": "0a508bae4aa08da857ac69d5fe004da96acb13fdd65b94f9d44a873eda104a05",
     "assets/events/tainted_mercy.webp": "fe3ee5f78449dfc2d41e4cdf91e0acf02a128f9c7ed4a492172fd931d0ab8cc9",
+    "assets/events/tale_bridge_1.webp": "260682b082ff089aa9b0fd895824acf26ef70fa6323198a1d884119f938b97e9",
+    "assets/events/tale_bridge_2.webp": "e45ef9effc7e5370bafaa9d93b6a454f3fb5094160df10e306fd9f58cc872d15",
+    "assets/events/tale_bridge_3.webp": "a7eb502a4ef9d35c0ca49d482a011ec83d3a2f18efdd7e1d2f172a2f1b7cfd0b",
+    "assets/events/tale_debt_1.webp": "4cda281af6e02cf018bb1de6da1d2e4d0dfe53598a4b553ae367f41550701b90",
+    "assets/events/tale_debt_2.webp": "6dacf11d1b87af97e70da8084842497aaf4fd25bfec10457441fa52961c3e724",
+    "assets/events/tale_debt_3.webp": "ba32be291abfc26f5223b4b0c374ff3e21c160ebb203e8da3937bdd68aeaa969",
+    "assets/events/tale_forge_1.webp": "d23a0202d43490f649316ce41a3b44a05ceaf4bc62a23eb876401fe8ba3b10f5",
+    "assets/events/tale_forge_2.webp": "017e69123b0a048d005cd46a81ddb47850b1a1f9c170680bec7471cbf1a3a2f5",
+    "assets/events/tale_forge_3.webp": "9c5e2168d94adb665ca97da194314e9f30690402f7f604bf05cda7b86ba275d2",
+    "assets/events/tale_grain_1.webp": "dc5f25452b7bf1cff360bfbc3feb1dd11613b3d8a2068ee08152bcdd6397ab15",
+    "assets/events/tale_grain_2.webp": "e46fa9f62050960b28c980c83ca058dd111f2c105c11c6e317b79b849e644338",
+    "assets/events/tale_grain_3.webp": "b1437f6f552c9f839164507e8744fda99acbfb6d59f2b00a38b0371c4601bc09",
+    "assets/events/tale_lanterns_1.webp": "22c23d4127ba4b01c5f1c7addf9b1ed2081438e35231ac08eb804660a0d57b3f",
+    "assets/events/tale_lanterns_2.webp": "724bd690496cf81b799fe9d2d9c9702e0899c5817c2715af8db3e8034d62eb7f",
+    "assets/events/tale_lanterns_3.webp": "5348f5b48c42eb43a75258dbe9883cefdbe9de32f933cbab13c093682bff489d",
+    "assets/events/tale_letter_1.webp": "0643bcafbd655fc80f626d5d1a2662cdf1d6de5bd8be164b6725466e2773d669",
+    "assets/events/tale_letter_2.webp": "09c9a2e56eaf1cdfb149379e144f0aaddc1a970e5309619be603c42fa518742a",
+    "assets/events/tale_letter_3.webp": "49f8d7ca7c27bfe1d4f64ab6b3ea9178d6b51873baddea59b731b2d68436ceae",
+    "assets/events/tale_medicine_1.webp": "cb7c253064bec41baaa2f1edd727bba11334576a034eff46022a91760bf1239b",
+    "assets/events/tale_medicine_2.webp": "5a7c54cdc52de5cf3dbbd43b21131a4a22ad5a0326c772e118543fcaa5185c86",
+    "assets/events/tale_medicine_3.webp": "6e9c1070c9bdab1aeb3ba17fc2c29efbfe46b6bfedcb3224434bd9b8a0ccd38f",
+    "assets/events/tale_name_1.webp": "169ce69a09b22c8aadb645de0eb5a3bffdf6ef321735fb9665c76e91b4a86cbd",
+    "assets/events/tale_name_2.webp": "bd4fb260ec7d67f6a16700b1b0d8a01f8e5346da88898d490f9ec3656e6e1f5b",
+    "assets/events/tale_name_3.webp": "5ad1cabee820afae9b1743eb1ef22af70b12d3993293d6b2c57d42346e599bbb",
+    "assets/events/tale_theatre_1.webp": "a5f03f3f85a7ac74f8576bbe46bdf99fb573003ae454389a251695c7bc827dde",
+    "assets/events/tale_theatre_2.webp": "de63ec6376e49ae3dee0eccc81eb968dd19af095066797da391c400e37a11e27",
+    "assets/events/tale_theatre_3.webp": "85ddd02f255434e6d4078b4a5a29677a52ad66938ab1f6e7f58acceb3de488ee",
+    "assets/events/tale_well_1.webp": "312bdcf9d9c36fe28edfca33246a9dc7431e341ad6147846109bda5de48f372e",
+    "assets/events/tale_well_2.webp": "dcc6ea6aac46cbf1c65857f4945ece43e98672860dec26136106617e025c8d0e",
+    "assets/events/tale_well_3.webp": "803d65502b4a070899f2b79d765b20549e261a7543ae455429cccbe3a2aa1808",
     "assets/events/theatre.webp": "e01bbe470e5482033fb1303649c9cfed7af48af39b11ab05c0f2c051b5da1e29",
     "assets/events/umbrella.webp": "34fb27305e812209172ee813d924a008d630d8f00d058657057341c87c9cf202",
     "assets/events/unfinished_portrait.webp": "b9bca696a141c09b3f6e530fdf0b486d45c3a4479291361a329557cf3f2e89bf",
@@ -5967,6 +5707,7 @@
     "assets/portraits/lotus_boss.webp": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6",
     "assets/portraits/marsh_boss.webp": "b10503e85ef705844234aa529d4b6758de338db61535f47f28803286c3648142",
     "assets/portraits/mirror_boss.webp": "87f4fbda7199980796300f280ee3e9f091267a970256182048d4ec1b9573ecc1",
+    "assets/portraits/orthodox_patrol.webp": "cd871854783895e85136909ded1b08bb91063e6ca638a2709e9a2c95692a2e0d",
     "assets/portraits/paper.webp": "49a1330f00eba0232b8c002cc646f2eaf161f861b12b9288052d58e7ab6b9c24",
     "assets/portraits/raider.webp": "64a7b603ea21eb6b8243cd5b98d9becfb43fc31d617a56aafbdd0fad377cc6a7",
     "assets/portraits/retainer.webp": "f00291f48aa73ee1c465cfe979100779e00830cc1c93124f253351a3178ef302",
@@ -6682,6 +6423,11 @@
       "height": 254
     },
     {
+      "src": "assets/events/ambush_campfire.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
       "src": "assets/events/armory.webp",
       "width": 311,
       "height": 311
@@ -6700,6 +6446,11 @@
       "src": "assets/events/captive_smith.webp",
       "width": 1280,
       "height": 853
+    },
+    {
+      "src": "assets/events/cave.webp",
+      "width": 1152,
+      "height": 768
     },
     {
       "src": "assets/events/cultlab.webp",
@@ -6867,6 +6618,11 @@
       "height": 418
     },
     {
+      "src": "assets/events/road_aftermath.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
       "src": "assets/events/sealed_name.webp",
       "width": 311,
       "height": 311
@@ -6920,6 +6676,156 @@
       "src": "assets/events/tainted_mercy.webp",
       "width": 312,
       "height": 312
+    },
+    {
+      "src": "assets/events/tale_bridge_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_bridge_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_bridge_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_debt_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_debt_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_debt_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_forge_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_forge_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_forge_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_grain_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_grain_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_grain_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_lanterns_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_lanterns_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_lanterns_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_letter_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_letter_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_letter_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_medicine_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_medicine_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_medicine_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_name_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_name_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_name_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_theatre_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_theatre_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_theatre_3.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_well_1.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_well_2.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/events/tale_well_3.webp",
+      "width": 1152,
+      "height": 768
     },
     {
       "src": "assets/events/theatre.webp",
@@ -7068,6 +6974,11 @@
     },
     {
       "src": "assets/portraits/mirror_boss.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/orthodox_patrol.webp",
       "width": 768,
       "height": 1152
     },
@@ -7308,8 +7219,8 @@
     }
   ],
   "inline": {
-    "bytes": 28797144,
-    "sha256": "40b9006d3f0f09941109d891095ff9d3ff3c24a3a44f841c3768f78a48d3cdde",
+    "bytes": 39895804,
+    "sha256": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6",
     "requests": []
   },
   "pentagons": {
@@ -7429,33 +7340,33 @@
     "sound": [
       {
         "id": "automatonKettle",
-        "peak": 0.041977591812610626,
-        "rms": 0.002381532367860288,
-        "hash": 2701862426
+        "peak": 0.041977424174547195,
+        "rms": 0.002381534272999263,
+        "hash": 2995195070
       },
       {
         "id": "automatonBroom",
-        "peak": 0.06277177482843399,
-        "rms": 0.0026059218350160903,
-        "hash": 4155019772
+        "peak": 0.0627717599272728,
+        "rms": 0.002605921924499979,
+        "hash": 4232687847
       },
       {
         "id": "automatonShears",
-        "peak": 0.058120716363191605,
-        "rms": 0.0019044880473873696,
-        "hash": 3763254728
+        "peak": 0.05812083184719086,
+        "rms": 0.0019044881226720893,
+        "hash": 3639776115
       },
       {
         "id": "automatonPan",
-        "peak": 0.11614415794610977,
-        "rms": 0.005978597816441246,
-        "hash": 3280140669
+        "peak": 0.1161436140537262,
+        "rms": 0.005978573932579617,
+        "hash": 494819455
       },
       {
         "id": "automatonRevenge",
         "peak": 0.03782660514116287,
-        "rms": 0.003737349869745275,
-        "hash": 1985140099
+        "rms": 0.003737346984481376,
+        "hash": 3532535193
       }
     ],
     "halfLifeIntent": {
@@ -7478,7 +7389,7 @@
       "freezeChance": 0
     }
   },
-  "finishedAt": "2026-10-23T06:23:24.211Z",
+  "finishedAt": "2026-10-23T10:09:35.117Z",
   "passed": 18,
   "failed": 0
 }

@@ -1,0 +1,489 @@
+{
+  "format": "baiyao-tales-browser",
+  "method": "Actual Chromium, actual buttons and audio rendering; explicit route/rare-state fixtures. Not a human, physical-device or natural full-run claim.",
+  "inputs": {
+    "index.html": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
+    "baiyao-standalone.html": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6",
+    "dev/engine.js": "55c68633f541da2e0624e95d1a728ec863bd73fc4850d53f6a7aeddf8aa2f439",
+    "dev/tales.js": "8c84b6bbb4c518add18e4adb819099780c6957085f3e9888de41ff614bd07034",
+    "dev/ui.js": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7",
+    "dev/audio.js": "ba464e0748d507db987861a7866338e773ffcdec6a41c08580aa1a428d2719bc",
+    "dev/build.cjs": "c8ade24e67a4b28d39d5d81ace1116ec204fed77a8b5cc5d053dc492a4de6188",
+    "dev/tales-browser.test.cjs": "431a07dab7a37ae9368d9dbe2abf4deaa6a365a5fe145331cf7acbf7948d70ac",
+    "dev/tales-art-manifest.json": "eefde3fb025a527073c3fc049a228dd66ab69265f1a2af5580b4565503138199"
+  },
+  "results": [
+    {
+      "name": "unknown cave now decodes a local painted background, keeps fixed discovery and degrades safely without it",
+      "ok": true
+    },
+    {
+      "name": "all ten chains render three connected choices, thirty actual decisions and thirty independent paintings",
+      "ok": true
+    },
+    {
+      "name": "learned demonic art really triggers falling on sixth use and swaps all three existing portrait states",
+      "ok": true
+    },
+    {
+      "name": "clearheart acquired through actual story choice prevents all six demonic casts from changing the portrait",
+      "ok": true
+    },
+    {
+      "name": "fallen rest becomes a painted patrol encounter; parley charges once and preserves exactly one rest",
+      "ok": true
+    },
+    {
+      "name": "patrol combat actually draws its unique portrait, intentions and returns from reward to original camp",
+      "ok": true
+    },
+    {
+      "name": "twelve completed nodes enable a sudden road event, true aid is retained without reward duplication",
+      "ok": true
+    },
+    {
+      "name": "new event and cave layouts fit 390px and contain no heroine substituted into shared scene art",
+      "ok": true
+    },
+    {
+      "name": "all 33 new encounter sounds render offline, distinct and non-silent, without clipping",
+      "ok": true
+    },
+    {
+      "name": "frozen sources and artifacts match reports, no script exceptions or external network",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/workspace/scratch/tales-cave-painted.png",
+    "/workspace/scratch/tales-bridge-consequence.png",
+    "/workspace/scratch/tales-fallen-critical.png",
+    "/workspace/scratch/tales-campfire-interception.png",
+    "/workspace/scratch/tales-patrol-battle.png",
+    "/workspace/scratch/tales-cave-mobile.png",
+    "/workspace/scratch/tales-patrol-mobile.png"
+  ],
+  "chains": [
+    {
+      "chain": "debt",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_debt_1.webp",
+          "outcome": "她当着你的面在借据背后按了手印，没有说这是最后一笔债。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_debt_2.webp",
+          "outcome": "你们逐户核对，姓名换成只有各家认得的鞋印。老人没被洗清，岑娘也没被免债；先让人吃上饭。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_debt_3.webp",
+          "outcome": "钱和药都当面点清。岑娘仍有债务，但她能决定这次借不借，向谁借。"
+        }
+      ]
+    },
+    {
+      "chain": "medicine",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_medicine_1.webp",
+          "outcome": "两碗都端了出去。杜蘅没有许诺一定能救活，只记下谁喝了多少，准备等下一批药。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_medicine_2.webp",
+          "outcome": "你只写亲眼见过的两碗药，没有替陌生人洗清罪名。杜蘅把一枚解毒丹交给你，执事终于肯逐条问话。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_medicine_3.webp",
+          "outcome": "杜蘅同样记录了用药。她说这不是偿清人情，是让这张长凳继续有用。"
+        }
+      ]
+    },
+    {
+      "chain": "letter",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_letter_1.webp",
+          "outcome": "阿筠把信交给你，提醒你信里还有活人的住处。你答应送达，不答应替任何人解释。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_letter_2.webp",
+          "outcome": "家属哭完后要求留下复本。她说不替死者开脱，也不想让旁人用她的悲痛代为表态。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_letter_3.webp",
+          "outcome": "你们留下有出处的副本，写清谁亲眼见过，谁只是转述。空白没有被好听的结论填满。"
+        }
+      ]
+    },
+    {
+      "chain": "name",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_name_1.webp",
+          "outcome": "你没有替身份作保，只请守关者先看伤。他把玉牌藏得更深，低声道谢。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_name_2.webp",
+          "outcome": "许渡承认借走衣袍，原主确认他没有乘伤害人。守关者给了限期伤籍，没有把冒名说成从未发生。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_name_3.webp",
+          "outcome": "两个人各系了一半绳结。你收下的是今日的谢意，没有抹去昨日的责任。"
+        }
+      ]
+    },
+    {
+      "chain": "lanterns",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_lanterns_1.webp",
+          "outcome": "她给你添了热水。帘后那只手停住，像在等你问一句，却最终没有开口。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_lanterns_2.webp",
+          "outcome": "你坐在两人之间，只在孟清被打断时请她继续说。孟夫人没有立刻理解，但第一次叫对了名字。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_lanterns_3.webp",
+          "outcome": "灯珠只是一盏灯的余温，不承诺让谁回来，也不要求收下的人永远留下。"
+        }
+      ]
+    },
+    {
+      "chain": "grain",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_grain_1.webp",
+          "outcome": "陶掌柜把价目写在袋上，护卫依伤势分粮。钱没有凭空变多，至少这一袋不能再暗中卖第二次。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_grain_2.webp",
+          "outcome": "陶掌柜删去自己一项利润，护卫交回私分的粮。谁也没有单凭善意就不必对账。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_grain_3.webp",
+          "outcome": "一把钥匙给掌柜，一把给搬运人。你无法保证他们永不争执，但让下一次争执有账可查。"
+        }
+      ]
+    },
+    {
+      "chain": "bridge",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_bridge_1.webp",
+          "outcome": "石砚先用新凿子修了供伤者走的低阶。他没有要求你证明他还是不是人。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_bridge_2.webp",
+          "outcome": "你让每个人只说亲眼见过的事。火把没有立即熄灭，至少不再把沉默当成认罪。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_bridge_3.webp",
+          "outcome": "你只担保自己见过的桥和人。后来的危险仍须后来的人认真分辨。"
+        }
+      ]
+    },
+    {
+      "chain": "forge",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_forge_1.webp",
+          "outcome": "陆炉暂时停炉，损耗由自己承担。你把断剑柄放在未冷的铁旁，纹样正好接上。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_forge_2.webp",
+          "outcome": "愿意留下的铁另封一炉，不愿留下的旧物退还。进度慢了，陆炉没有把这份慢都算给索物的人。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_forge_3.webp",
+          "outcome": "你没有把一把剑当成对所有旧事的赔偿。陆炉也没有把名字磨去。"
+        }
+      ]
+    },
+    {
+      "chain": "theatre",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_theatre_1.webp",
+          "outcome": "灯没有灭。素衣女人没有因此坐回原处，停云也没把你的钱当成她必须留下的理由。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_theatre_2.webp",
+          "outcome": "证言交给能查证的人，戏本另行征得同意。停云没有再拿“替她发声”当成越过她的理由。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_theatre_3.webp",
+          "outcome": "台上的灯不只照着一个英雄。搭台、递水、先开口的人，都在工钱册里有自己的位置。"
+        }
+      ]
+    },
+    {
+      "chain": "well",
+      "stages": [
+        {
+          "step": 1,
+          "src": "assets/events/tale_well_1.webp",
+          "outcome": "井娘终于能放下井绳。她没有把休息说成偷懒，轮班的人也拿到了当面点清的工钱。"
+        },
+        {
+          "step": 2,
+          "src": "assets/events/tale_well_2.webp",
+          "outcome": "管事起初说预算不能改，伤者却愿意公开见证新的用度。井娘终于不是唯一不能拒绝的人。"
+        },
+        {
+          "step": 3,
+          "src": "assets/events/tale_well_3.webp",
+          "outcome": "井娘把自己的药先收好，才分给你多出的那一份。你们谁也不必先把自己耗尽，才有资格帮人。"
+        }
+      ]
+    }
+  ],
+  "fallen": [
+    {
+      "hp": 60,
+      "stage": "normal",
+      "src": "assets/puppet/sword_fallen-normal.webp"
+    },
+    {
+      "hp": 30,
+      "stage": "wounded",
+      "src": "assets/puppet/sword_fallen-wounded.webp"
+    },
+    {
+      "hp": 15,
+      "stage": "critical",
+      "src": "assets/puppet/sword_fallen-critical.webp"
+    }
+  ],
+  "waveforms": [
+    {
+      "id": "tale_debt_1",
+      "peak": 0.04525836929678917,
+      "rms": 0.007680286368686348,
+      "hash": 75894226
+    },
+    {
+      "id": "tale_debt_2",
+      "peak": 0.05210711434483528,
+      "rms": 0.008410230001069354,
+      "hash": 286630605
+    },
+    {
+      "id": "tale_debt_3",
+      "peak": 0.05246565118432045,
+      "rms": 0.008404207137288637,
+      "hash": 1276636746
+    },
+    {
+      "id": "tale_medicine_1",
+      "peak": 0.05891301855444908,
+      "rms": 0.008902865792388118,
+      "hash": 3907860000
+    },
+    {
+      "id": "tale_medicine_2",
+      "peak": 0.057720575481653214,
+      "rms": 0.00896348692165318,
+      "hash": 2944017271
+    },
+    {
+      "id": "tale_medicine_3",
+      "peak": 0.053065747022628784,
+      "rms": 0.008915841607382822,
+      "hash": 652372007
+    },
+    {
+      "id": "tale_letter_1",
+      "peak": 0.04920294135808945,
+      "rms": 0.008375092996509284,
+      "hash": 1761338411
+    },
+    {
+      "id": "tale_letter_2",
+      "peak": 0.05651254579424858,
+      "rms": 0.008422790426004967,
+      "hash": 155706269
+    },
+    {
+      "id": "tale_letter_3",
+      "peak": 0.050904497504234314,
+      "rms": 0.008399609036436582,
+      "hash": 2671558
+    },
+    {
+      "id": "tale_name_1",
+      "peak": 0.022228911519050598,
+      "rms": 0.003522532267706177,
+      "hash": 1757705905
+    },
+    {
+      "id": "tale_name_2",
+      "peak": 0.022191986441612244,
+      "rms": 0.003584937565656638,
+      "hash": 3978177238
+    },
+    {
+      "id": "tale_name_3",
+      "peak": 0.022440189495682716,
+      "rms": 0.0035513364371124404,
+      "hash": 2865354680
+    },
+    {
+      "id": "tale_lanterns_1",
+      "peak": 0.050577688962221146,
+      "rms": 0.00834249389874419,
+      "hash": 1608993531
+    },
+    {
+      "id": "tale_lanterns_2",
+      "peak": 0.047957032918930054,
+      "rms": 0.00833534520376099,
+      "hash": 3717275377
+    },
+    {
+      "id": "tale_lanterns_3",
+      "peak": 0.05241290479898453,
+      "rms": 0.008363921229936368,
+      "hash": 1597350693
+    },
+    {
+      "id": "tale_grain_1",
+      "peak": 0.052712615579366684,
+      "rms": 0.006775488749467459,
+      "hash": 1707492603
+    },
+    {
+      "id": "tale_grain_2",
+      "peak": 0.04936881735920906,
+      "rms": 0.0067762349932308195,
+      "hash": 3237187745
+    },
+    {
+      "id": "tale_grain_3",
+      "peak": 0.04875892028212547,
+      "rms": 0.006810917938308982,
+      "hash": 3705928622
+    },
+    {
+      "id": "tale_bridge_1",
+      "peak": 0.044068094342947006,
+      "rms": 0.008402107074951459,
+      "hash": 2591016861
+    },
+    {
+      "id": "tale_bridge_2",
+      "peak": 0.04845956340432167,
+      "rms": 0.00845307530167342,
+      "hash": 1615174334
+    },
+    {
+      "id": "tale_bridge_3",
+      "peak": 0.05382077768445015,
+      "rms": 0.008479023477858477,
+      "hash": 59392544
+    },
+    {
+      "id": "tale_forge_1",
+      "peak": 0.03916388005018234,
+      "rms": 0.005612384367855089,
+      "hash": 2404901509
+    },
+    {
+      "id": "tale_forge_2",
+      "peak": 0.03950989991426468,
+      "rms": 0.005565098429181463,
+      "hash": 262673148
+    },
+    {
+      "id": "tale_forge_3",
+      "peak": 0.03729049861431122,
+      "rms": 0.0056018588982628195,
+      "hash": 3243987731
+    },
+    {
+      "id": "tale_theatre_1",
+      "peak": 0.04726259410381317,
+      "rms": 0.008401792916313055,
+      "hash": 221419505
+    },
+    {
+      "id": "tale_theatre_2",
+      "peak": 0.047982294112443924,
+      "rms": 0.008378700391206204,
+      "hash": 963547349
+    },
+    {
+      "id": "tale_theatre_3",
+      "peak": 0.047533318400382996,
+      "rms": 0.008375994594206924,
+      "hash": 2462840324
+    },
+    {
+      "id": "tale_well_1",
+      "peak": 0.049529850482940674,
+      "rms": 0.008753299228787714,
+      "hash": 1349967532
+    },
+    {
+      "id": "tale_well_2",
+      "peak": 0.06057274341583252,
+      "rms": 0.009140965106405285,
+      "hash": 843679506
+    },
+    {
+      "id": "tale_well_3",
+      "peak": 0.05370815843343735,
+      "rms": 0.008728537048733434,
+      "hash": 2316541055
+    },
+    {
+      "id": "campfire_hunt",
+      "peak": 0.03595547005534172,
+      "rms": 0.005636299889038893,
+      "hash": 915758694
+    },
+    {
+      "id": "road_aftermath",
+      "peak": 0.04943815618753433,
+      "rms": 0.006431468319924919,
+      "hash": 2546718335
+    },
+    {
+      "id": "cave",
+      "peak": 0.05221598595380783,
+      "rms": 0.008938729844633623,
+      "hash": 892406758
+    }
+  ],
+  "passed": 10,
+  "failed": 0
+}

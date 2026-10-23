@@ -3,6 +3,7 @@
   'use strict';
   const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
   const EXPEDITION = root.NightExpedition || (typeof module !== 'undefined' && module.exports ? require('./expedition.js') : {});
+  const TALES = root.NightTales || (typeof module !== 'undefined' && module.exports ? require('./tales.js') : {});
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
@@ -212,7 +213,7 @@
   });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const LEGACY_EVENT_IDS = EVENT_IDS.slice();
-  for (const id of Object.keys(SEVEN.EVENTS || {})) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
+  for (const id of [...Object.keys(SEVEN.EVENTS || {}),...(TALES.EVENT_IDS||[])]) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
@@ -248,6 +249,12 @@
     boss: ['观测井的鳞片擦过屋瓦', '整片封域忽然安静下来', '金铃自己响了一声']
   };
 
+  ENEMIES.orthodox_patrol = {name:'执炬巡使',rank:'event',fixedCycle:true,hp:48,intents:[
+    {name:'问罪剑阵',text:'攻击 8，然后施加 2 层追索印',hits:[8],playerMark:2},
+    {name:'封息符',text:'获得护盾 7，下个玩家回合少抽 1 张牌',block:7,drawPenalty:1},
+    {name:'三才合锋',text:'连续攻击 3 次，每次 4',hits:[4,4,4]}
+  ]};
+
   const REWARD_POOL = Object.keys(CARDS).filter(id => Number(id.slice(1)) >= 3);
   const ORDINARY = ['paper', 'lantern', 'ape', 'bone'];
   const ELITE_POOL = Object.freeze([
@@ -264,6 +271,7 @@
     const environmentEnabled = options.environment !== false;
     const scalingEnabled = options.scaling !== false;
     const legacyCampaign = options.campaign === 'legacy';
+    const talesEnabled = !legacyCampaign && options.tales !== false;
     const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
     const totalFloors = regions.length * 10;
     let profile = normalProfile(options.profile);
@@ -547,6 +555,68 @@
         return {id,name:def.name,glyph:def.glyph||'异',kicker:def.kicker||'雾后见闻',description:def.description||def.story[0],story:def.story.slice(),choices:finishChoices(choices,p)};
       }]));
     }
+
+    const TALE_SLOTS = [[6,26,46],[8,38,58],[12,32,62]];
+    function initializeTales(){
+      const selected=sample(Object.keys(TALES.CHAINS),3);
+      state.journey.tales={selected,chains:Object.fromEntries(selected.map((id,i)=>[id,{stage:0,choices:{},floors:TALE_SLOTS[i].map(f=>state.character==='sovereign'&&f===26?36:f),lastOutcome:''}])),nextRoadAt:12,roadVisits:0,lastHuntFloor:-99,hunts:0};
+    }
+    function prepareTaleOpportunity(){
+      const tales=state.journey.tales;if(!talesEnabled||!tales)return;
+      for(const [id,record]of Object.entries(tales.chains)){
+        const step=record.floors.indexOf(state.floor)+1;
+        if(!step||record.stage!==step-1)continue;
+        // Attach only to a genuinely connected node; never add or remove route edges.
+        const choices=(state.map[state.floor-1]||[]).filter(n=>state.availableNodes.includes(n.id)&&!n.storyId&&!n.encounter&&n.type!=='boss');
+        const node=choices.find(n=>n.type==='event')||choices[0];
+        if(node){node.type='event';node.storyId=`tale_${id}_${step}`;node.name=step===1?'雾中来人':'路旁灯影';node.description='雾里的这段路上，有人停在灯下。';}
+      }
+    }
+    function witnessedAid(){
+      const chains=state.journey.tales?.chains||{};
+      const evidence=[['medicine','杜蘅',['testify','move']],['bridge','石砚',['witness']],['name','许渡',['record']],['letter','阿筠',['consent']]];
+      return evidence.filter(([id,,keys])=>keys.includes(chains[id]?.choices[2]?.key)).map(([,name])=>name);
+    }
+    function interruptionFor(node){
+      const tales=state.journey.tales;
+      if(!talesEnabled||!tales||node.storyId||node.encounter||node.type==='boss')return null;
+      if(node.type==='rest'&&state.character==='sword'&&state.player.path.fallen&&tales.hunts<2&&state.floor-tales.lastHuntFloor>=8){
+        tales.lastHuntFloor=state.floor;tales.hunts++;
+        return 'campfire_hunt';
+      }
+      if(node.type==='fight'&&state.history.length>=tales.nextRoadAt&&tales.roadVisits<3){
+        tales.roadVisits++;tales.nextRoadAt=state.history.length+14;
+        return 'road_aftermath';
+      }
+      return null;
+    }
+    function buildInterruption(id){
+      const p=state.player,t=state.journey.tales,witnesses=witnessedAid();
+      if(id==='campfire_hunt')return {id,name:'火光忽然静了',glyph:'炬',kicker:'途中的变故',interruption:true,
+        description:'原本可供歇息的火塘边，几柄剑先于你亮了起来。',
+        story:['你本想在火塘边坐下。一名执炬巡使挡住月门，目光落在你剑上散不去的暗红：“营里刚救下几名失了魂息的人。请先放下剑。”','她尚未问清你的经历，已经把异变当成了证据。你也能感觉到自己下意识想用最省事的办法，让眼前的人永远闭嘴。',...(witnesses.length?[`${witnesses.join('、')}留下的见证仍在行囊中，能说明你做过什么，却不能替你保证此后永远不会失控。`]:[])],
+        choices:finishChoices([
+          {key:'fight',label:'应阵而战，守住此处火塘',text:'与执炬巡使交战：48生命；攻击8并施加追索印 → 护盾7并封住下回合1张抽牌 → 连击4×3。获胜正常领一次战利，再返回原休息点；失败结束本局。',battle:{enemyId:'orthodox_patrol',kind:'fight',resumeRest:true},outcome:'你不肯在剑阵中交出长剑。巡使让弟子退后，亲自压低了第一道剑光。'},
+          ...(witnesses.length?[{key:'witness',label:'出示已经发生过的见证，请她核查',text:'凭此前助人的真实记录交涉；不支付金币、不战斗，继续使用原休息点。',resumeRest:true,outcome:`你没有要求她因为一纸见证就原谅一切，只请她先核查${witnesses.join('、')}能证明的事实。巡使收起封息符，仍远远守着火塘，却让出了供你调息的位置。`}]:[]),
+          {key:'parley',label:'留下二十枚灵钱，另觅火塘边的空位',text:'支付20金币作为查验与药资押金；不战斗，仍可使用原休息点。',goldCost:20,resumeRest:true,outcome:'你把押金留在案上，没有承认自己未曾做过的事。巡使也没有宣布你无罪，只撤开近身的弟子，让你先稳住剑息。'},
+          {key:'leave',label:'沿断墙离开，放弃这次休息',text:'无金币或生命损失；本节点完成，不获得休息治疗。',outcome:'你从断墙的缺口退开，手指仍在剑柄上发紧。火塘留在身后，没有人为这场相遇盖上善恶已明的印。'}
+        ],p)};
+      const aided=t.roadAid,visit=t.roadVisits;
+      return {id,name:visit===1?'雾里忽来车声':'车铃又响了一次',glyph:'铃',kicker:'途中的变故',interruption:true,
+        description:'原本的前路被一辆倾斜的药车挡住。',
+        story:[visit===1?'沿途已经走过十余处地标。雾里忽然响起车铃，一辆药车翻倒在你要走的路上。推车的人请你留步，车帘后有人压着咳嗽。':aided?'车铃再次响起，上回受过你援手的人认出了你。他们替你指开一条避过游荡追兵的旧路，车上仍有需要照料的人。':'你再次遇到那辆药车。推车的人认出了你，没有把上回未伸援手说成背叛，只问今日是否愿意各取所需。','押车人愿付路资换你护送，随车的伤者却请你别为赶路把他们留在原地。你可以帮忙，也可以在此分道，不必用流血来证明自己。'],
+        choices:finishChoices([
+          {key:'aid',label:'花十二枚灵钱，帮药车安置伤者',text:`支付12金币；获得${aided?'2份凝露叶':'1枚回气丹'}。车队替你引开这段路上的游荡追兵，本节点完成。`,goldCost:12,...(aided?{itemGrants:[{id:'dewherb',count:2}]}:{itemGrants:[{id:'healing_pill',count:1}]}),outcome:'你们分清谁能赶路、谁需要留下，给伤者留了药。车队把你要走的方向告诉熟路的人，没再把保护说成一句空诺。'},
+          {key:'escort',label:'按约照看车队，换取路资',text:'获得14金币；车队带你从侧路通过，本节点完成。',goldGain:14,outcome:'路资照约付清。你帮他们扶正车轴，也说明自己只能护送眼前这一段；他们另留了人守着暂不能动身的伤者。'},
+          {key:'leave',label:'让车队先走，绕开雾中的脚步',text:'无即时奖励；放弃前路冲突和这次援助，本节点完成。',outcome:'你选择了不接委托的侧路。车铃慢慢远去，谁也没有因此欠下一份被强加的恩情。'}
+        ],p)};
+    }
+    function resumeInterruptedRest(){
+      if(!state.interruption||state.interruption.resumed)return false;
+      state.interruption.resumed=true;state.screen='rest';state.event=null;state.reward=null;state.battle=null;
+      note('火塘已经让出。此处仍只能休息一次，随后沿原有连线继续。');return true;
+    }
+
     function makeMap() {
       const weighted=['fight','fight','event','event','rest','rest','shop','elite','cave'],map=[],templates=[];
       for(let chapter=0;chapter<regions.length;chapter++){
@@ -616,7 +686,7 @@
           deck: cards.map(makeCard),
           relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell']
         },
-        floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null, cave: null,
+        floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null, cave: null, interruption:null,
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
           hidden: { jiIntent: rand(2) ? 'greedy' : 'grateful' }, nextCombatBlock: 0 },
         notice: '', result: null, rewardRerolls: 1,
@@ -1065,7 +1135,7 @@
         log(`故人留下的护符生效：首回合获得 ${amount} 点护盾，本次援护已用尽。`);
       }
       if (encounter && !encounter.caveId) {
-        state.battle.storyEncounter = { npc: state.event?.npc || null, title: state.event?.name || '', enemy: state.battle.enemy.name, lootCards:(encounter.lootCards||[]).slice() };
+        state.battle.storyEncounter = { npc: state.event?.npc || null, title: state.event?.name || '', enemy: state.battle.enemy.name, lootCards:(encounter.lootCards||[]).slice(), resumeRest:!!encounter.resumeRest };
         log('这是先前奇遇引出的交战；获胜后正常选牌，只完成当前道路一次。');
       }
     }
@@ -1084,11 +1154,13 @@
       state.journey.regionIndex = regionIndex;
       state.screen = crossed ? 'arrival' : 'map';
       if (crossed) prepareChapter();
+      prepareTaleOpportunity();
       state.mapTemplateId=state.chapterTemplates[regionIndex].id;state.mapTemplateName=state.chapterTemplates[regionIndex].name;
       state.reward = null;
       state.shop = null;
       state.event = null;
       state.cave = null;
+      state.interruption = null;
       note(`第 ${state.floor} 段已开放。沿已连接的道路继续前行。`);
     }
 
@@ -1097,6 +1169,7 @@
       if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
       state = freshState('arrival', starter);
       expedition.resetRun();
+      if(talesEnabled)initializeTales();
       activeNode = null;
       note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
       emit();
@@ -1137,6 +1210,8 @@
       activeNode = node;
       state.notice = '';
       if(!tickAffliction('node')){emit();return true;}
+      const interruption=interruptionFor(node);
+      if(interruption){state.interruption={id:interruption,nodeId:node.id,resumed:false};state.screen='event';state.event=buildInterruption(interruption);recordJourney(null,state.event.name,state.event.story[0],'warning');emit();return true;}
       if (type === 'fight' || type === 'elite' || type === 'boss') startBattle(type, node.encounter || null);
       else {
         state.screen = type;
@@ -1477,7 +1552,7 @@
       if (state.reward.relicPending) { note('请先选择一件精英珍藏。'); return false; }
       if (idOrNull !== null && !state.reward.cards.includes(idOrNull)) return false;
       if (idOrNull !== null) state.player.deck.push(makeCard(idOrNull));
-      advance();
+      if(state.battle?.storyEncounter?.resumeRest&&state.interruption){resumeInterruptedRest();}else advance();
       emit();
       return true;
     }
@@ -1622,7 +1697,7 @@
         const count=grant.count||grant.amount||1;
         if (expedition.grantItem(grant.id,count)) received.push(`${EXPEDITION.ITEMS[grant.id].name} ×${count}`);
       }
-      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon))p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`); }
+      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon)){p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`);}else if(choice.duplicateWeaponGold){p.gold+=choice.duplicateWeaponGold;received.push(`已有剑器，改得${choice.duplicateWeaponGold}金币`);} }
       if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
       if(choice.afflict){p.affliction={active:true,revealed:false,ticks:0,suppressed:0,source:'tainted_mercy'};}
       if(choice.cureAffliction){cureAffliction();received.push('缠脉毒根除');}
@@ -2058,7 +2133,11 @@
       const ids = Object.keys(builders).filter(id => !CHAIN_EVENT_IDS.includes(id)&&!fixedEvents.includes(id)&&(!SEVEN.EVENTS?.[id]||sevenEventAvailable(SEVEN.EVENTS[id])));
       const unseen = ids.filter(id => !state.seenEvents.includes(id));
       const pool = unseen.length ? unseen : ids;
-      const id = activeNode?.storyId || pool[rand(pool.length)];
+      const taleId=activeNode?.storyId;
+      const linked=talesEnabled&&TALES.META?.[taleId]?TALES.build(taleId,state):null;
+      if(linked){state.seenEvents.push(taleId);linked.choices=finishChoices(linked.choices,p);return linked;}
+      const fixed=taleId&&!TALES.META?.[taleId]&&builders[taleId]?taleId:null;
+      const id = fixed || pool[rand(pool.length)];
       state.seenEvents.push(id);
       return builders[id]();
     }
@@ -2072,6 +2151,13 @@
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       state.event.choiceLabel = choice.label;
       if (choice.flags) Object.assign(state.journey.flags, choice.flags);
+      if(state.event.tale){
+        const {chain,step}=state.event.tale,record=state.journey.tales?.chains[chain];
+        if(record&&record.stage===step-1){record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;}
+      }
+      if(state.event.id==='road_aftermath'&&choice.key==='aid')state.journey.tales.roadAid=true;
+      if(state.event.interruption&&choice.resumeRest)state.event.resumeRest=true;
+
       if (choice.guard) { state.journey.nextCombatBlock += choice.guard; received.push(`下一战首回合护盾 +${choice.guard}`); }
       if (state.event.npc) {
         const npc = state.event.npc;
@@ -2089,6 +2175,7 @@
     function leaveEvent() {
       if (state.screen !== 'event' || !state.event || !state.event.resolved) return false;
       const name = state.event.name;
+      if(state.event.interruption&&state.event.resumeRest){resumeInterruptedRest();emit();return true;}
       if (state.event.battle) {
         const encounter = state.event.battle;
         startBattle(encounter.kind || 'fight', encounter);
@@ -2160,7 +2247,7 @@
     };
   }
 
-  const api = { BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

@@ -11,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_ART = {
-    'portraits': 30, 'cards': 70, 'events': 55, 'relics': 15,
+    'portraits': 31, 'cards': 70, 'events': 88, 'relics': 15,
     'puppet': 13, 'regions': 7, 'weapons': 4, 'items': 1,
     'events-sword': 21, 'events-sovereign': 21, 'events-sword_fallen': 21,
 }
@@ -105,7 +105,7 @@ def verify_recovery(evidence_name, manifest_name, script_name, count, mode, outp
     verify_hash(script_name, evidence['script_sha256'])
     verify_inputs(manifest, 'files')
     verify_inputs(manifest, 'asset_sha256')
-    expected_assets = 258 if mode == 'full-webp' else 0
+    expected_assets = 292 if mode == 'full-webp' else 0
     require(evidence['asset_count_in_payload'] == manifest['asset_count'] == expected_assets,
             'Unexpected recovery payload asset count')
     return evidence, manifest
@@ -139,10 +139,15 @@ def main():
     require(batch_a.get('format') == 'baiyao-batch-a-browser', 'Missing Batch A browser evidence')
     passed(batch_a, 11, 'Batch A focused browser acceptance')
     verify_inputs(batch_a)
-    comparison = report('dev/batch-a-outcomes.json')
-    require(comparison['compared_runs'] == 150 and comparison['all_details_equal'],
-            'Public simulation outcome comparison failed')
-    verify_hash('dev/v11-playtest-report.json', comparison['current_report_sha256'])
+    tales = report('dev/tales-browser-results.json')
+    passed(tales, 10, 'linked stories, cave and fallen-path integration')
+    verify_inputs(tales)
+    new_tales_art = report('dev/tales-art-manifest.json')['entries']
+    require(len(new_tales_art) == 34, 'Missing independent cave/tale/patrol art')
+    for entry in new_tales_art:
+        verify_hash(entry['target'], entry['sha256'])
+        require(entry['reviewed'] and min(entry['width'], entry['height']) >= 768,
+                'Unreviewed or small story art')
 
     local_file = report('dev/v8-file-browser-results.json')
     require(local_file['passed'] == 2 and local_file['failed'] == 0 or
@@ -184,13 +189,13 @@ def main():
         images = sorted((ROOT / 'assets' / folder).glob('*.webp'))
         require(len(images) == count, 'Unexpected runtime art count: ' + folder)
         artwork.extend(images)
-    require(len(artwork) == 258, 'Expected 258 runtime WebPs')
+    require(len(artwork) == 292, 'Expected 292 runtime WebPs')
     artifact_paths = {p.relative_to(ROOT).as_posix() for p in artwork}
     require(set(browser['assetInputs']) == artifact_paths, 'Browser did not verify every runtime art file')
     require(set(full_manifest['asset_sha256']) == set(source_manifest['asset_sha256']) == artifact_paths,
             'Recovery art coverage differs from runtime art')
     decoded = browser.get('allAssetDecode', [])
-    require(len(decoded) >= 258 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
+    require(len(decoded) >= 292 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
             'Runtime image decoding was not verified')
     new_art = verify_new_art()
     require(new_art.issubset(artifact_paths), 'New v11 art is missing from runtime package')
@@ -250,21 +255,22 @@ def main():
     require(vectors['cave'] and len(vectors['items']) >= 7, 'Missing cave or consumable vector artwork')
     require(set(['fight','elite','boss','rest','shop','fox','event','cave']).issubset(vectors['icons']),
             'Missing universal route symbol')
-    evidence_names = ['dev/batch-a-outcomes.json', 'dev/batch-a-browser-results.json', 'dev/v11-results.json', 'dev/v11-export-results.json',
+    evidence_names = ['dev/tales-browser-results.json', 'dev/tales-art-manifest.json', 'dev/batch-a-browser-results.json', 'dev/v11-results.json', 'dev/v11-export-results.json',
                       'dev/v8-audio-regression-results.json', 'dev/v8-sword-audio-results.json',
                       'dev/v8-audio-results.json', 'dev/v11-regression-results.json',
                       'dev/v11-source-browser-results.json', 'dev/v11-art-manifest.json', 'dev/v11-scene-art-manifest.json',
                       'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '寒渊七境 · 批次A入口与可读性', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
+        'version': '寒渊七境 · 十段人间事', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
         'zip_members': len(payload), 'editable_shell_in_zip': True,
         'runtime_art': {folder: {'count': count, 'bytes': sum(p.stat().st_size for p in
                         (ROOT / 'assets' / folder).glob('*.webp'))} for folder, count in EXPECTED_ART.items()},
-        'runtime_art_total': 258, 'new_generated_art_files': 0, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
+        'runtime_art_total': 292, 'new_generated_art_files': 34, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
+        'tales': {'browser_groups': tales['passed'], 'new_rule_checks': 23, 'cave_painted': True, 'fall_portrait_existing_three_states_verified': True, 'resume_rest_after_patrol_reward': True, 'new_art_files':34},
         'batch_a': {'browser_groups': batch_a['passed'], 'new_rule_checks': 15,
                     'existing_starters': 5, 'mobile_css_widths': [360,390,430],
                     'motion_modes': ['full','fast','reduced'], 'core_resource_zeroes_visible': True,
@@ -275,15 +281,15 @@ def main():
         'map_stages': 70, 'steps_per_chapter': 10, 'regions': 7,
         'route_templates': 20, 'chapter_templates_selected_independently': True,
         'nodes_per_chapter': [42, 46], 'nodes_per_run': [294, 322], 'random_node_types': True,
-        'story_events': 52, 'linked_story_chains': 3, 'cards': 70, 'sound_profiles': 70,
-        'event_sound_profiles': 43, 'role_specific_event_variants': 63, 'weapons': 4,
+        'story_events': 84, 'linked_story_chains': 13, 'new_chains': 10, 'new_linked_events': 30, 'chains_sampled_per_run': 3, 'travel_interruptions': 2, 'cards': 70, 'sound_profiles': 70,
+        'event_sound_profiles': 76, 'role_specific_event_variants': 63, 'weapons': 4,
         'reworked_boss': {'id':'lotus_boss','name':'故宅机仆·缄红','new_portraits':1,'household_tools':4,'revenge_threshold':0.5,'revenge_per_hit':1,'new_sound_cues':5,'focused_rule_checks':12},
-        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':24, 'boss_illustrations':9, 'quest_items': 1, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
+        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':25, 'boss_illustrations':9, 'quest_items': 1, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
         'consumables':7, 'cave_loot_fixed_on_entry':True, 'combat_consumable_limit_per_turn':1,
         'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},
         'bleed':{'cap':7,'chance_per_stack':0.03,'damage':'uniform 1..stacks, bypass shield','tick':'enemy turn start'},
         'runtime_3d': False, 'scene_models': 'removed; painted regional backgrounds, 2D routes and static character art',
-        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0, 'rerun_in_batch_a': False, 'scope': 'Retained actual reports with unchanged audio.js SHA256; household audio integration rerun in full browser acceptance'},
+        'numeric_calibration':regression['calibration'], 'engine_tests': engine, 'audio_tests': {'passed': 23, 'failed': 0, 'rerun_for_current_release': True, 'new_encounter_waveforms': 33, 'scope': 'Actual AudioContext and OfflineAudioContext; no human listening evaluation'},
         'browser_groups': {'passed': browser['passed'], 'failed': 0}, 'natural_dom_professions': 1,
         'export_roundtrip_checks': {'passed': exports['passed'], 'failed': 0},
         'public_api_simulations': {k: play[k] for k in ['completed', 'wins', 'defeats']},

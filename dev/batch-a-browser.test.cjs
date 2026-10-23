@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),assert=require('node:assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
-const sources=['index.html','baiyao-standalone.html','dev/ui.js','dev/shell.html','dev/engine.js','dev/expansion.js','dev/seven.js','dev/batch-a-browser.test.cjs'];
+const sources=['index.html','baiyao-standalone.html','dev/ui.js','dev/shell.html','dev/engine.js','dev/expansion.js','dev/seven.js','dev/tales.js','dev/batch-a-browser.test.cjs'];
 const report={format:'baiyao-batch-a-browser',method:'Actual Chromium, real character/tactic/start/cast buttons. Explicit battle fixtures for rare resources and lethal conditions. Not a human or physical-phone test.',results:[],errors:[],externalRequests:[],inputs:Object.fromEntries(sources.map(f=>[f,hash(f)])),screenshots:[]};let server,browser,page,origin;
 const idle=()=>page.waitForFunction(()=>!window.uiBusy,null,{timeout:45000,polling:100});
 async function click(a,sel=''){await idle();await page.locator(`[data-action="${a}"]${sel}`).first().click();}

@@ -122,7 +122,15 @@
     sect_duel: { name:'宗门试剑', notes:[698,1046,1397], kind:'steel', air:3800 },
     herb_caravan: { name:'药车留灯', notes:[349,523,698], kind:'wood', air:870 },
     relic_dispute: { name:'残宝争执', notes:[196,294,440,659], kind:'gong', air:1700 },
-    night_watch: { name:'异派守夜', notes:[262,392,587,880], kind:'wind', air:550 }
+    night_watch: { name:'异派守夜', notes:[262,392,587,880], kind:'wind', air:550 },
+    ...Object.fromEntries([
+      ['debt','coin',247,1900],['medicine','water',330,760],['letter','paper',294,1100],
+      ['name','echo',277,1500],['lanterns','bell',392,680],['grain','wood',220,1600],
+      ['bridge','stone',196,1250],['forge','steel',370,3200],['theatre','bell',415,2300],['well','water',185,830]
+    ].flatMap(([id,kind,base,air])=>[1,2,3].map(step=>[`tale_${id}_${step}`,{name:'雾中回声',notes:[base,base*1.5,base*(step===2?1.19:1.8),base*(1.8+step*.1)],kind,air:air+step*80}]))),
+    campfire_hunt:{name:'火塘剑阵',notes:[147,220,311,440],kind:'steel',air:2900},
+    road_aftermath:{name:'雾中车铃',notes:[294,440,587],kind:'wood',air:1200},
+    cave:{name:'山腹藏幽',notes:[165,247,392,660],kind:'water',air:640}
   });
   const MAX_VOICES = 56;
   const state = { context:null, bus:null, muted:false, volume:.30, unlocked:false, lastError:'', attempts:0, contextsCreated:0 };
