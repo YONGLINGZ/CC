@@ -1,6 +1,6 @@
 {
   "format": "baiyao-v11-browser",
-  "startedAt": "2026-10-22T22:01:38.053Z",
+  "startedAt": "2026-10-23T04:14:06.532Z",
   "target": "/workspace/CC/index.html",
   "inlineTarget": "/workspace/CC/baiyao-standalone.html",
   "results": [
@@ -69,6 +69,10 @@
       "ok": true
     },
     {
+      "name": "fixture: automaton household weapons, half-life vengeance icon and five distinct audio cues actually render",
+      "ok": true
+    },
+    {
       "name": "frozen artifact/source/asset hashes remain unchanged; zero JavaScript errors or external requests",
       "ok": true
     }
@@ -85,6 +89,10 @@
         "maxHp": 52,
         "level": 6,
         "power": 0,
+        "equippedWeapon": "training",
+        "weaponInventory": [
+          "training"
+        ],
         "history": 30,
         "route": [
           {
@@ -404,10 +412,15 @@
       {
         "seed": 1001,
         "result": "victory",
-        "hp": 10,
-        "maxHp": 52,
+        "hp": 16,
+        "maxHp": 53,
         "level": 6,
         "power": 0,
+        "equippedWeapon": "rime",
+        "weaponInventory": [
+          "training",
+          "rime"
+        ],
         "history": 70,
         "route": [
           {
@@ -912,8 +925,8 @@
           },
           {
             "floor": 47,
-            "id": "armory",
-            "choice": 2
+            "id": "echo",
+            "choice": 0
           },
           {
             "floor": 53,
@@ -922,7 +935,7 @@
           },
           {
             "floor": 55,
-            "id": "umbrella",
+            "id": "dreamshop",
             "choice": 0
           },
           {
@@ -981,13 +994,13 @@
             "floor": 30,
             "id": "lotus_boss",
             "power": 0,
-            "hp": 38
+            "hp": 31
           },
           {
             "floor": 31,
-            "id": "ape",
+            "id": "lantern",
             "power": 0,
-            "hp": 56
+            "hp": 47
           },
           {
             "floor": 40,
@@ -997,7 +1010,7 @@
           },
           {
             "floor": 41,
-            "id": "paper",
+            "id": "lantern",
             "power": 0,
             "hp": 45
           },
@@ -1005,29 +1018,29 @@
             "floor": 48,
             "id": "e_priest",
             "power": 0,
-            "hp": 58
+            "hp": 53
           },
           {
             "floor": 50,
             "id": "furnace_boss",
             "power": 0,
-            "hp": 44
+            "hp": 47
           },
           {
             "floor": 51,
-            "id": "paper",
+            "id": "ape",
             "power": 0,
-            "hp": 56
+            "hp": 51
           },
           {
             "floor": 60,
             "id": "mirror_boss",
             "power": 0,
-            "hp": 52
+            "hp": 53
           },
           {
             "floor": 61,
-            "id": "paper",
+            "id": "bone",
             "power": 0,
             "hp": 49
           },
@@ -1035,13 +1048,13 @@
             "floor": 70,
             "id": "abyss_boss",
             "power": 0,
-            "hp": 52
+            "hp": 53
           }
         ],
         "affliction": {
           "active": true,
           "revealed": true,
-          "ticks": 161,
+          "ticks": 157,
           "suppressed": 0,
           "source": "tainted_mercy"
         },
@@ -1050,7 +1063,7 @@
           "fallen": false,
           "protected": true,
           "learned": true,
-          "uses": 47
+          "uses": 39
         }
       }
     ]
@@ -1073,21 +1086,22 @@
     "/workspace/scratch/v11-cave-treasure.png",
     "/workspace/scratch/v11-guarded-cave-reward.png",
     "/workspace/scratch/v11-frost-bleed.png",
-    "/workspace/scratch/v11-boss-roster.png"
+    "/workspace/scratch/v11-boss-roster.png",
+    "/workspace/scratch/v11-automaton-half-life.png"
   ],
-  "sha256": "bf73de5a1ba23c91cdd5da2e843e72b90463bb2aa6b4ce5d5b7f0e06fdaae74b",
+  "sha256": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c",
   "inputs": {
     "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
-    "dev/seven.js": "455798d252fe6e5a327495d4a69b1aa342eeff397f940df68f910c765f0bef6c",
+    "dev/seven.js": "c6f8a8c07b6d61d2b390bc83aacad724b84918b601dbfb62679d1468abab9f77",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/engine.js": "e50539939de8b212e692bd018881357613b95cb7e47d2a4edb3b8bd3ea7cca5a",
+    "dev/engine.js": "21a5c58341467b6ed92aee031a22a1f8ed97ec0d26d2e43f844a65efb829cb42",
     "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
-    "dev/ui.js": "55f4c124045617a475a64a1d314c49d6f2c60ef3d1682bc8e660ba6c059ee8c1",
-    "dev/shell.html": "864ad95ae263a5bff6283ac8c8190d15d270454741c3faed64ad6069ee3b51bc",
-    "dev/art.js": "ac38e7559786a6e51b0084eeccc37ee35e2e23e84dcb8f783d3e26deeefc7d0d",
-    "dev/audio.js": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
+    "dev/ui.js": "1759bb84ed9c9bef21b87a55486004fb204d772485d28f57c3aa64af57977d9a",
+    "dev/shell.html": "c49bcb2a63087f8f4027619be62a0bc9c0e4fbc7bdd579eb04cbf5aa73f1c84f",
+    "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
+    "dev/audio.js": "4bb3ac7f9a83d28702607a804f1633f43beffb790d75dffdbb141fa266f2d21b",
     "dev/build.cjs": "d6610b1790df5d187b04f059a14284c690d7e3d83f1f0ad63cc34524a1a2c5d4",
-    "dev/v11-browser.test.cjs": "eb865d21f03e641689a12ca71db6ebe345d422fbc1a061137ff8ce8ada65b7ea"
+    "dev/v11-browser.test.cjs": "364157729c68a94e3095832b26ef4e588f7a7e22d7ba173de10f784e7c9f5726"
   },
   "templates": [
     {
@@ -4100,7 +4114,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 928,
+      "scrollTop": 914,
       "overlaps": 0
     },
     {
@@ -4108,6 +4122,391 @@
       "region": 1,
       "width": 390,
       "nodes": 42,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "region": 2,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "region": 3,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "region": 4,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "region": 5,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 0,
+      "region": 6,
+      "width": 390,
+      "nodes": 42,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
       "current": [
         "f11-0"
       ],
@@ -4115,10 +4514,10 @@
       "overlaps": 0
     },
     {
-      "template": 0,
+      "template": 5,
       "region": 2,
       "width": 390,
-      "nodes": 42,
+      "nodes": 44,
       "current": [
         "f21-0"
       ],
@@ -4126,10 +4525,10 @@
       "overlaps": 0
     },
     {
-      "template": 0,
+      "template": 5,
       "region": 3,
       "width": 390,
-      "nodes": 42,
+      "nodes": 44,
       "current": [
         "f31-0"
       ],
@@ -4137,87 +4536,10 @@
       "overlaps": 0
     },
     {
-      "template": 0,
+      "template": 5,
       "region": 4,
       "width": 390,
-      "nodes": 42,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 5,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 0,
-      "region": 6,
-      "width": 390,
-      "nodes": 42,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f41-0"
       ],
@@ -4225,76 +4547,76 @@
       "overlaps": 0
     },
     {
-      "template": 1,
+      "template": 5,
       "region": 5,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 913,
       "overlaps": 0
     },
     {
-      "template": 1,
+      "template": 5,
       "region": 6,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 2,
+      "template": 6,
       "region": 0,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f1-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
       ],
       "scrollTop": 914,
       "overlaps": 0
     },
     {
-      "template": 2,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
+      "template": 6,
       "region": 2,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f21-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
       ],
       "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 2,
+      "template": 6,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
       "region": 4,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f41-0"
       ],
@@ -4302,208 +4624,54 @@
       "overlaps": 0
     },
     {
-      "template": 2,
+      "template": 6,
       "region": 5,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
-      "template": 2,
+      "template": 6,
       "region": 6,
       "width": 390,
-      "nodes": 43,
+      "nodes": 44,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 924,
       "overlaps": 0
     },
     {
-      "template": 3,
+      "template": 7,
       "region": 0,
       "width": 390,
-      "nodes": 44,
+      "nodes": 45,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
       ],
       "scrollTop": 919,
       "overlaps": 0
     },
     {
-      "template": 3,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
+      "template": 7,
       "region": 1,
       "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 4,
+      "template": 7,
       "region": 2,
       "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
+      "nodes": 45,
       "current": [
         "f21-0"
       ],
@@ -4511,142 +4679,65 @@
       "overlaps": 0
     },
     {
-      "template": 5,
+      "template": 7,
       "region": 3,
       "width": 390,
-      "nodes": 44,
+      "nodes": 45,
       "current": [
         "f31-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
       ],
       "scrollTop": 932,
       "overlaps": 0
     },
     {
-      "template": 5,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
+      "template": 8,
       "region": 0,
       "width": 390,
-      "nodes": 44,
+      "nodes": 43,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
       ],
       "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 6,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
+      "template": 8,
       "region": 1,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f11-0"
       ],
@@ -4654,94 +4745,17 @@
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 8,
       "region": 2,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
       ],
       "scrollTop": 920,
       "overlaps": 0
     },
     {
-      "template": 7,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
       "template": 8,
       "region": 3,
       "width": 390,
@@ -4749,7 +4763,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
@@ -4760,7 +4774,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 925,
+      "scrollTop": 928,
       "overlaps": 0
     },
     {
@@ -4782,88 +4796,11 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 930,
       "overlaps": 0
     },
     {
       "template": 9,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
       "region": 0,
       "width": 390,
       "nodes": 44,
@@ -4874,62 +4811,62 @@
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 1,
       "width": 390,
       "nodes": 44,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 2,
       "width": 390,
       "nodes": 44,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 3,
       "width": 390,
       "nodes": 44,
       "current": [
         "f31-0"
       ],
-      "scrollTop": 914,
+      "scrollTop": 923,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 4,
       "width": 390,
       "nodes": 44,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 5,
       "width": 390,
       "nodes": 44,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 924,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
-      "template": 10,
+      "template": 9,
       "region": 6,
       "width": 390,
       "nodes": 44,
@@ -4940,6 +4877,83 @@
       "overlaps": 0
     },
     {
+      "template": 10,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
       "template": 11,
       "region": 0,
       "width": 390,
@@ -4958,7 +4972,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 922,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
@@ -4969,7 +4983,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 927,
       "overlaps": 0
     },
     {
@@ -4979,77 +4993,77 @@
       "nodes": 45,
       "current": [
         "f31-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
       ],
       "scrollTop": 924,
       "overlaps": 0
     },
     {
-      "template": 11,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
       "template": 12,
       "region": 3,
       "width": 390,
@@ -5057,7 +5071,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
@@ -5068,7 +5082,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
@@ -5079,7 +5093,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5089,41 +5103,41 @@
       "nodes": 44,
       "current": [
         "f61-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
       ],
       "scrollTop": 927,
       "overlaps": 0
     },
     {
       "template": 13,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
       "region": 2,
       "width": 390,
       "nodes": 45,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 930,
       "overlaps": 0
     },
     {
@@ -5134,7 +5148,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 912,
       "overlaps": 0
     },
     {
@@ -5145,7 +5159,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 930,
       "overlaps": 0
     },
     {
@@ -5156,7 +5170,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 914,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
@@ -5166,30 +5180,30 @@
       "nodes": 45,
       "current": [
         "f61-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
       ],
       "scrollTop": 918,
       "overlaps": 0
     },
     {
       "template": 14,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
       "region": 1,
       "width": 390,
       "nodes": 45,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 924,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -5200,7 +5214,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -5211,7 +5225,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 915,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
@@ -5222,7 +5236,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 924,
       "overlaps": 0
     },
     {
@@ -5233,7 +5247,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
@@ -5243,63 +5257,63 @@
       "nodes": 45,
       "current": [
         "f61-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 0,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 1,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 2,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 3,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f31-0"
       ],
       "scrollTop": 922,
       "overlaps": 0
     },
     {
       "template": 15,
-      "region": 0,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 1,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 2,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 3,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
       "region": 4,
       "width": 390,
       "nodes": 46,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5310,7 +5324,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
@@ -5321,7 +5335,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 930,
       "overlaps": 0
     },
     {
@@ -5331,41 +5345,41 @@
       "nodes": 43,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
       ],
       "scrollTop": 925,
       "overlaps": 0
     },
     {
       "template": 16,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
       "region": 3,
       "width": 390,
       "nodes": 43,
       "current": [
         "f31-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5376,7 +5390,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 924,
+      "scrollTop": 927,
       "overlaps": 0
     },
     {
@@ -5387,7 +5401,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
@@ -5395,6 +5409,83 @@
       "region": 6,
       "width": 390,
       "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
       "current": [
         "f61-0"
       ],
@@ -5402,83 +5493,6 @@
       "overlaps": 0
     },
     {
-      "template": 17,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
       "template": 18,
       "region": 0,
       "width": 390,
@@ -5486,7 +5500,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 932,
       "overlaps": 0
     },
     {
@@ -5494,83 +5508,6 @@
       "region": 1,
       "width": 390,
       "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
       "current": [
         "f11-0"
       ],
@@ -5578,6 +5515,83 @@
       "overlaps": 0
     },
     {
+      "template": 18,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
       "template": 19,
       "region": 2,
       "width": 390,
@@ -5585,7 +5599,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 925,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5596,7 +5610,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
@@ -5607,7 +5621,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 924,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
@@ -5618,7 +5632,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 922,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -5629,7 +5643,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 925,
+      "scrollTop": 921,
       "overlaps": 0
     }
   ],
@@ -5637,7 +5651,7 @@
     "chosen": "f2-0",
     "sibling": "f2-1",
     "next": [
-      "f3-5",
+      "f3-6",
       "f3-1",
       "f3-2"
     ],
@@ -5950,7 +5964,7 @@
     "assets/portraits/ji.webp": "43c8cfec1fd911188bb37af3979282548a4b705099742d02da5d1a2702df4c8d",
     "assets/portraits/lantern.webp": "52ea35cc91c13ab9e181aefc6d618487ad9456f5f98e0b6f0ea888b52787c4f1",
     "assets/portraits/liu.webp": "192d85b17bb7f14bf390b21ed90a537c50c8e51430df9844a95e82ea33bee3b4",
-    "assets/portraits/lotus_boss.webp": "3aeb4cbddbc444b35a2478f44449453aeb5601f5b7cfebb0b56b3081b00091ec",
+    "assets/portraits/lotus_boss.webp": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6",
     "assets/portraits/marsh_boss.webp": "b10503e85ef705844234aa529d4b6758de338db61535f47f28803286c3648142",
     "assets/portraits/mirror_boss.webp": "87f4fbda7199980796300f280ee3e9f091267a970256182048d4ec1b9573ecc1",
     "assets/portraits/paper.webp": "49a1330f00eba0232b8c002cc646f2eaf161f861b12b9288052d58e7ab6b9c24",
@@ -7294,8 +7308,8 @@
     }
   ],
   "inline": {
-    "bytes": 28745506,
-    "sha256": "c18e3dd42db96c3cf44bb41077ad9be6b64dafbaf9829e248d05251de0743eff",
+    "bytes": 28774101,
+    "sha256": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3",
     "requests": []
   },
   "pentagons": {
@@ -7338,7 +7352,7 @@
     {
       "id": "lotus_boss",
       "src": "assets/portraits/lotus_boss.webp",
-      "sha256": "3aeb4cbddbc444b35a2478f44449453aeb5601f5b7cfebb0b56b3081b00091ec"
+      "sha256": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6"
     },
     {
       "id": "marsh_boss",
@@ -7361,7 +7375,110 @@
       "sha256": "dcb49b69f4c74f18fb3e55b43faa256afc82aaef20d3b9709e3125023eccc50f"
     }
   ],
-  "finishedAt": "2026-10-22T22:07:58.233Z",
-  "passed": 17,
+  "automaton": {
+    "fixture": true,
+    "turns": [
+      {
+        "name": "奉茶·沸盏",
+        "preview": [
+          4,
+          4
+        ],
+        "actual": [
+          4,
+          4
+        ]
+      },
+      {
+        "name": "洒扫·净门",
+        "preview": [
+          10
+        ],
+        "actual": [
+          10
+        ]
+      },
+      {
+        "name": "缝衣·缄喉",
+        "preview": [
+          3,
+          3,
+          3
+        ],
+        "actual": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "护主·覆釜",
+        "preview": [],
+        "actual": []
+      }
+    ],
+    "effects": [
+      "fx fx-boss-spell boss-fx-household household-kettle ",
+      "fx fx-boss-spell boss-fx-household household-kettle reverse ",
+      "fx fx-boss-spell boss-fx-household household-broom ",
+      "fx fx-boss-spell boss-fx-household household-shears ",
+      "fx fx-boss-spell boss-fx-household household-shears reverse ",
+      "fx fx-boss-spell boss-fx-household household-shears ",
+      "fx fx-boss-spell boss-fx-household household-pan "
+    ],
+    "sound": [
+      {
+        "id": "automatonKettle",
+        "peak": 0.04197748377919197,
+        "rms": 0.0023815318882044164,
+        "hash": 267274280
+      },
+      {
+        "id": "automatonBroom",
+        "peak": 0.0627717599272728,
+        "rms": 0.002605923103882176,
+        "hash": 1744684128
+      },
+      {
+        "id": "automatonShears",
+        "peak": 0.05812083184719086,
+        "rms": 0.0019044881819225501,
+        "hash": 2830587779
+      },
+      {
+        "id": "automatonPan",
+        "peak": 0.11614315211772919,
+        "rms": 0.005978584305047902,
+        "hash": 1103207197
+      },
+      {
+        "id": "automatonRevenge",
+        "peak": 0.03782660886645317,
+        "rms": 0.003737346326226861,
+        "hash": 3078622803
+      }
+    ],
+    "halfLifeIntent": {
+      "name": "奉茶·沸盏",
+      "text": "连续攻击 2 次，每次 5，再施加 2 层猎记（下一次敌方行动首段每层 +1，触发后清除）（血债覆令：每段攻击 +1，已计入数值）",
+      "hits": [
+        5,
+        5
+      ],
+      "playerMark": 2,
+      "household": "kettle",
+      "baseHits": [
+        4,
+        4
+      ],
+      "attackBonus": 0,
+      "revengeBonus": 1,
+      "chill": 0,
+      "frozen": false,
+      "freezeChance": 0
+    }
+  },
+  "finishedAt": "2026-10-23T04:19:57.545Z",
+  "passed": 18,
   "failed": 0
 }

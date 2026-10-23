@@ -1,6 +1,6 @@
 {
-  "folderSha256": "bf73de5a1ba23c91cdd5da2e843e72b90463bb2aa6b4ce5d5b7f0e06fdaae74b",
-  "inlineSha256": "c18e3dd42db96c3cf44bb41077ad9be6b64dafbaf9829e248d05251de0743eff",
+  "folderSha256": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c",
+  "inlineSha256": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3",
   "results": [
     {
       "name": "folder export downloads exact fully embedded standalone HTML",
@@ -21,9 +21,9 @@
   ],
   "errors": [],
   "externalRequests": [],
-  "folderExportBytes": 28745506,
-  "blobExportBytes": 28746430,
-  "blobExportSha256": "858aabff2c226ec667790e397f5243431f0996910b30d8ac452e3dfc38a52d5c",
+  "folderExportBytes": 28774101,
+  "blobExportBytes": 28775025,
+  "blobExportSha256": "4152c151551bcc95cc71ba4d0b148dfe742c617865f2f34faacd1d91582d3f67",
   "browser": "154.0.8037.57",
   "passed": 4,
   "failed": 0

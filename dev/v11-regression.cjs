@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
-const tests=['dev/engine.test.cjs','dev/rework.test.cjs','dev/reward.test.cjs','dev/v5-engine.test.cjs','dev/v6-engine.test.cjs','dev/v7-engine.test.cjs','dev/v8-engine.test.cjs','dev/v9-engine.test.cjs','dev/v10-combat.test.cjs','dev/v10-expedition.test.cjs','dev/v10-integration.test.cjs','dev/v11-balance.test.cjs','dev/v11-campaign.test.cjs'];
+const tests=['dev/engine.test.cjs','dev/rework.test.cjs','dev/reward.test.cjs','dev/v5-engine.test.cjs','dev/v6-engine.test.cjs','dev/v7-engine.test.cjs','dev/v8-engine.test.cjs','dev/v9-engine.test.cjs','dev/v10-combat.test.cjs','dev/v10-expedition.test.cjs','dev/v10-integration.test.cjs','dev/v11-balance.test.cjs','dev/v11-campaign.test.cjs','dev/automaton.test.cjs'];
 const command=[process.execPath,'--test','--test-reporter=tap',...tests];let output;
 try{output=cp.execFileSync(command[0],command.slice(1),{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024});}
 catch(error){fs.writeFileSync('/workspace/scratch/v11-engine-tap.log',error.stdout||'');console.error('Engine suite failed; TAP saved to /workspace/scratch/v11-engine-tap.log');process.exit(1);}

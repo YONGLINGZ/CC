@@ -93,6 +93,7 @@
     if(e.frostResistant)entries.push(['enemy-resistance','resistance',0]);
     if(e.counter)entries.push(['enemy-counter','counter',0]);
     if(e.poison)entries.push(['enemy-poison','poison',e.poison]);
+    if(game.getIntent?.()?.revengeBonus)entries.push(['enemy-revenge','household',0]);
     return `<div class="enemy-status-icons" aria-label="敌方状态">${entries.map(([id,key,count])=>btn('status',symbol(key)+(count?`<span class="status-stack" id="${id}">${count}</span>`:''),'status-icon status-tone-'+key,`data-status="${id}" aria-label="查看敌方状态"`)).join('')}</div>`;
   }
   function statusDetail(id){const a=afflictionStatus(),c=practiceStatus(),b=game.state.battle||{},e=game.getEnvironment?.(),w=weaponStatus();
@@ -118,6 +119,7 @@
       'enemy-bleed':b.enemy?.bleed?{title:'创口流血',key:'bleed',text:`当前流血 ${b.enemy.bleed} / 7 层。敌方回合开始时有 ${b.enemy.bleed*3}% 几率流失 1—${b.enemy.bleed} 生命，等概率抽取，无视护盾。每回合只判定一次；流血不会自然消退。`}:null,
       'enemy-resistance':b.enemy?.frostResistant?{title:'御寒灵躯',key:'resistance',text:`每两张施加霜寒的技能才增加 1 层霜寒，连击仍只算一张技能。尚未成霜的寒意会跨回合保留。${b.enemy.chillProgress?'此刻已有一缕寒意蓄在其身。':'此刻没有未凝结的寒意。'}`}:null,
       'enemy-counter':b.enemy?.counter?{title:'守势反震',key:'counter',text:`每张攻击牌实际伤及生命后，反击 ${b.enemy.counter} 点伤害，一张连击牌只触发一次。守势持续到敌人下次回合开始。`}:null,
+      'enemy-revenge':game.getIntent?.()?.revengeBonus?{title:'血债覆令',key:'household',text:'主人的旧家令被复仇覆写。缄红生命不高于一半时，每段攻击额外 +1，已计入敌人意图；四式仍按原有次序轮转。铁锅反击保持 2 点，不受此加成影响。'}:null,
       'enemy-poison':b.enemy?.poison?{title:'毒附其身',key:'poison',text:`当前附毒 ${b.enemy.poison} 层。回合开始时失去等同层数的生命，随后毒减少 1 层。`}:null
     };
     return details[id]||{title:'气息平稳',key:'cleansed',text:'此刻没有异样。'};
@@ -264,12 +266,21 @@
   function serpentSVG(){return '<svg viewBox="0 0 280 260" aria-hidden="true"><path d="M35 196 C-10 95 256 35 245 130 C239 190 54 230 65 140 C70 83 180 77 211 92" fill="none" stroke="#9ed3aa" stroke-width="12" opacity=".9"/><path d="M35 196 C-10 95 256 35 245 130 C239 190 54 230 65 140 C70 83 180 77 211 92" fill="none" stroke="#264d48" stroke-width="5" stroke-dasharray="5 8"/><path d="M92 60 L127 157 L137 68 M153 62 L161 158 L195 64" fill="#ddf2c9" stroke="#5e927a" stroke-width="2"/><path d="M126 165 L122 188 M162 165 L167 185" stroke="#b5e19b" stroke-width="5" stroke-linecap="round"/></svg>';}
   function swordSlashSVG(heavy=false){return `<svg viewBox="0 0 320 280" aria-hidden="true"><defs><linearGradient id="frost-blade"><stop stop-color="#d9fcff"/><stop offset=".5" stop-color="#e9ffff"/><stop offset="1" stop-color="#54b5e6"/></linearGradient></defs><path d="M${heavy?16:40} 225 Q120 78 296 32 Q199 95 67 244Z" fill="url(#frost-blade)"/><path d="M20 247 L302 23 M62 257 L283 64" stroke="#b7f2ff" stroke-width="${heavy?6:3}" stroke-linecap="round"/><g fill="#c2f1ff" stroke="#f2ffff" stroke-width="1"><path d="M74 88 L87 117 L76 148 L63 119Z"/><path d="M223 145 L238 173 L226 204 L215 176Z"/><path d="M154 35 L165 55 L154 79 L145 56Z"/><path d="M127 182 L142 209 L130 240 L117 212Z"/></g><path d="M48 151 L78 149 M64 135 L63 165 M254 97 L278 95 M266 84 L266 110" stroke="#d8fcff" stroke-width="2"/></svg>`;}
   function frostSVG(){return '<svg viewBox="0 0 280 280" aria-hidden="true"><g fill="none" stroke="#a8eafa" stroke-width="3"><circle cx="140" cy="140" r="81" opacity=".5"/><path d="M140 22V258 M38 81L242 199 M38 199L242 81 M140 45L121 65 M140 45L159 65 M140 235L121 215 M140 235L159 215 M59 93L63 121 M59 93L83 86 M221 187L217 159 M221 187L197 194 M59 187L82 194 M59 187L63 159 M221 93L197 86 M221 93L217 121"/></g></svg>';}
-  function bossSpell(id){
+  function bossSpell(id,intentName=''){
+    if(id==='lotus_boss'){
+      const tool=/奉茶/.test(intentName)?'kettle':/洒扫/.test(intentName)?'broom':/缝衣/.test(intentName)?'shears':'pan';
+      const shapes={
+        kettle:'<path d="M82 125h123v72q-8 34-62 34-53 0-61-34Z M90 123l-20-32-30 5 43 68 M205 133q69-27 59 32-6 21-58 27 M99 119q47-34 90 0 M135 95v-13h25v13 M104 70q-20-27 4-47m37 47q-20-27 4-47m35 47q-20-27 4-47"/>',
+        broom:'<path d="m181 29-51 126 43 19 51-125Z M128 155 67 224q27 38 88 43l20-90Z M132 171l-43 67m56-61-33 75m45-70-19 79 M72 93l37 14m-47 20 33 3m91 87 49 15"/>',
+        shears:'<circle cx="86" cy="217" r="27"/><circle cx="177" cy="217" r="27"/><path d="m103 197 87-161-22 127-52 54 M160 197 78 36l17 127 52 54 M38 134q43-52 76 6t88 4 62-25"/><circle cx="132" cy="160" r="8"/>',
+        pan:'<ellipse cx="150" cy="144" rx="88" ry="94"/><ellipse cx="150" cy="144" rx="68" ry="74"/><path d="M136 237v43h28v-43M119 117q30-26 61 0M129 163q21 17 42 0 M41 64l22 24m176-24-22 24"/>'
+      };
+      return{type:'boss-spell boss-fx-household household-'+tool,svg:`<svg viewBox="0 0 300 300" aria-hidden="true"><g fill="none" stroke="#e9c18b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">${shapes[tool]}</g><path d="M17 252Q149 178 282 240" fill="none" stroke="#bb4d4d" stroke-width="3"/></svg>`};
+    }
     const motifs={
       gate_boss:['lamp','#f0d78b',`<path d="M101 59h98l12 123-61 40-61-40Z"/><path d="M108 59V36h84v23M101 86h98M100 170h100M150 87v81M124 87l-8 81M176 87l8 81M150 223v30"/>`],
       camp_boss:['chain','#ee9e97',Array.from({length:5},(_,i)=>`<ellipse cx="${67+i*42}" cy="${55+i*40}" rx="22" ry="35" transform="rotate(-45 ${67+i*42} ${55+i*40})"/>`).join('')],
       bell_boss:['bell','#e9c36f',`<path d="M82 190q14-20 17-77 2-57 51-58 49 1 51 58 3 57 17 77Z"/><path d="M126 53q24-28 48 0M76 203h148M132 217q18 28 36 0M72 84q-34 54 0 96M228 84q34 54 0 96"/>`],
-      lotus_boss:['lotus','#f1b2d6',Array.from({length:8},(_,i)=>`<path d="M150 151q-53-59 0-117 53 58 0 117Z" transform="rotate(${i*45} 150 151)"/>`).join('')],
       marsh_boss:['vines','#a9ddad',`<path d="M37 241Q22 111 117 53q-16 55 35 88 69 48 103-88M75 244q-14-90 60-89 64 1 87 91M71 131l-26-21m46-7-6-36m78 72 13-31m22 10 18 28M118 196l-30 12m100-20 26 24"/>`],
       furnace_boss:['fire','#f5a369',`<path d="M149 29q75 69 61 131 39-13 39-52 42 145-97 150C29 257 30 161 71 113q-7 49 22 60-11-73 56-144Z"/><path d="M153 117q58 58 15 111-61-5-59-53 26 13 44-58Z"/>`],
       mirror_boss:['mirror','#b9dcff',Array.from({length:6},(_,i)=>`<path d="M150 25l24 47-24 47-24-47Z" transform="rotate(${i*60} 150 150)"/>`).join('')+`<circle cx="150" cy="150" r="35"/><path d="m130 134 40 32m-8-47-24 62"/>`],
@@ -278,7 +289,7 @@
     const [theme,color,geometry]=motifs[id]||['abyss','#d3b2e8','<circle cx="150" cy="150" r="90"/>'];
     return{type:'boss-spell boss-fx-'+theme,svg:`<svg viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="126" fill="${color}" opacity=".06"/><g fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${geometry}</g><g fill="${color}"><circle cx="37" cy="56" r="3"/><circle cx="260" cy="235" r="3"/><circle cx="241" cy="37" r="2"/><circle cx="59" cy="260" r="2"/></g></svg>`};
   }
-  function attackStyle(id,enemy,snake){if(!enemy&&String(id).startsWith('D'))return{type:'demonic-slash',svg:swordSlashSVG(['D03','D06'].includes(id))};if(!enemy&&String(id).startsWith('F'))return {type:'soulveil',svg:'<svg viewBox="0 0 280 260"><defs><radialGradient id="soulflare"><stop stop-color="#f2c8ff"/><stop offset=".6" stop-color="#ad67cb" stop-opacity=".65"/><stop offset="1" stop-color="#3f185f" stop-opacity="0"/></radialGradient></defs><circle cx="140" cy="130" r="117" fill="url(#soulflare)"/><path d="M225 40Q53 26 54 176Q96 247 201 216Q82 183 153 64" fill="none" stroke="#f3d6ff" stroke-width="9"/><ellipse cx="140" cy="130" rx="112" ry="73" fill="none" stroke="#b791de" stroke-width="3" transform="rotate(-24 140 130)"/></svg>'};if(!enemy&&String(id).startsWith('S'))return {type:'iceblade',svg:swordSlashSVG(['S04','S08','S11','S16'].includes(id))};if(snake)return{type:'serpent',svg:serpentSVG()};if(enemy&&bossData(game.state.battle?.enemy.id))return bossSpell(game.state.battle.enemy.id);if(enemy)return{type:'strike',svg:clawSVG(true)};if(['C15'].includes(id))return{type:'fire',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 C195 100 239 120 198 205 C185 235 95 252 65 198 C32 138 105 94 140 20" fill="#cf543f" opacity=".8"/><path d="M143 70 C169 140 205 160 168 206 C150 224 103 221 93 192 C85 160 132 129 143 70" fill="#ffe9a9"/><path d="M130 25 L169 89 L107 130 L175 183" fill="none" stroke="#ffe8b4" stroke-width="5"/></svg>'};if(['C16','C21'].includes(id))return{type:'moonblade',svg:'<svg viewBox="0 0 280 260"><path d="M226 28 C75 18 21 168 97 240 C81 146 156 54 226 28" fill="#f4e0bb"/><path d="M221 39 C90 62 52 180 94 229" fill="none" stroke="#e9b978" stroke-width="7"/><circle cx="176" cy="100" r="75" fill="none" stroke="#cfb981" opacity=".45"/></svg>'};if(['C14','C28','C30'].includes(id))return{type:'bloodclaw',svg:clawSVG(false)};if(id==='C35')return{type:'shieldbash',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 L232 70 L218 161 Q195 220 140 244 Q78 216 61 159 L48 70 Z" fill="#84bfa868" stroke="#e4e6b5" stroke-width="7"/><path d="M140 58 V203 M78 103 H202 M100 66 L179 197" stroke="#cce8c2" stroke-width="5"/><path d="M230 72 L263 54 M238 125 H277 M230 177 L262 196" stroke="#ffe3a0" stroke-width="7"/></svg>'};return{type:'claw',svg:clawSVG(false)};}
+  function attackStyle(id,enemy,snake,intentName=''){if(!enemy&&String(id).startsWith('D'))return{type:'demonic-slash',svg:swordSlashSVG(['D03','D06'].includes(id))};if(!enemy&&String(id).startsWith('F'))return {type:'soulveil',svg:'<svg viewBox="0 0 280 260"><defs><radialGradient id="soulflare"><stop stop-color="#f2c8ff"/><stop offset=".6" stop-color="#ad67cb" stop-opacity=".65"/><stop offset="1" stop-color="#3f185f" stop-opacity="0"/></radialGradient></defs><circle cx="140" cy="130" r="117" fill="url(#soulflare)"/><path d="M225 40Q53 26 54 176Q96 247 201 216Q82 183 153 64" fill="none" stroke="#f3d6ff" stroke-width="9"/><ellipse cx="140" cy="130" rx="112" ry="73" fill="none" stroke="#b791de" stroke-width="3" transform="rotate(-24 140 130)"/></svg>'};if(!enemy&&String(id).startsWith('S'))return {type:'iceblade',svg:swordSlashSVG(['S04','S08','S11','S16'].includes(id))};if(snake)return{type:'serpent',svg:serpentSVG()};if(enemy&&bossData(game.state.battle?.enemy.id))return bossSpell(game.state.battle.enemy.id,intentName);if(enemy)return{type:'strike',svg:clawSVG(true)};if(['C15'].includes(id))return{type:'fire',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 C195 100 239 120 198 205 C185 235 95 252 65 198 C32 138 105 94 140 20" fill="#cf543f" opacity=".8"/><path d="M143 70 C169 140 205 160 168 206 C150 224 103 221 93 192 C85 160 132 129 143 70" fill="#ffe9a9"/><path d="M130 25 L169 89 L107 130 L175 183" fill="none" stroke="#ffe8b4" stroke-width="5"/></svg>'};if(['C16','C21'].includes(id))return{type:'moonblade',svg:'<svg viewBox="0 0 280 260"><path d="M226 28 C75 18 21 168 97 240 C81 146 156 54 226 28" fill="#f4e0bb"/><path d="M221 39 C90 62 52 180 94 229" fill="none" stroke="#e9b978" stroke-width="7"/><circle cx="176" cy="100" r="75" fill="none" stroke="#cfb981" opacity=".45"/></svg>'};if(['C14','C28','C30'].includes(id))return{type:'bloodclaw',svg:clawSVG(false)};if(id==='C35')return{type:'shieldbash',svg:'<svg viewBox="0 0 280 260"><path d="M140 20 L232 70 L218 161 Q195 220 140 244 Q78 216 61 159 L48 70 Z" fill="#84bfa868" stroke="#e4e6b5" stroke-width="7"/><path d="M140 58 V203 M78 103 H202 M100 66 L179 197" stroke="#cce8c2" stroke-width="5"/><path d="M230 72 L263 54 M238 125 H277 M230 177 L262 196" stroke="#ffe3a0" stroke-width="7"/></svg>'};return{type:'claw',svg:clawSVG(false)};}
   // Selecting a target changes only controls; preserve the current portrait and artwork.
   function syncTargetSelection(){
     if(game.state.screen!=='battle')return;
@@ -311,7 +322,7 @@
       await delay(95);
       audio()?.playEvent?.(event,{cardId:context.cardId,enemyId:game.state.battle?.enemy.id,intentName:context.intentName});
       const snake=enemy&&game.state.battle.enemy.id==='snake';
-      const style=attackStyle(context.cardId,enemy,snake);
+      const style=attackStyle(context.cardId,enemy,snake,context.intentName);
       keep(fx(style.type,target,style.svg,(event.hitIndex%2?'reverse ':'')+(heavy?'heavy-hit':'')));
       keep(fx(damage>0?'impact':'guard-impact',target,impactArt(damage===0),heavy?'impact-heavy':''));
       if(target==='player'&&damage>0)keep(fx('hurt-impact','player','<i></i><span>受击</span>'));
@@ -321,6 +332,7 @@
       changeDisplayed(visual,event);await delay(335);if(actor)delete actor.dataset.attacking;
     }else if(type==='block'){
       if(target==='player')portraitAct('guard',{amount:event.amount});
+      if(target==='enemy'&&game.state.battle?.enemy.id==='lotus_boss'){const tool=bossSpell('lotus_boss',context.intentName);keep(fx(tool.type,'enemy',tool.svg));}
       keep(fx('shield',target,'<i></i><span>守</span>'));keep(numberFX(target,`+${event.amount||0}`,'护盾','guard'));changeDisplayed(visual,event);await delay(240);
     }else if(type==='mark'){
       keep(fx('mark','enemy',`<span>${event.amount<0?'散':'印'}</span>`));keep(numberFX('enemy',event.amount<0?(event.total===0?'标记清除':`标记 −${Math.abs(event.amount)}`):`标记 +${event.amount||0}`,'','gold'));changeDisplayed(visual,event);await delay(220);

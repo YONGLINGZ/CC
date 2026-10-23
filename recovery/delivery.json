@@ -1,27 +1,27 @@
 {
-  "version": "寒渊七境 · 九曜镇关",
-  "date": "2026-10-22",
+  "version": "寒渊七境 · 故宅机仆",
+  "date": "2026-10-23",
   "based_on": "user 33.zip, v10 and audited numerical proposal",
   "game_html": {
-    "bytes": 585079,
-    "sha256": "bf73de5a1ba23c91cdd5da2e843e72b90463bb2aa6b4ce5d5b7f0e06fdaae74b"
+    "bytes": 592738,
+    "sha256": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c"
   },
   "standalone_html": {
-    "bytes": 28745506,
-    "sha256": "c18e3dd42db96c3cf44bb41077ad9be6b64dafbaf9829e248d05251de0743eff"
+    "bytes": 28774101,
+    "sha256": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3"
   },
   "play_zip": {
-    "bytes": 47070368,
-    "sha256": "64eea12ffdd2d2ced7417e684d0a6d20853d7564c13bc4c5a9317512ebb9c6c6"
+    "bytes": 47803860,
+    "sha256": "a173fbbca8bf467291b2bcfd20ccbcd80b3102364bacc87c643cf67c6e80569d"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 484,
+  "zip_members": 491,
   "editable_shell_in_zip": true,
   "runtime_art": {
     "portraits": {
       "count": 30,
-      "bytes": 5337984
+      "bytes": 5353686
     },
     "cards": {
       "count": 70,
@@ -66,7 +66,7 @@
   },
   "runtime_art_total": 258,
   "new_generated_art_files": 28,
-  "inline_vector_icons": 34,
+  "inline_vector_icons": 35,
   "universal_map_icons": 8,
   "inline_cave_scene": true,
   "inline_item_art": 8,
@@ -100,6 +100,16 @@
   "event_sound_profiles": 43,
   "role_specific_event_variants": 63,
   "weapons": 4,
+  "reworked_boss": {
+    "id": "lotus_boss",
+    "name": "故宅机仆·缄红",
+    "new_portraits": 1,
+    "household_tools": 4,
+    "revenge_threshold": 0.5,
+    "revenge_per_hit": 1,
+    "new_sound_cues": 5,
+    "focused_rule_checks": 12
+  },
   "boss_roster": {
     "early": 5,
     "middle": 3,
@@ -133,21 +143,21 @@
   "numeric_calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.6,
+        "actual": 0.62,
         "min": 0.4,
         "max": 0.6,
-        "passed": true
+        "passed": false
       },
       "survivorHealthMedian": {
-        "actual": 39,
+        "actual": 36,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.72,
-          "sword": 0.34,
+          "assassin": 0.7,
+          "sword": 0.42,
           "sovereign": 0.74
         },
         "min": 0.25,
@@ -155,7 +165,7 @@
         "passed": true
       },
       "maxHitMedian": {
-        "actual": 49,
+        "actual": 48,
         "max": 34,
         "passed": false
       }
@@ -174,7 +184,7 @@
         "passed": false
       },
       "defendingNetLifeLoss": {
-        "actual": 13,
+        "actual": 14,
         "maxExclusive": 20,
         "passed": true
       }
@@ -183,19 +193,19 @@
     "allProbeGates": false
   },
   "engine_tests": {
-    "passed": 252,
+    "passed": 264,
     "failed": 0,
-    "total": 252,
+    "total": 264,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 33
+    "new_checks": 45
   },
   "audio_tests": {
     "passed": 23,
     "failed": 0
   },
   "browser_groups": {
-    "passed": 17,
+    "passed": 18,
     "failed": 0
   },
   "natural_dom_professions": 1,
@@ -205,17 +215,17 @@
   },
   "public_api_simulations": {
     "completed": 150,
-    "wins": 90,
-    "defeats": 60
+    "wins": 93,
+    "defeats": 57
   },
   "hidden_route_simulations": {
     "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 11,
-    "defeats": 13,
-    "unlocks": 11,
-    "hidden_challenges": 12,
-    "hidden_wins": 11,
+    "wins": 13,
+    "defeats": 11,
+    "unlocks": 13,
+    "hidden_challenges": 13,
+    "hidden_wins": 13,
     "report": "dev/v11-hidden-playtest-report.json"
   },
   "full_recovery_checks": 17,
@@ -228,21 +238,21 @@
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/v11-results.json": "04d4b8c4ce3f4e0e770c0b3965748d97e56bdd587ff0840f18a3c9bb2c971a2a",
-    "dev/v11-export-results.json": "861556aa452449dfa3f90c3e71147e4cf4ce5782ca25dd1266c72d418c66de33",
-    "dev/v8-audio-regression-results.json": "c29cbeda79ccef1f4b330e936de1f0e94e149df9c453b8175f2f3d1da8aa3044",
-    "dev/v8-sword-audio-results.json": "51c11468725f80b3d19103decd404e184dac4276f9d4020a65688cd4fbf99059",
-    "dev/v8-audio-results.json": "a903a1bb5525d6f069156398266106675c9357c020a46687a6663780a8abd438",
-    "dev/v11-regression-results.json": "b37dbb3cb859887f2967b70065b9e317a196f87c17fea1f96fa2759d47e4b124",
-    "dev/v11-source-browser-results.json": "73c7b22940d8b6d44c1c3b99195f6cf5317a0f8c126923d72990dcb4e4044c8c",
-    "dev/v11-art-manifest.json": "1bf90af7ba61707dcf027d3aa1f33b1d52be1aa2be15368ce78202d1f095d67b",
+    "dev/v11-results.json": "67ee2f66a8821e7146c538a504dbd49c9c0037dba8939b66ffa145e8733b7e29",
+    "dev/v11-export-results.json": "d2ffe72b262f08224d437aa37325c4d97c2fcd55c6703f8450595ef299b99c9d",
+    "dev/v8-audio-regression-results.json": "34854d70c6c76d4b4044d25f787f25235bfde3bd1ea5c701d326664a8a4cb196",
+    "dev/v8-sword-audio-results.json": "e84d4f5a7a927ce1cf34f5acc0c6ec03d64ae5ab1df69917c3a0b54c6bf6fa53",
+    "dev/v8-audio-results.json": "c41d8992d362c0b29c1a6e71ad10113892a139569e00e1a3d6f838a92721e2dd",
+    "dev/v11-regression-results.json": "b9e60ad7bdc48bdded0775be1a4dee33e2a8353da3141557943377c46cb30219",
+    "dev/v11-source-browser-results.json": "c943e7f95aeb0bc9f13358878990e326fa919624b2ea9fa3e9347eb1aadd4dbb",
+    "dev/v11-art-manifest.json": "fb67119f00b52259397a5d461ded71f1188d6826bd87f5dad500cc9412f165d0",
     "dev/v11-scene-art-manifest.json": "915a3355a15b21bfbf89152a2ede4772db922b9c16a3bcc63b4278e18747f8b4",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "e190ce94ffb965fbac7d580c219842f5da0ba51712e2f9b5575c6673531d75f5",
-    "recovery/source-tests.json": "653b6307e5dce5c7a46fa7551b233569773361217ab6577a470c27bc48dbd8e3",
-    "recovery/manifest.json": "41c086c15b8b9f76f6956e4079279da37169e2587f998162f12ba14f961b5b35",
-    "recovery/source-manifest.json": "2d987679674b70eb0572326c17147421ff949c5eb61b83cbfb102d6681bfbf8a"
+    "recovery/tests.json": "679bd590dd697bb46998d9643fb8c35aa35b84da5aee166b0c9caaa73ddedc84",
+    "recovery/source-tests.json": "ef2e8710536c898075c88467496b702eb6cb9042fe60c1dea62e14d3a98e15cb",
+    "recovery/manifest.json": "6646d0b72c7bc7f4b2e468cb11efbaca7ccf41affbd3cf426b3f89eeabdc230a",
+    "recovery/source-manifest.json": "8ea335688838670d325f401656e732870b81f720dcd60db435a25afc6db9b01e"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,

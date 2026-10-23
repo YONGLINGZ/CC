@@ -1,12 +1,12 @@
 {
   "version": "v11 seven maps, boss roster and audited additive scaling",
   "engine": {
-    "passed": 252,
+    "passed": 264,
     "failed": 0,
-    "total": 252,
+    "total": 264,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 33
+    "new_checks": 45
   },
   "data_contract": {
     "cards": 70,
@@ -19,26 +19,26 @@
   "public_api": {
     "method": "150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Policy frozen before calibration; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.",
     "completed": 150,
-    "wins": 90,
-    "defeats": 60,
+    "wins": 93,
+    "defeats": 57,
     "byProfession": {
       "assassin": {
         "runs": 50,
-        "wins": 36,
-        "defeats": 14,
-        "winRate": 0.72,
-        "hpMedian": 42.5,
-        "normalizedHpMedian": 45.138888888888886,
-        "maxHitMedian": 53
+        "wins": 35,
+        "defeats": 15,
+        "winRate": 0.7,
+        "hpMedian": 42,
+        "normalizedHpMedian": 45.83333333333333,
+        "maxHitMedian": 52
       },
       "sword": {
         "runs": 50,
-        "wins": 17,
-        "defeats": 33,
-        "winRate": 0.34,
-        "hpMedian": 26,
-        "normalizedHpMedian": 21.666666666666668,
-        "maxHitMedian": 49
+        "wins": 21,
+        "defeats": 29,
+        "winRate": 0.42,
+        "hpMedian": 20,
+        "normalizedHpMedian": 17.5,
+        "maxHitMedian": 48
       },
       "sovereign": {
         "runs": 50,
@@ -56,31 +56,31 @@
   "hidden_api": {
     "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 11,
-    "defeats": 13,
-    "unlocks": 11,
-    "hidden_challenges": 12,
-    "hidden_wins": 11,
+    "wins": 13,
+    "defeats": 11,
+    "unlocks": 13,
+    "hidden_challenges": 13,
+    "hidden_wins": 13,
     "report": "dev/v11-hidden-playtest-report.json"
   },
   "calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.6,
+        "actual": 0.62,
         "min": 0.4,
         "max": 0.6,
-        "passed": true
+        "passed": false
       },
       "survivorHealthMedian": {
-        "actual": 39,
+        "actual": 36,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.72,
-          "sword": 0.34,
+          "assassin": 0.7,
+          "sword": 0.42,
           "sovereign": 0.74
         },
         "min": 0.25,
@@ -88,7 +88,7 @@
         "passed": true
       },
       "maxHitMedian": {
-        "actual": 49,
+        "actual": 48,
         "max": 34,
         "passed": false
       }
@@ -107,7 +107,7 @@
         "passed": false
       },
       "defendingNetLifeLoss": {
-        "actual": 13,
+        "actual": 14,
         "maxExclusive": 20,
         "passed": true
       }
@@ -116,10 +116,10 @@
     "allProbeGates": false
   },
   "inputs": {
-    "dev/engine.js": "e50539939de8b212e692bd018881357613b95cb7e47d2a4edb3b8bd3ea7cca5a",
+    "dev/engine.js": "21a5c58341467b6ed92aee031a22a1f8ed97ec0d26d2e43f844a65efb829cb42",
     "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/seven.js": "455798d252fe6e5a327495d4a69b1aa342eeff397f940df68f910c765f0bef6c",
+    "dev/seven.js": "c6f8a8c07b6d61d2b390bc83aacad724b84918b601dbfb62679d1468abab9f77",
     "dev/engine.test.cjs": "17f6e768d279f216b95e5892d0e68470eb967f878d247cb0982123128edb7b6a",
     "dev/rework.test.cjs": "4217273ef41fc3f517235a8ba7d1ab1a7d40800b5fa2700529e35310abe6b54a",
     "dev/reward.test.cjs": "6c9edd6e572c9c87b50f39accb7a6b215956e580e52b56670b9b2822a58dd524",
@@ -133,15 +133,16 @@
     "dev/v10-integration.test.cjs": "3313194acab4a84d49776b08cbc1a4d59dfff5d6af83cb7b2c7f2ea673c97663",
     "dev/v11-balance.test.cjs": "c30d99f813d9e0c439c78b554788b4f5104391901d5f3e21ffb525a46ab1e3b0",
     "dev/v11-campaign.test.cjs": "e2e662ddbb8fc30219532b10471feec00141b8af3cb599ecab00739c84b5a108",
+    "dev/automaton.test.cjs": "772b8baad4e384c7d2103d8b783b6a2d540e81850877f35adc88e912ac5a2318",
     "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
     "dev/v11-hidden-playtest.cjs": "9e4149f7b110204daf625707f2c9474196fce6b61922af9e3c2bf41e8f76ce85",
-    "dev/v11-regression.cjs": "077f1b81d15c86144ba981694e1bb686ea12dc3d2dcdd604c162cbc0cc16ef5a",
+    "dev/v11-regression.cjs": "b24ba35f820a44715a123756670f104c2363be08e54194c7dbbc2bea467815f5",
     "dev/v11-simulate.cjs": "497f871a5cf44c595935bb81006e789e509c5e0c7269e468e4f559df635c89b1",
     "dev/elite-probe.cjs": "593dca97fda8d10573b4bb47c6497b186b5f7876a2cfa0bddc716d645f78d44d",
-    "dev/v11-engine-results.json": "56a5378642b502d7328025dc04aac4decec271317cdc46e275691021798c33a1",
-    "dev/v11-playtest-report.json": "8e7611cff4d79d7761e2b62d1fd5648a2348ee2867d7b907e3d89002ff548552",
-    "dev/v11-hidden-playtest-report.json": "48c44d659220c001aa017b97a284c2db2d4682583d88594ffcff0e3d75d337b0",
-    "dev/v11-elite-probe-report.json": "6f71db69ef471e36464d8b17ebeb6e6b520286769a5856d14c0179826b83c2e8"
+    "dev/v11-engine-results.json": "505b87d28d61f3f2506d79e66b4c0ed0591513dc9fe6932f82fe714d9659aa2a",
+    "dev/v11-playtest-report.json": "50cbf6f4ffc140619dc15dd76412526382cae8b40026a9e888039b1210e74152",
+    "dev/v11-hidden-playtest-report.json": "4ac71ccd007e06790283532a04fe7226b31f777454065a80b44ff43f5d955184",
+    "dev/v11-elite-probe-report.json": "1b49dfa39439411e61dedd967cfa7cfc35e19c72fbde62b6535a116723272c45"
   },
   "note": "Engine correctness and calibration gates are reported separately. Failed target percentages are not relabelled as passed; no seeds/policy/resource edits to manufacture balance numbers. Human difficulty remains unevaluated."
 }

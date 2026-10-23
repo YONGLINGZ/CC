@@ -15,7 +15,7 @@ EXPECTED_ART = {
     'puppet': 13, 'regions': 7, 'weapons': 4, 'items': 1,
     'events-sword': 21, 'events-sovereign': 21, 'events-sword_fallen': 21,
 }
-ZIP_DATE = (2026, 10, 22, 0, 0, 0)
+ZIP_DATE = (2026, 10, 23, 0, 0, 0)
 
 
 def require(condition, message):
@@ -121,6 +121,8 @@ def main():
     require(not browser['inline']['requests'], 'Standalone browser run requested a network resource')
     verify_inputs(browser)
     verify_inputs(browser, 'assetInputs')
+    require(browser.get('automaton') and len(browser['automaton']['turns']) == 4 and len(browser['automaton']['sound']) == 5,
+            'Missing actual household-boss effect/audio browser checks')
     natural = browser.get('naturalRuns', {})
     require('sword' in natural, 'Missing sword natural DOM run')
     final = natural['sword'][-1]
@@ -246,7 +248,7 @@ def main():
                       'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '寒渊七境 · 九曜镇关', 'date': '2026-10-22', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
+        'version': '寒渊七境 · 故宅机仆', 'date': '2026-10-23', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
@@ -260,6 +262,7 @@ def main():
         'nodes_per_chapter': [42, 46], 'nodes_per_run': [294, 322], 'random_node_types': True,
         'story_events': 52, 'linked_story_chains': 3, 'cards': 70, 'sound_profiles': 70,
         'event_sound_profiles': 43, 'role_specific_event_variants': 63, 'weapons': 4,
+        'reworked_boss': {'id':'lotus_boss','name':'故宅机仆·缄红','new_portraits':1,'household_tools':4,'revenge_threshold':0.5,'revenge_per_hit':1,'new_sound_cues':5,'focused_rule_checks':12},
         'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':24, 'boss_illustrations':9, 'quest_items': 1, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
         'consumables':7, 'cave_loot_fixed_on_entry':True, 'combat_consumable_limit_per_turn':1,
         'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},

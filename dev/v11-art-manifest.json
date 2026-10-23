@@ -60,17 +60,17 @@
     },
     {
       "id": "lotus_boss",
-      "source": "/workspace/generated_images/exec-af913cee-8582-4d8e-9ea9-9f8611a70752.png",
-      "direction": "Dark bronze mature smiling face, green eyes and curly chestnut updo, coral/jade medical robes, silver acupuncture needles and blood lotus bowl",
-      "prompt": "A stunning standalone full-body character key art portrait for a premium Chinese dark xianxia fantasy card roguelike, vertical 2:3 canvas. Exquisitely beautiful clearly mature adult woman, painterly realistic face, highly detailed silk, jewelry and magical weapon, luxurious vivid colors, dramatic cinematic light, elegant layered Chinese fantasy costume fully covering torso, tasteful alluring posture, powerful supernatural individuality, professional collectible game illustration. ONE independent character, no UI, no text, no typography, no frame, no logo, no grid, no cat ears. Distinct natural facial structure is essential; do not use a generic pointed identical doll face. 血莲医仙·蘅芜, the Blood Lotus physician: clearly mature woman age forty, deep warm dark bronze skin, long soft warm face with subtle smile dimples, intelligent natural green eyes, thick curly chestnut hair pinned in a tall practical updo with silver herbal sprigs. Her face should be broad-nosed and recognizably dark-skinned, not a pale east Asian clone. Exquisite coral-red and pale jade medicinal robes, ornate silver needle bracelets, a glowing crimson lotus growing from a jade medicine bowl in her left hand and dozens of thin bright acupuncture needles floating elegantly about her other hand. A blood lotus pond and hanging medicine cabinets behind her. Reassuring smile with tired empathetic eyes, a healer consumed by her impossible duty.",
+      "source": "/workspace/generated_images/exec-944b8849-3916-4750-a46a-09b862039eea.png",
+      "direction": "Mature porcelain-and-lacquer housekeeping automaton; jade and cinnabar Chinese service robes, asymmetric kintsugi face and amber lens, folding household cabinet, kettle, pan, sewing shears, thread spool, needle broom; murdered master revenge.",
       "path": "assets/portraits/lotus_boss.webp",
       "width": 768,
       "height": 1152,
-      "bytes": 304646,
-      "sha256": "3aeb4cbddbc444b35a2478f44449453aeb5601f5b7cfebb0b56b3081b00091ec",
+      "bytes": 320348,
+      "sha256": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6",
       "tool": "image_gen.imagegen",
       "reviewed": true,
-      "originalPNGPreserved": true
+      "originalPNGPreserved": true,
+      "revision": "2026-10-23: former blood-lotus healer replaced by 故宅机仆·缄红; independent imagegen portrait."
     },
     {
       "id": "marsh_boss",
@@ -166,5 +166,6 @@
       "originalPNGPreserved": true
     }
   ],
-  "pending": []
+  "pending": [],
+  "revision": "2026-10-23 lotus_boss reworked as 故宅机仆·缄红; technical ID retained for route and asset compatibility."
 }

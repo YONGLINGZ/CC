@@ -2,23 +2,23 @@
   "format": "baiyao-offline-recovery-v11",
   "mode": "source-svg",
   "files": {
-    "dev/art.js": "ac38e7559786a6e51b0084eeccc37ee35e2e23e84dcb8f783d3e26deeefc7d0d",
-    "dev/audio.js": "f189fd04f34ac8a4e87cf8939208fb449a226bb9b26de42edca350c02849af5e",
+    "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
+    "dev/audio.js": "4bb3ac7f9a83d28702607a804f1633f43beffb790d75dffdbb141fa266f2d21b",
     "dev/build.cjs": "d6610b1790df5d187b04f059a14284c690d7e3d83f1f0ad63cc34524a1a2c5d4",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "e50539939de8b212e692bd018881357613b95cb7e47d2a4edb3b8bd3ea7cca5a",
+    "dev/engine.js": "21a5c58341467b6ed92aee031a22a1f8ed97ec0d26d2e43f844a65efb829cb42",
     "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
     "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/seven.js": "455798d252fe6e5a327495d4a69b1aa342eeff397f940df68f910c765f0bef6c",
-    "dev/shell.html": "864ad95ae263a5bff6283ac8c8190d15d270454741c3faed64ad6069ee3b51bc",
-    "dev/ui.js": "55f4c124045617a475a64a1d314c49d6f2c60ef3d1682bc8e660ba6c059ee8c1"
+    "dev/seven.js": "c6f8a8c07b6d61d2b390bc83aacad724b84918b601dbfb62679d1468abab9f77",
+    "dev/shell.html": "c49bcb2a63087f8f4027619be62a0bc9c0e4fbc7bdd579eb04cbf5aa73f1c84f",
+    "dev/ui.js": "1759bb84ed9c9bef21b87a55486004fb204d772485d28f57c3aa64af57977d9a"
   },
   "outputs": {
-    "index.html": "289a1c0a38edc507e073dd90530fbbc99242f0e194c49f4fd16b61363467747e"
+    "index.html": "cac6d6ec030577970c4d2361f7fcb82aada4d9181752cbdde7d2d39757e46774"
   },
   "release_outputs": {
-    "index.html": "bf73de5a1ba23c91cdd5da2e843e72b90463bb2aa6b4ce5d5b7f0e06fdaae74b",
-    "baiyao-standalone.html": "c18e3dd42db96c3cf44bb41077ad9be6b64dafbaf9829e248d05251de0743eff"
+    "index.html": "86c03958e64b77232bc2559817f40835ea7f52a67f159649c52931fd385f744c",
+    "baiyao-standalone.html": "cb415ab046dbc698f4d09647f10d36958145534dc94c6a4824394bf9f4a79ab3"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -229,7 +229,7 @@
     "assets/portraits/ji.webp": "43c8cfec1fd911188bb37af3979282548a4b705099742d02da5d1a2702df4c8d",
     "assets/portraits/lantern.webp": "52ea35cc91c13ab9e181aefc6d618487ad9456f5f98e0b6f0ea888b52787c4f1",
     "assets/portraits/liu.webp": "192d85b17bb7f14bf390b21ed90a537c50c8e51430df9844a95e82ea33bee3b4",
-    "assets/portraits/lotus_boss.webp": "3aeb4cbddbc444b35a2478f44449453aeb5601f5b7cfebb0b56b3081b00091ec",
+    "assets/portraits/lotus_boss.webp": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6",
     "assets/portraits/marsh_boss.webp": "b10503e85ef705844234aa529d4b6758de338db61535f47f28803286c3648142",
     "assets/portraits/mirror_boss.webp": "87f4fbda7199980796300f280ee3e9f091267a970256182048d4ec1b9573ecc1",
     "assets/portraits/paper.webp": "49a1330f00eba0232b8c002cc646f2eaf161f861b12b9288052d58e7ab6b9c24",
@@ -282,9 +282,9 @@
   },
   "asset_count": 0,
   "source_count": 10,
-  "archive_sha256": "3c465d474101ccd191121eb54d1fe7377775df9ef0708235460853e59783ff76",
-  "archive_bytes": 189798,
-  "uncompressed_bytes": 578823,
+  "archive_sha256": "109a471c26c16d5376787278541b362346b95721e44ad5901c83d9c727f55734",
+  "archive_bytes": 192738,
+  "uncompressed_bytes": 586482,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

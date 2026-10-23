@@ -391,6 +391,11 @@
       case 'apeHit':tone(bus,57,.19,{at:t,level:.18,end:35});hiss(bus,730,.12,{at:t,level:.18,end:310,filter:'lowpass'});break;
       case 'boneHit':tone(bus,340,.085,{at:t,level:.12,end:130,wave:'triangle'});hiss(bus,2700,.08,{at:t,level:.17,end:1100});break;
       case 'yakshaHit':hiss(bus,2300,.24,{at:t,level:.18,end:720});tone(bus,48,.29,{at:t,level:.18,end:35});bell(bus,370,.16,.035,t);break;
+      case 'automatonKettle':hiss(bus,3900,.26,{at:t,level:.13,end:1200,attack:.03});bell(bus,1660,.23,.055,t);tone(bus,140,.11,{at:t,level:.06,end:88});break;
+      case 'automatonBroom':hiss(bus,2700,.22,{at:t,level:.16,end:640});[0,.035,.07].forEach(d=>tone(bus,330,.045,{at:t+d,level:.065,end:110,wave:'triangle'}));break;
+      case 'automatonShears':[0,.065].forEach(d=>{hiss(bus,5100,.04,{at:t+d,level:.12,end:1700});bell(bus,2140,.07,.045,t+d);});break;
+      case 'automatonPan':tone(bus,110,.25,{at:t,level:.13,end:52,wave:'triangle'});[419,683,991].forEach(n=>bell(bus,n,.34,.045,t));break;
+      case 'automatonRevenge':[196,185,174].forEach((n,i)=>tone(bus,n,.2,{at:t+i*.1,level:.07,wave:'triangle'}));hiss(bus,840,.32,{at:t,level:.07,end:320});break;
       case 'snakeBlade':hiss(bus,3700,.24,{at:t,level:.16,end:940});bell(bus,1175,.20,.045,t);tone(bus,80,.19,{at:t,level:.12,end:41});break;
       case 'snakeBreath':hiss(bus,760,.43,{at:t,level:.16,end:3100,attack:.03});tone(bus,72,.22,{at:t,level:.08,end:40});break;
       case 'snakeCoil':hiss(bus,1100*(1+finite(options.hitIndex,0)*.16),.17,{at:t,level:.16,end:2600});tone(bus,65,.16,{at:t,level:.13,end:38});break;
@@ -408,6 +413,7 @@
       if(event.source==='enemy'){
         const enemy=context.enemyId||event.enemyId,intent=String(event.intent||context.intentName||context.intent||'');
         const normal={paper:'paperHit',lantern:'lanternHit',ape:'apeHit',bone:'boneHit',yaksha:'yakshaHit'};
+        if(enemy==='lotus_boss')return playCue(/奉茶/.test(intent)?'automatonKettle':/洒扫/.test(intent)?'automatonBroom':/缝衣/.test(intent)?'automatonShears':'automatonPan',payload);
         return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),payload);
       }
       return withSound('hit:'+(cardId||event.kind||'claw'),(bus,t)=>{
@@ -419,6 +425,8 @@
       if(now()-lastDrawAt<.045)return false;lastDrawAt=now();return playCue('draw',event);
     }
     if(type==='blockClear')return false;
+    if(type==='enemySkill'&&event.kind==='revenge')return playCue('automatonRevenge',payload);
+    if(type==='block'&&event.source==='enemy'&&(context.enemyId||event.enemyId)==='lotus_boss')return playCue('automatonPan',payload);
     if(['mark','chill','swordIntent'].includes(type)&&event.amount===0)return false;
     if(type==='mark'&&event.amount<0)return playCue('consumeMark',payload);
     if(type==='poison'&&event.amount<0)return playCue('cleanse',payload);
@@ -502,8 +510,17 @@
     const rendered=await ctx.startRendering();
     return {sampleRate:rendered.sampleRate,duration:rendered.duration,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
   }
+  async function renderCuesOffline(names) {
+    const Constructor=root.OfflineAudioContext||root.webkitOfflineAudioContext;
+    if(!Constructor)throw new Error('OfflineAudioContext unavailable');
+    const slot=1.2,sampleRate=44100,ctx=new Constructor(1,Math.ceil(sampleRate*(Math.max(1,names.length)*slot+.6)),sampleRate);
+    const measure={peakScheduled:0,sourcesCreated:0,rejectedVoices:0},bus=makeBus(ctx,.30,measure);
+    names.forEach((name,i)=>{bus.sources.clear();if(!cue(bus,name,{},i*slot+.03))throw new Error('Unknown audio cue: '+name);});
+    const rendered=await ctx.startRendering();
+    return {sampleRate:rendered.sampleRate,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
+  }
   return {unlock,playCard,playEvent,playCue,playEncounter,setMuted,setVolume,getState,preview,profile,
     profiles:Object.freeze(Object.keys(PROFILES)),assassinProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('C'))),
     swordProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('S'))),sovereignProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('F'))),
-    encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline};
+    encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline,renderCuesOffline};
 });

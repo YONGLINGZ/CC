@@ -1,0 +1,23 @@
+{
+  "status": "interrupted-not-passed",
+  "reason": "Code review found enemy-start DOT could cross the revenge threshold and invalidate the last telegraph. Stopped this rerun to fix the engine and add two regression tests; replaced by a complete current-source run.",
+  "naturalAttemptConsoleTrace": [
+    "NATURAL sword seed 1000: defeat, 30 nodes",
+    "NATURAL sword seed 1001: defeat, 49 nodes",
+    "NATURAL sword seed 1002: defeat, 29 nodes",
+    "NATURAL sword seed 1003: defeat, 29 nodes"
+  ],
+  "previousCodeInputs": {
+    "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
+    "dev/seven.js": "33f7140d76d332c4562f8df5dba4f751f53cec2a98b584d2f50bc4d77a0a0616",
+    "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
+    "dev/engine.js": "8bd7f90f3ab1851ba894e74a50bd545af703086aa543630436659c1c39cf2276",
+    "dev/expansion.js": "288e2292dcd35afd3f10cee2bdf08aea4fbc7b2d8f0ffd7989091235ec08ec35",
+    "dev/ui.js": "1759bb84ed9c9bef21b87a55486004fb204d772485d28f57c3aa64af57977d9a",
+    "dev/shell.html": "c49bcb2a63087f8f4027619be62a0bc9c0e4fbc7bdd579eb04cbf5aa73f1c84f",
+    "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
+    "dev/audio.js": "4bb3ac7f9a83d28702607a804f1633f43beffb790d75dffdbb141fa266f2d21b",
+    "dev/build.cjs": "d6610b1790df5d187b04f059a14284c690d7e3d83f1f0ad63cc34524a1a2c5d4"
+  },
+  "runnerSha256": "90b92e53f8f145d4d85a135d2665477453120752876dcbf9df346859c7170f20"
+}

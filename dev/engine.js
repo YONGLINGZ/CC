@@ -1354,6 +1354,8 @@
       const b = state.battle;
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
       beginEvents();
+      // Lock this action before enemy-start poison/bleed can cross a revenge threshold.
+      if(ENEMIES[b.enemy.id].revenge)b.revengeIntentBonus=getIntent().revengeBonus;
       b.phase = 'enemy';
       // Finalise the only freeze roll here. Reading intent or reopening a panel never rolls again.
       b.enemy.frozen = (b.enemy.chill || 0) >= 10 ? rng() < .10 : false;
@@ -1395,6 +1397,11 @@
         log(`${enemy.name}被寒意封住，跳过「${intent.name}」的整次行动。`);
         event('freeze', { source:'status',target:'enemy',skipped:true,name:intent.name });
       } else {
+        if(intent.revengeBonus && !enemy.revengeAnnounced){
+          enemy.revengeAnnounced=true;
+          log(`缄红的留声簧卡住了：“主人……血债未清。”血债覆令发动，每段攻击额外 +${intent.revengeBonus}，固定轮转不变。`);
+          event('enemySkill',{source:'enemy',target:'enemy',kind:'revenge',name:'血债覆令',amount:intent.revengeBonus,text:`每段攻击 +${intent.revengeBonus}`});
+        }
         log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
         if (intent.clearMark) {
           event('mark', { source:'enemy',target:'enemy',amount:-enemy.mark,total:0 });
@@ -1452,6 +1459,7 @@
       }
       if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
       enemy.frozen=null;
+      delete b.revengeIntentBonus;
       enemy.intentIndex=rollIntent(enemy.id,enemy.intentIndex);
       note('你的回合。先看敌人意图，再决定攻守。');
       startPlayerTurn();emit();return true;
@@ -2086,12 +2094,14 @@
     }
     function getIntent() {
       const b=state.battle;if(!b)return null;
-      const intent=ENEMIES[b.enemy.id].intents[b.enemy.intentIndex];
+      const def=ENEMIES[b.enemy.id],intent=def.intents[b.enemy.intentIndex];
       const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
       const attackBonus = b.scaling?.attackBonus || 0;
+      const liveRevenge=def.revenge&&b.enemy.hp>0&&b.enemy.hp<=b.enemy.maxHp*def.revenge.threshold?def.revenge.perHit:0;
+      const revengeBonus=b.revengeIntentBonus??liveRevenge;
       // A cleansing action removes frost before attacking; preview the resulting actual hits.
       const reduction=chill>=5&&!intent.clearChill?1:0;
-      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
+      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus+revengeBonus-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
       if(intent.clearMark)parts.push('清除全部标记');
       if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
       if(intent.clearBleed)parts.push('清除全部流血');
@@ -2106,10 +2116,11 @@
       if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
       const frozen=b.enemy.frozen===true, freezeChance=chill>=10?.10:0;
       let text=parts.join('，');
+      if(revengeBonus)text+=`（${def.revenge.name}：每段攻击 +${revengeBonus}，已计入数值）`;
       if(reduction)text+='（霜寒压制：每段攻击 −1）';
       if(frozen)text='冰封：本次无法行动';
       else if(freezeChance&&b.enemy.frozen===null)text+='；10% 几率冰封，本次无法行动';
-      return {...intent,hits:frozen?[]:hits,baseHits,attackBonus,chill,frozen,freezeChance,text};
+      return {...intent,hits:frozen?[]:hits,baseHits,attackBonus,revengeBonus,chill,frozen,freezeChance,text};
     }
 
     state = freshState('title');
