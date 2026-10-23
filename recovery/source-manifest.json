@@ -3,23 +3,24 @@
   "mode": "source-svg",
   "files": {
     "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
-    "dev/audio.js": "ba464e0748d507db987861a7866338e773ffcdec6a41c08580aa1a428d2719bc",
-    "dev/build.cjs": "c8ade24e67a4b28d39d5d81ace1116ec204fed77a8b5cc5d053dc492a4de6188",
+    "dev/audio.js": "8755edaff3a2d524c94b197c59a5c4f18eabb0c8cf4fe847f428358f16e4cbe7",
+    "dev/boss-quests.js": "ea8acde28e3a968232cf46eaa0afb1d710832fe558c52e5d1237f7357992ffaa",
+    "dev/build.cjs": "9557a946ccbdf65fd90d019d4f3b1f90b8bde21e0f2b8cf35f853b547684b743",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "55c68633f541da2e0624e95d1a728ec863bd73fc4850d53f6a7aeddf8aa2f439",
+    "dev/engine.js": "233cbce3b5243f0d9bd4e635082a73d1d0e8a2fe92b99170e9821c79d46b917c",
     "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
-    "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
-    "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
-    "dev/tales.js": "8c84b6bbb4c518add18e4adb819099780c6957085f3e9888de41ff614bd07034",
-    "dev/ui.js": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7"
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/seven.js": "4582596a1e24ee76dbe933afb731ca815892cab84eb39b9704bb8443c4505580",
+    "dev/shell.html": "90951550281813d77e8dd57021bc3842a0ccd2053b6c2406d1f9be84a75b0742",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/ui.js": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8"
   },
   "outputs": {
-    "index.html": "11bab4096f856d1cac31d17f4adc2c0e5640fbb663f5ce377fc6dbf69597a8ec"
+    "index.html": "822ad821d2fa9ed22aaeb20029fc01535eff80dec53eecab9b1ebcc0dd71bb7b"
   },
   "release_outputs": {
-    "index.html": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
-    "baiyao-standalone.html": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6"
+    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
+    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -316,10 +317,10 @@
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945"
   },
   "asset_count": 0,
-  "source_count": 11,
-  "archive_sha256": "c360c012849a0ce3e9237f6a180aeaafc99e3a5c0cfa30e0ac22eca89345e983",
-  "archive_bytes": 219341,
-  "uncompressed_bytes": 654986,
+  "source_count": 12,
+  "archive_sha256": "8c13d47a4fb9fa1a86162813cb4039664862ef1c0fc97f5bb2a0a67f450c0bbc",
+  "archive_bytes": 229546,
+  "uncompressed_bytes": 679391,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

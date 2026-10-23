@@ -388,7 +388,7 @@ async function decodeImageSignatures(selector) {
       assert.equal(await page.locator('[data-action="target"] svg').isVisible(),true);
     });
 
-    await test('真实DOM完整八层路线、通关与重开（不改生命金币牌组路线状态）',async()=>{
+    await test('真实DOM完整八层路线、通关与重开（不改生命灵石牌组路线状态）',async()=>{
       const attempts=[];let won=false;
       for(let attempt=0;attempt<8&&!won;attempt++){
         await newRun(attempt%2?'combo':'mark');const route=[];

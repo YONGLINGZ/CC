@@ -50,15 +50,16 @@
   "errors": [],
   "externalRequests": [],
   "inputs": {
-    "index.html": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
-    "baiyao-standalone.html": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6",
-    "dev/ui.js": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7",
-    "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
-    "dev/engine.js": "55c68633f541da2e0624e95d1a728ec863bd73fc4850d53f6a7aeddf8aa2f439",
+    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
+    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273",
+    "dev/ui.js": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8",
+    "dev/shell.html": "90951550281813d77e8dd57021bc3842a0ccd2053b6c2406d1f9be84a75b0742",
+    "dev/engine.js": "233cbce3b5243f0d9bd4e635082a73d1d0e8a2fe92b99170e9821c79d46b917c",
     "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
-    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
-    "dev/tales.js": "8c84b6bbb4c518add18e4adb819099780c6957085f3e9888de41ff614bd07034",
-    "dev/batch-a-browser.test.cjs": "02d70f18c4a43c13c984a310e2082358a138177fe319f41ef774435501a6a220"
+    "dev/seven.js": "4582596a1e24ee76dbe933afb731ca815892cab84eb39b9704bb8443c4505580",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "ea8acde28e3a968232cf46eaa0afb1d710832fe558c52e5d1237f7357992ffaa",
+    "dev/batch-a-browser.test.cjs": "20a6c9cddd8ed4ffbb0914083fd579274f8b8b550d1b878e9c2757e833d63c4b"
   },
   "screenshots": [
     "/workspace/scratch/batch-a-selection.png",
@@ -348,13 +349,13 @@
       },
       "rects": [
         {
-          "text": "剑意 8/8已满",
+          "text": "剑意 8已满",
           "x": 64,
           "y": 108.1875,
-          "w": 92.390625,
+          "w": 80.109375,
           "h": 28.390625,
-          "scroll": 92,
-          "client": 92
+          "scroll": 80,
+          "client": 80
         },
         {
           "text": "灵力 30",
@@ -384,13 +385,13 @@
           "client": 306
         },
         {
-          "text": "追索印 2/5",
+          "text": "追索印 2",
           "x": 27,
           "y": 201.71875,
-          "w": 107.609375,
+          "w": 96.28125,
           "h": 44,
-          "scroll": 106,
-          "client": 106
+          "scroll": 94,
+          "client": 94
         }
       ],
       "buttons": [
@@ -399,7 +400,7 @@
           "h": 71
         },
         {
-          "w": 107.609375,
+          "w": 96.28125,
           "h": 44
         }
       ],
@@ -411,22 +412,22 @@
       "panel": {
         "x": 16,
         "w": 358,
-        "y": 84.03125
+        "y": 83.640625
       },
       "rects": [
         {
-          "text": "剑意 8/8已满",
+          "text": "剑意 8已满",
           "x": 64,
-          "y": 108.1875,
-          "w": 92.390625,
+          "y": 107.796875,
+          "w": 80.109375,
           "h": 28.390625,
-          "scroll": 92,
-          "client": 92
+          "scroll": 80,
+          "client": 80
         },
         {
           "text": "灵力 30",
           "x": 295,
-          "y": 95.03125,
+          "y": 94.640625,
           "w": 55.015625,
           "h": 34,
           "scroll": 55,
@@ -435,7 +436,7 @@
         {
           "text": "护盾 0",
           "x": 295,
-          "y": 132.03125,
+          "y": 131.640625,
           "w": 43.578125,
           "h": 34,
           "scroll": 44,
@@ -444,20 +445,20 @@
         {
           "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
           "x": 27,
-          "y": 166.03125,
+          "y": 165.640625,
           "w": 336,
           "h": 27.6875,
           "scroll": 336,
           "client": 336
         },
         {
-          "text": "追索印 2/5",
+          "text": "追索印 2",
           "x": 27,
-          "y": 201.71875,
-          "w": 107.609375,
+          "y": 201.328125,
+          "w": 96.28125,
           "h": 44,
-          "scroll": 106,
-          "client": 106
+          "scroll": 94,
+          "client": 94
         }
       ],
       "buttons": [
@@ -466,7 +467,7 @@
           "h": 71
         },
         {
-          "w": 107.609375,
+          "w": 96.28125,
           "h": 44
         }
       ],
@@ -482,13 +483,13 @@
       },
       "rects": [
         {
-          "text": "剑意 8/8已满",
+          "text": "剑意 8已满",
           "x": 64,
           "y": 124.796875,
-          "w": 92.390625,
+          "w": 80.109375,
           "h": 28.390625,
-          "scroll": 92,
-          "client": 92
+          "scroll": 80,
+          "client": 80
         },
         {
           "text": "灵力 30",
@@ -518,13 +519,13 @@
           "client": 376
         },
         {
-          "text": "追索印 2/5",
+          "text": "追索印 2",
           "x": 27,
           "y": 218.328125,
-          "w": 107.609375,
+          "w": 96.28125,
           "h": 44,
-          "scroll": 106,
-          "client": 106
+          "scroll": 94,
+          "client": 94
         }
       ],
       "buttons": [
@@ -533,7 +534,7 @@
           "h": 71
         },
         {
-          "w": 107.609375,
+          "w": 96.28125,
           "h": 44
         }
       ],

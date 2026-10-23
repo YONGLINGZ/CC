@@ -50,7 +50,7 @@ test('首精英稀有卡保底与未持有珍藏双选，至少一件秘宝且�
   }
 });
 
-test('一次免费换牌保留流派保底、固定候选和金币，重复重抽及跨奖励复用均无效',()=>{
+test('一次免费换牌保留流派保底、固定候选和灵石，重复重抽及跨奖励复用均无效',()=>{
   const g=run(12),s=g.state;assert.equal(g.rerollReward(),false);enter(g,'fight');win(g);
   const old=s.reward.cards.slice(),gold=s.player.gold;assert.equal(s.rewardRerolls,1);
   assert.equal(g.rerollReward(),true);assert.equal(s.rewardRerolls,0);assert.equal(s.reward.rerolled,true);
@@ -77,7 +77,7 @@ test('无面神血只在确定选择后精确增加12生命上限并治疗12，�
   assert.equal(g.chooseRelic('godblood'),false);assert.equal(s.player.maxHp,72);assert.equal(s.player.hp,32);
 });
 
-test('无可发珍藏时精英只额外20金币，总55，且不再要求选择',()=>{
+test('无可发珍藏时精英只额外20灵石，总55，且不再要求选择',()=>{
   const g=run(2),s=g.state;s.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal'].includes(id)));
   enter(g,'elite');win(g);assert.equal(s.reward.gold,55);assert.equal(s.player.gold,115);
   assert.deepEqual(s.reward.relicChoices,[]);assert.equal(s.reward.relicPending,false);assert.match(s.notice,/额外 20/);
@@ -101,7 +101,7 @@ test('十八独立事件54个正常选项完整兑现代价与收益，结局停
   }
 });
 
-test('十八独立事件在1生命、0金币、5张牌下均可继续，卖梦人条件性免费离开不发奖',()=>{
+test('十八独立事件在1生命、0灵石、5张牌下均可继续，卖梦人条件性免费离开不发奖',()=>{
   for(const id of EVENTS){
     const g=eventGame(id,0,{poor:true}),s=g.state,e=s.event;
     const index=e.choices.findIndex(c=>!c.disabled);assert.ok(index>=0,id);
@@ -115,9 +115,9 @@ test('十八独立事件在1生命、0金币、5张牌下均可继续，卖梦�
 test('全部秘宝已持有时七个交易回退文案金额与实际收益一致',()=>{
   for(const [id,i,fallback] of [['well',0,40],['shrine',0,60],['dreamshop',0,60],['theatre',0,60],['theatre',1,60],['umbrella',1,40],['pawnshop',1,40]]){
     const g=eventGame(id,i,{allTreasures:true}),s=g.state,c=s.event.choices[i],gold=s.player.gold;
-    assert.equal(c.relic,null);assert.equal(c.fallbackGold,fallback);assert.match(c.label,new RegExp(`${fallback} 金币`));
+    assert.equal(c.relic,null);assert.equal(c.fallbackGold,fallback);assert.match(c.label,new RegExp(`${fallback} 灵石`));
     assert.equal(g.chooseEvent(i),true);assert.equal(s.player.gold,gold-(c.goldCost||0)+fallback+(c.goldGain||0));
-    assert.match(s.event.received,new RegExp(`${fallback} 金币`));
+    assert.match(s.event.received,new RegExp(`${fallback} 灵石`));
   }
 });
 

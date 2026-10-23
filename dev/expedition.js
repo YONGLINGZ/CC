@@ -81,7 +81,7 @@
       const entry=s.shop?.items?.[index];
       if(!entry||entry.bought||!ITEMS[entry.id]||s.player.gold<entry.price)return false;
       entry.bought=true;s.player.gold-=entry.price;grantItem(entry.id);
-      note(`花费 ${entry.price} 金币，${ITEMS[entry.id].name}已收入包裹。`);emit();return true;
+      note(`花费 ${entry.price} 灵石，${ITEMS[entry.id].name}已收入包裹。`);emit();return true;
     }
     function rewardItem(id,amount=1){return {kind:'item',id,amount,name:ITEMS[id].name};}
     function rollCave(){
@@ -90,12 +90,12 @@
         const enemyId=pick(s.floor>=21?['bone','raider','yaksha']:s.floor>=11?['bone','ape','raider']:['paper','lantern','bone','ape']);
         return {kind:'enemy',enemyId,battleKind:enemyId==='yaksha'?'elite':'fight',title:'封石后的动静',text:'石门内传来兵刃刮过地面的声音。守在药匣旁的身影转向了你。',rewards:[rewardItem(pick(['healing_pill','battle_pill','antidote','spirit_pill']))]};
       }
-      if(roll<.43)return {kind:'coins',title:'遗落的铜匣',text:'铜匣底铺着一层旧绒，散落的灵钱仍带着微光。',rewards:[{kind:'gold',amount:25+Math.floor(random()*21),name:'金币'}]};
+      if(roll<.43)return {kind:'coins',title:'遗落的铜匣',text:'铜匣底铺着一层旧绒，散落的灵石仍带着微光。',rewards:[{kind:'gold',amount:25+Math.floor(random()*21),name:'灵石'}]};
       if(roll<.63)return {kind:'herbs',title:'石缝里的药香',text:'滴水润着一簇完好的灵草。你辨清药性，收进了包裹。',rewards:[rewardItem(pick(['herb','dewherb']),2+Math.floor(random()*2))]};
       if(roll<.85){const id=pick(['healing_pill','spirit_pill','battle_pill','antidote','fullheal_pill']);return {kind:'pills',title:ITEMS[id].rarity==='rare'?'封存的玉瓶':'未冷的丹炉',text:'炉旁的玉瓶封蜡未破，药香在瓶口凝成一线白雾。',rewards:[rewardItem(id)]};}
       const available=Object.keys(hooks.relics||{}).filter(id=>!['bell','fox','frostseal','veil'].includes(id)&&!s.player.relics.includes(id));
       if(available.length){const id=pick(available);return {kind:'treasure',title:'尘封秘藏',text:'重重封印自行散去。一件完整的灵物悬在石台上，仿佛等了很久。',rewards:[{kind:'relic',id,amount:1,name:hooks.relics[id].name}]};}
-      return {kind:'treasure',title:'满匣流光',text:'封印后的石匣盛满灵钱。你将这份意外之财收好。',rewards:[{kind:'gold',amount:60,name:'金币'},rewardItem('fullheal_pill')]};
+      return {kind:'treasure',title:'满匣流光',text:'封印后的石匣盛满灵石。你将这份意外之财收好。',rewards:[{kind:'gold',amount:60,name:'灵石'},rewardItem('fullheal_pill')]};
     }
     function enterCave(node){
       const s=getState();if(!node||node.type!=='cave'||s.player.hp<=0)return false;
@@ -112,7 +112,7 @@
       for(const entry of cave.outcome.rewards){
         if(entry.kind==='item')grantItem(entry.id,entry.amount);
         if(entry.kind==='gold')getState().player.gold+=entry.amount;
-        if(entry.kind==='relic'&&!hooks.addRelic(entry.id)){getState().player.gold+=40;rewards.push({kind:'gold',amount:40,name:'金币'});continue;}
+        if(entry.kind==='relic'&&!hooks.addRelic(entry.id)){getState().player.gold+=40;rewards.push({kind:'gold',amount:40,name:'灵石'});continue;}
         rewards.push({...entry});
       }
       const rare=rewards.some(r=>r.kind==='relic'||(r.kind==='item'&&ITEMS[r.id].rarity==='rare'));

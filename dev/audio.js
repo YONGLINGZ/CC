@@ -128,6 +128,8 @@
       ['name','echo',277,1500],['lanterns','bell',392,680],['grain','wood',220,1600],
       ['bridge','stone',196,1250],['forge','steel',370,3200],['theatre','bell',415,2300],['well','water',185,830]
     ].flatMap(([id,kind,base,air])=>[1,2,3].map(step=>[`tale_${id}_${step}`,{name:'雾中回声',notes:[base,base*1.5,base*(step===2?1.19:1.8),base*(1.8+step*.1)],kind,air:air+step*80}]))),
+    ...Object.fromEntries([['lotus_boss','wood',196],['gate_boss','bell',294],['camp_boss','chain',165],['snake','water',247],['bell_boss','gong',220]].flatMap(([id,kind,base])=>[1,2,3].map(step=>[`boss_${id}_${step}`,{name:'镇境旧事',notes:[base,base*(1+step*.1),base*1.5,base*2],kind,air:620+step*220}]))),
+    boss_lotus_awake:{name:'家令归宁',notes:[262,330,392,524],kind:'wood',air:900},
     campfire_hunt:{name:'火塘剑阵',notes:[147,220,311,440],kind:'steel',air:2900},
     road_aftermath:{name:'雾中车铃',notes:[294,440,587],kind:'wood',air:1200},
     cave:{name:'山腹藏幽',notes:[165,247,392,660],kind:'water',air:640}

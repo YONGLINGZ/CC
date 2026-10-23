@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_NAMES = (
     "dev/shell.html", "dev/art.js", "dev/audio.js", "dev/engine.js",
     "dev/ui.js", "dev/build.cjs", "dev/build.py",
-    "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js",
+    "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", "dev/boss-quests.js",
 )
 ASSET_GROUPS = {
     "items": ("clearheart_jade",),
@@ -348,7 +348,7 @@ def exercise(script: Path, manifest: dict) -> dict:
         assert "新增 0 个文件" in result.stdout
         checks.append("idempotent restore: zero files rewritten and all timestamps preserved")
 
-        removed = ["dev/audio.js", "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", *manifest["outputs"]]
+        removed = ["dev/audio.js", "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", "dev/boss-quests.js", *manifest["outputs"]]
         if not source_only:
             removed += ["assets/cards/C01.webp", "assets/events/well.webp", "assets/puppet/cat-critical.webp", "assets/puppet/cat-blink.webp", "assets/puppet/sword-critical.webp"]
         for name in removed:

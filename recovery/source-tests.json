@@ -26,13 +26,13 @@
     "existing folder release with missing WebPs: safely refused and untouched; requires full recovery or empty directory",
     "existing standalone release: preserved while independent slim index is restored"
   ],
-  "script_sha256": "45460ca326597660b65f3e1ed84b9f5bb821e793d4db9bb648835af144f189d9",
+  "script_sha256": "7cab7aec091ff75dd68e38754664ced8aa35d4018ac0bda298b650688dc1549b",
   "outputs": {
-    "index.html": "11bab4096f856d1cac31d17f4adc2c0e5640fbb663f5ce377fc6dbf69597a8ec"
+    "index.html": "822ad821d2fa9ed22aaeb20029fc01535eff80dec53eecab9b1ebcc0dd71bb7b"
   },
   "release_outputs": {
-    "index.html": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
-    "baiyao-standalone.html": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6"
+    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
+    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273"
   },
   "asset_count_in_payload": 0,
   "new_cloud_instance_tested": false,

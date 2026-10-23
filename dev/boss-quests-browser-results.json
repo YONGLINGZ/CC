@@ -1,0 +1,309 @@
+{
+  "format": "baiyao-boss-quests-browser",
+  "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
+  "inputs": {
+    "index.html": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
+    "baiyao-standalone.html": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273",
+    "dev/engine.js": "233cbce3b5243f0d9bd4e635082a73d1d0e8a2fe92b99170e9821c79d46b917c",
+    "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/seven.js": "4582596a1e24ee76dbe933afb731ca815892cab84eb39b9704bb8443c4505580",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "ea8acde28e3a968232cf46eaa0afb1d710832fe558c52e5d1237f7357992ffaa",
+    "dev/ui.js": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8",
+    "dev/shell.html": "90951550281813d77e8dd57021bc3842a0ccd2053b6c2406d1f9be84a75b0742",
+    "dev/audio.js": "8755edaff3a2d524c94b197c59a5c4f18eabb0c8cf4fe847f428358f16e4cbe7",
+    "dev/build.cjs": "9557a946ccbdf65fd90d019d4f3b1f90b8bde21e0f2b8cf35f853b547684b743",
+    "dev/boss-quests-browser.test.cjs": "61532431881121ceebf5e772cf7575bc84d685eed4fb8e1198861ea2d86c3e53"
+  },
+  "results": [
+    {
+      "name": "only actually applied frost/condensation appears; icons contain just a corner number and no other-class zeroes",
+      "ok": true
+    },
+    {
+      "name": "mark appears after its skill and disappears after execution; bleed/frost are absent until applied",
+      "ok": true
+    },
+    {
+      "name": "player zero and full sword resources persist without slash fractions on desktop and 360/390/430 layouts",
+      "ok": true
+    },
+    {
+      "name": "all five boss chains show four choices, correct decoded boss paintings and two non-consumable task objects",
+      "ok": true
+    },
+    {
+      "name": "puppet wakes automatically with both witnessed objects; aftermath goes to next realm once, missing object fights",
+      "ok": true
+    },
+    {
+      "name": "serpent countermeasure forecast matches actual first poison prevention and is then spent",
+      "ok": true
+    },
+    {
+      "name": "spirit-stone shop depicts a greedy cultivator merchant and real purchase still charges exactly once",
+      "ok": true
+    },
+    {
+      "name": "sixteen new quest/awakening cues generate audible finite offline waveforms",
+      "ok": true
+    },
+    {
+      "name": "source-bound artifact checks finish without JavaScript errors or outside requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/workspace/scratch/boss-quests-frost.png",
+    "/workspace/scratch/boss-quests-mobile.png",
+    "/workspace/scratch/boss-quests-awakening.png"
+  ],
+  "badge": {
+    "w": 44,
+    "h": 44,
+    "position": "absolute",
+    "right": "0px",
+    "bottom": "0px",
+    "label": "霜寒 1 层，点按查看规则"
+  },
+  "mobile": [
+    {
+      "width": 1440,
+      "body": 1440,
+      "w": 348,
+      "h": 66,
+      "steps": 2,
+      "text": "剑意 2\n+2"
+    },
+    {
+      "width": 360,
+      "body": 360,
+      "w": 230,
+      "h": 71,
+      "steps": 2,
+      "text": "剑意 2\n+2"
+    },
+    {
+      "width": 390,
+      "body": 390,
+      "w": 260,
+      "h": 71,
+      "steps": 2,
+      "text": "剑意 2\n+2"
+    },
+    {
+      "width": 430,
+      "body": 430,
+      "w": 300,
+      "h": 71,
+      "steps": 2,
+      "text": "剑意 2\n+2"
+    }
+  ],
+  "questArt": [
+    {
+      "boss": "lotus_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "lotus_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "lotus_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "gate_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "gate_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "gate_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "camp_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "camp_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "camp_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "snake",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "bell_boss",
+      "step": 1,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "bell_boss",
+      "step": 2,
+      "w": 768,
+      "h": 1152
+    },
+    {
+      "boss": "bell_boss",
+      "step": 3,
+      "w": 768,
+      "h": 1152
+    }
+  ],
+  "awakening": {
+    "screen": "arrival",
+    "floor": 11,
+    "stats": {
+      "battles": 0,
+      "cardsPlayed": 0,
+      "eliteBattles": 0,
+      "maxCombo": 0,
+      "maxHit": 0,
+      "chapterBosses": 0,
+      "peacefulBosses": 1,
+      "demonicUses": 0
+    },
+    "xp": 0,
+    "gold": 200,
+    "history": [
+      {
+        "id": "f10-0",
+        "floor": 10,
+        "type": "boss",
+        "name": "缚誓者",
+        "lane": 0,
+        "resolution": "awakened"
+      }
+    ],
+    "repeat": false
+  },
+  "audio": [
+    {
+      "id": "boss_lotus_boss_1",
+      "rms": 0.0060467822639605475,
+      "peak": 0.040416792035102844
+    },
+    {
+      "id": "boss_lotus_boss_2",
+      "rms": 0.006794925667764199,
+      "peak": 0.04809222370386124
+    },
+    {
+      "id": "boss_lotus_boss_3",
+      "rms": 0.006881475654670948,
+      "peak": 0.05089078098535538
+    },
+    {
+      "id": "boss_gate_boss_1",
+      "rms": 0.008411290221030392,
+      "peak": 0.049792930483818054
+    },
+    {
+      "id": "boss_gate_boss_2",
+      "rms": 0.008419740845170267,
+      "peak": 0.049477946013212204
+    },
+    {
+      "id": "boss_gate_boss_3",
+      "rms": 0.008453837487068171,
+      "peak": 0.05320511758327484
+    },
+    {
+      "id": "boss_camp_boss_1",
+      "rms": 0.005683959462182631,
+      "peak": 0.0401192232966423
+    },
+    {
+      "id": "boss_camp_boss_2",
+      "rms": 0.0055286745751812,
+      "peak": 0.043208006769418716
+    },
+    {
+      "id": "boss_camp_boss_3",
+      "rms": 0.005586432610469055,
+      "peak": 0.045053280889987946
+    },
+    {
+      "id": "boss_snake_1",
+      "rms": 0.009004677946251921,
+      "peak": 0.055054645985364914
+    },
+    {
+      "id": "boss_snake_2",
+      "rms": 0.008891846858089917,
+      "peak": 0.05495216324925423
+    },
+    {
+      "id": "boss_snake_3",
+      "rms": 0.00887887829794267,
+      "peak": 0.05567336827516556
+    },
+    {
+      "id": "boss_bell_boss_1",
+      "rms": 0.008056289486556819,
+      "peak": 0.05007132142782211
+    },
+    {
+      "id": "boss_bell_boss_2",
+      "rms": 0.008272432777190895,
+      "peak": 0.05053272098302841
+    },
+    {
+      "id": "boss_bell_boss_3",
+      "rms": 0.008176489324601384,
+      "peak": 0.050689708441495895
+    },
+    {
+      "id": "boss_lotus_awake",
+      "rms": 0.006868849850072274,
+      "peak": 0.04926169291138649
+    }
+  ],
+  "passed": 9,
+  "failed": 0
+}

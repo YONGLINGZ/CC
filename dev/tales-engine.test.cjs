@@ -2,15 +2,15 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),N=require('./engine.js'),T=require('./tales.js');
 const rng=seed=>()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
-function run(starter='sword',options={}){const g=N.createGame({rng:rng(42),environment:false,scaling:false,profile:{unlocks:['feiye']},...options});g.newRun(starter);g.enterRegion();return g;}
+function run(starter='sword',options={}){const g=N.createGame({rng:rng(42),environment:false,scaling:false,bossQuests:false,profile:{unlocks:['feiye']},...options});g.newRun(starter);g.enterRegion();return g;}
 function at(g,floor,type='event',id=null){const s=g.state;s.screen='map';s.floor=floor;s.journey.regionIndex=Math.floor((floor-1)/10);const n=s.map[floor-1][0];n.type=type;n.revealed=true;delete n.encounter;delete n.storyId;if(id)n.storyId=id;s.availableNodes=[n.id];s.history=s.history.filter(h=>h.floor!==floor);assert.equal(g.enterNode(n.id),true);return s;}
 function record(g,id){g.state.journey.tales.chains[id]={stage:0,choices:{},lastOutcome:'',floors:[6,26,46]};}
 function resolve(g,index=0){const e=g.state.event;assert.equal(g.chooseEvent(index),true);const snap=JSON.stringify(g.state);assert.equal(g.chooseEvent(index),false);assert.equal(JSON.stringify(g.state),snap);assert.ok(e.resolved);return e;}
-function restTo(g,floor){while(g.state.floor<floor){if(g.state.screen==='arrival')g.enterRegion();assert.equal(g.state.screen,'map');const n=g.getAvailableNodes().find(n=>n.type==='rest')||g.getAvailableNodes()[0];n.type='rest';delete n.storyId;delete n.encounter;g.enterNode(n.id);g.rest(false);}if(g.state.screen==='arrival')g.enterRegion();}
+function restTo(g,floor){while(g.state.floor<floor){if(g.state.screen==='arrival')g.enterRegion();assert.equal(g.state.screen,'map');const available=g.getAvailableNodes(),rests=available.filter(n=>n.type==='rest');const n=(rests.length?rests:available).slice().sort((a,b)=>b.next.length-a.next.length)[0];n.type='rest';delete n.storyId;delete n.encounter;g.enterNode(n.id);g.rest(false);}if(g.state.screen==='arrival')g.enterRegion();}
 function finish(g){const b=g.state.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=20;b.hand=[{id:'C01',uid:'tale-finisher'}];assert.equal(g.playCard('tale-finisher',true),true);}
 
 test('ten coherent three-part chains, thirty unique event IDs, two interruptions and distinct chain art references',()=>{
- assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,84);
+ assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,100);
 });
 for(const chain of Object.keys(T.CHAINS))test('all 27 choice paths settle and preserve witnessed consequences: '+chain,()=>{
  for(let a=0;a<3;a++)for(let b=0;b<3;b++)for(let c=0;c<3;c++){

@@ -3,7 +3,7 @@
   'use strict';
   const REGIONS = [
     {id:'fog_gate',name:'雾锁山门',subtitle:'第一境 · 雾外来客',stages:[1,10],description:'封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。山口的灯还亮着，照不出更深处的归路。',palette:{sky:'#15232b',ground:'#49626a',accent:'#abd9d1'}},
-    {id:'broken_camp',name:'断桥诸营',subtitle:'第二境 · 灯下故人',stages:[11,20],description:'断桥两侧，药香、商灯与暗哨混在一起。失散的同伴留下字条，没署名的货匣摆在火边；先前的一句承诺，也许比钱袋更重。',palette:{sky:'#252019',ground:'#6c5342',accent:'#e4b56e'}},
+    {id:'broken_camp',name:'断桥诸营',subtitle:'第二境 · 灯下故人',stages:[11,20],description:'断桥两侧，药香、商灯与暗哨混在一起。失散的同伴留下字条，没署名的货匣摆在火边；先前的一句承诺，也许比灵石袋更重。',palette:{sky:'#252019',ground:'#6c5342',accent:'#e4b56e'}},
     {id:'ritual_core',name:'逆仪旧址',subtitle:'第三境 · 空井未终',stages:[21,30],description:'玄烬教引灵仪的旧址已经坍塌，观测井下却仍传来潮声。留守的妖物把这里当作最后一道门，门后的空间似乎不属于任何山川。',palette:{sky:'#221728',ground:'#4c3c61',accent:'#c5a1e4'}},
     {id:'drowned_marsh',name:'沉月泽国',subtitle:'第四境 · 水中无月',stages:[31,40],description:'走出井门，脚下已是无边泽国。泥水里映着一轮天上没有的月，沉没的村楼偶尔浮出水面。药庐、送行的队伍与旧书楼，都在等待潮汐松手。',palette:{sky:'#102a32',ground:'#355e61',accent:'#9ad4ce'}},
     {id:'furnace_palace',name:'焚愿天阙',subtitle:'第五境 · 愿作灯薪',stages:[41,50],description:'泽国尽头立着朱金宫阙，城中炉火烧的不是木炭。每一份写下的愿望都被登记、称量，再送进长明炉。有人想取回旧愿，有人还在添薪。',palette:{sky:'#321c23',ground:'#71402f',accent:'#efb66d'}},
@@ -153,59 +153,59 @@
 
   const EVENTS = {
     marsh_pharmacy:{name:'水上药庐',glyph:'药',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['一间药庐用粗绳系在老柳上，案边的年轻人正把浸水的药纸重新晾干。','她没有问你来自哪里，只把两只药包推到干燥的一侧：“这一包养伤，那一包拔毒。看清了再拿。”'],choices:[
-      {label:'付 18 金币，收一包凝露叶',text:'获得凝露叶 ×2，收入包裹；每份恢复 12 生命。',goldCost:18,itemGrants:[{id:'dewherb',count:2}],outcome:'你把钱压在药纸下。她在两包凝露叶上各系了一根防潮细绳。'},
-      {label:'付 35 金币，取拔毒丹',text:'获得百草解厄丹 ×1，收入包裹；服用时彻底解除毒素。',goldCost:35,itemGrants:[{id:'antidote',count:1}],outcome:'瓶口封蜡仍有余温。她确认你看清药名，才松开搭在瓶上的手。'},
-      {label:'帮她把药架搬上高处',text:'获得回春草 ×1，不花费金币。',itemGrants:[{id:'herb',count:1}],flags:{sevenPharmacyHelp:true},outcome:'药架稳稳落在梁上。临走时，一小束回春草被塞进了你的包裹。'}
+      {label:'付 18 灵石，收一包凝露叶',text:'获得凝露叶 ×2，收入包裹；每份恢复 12 生命。',goldCost:18,itemGrants:[{id:'dewherb',count:2}],outcome:'你把灵石压在药纸下。她在两包凝露叶上各系了一根防潮细绳。'},
+      {label:'付 35 灵石，取拔毒丹',text:'获得百草解厄丹 ×1，收入包裹；服用时彻底解除毒素。',goldCost:35,itemGrants:[{id:'antidote',count:1}],outcome:'瓶口封蜡仍有余温。她确认你看清药名，才松开搭在瓶上的手。'},
+      {label:'帮她把药架搬上高处',text:'获得回春草 ×1，不花费灵石。',itemGrants:[{id:'herb',count:1}],flags:{sevenPharmacyHelp:true},outcome:'药架稳稳落在梁上。临走时，一小束回春草被塞进了你的包裹。'}
     ]},
     reed_procession:{name:'苇间送行',glyph:'苇',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['一列白衣人从苇间走过，没有鼓乐，只有鞋底踏水的轻响。队尾一名女子抱着空盒，问你可曾看见盒盖上的那只纸鹤。','苇根下恰好压着半只纸翅，另一半已被水浸软。她看着纸片，迟迟没有伸手。'],choices:[
-      {label:'用护身符纸替她折一只',text:'失去 4 生命，获得 25 金币与回春草 ×1。',hpCost:4,goldGain:25,itemGrants:[{id:'herb',count:1}],outcome:'符纸折起时掠过掌心，留下一道细伤。女子把纸鹤放进盒中，向你行礼，铜钱与草束留在了岸边。'},
+      {label:'用护身符纸替她折一只',text:'失去 4 生命，获得 25 灵石与回春草 ×1。',hpCost:4,goldGain:25,itemGrants:[{id:'herb',count:1}],outcome:'符纸折起时掠过掌心，留下一道细伤。女子把纸鹤放进盒中，向你行礼，灵石与草束留在了岸边。'},
       {label:'陪她把残翅烘干',text:'恢复 10 生命，不取得盒中的东西。',heal:10,outcome:'你们守着一小簇火。等纸翅重新挺起，她才轻轻说了一声谢谢；火边的暖意也让你的呼吸平稳下来。'},
       {label:'告诉她纸鹤所在，然后离开',text:'不改变数值。',outcome:'她沿着你的指向慢慢走近苇根。送行队伍放慢了脚步，给她留下了一段距离。'}
     ]},
     drowned_archive:{name:'沉底书楼',glyph:'书',regionIndex:3,minRegion:3,maxRegion:3,minFloor:32,maxFloor:39,story:['潮水退去半丈，一座书楼的二层露了出来。窗内的书页没有湿，墨迹却像鱼一样游动。','楼中有人隔窗递出一块木牌：“以一页换一页。不要把整本拿走。”'],choices:[
-      {label:'付 30 金币，换一页完整功诀',text:'随机获得一张本职业稀有技能，进入事件时固定。',goldCost:30,cardRarity:'rare',outcome:'你接过的一页不再游动。楼中人合上木窗，像完成了一笔极寻常的借阅。'},
+      {label:'付 30 灵石，换一页完整功诀',text:'随机获得一张本职业稀有技能，进入事件时固定。',goldCost:30,cardRarity:'rare',outcome:'你接过的一页不再游动。楼中人合上木窗，像完成了一笔极寻常的借阅。'},
       {label:'把窗边散页按次序归好',text:'下场战斗首回合获得 10 护盾。',guard:10,flags:{sevenArchiveRepaired:true},outcome:'散页归位后，墨色沿着你的护符描出一圈细纹。水涨回窗下时，木牌已经不见了。'},
-      {label:'只读门上的题字',text:'获得 12 金币，不拿走书页。',goldGain:12,outcome:'题字读完，一枚旧书签落到掌中。夹在其中的铜钱不多，足够付下一段路的灯油。'}
+      {label:'只读门上的题字',text:'获得 12 灵石，不拿走书页。',goldGain:12,outcome:'题字读完，一枚旧书签落到掌中。夹在其中的灵石不多，足够付下一段路的灯油。'}
     ]},
-    furnace_ledger:{name:'焚愿账房',glyph:'账',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['长案后一位女子正在烧账。每烧掉一页，案上便多出一枚温热的铜钱。','她看见你停下，把一册尚未点燃的薄账移到灯下：“查自己的，还是替旁人付清？”'],choices:[
-      {label:'付 20 金币，结清一册旧账',text:'获得虎魄丹 ×1，收入包裹。',goldCost:20,itemGrants:[{id:'battle_pill',count:1}],outcome:'账页没有落入火中，而是化成一缕赤光，凝进你取走的药瓶。'},
-      {label:'把案上冷掉的炉钱收走',text:'获得 28 金币。',goldGain:28,outcome:'她没有拦你，只在空白处重新写下一行字。炉钱在掌心渐渐冷却，分量与寻常钱币无异。'},
+    furnace_ledger:{name:'焚愿账房',glyph:'账',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['长案后一位女子正在烧账。每烧掉一页，案上便多出一枚温热的灵石。','她看见你停下，把一册尚未点燃的薄账移到灯下：“查自己的，还是替旁人付清？”'],choices:[
+      {label:'付 20 灵石，结清一册旧账',text:'获得虎魄丹 ×1，收入包裹。',goldCost:20,itemGrants:[{id:'battle_pill',count:1}],outcome:'账页没有落入火中，而是化成一缕赤光，凝进你取走的药瓶。'},
+      {label:'把案上冷掉的供炉灵石收走',text:'获得 28 灵石。',goldGain:28,outcome:'她没有拦你，只在空白处重新写下一行字。供炉灵石在掌心渐渐冷却，分量与寻常灵石无异。'},
       {label:'不翻账，只添一盏灯油',text:'恢复 12 生命。',heal:12,outcome:'新灯照亮了帐房的门。你在门边坐了一会儿，手脚的僵硬逐渐散去。'}
     ]},
     captive_smith:{name:'炉侧敲声',glyph:'锻',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['偏殿传来极有节奏的敲击声。门没有锁，里面的铸匠却始终不肯跨过炉前的一道白线。','她把一段烧红的锁链送回砧上：“帮我压住炉门。最后这一下，我一个人落不准。”'],choices:[
       {label:'替她压住炉门',text:'失去 5 生命，随机获得一张本职业稀有技能。',hpCost:5,cardRarity:'rare',flags:{sevenSmithHelped:true},outcome:'热浪擦过手臂，最后一锤落下。她将薄薄的淬刃札记递给你，自己仍站在白线另一侧。'},
-      {label:'付 25 金币，请她修整护符',text:'下场战斗首回合获得 14 护盾。',goldCost:25,guard:14,outcome:'她没有碰你的兵刃，只把护符背面的裂口锤合。细小的金属声久久不散。'},
+      {label:'付 25 灵石，请她修整护符',text:'下场战斗首回合获得 14 护盾。',goldCost:25,guard:14,outcome:'她没有碰你的兵刃，只把护符背面的裂口锤合。细小的金属声久久不散。'},
       {label:'把门边的冷水留给她',text:'获得回春草 ×2。',itemGrants:[{id:'herb',count:2}],outcome:'铸匠终于停了一锤。她用两束耐热灵草回礼，示意你从另一侧的阴影离开。'}
     ]},
     ash_orchard:{name:'灰烬果园',glyph:'果',regionIndex:4,minRegion:4,maxRegion:4,minFloor:42,maxFloor:49,story:['烧成灰白的果树仍挂着三枚红果。树下没有脚印，只有一只盛着清水的瓷碗。','风过时，红果里传出很轻的笑声。你认得枝叶上留下的药性，却认不出这片果园原来的名字。'],choices:[
       {label:'摘下一枚，炼成回气丹',text:'获得回气丹 ×1，收入包裹；恢复 24 生命。',itemGrants:[{id:'healing_pill',count:1}],outcome:'果肉遇火即化，留下了一枚温热的丹丸。枝头的笑声随着红色一同淡去。'},
-      {label:'付 22 金币，换枝上凝成的灵露',text:'恢复 20 生命。',goldCost:22,heal:20,outcome:'铜钱沉入碗底，树叶上凝出几滴澄澈灵露。你饮下它们，喉间没有半分灰味。'},
+      {label:'付 22 灵石，换枝上凝成的灵露',text:'恢复 20 生命。',goldCost:22,heal:20,outcome:'灵石沉入碗底，树叶上凝出几滴澄澈灵露。你饮下它们，喉间没有半分灰味。'},
       {label:'把碗里的清水浇在树根',text:'获得聚灵丹 ×1。',itemGrants:[{id:'spirit_pill',count:1}],outcome:'树根下露出一只细小玉瓶。你收走它时，枯枝轻轻垂低，像替你让开了道路。'}
     ]},
     mirror_guest:{name:'隔镜来客',glyph:'镜',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['廊中立着一面没有背板的镜子，一位衣着整齐的女子从镜里朝你颔首。她脚边也有一个包裹，系法与你眼前的商货很像。','“隔着镜子，谁也不能多拿。”她把三只药瓶放在镜前，瓶中各有不同颜色的光。'],choices:[
-      {label:'付 35 金币，交换九转还元丹',text:'获得九转还元丹 ×1，服用时完全恢复生命。',goldCost:35,itemGrants:[{id:'fullheal_pill',count:1}],outcome:'两边的手在镜面相抵，药瓶却真的落进你的掌中。她收好钱，重新把袖口抚平。'},
-      {label:'付 18 金币，交换虎魄丹',text:'获得虎魄丹 ×1。',goldCost:18,itemGrants:[{id:'battle_pill',count:1}],outcome:'赤色丹丸带着灼热的香气。镜里的女子把空位置轻轻擦净，没有再推销别的。'},
+      {label:'付 35 灵石，交换九转还元丹',text:'获得九转还元丹 ×1，服用时完全恢复生命。',goldCost:35,itemGrants:[{id:'fullheal_pill',count:1}],outcome:'两边的手在镜面相抵，药瓶却真的落进你的掌中。她收好灵石，重新把袖口抚平。'},
+      {label:'付 18 灵石，交换虎魄丹',text:'获得虎魄丹 ×1。',goldCost:18,itemGrants:[{id:'battle_pill',count:1}],outcome:'赤色丹丸带着灼热的香气。镜里的女子把空位置轻轻擦净，没有再推销别的。'},
       {label:'谢过她，沿着镜外走',text:'不改变数值。',outcome:'她也向镜子的另一侧走去。谁先离开了视线，你没有回头确认。'}
     ]},
     unfinished_portrait:{name:'未竟之像',glyph:'画',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['一幅大画铺在地上，衣冠、手势和背景都已画好，脸上却只有淡淡的底色。颜料旁压着一张小纸，写着：“请留一处你愿意记得的。”','画笔没有指向你。它只是搁在那里，像主人随时会回来。'],choices:[
       {label:'以 4 点生命留下一抹颜色',text:'随机获得一张本职业稀有技能。',hpCost:4,cardRarity:'rare',outcome:'颜色落在画边的一朵花上。画没有长出你的脸，倒是笔下的一段运气之法清晰起来。'},
-      {label:'付 24 金币，买下旁边的旧画谱',text:'从本局牌组永久移除一张基础牌；牌组至少保留五张。',goldCost:24,removeBasic:true,outcome:'旧画谱只讲留白。你合上它，终于明白有一式熟练的旧招，不必再随身带着。'},
+      {label:'付 24 灵石，买下旁边的旧画谱',text:'从本局牌组永久移除一张基础牌；牌组至少保留五张。',goldCost:24,removeBasic:true,outcome:'旧画谱只讲留白。你合上它，终于明白有一式熟练的旧招，不必再随身带着。'},
       {label:'替画纸压住卷起的一角',text:'恢复 8 生命，获得回春草 ×1。',heal:8,itemGrants:[{id:'herb',count:1}],outcome:'窗缝里的风不再掀动画纸。你在廊下歇脚，起身时看见压纸石旁多了一束灵草。'}
     ]},
     glass_assembly:{name:'琉璃议席',glyph:'席',regionIndex:5,minRegion:5,maxRegion:5,minFloor:52,maxFloor:59,story:['十二张琉璃椅围着一张无字石桌，其中十一张映着人影。空着的那一张朝向来路，扶手上放着一枚敲席的玉槌。','你站着不动，人影也没有催促。石桌中央有三个小匣，盖上分别刻着灯、刃与叶。'],choices:[
       {label:'开启刻着灯的小匣',text:'获得聚灵丹 ×2。',itemGrants:[{id:'spirit_pill',count:2}],outcome:'匣中两枚丹药轻轻相碰。十一道人影依次低头，像为一件寻常事务作了见证。'},
-      {label:'开启刻着刃的小匣',text:'付 25 金币，随机获得一张本职业精巧技能。',goldCost:25,cardRarity:'uncommon',outcome:'小匣里不是兵刃，而是一页折成刃形的功诀。你收好它，空椅仍朝着来路。'},
+      {label:'开启刻着刃的小匣',text:'付 25 灵石，随机获得一张本职业精巧技能。',goldCost:25,cardRarity:'uncommon',outcome:'小匣里不是兵刃，而是一页折成刃形的功诀。你收好它，空椅仍朝着来路。'},
       {label:'开启刻着叶的小匣',text:'获得凝露叶 ×2。',itemGrants:[{id:'dewherb',count:2}],outcome:'绿叶上还凝着水。你没有坐下，匣盖合拢时，身后的廊门已重新映出前路。'}
     ]},
     fate_tailor:{name:'补命针线',glyph:'线',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['一位白发女子坐在星海旁补衣，脚边的线团全是黑色，针尖却每次都带出一缕金光。','她抬眼看了看你的袖口：“衣服能补，伤也能补。别急着把名字一并缝进去。”'],choices:[
-      {label:'付 30 金币，请她补一处旧伤',text:'恢复 24 生命，并获得回春草 ×1。',goldCost:30,heal:24,itemGrants:[{id:'herb',count:1}],outcome:'针尖并未碰到皮肤，衣上的裂口却一寸寸合拢。你再呼吸时，肋下旧痛已轻了许多。'},
-      {label:'付 36 金币，请她缝上拔毒纹',text:'彻底解除缠脉毒，不恢复生命；仅中毒时可选。',goldCost:36,cureAffliction:true,requiresAffliction:true,outcome:'一圈细密的针脚收住掌心黑线。她把末端剪断，连同针尖的一点暗色一并丢进星海。'},
+      {label:'付 30 灵石，请她补一处旧伤',text:'恢复 24 生命，并获得回春草 ×1。',goldCost:30,heal:24,itemGrants:[{id:'herb',count:1}],outcome:'针尖并未碰到皮肤，衣上的裂口却一寸寸合拢。你再呼吸时，肋下旧痛已轻了许多。'},
+      {label:'付 36 灵石，请她缝上拔毒纹',text:'彻底解除缠脉毒，不恢复生命；仅中毒时可选。',goldCost:36,cureAffliction:true,requiresAffliction:true,outcome:'一圈细密的针脚收住掌心黑线。她把末端剪断，连同针尖的一点暗色一并丢进星海。'},
       {label:'替她收起散落的针',text:'下场战斗首回合获得 12 护盾。',guard:12,outcome:'针没有扎手，只在护符上落了三个细孔。女子把线团拨向一旁，为你让出了路。'}
     ]},
     silent_astrolabe:{name:'停转星盘',glyph:'星',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['一座巨大的星盘横卧在断阶上，指针指向一个被刮掉的字。盘沿仍有供人转动的握柄，上面留着不同深浅的指印。','你摸到了一处温热的刻槽。星盘没有转，远处命枢的细线却短暂地绷紧了。'],choices:[
-      {label:'付 28 金币，补回缺失的铜齿',text:'随机获得一张本职业稀有技能。',goldCost:28,cardRarity:'rare',outcome:'铜齿咬合时，盘面只前进了一格。刮掉的字没有回来，藏在刻槽中的一页功诀却完整展开。'},
+      {label:'付 28 灵石，补回缺失的铜齿',text:'随机获得一张本职业稀有技能。',goldCost:28,cardRarity:'rare',outcome:'铜齿咬合时，盘面只前进了一格。刮掉的字没有回来，藏在刻槽中的一页功诀却完整展开。'},
       {label:'顺着指针的方向运气',text:'恢复 15 生命，获得聚灵丹 ×1。',heal:15,itemGrants:[{id:'spirit_pill',count:1}],outcome:'一口浊气沿着指针散去。星光在掌心凝成一枚丹丸，盘面仍安静地停在原处。'},
-      {label:'不动星盘，绕过断阶',text:'获得 18 金币。',goldGain:18,outcome:'断阶另一侧有一袋旧钱，袋口扎着褪色绳结。你收好它，没有替星盘选择下一个方向。'}
+      {label:'不动星盘，绕过断阶',text:'获得 18 灵石。',goldGain:18,outcome:'断阶另一侧有一袋旧灵石，袋口扎着褪色绳结。你收好它，没有替星盘选择下一个方向。'}
     ]},
     last_campfire:{name:'最后一盏营火',glyph:'火',regionIndex:6,minRegion:6,maxRegion:6,minFloor:62,maxFloor:69,story:['星海中有一块能够落脚的旧石地，篝火烧着从山门带来的松枝。火边没有人，只有三只杯子，杯中的水仍温着。','一张折起的纸压在杯下：“若还有后来的人，请留一杯。”字迹被热气晕开，看不出出自谁手。'],choices:[
       {label:'坐下喝一杯水，把余下的留下',text:'恢复 18 生命。',heal:18,outcome:'杯里的水有淡淡松香。你把杯子放回原处，火光落在一路带来的行囊上，像远处仍有一扇门。'},

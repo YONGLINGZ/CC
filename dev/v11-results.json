@@ -1,6 +1,6 @@
 {
   "format": "baiyao-v11-browser",
-  "startedAt": "2026-10-23T10:04:28.545Z",
+  "startedAt": "2026-10-23T12:54:52.610Z",
   "naturalPolicy": "v2 actual visible supply purchases, one-time jade then affordable cure; full healing when suppression already active. Original v1 six losses archived, fixed 150 numeric strategy unchanged.",
   "target": "/workspace/CC/index.html",
   "inlineTarget": "/workspace/CC/baiyao-standalone.html",
@@ -85,9 +85,9 @@
     "sword": [
       {
         "seed": 1000,
-        "result": "victory",
-        "hp": 14,
-        "maxHp": 59,
+        "result": "defeat",
+        "hp": 0,
+        "maxHp": 52,
         "level": 6,
         "power": 0,
         "equippedWeapon": "rime",
@@ -95,444 +95,240 @@
           "training",
           "rime"
         ],
-        "history": 70,
+        "history": 36,
         "route": [
           {
             "floor": 1,
             "type": "fight",
             "id": "f1-0",
-            "y": 1293.22
+            "y": 1294.16
           },
           {
             "floor": 2,
             "type": "cave",
-            "id": "f2-1",
+            "id": "f2-2",
             "y": 1159.62
           },
           {
             "floor": 3,
             "type": "event",
-            "id": "f3-0",
+            "id": "f3-4",
             "storyId": "liu_first",
-            "y": 1018.74
+            "y": 1014.65
           },
           {
             "floor": 4,
             "type": "event",
             "id": "f4-0",
             "storyId": "moon_trace",
-            "y": 888.839
+            "y": 892.704
           },
           {
             "floor": 5,
             "type": "event",
             "id": "f5-0",
             "storyId": "tainted_mercy",
-            "y": 766.176
+            "y": 757.972
           },
           {
             "floor": 6,
-            "type": "shop",
-            "id": "f6-1",
+            "type": "rest",
+            "id": "f6-3",
             "y": 627.948
           },
           {
             "floor": 7,
             "type": "event",
-            "id": "f7-2",
+            "id": "f7-3",
             "storyId": "demonic_offer",
-            "y": 490.937
+            "y": 490.851
           },
           {
             "floor": 8,
-            "type": "event",
-            "id": "f8-1",
-            "storyId": "tale_medicine_1",
-            "y": 367.415
+            "type": "cave",
+            "id": "f8-2",
+            "y": 363.681
           },
           {
             "floor": 9,
             "type": "shop",
-            "id": "f9-2",
-            "y": 226.277
+            "id": "f9-3",
+            "y": 234.926
           },
           {
             "floor": 10,
             "type": "boss",
             "id": "f10-0",
-            "y": 97.0108
+            "y": 93.2445
           },
           {
             "floor": 11,
             "type": "fight",
             "id": "f11-0",
-            "y": 1294.57
+            "y": 1289.54
           },
           {
             "floor": 12,
-            "type": "rest",
-            "id": "f12-2",
-            "y": 1157.71
+            "type": "shop",
+            "id": "f12-0",
+            "y": 1164.48
           },
           {
             "floor": 13,
             "type": "event",
-            "id": "f13-2",
+            "id": "f13-1",
             "storyId": "liu_return",
-            "y": 1018.17
+            "y": 1019.88
           },
           {
             "floor": 14,
-            "type": "event",
-            "id": "f14-0",
-            "storyId": "sealed_name",
-            "y": 899.034
+            "type": "shop",
+            "id": "f14-1",
+            "y": 886.201
           },
           {
             "floor": 15,
             "type": "rest",
-            "id": "f15-0",
-            "y": 767.873
+            "id": "f15-2",
+            "y": 751.289
           },
           {
             "floor": 16,
-            "type": "cave",
-            "id": "f16-4",
-            "y": 628.269
+            "type": "rest",
+            "id": "f16-1",
+            "y": 624.578
           },
           {
             "floor": 17,
             "type": "event",
-            "id": "f17-4",
+            "id": "f17-1",
             "storyId": "demonic_warning",
-            "y": 488.666
+            "y": 489.754
           },
           {
             "floor": 18,
-            "type": "cave",
-            "id": "f18-1",
-            "y": 363.395
+            "type": "shop",
+            "id": "f18-0",
+            "y": 370.872
           },
           {
             "floor": 19,
             "type": "shop",
-            "id": "f19-1",
-            "y": 233.037
+            "id": "f19-0",
+            "y": 226.656
           },
           {
             "floor": 20,
             "type": "boss",
             "id": "f20-0",
-            "y": 101.783
+            "y": 101.037
           },
           {
             "floor": 21,
             "type": "fight",
             "id": "f21-0",
-            "y": 1279.75
+            "y": 1285.07
           },
           {
             "floor": 22,
             "type": "event",
             "id": "f22-0",
             "storyId": "mirror_trial",
-            "y": 1165.02
+            "y": 1155.04
           },
           {
             "floor": 23,
             "type": "event",
-            "id": "f23-1",
+            "id": "f23-6",
             "storyId": "liu_final",
-            "y": 1023.75
+            "y": 1020.97
           },
           {
             "floor": 24,
             "type": "event",
             "id": "f24-0",
             "storyId": "moon_vow",
-            "y": 891.709
+            "y": 892.438
           },
           {
             "floor": 25,
-            "type": "shop",
-            "id": "f25-0",
-            "y": 758.742
+            "type": "cave",
+            "id": "f25-2",
+            "y": 769.338
           },
           {
             "floor": 26,
             "type": "fox",
-            "id": "f26-3",
-            "y": 619.942
+            "id": "f26-1",
+            "y": 636.531
           },
           {
             "floor": 27,
             "type": "event",
-            "id": "f27-3",
+            "id": "f27-1",
             "storyId": "demon_manual",
-            "y": 504.963
+            "y": 487.04
           },
           {
             "floor": 28,
-            "type": "rest",
-            "id": "f28-2",
-            "y": 355.408
+            "type": "cave",
+            "id": "f28-0",
+            "y": 358.462
           },
           {
             "floor": 29,
             "type": "event",
-            "id": "f29-3",
-            "y": 225.713
+            "id": "f29-0",
+            "y": 238.19
           },
           {
             "floor": 30,
             "type": "boss",
             "id": "f30-0",
-            "y": 93.943
+            "y": 100.097
           },
           {
             "floor": 31,
             "type": "fight",
             "id": "f31-0",
-            "y": 1286.61
+            "y": 1287.03
           },
           {
             "floor": 32,
             "type": "rest",
-            "id": "f32-1",
-            "y": 1151.48
+            "id": "f32-0",
+            "y": 1161.15
           },
           {
             "floor": 33,
             "type": "event",
             "id": "f33-1",
-            "storyId": "drowned_archive",
-            "y": 1017.29
+            "storyId": "reed_procession",
+            "y": 1031.59
           },
           {
             "floor": 34,
             "type": "shop",
-            "id": "f34-1",
-            "y": 888.458
+            "id": "f34-0",
+            "y": 888.689
           },
           {
             "floor": 35,
-            "type": "cave",
-            "id": "f35-3",
-            "y": 766.762
+            "type": "rest",
+            "id": "f35-0",
+            "y": 763.794
           },
           {
             "floor": 36,
             "type": "shop",
-            "id": "f36-1",
-            "y": 621.373
+            "id": "f36-3",
+            "y": 629.066
           },
           {
             "floor": 37,
-            "type": "rest",
-            "id": "f37-1",
-            "y": 488.536
-          },
-          {
-            "floor": 38,
-            "type": "event",
-            "id": "f38-0",
-            "storyId": "tale_medicine_2",
-            "y": 370.732
-          },
-          {
-            "floor": 39,
-            "type": "event",
-            "id": "f39-0",
-            "y": 238.124
-          },
-          {
-            "floor": 40,
-            "type": "boss",
-            "id": "f40-0",
-            "y": 107.955
-          },
-          {
-            "floor": 41,
-            "type": "fight",
-            "id": "f41-0",
-            "y": 1284.79
-          },
-          {
-            "floor": 42,
             "type": "cave",
-            "id": "f42-1",
-            "y": 1160.16
-          },
-          {
-            "floor": 43,
-            "type": "event",
-            "id": "f43-0",
-            "storyId": "captive_smith",
-            "y": 1033.17
-          },
-          {
-            "floor": 44,
-            "type": "shop",
-            "id": "f44-1",
-            "y": 893.157
-          },
-          {
-            "floor": 45,
-            "type": "cave",
-            "id": "f45-3",
-            "y": 764.523
-          },
-          {
-            "floor": 46,
-            "type": "event",
-            "id": "f46-2",
-            "y": 634.119
-          },
-          {
-            "floor": 47,
-            "type": "fight",
-            "id": "f47-2",
-            "y": 498.823
-          },
-          {
-            "floor": 48,
-            "type": "cave",
-            "id": "f48-1",
-            "y": 360.455
-          },
-          {
-            "floor": 49,
-            "type": "rest",
-            "id": "f49-1",
-            "y": 229.473
-          },
-          {
-            "floor": 50,
-            "type": "boss",
-            "id": "f50-0",
-            "y": 95.7873
-          },
-          {
-            "floor": 51,
-            "type": "fight",
-            "id": "f51-0",
-            "y": 1296.93
-          },
-          {
-            "floor": 52,
-            "type": "cave",
-            "id": "f52-3",
-            "y": 1146.99
-          },
-          {
-            "floor": 53,
-            "type": "event",
-            "id": "f53-0",
-            "storyId": "glass_assembly",
-            "y": 1019.88
-          },
-          {
-            "floor": 54,
-            "type": "shop",
-            "id": "f54-1",
-            "y": 894.33
-          },
-          {
-            "floor": 55,
-            "type": "event",
-            "id": "f55-4",
-            "y": 755.06
-          },
-          {
-            "floor": 56,
-            "type": "shop",
-            "id": "f56-2",
-            "y": 633.574
-          },
-          {
-            "floor": 57,
-            "type": "cave",
-            "id": "f57-2",
-            "y": 487.101
-          },
-          {
-            "floor": 58,
-            "type": "cave",
-            "id": "f58-2",
-            "y": 369.705
-          },
-          {
-            "floor": 59,
-            "type": "shop",
-            "id": "f59-4",
-            "y": 240.723
-          },
-          {
-            "floor": 60,
-            "type": "boss",
-            "id": "f60-0",
-            "y": 101.239
-          },
-          {
-            "floor": 61,
-            "type": "fight",
-            "id": "f61-0",
-            "y": 1282.01
-          },
-          {
-            "floor": 62,
-            "type": "cave",
-            "id": "f62-2",
-            "y": 1161.28
-          },
-          {
-            "floor": 63,
-            "type": "event",
-            "id": "f63-3",
-            "storyId": "last_campfire",
-            "y": 1023
-          },
-          {
-            "floor": 64,
-            "type": "shop",
-            "id": "f64-2",
-            "y": 897.895
-          },
-          {
-            "floor": 65,
-            "type": "rest",
-            "id": "f65-5",
-            "y": 751.608
-          },
-          {
-            "floor": 66,
-            "type": "fox",
-            "id": "f66-2",
-            "y": 619.161
-          },
-          {
-            "floor": 67,
-            "type": "shop",
-            "id": "f67-3",
-            "y": 502.505
-          },
-          {
-            "floor": 68,
-            "type": "cave",
-            "id": "f68-1",
-            "y": 360.231
-          },
-          {
-            "floor": 69,
-            "type": "rest",
-            "id": "f69-2",
-            "y": 225.055
-          },
-          {
-            "floor": 70,
-            "type": "boss",
-            "id": "f70-0",
-            "y": 100.865
+            "id": "f37-4",
+            "y": 494.829
           }
         ],
         "events": [
@@ -557,19 +353,9 @@
             "choice": 0
           },
           {
-            "floor": 8,
-            "id": "tale_medicine_1",
-            "choice": 1
-          },
-          {
             "floor": 13,
             "id": "liu_return",
             "choice": 0
-          },
-          {
-            "floor": 14,
-            "id": "sealed_name",
-            "choice": 1
           },
           {
             "floor": 17,
@@ -584,12 +370,12 @@
           {
             "floor": 22,
             "id": "mirror_trial",
-            "choice": 0
+            "choice": 1
           },
           {
             "floor": 23,
             "id": "liu_final",
-            "choice": 0
+            "choice": 2
           },
           {
             "floor": 24,
@@ -603,23 +389,614 @@
           },
           {
             "floor": 29,
-            "id": "dreamshop",
+            "id": "well",
             "choice": 0
           },
           {
             "floor": 33,
-            "id": "drowned_archive",
+            "id": "reed_procession",
             "choice": 1
+          }
+        ],
+        "arrivals": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "battles": [
+          {
+            "floor": 1,
+            "id": "lantern",
+            "power": 0,
+            "hp": 60
+          },
+          {
+            "floor": 10,
+            "id": "gate_boss",
+            "power": 0,
+            "hp": 60
+          },
+          {
+            "floor": 11,
+            "id": "ape",
+            "power": 0,
+            "hp": 58
+          },
+          {
+            "floor": 20,
+            "id": "lotus_boss",
+            "power": 0,
+            "hp": 57
+          },
+          {
+            "floor": 25,
+            "id": "raider",
+            "power": 0,
+            "hp": 47
+          },
+          {
+            "floor": 30,
+            "id": "camp_boss",
+            "power": 0,
+            "hp": 50
+          },
+          {
+            "floor": 31,
+            "id": "ape",
+            "power": 0,
+            "hp": 51
+          },
+          {
+            "floor": 37,
+            "id": "yaksha",
+            "power": 0,
+            "hp": 52
+          }
+        ],
+        "peacefulBossFloors": [],
+        "affliction": {
+          "active": false,
+          "revealed": true,
+          "ticks": 33,
+          "suppressed": 0,
+          "source": "tainted_mercy"
+        },
+        "path": {
+          "corruption": 2,
+          "fallen": false,
+          "protected": true,
+          "learned": true,
+          "uses": 16
+        }
+      },
+      {
+        "seed": 1001,
+        "result": "victory",
+        "hp": 19,
+        "maxHp": 59,
+        "level": 6,
+        "power": 0,
+        "equippedWeapon": "rime",
+        "weaponInventory": [
+          "training",
+          "rime"
+        ],
+        "history": 70,
+        "route": [
+          {
+            "floor": 1,
+            "type": "fight",
+            "id": "f1-0",
+            "y": 1279.04
+          },
+          {
+            "floor": 2,
+            "type": "cave",
+            "id": "f2-2",
+            "y": 1154.68
+          },
+          {
+            "floor": 3,
+            "type": "event",
+            "id": "f3-2",
+            "storyId": "ji_first",
+            "y": 1026.16
+          },
+          {
+            "floor": 4,
+            "type": "event",
+            "id": "f4-0",
+            "storyId": "moon_trace",
+            "y": 900.577
+          },
+          {
+            "floor": 5,
+            "type": "event",
+            "id": "f5-0",
+            "storyId": "tainted_mercy",
+            "y": 753.345
+          },
+          {
+            "floor": 6,
+            "type": "event",
+            "id": "f6-3",
+            "storyId": "tale_name_1",
+            "y": 620.391
+          },
+          {
+            "floor": 7,
+            "type": "event",
+            "id": "f7-4",
+            "storyId": "demonic_offer",
+            "y": 489.436
+          },
+          {
+            "floor": 8,
+            "type": "shop",
+            "id": "f8-2",
+            "y": 362.664
+          },
+          {
+            "floor": 9,
+            "type": "shop",
+            "id": "f9-3",
+            "y": 228.102
+          },
+          {
+            "floor": 10,
+            "type": "boss",
+            "id": "f10-0",
+            "y": 95.825
+          },
+          {
+            "floor": 11,
+            "type": "fight",
+            "id": "f11-0",
+            "y": 1291.92
+          },
+          {
+            "floor": 12,
+            "type": "rest",
+            "id": "f12-0",
+            "y": 1151.84
+          },
+          {
+            "floor": 13,
+            "type": "event",
+            "id": "f13-0",
+            "storyId": "ji_return",
+            "y": 1020.55
+          },
+          {
+            "floor": 14,
+            "type": "rest",
+            "id": "f14-2",
+            "y": 884.372
+          },
+          {
+            "floor": 15,
+            "type": "rest",
+            "id": "f15-4",
+            "y": 764.998
+          },
+          {
+            "floor": 16,
+            "type": "rest",
+            "id": "f16-1",
+            "y": 631.481
+          },
+          {
+            "floor": 17,
+            "type": "event",
+            "id": "f17-1",
+            "storyId": "demonic_warning",
+            "y": 495.193
+          },
+          {
+            "floor": 18,
+            "type": "shop",
+            "id": "f18-1",
+            "y": 373.25
+          },
+          {
+            "floor": 19,
+            "type": "rest",
+            "id": "f19-1",
+            "y": 240.621
+          },
+          {
+            "floor": 20,
+            "type": "boss",
+            "id": "f20-0",
+            "y": 98.0692
+          },
+          {
+            "floor": 21,
+            "type": "fight",
+            "id": "f21-0",
+            "y": 1295.53
+          },
+          {
+            "floor": 22,
+            "type": "event",
+            "id": "f22-0",
+            "storyId": "mirror_trial",
+            "y": 1146.49
+          },
+          {
+            "floor": 23,
+            "type": "event",
+            "id": "f23-5",
+            "storyId": "ji_final",
+            "y": 1024.25
+          },
+          {
+            "floor": 24,
+            "type": "event",
+            "id": "f24-0",
+            "storyId": "moon_vow",
+            "y": 884.483
+          },
+          {
+            "floor": 25,
+            "type": "event",
+            "id": "f25-1",
+            "y": 767.73
+          },
+          {
+            "floor": 26,
+            "type": "event",
+            "id": "f26-0",
+            "storyId": "tale_name_2",
+            "y": 632.521
+          },
+          {
+            "floor": 27,
+            "type": "event",
+            "id": "f27-0",
+            "storyId": "demon_manual",
+            "y": 487.483
+          },
+          {
+            "floor": 28,
+            "type": "rest",
+            "id": "f28-3",
+            "y": 367.717
+          },
+          {
+            "floor": 29,
+            "type": "shop",
+            "id": "f29-4",
+            "y": 230.179
+          },
+          {
+            "floor": 30,
+            "type": "boss",
+            "id": "f30-0",
+            "y": 95.4407
+          },
+          {
+            "floor": 31,
+            "type": "fight",
+            "id": "f31-0",
+            "y": 1291.72
+          },
+          {
+            "floor": 32,
+            "type": "rest",
+            "id": "f32-1",
+            "y": 1161.98
+          },
+          {
+            "floor": 33,
+            "type": "event",
+            "id": "f33-1",
+            "storyId": "reed_procession",
+            "y": 1016.98
+          },
+          {
+            "floor": 34,
+            "type": "shop",
+            "id": "f34-1",
+            "y": 893.759
+          },
+          {
+            "floor": 35,
+            "type": "shop",
+            "id": "f35-3",
+            "y": 751.256
+          },
+          {
+            "floor": 36,
+            "type": "fox",
+            "id": "f36-1",
+            "y": 627.254
+          },
+          {
+            "floor": 37,
+            "type": "rest",
+            "id": "f37-1",
+            "y": 501.566
           },
           {
             "floor": 38,
-            "id": "tale_medicine_2",
-            "choice": 2
+            "type": "shop",
+            "id": "f38-1",
+            "y": 361.175
           },
           {
             "floor": 39,
-            "id": "marsh_pharmacy",
+            "type": "shop",
+            "id": "f39-2",
+            "y": 228.472
+          },
+          {
+            "floor": 40,
+            "type": "boss",
+            "id": "f40-0",
+            "y": 106.147
+          },
+          {
+            "floor": 41,
+            "type": "fight",
+            "id": "f41-0",
+            "y": 1279.05
+          },
+          {
+            "floor": 42,
+            "type": "rest",
+            "id": "f42-2",
+            "y": 1155.19
+          },
+          {
+            "floor": 43,
+            "type": "event",
+            "id": "f43-4",
+            "storyId": "furnace_ledger",
+            "y": 1032.23
+          },
+          {
+            "floor": 44,
+            "type": "shop",
+            "id": "f44-2",
+            "y": 896.788
+          },
+          {
+            "floor": 45,
+            "type": "event",
+            "id": "f45-5",
+            "y": 769.528
+          },
+          {
+            "floor": 46,
+            "type": "event",
+            "id": "f46-3",
+            "storyId": "tale_name_3",
+            "y": 624.822
+          },
+          {
+            "floor": 47,
+            "type": "rest",
+            "id": "f47-5",
+            "y": 488.499
+          },
+          {
+            "floor": 48,
+            "type": "rest",
+            "id": "f48-0",
+            "y": 366.859
+          },
+          {
+            "floor": 49,
+            "type": "cave",
+            "id": "f49-1",
+            "y": 225.917
+          },
+          {
+            "floor": 50,
+            "type": "boss",
+            "id": "f50-0",
+            "y": 107.489
+          },
+          {
+            "floor": 51,
+            "type": "fight",
+            "id": "f51-0",
+            "y": 1279.56
+          },
+          {
+            "floor": 52,
+            "type": "rest",
+            "id": "f52-0",
+            "y": 1152.6
+          },
+          {
+            "floor": 53,
+            "type": "event",
+            "id": "f53-5",
+            "storyId": "unfinished_portrait",
+            "y": 1032.89
+          },
+          {
+            "floor": 54,
+            "type": "shop",
+            "id": "f54-2",
+            "y": 882.854
+          },
+          {
+            "floor": 55,
+            "type": "event",
+            "id": "f55-6",
+            "y": 767.586
+          },
+          {
+            "floor": 56,
+            "type": "shop",
+            "id": "f56-0",
+            "y": 626.161
+          },
+          {
+            "floor": 57,
+            "type": "fight",
+            "id": "f57-0",
+            "y": 490.74
+          },
+          {
+            "floor": 58,
+            "type": "cave",
+            "id": "f58-3",
+            "y": 355.639
+          },
+          {
+            "floor": 59,
+            "type": "event",
+            "id": "f59-4",
+            "y": 236.465
+          },
+          {
+            "floor": 60,
+            "type": "boss",
+            "id": "f60-0",
+            "y": 100.622
+          },
+          {
+            "floor": 61,
+            "type": "fight",
+            "id": "f61-0",
+            "y": 1289.11
+          },
+          {
+            "floor": 62,
+            "type": "rest",
+            "id": "f62-2",
+            "y": 1150.81
+          },
+          {
+            "floor": 63,
+            "type": "event",
+            "id": "f63-2",
+            "storyId": "last_campfire",
+            "y": 1023.52
+          },
+          {
+            "floor": 64,
+            "type": "elite",
+            "id": "f64-1",
+            "y": 890.054
+          },
+          {
+            "floor": 65,
+            "type": "event",
+            "id": "f65-3",
+            "y": 765.295
+          },
+          {
+            "floor": 66,
+            "type": "event",
+            "id": "f66-1",
+            "y": 637.097
+          },
+          {
+            "floor": 67,
+            "type": "event",
+            "id": "f67-1",
+            "y": 502.239
+          },
+          {
+            "floor": 68,
+            "type": "shop",
+            "id": "f68-1",
+            "y": 367.464
+          },
+          {
+            "floor": 69,
+            "type": "event",
+            "id": "f69-1",
+            "y": 232.898
+          },
+          {
+            "floor": 70,
+            "type": "boss",
+            "id": "f70-0",
+            "y": 98.7307
+          }
+        ],
+        "events": [
+          {
+            "floor": 3,
+            "id": "ji_first",
+            "choice": 1
+          },
+          {
+            "floor": 4,
+            "id": "moon_trace",
+            "choice": 1
+          },
+          {
+            "floor": 5,
+            "id": "tainted_mercy",
+            "choice": 0
+          },
+          {
+            "floor": 6,
+            "id": "tale_name_1",
+            "choice": 1
+          },
+          {
+            "floor": 7,
+            "id": "demonic_offer",
+            "choice": 0
+          },
+          {
+            "floor": 13,
+            "id": "ji_return",
+            "choice": 0
+          },
+          {
+            "floor": 17,
+            "id": "demonic_warning",
+            "choice": 0
+          },
+          {
+            "floor": 21,
+            "id": "road_aftermath",
+            "choice": 1
+          },
+          {
+            "floor": 22,
+            "id": "mirror_trial",
+            "choice": 1
+          },
+          {
+            "floor": 23,
+            "id": "ji_final",
+            "choice": 0
+          },
+          {
+            "floor": 24,
+            "id": "moon_vow",
             "choice": 2
+          },
+          {
+            "floor": 25,
+            "id": "herb_caravan",
+            "choice": 1
+          },
+          {
+            "floor": 26,
+            "id": "tale_name_2",
+            "choice": 2
+          },
+          {
+            "floor": 27,
+            "id": "demon_manual",
+            "choice": 0
+          },
+          {
+            "floor": 33,
+            "id": "reed_procession",
+            "choice": 1
           },
           {
             "floor": 41,
@@ -628,33 +1005,63 @@
           },
           {
             "floor": 43,
-            "id": "captive_smith",
+            "id": "furnace_ledger",
+            "choice": 2
+          },
+          {
+            "floor": 45,
+            "id": "dreamshop",
             "choice": 1
           },
           {
             "floor": 46,
-            "id": "pawnshop",
+            "id": "tale_name_3",
             "choice": 0
           },
           {
             "floor": 53,
-            "id": "glass_assembly",
-            "choice": 1
+            "id": "unfinished_portrait",
+            "choice": 2
           },
           {
             "floor": 55,
-            "id": "prisoner",
+            "id": "echo",
             "choice": 0
           },
           {
-            "floor": 61,
+            "floor": 57,
             "id": "road_aftermath",
             "choice": 1
+          },
+          {
+            "floor": 59,
+            "id": "pilgrims",
+            "choice": 0
           },
           {
             "floor": 63,
             "id": "last_campfire",
             "choice": 0
+          },
+          {
+            "floor": 65,
+            "id": "night_watch",
+            "choice": 1
+          },
+          {
+            "floor": 66,
+            "id": "theatre",
+            "choice": 1
+          },
+          {
+            "floor": 67,
+            "id": "cultlab",
+            "choice": 2
+          },
+          {
+            "floor": 69,
+            "id": "riftwatch",
+            "choice": 1
           }
         ],
         "arrivals": [
@@ -669,27 +1076,21 @@
         "battles": [
           {
             "floor": 1,
-            "id": "paper",
-            "power": 0,
-            "hp": 60
-          },
-          {
-            "floor": 10,
-            "id": "bell_boss",
-            "power": 0,
-            "hp": 57
-          },
-          {
-            "floor": 11,
             "id": "ape",
             "power": 0,
             "hp": 60
           },
           {
-            "floor": 16,
-            "id": "raider",
+            "floor": 10,
+            "id": "snake",
             "power": 0,
             "hp": 60
+          },
+          {
+            "floor": 11,
+            "id": "ape",
+            "power": 0,
+            "hp": 41
           },
           {
             "floor": 20,
@@ -698,79 +1099,80 @@
             "hp": 60
           },
           {
-            "floor": 30,
-            "id": "snake",
+            "floor": 23,
+            "id": "raider",
             "power": 0,
-            "hp": 52
+            "hp": 58
+          },
+          {
+            "floor": 30,
+            "id": "lotus_boss",
+            "power": 0,
+            "hp": 60
           },
           {
             "floor": 31,
             "id": "ape",
             "power": 0,
-            "hp": 49
-          },
-          {
-            "floor": 35,
-            "id": "yaksha",
-            "power": 0,
-            "hp": 47
+            "hp": 60
           },
           {
             "floor": 40,
             "id": "marsh_boss",
             "power": 0,
-            "hp": 64
-          },
-          {
-            "floor": 47,
-            "id": "lantern",
-            "power": 0,
-            "hp": 59
+            "hp": 52
           },
           {
             "floor": 50,
             "id": "furnace_boss",
             "power": 0,
-            "hp": 59
+            "hp": 52
           },
           {
             "floor": 51,
-            "id": "lantern",
+            "id": "ape",
             "power": 0,
-            "hp": 59
+            "hp": 48
           },
           {
             "floor": 60,
             "id": "mirror_boss",
             "power": 0,
-            "hp": 57
+            "hp": 47
           },
           {
-            "floor": 68,
-            "id": "yaksha",
+            "floor": 61,
+            "id": "ape",
             "power": 0,
-            "hp": 59
+            "hp": 38
+          },
+          {
+            "floor": 64,
+            "id": "e_priest",
+            "power": 0,
+            "hp": 47
           },
           {
             "floor": 70,
             "id": "abyss_boss",
             "power": 0,
-            "hp": 53
+            "hp": 59
           }
         ],
+        "peacefulBossFloors": [],
         "affliction": {
           "active": false,
           "revealed": true,
-          "ticks": 1,
+          "ticks": 41,
           "suppressed": 0,
           "source": "tainted_mercy"
         },
         "path": {
-          "corruption": 3,
+          "corruption": 4,
           "fallen": false,
           "protected": true,
           "learned": true,
-          "uses": 39
+          "uses": 37
         }
       }
     ]
@@ -796,20 +1198,21 @@
     "/workspace/scratch/v11-boss-roster.png",
     "/workspace/scratch/v11-automaton-half-life.png"
   ],
-  "sha256": "2b92ea16e362c14dba6f2d0b62230ea439e3bc355d43eff8be581caaf1d1fc98",
+  "sha256": "4dc8aa11ebee8cf71f2734f4f427953d4fe7a3a65032386b4bde96eeed949e07",
   "inputs": {
-    "dev/playtest.cjs": "171c8a21bacc9196e6f14d506295aa9e63a867de540d9983dfa4ae9710e1cf53",
-    "dev/seven.js": "660c552a98f53c87225229212817dd1048b69bc2a511c42ff2a1c8b78bc3832e",
-    "dev/tales.js": "8c84b6bbb4c518add18e4adb819099780c6957085f3e9888de41ff614bd07034",
-    "dev/expedition.js": "d51585151ecc8b2cd1013d20060bc917d11049798d493a71b9dabcaccb7e918a",
-    "dev/engine.js": "55c68633f541da2e0624e95d1a728ec863bd73fc4850d53f6a7aeddf8aa2f439",
+    "dev/playtest.cjs": "c3f0c00f2dcb1a1c11745ad72f9c9228f48ccc8eb3d3ccee103bf119bc436c8c",
+    "dev/seven.js": "4582596a1e24ee76dbe933afb731ca815892cab84eb39b9704bb8443c4505580",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "ea8acde28e3a968232cf46eaa0afb1d710832fe558c52e5d1237f7357992ffaa",
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/engine.js": "233cbce3b5243f0d9bd4e635082a73d1d0e8a2fe92b99170e9821c79d46b917c",
     "dev/expansion.js": "27e97c096373147f4de67a923b4893327b7c4e430cc77ec6b7cc98c0d45805f5",
-    "dev/ui.js": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7",
-    "dev/shell.html": "6e560769b4443356ab0ded08d19bb51caf74f13078c498d3ad1c8b2169b35c82",
+    "dev/ui.js": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8",
+    "dev/shell.html": "90951550281813d77e8dd57021bc3842a0ccd2053b6c2406d1f9be84a75b0742",
     "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
-    "dev/audio.js": "ba464e0748d507db987861a7866338e773ffcdec6a41c08580aa1a428d2719bc",
-    "dev/build.cjs": "c8ade24e67a4b28d39d5d81ace1116ec204fed77a8b5cc5d053dc492a4de6188",
-    "dev/v11-browser.test.cjs": "5a593ee5ea7e2be8980f5894b8e9840b80c055d1e7e81f05e522710c20be09b9"
+    "dev/audio.js": "8755edaff3a2d524c94b197c59a5c4f18eabb0c8cf4fe847f428358f16e4cbe7",
+    "dev/build.cjs": "9557a946ccbdf65fd90d019d4f3b1f90b8bde21e0f2b8cf35f853b547684b743",
+    "dev/v11-browser.test.cjs": "eb8761fdd378af94890f8cd570d19476aa597443e0d2b9155c55f934a526b582"
   },
   "templates": [
     {
@@ -3822,7 +4225,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
@@ -3833,7 +4236,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 928,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
@@ -3844,7 +4247,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -3855,7 +4258,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
@@ -3866,7 +4269,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
@@ -3877,7 +4280,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 914,
       "overlaps": 0
     },
     {
@@ -3888,7 +4291,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
@@ -3899,7 +4302,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
@@ -3910,7 +4313,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -3921,7 +4324,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
@@ -3931,268 +4334,499 @@
       "nodes": 43,
       "current": [
         "f31-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
       ],
       "scrollTop": 912,
       "overlaps": 0
     },
     {
-      "template": 1,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
+      "template": 7,
       "region": 5,
       "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f51-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
       ],
       "scrollTop": 931,
       "overlaps": 0
     },
     {
-      "template": 3,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
+      "template": 7,
       "region": 6,
       "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f61-0"
       ],
@@ -4200,172 +4834,480 @@
       "overlaps": 0
     },
     {
-      "template": 5,
+      "template": 8,
       "region": 0,
       "width": 390,
-      "nodes": 44,
+      "nodes": 43,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
       ],
       "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 6,
-      "region": 5,
+      "template": 8,
+      "region": 1,
       "width": 390,
-      "nodes": 44,
+      "nodes": 43,
       "current": [
-        "f51-0"
+        "f11-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 922,
       "overlaps": 0
     },
     {
-      "template": 6,
+      "template": 8,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
       "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 0,
       "width": 390,
       "nodes": 44,
       "current": [
-        "f61-0"
+        "f1-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
       ],
       "scrollTop": 932,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 9,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
       "region": 0,
       "width": 390,
       "nodes": 45,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 11,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
       "region": 1,
       "width": 390,
       "nodes": 45,
@@ -4376,21 +5318,252 @@
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 14,
       "region": 2,
       "width": 390,
       "nodes": 45,
       "current": [
         "f21-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 923,
       "overlaps": 0
     },
     {
-      "template": 7,
+      "template": 14,
       "region": 3,
       "width": 390,
       "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 14,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 0,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 1,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 2,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 3,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 4,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 5,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 6,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
       "current": [
         "f31-0"
       ],
@@ -4398,318 +5571,10 @@
       "overlaps": 0
     },
     {
-      "template": 7,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 932,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
+      "template": 17,
       "region": 4,
       "width": 390,
       "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
       "current": [
         "f41-0"
       ],
@@ -4717,622 +5582,160 @@
       "overlaps": 0
     },
     {
-      "template": 11,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 0,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 1,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 2,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 3,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 4,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 5,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 6,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
       "template": 17,
       "region": 5,
       "width": 390,
       "nodes": 44,
       "current": [
         "f51-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 912,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
       ],
       "scrollTop": 913,
       "overlaps": 0
     },
     {
+      "template": 17,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
       "template": 19,
       "region": 5,
       "width": 390,
@@ -5340,7 +5743,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
@@ -5351,7 +5754,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 929,
       "overlaps": 0
     }
   ],
@@ -5359,7 +5762,7 @@
     "chosen": "f2-0",
     "sibling": "f2-1",
     "next": [
-      "f3-6",
+      "f3-5",
       "f3-1"
     ],
     "rejected": "f3-0"
@@ -5394,71 +5797,66 @@
     {
       "starter": "sword",
       "profileFixture": false,
-      "hp": 59,
+      "hp": 60,
       "gold": 80,
       "history": 1,
       "next": [
         "f2-0",
         "f2-1",
         "f2-2",
-        "f2-3",
-        "f2-4"
+        "f2-3"
       ]
     },
     {
       "starter": "mark",
       "profileFixture": false,
-      "hp": 59,
+      "hp": 55,
       "gold": 80,
       "history": 1,
       "next": [
         "f2-0",
         "f2-1",
         "f2-2",
-        "f2-3",
-        "f2-4"
+        "f2-3"
       ]
     },
     {
       "starter": "combo",
       "profileFixture": false,
-      "hp": 59,
+      "hp": 60,
       "gold": 80,
       "history": 1,
       "next": [
         "f2-0",
         "f2-1",
         "f2-2",
-        "f2-3",
-        "f2-4"
+        "f2-3"
       ]
     },
     {
       "starter": "blood",
       "profileFixture": false,
-      "hp": 59,
+      "hp": 60,
       "gold": 80,
       "history": 1,
       "next": [
         "f2-0",
         "f2-1",
         "f2-2",
-        "f2-3",
-        "f2-4"
+        "f2-3"
       ]
     },
     {
       "starter": "sovereign",
       "profileFixture": true,
-      "hp": 58,
+      "hp": 60,
       "gold": 80,
       "history": 1,
       "next": [
         "f2-0",
         "f2-1",
         "f2-2",
-        "f2-3",
-        "f2-4"
+        "f2-3"
       ]
     }
   ],
@@ -7219,13 +7617,13 @@
     }
   ],
   "inline": {
-    "bytes": 39895804,
-    "sha256": "861612deb2479674706cb21bea1f7a718c58ffc25a3c7c4e2b587283beb781f6",
+    "bytes": 39920197,
+    "sha256": "e7bf4beb24a0751de14f62f11ec10fa7e631b8d55678ffdf7af3d2a27b97b273",
     "requests": []
   },
   "pentagons": {
-    "nodes": 43,
-    "edges": 80,
+    "nodes": 44,
+    "edges": 95,
     "allFiveSides": true,
     "allAnchorsOnBoundary": true
   },
@@ -7340,33 +7738,33 @@
     "sound": [
       {
         "id": "automatonKettle",
-        "peak": 0.041977424174547195,
-        "rms": 0.002381534272999263,
-        "hash": 2995195070
+        "peak": 0.04197761416435242,
+        "rms": 0.002381532147323911,
+        "hash": 828790079
       },
       {
         "id": "automatonBroom",
-        "peak": 0.0627717599272728,
-        "rms": 0.002605921924499979,
-        "hash": 4232687847
+        "peak": 0.06277186423540115,
+        "rms": 0.002605924017629639,
+        "hash": 985949612
       },
       {
         "id": "automatonShears",
         "peak": 0.05812083184719086,
-        "rms": 0.0019044881226720893,
-        "hash": 3639776115
+        "rms": 0.0019044881838180471,
+        "hash": 2123121301
       },
       {
         "id": "automatonPan",
-        "peak": 0.1161436140537262,
-        "rms": 0.005978573932579617,
-        "hash": 494819455
+        "peak": 0.11614430695772171,
+        "rms": 0.00597860201855642,
+        "hash": 2398724520
       },
       {
         "id": "automatonRevenge",
-        "peak": 0.03782660514116287,
-        "rms": 0.003737346984481376,
-        "hash": 3532535193
+        "peak": 0.037826552987098694,
+        "rms": 0.0037373484144872953,
+        "hash": 811418761
       }
     ],
     "halfLifeIntent": {
@@ -7389,7 +7787,7 @@
       "freezeChance": 0
     }
   },
-  "finishedAt": "2026-10-23T10:09:35.117Z",
+  "finishedAt": "2026-10-23T13:03:05.578Z",
   "passed": 18,
   "failed": 0
 }

@@ -256,7 +256,7 @@ test('消耗仅本场有效，下场恢复；新奖励牌真实加入下场战�
   assert.equal(battleCards(next).filter(c=>c.id===added).length,game.state.player.deck.filter(c=>c.id===added).length);
 });
 
-test('奖励仅生成一次，3 张不同；金币领取及选牌不能重复', () => {
+test('奖励仅生成一次，3 张不同；灵石领取及选牌不能重复', () => {
   const game=setup(); forceWin(game); const s=game.state;
   const choices=s.reward.cards.slice(); assert.equal(new Set(choices).size,3);
   assert.equal(s.player.gold,80); assert.equal(game.resolveEnemyTurn(),false);
@@ -265,7 +265,7 @@ test('奖励仅生成一次，3 张不同；金币领取及选牌不能重复', 
   assert.equal(game.chooseReward(choices[0]),false); assert.equal(s.player.gold,80);
 });
 
-test('精英给予 35 金币及未持有遗物，重复领取不生效', () => {
+test('精英给予 35 灵石及未持有遗物，重复领取不生效', () => {
   const game=atNode('elite',4); forceWin(game); const s=game.state;
   assert.equal(s.player.gold,95); assert.equal(s.reward.relicChoices.length,2);
   assert.equal(s.reward.relicPending,true); assert.equal(s.player.relics.length,1);
@@ -274,7 +274,7 @@ test('精英给予 35 金币及未持有遗物，重复领取不生效', () => {
   assert.equal(game.playCard('invalid',true),false); assert.equal(s.player.gold,95);
 });
 
-test('精英遗物全部持有时额外 20 金币，不重复给遗物', () => {
+test('精英遗物全部持有时额外 20 灵石，不重复给遗物', () => {
   const game=atNode('elite',4); game.state.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal','veil'].includes(id)));
   forceWin(game); assert.equal(game.state.reward.gold,55); assert.equal(game.state.player.gold,115);
   assert.equal(game.state.reward.relic,null); assert.equal(game.state.reward.relicPending,false); assert.equal(game.state.player.relics.length,12);
@@ -303,7 +303,7 @@ test('商店商品固定且不同，单商品只能买一次，余额不足无�
   assert.equal(game.enterNode('shop'),false);
 });
 
-test('删牌按实例扣 40 金币且每店一次，下场仍永久删除', () => {
+test('删牌按实例扣 40 灵石且每店一次，下场仍永久删除', () => {
   const game=atNode('shop',3); const s=game.state; const removed=s.player.deck[0];
   assert.equal(game.removeCard(removed.uid),true); assert.equal(s.player.gold,20);
   assert.equal(s.player.deck.length,9); assert.equal(s.player.deck.filter(c=>c.id==='C01').length,3);
@@ -450,7 +450,7 @@ test('失败后重新开始彻底还原生命、牌组、遗物、地图与临�
   assert.notEqual(s,old); assert.equal(s.screen,'map'); assert.equal(s.player.hp,60); assert.equal(s.player.maxHp,60);
   assert.equal(s.player.gold,60); assert.equal(s.player.deck.length,10); assert.deepEqual(s.player.relics,['bell']);
   assert.equal(s.battle,null); assert.equal(s.shop,null); assert.equal(s.reward,null); assert.equal(s.result,null);
-  assert.equal(s.floor,1); assert.equal(s.history.length,0); assert.deepEqual(s.stats,{battles:0,cardsPlayed:0,eliteBattles:0,maxCombo:0,maxHit:0,chapterBosses:0,demonicUses:0}); assert.equal(s.rewardRerolls,1);
+  assert.equal(s.floor,1); assert.equal(s.history.length,0); assert.deepEqual(s.stats,{battles:0,cardsPlayed:0,eliteBattles:0,maxCombo:0,maxHit:0,chapterBosses:0,peacefulBosses:0,demonicUses:0}); assert.equal(s.rewardRerolls,1);
 });
 
 test('四个职业流派开局各 10 个独立实例，首战真实使用所选职业牌组', () => {

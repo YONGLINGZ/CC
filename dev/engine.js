@@ -4,6 +4,8 @@
   const EXPANSION = root.NightExpansion || (typeof module !== 'undefined' && module.exports ? require('./expansion.js') : {});
   const EXPEDITION = root.NightExpedition || (typeof module !== 'undefined' && module.exports ? require('./expedition.js') : {});
   const TALES = root.NightTales || (typeof module !== 'undefined' && module.exports ? require('./tales.js') : {});
+  const BOSS_QUESTS = root.NightBossQuests || (typeof module !== 'undefined' && module.exports ? require('./boss-quests.js') : {});
+  const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
@@ -116,7 +118,7 @@
   };
   const LEGACY_REGIONS = [
     { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,10], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
-    { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋金币更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
+    { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋灵石更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
     { id: 'ritual_core', name: '逆仪腹地', subtitle: '第三幕 · 因果入井', stages: [21,30], description: '归墟引灵仪的废墟近在眼前。雾中没有宗门律令，只有一路带来的旧恩、旧怨，以及仍未出鞘的刀。', palette: { sky: '#221728', ground: '#4c3c61', accent: '#c5a1e4' } }
   ];
   const REGIONS = SEVEN.REGIONS7 || LEGACY_REGIONS;
@@ -213,14 +215,14 @@
   });
   for (const id of EXPANSION.EVENT_IDS || []) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const LEGACY_EVENT_IDS = EVENT_IDS.slice();
-  for (const id of [...Object.keys(SEVEN.EVENTS || {}),...(TALES.EVENT_IDS||[])]) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
+  for (const id of [...Object.keys(SEVEN.EVENTS || {}),...(TALES.EVENT_IDS||[]),...(BOSS_QUESTS.EVENT_IDS||[])]) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
 
   const NODE_INFO = {
-    fight: ['侵蚀遗径','普通战斗 · 20 金币与本职业三选一卡'],
-    elite: ['禁域镇守','高风险 · 35 金币、稀有卡保底与珍藏二选一'],
+    fight: ['侵蚀遗径','普通战斗 · 20 灵石与本职业三选一卡'],
+    elite: ['禁域镇守','高风险 · 35 灵石、稀有卡保底与珍藏二选一'],
     rest: ['避瘴火塘','休息 · 恢复 18 点生命'],
-    shop: ['千灯补给站','商店 · 本职业卡牌 35 金币；删牌 40'],
+    shop: ['千灯补给站','商店 · 本职业卡牌 35 灵石；删牌 40'],
     fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
     cave: ['未知洞府','探宝 · 可能发现草药、丹药、遗宝，也可能惊动守藏者'],
@@ -242,7 +244,7 @@
     fight: ['风里有纸甲摩擦的窸窣声', '暗处传来短促的呼吸', '墙后有什么在磨爪'],
     elite: ['沉得反常的妖气压住灯焰', '一道很重的脚步停在遗径上', '门缝里渗出铁锈与香灰味'],
     rest: ['雾里浮着一点暖意', '远处有水声，像有人替你留着灯', '这一层安静得能听见心跳'],
-    shop: ['有人拨弄算盘，也有人在数铜钱', '一缕货香混着旧纸味', '檐下挂着会自己响的铃串'],
+    shop: ['有人拨弄算盘，也有人在数灵石', '一缕货香混着旧纸味', '檐下挂着会自己响的铃串'],
     fox: ['一尾赤色影子从墙后掠过', '风里有一点甜腻的狐香', '有人隔着帘子问：今夜还赊账吗'],
     event: ['纸灯无风自转', '雾中传来半句没说完的话', '门牌上的字被谁故意擦掉了'],
     cave: ['石门半掩，缝隙里透出微光', '青苔下有丹香，也有脚步声', '断裂的禁制后传来空旷回声'],
@@ -272,6 +274,7 @@
     const scalingEnabled = options.scaling !== false;
     const legacyCampaign = options.campaign === 'legacy';
     const talesEnabled = !legacyCampaign && options.tales !== false;
+    const bossQuestsEnabled = !legacyCampaign && options.bossQuests !== false;
     const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
     const totalFloors = regions.length * 10;
     let profile = normalProfile(options.profile);
@@ -327,7 +330,7 @@
       if(state.screen!=='shop'||!state.shop||state.shop.antidoteBought||!state.player.affliction.active||state.player.gold<30)return false;
       state.player.gold-=30;state.shop.antidoteBought=true;
       const amount=heal(6);state.player.affliction.suppressed=Math.max(6,state.player.affliction.suppressed||0);
-      note(`花费 30 金币服下抑毒散，恢复 ${amount} 生命，毒性暂缓。`);emit();return true;
+      note(`花费 30 灵石服下抑毒散，恢复 ${amount} 生命，毒性暂缓。`);emit();return true;
     }
     function getCorruptionStatus() {
       const p=state.player,path=p.path,protectedByJade=p.questItems.includes('clearheart_jade');
@@ -381,7 +384,7 @@
     }
     function addSoul(amount,reason='魂息') {
       if(!liveBattle())return 0;const b=state.battle,before=b.soul||0;b.soul=Math.max(0,Math.min(6,before+amount));
-      if(b.soul!==before){log(`${reason}：魂息 ${b.soul-before>0?'+':''}${b.soul-before}，当前${b.soul}/6。`);event('soul',{amount:b.soul-before,total:b.soul,reason});}
+      if(b.soul!==before){log(`${reason}：魂息 ${b.soul-before>0?'+':''}${b.soul-before}，当前${b.soul}息。`);event('soul',{amount:b.soul-before,total:b.soul,reason});}
       return b.soul-before;
     }
     function consumeSoul() {const amount=state.battle.soul||0;addSoul(-amount,'魂息归潮');return amount;}
@@ -400,9 +403,9 @@
     function makeExpansionBuilders(p) {
       const make=(id,name,story,choices)=>({id,name,glyph:'月',kicker:'雾中余声',description:story[0],story,choices:finishChoices(choices,p)});
       return {
-        armory:()=>make('armory','封存剑匣',['废弃行营里有一口封好的剑匣。有人将价钱写在木牌背面，旁边留下了可供试握的两柄旧剑。','剑与人一样，未必因为被带在身边就会听命。'],[
-          {label:'付 35 金币取「听雪」',text:'每回合首张攻击第一段伤害 +2。剑锋寒意凛冽。',goldCost:35,weapon:'rime',outcome:'剑匣开了，寒光贴着手腕安静下来。'},
-          {label:'付 35 金币取「回灯」',text:'每回合首张攻击第一段伤害 +1；每场战斗首回合护盾 +3。',goldCost:35,weapon:'spirit',outcome:'旧剑的剑穗像一盏小灯，在你握紧时亮了一瞬。'},
+        armory:()=>make('armory','封存剑匣',['废弃行营里有一口封好的剑匣。有人将价码写在木牌背面，旁边留下了可供试握的两柄旧剑。','剑与人一样，未必因为被带在身边就会听命。'],[
+          {label:'付 35 灵石取「听雪」',text:'每回合首张攻击第一段伤害 +2。剑锋寒意凛冽。',goldCost:35,weapon:'rime',outcome:'剑匣开了，寒光贴着手腕安静下来。'},
+          {label:'付 35 灵石取「回灯」',text:'每回合首张攻击第一段伤害 +1；每场战斗首回合护盾 +3。',goldCost:35,weapon:'spirit',outcome:'旧剑的剑穗像一盏小灯，在你握紧时亮了一瞬。'},
           {label:'合上剑匣',text:'不支付代价，也不取剑。',outcome:'你将旧剑留给下一位经过的人。'}
         ]),
         moon_trace:()=>make('moon_trace','沉钟与旧剑',[
@@ -417,8 +420,8 @@
           '营地外有一张被火燎过的纸，文字在烛火熄灭时才会显现。你听见有人用指节，在桌下敲出先前那段钟声。',
           '最后一行只缺一个名字。你可以念，也可以收好纸页。'
         ],[
-          {label:'默读残页 · 失去 4 生命，获得 25 金币',text:'当前生命须大于4。',hpCost:4,goldGain:25,flags:{ritualName:true},outcome:'墨迹浮出一瞬，却没有对应的面容。纸背藏着的旧钱落进你的掌心。'},
-          {label:'付 15 金币买下纸页 · 恢复 6 生命',text:'得到纸页，治疗不超过生命上限。',goldCost:15,heal:6,flags:{ritualName:true},outcome:'烛火灭了，纸页上的字又归于空白。你将它折好，放进衣袖。'},
+          {label:'默读残页 · 失去 4 生命，获得 25 灵石',text:'当前生命须大于4。',hpCost:4,goldGain:25,flags:{ritualName:true},outcome:'墨迹浮出一瞬，却没有对应的面容。纸背藏着的旧灵石落进你的掌心。'},
+          {label:'付 15 灵石买下纸页 · 恢复 6 生命',text:'得到纸页，治疗不超过生命上限。',goldCost:15,heal:6,flags:{ritualName:true},outcome:'烛火灭了，纸页上的字又归于空白。你将它折好，放进衣袖。'},
           {label:'不再看那行字',text:'没有数值变化。',outcome:'你移开目光，桌下的敲击声也停了。'}
         ]),
         moon_vow:()=>make('moon_vow','无字之誓',[
@@ -441,7 +444,7 @@
           '断桥旁的营灯仍按旧宫的次序排列。曾经跪在灯下听令的卫烬，如今让寻路人跪在他脚边。',
           '“旧主不在了。”有人这样回答。你没有纠正，只看见自己的印记被挂在处刑的锁上。'
         ],[
-          {label:'解开灯锁 · 失去 4 生命，获得 30 金币',text:'当前生命须大于4；前方仍须亲自面对卫烬。',hpCost:4,goldGain:30,flags:{sovereignFreed:true},outcome:'被锁住的人散进雾里。卫烬的灯一盏盏转向你，旧席上的主人终于知道你已回来。'},
+          {label:'解开灯锁 · 失去 4 生命，获得 30 灵石',text:'当前生命须大于4；前方仍须亲自面对卫烬。',hpCost:4,goldGain:30,flags:{sovereignFreed:true},outcome:'被锁住的人散进雾里。卫烬的灯一盏盏转向你，旧席上的主人终于知道你已回来。'},
           {label:'收好旧宫符印 · 下一战护盾 +8',text:'获得一次性护盾。',guard:8,outcome:'你把符印反扣在掌心。要收回的，不止是一点力量。'},
           {label:'听完营中的传言',text:'没有数值变化。',outcome:'你听见许多关于自己的死法，没有一种与你记得的一样。'}
         ]),
@@ -460,7 +463,7 @@
       const make=(id,name,story,choices)=>({id,name,glyph:'剑',kicker:'剑心行迹',description:story[0],story,choices:finishChoices(choices,p)});
       const refusal={label:'收剑离开',text:'不接受招式，也不支付代价。',outcome:'你将那页字留在雾里，仍沿自己的路前行。'};
       const jadeChoice={label:'接过清心玉',text:'取得清心玉，系在剑穗上。',questItem:'clearheart_jade',outcome:'清心玉贴在剑穗下，澄澈的凉意直抵灵台。'};
-      const cureChoice={label:'付 40 金币根治缠脉毒',text:'解除缠脉毒，不恢复生命；本次只取拔毒药。',goldCost:40,cureAffliction:true,requiresAffliction:true,outcome:'你放下清心玉，以四十枚旧钱换得一服拔毒药。黑线从掌心褪尽，旧伤终于不再向心口延伸。'};
+      const cureChoice={label:'付 40 灵石根治缠脉毒',text:'解除缠脉毒，不恢复生命；本次只取拔毒药。',goldCost:40,cureAffliction:true,requiresAffliction:true,outcome:'你放下清心玉，以四十枚旧灵石换得一服拔毒药。黑线从掌心褪尽，旧伤终于不再向心口延伸。'};
       return {
         tainted_mercy:()=>make('tainted_mercy','雾中求援',[
           '一名背着药囊的陌生人倒在石阶旁，指间紧攥半幅湿透的药方。他说自己叫裴隐，身后还有追兵。',
@@ -597,17 +600,17 @@
         story:['你本想在火塘边坐下。一名执炬巡使挡住月门，目光落在你剑上散不去的暗红：“营里刚救下几名失了魂息的人。请先放下剑。”','她尚未问清你的经历，已经把异变当成了证据。你也能感觉到自己下意识想用最省事的办法，让眼前的人永远闭嘴。',...(witnesses.length?[`${witnesses.join('、')}留下的见证仍在行囊中，能说明你做过什么，却不能替你保证此后永远不会失控。`]:[])],
         choices:finishChoices([
           {key:'fight',label:'应阵而战，守住此处火塘',text:'与执炬巡使交战：48生命；攻击8并施加追索印 → 护盾7并封住下回合1张抽牌 → 连击4×3。获胜正常领一次战利，再返回原休息点；失败结束本局。',battle:{enemyId:'orthodox_patrol',kind:'fight',resumeRest:true},outcome:'你不肯在剑阵中交出长剑。巡使让弟子退后，亲自压低了第一道剑光。'},
-          ...(witnesses.length?[{key:'witness',label:'出示已经发生过的见证，请她核查',text:'凭此前助人的真实记录交涉；不支付金币、不战斗，继续使用原休息点。',resumeRest:true,outcome:`你没有要求她因为一纸见证就原谅一切，只请她先核查${witnesses.join('、')}能证明的事实。巡使收起封息符，仍远远守着火塘，却让出了供你调息的位置。`}]:[]),
-          {key:'parley',label:'留下二十枚灵钱，另觅火塘边的空位',text:'支付20金币作为查验与药资押金；不战斗，仍可使用原休息点。',goldCost:20,resumeRest:true,outcome:'你把押金留在案上，没有承认自己未曾做过的事。巡使也没有宣布你无罪，只撤开近身的弟子，让你先稳住剑息。'},
-          {key:'leave',label:'沿断墙离开，放弃这次休息',text:'无金币或生命损失；本节点完成，不获得休息治疗。',outcome:'你从断墙的缺口退开，手指仍在剑柄上发紧。火塘留在身后，没有人为这场相遇盖上善恶已明的印。'}
+          ...(witnesses.length?[{key:'witness',label:'出示已经发生过的见证，请她核查',text:'凭此前助人的真实记录交涉；不支付灵石、不战斗，继续使用原休息点。',resumeRest:true,outcome:`你没有要求她因为一纸见证就原谅一切，只请她先核查${witnesses.join('、')}能证明的事实。巡使收起封息符，仍远远守着火塘，却让出了供你调息的位置。`}]:[]),
+          {key:'parley',label:'留下二十枚灵石，另觅火塘边的空位',text:'支付20灵石作为查验与药资押金；不战斗，仍可使用原休息点。',goldCost:20,resumeRest:true,outcome:'你把押金留在案上，没有承认自己未曾做过的事。巡使也没有宣布你无罪，只撤开近身的弟子，让你先稳住剑息。'},
+          {key:'leave',label:'沿断墙离开，放弃这次休息',text:'无灵石或生命损失；本节点完成，不获得休息治疗。',outcome:'你从断墙的缺口退开，手指仍在剑柄上发紧。火塘留在身后，没有人为这场相遇盖上善恶已明的印。'}
         ],p)};
       const aided=t.roadAid,visit=t.roadVisits;
       return {id,name:visit===1?'雾里忽来车声':'车铃又响了一次',glyph:'铃',kicker:'途中的变故',interruption:true,
         description:'原本的前路被一辆倾斜的药车挡住。',
         story:[visit===1?'沿途已经走过十余处地标。雾里忽然响起车铃，一辆药车翻倒在你要走的路上。推车的人请你留步，车帘后有人压着咳嗽。':aided?'车铃再次响起，上回受过你援手的人认出了你。他们替你指开一条避过游荡追兵的旧路，车上仍有需要照料的人。':'你再次遇到那辆药车。推车的人认出了你，没有把上回未伸援手说成背叛，只问今日是否愿意各取所需。','押车人愿付路资换你护送，随车的伤者却请你别为赶路把他们留在原地。你可以帮忙，也可以在此分道，不必用流血来证明自己。'],
         choices:finishChoices([
-          {key:'aid',label:'花十二枚灵钱，帮药车安置伤者',text:`支付12金币；获得${aided?'2份凝露叶':'1枚回气丹'}。车队替你引开这段路上的游荡追兵，本节点完成。`,goldCost:12,...(aided?{itemGrants:[{id:'dewherb',count:2}]}:{itemGrants:[{id:'healing_pill',count:1}]}),outcome:'你们分清谁能赶路、谁需要留下，给伤者留了药。车队把你要走的方向告诉熟路的人，没再把保护说成一句空诺。'},
-          {key:'escort',label:'按约照看车队，换取路资',text:'获得14金币；车队带你从侧路通过，本节点完成。',goldGain:14,outcome:'路资照约付清。你帮他们扶正车轴，也说明自己只能护送眼前这一段；他们另留了人守着暂不能动身的伤者。'},
+          {key:'aid',label:'花十二枚灵石，帮药车安置伤者',text:`支付12灵石；获得${aided?'2份凝露叶':'1枚回气丹'}。车队替你引开这段路上的游荡追兵，本节点完成。`,goldCost:12,...(aided?{itemGrants:[{id:'dewherb',count:2}]}:{itemGrants:[{id:'healing_pill',count:1}]}),outcome:'你们分清谁能赶路、谁需要留下，给伤者留了药。车队把你要走的方向告诉熟路的人，没再把保护说成一句空诺。'},
+          {key:'escort',label:'按约照看车队，换取路资',text:'获得14灵石；车队带你从侧路通过，本节点完成。',goldGain:14,outcome:'路资照约付清。你帮他们扶正车轴，也说明自己只能护送眼前这一段；他们另留了人守着暂不能动身的伤者。'},
           {key:'leave',label:'让车队先走，绕开雾中的脚步',text:'无即时奖励；放弃前路冲突和这次援助，本节点完成。',outcome:'你选择了不接委托的侧路。车铃慢慢远去，谁也没有因此欠下一份被强加的恩情。'}
         ],p)};
     }
@@ -649,7 +652,7 @@
       }
       const introductions=shuffle(['liu','ji','wen']);for(const node of map[2]){const npc=NPCS[introductions[node.lane%3]];node.storyId=npc.id+'_first';node.npc=npc.id;node.name=({liu:'药箱旁的身影',ji:'剑阵旁的人',wen:'符锁旁的低语'})[npc.id];node.description='雾中有人停在路边。';}
       for(const [floor,id]of [[4,'moon_trace'],[14,'sealed_name'],[24,'moon_vow']])setStoryNode(map,floor,id);
-      const earlyBosses = legacyCampaign ? ['gate_boss','camp_boss','snake'] : shuffle(SEVEN.EARLY_BOSSES || ['gate_boss','camp_boss','snake']).slice(0,3);
+      const earlyBosses = legacyCampaign ? ['gate_boss','camp_boss','snake'] : pickChapterBosses();
       const bossIds = legacyCampaign ? earlyBosses : [...earlyBosses,...(SEVEN.MID_BOSSES || []),SEVEN.FINAL_BOSS];
       for (let chapter=0;chapter<regions.length;chapter++) {
         const enemyId=bossIds[chapter],node=map[(chapter+1)*10-1][0];
@@ -665,6 +668,46 @@
         }
       }
       map.chapterTemplates=templates;map.templateId=templates[0].id;map.templateName=templates[0].name;return map;
+    }
+    function pickChapterBosses(){
+      const picked=[];
+      for(const weights of BOSS_QUESTS.WEIGHTS){
+        const pool=Object.entries(weights).filter(([id])=>!picked.includes(id));
+        let ticket=rand(pool.reduce((sum,[,w])=>sum+w,0));
+        for(const [id,w]of pool){ticket-=w;if(ticket<0){picked.push(id);break;}}
+      }
+      return picked;
+    }
+    function initializeBossQuests(){
+      const records={};
+      for(let region=0;region<3;region++){
+        const boss=state.map[region*10+9][0].encounter.enemyId;
+        if(BOSS_QUESTS.QUESTS[boss])records[boss]={region,stage:0,choices:{},guard:0,lastOutcome:'',awakened:false};
+      }
+      state.journey.bossQuests={records,scheduled:[],resolutions:[]};
+    }
+    function prepareBossOpportunity(){
+      const quests=state.journey.bossQuests;if(!bossQuestsEnabled||!quests)return;
+      const local=(state.floor-1)%10+1,step=[2,6,9].indexOf(local)+1;
+      if(!step||quests.scheduled.includes(state.floor))return;
+      quests.scheduled.push(state.floor);
+      const boss=state.map[state.journey.regionIndex*10+9][0].encounter.enemyId,record=quests.records[boss];
+      if(!record||record.region!==state.journey.regionIndex||record.stage!==step-1)return;
+      const eligible=(state.map[state.floor-1]||[]).filter(n=>state.availableNodes.includes(n.id)&&!n.storyId&&!n.encounter&&n.type!=='boss');
+      if(!eligible.length)return;
+      const node=eligible[rand(eligible.length)];
+      node.type='event';node.storyId=`boss_${boss}_${step}`;node.name='灯下遗事';node.description='有人在这里拾起了一段与本境关口有关的旧事。';
+    }
+    function awakenPuppet(node){
+      if(!bossQuestsEnabled||node.type!=='boss'||node.encounter?.enemyId!=='lotus_boss')return false;
+      const quests=state.journey.bossQuests,record=quests?.records.lotus_boss;
+      if(!record||record.region!==state.journey.regionIndex||record.stage<2||record.awakened||!BOSS_QUESTS.QUESTS.lotus_boss.items.every(id=>state.player.questItems.includes(id)))return false;
+      record.awakened=true;
+      state.screen='event';state.battle=null;state.event=BOSS_QUESTS.awakening(state);
+      state.event.choices=finishChoices(state.event.choices,state.player);
+      recordJourney(null,'故宅家令复原','备用铜匙与完整留声簧一同接回了主人的遗言。缄红已收起机关，此处无需交战。','kind');
+      note('铜匙打开家令心匣，留声簧接回遗言。缄红已被唤醒，无需交战。');
+      return true;
     }
     function configureSwordMap(map) {
       for(const [floor,id]of [[5,'tainted_mercy'],[7,'demonic_offer'],[17,'demonic_warning'],[22,'mirror_trial']])setStoryNode(map,floor,id,{all:true,name:'路边余声'});
@@ -690,14 +733,14 @@
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
           hidden: { jiIntent: rand(2) ? 'greedy' : 'grateful' }, nextCombatBlock: 0 },
         notice: '', result: null, rewardRerolls: 1,
-        stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, demonicUses:0 }
+        stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, peacefulBosses:0, demonicUses:0 }
       };
     }
     function emit() { onChange(state); }
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
-      return {energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed};
+      return {energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyRevenge:!!getIntent()?.revengeBonus};
     }
     function event(type, data = {}) {
       const b = state.battle;
@@ -825,7 +868,7 @@
       const b = state.battle;
       const gained = Math.min(5 - b.enemy.mark, amount);
       b.enemy.mark += gained;
-      log(`${b.enemy.name}获得 ${gained} 层猎印（${b.enemy.mark}/5）。`);
+      log(`${b.enemy.name}获得 ${gained} 层猎印（现有 ${b.enemy.mark} 层）。`);
       event('mark', { target: 'enemy', amount: gained, total: b.enemy.mark });
       if (gained > 0 && hasRelic('bell') && !b.bellUsed) {
         b.bellUsed = true;
@@ -839,7 +882,7 @@
       b.swordIntent = Math.max(0, Math.min(8, before + amount));
       const gained = b.swordIntent - before;
       event('swordIntent', { amount: gained, total: b.swordIntent, reason });
-      log(`${reason}：剑意 ${gained >= 0 ? '+' : ''}${gained}（${b.swordIntent}/8）。`);
+      log(`${reason}：剑意 ${gained >= 0 ? '+' : ''}${gained}（现有 ${b.swordIntent} 层）。`);
       return gained;
     }
     function consumeSwordIntent(count) {
@@ -871,7 +914,7 @@
       b.enemy.chill = Math.max(0, Math.min(10, before + amount));
       const gained = b.enemy.chill - before;
       event('chill', { target: 'enemy', amount: gained, total: b.enemy.chill, progress:b.enemy.chillProgress||0, reason });
-      log(`${reason}：${b.enemy.name}霜寒 ${gained >= 0 ? '+' : ''}${gained}（${b.enemy.chill}/10）。`);
+      log(`${reason}：${b.enemy.name}霜寒 ${gained >= 0 ? '+' : ''}${gained}（现有 ${b.enemy.chill} 层）。`);
       if (gained > 0 && hasRelic('frostseal') && !b.frostsealUsed) {
         b.frostsealUsed = true;
         event('relic', { relic: 'frostseal', name: RELICS.frostseal.name, amount: 1 });
@@ -958,7 +1001,7 @@
           log(`精英珍藏已揭晓：请从${relicChoices.map(id => `「${RELICS[id].name}」`).join('／')}中选择一件。`);
         } else {
           gold += 20;
-          log('奖励遗物已集齐，额外获得 20 金币。');
+          log('奖励遗物已集齐，额外获得 20 灵石。');
         }
         state.stats.eliteBattles++;
       }
@@ -968,7 +1011,7 @@
       const caveLoot = expedition.onBattleWin(b);
       if (caveLoot) state.reward.caveLoot = caveLoot;
       state.screen = 'reward';
-      note(`胜利：${gold} 金币已入账。${relicChoices.length ? '先选一件精英珍藏，再选择卡牌。' : '请选一张牌或跳过。'}${gold === 55 ? '遗物已集齐，包含额外 20 金币。' : ''}`);
+      note(`胜利：${gold} 灵石已入账。${relicChoices.length ? '先选一件精英珍藏，再选择卡牌。' : '请选一张牌或跳过。'}${gold === 55 ? '遗物已集齐，包含额外 20 灵石。' : ''}`);
     }
     function rewardCards(kind, previous = []) {
       const pool = cardPool();
@@ -1127,6 +1170,16 @@
       state.reward = null;
       startPlayerTurn();
       if(!liveBattle())return;
+      const preparation=state.journey.bossQuests?.records[id],quest=BOSS_QUESTS.QUESTS[id];
+      if(kind==='boss'&&preparation&&preparation.region===state.journey.regionIndex){
+        const owns=item=>state.player.questItems.includes(item);
+        const guard=(preparation.guard||0)+(quest&&preparation.stage>=2&&owns(quest.items[1])?8:0);
+        if(guard)gainBlock(guard,'镇境旧事·事前准备');
+        if(quest?.ward&&preparation.stage>=1&&owns(quest.items[0])){
+          state.battle.bossWard={effect:quest.ward,item:quest.items[0],used:false};
+          log(`${QUEST_ITEMS[quest.items[0]].name}已备好：本战抵消首次相关异术。`);
+        }
+      }
       const equipped=WEAPONS[state.player.equippedWeapon];if(equipped?.block)gainBlock(equipped.block,equipped.name);
       if (state.journey.nextCombatBlock > 0) {
         const amount = state.journey.nextCombatBlock;
@@ -1155,6 +1208,7 @@
       state.screen = crossed ? 'arrival' : 'map';
       if (crossed) prepareChapter();
       prepareTaleOpportunity();
+      prepareBossOpportunity();
       state.mapTemplateId=state.chapterTemplates[regionIndex].id;state.mapTemplateName=state.chapterTemplates[regionIndex].name;
       state.reward = null;
       state.shop = null;
@@ -1170,6 +1224,7 @@
       state = freshState('arrival', starter);
       expedition.resetRun();
       if(talesEnabled)initializeTales();
+      if(bossQuestsEnabled)initializeBossQuests();
       activeNode = null;
       note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
       emit();
@@ -1210,6 +1265,7 @@
       activeNode = node;
       state.notice = '';
       if(!tickAffliction('node')){emit();return true;}
+      if(awakenPuppet(node)){emit();return true;}
       const interruption=interruptionFor(node);
       if(interruption){state.interruption={id:interruption,nodeId:node.id,resumed:false};state.screen='event';state.event=buildInterruption(interruption);recordJourney(null,state.event.name,state.event.story[0],'warning');emit();return true;}
       if (type === 'fight' || type === 'elite' || type === 'boss') startBattle(type, node.encounter || null);
@@ -1486,9 +1542,15 @@
           event('enemySkill',{source:'enemy',target:'enemy',kind:'revenge',name:'血债覆令',amount:intent.revengeBonus,text:`每段攻击 +${intent.revengeBonus}`});
         }
         log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
+        if(intent.wardedEffect){
+          b.bossWard.used=true;
+          log(`${QUEST_ITEMS[b.bossWard.item].name}生效，抵消本次${intent.wardedLabel}；本战不再触发。`);
+          event('enemySkill',{source:'player',target:'player',kind:'ward',name:QUEST_ITEMS[b.bossWard.item].name,text:`抵消${intent.wardedLabel}`});
+        }
         if (intent.clearMark) {
-          event('mark', { source:'enemy',target:'enemy',amount:-enemy.mark,total:0 });
-          log(`${intent.name}：清除 ${enemy.mark} 层猎印。`);enemy.mark=0;
+          const oldMark=enemy.mark;enemy.mark=0;
+          event('mark', { source:'enemy',target:'enemy',amount:-oldMark,total:0 });
+          log(`${intent.name}：清除 ${oldMark} 层猎印。`);
         }
         if (intent.clearChill) {
           enemy.chillProgress=0;
@@ -1584,7 +1646,7 @@
       item.bought = true;
       state.player.gold -= 35;
       state.player.deck.push(makeCard(item.id));
-      note(`花费 35 金币，购得「${CARDS[item.id].name}」。`);
+      note(`花费 35 灵石，购得「${CARDS[item.id].name}」。`);
       emit();
       return true;
     }
@@ -1595,7 +1657,7 @@
       const [card] = state.player.deck.splice(index, 1);
       state.player.gold -= 40;
       state.shop.removed = true;
-      note(`花费 40 金币，永久移除本局「${CARDS[card.id].name}」的这个实例。`);
+      note(`花费 40 灵石，永久移除本局「${CARDS[card.id].name}」的这个实例。`);
       emit();
       return true;
     }
@@ -1654,7 +1716,7 @@
       const received = [];
       if (choice.goldCost) {
         p.gold -= choice.goldCost;
-        received.push(`金币 −${choice.goldCost}`);
+        received.push(`灵石 −${choice.goldCost}`);
       }
       if (choice.hpCost) {
         p.hp = Math.max(1, p.hp - choice.hpCost);
@@ -1677,7 +1739,7 @@
         else {
           const fallback = choice.fallbackGold || 60;
           p.gold += fallback;
-          received.push(`秘宝已齐，改得 ${fallback} 金币`);
+          received.push(`秘宝已齐，改得 ${fallback} 灵石`);
         }
       }
       for (const id of choice.cardIds || []) {
@@ -1691,20 +1753,20 @@
       }
       if (choice.goldGain) {
         p.gold += choice.goldGain;
-        received.push(`金币 +${choice.goldGain}`);
+        received.push(`灵石 +${choice.goldGain}`);
       }
       for (const grant of choice.itemGrants || []) {
         const count=grant.count||grant.amount||1;
         if (expedition.grantItem(grant.id,count)) received.push(`${EXPEDITION.ITEMS[grant.id].name} ×${count}`);
       }
-      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon)){p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`);}else if(choice.duplicateWeaponGold){p.gold+=choice.duplicateWeaponGold;received.push(`已有剑器，改得${choice.duplicateWeaponGold}金币`);} }
+      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon)){p.weaponInventory.push(choice.weapon);received.push(`剑器「${WEAPONS[choice.weapon].name}」`);}else if(choice.duplicateWeaponGold){p.gold+=choice.duplicateWeaponGold;received.push(`已有剑器，改得${choice.duplicateWeaponGold}灵石`);} }
       if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
       if(choice.afflict){p.affliction={active:true,revealed:false,ticks:0,suppressed:0,source:'tainted_mercy'};}
       if(choice.cureAffliction){cureAffliction();received.push('缠脉毒根除');}
       if(choice.learnDemonic||(choice.cardIds||[]).some(id=>id.startsWith('D'))){p.path.learned=true;}
-      if(choice.questItem&&EXPANSION.ITEMS?.[choice.questItem]){
+      if(choice.questItem&&QUEST_ITEMS[choice.questItem]){
         if(!p.questItems.includes(choice.questItem))p.questItems.push(choice.questItem);
-        p.path.protected=p.questItems.includes('clearheart_jade');received.push(EXPANSION.ITEMS[choice.questItem].name);
+        p.path.protected=p.questItems.includes('clearheart_jade');received.push(QUEST_ITEMS[choice.questItem].name);
       }
       return received;
     }
@@ -1727,7 +1789,7 @@
             '“借我一点真气，或者替我买一包引灵砂。”她抬头望向你，“师姐醒了，我们会去断桥营地。若你也过去，我一定认得你。”'
           ],[
             {label:'渡气救人 · 失去 6 生命',text:'当前生命须大于 6。',hpCost:6,flags:{liuAid:true},relationship:relation('有恩','你替她救回了师姐。'),tone:'good',outcome:'师姐的呼吸终于稳住。柳照青在你袖口系上一条丹霞谷的青绦：“到断桥，认这条绦。”'},
-            {label:'留 15 金币买药 · 帮她安置伤者',text:'支付 15 金币购买引灵砂。',goldCost:15,flags:{liuAid:true},relationship:relation('有恩','你留下药钱，帮她安置了伤者。'),tone:'good',outcome:'柳照青把钱握得很紧，只郑重向你行了一礼。临走，她把断桥营地的方向指给你。'},
+            {label:'留 15 灵石买药 · 帮她安置伤者',text:'支付 15 灵石购买引灵砂。',goldCost:15,flags:{liuAid:true},relationship:relation('有恩','你留下药资，帮她安置了伤者。'),tone:'good',outcome:'柳照青把灵石握得很紧，只郑重向你行了一礼。临走，她把断桥营地的方向指给你。'},
             {label:'留下方向，独自前行',text:'没有即时数值变化；她只能另寻援手。',flags:{liuAid:false},relationship:relation('一面之缘','你没有留下救人，指给她营地的方向。'),outcome:'你告诉她最近的营火在哪里。她点点头，背起师姐，药箱沿着石阶磕出很慢的响声。'}
           ]);
         },
@@ -1735,13 +1797,13 @@
           const helped = !!f.liuAid;
           return eventFor('liu_return','liu',2,'青绦再逢',helped ? [
             '断桥下的药棚里，柳照青一眼看见你袖口的青绦。她师姐坐在火边，已经能自己端碗。',
-            '“这回不收钱。”她把你按在凳上，取出早留好的一包伤药，“我认得这份恩。”'
+            '“这回不收灵石。”她把你按在凳上，取出早留好的一包伤药，“我认得这份恩。”'
           ] : [
             '你在断桥药棚再次遇见柳照青。她的师姐裹着厚被，靠着商盟借来的药活了下来。',
             '她认出你，神色并不怨怼：“药材是借来的，我还要还账。你若要药，和旁人同价。”'
           ],[
-            helped ? {label:'接受她的谢礼 · 恢复 18 生命，下一战护盾 +8',text:'下一场战斗首回合获得 8 护盾，用后消失。治疗不超过上限。',heal:18,guard:8,flags:{liuReturned:true},relationship:relation('可信同路人','柳照青为你疗伤，并留下只用一次的护身药符。'),tone:'good',outcome:'她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。'} : {label:'买一包伤药 · 支付 15 金币，恢复 18 生命',text:'治疗不超过最大生命。',goldCost:15,heal:18,flags:{liuReturned:true},relationship:relation('相识','你向她买了药，彼此都记住了名字。'),outcome:'她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。'},
-            {label:'替药棚守夜 · 失去 4 生命，获得 25 金币',text:'当前生命须大于 4。',hpCost:4,goldGain:25,flags:{liuReturned:true,liuAid:true},relationship:relation('互相照应','你替药棚守了一夜，收下凑来的盘缠。'),tone:'good',outcome:'你挡住了夜里摸来的影子，袖口被瘴刃划开。天亮前，柳照青把药棚凑出的盘缠塞给你。'},
+            helped ? {label:'接受她的谢礼 · 恢复 18 生命，下一战护盾 +8',text:'下一场战斗首回合获得 8 护盾，用后消失。治疗不超过上限。',heal:18,guard:8,flags:{liuReturned:true},relationship:relation('可信同路人','柳照青为你疗伤，并留下只用一次的护身药符。'),tone:'good',outcome:'她把青绦重新系紧，药符藏在结里。你曾救下的人，如今替你挡住下一阵寒意。'} : {label:'买一包伤药 · 支付 15 灵石，恢复 18 生命',text:'治疗不超过最大生命。',goldCost:15,heal:18,flags:{liuReturned:true},relationship:relation('相识','你向她买了药，彼此都记住了名字。'),outcome:'她没有多收一文，也没有少给一味药。药棚外的雾还在，至少这碗药是热的。'},
+            {label:'替药棚守夜 · 失去 4 生命，获得 25 灵石',text:'当前生命须大于 4。',hpCost:4,goldGain:25,flags:{liuReturned:true,liuAid:true},relationship:relation('互相照应','你替药棚守了一夜，收下凑来的盘缠。'),tone:'good',outcome:'你挡住了夜里摸来的影子，袖口被瘴刃划开。天亮前，柳照青把药棚凑出的盘缠塞给你。'},
             {label:'只报平安，继续深入',text:'不支付代价，也不领取药物。',flags:{liuReturned:false},relationship:relation(helped?'仍记旧恩':'一面之缘',helped?'你谢过她，未收药物。旧恩并未因此散去。':'你报了平安，没有在药棚停留。'),outcome:'柳照青替你拨正衣领，只说：“到了井边，先听风，不要先看水。”'}
           ],{connection:helped?'雾锁山门：你曾出手帮她救人。':'雾锁山门：你曾指路，却没有留下救人。'});
         },
@@ -1751,7 +1813,7 @@
             '观测井外围，柳照青把最后一盏药灯挂在岔路口。她与师姐已经找到了归路，却仍等在这里。',
             helped ? '“知道你还没出来。”她说。青色药灯照亮了一截安全石阶，灯罩上的名字只有你的。' : '“没人该死在看得见出口的地方。”她留了一瓶药，旁边放着补齐药材欠账的木牌。'
           ],[
-            helped ? {label:'循药灯前行 · 恢复 12 生命，下一战护盾 +12',text:'护盾仅在下一场战斗首回合获得，与尚未使用的援护叠加。',heal:12,guard:12,flags:{liuFinished:true},relationship:relation('生死之交','她留到最后，为你点亮归路。'),tone:'good',outcome:'你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。'} : {label:'付 20 金币取药 · 恢复 16 生命',text:'她留药救急，也仍须偿还药材钱。',goldCost:20,heal:16,flags:{liuFinished:true},relationship:relation('守望相助','你补齐药钱，带走了她留在井边的药。'),tone:'good',outcome:'你把药钱压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。'},
+            helped ? {label:'循药灯前行 · 恢复 12 生命，下一战护盾 +12',text:'护盾仅在下一场战斗首回合获得，与尚未使用的援护叠加。',heal:12,guard:12,flags:{liuFinished:true},relationship:relation('生死之交','她留到最后，为你点亮归路。'),tone:'good',outcome:'你沿着药灯走过去。柳照青没有跟进井底，她把所有还够用的药符都留在了你掌心。'} : {label:'付 20 灵石取药 · 恢复 16 生命',text:'她留药救急，也仍须偿还药材灵石。',goldCost:20,heal:16,flags:{liuFinished:true},relationship:relation('守望相助','你补齐药资，带走了她留在井边的药。'),tone:'good',outcome:'你把药资压在木牌下。药瓶里没有机关，只有她认认真真调好的一味救急药。'},
             {label:`请教破瘴手法 · 失去 5 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:5,cardIds:[id],flags:{liuFinished:true},relationship:relation('互授所长','柳照青替你引出瘴气，你也记下了她的破势手法。'),outcome:'以伤口为引，她从你经络里挑出一道黑线。疼痛之后，一个从未有过的出手顺序清楚起来。'},
             {label:'托她带一句平安回去',text:'没有即时数值变化。',flags:{liuFinished:true},relationship:relation(helped?'旧恩未忘':'萍水善缘','她答应将你仍活着的消息带到雾外。'),tone:'good',outcome:'她把你的话记在药方背面，字很端正。你们没有许下不可能的承诺，只互道一句保重。'}
           ],{connection:'药灯挂在岔路口，灯下留着尚未冷透的药。'});
@@ -1763,7 +1825,7 @@
             '“同在雾中，能否搭一把手？”他指向阵外的石阶，许诺以剑诀相谢。'
           ],[
             {label:`替他破阵 · 失去 5 生命，获得「${CARDS[id].name}」`,text:CARDS[id].text,hpCost:5,cardIds:[id],flags:{jiHelp:true},relationship:relation('受你援手','你把他从剑阵里救出，收下了约好的剑诀。'),outcome:'季临川递出剑诀，行礼十分周到。你们互道保重，各自越过残阵。'},
-            {label:'给他 12 金币请向导 · 得一枚护符',text:'下一场战斗首回合护盾 +5；护符只能用一次。',goldCost:12,guard:5,flags:{jiHelp:true},relationship:relation('欠你人情','你留钱替他脱困，收下一枚一次性的护符。'),outcome:'他把护符送给你，说这是外门弟子出门时的规矩。你将符折好，放进贴身的衣袋。'},
+            {label:'给他 12 灵石请向导 · 得一枚护符',text:'下一场战斗首回合护盾 +5；护符只能用一次。',goldCost:12,guard:5,flags:{jiHelp:true},relationship:relation('欠你人情','你留灵石替他脱困，收下一枚一次性的护符。'),outcome:'他把护符送给你，说这是外门弟子出门时的规矩。你将符折好，放进贴身的衣袋。'},
             {label:'不近剑阵，提醒他另寻出口',text:'没有数值变化。',flags:{jiHelp:false},relationship:relation('一面之缘','你提醒他另寻出口，未曾靠近残阵。'),outcome:'季临川收回伸出的手，向你道谢。你指过石阶的方向，继续赶路。'}
           ]);
         },
@@ -1771,12 +1833,12 @@
           const relic = chooseTreasure('mirror');
           const greedy = j.hidden.jiIntent === 'greedy';
           const hasTreasure = p.relics.some(id => TREASURE_RELICS.includes(id));
-          const clue = greedy ? '他身后的脚印不止一串。有个陌生人看见你便转过身，季临川的手却还按着你的包裹。' : '他把一路借来的药钱逐一记在纸上，又主动退开半步，让你自己收好行囊。';
+          const clue = greedy ? '他身后的脚印不止一串。有个陌生人看见你便转过身，季临川的手却还按着你的包裹。' : '他把一路借来的药资逐一记在纸上，又主动退开半步，让你自己收好行囊。';
           return eventFor('ji_return','ji',2,'灯下验宝',[
-            '断桥边，季临川又认出了你。他说自己刚从一处密室取出奇物，也听说你身上有了值钱的东西。', clue
+            '断桥边，季临川又认出了你。他说自己刚从一处密室取出奇物，也听说你身上有了珍贵的东西。', clue
           ],[
-            {label:`收下他带出的奇物 · 支付 ${f.jiHelp?10:25} 金币，获得${relic?`「${RELICS[relic].name}」`:'60 金币'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60金币。',goldCost:f.jiHelp?10:25,relic,fallbackGold:60,flags:{jiExposed:true},relationship:relation('宝物已被看见','你从季临川手中取得奇物。'),tone:'warning',outcome:'奇物入手，确实有灵。季临川替你合上匣盖，指腹沿匣边的纹路抹去灰尘。'},
-            hasTreasure ? {label:'请他验看随身秘宝 · 获得 25 金币',text:'展示秘宝，收取鉴宝情报费。',goldGain:25,flags:{jiExposed:true},relationship:relation('露宝','你给他看过随身秘宝，也收下了情报费。'),tone:'warning',outcome:'他准确报出秘宝的名字，钱也当场付清。灯罩后面响了一声，你回头时只看见晃动的影子。'} : {label:'只交换路讯 · 获得 10 金币',text:'不展示行囊，不取奇物。',goldGain:10,flags:{jiExposed:false},relationship:relation('保持距离','你交换了路讯，却没有给他看行囊。'),outcome:'你们各说了一段走过的路。季临川收起地图，付了约好的路讯钱。'},
+            {label:`收下他带出的奇物 · 支付 ${f.jiHelp?10:25} 灵石，获得${relic?`「${RELICS[relic].name}」`:'60 灵石'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60灵石。',goldCost:f.jiHelp?10:25,relic,fallbackGold:60,flags:{jiExposed:true},relationship:relation('宝物已被看见','你从季临川手中取得奇物。'),tone:'warning',outcome:'奇物入手，确实有灵。季临川替你合上匣盖，指腹沿匣边的纹路抹去灰尘。'},
+            hasTreasure ? {label:'请他验看随身秘宝 · 获得 25 灵石',text:'展示秘宝，收取鉴宝情报费。',goldGain:25,flags:{jiExposed:true},relationship:relation('露宝','你给他看过随身秘宝，也收下了情报费。'),tone:'warning',outcome:'他准确报出秘宝的名字，灵石也当场付清。灯罩后面响了一声，你回头时只看见晃动的影子。'} : {label:'只交换路讯 · 获得 10 灵石',text:'不展示行囊，不取奇物。',goldGain:10,flags:{jiExposed:false},relationship:relation('保持距离','你交换了路讯，却没有给他看行囊。'),outcome:'你们各说了一段走过的路。季临川收起地图，付了约好的路讯酬劳。'},
             {label:'封好行囊，先走一步 · 下一战护盾 +6',text:'收紧护身符。下一战首回合 +6 护盾；不让他验看宝物。',guard:6,flags:{jiExposed:false},relationship:relation('心存戒备','你察觉他的打量，拒绝露出随身物品。'),outcome:'你借整理护符的动作封住包裹。季临川没有拦路，但这一次你没有把背影留给他。'}
           ],{connection:'断桥边的灯火晃动，照着案上的木匣。',risk:clue});
         },
@@ -1788,10 +1850,10 @@
             '你在逆仪石阶再次看见季临川。这次他没有行礼，两名同伙堵在身后，他的剑尖指着的正是你在灯下打开过的匣子。',
             f.jiHelp ? '“你救过我，我记得。”他避开你的目光，“但那件东西，够我换一生的前程。”旧恩没有让剑尖退后半寸。' : '“你既然敢把宝物拿出来，就该知道有人会跟。”他的声音很轻，路却已被封住。'
           ],[
-            {label:'拔刃迎战 · 击败季临川，守住宝物',text:'进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20金币与选牌；失败结束本局。',battle:fight('季临川'),flags:{jiRobbery:true},relationship:relation('反目成仇','季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。'),tone:'warning',outcome:'你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。'},
-            {label:'付 35 金币买断此路',text:'保留全部遗物，支付35金币后脱离伏击。',goldCost:35,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('人情已断','你付钱换路，保住了宝物，也看清了这个人。'),tone:'warning',outcome:'钱袋落地，你没有弯腰。季临川让开半步；在他数清钱以前，你已越过最后一道雾墙。'},
+            {label:'拔刃迎战 · 击败季临川，守住宝物',text:'进入真实战斗：生命 42，攻击 7 → 护盾5并攻击6 → 连击6×2。胜利得20灵石与选牌；失败结束本局。',battle:fight('季临川'),flags:{jiRobbery:true},relationship:relation('反目成仇','季临川因看见你的秘宝而设伏，曾经的援手未能阻止他。'),tone:'warning',outcome:'你把匣子收进怀里，刃尖出鞘。这一次，不再给他把伸来的手说成求援的机会。'},
+            {label:'付 35 灵石买断此路',text:'保留全部遗物，支付35灵石后脱离伏击。',goldCost:35,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('人情已断','你付清灵石换路，保住了宝物，也看清了这个人。'),tone:'warning',outcome:'灵石袋落地，你没有弯腰。季临川让开半步；在他数清灵石以前，你已越过最后一道雾墙。'},
             {label:'用瘴雾断后 · 失去 8 生命，保住宝物',text:'当前生命须大于8。付出明确生命代价绕开战斗；不丢失遗物。',hpCost:8,flags:{jiRobbery:true,jiEscaped:true},relationship:relation('避开仇敌','你带伤脱身，保住了行囊。'),tone:'warning',outcome:'你划破掌心，将血撒入嗜灵雾中。雾追着血气合拢，你忍痛从另一侧翻下石阶。'}
-          ],{connection:'断桥诸营：你曾让季临川知道宝物在你身上。如今追来的，是同一个人的剑。',risk:'夺宝者已经现身。此处可战斗、花钱脱身或带伤绕行。'});
+          ],{connection:'断桥诸营：你曾让季临川知道宝物在你身上。如今追来的，是同一个人的剑。',risk:'夺宝者已经现身。此处可战斗、花灵石脱身或带伤绕行。'});
           return eventFor('ji_final','ji',3,grateful?'还你一剑':'未出的那一剑',grateful?[
             '季临川守在井外的断墙边。他把前来打听你行踪的人打发走了，自己却留着一柄未曾收鞘的剑。',
             '“山门那次，我还记得。”他把一页剑诀推给你，“我进不了井底，至少替你守住这条退路。”'
@@ -1799,7 +1861,7 @@
             '井外有一串熟悉的脚印，季临川站在石柱后面。你看见他看了看行囊，随后又将剑收回鞘中。',
             j.hidden.jiIntent === 'greedy' ? '他的手在剑柄上停了片刻，最终只是掸去衣领上的石灰。' : '他向你侧身行礼，给石阶让出一人宽的空当。'
           ],[
-            grateful ? {label:`接受回礼 · 获得「${CARDS[id].name}」，下一战护盾 +10`,text:CARDS[id].text,cardIds:[id],guard:10,flags:{jiFinished:true},relationship:relation('知恩守信','季临川兑现了承诺，替你守住退路。'),tone:'good',outcome:'他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。'} : {label:'相互让路 · 获得 12 金币',text:'交换最后一段安全路讯，不展示宝物。',goldGain:12,flags:{jiFinished:true},relationship:relation('相安无事','你们保持距离，各走各的路。'),outcome:'你卖给他一段刚刚走过的路讯。他付钱，让路；这一回，相逢没有变成刀剑。'},
+            grateful ? {label:`接受回礼 · 获得「${CARDS[id].name}」，下一战护盾 +10`,text:CARDS[id].text,cardIds:[id],guard:10,flags:{jiFinished:true},relationship:relation('知恩守信','季临川兑现了承诺，替你守住退路。'),tone:'good',outcome:'他把剑诀交给你，转身守在墙外。你走出很远，还能听见他拒绝旁人靠近的声音。'} : {label:'相互让路 · 获得 12 灵石',text:'交换最后一段安全路讯，不展示宝物。',goldGain:12,flags:{jiFinished:true},relationship:relation('相安无事','你们保持距离，各走各的路。'),outcome:'你卖给他一段刚刚走过的路讯。他付清灵石，让路；这一回，相逢没有变成刀剑。'},
             {label:'收紧护符，独自离去 · 下一战护盾 +5',text:'下一场战斗首回合获得5护盾，不收人情。',guard:5,flags:{jiFinished:true},relationship:relation(grateful?'人情未散':'谨慎作别',grateful?'你谢过他的守望，独自走向井口。':'你没有放下戒备，也没有主动拔剑。'),outcome:'你留下一句保重，顺着另一侧石阶离开。包裹仍封得严实，剑也仍在自己手中。'}
           ],{connection:'石阶上的脚印交错而过，剑仍收在鞘中。'});
         },
@@ -1808,8 +1870,8 @@
             '玄烬符锁把一个削瘦的人钉在山门残柱上。她说自己叫闻人烛，曾为实验记数，直到记录里出现了同门的名字。',
             '“我知道她们如何封路。”她抬起染黑的手，“锁上的阵纹，我画过。只求你替我松开这一道。”'
           ],[
-            {label:'断开符锁 · 失去 5 生命，获得 20 金币',text:'当前生命须大于5。',hpCost:5,goldGain:20,flags:{wenFreed:true},relationship:relation('解锁相助','你释放了闻人烛，锁中的黑印留在腕上。'),tone:'warning',outcome:'铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛拿布替你擦过：“擦不净，得另找洗符砂。”'},
-            {label:'付 15 金币买一页记录，不解锁',text:'获得阵眼记录，下一战首回合护盾 +6。',goldCost:15,guard:6,flags:{wenFreed:false,wenEvidence:true},relationship:relation('只谈交易','你买走了一页记录，没有替她断锁。'),outcome:'她把记录卷成细条递给你，指明一处可避开的阵眼。你记下了手法，却没有伸手碰锁。'},
+            {label:'断开符锁 · 失去 5 生命，获得 20 灵石',text:'当前生命须大于5。',hpCost:5,goldGain:20,flags:{wenFreed:true},relationship:relation('解锁相助','你释放了闻人烛，锁中的黑印留在腕上。'),tone:'warning',outcome:'铁锁落地，一缕黑印从锁口缠到你腕上。闻人烛拿布替你擦过：“擦不净，得另找洗符砂。”'},
+            {label:'付 15 灵石买一页记录，不解锁',text:'获得阵眼记录，下一战首回合护盾 +6。',goldCost:15,guard:6,flags:{wenFreed:false,wenEvidence:true},relationship:relation('只谈交易','你买走了一页记录，没有替她断锁。'),outcome:'她把记录卷成细条递给你，指明一处可避开的阵眼。你记下了手法，却没有伸手碰锁。'},
             {label:'留下水，继续寻找出路',text:'没有数值变化。',flags:{wenFreed:false},relationship:relation('未施援手','你留下水，没有替她断锁。'),outcome:'她喝得很慢，没有再许诺什么。你走开时，听见她重新开始数锁上那些符文。'}
           ]);
         },
@@ -1822,8 +1884,8 @@
             '闻人烛坐在断桥阴影里，手腕血肉模糊。她自己撬断了符锁，留下了一只无法再握笔的手。',
             '“账归账，路归路。”她认出你，却没有责问。她愿意卖出最后一段阵眼记录，换一包止痛药。'
           ],[
-            freed ? {label:'付 15 金币买洗符砂 · 洗去黑印，恢复 6 生命',text:'以洗符砂擦去腕上黑印，恢复 6 生命。',goldCost:15,heal:6,flags:{wenCleansed:true,wenEvidence:true},relationship:relation('并肩脱险','你们洗去符息，约好在观测井外碰面。'),tone:'good',outcome:'黑印在砂中化开。闻人烛将湿布丢进火里，重新包好残页。'} : {label:'付 15 金币买记录 · 下一战护盾 +8',text:'支付15金币，获得下一战首回合8护盾。',goldCost:15,guard:8,flags:{wenEvidence:true},relationship:relation('证据买主','你买走阵眼记录，替她付了药钱。'),outcome:'她把阵眼一一指给你，直到你能独自复述。纸页边缘的血早已干了，字却仍辨认得清。'},
-            freed ? {label:'保住残页，暂不洗印 · 获得 35 金币',text:'收下赶路的盘缠，不使用洗符砂。',goldGain:35,flags:{wenCleansed:false,wenEvidence:true},relationship:relation('带印同行','你保住残页，没有洗去腕上黑印。'),tone:'warning',outcome:'你们把钱和残页分装，赶在追兵前穿过断桥。手腕上的黑印仍贴着皮肤，触之微烫。'} : {label:'替她送一段口供 · 获得 20 金币',text:'带走证言，收下盘缠。',goldGain:20,flags:{wenEvidence:true},relationship:relation('替她作证','你答应把一段实验记录带出雾外。'),outcome:'她把那几个名字念了两遍，你也复述了两遍。如今至少有另一个活人知道她们曾经存在。'},
+            freed ? {label:'付 15 灵石买洗符砂 · 洗去黑印，恢复 6 生命',text:'以洗符砂擦去腕上黑印，恢复 6 生命。',goldCost:15,heal:6,flags:{wenCleansed:true,wenEvidence:true},relationship:relation('并肩脱险','你们洗去符息，约好在观测井外碰面。'),tone:'good',outcome:'黑印在砂中化开。闻人烛将湿布丢进火里，重新包好残页。'} : {label:'付 15 灵石买记录 · 下一战护盾 +8',text:'支付15灵石，获得下一战首回合8护盾。',goldCost:15,guard:8,flags:{wenEvidence:true},relationship:relation('证据买主','你买走阵眼记录，替她付了药资。'),outcome:'她把阵眼一一指给你，直到你能独自复述。纸页边缘的血早已干了，字却仍辨认得清。'},
+            freed ? {label:'保住残页，暂不洗印 · 获得 35 灵石',text:'收下赶路的盘缠，不使用洗符砂。',goldGain:35,flags:{wenCleansed:false,wenEvidence:true},relationship:relation('带印同行','你保住残页，没有洗去腕上黑印。'),tone:'warning',outcome:'你们把灵石和残页分装，赶在追兵前穿过断桥。手腕上的黑印仍贴着皮肤，触之微烫。'} : {label:'替她送一段口供 · 获得 20 灵石',text:'带走证言，收下盘缠。',goldGain:20,flags:{wenEvidence:true},relationship:relation('替她作证','你答应把一段实验记录带出雾外。'),outcome:'她把那几个名字念了两遍，你也复述了两遍。如今至少有另一个活人知道她们曾经存在。'},
             {label:'各走各路，不再交易',text:'不支付代价，也不领取奖励。',flags:{wenCleansed:!!f.wenCleansed},relationship:relation(freed?'黑印仍在':'分道而行',freed?'你先行离开，手腕仍留着黑印。':'你与闻人烛分开，未再做交易。'),tone:freed?'warning':'neutral',outcome:freed?'你没有停下来洗印。闻人烛收回湿布，看着你越过桥下的石阶。':'你将水囊放回腰侧，朝井口走去。闻人烛留在桥下，继续寻找愿意听的人。'}
           ],{connection:freed?'腕上的黑印在火边泛着微光。':'闻人烛将残页摊平，用石子压住纸角。'});
         },
@@ -1833,13 +1895,13 @@
             '逆仪石阶上的黑印同时亮起。你腕上的锁息把玄烬追猎者引到了这里；她没有看闻人烛，只要求交出带走的记录。',
             '闻人烛挡在半步之外：“是我把你卷进来的。”她撕下一页阵图递来，至少还给你留下选择。'
           ],[
-            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20金币与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
+            {label:'与追猎者交锋 · 守住证词',text:'真实战斗：42生命，攻击7 → 护盾5并攻击6 → 连击6×2。胜利20灵石与选牌，失败结束本局。',battle:fight('黑衣人'),flags:{wenFinished:true},relationship:relation('同担后患','救人的举动引来了追猎，你选择守住证词。'),tone:'warning',outcome:'你将阵图收入袖中。追猎者抬起刀，闻人烛退入石柱后；这一次，必须由你挡住来人。'},
             {label:'焚毁口供诱开追兵 · 失去 6 生命',text:'当前生命须大于6。保留自己的卡牌遗物，放弃故事中的证词；不触发战斗。',hpCost:6,flags:{wenFinished:true,wenEvidence:false,wenCleansed:true},relationship:relation('带伤脱身','你烧掉口供引开追兵，结束了这段追踪。'),tone:'warning',outcome:'符火吞下纸页，也灼伤了你手腕。追兵追着假阵眼远去，那些名字只剩你和闻人烛还记得。'},
-            {label:'付 30 金币借暗道撤离',text:'保留卡牌、遗物及证词，支付30金币结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的路钱，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收钱，不问名字；门在追猎者的脚步到来前重新合拢。'}
+            {label:'付 30 灵石借暗道撤离',text:'保留卡牌、遗物及证词，支付30灵石结束追踪。',goldCost:30,flags:{wenFinished:true,wenCleansed:true},relationship:relation('共逃一劫','你付了暗道的通行灵石，两人带着证词脱身。'),outcome:'闻人烛敲开一道石门。守门人只收灵石，不问名字；门在追猎者的脚步到来前重新合拢。'}
           ],{connection:'黑印与石阶上的阵纹一同发亮，追猎者的脚步近了。'});
           return eventFor('wen_final','wen',3,'留存之证',[
             '闻人烛在观测井外等你。她将最后几页实验记录放在石头上，纸上列着被抹去的姓名，而非可供修炼的口诀。',
-            f.wenEvidence ? '“你替我记住了那些名字。”她把一份破阵手法夹进记录，“这份不用再付钱。”' : '她已经不再求你救她，只问你愿不愿意让雾外的人知道，这里发生过什么。'
+            f.wenEvidence ? '“你替我记住了那些名字。”她把一份破阵手法夹进记录，“这份不用再付清灵石。”' : '她已经不再求你救她，只问你愿不愿意让雾外的人知道，这里发生过什么。'
           ],[
             {label:`带出记录 · 获得「${CARDS[id].name}」，下一战护盾 +8`,text:CARDS[id].text,cardIds:[id],guard:8,flags:{wenFinished:true,wenEvidence:true},relationship:relation('证词同行者','你带走了实验记录，闻人烛将破阵手法留给你。'),tone:'good',outcome:'你把记录收好。她没有再提报偿，只仔细念完最后一个名字。符印不再发烫，路也终于安静下来。'},
             {label:'让她保管记录 · 恢复 10 生命',text:'接受一份洗符余药，不带走故事证词。',heal:10,flags:{wenFinished:true},relationship:relation('各自求生','你收下余药，托她自己带出记录。'),outcome:'闻人烛把余药递来，重新将记录包好。你们选择不同的出口，至少都不再被黑印牵着走。'},
@@ -1862,8 +1924,8 @@
             '百草庵弟子苏芩正把一车药草往雾外推。车上坐着两名并非她同门的伤者，她一边推车，一边埋怨他们太重。',
             '看见你来，她把车停稳：“救人归救人，可别踩我的药。你若愿意帮忙，我分你一包。”'
           ],[
-            {label:'扶车过坎 · 恢复 12 生命，得 10 金币',text:'接受她的伤药和同行者凑出的谢礼。',heal:12,goldGain:10,tone:'good',outcome:'你把车轮抬过断阶。苏芩分药时多抓了一把，嘴上仍说是药草自己掉进去的。'},
-            {label:'付 20 金币买足一程的伤药 · 恢复 24 生命',text:'治疗不超过最大生命。',goldCost:20,heal:24,outcome:'她收下钱，认真检查封口。你买的是药，也是他们下一段归路的盘缠。'},
+            {label:'扶车过坎 · 恢复 12 生命，得 10 灵石',text:'接受她的伤药和同行者凑出的谢礼。',heal:12,goldGain:10,tone:'good',outcome:'你把车轮抬过断阶。苏芩分药时多抓了一把，嘴上仍说是药草自己掉进去的。'},
+            {label:'付 20 灵石买足一程的伤药 · 恢复 24 生命',text:'治疗不超过最大生命。',goldCost:20,heal:24,outcome:'她收下灵石，认真检查封口。你买的是药，也是他们下一段归路的盘缠。'},
             {label:'留出道路，互道平安',text:'没有数值变化。',outcome:'苏芩推车经过时，提醒你井边有一段石阶会回响。善意很短，却足够记住。'}
           ],{faction:'百草庵',whisper:'她救的人不全是同门，药却一份也没少给。'});
         },
@@ -1873,8 +1935,8 @@
             '栖霞观与断岳宗各有一名弟子按住同一只匣子。匣子原本属于一个已经死去的散修，两人却都拿出了足够古老的宗门印信。',
             '“替我断个公道。”他们同时说。无论你向谁点头，另一只手都会离剑柄更近。'
           ],[
-            {label:`以 35 金币买断争执 · 获得${relic?`「${RELICS[relic].name}」`:'60金币'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60金币。',goldCost:35,relic,fallbackGold:60,outcome:'两宗弟子先分了钱，才肯松开手。匣里的奇物归你，关于公道的话也忽然没人再提。'},
-            {label:'替散修收殓 · 失去 4 生命，得 20 金币',text:'当前生命须大于4。取墓边未被污染的盘缠，不碰争议宝物。',hpCost:4,goldGain:20,outcome:'你替死者合眼，瘴气刺入指尖。那两人终于停下争吵，你只取走明白留给送葬人的铜钱。'},
+            {label:`以 35 灵石买断争执 · 获得${relic?`「${RELICS[relic].name}」`:'60灵石'}`,text:relic?RELICS[relic].text:'秘宝已齐，改得60灵石。',goldCost:35,relic,fallbackGold:60,outcome:'两宗弟子先分了灵石，才肯松开手。匣里的奇物归你，关于公道的话也忽然没人再提。'},
+            {label:'替散修收殓 · 失去 4 生命，得 20 灵石',text:'当前生命须大于4。取墓边未被污染的盘缠，不碰争议宝物。',hpCost:4,goldGain:20,outcome:'你替死者合眼，瘴气刺入指尖。那两人终于停下争吵，你只取走明白留给送葬人的灵石。'},
             {label:'不替任何一宗背书',text:'没有数值变化。',outcome:'你将两份印信推回去。古老不等于有理，更不等于值得把命赔上。'}
           ],{faction:'栖霞观 / 断岳宗',whisper:'宝物只有一件，替它作证的印信却有两枚。'});
         },
@@ -1884,7 +1946,7 @@
             '守灯的青年许星沉挪出半个位置：“帮着守一刻，灯灭了，我们都得死。”'
           ],[
             {label:'接过守灯符 · 下一战护盾 +10',text:'下一场战斗首回合获得10护盾，用后消失。',guard:10,tone:'good',outcome:'这一刻没有人问你属于哪边。换班时，许星沉把余下的守灯符留给你，玄烬弃徒替你指出了背风的小路。'},
-            {label:'分享 12 金币补给 · 恢复 14 生命，得 5 护盾援护',text:'支付12金币；护盾在下一场战斗首回合生效。',goldCost:12,heal:14,guard:5,outcome:'干粮按三份分开，灯油也添到正好的高度。你们没有成为朋友，却一起等过一阵风。'},
+            {label:'分享 12 灵石补给 · 恢复 14 生命，得 5 护盾援护',text:'支付12灵石；护盾在下一场战斗首回合生效。',goldCost:12,heal:14,guard:5,outcome:'干粮按三份分开，灯油也添到正好的高度。你们没有成为朋友，却一起等过一阵风。'},
             {label:'独自绕过灯火',text:'没有代价，也没有奖励。',outcome:'你没有坐下。守灯的人仍将灯挪开半寸，让你看清面前的路。'}
           ],{faction:'太微剑宗 / 玄烬弃徒',whisper:'旧仇还在，今夜却得先活下去。'});
         }
@@ -1892,6 +1954,8 @@
     }
     function makeEvent() {
       const p = state.player;
+      const bossStory=bossQuestsEnabled&&BOSS_QUESTS.build(activeNode?.storyId,state);
+      if(bossStory){state.seenEvents.push(bossStory.id);bossStory.choices=finishChoices(bossStory.choices,p);return bossStory;}
       const rare = cardPool().filter(id => CARDS[id].rarity === 'rare');
       const rareCards = () => sample(rare, 2);
       const builders = {
@@ -1907,10 +1971,10 @@
               '井底那一轮月亮很圆，也很饿。它把你的倒影含在口中，等你先开口。'
             ],
             choices: finishChoices([
-              { label: `投入 20 金币 · ${relic ? `捞起秘宝「${RELICS[relic].name}」` : '换得 40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 20，得到 40，净赚 20 金币。', goldCost: 20, relic, fallbackGold: 40,
-                outcome: '金币沉下去时没有声音。一只湿冷的手把月白色的髓珠放进你掌心；再低头时，井底那张脸已经闭上了眼。' },
-              { label: `以 6 点生命喂井 · 获得「${CARDS[card].name}」与 30 金币`, text: `${CARDS[card].text} 需要当前生命大于 6。`, hpCost: 6, cardIds: [card], goldGain: 30,
-                outcome: '你把六滴血按进井沿。水面吐出一张湿淋淋的符纸，还有一小袋从未属于你的钱。井底传来很轻的咀嚼声。' },
+              { label: `投入 20 灵石 · ${relic ? `捞起秘宝「${RELICS[relic].name}」` : '换得 40 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 20，得到 40，净赚 20 灵石。', goldCost: 20, relic, fallbackGold: 40,
+                outcome: '灵石沉下去时没有声音。一只湿冷的手把月白色的髓珠放进你掌心；再低头时，井底那张脸已经闭上了眼。' },
+              { label: `以 6 点生命喂井 · 获得「${CARDS[card].name}」与 30 灵石`, text: `${CARDS[card].text} 需要当前生命大于 6。`, hpCost: 6, cardIds: [card], goldGain: 30,
+                outcome: '你把六滴血按进井沿。水面吐出一张湿淋淋的符纸，还有一小袋从未属于你的灵石。井底传来很轻的咀嚼声。' },
               { label: '只饮一口井水 · 恢复 12 生命', text: '不取任何宝贝，也不惊动井底那个“你”。', heal: 12,
                 outcome: '井水冷得像一场旧雪，伤口却在雪里慢慢合拢。你没有拿走任何东西，井底的人反而松了一口气。' }
             ], p)
@@ -1921,18 +1985,18 @@
           return {
             id: 'shrine', name: '无面旧神龛', glyph: '龛', kicker: 'A GOD WITHOUT A FACE / 无面旧神',
             whisper: '祂没有脸，却记得你的名字。',
-            description: '香灰里埋着几枚刻了你名字的旧钱。神像的掌心有一道新伤，正等着别的东西填满。',
+            description: '香灰里埋着几枚刻了你名字的旧灵石。神像的掌心有一道新伤，正等着别的东西填满。',
             story: [
-              '雨从神像空白的眼窝里流下来。它没有脸，却知道你从哪一层来；供桌上摆着六枚旧钱，每一枚都刻着你的名字。',
+              '雨从神像空白的眼窝里流下来。它没有脸，却知道你从哪一层来；供桌上摆着六枚旧灵石，每一枚都刻着你的名字。',
               '“拿走你想要的东西。”一个声音说，“只要留下一点，让我记得你曾经来过。”'
             ],
             choices: finishChoices([
-              { label: `献上 8 生命与 15 金币 · 得「${CARDS[card].name}」与${relic ? `秘宝「${RELICS[relic].name}」` : '60 金币'}`, text: `${CARDS[card].text} ${relic ? RELICS[relic].text : '秘宝已集齐：支付 15，得到 60，净赚 45 金币。'}`, hpCost: 8, goldCost: 15, cardIds: [card], relic, fallbackGold: 60,
+              { label: `献上 8 生命与 15 灵石 · 得「${CARDS[card].name}」与${relic ? `秘宝「${RELICS[relic].name}」` : '60 灵石'}`, text: `${CARDS[card].text} ${relic ? RELICS[relic].text : '秘宝已集齐：支付 15，得到 60，净赚 45 灵石。'}`, hpCost: 8, goldCost: 15, cardIds: [card], relic, fallbackGold: 60,
                 outcome: '神像把血抹在空白的脸上，长出一双极淡的眼睛。你的胸口发热，像多了一颗不属于自己的心。' },
-              { label: '撬开功德箱 · 获得 55 金币，最大生命 −6', text: '铜钱很多，神像也记得是谁拿的。需要最大生命大于 6。', maxHpCost: 6, goldGain: 55,
-                outcome: '功德箱裂开，铜钱像雨水一样涌出来。你听见神像在背后轻轻记下一笔：下次，收的不只是命。' },
-              { label: '把旧钱放回供桌 · 恢复 10 生命', text: '让这场雨停一会儿。', heal: 10,
-                outcome: '旧钱落回铜盘，神像的呼吸慢了下来。你忽然想起，自己也曾被谁轻轻放过一次。' }
+              { label: '撬开功德箱 · 获得 55 灵石，最大生命 −6', text: '灵石很多，神像也记得是谁拿的。需要最大生命大于 6。', maxHpCost: 6, goldGain: 55,
+                outcome: '功德箱裂开，灵石像雨水一样涌出来。你听见神像在背后轻轻记下一笔：下次，收的不只是命。' },
+              { label: '把旧灵石放回供桌 · 恢复 10 生命', text: '让这场雨停一会儿。', heal: 10,
+                outcome: '旧灵石落回铜盘，神像的呼吸慢了下来。你忽然想起，自己也曾被谁轻轻放过一次。' }
             ], p)
           };
         },
@@ -1947,9 +2011,9 @@
               '“你可以买一个梦，也可以卖掉一点过去。”她把空罐摆正，“井底的看守不挑食，但挑梦。”'
             ],
             choices: finishChoices([
-              { label: `付 25 金币 · ${relic ? `买下秘宝「${RELICS[relic].name}」` : '换得 60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 25，得到 60，净赚 35 金币。', goldCost: 25, relic, fallbackGold: 60,
+              { label: `付 25 灵石 · ${relic ? `买下秘宝「${RELICS[relic].name}」` : '换得 60 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 25，得到 60，净赚 35 灵石。', goldCost: 25, relic, fallbackGold: 60,
                 outcome: '你打开一只写着“如果那晚我没有深入封域”的罐子。梦里多出一只手替你翻牌，醒来时指尖还带着琉璃的凉。' },
-              { label: '卖掉一段旧习惯 · 移除一张基础牌，得 35 金币并恢复 8 生命', text: '牌组须至少保留 5 张。', removeBasic: true, goldGain: 35, heal: 8,
+              { label: '卖掉一段旧习惯 · 移除一张基础牌，得 35 灵石并恢复 8 生命', text: '牌组须至少保留 5 张。', removeBasic: true, goldGain: 35, heal: 8,
                 outcome: '摊主从你手里抽走一张旧牌，像抽走一根早已长进肉里的刺。你忽然轻得有些不习惯。' },
               { label: `吞下无名梦 · 失去 10 生命，获得「${CARDS[cards[0]].name}」与「${CARDS[cards[1]].name}」`, text: '梦里没有回头路，醒来的掌心却会留下东西。', hpCost: 10, cardIds: cards,
                 outcome: '你在梦里活了两种截然不同的人生。醒来时嘴角有血，掌心却多了两张陌生的契。摊主已经不在了，只剩空罐轻轻碰撞。' }
@@ -1967,12 +2031,12 @@
               '班主把一支蘸了朱砂的笔递给你：“放心，戏是假的。只是每次散场，总会少一个真的。”'
             ],
             choices: finishChoices([
-              { label: `上台改戏 · 失去 8 生命，获得${mirror ? `秘宝「${RELICS[mirror].name}」` : '60 金币'}`, text: mirror ? RELICS[mirror].text : '秘宝已集齐，获得 60 金币。', hpCost: 8, relic: mirror, fallbackGold: 60,
+              { label: `上台改戏 · 失去 8 生命，获得${mirror ? `秘宝「${RELICS[mirror].name}」` : '60 灵石'}`, text: mirror ? RELICS[mirror].text : '秘宝已集齐，获得 60 灵石。', hpCost: 8, relic: mirror, fallbackGold: 60,
                 outcome: '你走上纸台，把戏本里的死亡改成一次反击。纸偶看了你一眼，把一面小镜塞进你的袖口；镜里，蛇的倒影先流了血。' },
-              { label: `买下戏班的九命灯 · 付 45 金币，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 金币'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 金币。', goldCost: 45, relic: nine, fallbackGold: 60,
+              { label: `买下戏班的九命灯 · 付 45 灵石，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 灵石'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 灵石。', goldCost: 45, relic: nine, fallbackGold: 60,
                 outcome: '你买下戏班最后一盏灯。灯芯里缠着九根猫须，熄灭时，台上那只纸偶朝你弓了弓背。' },
-              { label: '撕掉戏本 · 恢复 6 生命，获得 20 金币', text: '让今夜的死法留在纸里。', heal: 6, goldGain: 20,
-                outcome: '你撕掉戏本，纸人像雪一样落下。散场后，你在空椅下捡到几枚还没被掌声吞掉的铜钱。' }
+              { label: '撕掉戏本 · 恢复 6 生命，获得 20 灵石', text: '让今夜的死法留在纸里。', heal: 6, goldGain: 20,
+                outcome: '你撕掉戏本，纸人像雪一样落下。散场后，你在空椅下捡到几枚还没被掌声吞掉的灵石。' }
             ], p)
           };
         },
@@ -1987,9 +2051,9 @@
               '“只要今晚。”她说，“明早我会把它还你。若不还，你也可以拿走我伞下的东西。”伞骨里蜷着两段不属于你的路。'
             ],
             choices: finishChoices([
-              { label: `借出影子 · 最大生命 −6，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」与 35 金币`, text: '她拿走你的一小段黑，留下两段别人未走完的路。', maxHpCost: 6, cardIds: cards, goldGain: 35,
-                outcome: '她把你的影子折好，藏进伞骨。作为交换，你得到两段别人没走完的路，以及一袋在雨里也不会湿的钱。' },
-              { label: `陪她走到观测井 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 金币'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 金币。', hpCost: 10, relic, fallbackGold: 40,
+              { label: `借出影子 · 最大生命 −6，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」与 35 灵石`, text: '她拿走你的一小段黑，留下两段别人未走完的路。', maxHpCost: 6, cardIds: cards, goldGain: 35,
+                outcome: '她把你的影子折好，藏进伞骨。作为交换，你得到两段别人没走完的路，以及一袋在雨里也不会湿的灵石。' },
+              { label: `陪她走到观测井 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 灵石。', hpCost: 10, relic, fallbackGold: 40,
                 outcome: '你替她撑伞走到遗径尽头。她没有回头，只把伞柄塞进你手里；伞下多了一盏铃，铃舌是一小截蛇骨。' },
               { label: '把自己的伞留给她 · 恢复 10 生命', text: '不借影子，也不问她的名字。', heal: 10,
                 outcome: '你把伞留在檐下。雨声重新落下时，那半把伞已经不见了，手心却暖了很久。' }
@@ -2000,18 +2064,18 @@
           const card = sample(rare, 1)[0], relic = chooseTreasure('moonheart');
           return {
             id: 'pawnshop', name: '蛇鳞当铺', glyph: '鳞', kicker: 'REGRETS, PAWNED / 一片鳞，一段悔',
-            whisper: '记忆是最不值钱的东西，除非有人愿意替你疼。',
+            whisper: '记忆是最不珍贵的东西，除非有人愿意替你疼。',
             description: '柜台上摆满蛇鳞，每一片都映着一段悔意。掌柜用指甲敲了敲玻璃，问你想当掉哪一段。',
             story: [
               '柜台后的蛇影没有抬头。玻璃匣里码着数百片蛇鳞，每一片都映着一段悔意：没递出的信、没回头的夜、没救下的人。',
-              '“记忆是最不值钱的东西。”掌柜说，“除非有人愿意替你疼。你可以当，也可以赎。”'
+              '“记忆是最不珍贵的东西。”掌柜说，“除非有人愿意替你疼。你可以当，也可以赎。”'
             ],
             choices: finishChoices([
-              { label: '当掉一段记忆 · 获得 65 金币，最大生命 −5', text: '你会忘记自己为何深入封域，但不会忘记怎么活下去。', maxHpCost: 5, goldGain: 65,
-                outcome: '掌柜从你眉心揭下一层薄薄的旧影，像揭下一张用久了的符。金币沉进袖袋，你忽然想不起母亲的嗓音。' },
-              { label: `付 40 金币 · ${relic ? `赎回秘宝「${RELICS[relic].name}」` : '换得 40 金币'}与「${CARDS[card].name}」`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 40，得到 40 金币与一张卡牌。', goldCost: 40, relic, cardIds: [card], fallbackGold: 40,
+              { label: '当掉一段记忆 · 获得 65 灵石，最大生命 −5', text: '你会忘记自己为何深入封域，但不会忘记怎么活下去。', maxHpCost: 5, goldGain: 65,
+                outcome: '掌柜从你眉心揭下一层薄薄的旧影，像揭下一张用久了的符。灵石沉进袖袋，你忽然想不起母亲的嗓音。' },
+              { label: `付 40 灵石 · ${relic ? `赎回秘宝「${RELICS[relic].name}」` : '换得 40 灵石'}与「${CARDS[card].name}」`, text: relic ? RELICS[relic].text : '秘宝已集齐：支付 40，得到 40 灵石与一张卡牌。', goldCost: 40, relic, cardIds: [card], fallbackGold: 40,
                 outcome: '你赎回一片温热的旧鳞。鳞片贴在掌心时，一段不属于你的记忆从指缝里流过去，留下了一件宝贝。' },
-              { label: `放走匣中一片蛇鳞 · 失去 6 生命，获得「${CARDS[card].name}」与 25 金币`, text: `${CARDS[card].text} 蛇鳞割手，但不会白割。`, hpCost: 6, cardIds: [card], goldGain: 25,
+              { label: `放走匣中一片蛇鳞 · 失去 6 生命，获得「${CARDS[card].name}」与 25 灵石`, text: `${CARDS[card].text} 蛇鳞割手，但不会白割。`, hpCost: 6, cardIds: [card], goldGain: 25,
                 outcome: '你撬开玻璃匣，那片鳞像活物一样卷住你的手指。掌柜没有拦你，只在账本上添了一行：欠蛇后一次。' }
             ], p)
           };
@@ -2024,8 +2088,8 @@
             description: '太微剑宗留下的望哨已断讯三日。守哨人把名册反扣在掌心，不肯让你看最后一页。',
             story: ['灰白界碑之后，天色停在某个没有太阳的傍晚。两名剑宗弟子守着一位昏迷同伴，身后的符灯一盏盏朝着雾内倾斜。', '他们奉命查明玄烬教实验的反噬范围；可名册上写着四个人，这里却只有三个人。无人敢去问第四个的名字。'],
             choices: finishChoices([
-              { label: `分出真气救人 · 失去 6 生命，得「${CARDS[card].name}」与 20 金币`, text: `${CARDS[card].text} 当前生命须大于 6。`, hpCost: 6, cardIds: [card], goldGain: 20, outcome: '伤者睁眼，只说井里还有东西。守哨人把一页剑诀和盘缠递来，随即抹掉了名册最后一行。' },
-              { label: `付 20 金币补给 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 20 后返还 60 金币。', goldCost: 20, relic, fallbackGold: 60, outcome: '他们收下补给，将一件从雾中带回的旧物交给你。剑宗不问你来历，只希望下一次有人活着走出界碑。' },
+              { label: `分出真气救人 · 失去 6 生命，得「${CARDS[card].name}」与 20 灵石`, text: `${CARDS[card].text} 当前生命须大于 6。`, hpCost: 6, cardIds: [card], goldGain: 20, outcome: '伤者睁眼，只说井里还有东西。守哨人把一页剑诀和盘缠递来，随即抹掉了名册最后一行。' },
+              { label: `付 20 灵石补给 · 获得${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 20 后返还 60 灵石。', goldCost: 20, relic, fallbackGold: 60, outcome: '他们收下补给，将一件从雾中带回的旧物交给你。剑宗不问你来历，只希望下一次有人活着走出界碑。' },
               { label: '记下警示后离开 · 恢复 6 生命', text: '不接名册，不问失踪者姓名。', heal: 6, outcome: '你在火边坐了片刻。临行时守哨人忽然问你们共有几个人；你没有回头替他数。' }
             ], p)
           };
@@ -2033,13 +2097,13 @@
         supply() {
           const relic = chooseTreasure('vial');
           return {
-            id: 'supply', name: '断桥军需', glyph: '桥', faction: 'guild', kicker: 'BROKEN BRIDGE / 灯下计价',
-            whisper: '“钱能买路，买不了雾。”',
+            id: 'supply', name: '断桥灵商', glyph: '桥', faction: 'guild', kicker: 'BROKEN BRIDGE / 灯下计价',
+            whisper: '“灵石能买路，买不了雾。”',
             description: '千灯商盟的货车悬在断桥中央。老板已经为每一件失物标好了价，也为每一个救货的人标好了价。',
-            story: ['桥下没有河，只有缓慢翻动的黑雾。商盟把桥头灯架得很高，一车丹药却仍卡在不可能抵达的桥中央。', '老板不曾提救人；车夫的名字早被划掉。他只指着药箱，问你愿不愿意做一笔赚得不太干净的生意。'],
+            story: ['桥下没有河，只有缓慢翻动的黑雾。商盟把桥头灯架得很高，一车丹药却仍卡在不可能抵达的桥中央。', '掌柜是一名千灯商盟的筑基修士，腰间层层护命符，口口声声只谈此地的灵物差价。他不曾提救人；车夫的名字早被划掉。他只指着药箱，问你愿不愿意做一笔赚得不太干净的生意。'],
             choices: finishChoices([
-              { label: `付 30 金币 · 买下${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 30 后得到 60 金币。', goldCost: 30, relic, fallbackGold: 60, outcome: '药箱隔着雾滑到你脚边，桥中央的货车却没有动。老板不再说车上还有别的什么。' },
-              { label: '冒险搬货 · 失去 5 生命，得 45 金币', text: '当前生命须大于 5；黑雾侵蚀无视护盾。', hpCost: 5, goldGain: 45, outcome: '桥面咬住了你的一点血气。你抱回半只货箱，老板如数付钱，只多问了一句：另一半有没有哭？' },
+              { label: `付 30 灵石 · 买下${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '遗物已齐，支付 30 后得到 60 灵石。', goldCost: 30, relic, fallbackGold: 60, outcome: '药箱隔着雾滑到你脚边，桥中央的货车却没有动。老板不再说车上还有别的什么。' },
+              { label: '冒险搬货 · 失去 5 生命，得 45 灵石', text: '当前生命须大于 5；黑雾侵蚀无视护盾。', hpCost: 5, goldGain: 45, outcome: '桥面咬住了你的一点血气。你抱回半只货箱，老板如数付清灵石，只多问了一句：另一半有没有哭？' },
               { label: '烤火后绕行 · 恢复 8 生命', text: '不碰货车，也不接受赊账。', heal: 8, outcome: '灯油里混着止痛的药香。你在桥头暖了暖手，选择走一条真正踩得到地面的路。' }
             ], p)
           };
@@ -2053,8 +2117,8 @@
             story: ['魔教本想从归墟引来可供驱使的灵性，祭阵却把整片寒渊变成了实验容器。外界看不透，活物在这里也很难长久活着。', '石台上留有被匆忙撕碎的记录。有人回来收过证据，却独独没有碰那本还在自己翻页的手札。'],
             choices: finishChoices([
               { label: `读取禁页 · 失去 8 生命，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」`, text: '当前生命须大于 8；两张均为本职业稀有卡。', hpCost: 8, cardIds: cards, outcome: '两行无法念出的字化成了出招的直觉。你看懂了力量，却没有看懂记录者为何在最后画满自己的眼睛。' },
-              { label: `触碰试剂 · 最大生命 −6，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', maxHpCost: 6, relic, fallbackGold: 60, outcome: '试剂像一颗反向跳动的心。你收走一滴，室内的阵盘忽然一起停住，仿佛终于确认了新的观察者。' },
-              { label: '焚去残室 · 恢复 12 生命，得 15 金币', text: '带走安全补给，不再读取禁页。', heal: 12, goldGain: 15, outcome: '符火烧掉了纸页，却烧不掉纸页投下的影子。你只带走封存的丹药和几枚没有被污染的铜钱。' }
+              { label: `触碰试剂 · 最大生命 −6，获得${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 灵石。', maxHpCost: 6, relic, fallbackGold: 60, outcome: '试剂像一颗反向跳动的心。你收走一滴，室内的阵盘忽然一起停住，仿佛终于确认了新的观察者。' },
+              { label: '焚去残室 · 恢复 12 生命，得 15 灵石', text: '带走安全补给，不再读取禁页。', heal: 12, goldGain: 15, outcome: '符火烧掉了纸页，却烧不掉纸页投下的影子。你只带走封存的丹药和几枚没有被污染的灵石。' }
             ], p)
           };
         },
@@ -2067,7 +2131,7 @@
             story: ['成排剑影沉在坚冰里，像一支等待号令的队伍。太微弟子的剑穗依然洁净，归路上的脚印却被什么从记忆里抹去了。', '碑后留着半段未完成的招式。你可以沿着那道伤痕推演，也可以先让这些无主之剑安静片刻。'],
             choices: finishChoices([
               { label: `以身试剑 · 失去 5 生命，获得「${CARDS[card].name}」`, text: `${CARDS[card].text} 当前生命须大于 5。`, hpCost: 5, cardIds: [card], outcome: '旧剑没有主人，却仍记得最后一场交手。你以一线血气接住残招，随后将它化成自己的出手。' },
-              { label: `付 15 金币磨砺 · 移除一张基础牌，获得「${CARDS[technique].name}」`, text: '移除最早的一张本职业基础牌；牌组须至少保留 5 张。', goldCost: 15, removeBasic: true, cardIds: [technique], outcome: '你舍去一个不合时宜的起手式。旧剑的嗡鸣短了一拍，新的招式却比先前更清楚。' },
+              { label: `付 15 灵石磨砺 · 移除一张基础牌，获得「${CARDS[technique].name}」`, text: '移除最早的一张本职业基础牌；牌组须至少保留 5 张。', goldCost: 15, removeBasic: true, cardIds: [technique], outcome: '你舍去一个不合时宜的起手式。旧剑的嗡鸣短了一拍，新的招式却比先前更清楚。' },
               { label: '替无主剑立碑 · 恢复 10 生命', text: '不索取剑诀。', heal: 10, outcome: '你替每一柄剑拨正剑穗。最后一缕霜气散去时，有人隔着很远的地方向你行了一礼。' }
             ], p)
           };
@@ -2079,9 +2143,9 @@
             description: '散修、逃兵和寻宝客挤在同一处营火旁。每个人都声称自己没有拿走不该拿的东西。',
             story: ['篝火照不出帐篷背面。有个探客兜售祖传护符，另一个正在用自己的牙齿换药；两人的口音完全相同，却互不相认。', '这里没有统一的命令，只有临时的价目。下一支入域的队伍正在挑向导，没有人肯第一个报出真名。'],
             choices: finishChoices([
-              { label: '付 20 金币换伤药 · 恢复 22 生命', text: '治疗不超过最大生命。', goldCost: 20, heal: 22, outcome: '药师收钱后立刻烧掉收据。药是真的，伤口不再发冷；至于他为何知道你的伤在哪里，他不肯多说。' },
-              { label: '出售前路情报 · 失去 6 生命，得 50 金币', text: '你须亲自探过一段受侵蚀的路；当前生命大于 6。', hpCost: 6, goldGain: 50, outcome: '你用伤痕证明情报不是编的。买主满意地付钱，随后在地图上把安全路段全都标成了自己的领地。' },
-              { label: '替他们修好灯架 · 得 10 金币', text: '不加入任何队伍，也不付出生命。', goldGain: 10, outcome: '灯架稳住了，影子却没有。你收下一点谢礼，在他们开始争论谁的影子多了一条之前离开。' }
+              { label: '付 20 灵石换伤药 · 恢复 22 生命', text: '治疗不超过最大生命。', goldCost: 20, heal: 22, outcome: '药师收灵石后立刻烧掉收据。药是真的，伤口不再发冷；至于他为何知道你的伤在哪里，他不肯多说。' },
+              { label: '出售前路情报 · 失去 6 生命，得 50 灵石', text: '你须亲自探过一段受侵蚀的路；当前生命大于 6。', hpCost: 6, goldGain: 50, outcome: '你用伤痕证明情报不是编的。买主满意地付清灵石，随后在地图上把安全路段全都标成了自己的领地。' },
+              { label: '替他们修好灯架 · 得 10 灵石', text: '不加入任何队伍，也不付出生命。', goldGain: 10, outcome: '灯架稳住了，影子却没有。你收下一点谢礼，在他们开始争论谁的影子多了一条之前离开。' }
             ], p)
           };
         },
@@ -2093,8 +2157,8 @@
             description: '黑符封着一只空笼。笼内的声音自称玄烬旧徒，愿用一件实验产物换你断开一道锁。',
             story: ['囚笼从地底悬起，里面却空无一物。声音准确报出归墟引灵仪启动的时辰，随后又改口说，那也许是明天。', '玄烬残众回来搬走了同类试验体，唯独把这一只留在原地。锁上没有“危险”，只有一个被反复划掉的“失败”。'],
             choices: finishChoices([
-              { label: `用血断锁 · 失去 7 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', hpCost: 7, relic, fallbackGold: 60, outcome: '锁断时你没有看笼内。声音说它会记得这个人情；随后一件冰冷的旧物落下，比承诺更实在。' },
-              { label: `付 25 金币买口供 · 获得「${CARDS[card].name}」`, text: `${CARDS[card].text} 只买招式，不替囚中人解锁。`, goldCost: 25, cardIds: [card], outcome: '它没有透露主使的名字，只教给你一段能活着接近观测井的招式。你记住了招式，没记住它最后喊出的称呼。' },
+              { label: `用血断锁 · 失去 7 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 灵石。', hpCost: 7, relic, fallbackGold: 60, outcome: '锁断时你没有看笼内。声音说它会记得这个人情；随后一件冰冷的旧物落下，比承诺更实在。' },
+              { label: `付 25 灵石买口供 · 获得「${CARDS[card].name}」`, text: `${CARDS[card].text} 只买招式，不替囚中人解锁。`, goldCost: 25, cardIds: [card], outcome: '它没有透露主使的名字，只教给你一段能活着接近观测井的招式。你记住了招式，没记住它最后喊出的称呼。' },
               { label: '封好黑符后离开 · 恢复 6 生命', text: '不释放笼中的东西。', heal: 6, outcome: '符纸重新贴紧铁栏。你听见笼里有人轻轻叹息，像失望，也像终于能睡。' }
             ], p)
           };
@@ -2107,8 +2171,8 @@
             description: '石壁裂成不合几何的角度。外界探查至此全数失效，只有一道影子始终面对着你。',
             story: ['远处的岩壁在同一个位置折了两次，雾从不可能的夹角里倒流。你想为它取一个名字，舌尖却忽然失去知觉。', '有人在这里留下许多测量绳，绳结全都回到了自己掌心。你不需要知道里面是什么，只需要决定取到什么程度。'],
             choices: finishChoices([
-              { label: `用一段寿元换视野 · 最大生命 −5，得两张稀有卡与 20 金币`, text: `获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」，最大生命至少保留 5。`, maxHpCost: 5, cardIds: cards, goldGain: 20, outcome: '你看见了两个尚未发生的出手，并把它们从未来带回。代价是某些很久以后的日子再也不会属于你。' },
-              { label: `伸手取出裂隙之核 · 失去 8 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 金币。', hpCost: 8, relic, fallbackGold: 60, outcome: '你抽回手，掌心多了一枚会随呼吸明灭的核心。裂隙变窄了些，仿佛只是把注意力移到了别处。' },
+              { label: `用一段寿元换视野 · 最大生命 −5，得两张稀有卡与 20 灵石`, text: `获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」，最大生命至少保留 5。`, maxHpCost: 5, cardIds: cards, goldGain: 20, outcome: '你看见了两个尚未发生的出手，并把它们从未来带回。代价是某些很久以后的日子再也不会属于你。' },
+              { label: `伸手取出裂隙之核 · 失去 8 生命，获得${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已齐，改得 60 灵石。', hpCost: 8, relic, fallbackGold: 60, outcome: '你抽回手，掌心多了一枚会随呼吸明灭的核心。裂隙变窄了些，仿佛只是把注意力移到了别处。' },
               { label: '收回目光，调息离开 · 恢复 10 生命', text: '不继续观察。', heal: 10, outcome: '你闭眼数过十次呼吸。再睁眼时，石壁仍是石壁；你把刚才看见的角度留在了身后。' }
             ], p)
           };
@@ -2118,11 +2182,11 @@
           return {
             id: 'broker', name: '千灯密约', glyph: '契', faction: 'guild', kicker: 'A PRIVATE CONTRACT / 千灯不灭',
             whisper: '“我们从不打听来源。只问，谁还知道它在你手里？”',
-            description: '商盟代理人愿为玄烬残页付一笔好价钱，也愿意现在就把报酬预支给你。',
-            story: ['代理人关掉身后九盏灯，只留一盏照着契纸。他说宗门要真相，残众要证据，散修要活路；商盟可以同时买下它们。', '这份密约不要求你交出最终残页，只出售一份从实验里流出的奇物。至少契纸上是这么写的。'],
+            description: '商盟代理人愿为玄烬残页付一笔好价码，也愿意现在就把报酬预支给你。',
+            story: ['千灯商盟的金丹客卿关掉身后九盏护命阵灯，只留一盏照着契纸。他说阵灯烧的每枚灵石，都得从这片封域挣回来。他说宗门要真相，残众要证据，散修要活路；商盟可以同时买下它们。', '这份密约不要求你交出最终残页，只出售一份从实验里流出的奇物。至少契纸上是这么写的。'],
             choices: finishChoices([
-              { label: `付 40 金币签下暗单 · 获得${relic ? `「${RELICS[relic].name}」` : '60 金币'}`, text: relic ? RELICS[relic].text : '秘宝已齐，支付 40 后得到 60 金币。', goldCost: 40, relic, fallbackGold: 60, outcome: '代理人把奇物放在你面前，契纸立刻自行焚尽。账已结清；他提醒你，这句只对今晚有效。' },
-              { label: '替商盟探一条险路 · 失去 6 生命，得 55 金币', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人带走了你的猎印。金币是真的，隐去名字的那一栏也是真的。' },
+              { label: `付 40 灵石签下暗单 · 获得${relic ? `「${RELICS[relic].name}」` : '60 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已齐，支付 40 后得到 60 灵石。', goldCost: 40, relic, fallbackGold: 60, outcome: '代理人把奇物放在你面前，契纸立刻自行焚尽。账已结清；他提醒你，这句只对今晚有效。' },
+              { label: '替商盟探一条险路 · 失去 6 生命，得 55 灵石', text: '当前生命须大于 6；回来即结清这次报酬。', hpCost: 6, goldGain: 55, outcome: '你带回一段实测路线，代理人收下了你记的路标。灵石是真的，隐去名字的那一栏也是真的。' },
               { label: '婉拒暗单，借灯调息 · 恢复 6 生命', text: '不签契约，借灯休息片刻。', heal: 6, outcome: '他没有挽留，只替你拨亮最后一盏灯。灯光越过你肩头，照向了另一个将要入域的人。' }
             ], p)
           };
@@ -2151,6 +2215,11 @@
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
       state.event.choiceLabel = choice.label;
       if (choice.flags) Object.assign(state.journey.flags, choice.flags);
+      if(state.event.bossQuest){
+        const {boss,step}=state.event.bossQuest,record=state.journey.bossQuests.records[boss];
+        record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;
+        if(choice.bossGuard){record.guard=choice.bossGuard;received.push(`本境镇境之战首回合护盾 +${choice.bossGuard}`);}
+      }
       if(state.event.tale){
         const {chain,step}=state.event.tale,record=state.journey.tales?.chains[chain];
         if(record&&record.stage===step-1){record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;}
@@ -2175,6 +2244,14 @@
     function leaveEvent() {
       if (state.screen !== 'event' || !state.event || !state.event.resolved) return false;
       const name = state.event.name;
+      if(state.event.bossAwakening){
+        const quests=state.journey.bossQuests;
+        if(quests.resolutions.includes(state.floor))return false;
+        quests.resolutions.push(state.floor);state.stats.peacefulBosses++;
+        const floor=state.floor;advance();
+        const history=state.history.find(n=>n.floor===floor);if(history)history.resolution='awakened';
+        note('故宅机关已止息。没有发生战斗，你沿缄红打开的门进入下一境。');emit();return true;
+      }
       if(state.event.interruption&&state.event.resumeRest){resumeInterruptedRest();emit();return true;}
       if (state.event.battle) {
         const encounter = state.event.battle;
@@ -2189,7 +2266,12 @@
     }
     function getIntent() {
       const b=state.battle;if(!b)return null;
-      const def=ENEMIES[b.enemy.id],intent=def.intents[b.enemy.intentIndex];
+      const def=ENEMIES[b.enemy.id],intent={...def.intents[b.enemy.intentIndex]};
+      const ward=b.bossWard;
+      if(ward&&!ward.used&&intent[ward.effect]){
+        intent.wardedEffect=ward.effect;intent.wardedLabel=({poison:'施毒',playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'封住抽牌'})[ward.effect];
+        intent[ward.effect]=0;
+      }
       const baseHits=(intent.hits||[]).slice(),chill=Math.max(0,b.enemy.chill||0);
       const attackBonus = b.scaling?.attackBonus || 0;
       const liveRevenge=def.revenge&&b.enemy.hp>0&&b.enemy.hp<=b.enemy.maxHp*def.revenge.threshold?def.revenge.perHit:0;
@@ -2210,6 +2292,7 @@
       if(intent.energyPenalty)parts.push(`下个玩家回合灵力 −${intent.energyPenalty}`);
       if(intent.drawPenalty)parts.push(`下个玩家回合少抽 ${intent.drawPenalty} 张牌`);
       const frozen=b.enemy.frozen===true, freezeChance=chill>=10?.10:0;
+      if(intent.wardedEffect)parts.push(`${QUEST_ITEMS[ward.item].name}将抵消本次${intent.wardedLabel}（本战一次）`);
       let text=parts.join('，');
       if(revengeBonus)text+=`（${def.revenge.name}：每段攻击 +${revengeBonus}，已计入数值）`;
       if(reduction)text+='（霜寒压制：每段攻击 −1）';
@@ -2247,7 +2330,7 @@
     };
   }
 
-  const api = { TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

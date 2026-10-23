@@ -1,10 +1,10 @@
 {
-  "uiSha256": "1a114f658cf7424186f9f6cfce8f4963b20814249a920206ebdc876dd20abff7",
-  "restoreScriptSha256": "45460ca326597660b65f3e1ed84b9f5bb821e793d4db9bb648835af144f189d9",
+  "uiSha256": "c2b82aaddb4b0d6997d310b096bfa18ad352dd5b5dfdabbb1eb25feabee1f9d8",
+  "restoreScriptSha256": "7cab7aec091ff75dd68e38754664ced8aa35d4018ac0bda298b650688dc1549b",
   "results": [
     {
       "starter": "sword",
-      "hp": 60,
+      "hp": 58,
       "gold": 80,
       "deck": 11,
       "floor": 2,
@@ -12,7 +12,7 @@
     },
     {
       "starter": "mark",
-      "hp": 53,
+      "hp": 60,
       "gold": 80,
       "deck": 11,
       "floor": 2,
@@ -31,5 +31,5 @@
   "externalRequests": [],
   "passed": 3,
   "failed": 0,
-  "slimSha256": "11bab4096f856d1cac31d17f4adc2c0e5640fbb663f5ce377fc6dbf69597a8ec"
+  "slimSha256": "822ad821d2fa9ed22aaeb20029fc01535eff80dec53eecab9b1ebcc0dd71bb7b"
 }
