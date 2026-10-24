@@ -1,6 +1,6 @@
 {
   "format": "baiyao-v11-browser",
-  "startedAt": "2026-10-24T06:09:45.440Z",
+  "startedAt": "2026-10-24T08:10:23.087Z",
   "naturalPolicy": "v2 actual visible supply purchases, one-time jade then affordable cure; full healing when suppression already active. Original v1 six losses archived, fixed 150 numeric strategy unchanged.",
   "target": "/workspace/CC/index.html",
   "inlineTarget": "/workspace/CC/baiyao-standalone.html",
@@ -86,7 +86,7 @@
       {
         "seed": 1000,
         "result": "victory",
-        "hp": 15,
+        "hp": 36,
         "maxHp": 58,
         "level": 6,
         "power": 0,
@@ -297,35 +297,36 @@
           },
           {
             "floor": 32,
-            "type": "cave",
-            "id": "f32-1",
-            "y": 1163.92
+            "type": "rest",
+            "id": "f32-2",
+            "y": 1149.58
           },
           {
             "floor": 33,
             "type": "event",
-            "id": "f33-2",
-            "storyId": "drowned_archive",
-            "y": 1019.19
+            "id": "f33-3",
+            "storyId": "marsh_pharmacy",
+            "y": 1015.36
           },
           {
             "floor": 34,
             "type": "event",
-            "id": "f34-1",
+            "id": "f34-2",
             "storyId": "blood_lesson",
-            "y": 892.621
+            "y": 888.458
           },
           {
             "floor": 35,
-            "type": "cave",
-            "id": "f35-1",
-            "y": 760.509
+            "type": "event",
+            "id": "f35-3",
+            "storyId": "faction_marsh_boss_source",
+            "y": 766.045
           },
           {
             "floor": 36,
-            "type": "event",
-            "id": "f36-0",
-            "y": 632.7
+            "type": "fox",
+            "id": "f36-1",
+            "y": 633.688
           },
           {
             "floor": 37,
@@ -360,9 +361,8 @@
           },
           {
             "floor": 42,
-            "type": "event",
+            "type": "cave",
             "id": "f42-0",
-            "storyId": "boss_furnace_boss_1",
             "y": 1148.43
           },
           {
@@ -376,7 +376,6 @@
             "floor": 44,
             "type": "event",
             "id": "f44-0",
-            "storyId": "faction_furnace_boss_source",
             "y": 892.318
           },
           {
@@ -387,9 +386,8 @@
           },
           {
             "floor": 46,
-            "type": "event",
+            "type": "cave",
             "id": "f46-1",
-            "storyId": "boss_furnace_boss_2",
             "y": 620.083
           },
           {
@@ -425,53 +423,54 @@
           },
           {
             "floor": 52,
-            "type": "rest",
-            "id": "f52-3",
-            "y": 1149.97
+            "type": "cave",
+            "id": "f52-0",
+            "y": 1165.39
           },
           {
             "floor": 53,
             "type": "event",
-            "id": "f53-0",
-            "storyId": "unfinished_portrait",
-            "y": 1021.82
+            "id": "f53-1",
+            "storyId": "glass_assembly",
+            "y": 1031.77
           },
           {
             "floor": 54,
-            "type": "shop",
-            "id": "f54-0",
-            "y": 888.913
+            "type": "event",
+            "id": "f54-1",
+            "storyId": "faction_mirror_boss_source",
+            "y": 900.058
           },
           {
             "floor": 55,
-            "type": "event",
-            "id": "f55-2",
-            "y": 752.992
+            "type": "rest",
+            "id": "f55-4",
+            "y": 768.419
           },
           {
             "floor": 56,
-            "type": "fox",
-            "id": "f56-2",
-            "y": 625.172
+            "type": "rest",
+            "id": "f56-3",
+            "y": 634.622
           },
           {
             "floor": 57,
-            "type": "rest",
-            "id": "f57-3",
-            "y": 491.57
+            "type": "event",
+            "id": "f57-5",
+            "y": 501.198
           },
           {
             "floor": 58,
             "type": "event",
-            "id": "f58-1",
+            "id": "f58-0",
             "storyId": "tale_letter_3",
-            "y": 359.224
+            "y": 362.59
           },
           {
             "floor": 59,
-            "type": "event",
-            "id": "f59-2",
-            "y": 229.57
+            "type": "shop",
+            "id": "f59-0",
+            "y": 232.331
           },
           {
             "floor": 60,
@@ -487,55 +486,56 @@
           },
           {
             "floor": 62,
-            "type": "cave",
-            "id": "f62-2",
-            "y": 1162.46
+            "type": "rest",
+            "id": "f62-0",
+            "y": 1163.17
           },
           {
             "floor": 63,
             "type": "event",
-            "id": "f63-3",
-            "storyId": "last_campfire",
-            "y": 1028.88
+            "id": "f63-1",
+            "storyId": "fate_tailor",
+            "y": 1030.76
           },
           {
             "floor": 64,
             "type": "event",
-            "id": "f64-2",
+            "id": "f64-1",
             "storyId": "boss_feiye_1",
-            "y": 882.878
+            "y": 898.018
           },
           {
             "floor": 65,
             "type": "event",
-            "id": "f65-3",
+            "id": "f65-1",
             "storyId": "boss_feiye_2",
-            "y": 764.081
+            "y": 763.157
           },
           {
             "floor": 66,
-            "type": "fox",
-            "id": "f66-3",
-            "y": 618.767
+            "type": "event",
+            "id": "f66-1",
+            "storyId": "faction_feiye_source",
+            "y": 634.816
           },
           {
             "floor": 67,
-            "type": "elite",
-            "id": "f67-5",
-            "y": 505.412
+            "type": "event",
+            "id": "f67-2",
+            "y": 486.639
           },
           {
             "floor": 68,
             "type": "event",
-            "id": "f68-2",
+            "id": "f68-1",
             "storyId": "boss_feiye_3",
-            "y": 366.513
+            "y": 356.363
           },
           {
             "floor": 69,
-            "type": "rest",
-            "id": "f69-4",
-            "y": 228.375
+            "type": "shop",
+            "id": "f69-2",
+            "y": 238.323
           },
           {
             "floor": 70,
@@ -617,8 +617,8 @@
           },
           {
             "floor": 33,
-            "id": "drowned_archive",
-            "choice": 1
+            "id": "marsh_pharmacy",
+            "choice": 2
           },
           {
             "floor": 34,
@@ -626,8 +626,8 @@
             "choice": 0
           },
           {
-            "floor": 36,
-            "id": "shrine",
+            "floor": 35,
+            "id": "faction_marsh_boss_source",
             "choice": 0
           },
           {
@@ -641,34 +641,24 @@
             "choice": 1
           },
           {
-            "floor": 42,
-            "id": "boss_furnace_boss_1",
-            "choice": 2
-          },
-          {
             "floor": 43,
             "id": "ash_orchard",
             "choice": 1
           },
           {
             "floor": 44,
-            "id": "faction_furnace_boss_source",
+            "id": "broker",
             "choice": 0
           },
           {
             "floor": 45,
-            "id": "herb_caravan",
+            "id": "cultlab",
             "choice": 1
           },
           {
-            "floor": 46,
-            "id": "boss_furnace_boss_2",
-            "choice": 2
-          },
-          {
             "floor": 47,
-            "id": "armory",
-            "choice": 2
+            "id": "dreamshop",
+            "choice": 0
           },
           {
             "floor": 48,
@@ -676,23 +666,28 @@
             "choice": 0
           },
           {
-            "floor": 53,
-            "id": "unfinished_portrait",
+            "floor": 48,
+            "id": "faction_furnace_boss_cave",
             "choice": 2
           },
           {
-            "floor": 55,
+            "floor": 53,
             "id": "glass_assembly",
             "choice": 1
           },
           {
-            "floor": 58,
-            "id": "tale_letter_3",
-            "choice": 0
+            "floor": 54,
+            "id": "faction_mirror_boss_source",
+            "choice": 1
           },
           {
-            "floor": 59,
-            "id": "umbrella",
+            "floor": 57,
+            "id": "swordgrave",
+            "choice": 2
+          },
+          {
+            "floor": 58,
+            "id": "tale_letter_3",
             "choice": 0
           },
           {
@@ -702,7 +697,7 @@
           },
           {
             "floor": 63,
-            "id": "last_campfire",
+            "id": "fate_tailor",
             "choice": 0
           },
           {
@@ -714,6 +709,16 @@
             "floor": 65,
             "id": "boss_feiye_2",
             "choice": 2
+          },
+          {
+            "floor": 66,
+            "id": "faction_feiye_source",
+            "choice": 0
+          },
+          {
+            "floor": 67,
+            "id": "last_campfire",
+            "choice": 0
           },
           {
             "floor": 68,
@@ -771,35 +776,41 @@
             "floor": 40,
             "id": "marsh_boss",
             "power": 0,
-            "hp": 64
+            "hp": 52
+          },
+          {
+            "floor": 46,
+            "id": "raider",
+            "power": 0,
+            "hp": 58
           },
           {
             "floor": 48,
             "id": "m21",
             "power": 0,
-            "hp": 64
+            "hp": 53
           },
           {
             "floor": 50,
             "id": "furnace_boss",
             "power": 0,
-            "hp": 49
+            "hp": 53
           },
           {
             "floor": 51,
-            "id": "lantern",
-            "power": 0,
-            "hp": 31
-          },
-          {
-            "floor": 60,
-            "id": "mirror_boss",
+            "id": "m23",
             "power": 0,
             "hp": 58
           },
           {
-            "floor": 67,
-            "id": "e_priest",
+            "floor": 52,
+            "id": "yaksha",
+            "power": 0,
+            "hp": 50
+          },
+          {
+            "floor": 60,
+            "id": "mirror_boss",
             "power": 0,
             "hp": 58
           },
@@ -823,7 +834,7 @@
           "fallen": false,
           "protected": true,
           "learned": true,
-          "uses": 49
+          "uses": 47
         }
       }
     ]
@@ -849,20 +860,20 @@
     "/workspace/scratch/v11-boss-roster.png",
     "/workspace/scratch/v11-automaton-half-life.png"
   ],
-  "sha256": "13c33efdefd73d847cbbd75608ca893540256418965fb94f7b18912ff72e6273",
+  "sha256": "fe2c430870410af09e9162d9c23d4f8a2345e861ac18cebfbf07d7effd36d9d1",
   "inputs": {
-    "dev/playtest.cjs": "5d45d6c09dc7e9a87ffeba93af96731bd2ca09971f17acca1225f6d860ed1380",
+    "dev/playtest.cjs": "383c53a7f0908fce84a4475cf7720e5536aaa9e544479e2460238932421bbd71",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
     "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
-    "dev/enemy-factions.js": "81fb0270bf99d0fa3f42d894d349bb177c4d210f53dc1b57c58e6dfbd530c0c9",
+    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
     "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
-    "dev/engine.js": "aca1cbe56cf0ad080d854ddc1aa0aaf3b17ef429b36ce5eaebb2174c870df9ed",
+    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
-    "dev/ui.js": "183d8cf249677b4e382eae474900a488384539d9a643283709244056c124a5ea",
+    "dev/ui.js": "125242cccb7f7b8a9eac7fcd0a176cf8f798e63b8c67d539ea6b94bc7cbc48e4",
     "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
     "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
-    "dev/audio.js": "3cbad37a0e7415aee7a8929f740f955113366b6e4a18b23a3a735ae78890adf7",
+    "dev/audio.js": "e4425f68741306abea927f04c4d134b66564a51cd4b82dfdfd2cb845a2fb14da",
     "dev/build.cjs": "1dd14e0737d12e9daac7ecdc9195deb3c63a1c3c06fb6ccebb4d771de8db81f4",
     "dev/v11-browser.test.cjs": "9824fd31135afe084daffe7531198d33126ceb11678abee6b82cd32fb2607e98"
   },
@@ -3877,7 +3888,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 920,
+      "scrollTop": 913,
       "overlaps": 0
     },
     {
@@ -3888,7 +3899,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 920,
       "overlaps": 0
     },
     {
@@ -3899,7 +3910,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 916,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -3910,7 +3921,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -3921,7 +3932,7 @@
       "current": [
         "f41-0"
       ],
-      "scrollTop": 928,
+      "scrollTop": 926,
       "overlaps": 0
     },
     {
@@ -3932,7 +3943,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
@@ -3943,7 +3954,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 917,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -3953,74 +3964,74 @@
       "nodes": 43,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 1,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
       ],
       "scrollTop": 923,
       "overlaps": 0
     },
     {
       "template": 1,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 1,
       "region": 6,
       "width": 390,
       "nodes": 43,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 930,
+      "scrollTop": 927,
       "overlaps": 0
     },
     {
@@ -4031,7 +4042,7 @@
       "current": [
         "f1-0"
       ],
-      "scrollTop": 921,
+      "scrollTop": 928,
       "overlaps": 0
     },
     {
@@ -4042,7 +4053,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
@@ -4053,7 +4064,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 921,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
@@ -4063,55 +4074,55 @@
       "nodes": 43,
       "current": [
         "f31-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 2,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
+      "template": 3,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
       ],
       "scrollTop": 932,
       "overlaps": 0
     },
     {
-      "template": 2,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 2,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 3,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
       "template": 3,
       "region": 1,
       "width": 390,
@@ -4119,7 +4130,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 919,
+      "scrollTop": 931,
       "overlaps": 0
     },
     {
@@ -4130,7 +4141,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 927,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
@@ -4141,7 +4152,7 @@
       "current": [
         "f31-0"
       ],
-      "scrollTop": 930,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
@@ -4163,7 +4174,7 @@
       "current": [
         "f51-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 923,
       "overlaps": 0
     },
     {
@@ -4174,560 +4185,560 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 912,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 4,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 912,
-      "overlaps": 0
-    },
-    {
-      "template": 5,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
       "scrollTop": 924,
       "overlaps": 0
     },
     {
-      "template": 6,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 6,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 7,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
+      "template": 4,
       "region": 0,
       "width": 390,
       "nodes": 43,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 929,
       "overlaps": 0
     },
     {
-      "template": 8,
+      "template": 4,
       "region": 1,
       "width": 390,
       "nodes": 43,
       "current": [
         "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 5,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 8,
-      "region": 6,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 9,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 10,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
       ],
       "scrollTop": 920,
       "overlaps": 0
     },
     {
+      "template": 4,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 4,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 5,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 6,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 7,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 5,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 8,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 9,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 10,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 926,
+      "overlaps": 0
+    },
+    {
+      "template": 11,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
       "template": 11,
       "region": 1,
       "width": 390,
@@ -4735,7 +4746,7 @@
       "current": [
         "f11-0"
       ],
-      "scrollTop": 926,
+      "scrollTop": 917,
       "overlaps": 0
     },
     {
@@ -4746,7 +4757,7 @@
       "current": [
         "f21-0"
       ],
-      "scrollTop": 923,
+      "scrollTop": 919,
       "overlaps": 0
     },
     {
@@ -4756,177 +4767,23 @@
       "nodes": 45,
       "current": [
         "f31-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 11,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
       ],
       "scrollTop": 927,
       "overlaps": 0
     },
     {
       "template": 11,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 915,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 12,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 919,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 921,
-      "overlaps": 0
-    },
-    {
-      "template": 13,
       "region": 4,
       "width": 390,
       "nodes": 45,
       "current": [
         "f41-0"
       ],
-      "scrollTop": 915,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 13,
+      "template": 11,
       "region": 5,
       "width": 390,
       "nodes": 45,
@@ -4937,6 +4794,160 @@
       "overlaps": 0
     },
     {
+      "template": 11,
+      "region": 6,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 12,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 916,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 13,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 924,
+      "overlaps": 0
+    },
+    {
       "template": 13,
       "region": 6,
       "width": 390,
@@ -4944,7 +4955,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 914,
+      "scrollTop": 922,
       "overlaps": 0
     },
     {
@@ -4954,202 +4965,48 @@
       "nodes": 45,
       "current": [
         "f1-0"
-      ],
-      "scrollTop": 926,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
       ],
       "scrollTop": 921,
       "overlaps": 0
     },
     {
       "template": 14,
-      "region": 3,
+      "region": 1,
       "width": 390,
       "nodes": 45,
       "current": [
-        "f31-0"
+        "f11-0"
       ],
-      "scrollTop": 931,
+      "scrollTop": 927,
       "overlaps": 0
     },
     {
       "template": 14,
-      "region": 4,
+      "region": 2,
       "width": 390,
       "nodes": 45,
       "current": [
-        "f41-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 5,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 14,
-      "region": 6,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 0,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f1-0"
+        "f21-0"
       ],
       "scrollTop": 928,
       "overlaps": 0
     },
     {
-      "template": 15,
-      "region": 1,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 930,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 2,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
+      "template": 14,
       "region": 3,
       "width": 390,
-      "nodes": 46,
+      "nodes": 45,
       "current": [
         "f31-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 916,
       "overlaps": 0
     },
     {
-      "template": 15,
+      "template": 14,
       "region": 4,
       "width": 390,
-      "nodes": 46,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 5,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 15,
-      "region": 6,
-      "width": 390,
-      "nodes": 46,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 0,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 1,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 928,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 2,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 922,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 3,
-      "width": 390,
-      "nodes": 43,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 914,
-      "overlaps": 0
-    },
-    {
-      "template": 16,
-      "region": 4,
-      "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f41-0"
       ],
@@ -5157,54 +5014,54 @@
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 14,
       "region": 5,
       "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f51-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 16,
+      "template": 14,
       "region": 6,
       "width": 390,
-      "nodes": 43,
+      "nodes": 45,
       "current": [
         "f61-0"
       ],
-      "scrollTop": 929,
+      "scrollTop": 925,
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 15,
       "region": 0,
       "width": 390,
-      "nodes": 44,
+      "nodes": 46,
       "current": [
         "f1-0"
       ],
-      "scrollTop": 914,
+      "scrollTop": 921,
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 15,
       "region": 1,
       "width": 390,
-      "nodes": 44,
+      "nodes": 46,
       "current": [
         "f11-0"
       ],
-      "scrollTop": 918,
+      "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 15,
       "region": 2,
       "width": 390,
-      "nodes": 44,
+      "nodes": 46,
       "current": [
         "f21-0"
       ],
@@ -5212,186 +5069,109 @@
       "overlaps": 0
     },
     {
-      "template": 17,
+      "template": 15,
       "region": 3,
       "width": 390,
-      "nodes": 44,
+      "nodes": 46,
       "current": [
         "f31-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 4,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 914,
+      "overlaps": 0
+    },
+    {
+      "template": 15,
+      "region": 5,
+      "width": 390,
+      "nodes": 46,
+      "current": [
+        "f51-0"
       ],
       "scrollTop": 923,
       "overlaps": 0
     },
     {
-      "template": 17,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 920,
-      "overlaps": 0
-    },
-    {
-      "template": 17,
+      "template": 15,
       "region": 6,
       "width": 390,
-      "nodes": 44,
+      "nodes": 46,
       "current": [
         "f61-0"
-      ],
-      "scrollTop": 916,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 0,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 929,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 1,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 917,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 2,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 918,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 3,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 925,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 4,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f41-0"
-      ],
-      "scrollTop": 924,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 5,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f51-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 18,
-      "region": 6,
-      "width": 390,
-      "nodes": 44,
-      "current": [
-        "f61-0"
-      ],
-      "scrollTop": 913,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 0,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f1-0"
-      ],
-      "scrollTop": 923,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 1,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f11-0"
-      ],
-      "scrollTop": 927,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 2,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f21-0"
-      ],
-      "scrollTop": 932,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 3,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f31-0"
-      ],
-      "scrollTop": 931,
-      "overlaps": 0
-    },
-    {
-      "template": 19,
-      "region": 4,
-      "width": 390,
-      "nodes": 45,
-      "current": [
-        "f41-0"
       ],
       "scrollTop": 915,
       "overlaps": 0
     },
     {
-      "template": 19,
+      "template": 16,
+      "region": 0,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 931,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 1,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 930,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 2,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 3,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
+      "region": 4,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 913,
+      "overlaps": 0
+    },
+    {
+      "template": 16,
       "region": 5,
       "width": 390,
-      "nodes": 45,
+      "nodes": 43,
       "current": [
         "f51-0"
       ],
@@ -5399,6 +5179,237 @@
       "overlaps": 0
     },
     {
+      "template": 16,
+      "region": 6,
+      "width": 390,
+      "nodes": 43,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 919,
+      "overlaps": 0
+    },
+    {
+      "template": 17,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 0,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 923,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 1,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 2,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 922,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 3,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 928,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 4,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 918,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 5,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 925,
+      "overlaps": 0
+    },
+    {
+      "template": 18,
+      "region": 6,
+      "width": 390,
+      "nodes": 44,
+      "current": [
+        "f61-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 0,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f1-0"
+      ],
+      "scrollTop": 920,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 1,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f11-0"
+      ],
+      "scrollTop": 915,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 2,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f21-0"
+      ],
+      "scrollTop": 927,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 3,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f31-0"
+      ],
+      "scrollTop": 929,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 4,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f41-0"
+      ],
+      "scrollTop": 921,
+      "overlaps": 0
+    },
+    {
+      "template": 19,
+      "region": 5,
+      "width": 390,
+      "nodes": 45,
+      "current": [
+        "f51-0"
+      ],
+      "scrollTop": 917,
+      "overlaps": 0
+    },
+    {
       "template": 19,
       "region": 6,
       "width": 390,
@@ -5406,7 +5417,7 @@
       "current": [
         "f61-0"
       ],
-      "scrollTop": 930,
+      "scrollTop": 916,
       "overlaps": 0
     }
   ],
@@ -5415,7 +5426,6 @@
     "sibling": "f2-1",
     "next": [
       "f3-6",
-      "f3-1",
       "f3-2"
     ],
     "rejected": "f3-0"
@@ -5502,7 +5512,7 @@
     {
       "starter": "sovereign",
       "profileFixture": true,
-      "hp": 60,
+      "hp": 59,
       "gold": 80,
       "history": 1,
       "next": [
@@ -5751,33 +5761,73 @@
     "assets/faction-combat/m09.webp": "d81f4751437efedd17aca99fba03a69ce8ccc058bbf224a312ed36810e2d1c51",
     "assets/faction-combat/m12.webp": "4793c30e9099102478fd16ad10018cb8a604004da9f1554bca8a2c80e1f213d1",
     "assets/faction-combat/m15.webp": "d4364afd489cf7b6cee198770807806103c802ab51366ba0774a5e7b040020cb",
+    "assets/faction-combat/m18.webp": "44296587c3899e674bc6a0e0608a2973278965f290d40f2f5592cec1b24b6ee8",
     "assets/faction-combat/m19.webp": "dca9d389e8ecd17bfc8e589caaa06a8e2340168423b8a0b1564b604f2a23b6f5",
     "assets/faction-combat/m20.webp": "66743547096e67df4c48caf27fb5b0e8866625fe7dd83b9d56fc080aea33c6c9",
     "assets/faction-combat/m21.webp": "c5a25198fc685e471485d8259cca03bfa856c4098312a40d5250c7fd07a6e67c",
+    "assets/faction-combat/m24.webp": "618415ef0c4863080251a9cd4eac82a830efbbe902916a90d03eacabd7a7d11f",
+    "assets/faction-combat/m27.webp": "ccfe53bdfd86f0fa2216def193da468203dac4e940b280bd49ac860c83558425",
+    "assets/faction-combat/m29.webp": "fc561f88aee6c2c2a6059fd78d9fc771087ba118001fcedfe64c66a3f4d01771",
+    "assets/faction-combat/m31.webp": "5f56671c255f5dd2af6604e34fd17eb8d23c96c0bb1b8c7f226745b54e663464",
+    "assets/faction-combat/m33.webp": "59309037bec4b654f29b61b2c140b790af4e8167ec5844e6f1b3f662670ad853",
+    "assets/faction-combat/m35.webp": "f9158d299ca05cf20ac0f0f44ebbd25849def5354401e179acdccad80f1f1b94",
+    "assets/faction-combat/m37.webp": "a5196785cad156c019e0d7b8aa730506f455af7c0d19d8d1d77e6d50ca54ecdd",
     "assets/faction-items/bell_knot.webp": "e6bf92db01f518d2216a12533f118b459362aca1069a16234942ca8a5012c4a0",
     "assets/faction-items/bell_wedge.webp": "02265a9e0b8e86b4b8259a8804b6bddc1f6ca2209a140a85c27c4be83651e2b9",
+    "assets/faction-items/blank_cut.webp": "c6face975f02a69ddab8e3cb3554faebec1ff93401e429046126250b6e3e62c1",
+    "assets/faction-items/breach_order.webp": "73b858c6f6d197d9b123b26234f46285b8fff92ccabe6eb314f26abbf9f1285f",
+    "assets/faction-items/calm_ash.webp": "c11e8dfa78d56f39861e0618817eb0494820b29a1fc37f675effe314f534099c",
     "assets/faction-items/charcoal_seal.webp": "39806d44568e2b13bc741aa9451e9b46f53a1075ec33185763f2a7cb91813ebe",
     "assets/faction-items/clean_gauze.webp": "071e29e18ee60d169c6ae8e52666200f9865f6e8fcf910420fc0defd1857ebc7",
     "assets/faction-items/cold_ash.webp": "8b351f3dd07bb5bf58a77098494d19e0ce65ab7d9c14c2230e356eb715d72fee",
+    "assets/faction-items/corrupt_scale.webp": "d2f0ba62f2c9ee39d5c6b02b6c74f494d92f76d21a90d4fefac6bc5b107a662d",
     "assets/faction-items/echo_wedge.webp": "dc2fc388a79b2ddaaaed984bdc7fc3ef14701c6678864914c71d394cfd92a92b",
+    "assets/faction-items/empty_entry.webp": "ce9b95a4ddfdf9abae88f73bb3281bf3ed333950241f3fb1aa349bf1ba20e3c7",
+    "assets/faction-items/exit_ring.webp": "6ea48695454ffed7f1134ff9d2bf7414c851dc5b81452f4084ef6928180be69c",
+    "assets/faction-items/final_mark.webp": "7f088661fc5bf999c9c39a67961167a3f8c5a711dc0dfe6b78441657c402b3ae",
     "assets/faction-items/furnace_pact.webp": "19220ffd46f2b134381b227ec82fae37fff75b8b76127193cf8ed4d9358a461a",
+    "assets/faction-items/glass_scraper.webp": "1fecc453a6bdeaf5168e4137a28d9f977efa7b89fab8482ed4e70f3be06c176a",
     "assets/faction-items/heat_tongs.webp": "4eab58912112fa53208a66ffb2636aae9c2e9b75b1caa85e3af9fa0ea158a6cd",
     "assets/faction-items/house_order.webp": "41cf9a7416fbafee1516b880b23d4cdffd2da4dc87e8ac97956fea7164945532",
     "assets/faction-items/lamp_cloth.webp": "023c4e69225aa87776ff0f7a86c1bb27d1898db59ce4454375578474b859d404",
     "assets/faction-items/lamp_cut.webp": "c40cea25924c57312b8a466c793b80ebb95572cb0dcd1f284b800d7d0d041c7d",
     "assets/faction-items/lamp_knot.webp": "8114881ebac73266b3bb0afc845fc6661d1698136252329b78e46df62ab0ec41",
+    "assets/faction-items/life_slip.webp": "c464c025eefe6f9b2ba04f325ee32a1716bf5b8af75ca7fcafeee51dbd437efc",
+    "assets/faction-items/lock_order.webp": "a5e129f50e17a0ca0bff7ed90b7636333d4be14223b9ed216aff45396f03b2a1",
     "assets/faction-items/loose_band.webp": "eab43cb2048d550a3492f16759e892a6435cc7dd442a932a4c7b347772722db2",
+    "assets/faction-items/loose_ring.webp": "948ab65c19aa4d5ee0427226005b6ae390cb69d306205cd96150b367bb8fd4fc",
+    "assets/faction-items/mask_contract.webp": "4900c2dd254b7ceca3b6729635d527b066958170559e5e416354526c4dc8bd47",
+    "assets/faction-items/name_return.webp": "7008bf039752b7deceae022ddf83abfa52bb2368ced81816946cbb7cf0ecc83e",
+    "assets/faction-items/nameless_pass.webp": "783b1132aa16945fe11aab5ea2040f23cbac7babfdbb011776298587401680d4",
+    "assets/faction-items/open_reply.webp": "64c874d7a493acd5062eaacea9a6230bd8f9004c7facf60a30fb0253ab297356",
+    "assets/faction-items/palace_contract.webp": "c3f3c5b15701ff333ee6c05a9f3e96d5117cb50bbd6494a7d55b1b5ed97e4237",
     "assets/faction-items/pass_fold.webp": "6debebfcb9cd68c927a953bb503fc8a62ac72cf310ff2f0e9572399f9cd5de1c",
     "assets/faction-items/pursuit_order.webp": "993bd04cb693ffffeed1360c885dab45db37e79ed5ae930ceea103772ae10930",
+    "assets/faction-items/raft_wedge.webp": "45596faf142911b360deb4fb91987b0a7e8b17cfd199ec2bc4becd44f6f28bf0",
+    "assets/faction-items/reply_seal.webp": "4fb8993f89d4fd2bb10ff63a96fdc23d868bd383b198b90fabc6c9712f9d9d1d",
+    "assets/faction-items/sealed_answer.webp": "19c294c323da72be11cd3f177abf9aa2326d10c865385219315dec6242d22428",
+    "assets/faction-items/silver_dust.webp": "3376336fa0a8e551f8c7d57f5df20a93cff2cdf50c400e43e43482aad68a1f63",
     "assets/faction-items/split_nail.webp": "a00b012a652174bd06b275b821a9e31baccd37c437b7e5d7356dd9c81d32c8cb",
+    "assets/faction-items/tide_pact.webp": "da101add9ab56900292195ba900e0e27582e9bc35bb0aa45acce7ff915f8e76e",
+    "assets/faction-items/tide_wedge.webp": "1e807f0f09e020b293dd70329f9e3580071943fa790a131fc2ab2e095e6a8631",
+    "assets/faction-items/true_split.webp": "ce4d2c77ac2b73f2023a201c572152905af6e3df2fcecc8c95910c89564e7a2e",
     "assets/faction-items/well_chisel.webp": "2fa1b311488e2f98ab4c891cd118b715b0c163b03631faca1feb68ce730d5f6f",
     "assets/faction-items/well_oath.webp": "30da0cb4b3c20d917b5de42ed807e27aa69f8a64cf9180af6849d5cbccc3b5d7",
+    "assets/faction-items/white_wedge.webp": "0cb70bd953f71d6a8e55d929320d8be4b9c19cc354d2aa7bd0c6552764d6917a",
+    "assets/faction-scenes/abyss_boss.webp": "93fb33937157121b6775cbee1e781fa2d40f5ba1b303c100db7158a9930cb5a6",
     "assets/faction-scenes/bell_boss.webp": "0460785c1d683e66b74aed09d19a28dea8f0f3d44dff8ff691f934479a6ebaec",
     "assets/faction-scenes/camp_boss.webp": "82237d0e75635c3cb4f542639024dd79b479dde1dbdfe5c51a1e3d44ac79ed02",
+    "assets/faction-scenes/feiye.webp": "ad55c8416a100188b1ffb5d7dd39938dff592b44b68633aca94429f7be20c99d",
+    "assets/faction-scenes/feiye_echo.webp": "9193dbc797673242d7f3dbf5a1ac9c27411bcc1dad4b78fc50909857d50c746e",
     "assets/faction-scenes/furnace_boss.webp": "e6eb30103b6dd828849abacfdacac4ab05b4010c1954f59e0f809089b27dcf75",
     "assets/faction-scenes/gate_boss.webp": "0584804e2af8b37839fc0b0fc4fd8d3b4596715ece24ff1e24b13c7758df52e3",
+    "assets/faction-scenes/heart.webp": "ca9432e19b7794325e0d59c3ece757a4368a0d96bd3a2377b78529717d823756",
     "assets/faction-scenes/lotus_boss.webp": "4afdb5312f3a4d3784ef44d2889cbac31d0f3bf230be0a552612df1fdecf1dae",
+    "assets/faction-scenes/marsh_boss.webp": "caa909df91fc10e37165bd5a8ce8e872389eeb11f2f42bea573c9bcf2eaacd37",
+    "assets/faction-scenes/mirror_boss.webp": "9ea5043f17f6bedfa22ddc928c0222252c73da59d9e4dc57624177e7c333bc17",
+    "assets/faction-scenes/retainer.webp": "031288c170190ba04efa53e8c341070302f7816e9e4a1cb438005299c077909b",
     "assets/faction-scenes/snake.webp": "45933dff480a6e73bb774e7fc0078f7b3b5394a51cf6a1bab6f39d4c35eaaf5f",
+    "assets/faction-scenes/snake_ascended.webp": "d83d101efd2c366db43ae734b36f780a9736f5821dc918d3442255b6c0d0110c",
     "assets/items/clearheart_jade.webp": "335ae349dfc16a3c6c738ac5e99ef17fb518e68cb3b9b4a18ccf4ceb7a8f2ffe",
     "assets/outfits/cat-blood.webp": "4c62c2586ade05ff6e20570e81570f67b24cf632c6b87a8c753a725f8ab91fb3",
     "assets/outfits/cat-ember.webp": "a6358da75779457cf645c0f1343ef2592609d260132aff62ff655810f50263a6",
@@ -5834,9 +5884,28 @@
     "assets/portraits/m13.webp": "68b004578da4736f8bf93c96b4341ede41a67f186d8ac13ba0a74c3c96f1997d",
     "assets/portraits/m14.webp": "5d836ffb75ff99137d6a895b08cf91b864a3891830d57e7e2bfe9a5f479db6ab",
     "assets/portraits/m15.webp": "003f7cadd9d863063b97421bdba181217d36d6f0f361bfe5b82305c7a4b44169",
+    "assets/portraits/m16.webp": "8ca4b290e9434305e5dcc55d8c30756a5f07c007af039bfc65575ebc4f9f88c8",
+    "assets/portraits/m17.webp": "cd925e69bf7c0beb4472b4a4803274588bd0292c6517f8603b07e506b7f9279f",
+    "assets/portraits/m18.webp": "f2708386e6d4a2d0ef5393346e7603f4b752d2f930c1b7ac0971126ddc3141c3",
     "assets/portraits/m19.webp": "4efb11228eb722dd6bd56b4691bfdb8ebb96c229781b6425e61894bc1a571bfb",
     "assets/portraits/m20.webp": "dca14d76c79abc69690807bfd15b55cd9612ed03b1250fc054ef5373da51c68e",
     "assets/portraits/m21.webp": "fa05d6e51b00d0551d98a7349be527cd84798840acc034466f2383a6325331c9",
+    "assets/portraits/m22.webp": "2dc30ed4d03906d8a870ebb964b4f6b07a45831b79266971bcc7c59b8e288fc3",
+    "assets/portraits/m23.webp": "8d62c66c82c0b0ce824b08a632332da79dfbbe824f7817593fbd75646fc2c36b",
+    "assets/portraits/m24.webp": "42be1c7e84222feee8c24e12aa0b401e929a6964301bd60f2facdf01a0505936",
+    "assets/portraits/m25.webp": "6cbde2450eb50495f0cc67e9b0643c47eb8b8ab4b93e59e89c10c4ea4db8b23f",
+    "assets/portraits/m26.webp": "9f04d9f7707cb18add55f00e3e75abaffa89289705721abefcc9a48e7b72e004",
+    "assets/portraits/m27.webp": "300282b7b034a14df12a2d759e0f8a07fd96877463d00cb8d0c95cfb7f498ad5",
+    "assets/portraits/m28.webp": "69a1b1ef013398880b3adba25013bd3a5a977a9fca6fe040ea5ac456de7012a8",
+    "assets/portraits/m29.webp": "ed4280e36f5fcced8a86fb65129359e814833ec5c1753a9804fe810806421726",
+    "assets/portraits/m30.webp": "80362390a73b10d6da63590650134cd4992d18738211abb6e9e01d2489ffad28",
+    "assets/portraits/m31.webp": "ca13471a54486768c774e5faaa4381eaaa6e0b7b1b7fa92e45f891d5e5f84c6f",
+    "assets/portraits/m32.webp": "6d602b3689d27752b07603487c6ae1841b34553365a5b2fc38c493d275e3fc89",
+    "assets/portraits/m33.webp": "7137d36175707be2a5fd0a258e2e69d0d1588782ad7fe4b01d317bdd9a982898",
+    "assets/portraits/m34.webp": "08aeccb90850ce6fbd2af468ba262a82e371bf0b000f1856818ac81446dd44a2",
+    "assets/portraits/m35.webp": "4fd01f3234333930668202c884ccb4dbc0cbba22df9413b00cbb430a00b124b4",
+    "assets/portraits/m36.webp": "f5e03feeceea01b056208632adfc7cb901de44347727a46ca8e79735ba3b1cca",
+    "assets/portraits/m37.webp": "07f4a4ec3471ccbe0ccb678dd1510b0e57bb1847ac0fe2b11117ddfa74f8b127",
     "assets/portraits/marsh_boss.webp": "b10503e85ef705844234aa529d4b6758de338db61535f47f28803286c3648142",
     "assets/portraits/mirror_boss.webp": "87f4fbda7199980796300f280ee3e9f091267a970256182048d4ec1b9573ecc1",
     "assets/portraits/orthodox_patrol.webp": "cd871854783895e85136909ded1b08bb91063e6ca638a2709e9a2c95692a2e0d",
@@ -7075,6 +7144,11 @@
       "height": 1152
     },
     {
+      "src": "assets/faction-combat/m18.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
       "src": "assets/faction-combat/m19.webp",
       "width": 768,
       "height": 1152
@@ -7090,12 +7164,62 @@
       "height": 1152
     },
     {
+      "src": "assets/faction-combat/m24.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m27.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m29.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m31.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m33.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m35.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/faction-combat/m37.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
       "src": "assets/faction-items/bell_knot.webp",
       "width": 768,
       "height": 768
     },
     {
       "src": "assets/faction-items/bell_wedge.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/blank_cut.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/breach_order.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/calm_ash.webp",
       "width": 768,
       "height": 768
     },
@@ -7115,12 +7239,37 @@
       "height": 768
     },
     {
+      "src": "assets/faction-items/corrupt_scale.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
       "src": "assets/faction-items/echo_wedge.webp",
       "width": 768,
       "height": 768
     },
     {
+      "src": "assets/faction-items/empty_entry.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/exit_ring.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/final_mark.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
       "src": "assets/faction-items/furnace_pact.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/glass_scraper.webp",
       "width": 768,
       "height": 768
     },
@@ -7150,7 +7299,47 @@
       "height": 768
     },
     {
+      "src": "assets/faction-items/life_slip.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/lock_order.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
       "src": "assets/faction-items/loose_band.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/loose_ring.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/mask_contract.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/name_return.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/nameless_pass.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/open_reply.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/palace_contract.webp",
       "width": 768,
       "height": 768
     },
@@ -7165,7 +7354,42 @@
       "height": 768
     },
     {
+      "src": "assets/faction-items/raft_wedge.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/reply_seal.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/sealed_answer.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/silver_dust.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
       "src": "assets/faction-items/split_nail.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/tide_pact.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/tide_wedge.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-items/true_split.webp",
       "width": 768,
       "height": 768
     },
@@ -7180,12 +7404,32 @@
       "height": 768
     },
     {
+      "src": "assets/faction-items/white_wedge.webp",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-scenes/abyss_boss.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
       "src": "assets/faction-scenes/bell_boss.webp",
       "width": 1152,
       "height": 768
     },
     {
       "src": "assets/faction-scenes/camp_boss.webp",
+      "width": 1152,
+      "height": 768
+    },
+    {
+      "src": "assets/faction-scenes/feiye.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "src": "assets/faction-scenes/feiye_echo.webp",
       "width": 1152,
       "height": 768
     },
@@ -7200,14 +7444,39 @@
       "height": 768
     },
     {
+      "src": "assets/faction-scenes/heart.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
       "src": "assets/faction-scenes/lotus_boss.webp",
       "width": 768,
       "height": 512
     },
     {
+      "src": "assets/faction-scenes/marsh_boss.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "src": "assets/faction-scenes/mirror_boss.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "src": "assets/faction-scenes/retainer.webp",
+      "width": 1152,
+      "height": 648
+    },
+    {
       "src": "assets/faction-scenes/snake.webp",
       "width": 1152,
       "height": 768
+    },
+    {
+      "src": "assets/faction-scenes/snake_ascended.webp",
+      "width": 1152,
+      "height": 648
     },
     {
       "src": "assets/items/clearheart_jade.webp",
@@ -7490,6 +7759,21 @@
       "height": 1152
     },
     {
+      "src": "assets/portraits/m16.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m17.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m18.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
       "src": "assets/portraits/m19.webp",
       "width": 768,
       "height": 1152
@@ -7501,6 +7785,86 @@
     },
     {
       "src": "assets/portraits/m21.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m22.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m23.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m24.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m25.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m26.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m27.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m28.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m29.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m30.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m31.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m32.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m33.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m34.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m35.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m36.webp",
+      "width": 768,
+      "height": 1152
+    },
+    {
+      "src": "assets/portraits/m37.webp",
       "width": 768,
       "height": 1152
     },
@@ -7756,8 +8120,8 @@
     }
   ],
   "inline": {
-    "bytes": 69051307,
-    "sha256": "e9405328641a3f5a487287d190027ab2a55bb18fd2b184246232eccc0030e1d1",
+    "bytes": 89105638,
+    "sha256": "1d67eb9af65a0d314084f4a3f0b204b6a5b3f10f0ddfbd23170b62344565c858",
     "requests": []
   },
   "pentagons": {
@@ -7877,33 +8241,33 @@
     "sound": [
       {
         "id": "automatonKettle",
-        "peak": 0.04197726398706436,
-        "rms": 0.0023815348864034773,
-        "hash": 2733551430
+        "peak": 0.04197722673416138,
+        "rms": 0.0023815365082529147,
+        "hash": 802789518
       },
       {
         "id": "automatonBroom",
-        "peak": 0.0627717599272728,
-        "rms": 0.0026059231038821754,
-        "hash": 1744684128
+        "peak": 0.06277186423540115,
+        "rms": 0.002605924017629639,
+        "hash": 985949612
       },
       {
         "id": "automatonShears",
-        "peak": 0.058120861649513245,
-        "rms": 0.0019044881581033526,
-        "hash": 2451933416
+        "peak": 0.05812083184719086,
+        "rms": 0.001904488161865922,
+        "hash": 2450491799
       },
       {
         "id": "automatonPan",
-        "peak": 0.11614448577165604,
-        "rms": 0.005978584950572547,
-        "hash": 3263746817
+        "peak": 0.11614478379487991,
+        "rms": 0.005978596290927909,
+        "hash": 1247439134
       },
       {
         "id": "automatonRevenge",
-        "peak": 0.03782660514116287,
-        "rms": 0.00373734441843641,
-        "hash": 2672308985
+        "peak": 0.03782660886645317,
+        "rms": 0.003737344263843564,
+        "hash": 502676986
       }
     ],
     "halfLifeIntent": {
@@ -7926,7 +8290,7 @@
       "freezeChance": 0
     }
   },
-  "finishedAt": "2026-10-24T06:17:13.558Z",
+  "finishedAt": "2026-10-24T08:17:56.009Z",
   "passed": 18,
   "failed": 0
 }

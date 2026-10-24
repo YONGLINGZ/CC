@@ -50,16 +50,16 @@
   "errors": [],
   "externalRequests": [],
   "inputs": {
-    "index.html": "13c33efdefd73d847cbbd75608ca893540256418965fb94f7b18912ff72e6273",
-    "baiyao-standalone.html": "e9405328641a3f5a487287d190027ab2a55bb18fd2b184246232eccc0030e1d1",
-    "dev/ui.js": "183d8cf249677b4e382eae474900a488384539d9a643283709244056c124a5ea",
+    "index.html": "fe2c430870410af09e9162d9c23d4f8a2345e861ac18cebfbf07d7effd36d9d1",
+    "baiyao-standalone.html": "1d67eb9af65a0d314084f4a3f0b204b6a5b3f10f0ddfbd23170b62344565c858",
+    "dev/ui.js": "125242cccb7f7b8a9eac7fcd0a176cf8f798e63b8c67d539ea6b94bc7cbc48e4",
     "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
-    "dev/engine.js": "aca1cbe56cf0ad080d854ddc1aa0aaf3b17ef429b36ce5eaebb2174c870df9ed",
+    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
     "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
-    "dev/enemy-factions.js": "81fb0270bf99d0fa3f42d894d349bb177c4d210f53dc1b57c58e6dfbd530c0c9",
+    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
     "dev/batch-a-browser.test.cjs": "a93f755dbbdc16ab85e06bbdf067b46d89757a1e62b9be15fb112fe66a83e547"
   },
   "screenshots": [
@@ -336,13 +336,13 @@
       "panel": {
         "x": 16,
         "w": 328,
-        "y": 83.4375
+        "y": 83.75
       },
       "rects": [
         {
           "text": "剑意 8已满",
           "x": 64,
-          "y": 107.59375,
+          "y": 107.90625,
           "w": 80.109375,
           "h": 28.390625,
           "scroll": 80,
@@ -351,7 +351,7 @@
         {
           "text": "灵力 30",
           "x": 265,
-          "y": 94.4375,
+          "y": 94.75,
           "w": 55.015625,
           "h": 34,
           "scroll": 55,
@@ -360,7 +360,7 @@
         {
           "text": "护盾 0",
           "x": 265,
-          "y": 131.4375,
+          "y": 131.75,
           "w": 43.578125,
           "h": 34,
           "scroll": 44,
@@ -369,7 +369,7 @@
         {
           "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
           "x": 27,
-          "y": 165.4375,
+          "y": 165.75,
           "w": 306,
           "h": 27.6875,
           "scroll": 306,
@@ -378,7 +378,7 @@
         {
           "text": "追索印 2",
           "x": 27,
-          "y": 201.125,
+          "y": 201.4375,
           "w": 96.28125,
           "h": 44,
           "scroll": 94,
@@ -470,13 +470,13 @@
       "panel": {
         "x": 16,
         "w": 398,
-        "y": 84.046875
+        "y": 83.359375
       },
       "rects": [
         {
           "text": "剑意 8已满",
           "x": 64,
-          "y": 108.203125,
+          "y": 107.515625,
           "w": 80.109375,
           "h": 28.390625,
           "scroll": 80,
@@ -485,7 +485,7 @@
         {
           "text": "灵力 30",
           "x": 335,
-          "y": 95.046875,
+          "y": 94.359375,
           "w": 55.015625,
           "h": 34,
           "scroll": 55,
@@ -494,7 +494,7 @@
         {
           "text": "护盾 0",
           "x": 335,
-          "y": 132.046875,
+          "y": 131.359375,
           "w": 43.578125,
           "h": 34,
           "scroll": 44,
@@ -503,7 +503,7 @@
         {
           "text": "蓄势 4（首段增幅合计上限 8）；下回合：灵力＋1 · 抽牌＋1",
           "x": 27,
-          "y": 166.046875,
+          "y": 165.359375,
           "w": 376,
           "h": 27.6875,
           "scroll": 376,
@@ -512,7 +512,7 @@
         {
           "text": "追索印 2",
           "x": 27,
-          "y": 201.734375,
+          "y": 201.046875,
           "w": 96.28125,
           "h": 44,
           "scroll": 94,

@@ -8,7 +8,7 @@ function choose(g,i){assert.equal(g.chooseEvent(i),true);const before=JSON.strin
 function stage(g,boss,step,index){const e=at(g,[2,6,9][step-1],'event',`boss_${boss}_${step}`);assert.equal(e.id,`boss_${boss}_${step}`);assert.equal(e.choices.length,4);choose(g,index);assert.equal(g.leaveEvent(),true);return e;}
 function equipped(g,boss,a=0,b=0){stage(g,boss,1,a);stage(g,boss,2,b);}
 test('fourteen three-stage boss chains and one awakening; no quest enters ordinary random event/art pools',()=>{
- assert.equal(Object.keys(Q.QUESTS).length,14);assert.equal(Object.keys(Q.META).length,42);assert.equal(Q.EVENT_IDS.length,43);assert.equal(N.EVENT_IDS.length,142);for(const id of Q.EVENT_IDS){assert.ok(N.EVENT_IDS.includes(id));assert.ok(!N.EVENT_ART_IDS.includes(id));assert.ok(N.ENEMIES[N.bossQuestArt(id)]);}assert.equal(Object.keys(N.QUEST_ITEMS).length,47);
+ assert.equal(Object.keys(Q.QUESTS).length,14);assert.equal(Object.keys(Q.META).length,42);assert.equal(Q.EVENT_IDS.length,43);assert.equal(N.EVENT_IDS.length,158);for(const id of Q.EVENT_IDS){assert.ok(N.EVENT_IDS.includes(id));assert.ok(!N.EVENT_ART_IDS.includes(id));assert.ok(N.ENEMIES[N.bossQuestArt(id)]);}assert.equal(Object.keys(N.QUEST_ITEMS).length,71);
 });
 for(const boss of Object.keys(Q.QUESTS))test('all 64 four-choice paths retain witnessed outcomes and settle once: '+boss,()=>{
  for(let a=0;a<4;a++)for(let b=0;b<4;b++)for(let c=0;c<4;c++){

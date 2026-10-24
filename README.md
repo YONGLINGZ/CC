@@ -1,14 +1,16 @@
 # 百妖夜契 · 寒渊七境
 
-本轮更新 **灯渡与旧誓 · P2**：补齐四个前期Boss关联组，新增M04—M15十二种敌人、四处可交涉洞府、八件立场凭证和四件一次援助。前期五组现有15种关联敌人；加上已完成的焚愿组，共18种。新增32张独立画作：十二立绘、四交涉精英战斗姿态、十二物品及四背景。详见[本批规则与故事](docs/FRONTIER_P2.md)和[画集](docs/previews/frontier-p2.webp)；[P2 PNG母图包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/frontier-art-originals.zip)。
+本轮更新 **众生来意**：完成计划中全部37种关联敌人与十四组阵营遭遇，九位镇境者和五个特殊遭遇均已接入。P2、P3、P4本轮共新增91张独立选用画作，连同P1共111张；来源、凭证敌意、交涉／战斗互斥、一次援助和真实后续回应均有规则。详见[全量手册](docs/FACTIONS_COMPLETE.md)、[后四境画集](docs/previews/factions-p3.webp)、[特殊路线画集](docs/previews/factions-p4.webp)。
 
-完整37种候选尚余19种，后四境与特殊路线的其余内容仍按后续批次推进。本次没有新增多敌人或单局存档。
+P5的规则、构建和浏览器验证以[实际检查记录](TESTING.md)为准；真实手机和真人试玩尚未完成。单局仍不保存，角色解锁保留，不恢复下一招预告，也不增加多敌人战斗。
+
+此前更新 **灯渡与旧誓 · P2**：补齐四个前期Boss关联组，新增M04—M15十二种敌人、四处可交涉洞府、八件立场凭证和四件一次援助。前期五组现有15种关联敌人；加上已完成的焚愿组，共18种。新增32张独立画作：十二立绘、四交涉精英战斗姿态、十二物品及四背景。详见[本批规则与故事](docs/FRONTIER_P2.md)和[画集](docs/previews/frontier-p2.webp)；[P2 PNG母图包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/frontier-art-originals.zip)。
 
 此前更新 **器物与来意 · P1**：落实用户方案的首批六种关联小怪、两处可交涉洞府、四件立场凭证与两件专属援助。持有效支持凭证会被相应NPC识别并进入正常精英战；反对凭证可交谈，调查证物只开启问询。和平、救助、主动进攻和离去分别结算，一次机会不能双领。新绘20张运行画作（六待机＋六战斗＋六物品＋两背景），PNG母图单独保留。
 
 [首批玩法与验收](docs/FACTIONS_P1.md) · [首批画集](docs/previews/factions-p1.webp) · [完整候选规划](docs/ENEMY_FACTIONS_PLAN.md) · [PNG母图包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/factions-art-originals.zip)
 
-完整规划中的37种候选不等于本轮全部制作；本批之前其余31种及十二组事件属于后续计划；本批已补其中十二种及四组事件。没有引入多敌人战斗或单局存档，也不恢复下一招预告。
+P1与P2的阶段记录保留在各自手册；当前完整范围见本页开头的全量手册。
 
 此前更新 **衣影与血誓**（2026-10-24，北京时间）：补齐九位镇境者与五个特殊遭遇的背景和连续旧事，共十四套三段任务链、42个四选项阶段；保留机仆两件信物齐全时自动唤醒、避战进境的结果。新增五套真实衣装、六张换血／夺生禁术及三个连续获取事件。战斗与人物志均已移除下一招的预测和招式序列，动作发生后仍显示实际伤害与日志。
 
@@ -20,9 +22,11 @@
 
 镇境阵容共有九位：前期五位依境按不同权重抽取三位且不重复，第四至第六境分别面对三位中期镇守，第七境迎战归墟司命。绛鳞是前期守关者。人物志可以查看画卷与背景，镜中人、卫烬、心影、逆仪绛鳞本轮已换为完整高分辨率原画。
 
-当前共有76张技能、142种剧情事件、134段事件音效和373张运行 WebP。核心剑意、魂息常驻名称、数字和刻度；敌方状态只在实际施加后显示符纹与右下角层数。卡牌目标选择仍有规则层预览，不公开敌方下一招。
+当前共有76张技能、158种剧情事件、150段事件音效和432张运行 WebP。核心剑意、魂息常驻名称、数字和刻度；敌方状态只在实际施加后显示符纹与右下角层数。卡牌目标选择仍有规则层预览，不公开敌方下一招。
 
 ## 下载与启动
+
+原始PNG母图另包保存：[P3后四境24张](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/later-p3-art-originals.zip) · [P4特殊路线35张](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/special-p4-art-originals.zip)。试玩只需下面的游戏包或单文件。
 
 - [完整游戏 ZIP](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/baiyao-rebuilt.zip)：全部解压，打开 `index.html`，保留 `assets/`。
 - [完整单文件 HTML](https://raw.githubusercontent.com/YONGLINGZ/CC/main/baiyao-standalone.html)：保存为 `.html`，用桌面浏览器打开。

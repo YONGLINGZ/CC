@@ -5,3 +5,6 @@ recovery/*.zip
 !recovery/factions-art-originals.zip
 !recovery/frontier-art-originals.zip
 recovery/*.bundle
+
+!recovery/later-p3-art-originals.zip
+!recovery/special-p4-art-originals.zip

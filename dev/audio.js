@@ -168,7 +168,7 @@
     boss_lotus_awake:{name:'家令归宁',notes:[262,330,392,524],kind:'wood',air:900},
     campfire_hunt:{name:'火塘剑阵',notes:[147,220,311,440],kind:'steel',air:2900},
     road_aftermath:{name:'雾中车铃',notes:[294,440,587],kind:'wood',air:1200},
-    ...Object.fromEntries(['lotus_boss','furnace_boss','gate_boss','camp_boss','snake','bell_boss'].flatMap((b,i)=>['source','cave'].map((k,j)=>['faction_'+b+'_'+k,{name:'器物与来意',notes:[196+i*51,294+j*43,440+i*61,660+j*71],kind:i?'gong':'wood',air:900+j*300}]))),
+    ...Object.fromEntries(['lotus_boss','furnace_boss','gate_boss','camp_boss','snake','bell_boss','marsh_boss','mirror_boss','abyss_boss','feiye','feiye_echo','retainer','heart','snake_ascended'].flatMap((b,i)=>['source','cave'].map((k,j)=>['faction_'+b+'_'+k,{name:'器物与来意',notes:[196+i*51,294+j*43,440+i*61,660+j*71],kind:i?'gong':'wood',air:900+j*300}]))),
     cave:{name:'山腹藏幽',notes:[165,247,392,660],kind:'water',air:640}
   });
   const MAX_VOICES = 56;
@@ -459,7 +459,7 @@
     if(type==='attack'){
       if(event.source==='enemy'){
         const enemy=context.enemyId||event.enemyId,intent=String(event.intent||context.intentName||context.intent||'');
-        const normal={m04:'paperHit',m05:'boneHit',m06:'automatonShears',m07:'boneHit',m08:'automatonPan',m09:'boneHit',m10:'boneHit',m11:'lanternHit',m12:'automatonShears',m13:'paperHit',m14:'automatonPan',m15:'boneHit',m01:'automatonPan',m02:'paperHit',m03:'automatonShears',m19:'lanternHit',m20:'enemyHit',m21:'boneHit',paper:'paperHit',lantern:'lanternHit',ape:'apeHit',bone:'boneHit',yaksha:'yakshaHit'};
+        const normal={m16:'boneHit',m17:'automatonPan',m18:'boneHit',m22:'paperHit',m23:'paperHit',m24:'automatonShears',m25:'paperHit',m26:'enemyHit',m27:'automatonShears',m28:'enemyHit',m29:'boneHit',m30:'paperHit',m31:'automatonShears',m32:'boneHit',m33:'lanternHit',m34:'enemyHit',m35:'enemyHit',m36:'enemyHit',m37:'boneHit',m04:'paperHit',m05:'boneHit',m06:'automatonShears',m07:'boneHit',m08:'automatonPan',m09:'boneHit',m10:'boneHit',m11:'lanternHit',m12:'automatonShears',m13:'paperHit',m14:'automatonPan',m15:'boneHit',m01:'automatonPan',m02:'paperHit',m03:'automatonShears',m19:'lanternHit',m20:'enemyHit',m21:'boneHit',paper:'paperHit',lantern:'lanternHit',ape:'apeHit',bone:'boneHit',yaksha:'yakshaHit'};
         if(enemy==='lotus_boss')return playCue(/奉茶/.test(intent)?'automatonKettle':/洒扫/.test(intent)?'automatonBroom':/缝衣/.test(intent)?'automatonShears':'automatonPan',payload);
         return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),payload);
       }

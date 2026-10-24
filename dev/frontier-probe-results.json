@@ -1,8 +1,8 @@
 {
   "inputs": {
-    "dev/engine.js": "aca1cbe56cf0ad080d854ddc1aa0aaf3b17ef429b36ce5eaebb2174c870df9ed",
-    "dev/enemy-factions.js": "81fb0270bf99d0fa3f42d894d349bb177c4d210f53dc1b57c58e6dfbd530c0c9",
-    "dev/playtest.cjs": "5d45d6c09dc7e9a87ffeba93af96731bd2ca09971f17acca1225f6d860ed1380",
+    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
+    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
+    "dev/playtest.cjs": "383c53a7f0908fce84a4475cf7720e5536aaa9e544479e2460238932421bbd71",
     "dev/frontier-probe.cjs": "239d48fecd1c303db849c374e2a37c6ba9f277c9e102af57cb06e4865f952f80"
   },
   "method": "60 explicit first-region arena fixtures, five unmodified existing starters against twelve new templates. Fixed oracle policy reads internal intents, may use real starting herbs. Does not establish human difficulty or later-region balance.",

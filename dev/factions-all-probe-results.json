@@ -1,0 +1,1864 @@
+{
+  "inputs": {
+    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
+    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
+    "dev/playtest.cjs": "383c53a7f0908fce84a4475cf7720e5536aaa9e544479e2460238932421bbd71",
+    "dev/factions-all-probe.cjs": "5d9ba4dffe55fa9fda10161f4459887d5259c7b08dc43c4c82a3db22083afa36"
+  },
+  "method": "185 explicit first-region arena fixtures, five unmodified existing starters against all thirty-seven templates. Fixed oracle policy reads internal intents, may use real starting herbs. Does not establish human difficulty or later-region balance.",
+  "runs": [
+    {
+      "starter": "mark",
+      "enemy": "m01",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m02",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m03",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "mark",
+      "enemy": "m19",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "mark",
+      "enemy": "m20",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m21",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "mark",
+      "enemy": "m04",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m05",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m06",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m07",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m08",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m09",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m10",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m11",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m12",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m13",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m14",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m15",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "mark",
+      "enemy": "m16",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m17",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m18",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "mark",
+      "enemy": "m22",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m23",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m24",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m25",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m26",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "mark",
+      "enemy": "m27",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m28",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m29",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m30",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "mark",
+      "enemy": "m31",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m32",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "mark",
+      "enemy": "m33",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "mark",
+      "enemy": "m34",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m35",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "mark",
+      "enemy": "m36",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "mark",
+      "enemy": "m37",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m01",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "combo",
+      "enemy": "m02",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "combo",
+      "enemy": "m03",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 16
+    },
+    {
+      "starter": "combo",
+      "enemy": "m19",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m20",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m21",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m04",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m05",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m06",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "combo",
+      "enemy": "m07",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m08",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m09",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "combo",
+      "enemy": "m10",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "combo",
+      "enemy": "m11",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "combo",
+      "enemy": "m12",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m13",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m14",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "combo",
+      "enemy": "m15",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m16",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "combo",
+      "enemy": "m17",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m18",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "combo",
+      "enemy": "m22",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m23",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "combo",
+      "enemy": "m24",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m25",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m26",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "combo",
+      "enemy": "m27",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "combo",
+      "enemy": "m28",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m29",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "combo",
+      "enemy": "m30",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "combo",
+      "enemy": "m31",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "combo",
+      "enemy": "m32",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "combo",
+      "enemy": "m33",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "combo",
+      "enemy": "m34",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "combo",
+      "enemy": "m35",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "combo",
+      "enemy": "m36",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "combo",
+      "enemy": "m37",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "blood",
+      "enemy": "m01",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "blood",
+      "enemy": "m02",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m03",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 16
+    },
+    {
+      "starter": "blood",
+      "enemy": "m19",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "blood",
+      "enemy": "m20",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "blood",
+      "enemy": "m21",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "blood",
+      "enemy": "m04",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m05",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m06",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "blood",
+      "enemy": "m07",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "blood",
+      "enemy": "m08",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "blood",
+      "enemy": "m09",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "blood",
+      "enemy": "m10",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m11",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "blood",
+      "enemy": "m12",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "blood",
+      "enemy": "m13",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "blood",
+      "enemy": "m14",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m15",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "blood",
+      "enemy": "m16",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m17",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m18",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "blood",
+      "enemy": "m22",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "blood",
+      "enemy": "m23",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m24",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "blood",
+      "enemy": "m25",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "blood",
+      "enemy": "m26",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "blood",
+      "enemy": "m27",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "blood",
+      "enemy": "m28",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m29",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "blood",
+      "enemy": "m30",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m31",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "blood",
+      "enemy": "m32",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "blood",
+      "enemy": "m33",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "blood",
+      "enemy": "m34",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "blood",
+      "enemy": "m35",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "blood",
+      "enemy": "m36",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "blood",
+      "enemy": "m37",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sword",
+      "enemy": "m01",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "sword",
+      "enemy": "m02",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sword",
+      "enemy": "m03",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "sword",
+      "enemy": "m19",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m20",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "sword",
+      "enemy": "m21",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sword",
+      "enemy": "m04",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m05",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m06",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "sword",
+      "enemy": "m07",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m08",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "sword",
+      "enemy": "m09",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 16
+    },
+    {
+      "starter": "sword",
+      "enemy": "m10",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sword",
+      "enemy": "m11",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "sword",
+      "enemy": "m12",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sword",
+      "enemy": "m13",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m14",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sword",
+      "enemy": "m15",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sword",
+      "enemy": "m16",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m17",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m18",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m22",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sword",
+      "enemy": "m23",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m24",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "sword",
+      "enemy": "m25",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m26",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sword",
+      "enemy": "m27",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m28",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sword",
+      "enemy": "m29",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m30",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m31",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 17
+    },
+    {
+      "starter": "sword",
+      "enemy": "m32",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sword",
+      "enemy": "m33",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sword",
+      "enemy": "m34",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "sword",
+      "enemy": "m35",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 15
+    },
+    {
+      "starter": "sword",
+      "enemy": "m36",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sword",
+      "enemy": "m37",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m01",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m02",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m03",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m19",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m20",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m21",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m04",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m05",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m06",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m07",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m08",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m09",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 10
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m10",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 7
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m11",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m12",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 58,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m13",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m14",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m15",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m16",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m17",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m18",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 12
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m22",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m23",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m24",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m25",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m26",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m27",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 9
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m28",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m29",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 11
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m30",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m31",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m32",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 55,
+      "maxHp": 60,
+      "actions": 5
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m33",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 4,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 14
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m34",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 4,
+      "hp": 60,
+      "maxHp": 60,
+      "actions": 13
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m35",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 2,
+      "hp": 57,
+      "maxHp": 60,
+      "actions": 8
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m36",
+      "rank": "normal",
+      "result": "reward",
+      "turns": 2,
+      "hp": 59,
+      "maxHp": 60,
+      "actions": 6
+    },
+    {
+      "starter": "sovereign",
+      "enemy": "m37",
+      "rank": "elite",
+      "result": "reward",
+      "turns": 3,
+      "hp": 56,
+      "maxHp": 60,
+      "actions": 10
+    }
+  ],
+  "wins": 185,
+  "defeats": 0,
+  "stalled": 0
+}

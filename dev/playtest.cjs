@@ -4,7 +4,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const {createGame, CARDS, ENEMIES, ITEMS} = require('./engine.js');
+const {createGame, describeEnemyIntent, CARDS, ENEMIES, ITEMS} = require('./engine.js');
 function random(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t ^= t + Math.imul(t ^ t >>> 7, 61 | t); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const value = {C01:2,C02:2,C03:6,C04:8,C05:7,C06:8,C07:7,C08:8,C09:7,C10:6,C11:5,C12:8,C13:6,C14:6,C15:6,C16:9,C17:10,C18:10,C19:9,C20:8,C21:9,C22:9,C23:8,C24:9,C25:6,C26:9,C27:9,C28:10,C29:6,C30:7,C31:7,C32:8,C33:10,C34:9,C35:8,C36:9};
 Object.assign(value,{S01:5,S02:7,S03:8,S04:9,S05:8,S06:8,S07:8,S08:9,S09:7,S10:8,S11:6,S12:8,S13:7,S14:9,S15:10,S16:10});
@@ -13,13 +13,7 @@ Object.assign(value,{F01:6,F02:7,F03:10,F04:10,F05:9,F06:10,F07:10,F08:8,F09:11,
 function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
 // Oracle regression policy: reads internal intent for a stable mechanics baseline.
 // The product UI hides future actions; this is not a human-difficulty estimate.
-function observedIntent(s){
-  const b=s.battle,e=b.enemy,def=(b.factionDef?.id===e.id?b.factionDef:ENEMIES[e.id]).intents[e.intentIndex];
-  const bonus=b.scaling?.attackBonus??b.scaling?.atkBonus??e.attackBonus??0;
-  const cold=(e.chill||0)>=5&&!def.clearChill?1:0;
-  const hits=(def.hits||[]).map((n,i)=>Math.max(0,n+bonus-cold+(i===0?(b.playerMark||0):0)));
-  return {...def,hits:e.frozen===true?[]:hits};
-}
+function observedIntent(s){ return describeEnemyIntent(s.battle); }
 function nextCard(s,game=null) {
   const b=s.battle,e=b.enemy,p=s.player,intent=game?.getIntent?.()||observedIntent(s);
   const incoming=(intent.hits||[]).reduce((a,n)=>a+n,0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0,soul=b.soul||0;
