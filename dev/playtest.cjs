@@ -14,7 +14,7 @@ function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category ==
 // Oracle regression policy: reads internal intent for a stable mechanics baseline.
 // The product UI hides future actions; this is not a human-difficulty estimate.
 function observedIntent(s){
-  const b=s.battle,e=b.enemy,def=ENEMIES[e.id].intents[e.intentIndex];
+  const b=s.battle,e=b.enemy,def=(b.factionDef?.id===e.id?b.factionDef:ENEMIES[e.id]).intents[e.intentIndex];
   const bonus=b.scaling?.attackBonus??b.scaling?.atkBonus??e.attackBonus??0;
   const cold=(e.chill||0)>=5&&!def.clearChill?1:0;
   const hits=(def.hits||[]).map((n,i)=>Math.max(0,n+bonus-cold+(i===0?(b.playerMark||0):0)));

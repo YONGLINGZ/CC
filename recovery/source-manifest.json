@@ -3,24 +3,25 @@
   "mode": "source-svg",
   "files": {
     "dev/art.js": "d7ccdaad433debdcafbc08f16c5b5a4de5c93a341cb0f00842edb0a30434df22",
-    "dev/audio.js": "17851cba7ac8792f0506fba75e341ef6bdfc4cf1cfd002428b6507567c29adeb",
+    "dev/audio.js": "2ac09bcfac01330115f287131fa4354b59ed0cf602f1af39e1e8b8c49973f826",
     "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
-    "dev/build.cjs": "add186dbdd6b31826f49afe73aa15ec214091737e570dcd53c63984f1bb4bab3",
+    "dev/build.cjs": "fddd7940e15286a3a969afe7f1fe04b9afffb6ce75c37d8d1a9103f4335d1598",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
-    "dev/engine.js": "76819abb48bdc6cb119fc86d39566b517606005c8f1355e7af1f03d266b53ad4",
+    "dev/enemy-factions.js": "c3c9d480afa522cd2b132f7e52d2a55081795e9859a662e428c65689ae278995",
+    "dev/engine.js": "d82cb47543a9211055c79a48975feee4b8d0b43bd010d76d626f5d2333d24989",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
-    "dev/shell.html": "83a6e07b31b949fa2cd21a0d1f6054c097ac95f6560576b119272ae05b654daf",
+    "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
     "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
-    "dev/ui.js": "fd87382d11a56c764b3ebfc140232a59596eee1a9e6acd929d7d053520589b5a"
+    "dev/ui.js": "9ca14e0ccdce23e3444d6f7e2a21472012fd08dca4ae2542fd5ff0071c0fe53d"
   },
   "outputs": {
-    "index.html": "976c4ce524245b08b3d137ef8a427f0199bb00336a79740c68364d59734cf7c6"
+    "index.html": "2216f602a08efa9bd94bc175b6786c3f93dbe66e9e611e9aa7e76792ffa8d398"
   },
   "release_outputs": {
-    "index.html": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7",
-    "baiyao-standalone.html": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7"
+    "index.html": "20421b7df99357b882f6cb003c86b651877fe00b11bd3076ecd1241d8866f69b",
+    "baiyao-standalone.html": "a2e821aca8baa96b6a94ce3035f55c2d7d19bf6b8c7e9099443421d7896c02f9"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -253,6 +254,20 @@
     "assets/events/wen_final.webp": "84f19cd5508da0f7e689ac5c783eca535b4a1aa41d44239a6337787ba05df416",
     "assets/events/wen_first.webp": "860f0a0478477e4aba6b8d0be594548f4516f981b5066bad08e2688846fddef8",
     "assets/events/wen_return.webp": "fdb62b2d7e14a04cce599cee12e56ca2f5dc55aeb8ce55b19e81a284cb3deaa6",
+    "assets/faction-combat/m01.webp": "f6ddb4730ba67934196d14719481767adfa062f8ecda38f0eaf1063d78028354",
+    "assets/faction-combat/m02.webp": "0e2a908a38d69378e666f4771fe28a61a72094efd0f118e70095f77051f71b09",
+    "assets/faction-combat/m03.webp": "c88f4d09a87d7d437155fe7dbf253d1b230d240302a4c2d839b686407732d1e1",
+    "assets/faction-combat/m19.webp": "dca9d389e8ecd17bfc8e589caaa06a8e2340168423b8a0b1564b604f2a23b6f5",
+    "assets/faction-combat/m20.webp": "66743547096e67df4c48caf27fb5b0e8866625fe7dd83b9d56fc080aea33c6c9",
+    "assets/faction-combat/m21.webp": "c5a25198fc685e471485d8259cca03bfa856c4098312a40d5250c7fd07a6e67c",
+    "assets/faction-items/charcoal_seal.webp": "39806d44568e2b13bc741aa9451e9b46f53a1075ec33185763f2a7cb91813ebe",
+    "assets/faction-items/cold_ash.webp": "8b351f3dd07bb5bf58a77098494d19e0ce65ab7d9c14c2230e356eb715d72fee",
+    "assets/faction-items/furnace_pact.webp": "19220ffd46f2b134381b227ec82fae37fff75b8b76127193cf8ed4d9358a461a",
+    "assets/faction-items/heat_tongs.webp": "4eab58912112fa53208a66ffb2636aae9c2e9b75b1caa85e3af9fa0ea158a6cd",
+    "assets/faction-items/house_order.webp": "41cf9a7416fbafee1516b880b23d4cdffd2da4dc87e8ac97956fea7164945532",
+    "assets/faction-items/split_nail.webp": "a00b012a652174bd06b275b821a9e31baccd37c437b7e5d7356dd9c81d32c8cb",
+    "assets/faction-scenes/furnace_boss.webp": "e6eb30103b6dd828849abacfdacac4ab05b4010c1954f59e0f809089b27dcf75",
+    "assets/faction-scenes/lotus_boss.webp": "4afdb5312f3a4d3784ef44d2889cbac31d0f3bf230be0a552612df1fdecf1dae",
     "assets/items/clearheart_jade.webp": "335ae349dfc16a3c6c738ac5e99ef17fb518e68cb3b9b4a18ccf4ceb7a8f2ffe",
     "assets/outfits/cat-blood.webp": "4c62c2586ade05ff6e20570e81570f67b24cf632c6b87a8c753a725f8ab91fb3",
     "assets/outfits/cat-ember.webp": "a6358da75779457cf645c0f1343ef2592609d260132aff62ff655810f50263a6",
@@ -294,6 +309,12 @@
     "assets/portraits/lantern.webp": "52ea35cc91c13ab9e181aefc6d618487ad9456f5f98e0b6f0ea888b52787c4f1",
     "assets/portraits/liu.webp": "192d85b17bb7f14bf390b21ed90a537c50c8e51430df9844a95e82ea33bee3b4",
     "assets/portraits/lotus_boss.webp": "c83261db10eac868136bab90aebc7819b9a0306c7d87481a15a40178f4366db6",
+    "assets/portraits/m01.webp": "6ffc646ab9f304765ee6a418c4ede76776bce616db8d563b5d1dbd6f247c812d",
+    "assets/portraits/m02.webp": "82bbf9ffff8c8afd7a9659a76bef63e86526d1820a6a8416788b2e21938a1ca0",
+    "assets/portraits/m03.webp": "2ca5f53af6d9a3c8b9aea9eebf539dd79667a65aab23382fc1fefa8551a53cfe",
+    "assets/portraits/m19.webp": "4efb11228eb722dd6bd56b4691bfdb8ebb96c229781b6425e61894bc1a571bfb",
+    "assets/portraits/m20.webp": "dca14d76c79abc69690807bfd15b55cd9612ed03b1250fc054ef5373da51c68e",
+    "assets/portraits/m21.webp": "fa05d6e51b00d0551d98a7349be527cd84798840acc034466f2383a6325331c9",
     "assets/portraits/marsh_boss.webp": "b10503e85ef705844234aa529d4b6758de338db61535f47f28803286c3648142",
     "assets/portraits/mirror_boss.webp": "87f4fbda7199980796300f280ee3e9f091267a970256182048d4ec1b9573ecc1",
     "assets/portraits/orthodox_patrol.webp": "cd871854783895e85136909ded1b08bb91063e6ca638a2709e9a2c95692a2e0d",
@@ -346,10 +367,10 @@
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945"
   },
   "asset_count": 0,
-  "source_count": 12,
-  "archive_sha256": "21a2ace0d9c2161f6028a95462b08a8eb99f09c48d9ec826e91fcd84a1b33ff6",
-  "archive_bytes": 242947,
-  "uncompressed_bytes": 719591,
+  "source_count": 13,
+  "archive_sha256": "d7c2925ea3949c694023181e0fb91f33824297433c9e2ee5ac32eb12afbc390e",
+  "archive_bytes": 252999,
+  "uncompressed_bytes": 743395,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

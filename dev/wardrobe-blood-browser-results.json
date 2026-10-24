@@ -2,19 +2,20 @@
   "format": "baiyao-wardrobe-blood-browser",
   "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
   "inputs": {
-    "index.html": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7",
-    "baiyao-standalone.html": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7",
-    "dev/engine.js": "76819abb48bdc6cb119fc86d39566b517606005c8f1355e7af1f03d266b53ad4",
+    "index.html": "20421b7df99357b882f6cb003c86b651877fe00b11bd3076ecd1241d8866f69b",
+    "baiyao-standalone.html": "a2e821aca8baa96b6a94ce3035f55c2d7d19bf6b8c7e9099443421d7896c02f9",
+    "dev/engine.js": "d82cb47543a9211055c79a48975feee4b8d0b43bd010d76d626f5d2333d24989",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
     "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
-    "dev/ui.js": "fd87382d11a56c764b3ebfc140232a59596eee1a9e6acd929d7d053520589b5a",
-    "dev/shell.html": "83a6e07b31b949fa2cd21a0d1f6054c097ac95f6560576b119272ae05b654daf",
-    "dev/audio.js": "17851cba7ac8792f0506fba75e341ef6bdfc4cf1cfd002428b6507567c29adeb",
-    "dev/build.cjs": "add186dbdd6b31826f49afe73aa15ec214091737e570dcd53c63984f1bb4bab3",
-    "dev/wardrobe-blood-browser.test.cjs": "c425ce824e9d85c03c0473c1a063a5121692aaa5f611b4a7e7dbb176b32990e8"
+    "dev/enemy-factions.js": "c3c9d480afa522cd2b132f7e52d2a55081795e9859a662e428c65689ae278995",
+    "dev/ui.js": "9ca14e0ccdce23e3444d6f7e2a21472012fd08dca4ae2542fd5ff0071c0fe53d",
+    "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
+    "dev/audio.js": "2ac09bcfac01330115f287131fa4354b59ed0cf602f1af39e1e8b8c49973f826",
+    "dev/build.cjs": "fddd7940e15286a3a969afe7f1fe04b9afffb6ce75c37d8d1a9103f4335d1598",
+    "dev/wardrobe-blood-browser.test.cjs": "9456ec78c2eaa775ea7e02dd27e78aba98c1347a35c1187b80d85d7fcd3c5c27"
   },
   "results": [
     {

@@ -1,32 +1,52 @@
 {
-  "version": "寒渊七境 · 衣影与血誓",
+  "version": "寒渊七境 · 器物与来意",
   "date": "2026-10-24",
   "timezone": "Asia/Shanghai",
   "based_on": "user 33.zip, v10 and audited numerical proposal",
   "game_html": {
-    "bytes": 728655,
-    "sha256": "b52bc863d26630a439b9d3c44b5561f486cba1c106786d3bb208db7f2583e2c7"
+    "bytes": 752980,
+    "sha256": "20421b7df99357b882f6cb003c86b651877fe00b11bd3076ecd1241d8866f69b"
   },
   "standalone_html": {
-    "bytes": 52237672,
-    "sha256": "7779b3e92af6614925f0c8f861783cfa7d7c1b444ab1454ad18fafe0033cbdd7"
+    "bytes": 58286283,
+    "sha256": "a2e821aca8baa96b6a94ce3035f55c2d7d19bf6b8c7e9099443421d7896c02f9"
   },
   "play_zip": {
-    "bytes": 84523655,
-    "sha256": "da4c5e8bc9b91a3f0b505322adefaad8212f6373aadd230cc4d8103556c7c11a"
+    "bytes": 93938633,
+    "sha256": "83b106e13fffcf6228600e48e8cacbe6318b1ab671c75b860faa0124a9b5947e"
   },
   "zip_crc": "PASS",
   "zip_every_member_byte_exact": true,
-  "zip_members": 585,
+  "faction_png_masters": {
+    "bytes": 51035585,
+    "sha256": "b8b17968e0dbab6e447109d05a6bcb6b7d5e7726ec8974e022dea92c8c26975c",
+    "files": 20,
+    "crc": "PASS",
+    "each_png_sha256": "PASS",
+    "separate_download": true
+  },
+  "zip_members": 613,
   "editable_shell_in_zip": true,
   "runtime_art": {
+    "faction-combat": {
+      "count": 6,
+      "bytes": 1913734
+    },
+    "faction-items": {
+      "count": 6,
+      "bytes": 779668
+    },
+    "faction-scenes": {
+      "count": 2,
+      "bytes": 281974
+    },
     "outfits": {
       "count": 20,
       "bytes": 5970440
     },
     "portraits": {
-      "count": 31,
-      "bytes": 6555850
+      "count": 37,
+      "bytes": 8098794
     },
     "cards": {
       "count": 76,
@@ -69,8 +89,8 @@
       "bytes": 506266
     }
   },
-  "runtime_art_total": 321,
-  "new_generated_art_files": 33,
+  "runtime_art_total": 341,
+  "new_generated_art_files": 20,
   "retained_tales_art_files": 34,
   "retained_v11_generated_art_files": 28,
   "inline_vector_icons": 35,
@@ -135,6 +155,15 @@
     "separate_wounded_paintings": false
   },
   "enemy_next_action_visible": false,
+  "factions_p1": {
+    "implemented_templates": 6,
+    "candidate_templates": 37,
+    "groups": 2,
+    "events": 4,
+    "art": 20,
+    "browser_groups": 7,
+    "new_ordinary_scaling": false
+  },
   "professions": [
     "影契刺客",
     "霜华剑修",
@@ -154,15 +183,15 @@
     322
   ],
   "random_node_types": true,
-  "story_events": 130,
+  "story_events": 134,
   "linked_story_chains": 28,
-  "new_chains": 10,
-  "new_linked_events": 30,
+  "new_chains": 0,
+  "new_linked_events": 0,
   "chains_sampled_per_run": 3,
   "travel_interruptions": 2,
   "cards": 76,
   "sound_profiles": 76,
-  "event_sound_profiles": 122,
+  "event_sound_profiles": 126,
   "role_specific_event_variants": 63,
   "weapons": 4,
   "reworked_boss": {
@@ -180,10 +209,10 @@
     "middle": 3,
     "final": 1
   },
-  "enemies": 25,
+  "enemies": 31,
   "boss_illustrations": 9,
   "special_encounter_portraits": 5,
-  "quest_items": 29,
+  "quest_items": 35,
   "meta_unlock_storage": true,
   "formal_cubism_model_exported": false,
   "consumables": 7,
@@ -209,26 +238,26 @@
   "numeric_calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.54,
+        "actual": 0.64,
         "min": 0.4,
         "max": 0.6,
-        "passed": true
+        "passed": false
       },
       "survivorHealthMedian": {
-        "actual": 31,
+        "actual": 26,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.68,
-          "sword": 0.26,
-          "sovereign": 0.68
+          "assassin": 0.8,
+          "sword": 0.36,
+          "sovereign": 0.76
         },
         "min": 0.25,
         "max": 0.75,
-        "passed": true
+        "passed": false
       },
       "maxHitMedian": {
         "actual": 47,
@@ -238,7 +267,7 @@
     },
     "eliteProbe": {
       "eliteTurns": {
-        "actual": 7,
+        "actual": 6,
         "min": 5,
         "max": 9,
         "passed": true
@@ -250,7 +279,7 @@
         "passed": false
       },
       "defendingNetLifeLoss": {
-        "actual": 13,
+        "actual": 12,
         "maxExclusive": 20,
         "passed": true
       }
@@ -259,12 +288,12 @@
     "allProbeGates": false
   },
   "engine_tests": {
-    "passed": 342,
+    "passed": 354,
     "failed": 0,
-    "total": 342,
+    "total": 354,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 123
+    "new_checks": 135
   },
   "audio_tests": {
     "passed": 23,
@@ -287,17 +316,17 @@
   },
   "public_api_simulations": {
     "completed": 150,
-    "wins": 81,
-    "defeats": 69
+    "wins": 96,
+    "defeats": 54
   },
   "hidden_route_simulations": {
     "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 11,
-    "defeats": 13,
-    "unlocks": 11,
-    "hidden_challenges": 11,
-    "hidden_wins": 11,
+    "wins": 13,
+    "defeats": 11,
+    "unlocks": 13,
+    "hidden_challenges": 13,
+    "hidden_wins": 13,
     "report": "dev/v11-hidden-playtest-report.json"
   },
   "full_recovery_checks": 17,
@@ -310,30 +339,34 @@
     "status": "blocked by cloud browser administrator before game load; no desktop double-click verification"
   },
   "verification_inputs": {
-    "dev/boss-quests-browser-results.json": "9933bb361f2c908d875d804649a886317c0667bde2b2f86c72287ad0f73f1e03",
-    "dev/tales-browser-results.json": "8eafc5f55dfbb5ce40578966640fff01611ed28c4f4a2613922b3fc3a3600498",
+    "dev/boss-quests-browser-results.json": "6a3b333b373015107f8489b93e8c03fa4d4cf8d0de05b87e1eec113390e5308b",
+    "dev/tales-browser-results.json": "8436b8caaa375184fcd1a1beb7c605bb6e7d75e4154a473c700b752804a06ed5",
     "dev/tales-art-manifest.json": "eefde3fb025a527073c3fc049a228dd66ab69265f1a2af5580b4565503138199",
-    "dev/batch-a-browser-results.json": "e0f0a4a4fb1e9ba807d1bbe33e1875de47bf330d03dfb8a379a318df79739d56",
-    "dev/v11-results.json": "d874033b036ecf62e9c7cf1e9fb140bd5645e4cf27c3b384cc6380d9ecd1f575",
-    "dev/v11-export-results.json": "6efe5e1a942670765bb75e7810c4fdfb461b8e8cec4e986487a1ed6cdd0e604c",
-    "dev/v8-audio-regression-results.json": "c8d7a9f3d0301004a6815c283918c8fec65051f9fb7f854dcafcbcaa2c41e567",
-    "dev/v8-sword-audio-results.json": "077e86642ae0510a941ddc9bfea4b4e7067aefdb8b351b746148093afe50cdf5",
-    "dev/v8-audio-results.json": "970537b10d28d2e6384f93a495bdc11ce7c9ecab1a2716add0b88d1d33c5d6a1",
-    "dev/v11-regression-results.json": "9fd0d5df045f00a8ecf20d3b22658e6e4e494eebbd2b28d32d9c4161f7c6c457",
-    "dev/v11-source-browser-results.json": "a0c857c2e59284d7539acc92712c38ee380026dec3b721d46e9b320d76c03134",
+    "dev/batch-a-browser-results.json": "a27161dd6917a70c1366c7db52f2540400e32c805ae10bb1866a1a1ffba2354e",
+    "dev/v11-results.json": "d939e3e5d1348667605598b649f63246ae8783ce451f80dd95903e4aac5f6e05",
+    "dev/v11-export-results.json": "41cea0bdbee1cfde699f3622d58646b3cead13f7d29ae05c5cb1e0a988c68496",
+    "dev/v8-audio-regression-results.json": "19b8d20589b7cf623f5e023831ff3ed3ead9c3126129ec151a38f17e90ce29c5",
+    "dev/v8-sword-audio-results.json": "bf9c394d218aa939a9f6167140aff991d0872649f40c1b6156f9fd006a1d36a7",
+    "dev/v8-audio-results.json": "20f6134953e6bf2a59c87c72cf4108fc54393cbe95871e1e45ba6a2891521969",
+    "dev/v11-regression-results.json": "8334993909a135a5afb7ece0cd42460b2d7aa76508f4ae5323ba0fffa438ab16",
+    "dev/v11-source-browser-results.json": "01e91716ef182d860f5695bc77d0ece5afcc064ee89b01b8e9c7692bd31552d0",
     "dev/v11-art-manifest.json": "fb67119f00b52259397a5d461ded71f1188d6826bd87f5dad500cc9412f165d0",
     "dev/v11-scene-art-manifest.json": "915a3355a15b21bfbf89152a2ede4772db922b9c16a3bcc63b4278e18747f8b4",
+    "dev/faction-art-manifest.json": "f4f31b553b17665a54648e27b58f0966852957834ddf1173fe0939805ac67b89",
+    "dev/factions-browser-results.json": "ebaf94fe74adc90965a8e097095b48591733b7b8d2d9f1577412334af354e65b",
+    "dev/enemy-factions.js": "c3c9d480afa522cd2b132f7e52d2a55081795e9859a662e428c65689ae278995",
+    "dev/factions.test.cjs": "c43c3ed0ab58bcdbbd9e042dd0f09548e338a68ec2a300886f2d2dfb8b26df39",
     "dev/wardrobe-art-manifest.json": "bee18fdc5f4a29fdc5b81b80aa8f0d14ab4f6fbc4096ccedd7f56e8d6c9935a5",
     "dev/story-boss-art-manifest.json": "df72a114e1b8a710b2f2f4ac9cca3ae76adacf16e18fbed329aad50444776e71",
-    "dev/wardrobe-blood-browser-results.json": "7ba97b5755fb7583b9b16862d0508a99a052c0b0a0718c400d528efcbfd91b2b",
+    "dev/wardrobe-blood-browser-results.json": "d50bdbafe0908b72dfbc858d5672557b2f3e117ad49ca4f86ffd3c2e988c0854",
     "dev/wardrobe-blood.test.cjs": "aee0a9b1b94e37fc9ce808fd219b636b3518c5e78f8a44943c0d209b5604fa2f",
     "dev/boss-chain-reachability.test.cjs": "9c24738f8eb2937693a608509cfbd972bbfec05b0e8ddf61a10d1137d4c1ac06",
     "dev/v8-role-art-manifest.json": "7ae584c001cd8dfb814c7170b4493df94d8a75b65f45009e576bbf6da6a48882",
     "dev/v8-file-browser-results.json": "3cd9b95d16ef25a0b03f27c83c6ae36face3a59860f72f5b86a68b4689133e60",
-    "recovery/tests.json": "80449c7f201c11e1f7f4f6e781e5086fc9b77481cac8f9c5e92e083189c98569",
-    "recovery/source-tests.json": "c14adb951c1859afdd4f0d25ad6ba862b3ede8706b93586f910c2eafcc66dcb9",
-    "recovery/manifest.json": "d342be76f60c03fb9ec58101814fe71234afc864de1828cdd46350da24d8a021",
-    "recovery/source-manifest.json": "1b92a3ee1673689ad031de0ad1f96fb8c6a75fb432d981efaef557ed7f781386"
+    "recovery/tests.json": "cb832b3e572e92c05b0300f32dba608a40fc7bf181b835a91ddb3dbc71014332",
+    "recovery/source-tests.json": "157304d10aeca25b78ccf4aa838b4c806b875284389c23232e00d63bc744b0e5",
+    "recovery/manifest.json": "935e305083dd193869b652885b20944bee0bb8c0b001e4de4e42f0115e222b8b",
+    "recovery/source-manifest.json": "86c1665b180601590687fe2a68319995a1263aeec4d30d9c0fd2aa50646ed216"
   },
   "attachment_export_available": false,
   "published_new_instance_verified": false,

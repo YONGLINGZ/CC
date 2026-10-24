@@ -42,12 +42,15 @@ if(gameData.CHARACTERS?.sovereign){
   resources.puppet.feiye=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','feiye-'+id)]));
 }
 resources.puppet.sword_fallen=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','sword_fallen-'+id)]));
+resources.factionCombat=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.DEFS).map(id=>[id,asset('faction-combat',id)]));
+resources.factionItems=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.ITEMS).map(id=>[id,asset('faction-items',id)]));
+resources.factionScenes=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.GROUPS).map(id=>[id,asset('faction-scenes',id)]));
 resources.puppetRig={};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if((all||args.includes('--strict'))&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
 const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('engine.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),script(read('engine.js')),ui];
 const html=shell+'\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');

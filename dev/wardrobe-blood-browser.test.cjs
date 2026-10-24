@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),assert=require('node:assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),Q=require('./boss-quests.js'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
-const files=['index.html','baiyao-standalone.html','dev/engine.js','dev/expansion.js','dev/expedition.js','dev/seven.js','dev/tales.js','dev/boss-quests.js','dev/ui.js','dev/shell.html','dev/audio.js','dev/build.cjs','dev/wardrobe-blood-browser.test.cjs'];
+const files=['index.html','baiyao-standalone.html','dev/engine.js','dev/expansion.js','dev/expedition.js','dev/seven.js','dev/tales.js','dev/boss-quests.js','dev/enemy-factions.js','dev/ui.js','dev/shell.html','dev/audio.js','dev/build.cjs','dev/wardrobe-blood-browser.test.cjs'];
 const report={format:'baiyao-wardrobe-blood-browser',method:'Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.',inputs:Object.fromEntries(files.map(f=>[f,hash(f)])),results:[],errors:[],externalRequests:[],screenshots:[]};let server,browser,page,origin;
 const idle=()=>page.waitForFunction(()=>!window.uiBusy,null,{timeout:45000,polling:100});
 async function click(action,filter=''){await idle();await page.locator(`[data-action="${action}"]${filter}:not(:disabled)`).first().click();}

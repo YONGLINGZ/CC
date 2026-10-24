@@ -1,0 +1,109 @@
+{
+  "format": "baiyao-factions-browser",
+  "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
+  "inputs": {
+    "index.html": "20421b7df99357b882f6cb003c86b651877fe00b11bd3076ecd1241d8866f69b",
+    "baiyao-standalone.html": "a2e821aca8baa96b6a94ce3035f55c2d7d19bf6b8c7e9099443421d7896c02f9",
+    "dev/engine.js": "d82cb47543a9211055c79a48975feee4b8d0b43bd010d76d626f5d2333d24989",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
+    "dev/enemy-factions.js": "c3c9d480afa522cd2b132f7e52d2a55081795e9859a662e428c65689ae278995",
+    "dev/ui.js": "9ca14e0ccdce23e3444d6f7e2a21472012fd08dca4ae2542fd5ff0071c0fe53d",
+    "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
+    "dev/audio.js": "2ac09bcfac01330115f287131fa4354b59ed0cf602f1af39e1e8b8c49973f826",
+    "dev/build.cjs": "fddd7940e15286a3a969afe7f1fe04b9afffb6ce75c37d8d1a9103f4335d1598",
+    "dev/factions-browser.test.cjs": "d077bc9872e72afae9e44584b7876ea87193e07e762280f74a4c56b8d311942b"
+  },
+  "results": [
+    {
+      "name": "both source→cave routes use distinct scenes and peaceful aid resolves exactly once",
+      "ok": true
+    },
+    {
+      "name": "visible supporting credentials cause normal elite battle even with opposition; no intent preview",
+      "ok": true
+    },
+    {
+      "name": "evidence alone stays neutral; missing herbs and spirit stones cannot be spent",
+      "ok": true
+    },
+    {
+      "name": "six real battles decode separate battle poses, record observed abilities and show current heat only",
+      "ok": true
+    },
+    {
+      "name": "active attack gives evidence and standard reward, never a peace gift or second settlement",
+      "ok": true
+    },
+    {
+      "name": "360/390/430 layouts and all twenty new paintings decode without clipping the page",
+      "ok": true
+    },
+    {
+      "name": "four new offline encounter sounds render; frozen files and external-request checks hold",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/workspace/scratch/boss-quests-faction-lotus_boss.png",
+    "/workspace/scratch/boss-quests-faction-furnace_boss.png",
+    "/workspace/scratch/boss-quests-faction-mobile.png"
+  ],
+  "routes": [
+    "lotus_boss",
+    "furnace_boss"
+  ],
+  "enemies": [
+    "m01",
+    "m02",
+    "m03",
+    "m19",
+    "m20",
+    "m21"
+  ],
+  "mobile": [
+    360,
+    390,
+    430
+  ],
+  "art": [
+    "assets/portraits/m01.webp",
+    "assets/portraits/m02.webp",
+    "assets/portraits/m03.webp",
+    "assets/portraits/m19.webp",
+    "assets/portraits/m20.webp",
+    "assets/portraits/m21.webp",
+    "assets/faction-combat/m01.webp",
+    "assets/faction-combat/m02.webp",
+    "assets/faction-combat/m03.webp",
+    "assets/faction-combat/m19.webp",
+    "assets/faction-combat/m20.webp",
+    "assets/faction-combat/m21.webp",
+    "assets/faction-items/house_order.webp",
+    "assets/faction-items/split_nail.webp",
+    "assets/faction-items/furnace_pact.webp",
+    "assets/faction-items/charcoal_seal.webp",
+    "assets/faction-items/heat_tongs.webp",
+    "assets/faction-items/cold_ash.webp",
+    "assets/faction-scenes/lotus_boss.webp",
+    "assets/faction-scenes/furnace_boss.webp"
+  ],
+  "audio": {
+    "ids": [
+      "faction_lotus_boss_source",
+      "faction_lotus_boss_cave",
+      "faction_furnace_boss_source",
+      "faction_furnace_boss_cave"
+    ],
+    "frames": 238140,
+    "finite": true,
+    "nonzero": true
+  },
+  "passed": 7,
+  "failed": 0
+}

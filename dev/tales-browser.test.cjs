@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),assert=require('node:assert/strict'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),N=require('./engine.js'),T=require('./tales.js'),hash=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
-const inputFiles=['index.html','baiyao-standalone.html','dev/engine.js','dev/tales.js','dev/boss-quests.js','dev/ui.js','dev/audio.js','dev/build.cjs','dev/tales-browser.test.cjs','dev/tales-art-manifest.json'];
+const inputFiles=['index.html','baiyao-standalone.html','dev/engine.js','dev/tales.js','dev/boss-quests.js','dev/enemy-factions.js','dev/ui.js','dev/audio.js','dev/build.cjs','dev/tales-browser.test.cjs','dev/tales-art-manifest.json'];
 const report={format:'baiyao-tales-browser',method:'Actual Chromium, actual buttons and audio rendering; explicit route/rare-state fixtures. Not a human, physical-device or natural full-run claim.',inputs:Object.fromEntries(inputFiles.map(f=>[f,hash(f)])),results:[],errors:[],externalRequests:[],screenshots:[]};let browser,server,page,origin;
 const idle=()=>page.waitForFunction(()=>!window.uiBusy,null,{timeout:45000,polling:100});
 async function click(action,filter=''){await idle();await page.locator(`[data-action="${action}"]${filter}`).first().click();}
