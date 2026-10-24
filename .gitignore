@@ -8,3 +8,4 @@ recovery/*.bundle
 
 !recovery/later-p3-art-originals.zip
 !recovery/special-p4-art-originals.zip
+!recovery/events-md-export.zip

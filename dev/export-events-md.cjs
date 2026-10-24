@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
+const N=require('./engine.js'),T=require('./tales.js'),B=require('./boss-quests.js'),F=require('./enemy-factions.js'),E=require('./expansion.js'),S=require('./seven.js');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'recovery','events-md-export');
+fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});
+const clean=s=>String(s??'').replace(/[\\/:*?"<>|]/g,'_').replace(/\s+/g,' ').trim();
+function mdValue(v,depth=0){if(v===undefined||v===null)return '';if(typeof v!=='object')return String(v);if(Array.isArray(v))return v.map((x,i)=>`${'  '.repeat(depth)}- ${typeof x==='object'?'\n'+mdValue(x,depth+1):mdValue(x)}`).join('\n');return Object.entries(v).map(([k,x])=>`${'  '.repeat(depth)}- **${k}**：${typeof x==='object'?'\n'+mdValue(x,depth+1):mdValue(x)}`).join('\n');}
+function state(){return {character:'sword',floor:1,journey:{regionIndex:0,tales:{chains:{},flags:{}},bossQuests:{records:{}},factions:{records:{},invalid:{},spent:{},behaviors:[],forfeited:{},seen:{}}},player:{questItems:[],gold:100,hp:60,maxHp:60,inventory:{herb:2},path:{}}};}
+function exactTale(id){const m=T.META[id];if(!m)return null;const s=state();s.journey.tales.chains[m.chain]={stage:m.step-1,choices:[],floors:[1,2,3],lastOutcome:''};s.floor=99;return T.build(id,s);}
+function exactBoss(id){const m=B.META[id];if(!m)return id==='boss_lotus_awake'?B.awakening(state()):null;const s=state();s.journey.bossQuests.records[m.boss]={stage:m.step-1,region:0,choices:{},lastOutcome:'',awakened:false};s.floor=99;return B.build(id,s);}
+function exactFaction(id){const m=/^faction_(.+)_(source|cave)$/.exec(id);if(!m)return null;const s=state();return F.build(m[1],m[2],s,'export-'+id);}
+function generated(id){const g=N.createGame({environment:false,tales:false,profile:{version:1,unlocks:['feiye']}});g.newRun('sword');g.enterRegion();const s=g.state,n=s.map[0][0];n.type='event';n.storyId=id;s.availableNodes=[n.id];try{g.enterNode(n.id);return s.event||null;}catch(e){return {id,name:id,story:[`事件生成时发生异常：${e.message}`],choices:[]};}}
+function event(id){return exactTale(id)||exactBoss(id)||exactFaction(id)||generated(id);}
+function folder(id){if(/^tale_/.test(id))return path.join('02_十套人间故事',id.split('_')[1]);if(/^boss_/.test(id))return path.join('03_Boss旧事',id.split('_')[1]);if(/^faction_/.test(id))return path.join('04_阵营洞府',id.replace(/^faction_/,'').replace(/_(source|cave)$/,'')||'other');if(/^blood_|^demonic_|^fallen_/.test(id))return '05_剑修禁术与异变';if(/^campfire_|^road_/.test(id))return '06_途中突发';if(E.EVENT_IDS?.includes(id))return '01_扩展事件';if(S.EVENTS?.[id])return '01_七境事件';return '00_基础与固定事件';}
+const ids=[...new Set(N.EVENT_IDS)];
+const manifest=[];
+for(const id of ids){const e=event(id)||{id,name:id,story:['未找到可直接渲染的事件定义。'],choices:[]};const dir=path.join(out,folder(id));fs.mkdirSync(dir,{recursive:true});const name=clean(e.name||id);const file=`${id}__${name}.md`;const rel=path.join(folder(id),file);const body=`# ${e.name||id}\n\n- 事件 ID：\`${id}\`\n- 导出来源：${e.id&&e.id!==id?`运行时生成（节点请求 ${e.id}）`:'当前规则数据'}\n\n## 背景与叙事\n\n${(e.story||e.description?[...(e.story||[]),...(e.description?[e.description]:[])]:['（该事件没有单独的背景段落。）']).map(x=>String(x)).join('\n\n')}\n\n${e.connection?`## 前置／后续回应\n\n${e.connection}\n\n`:''}## 选项\n\n${(e.choices||[]).map((c,i)=>`### ${i+1}. ${c.label||c.key||'未命名选项'}\n\n${c.text||''}\n\n**结果：** ${c.outcome||'未单独记录。'}${Object.entries(c).filter(([k])=>!['label','key','text','outcome'].includes(k)).length?`\n\n**规则字段：**\n\n${mdValue(Object.fromEntries(Object.entries(c).filter(([k])=>!['label','key','text','outcome'].includes(k))))}`:''}`).join('\n\n')}\n\n## 机器可读字段摘录\n\n${mdValue({id:e.id||id,name:e.name,type:e.type,glyph:e.glyph,kicker:e.kicker,tale:e.tale,bossQuest:e.bossQuest,factionEvent:e.factionEvent})}\n`;
+fs.writeFileSync(path.join(out,rel),body);manifest.push({id,file:rel,name:e.name||id});}
+const readme=`# 百妖夜契事件审阅包\n\n导出时间：2026-10-24（Asia/Shanghai）\n\n本包从当前 Git 工作区规则数据导出，共 **${manifest.length} 个事件文件**。每个具体事件一个 Markdown 文件；同一事件链放在同一目录。\n\n目录：\n\n- 00_基础与固定事件：基础事件与固定遭遇\n- 01_扩展事件、01_七境事件：扩展和七境事件\n- 02_十套人间故事：每套人间故事各自一个子目录\n- 03_Boss旧事：Boss 三段旧事与机仆唤醒\n- 04_阵营洞府：每组阵营的来源／洞府事件\n- 05_剑修禁术与异变：剑修禁术线\n- 06_途中突发：途中突发事件\n\n事件文件保留背景、选项、结果、代价、奖励及前置／后续字段。事件内容来自当前源码；没有擅自补写未存在的剧情。\n`;
+fs.writeFileSync(path.join(out,'README.md'),readme);fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({count:manifest.length,events:manifest},null,2)+'\n');
+const zip=path.join(root,'recovery','events-md-export.zip');fs.rmSync(zip,{force:true});
+cp.execFileSync('zip',['-qr','-X',zip,'.'],{cwd:out});
+console.log(JSON.stringify({directory:out,zip,events:manifest.length,bytes:fs.statSync(zip).size},null,2));
