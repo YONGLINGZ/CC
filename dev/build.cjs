@@ -50,7 +50,7 @@ resources.mode=slim?'slim':inline?'inline':'folder';
 if((all||args.includes('--strict'))&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
 const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),script(read('engine.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),script(read('event-editorial.js')),script(read('engine.js')),ui];
 const html=shell+'\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');

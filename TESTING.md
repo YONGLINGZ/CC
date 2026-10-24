@@ -35,3 +35,20 @@
 已知范围：新衣装各有独立画像，但未额外绘制50%／25%两档战损；保留伤势标签及二维反馈，原装仍有三档图。静态原画配CSS动作，不是正式Cubism／Live2D模型。本局无存档，局外解锁单独保存。未做人工试玩、真实iPhone／Android、Firefox或WebKit测试。历史file://探针在页面加载前被云浏览器管理员策略拦截，因此没有把本机双击打开列为实测通过；本轮实际通过的是本地HTTP与直接内联HTML的离线脚本执行、零外网和导出重开。
 
 当前哈希证据：`dev/later-art-manifest.json`、`dev/later-factions-browser-results.json`、`dev/factions-all-probe-results.json`、`dev/factions-scheduling-results.json`、`dev/v11-engine-results.json`、`dev/v11-regression-results.json`、`dev/v11-results.json`、其余专项浏览器／音效与美术报告，以及`recovery/*tests.json`。失败与返工过程仍可在历史记录追溯，不解释为从未出现问题。
+
+## P2事件整改（2026-10-24）
+
+本次范围与逐项结论：[EVENT_REWORK_STATUS.md](docs/EVENT_REWORK_STATUS.md)。呈现层在 `dev/event-editorial.js`，数值／历史状态仍由原规则模块处理。旧正文基线存于 `dev/events-before-p2.json`，仅开发工具读取，不加载进成品。
+
+实际执行的检查与报告：
+
+- `node dev/v11-regression.cjs`：规则及七境回归；正确性与原有难度门禁分开报告。
+- `node --test dev/event-review.test.cjs`：158个事件身份、状态导出与真实敌对跳转核对。
+- `node dev/p2-route-probe.cjs`：600个资源受限指定场景；路径比较见 `dev/p2-route-results.json`。不是自然整局或真人试玩。
+- `node dev/build.cjs --all --strict`：一次严格重建两个成品；`node dev/build-review.cjs` 另建可选人工验收入口。
+- `node dev/p2-browser.test.cjs`、`node dev/frontier-browser.test.cjs`、`node dev/later-factions-browser.test.cjs`：Chromium实际点击、双凭证、连续战、援助、360／390／430宽度、画像解码、声音采样与外部请求检查。
+- `node dev/p2-verify.cjs`：汇总结果，并检查报告输入与当前文件哈希相符；不接受旧报告冒充本版本通过。
+
+浏览器自动化使用本机静态服务传输文件。云环境管理策略以 `ERR_BLOCKED_BY_ADMINISTRATOR` 阻止 `file://`，所以没有把这里的自动化写成“双击成品已验证”。产品仍使用普通内联脚本、相对素材／内联素材，不含运行时模块加载或服务器调用。自动Web视口不是实体手机测试。
+
+真人理解度验收尚未执行；原始记录模板见 [P2_HUMAN_REVIEW.md](docs/P2_HUMAN_REVIEW.md)。不得把自动策略、截图检查或fixture数量填写成新玩家人数或可读性通过率。

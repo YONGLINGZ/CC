@@ -1,0 +1,39 @@
+{
+  "method": "Actual Chromium UI clicks over a loopback-only static transport; managed browser blocks file:// with ERR_BLOCKED_BY_ADMINISTRATOR, so direct double-click is NOT claimed as browser-verified. Source/cave/Boss nodes, held evidence and lethal enemy HP are labelled fixtures; no claim of human understanding or physical-phone testing.",
+  "inputs": {
+    "dev/engine.js": "4e9ebd70221509f2b9cb63dc9d08c70e71a927e9c1a18553ac05ae997dd703a2",
+    "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
+    "dev/event-editorial.js": "84b8d88336d30a7fc58f0efe3341bb837e2c3064fc2154f7f1ee69a04688b6ff",
+    "dev/ui.js": "648635e2ca138a03898402e678c7f7ce4b77b330d29dda3bf6a59322553d7aeb",
+    "dev/shell.html": "ac47eae4948c953cc37dbd2b39b43bea806df5535804c9e3d7c20eaafcdfc07e",
+    "index.html": "0ea48b85cad08c5fd3bbbe63492c610789d35ce02c968ccec2309c080925da01",
+    "baiyao-standalone.html": "aa6ed9693bf8a396c7b2e8e267a60da99e1248c3c5acba2c4bff104e3fce2589",
+    "dev/p2-browser.test.cjs": "8f99a6e8bf3af26058e51c570914e2b29c05c541465ce4fe862b54b6135d3a51"
+  },
+  "results": [
+    {
+      "name": "four investigation paths show distinct actions, real costs, outcomes, Boss replies and exact aid receipts",
+      "ok": true
+    },
+    {
+      "name": "support plus opposing evidence warns before fighting; used protection still causes recognition",
+      "ok": true
+    },
+    {
+      "name": "two actual camp combats change enemy portraits, do not carry remaining card hits, and award once",
+      "ok": true
+    },
+    {
+      "name": "360/390/430 source, cave, battle and reward have readable actions and no page overflow",
+      "ok": true
+    },
+    {
+      "name": "standalone runs offline and frozen source checks agree",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "passed": 5,
+  "failed": 0
+}

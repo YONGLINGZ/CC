@@ -1,12 +1,12 @@
 {
   "version": "v11 seven maps, boss roster and audited additive scaling",
   "engine": {
-    "passed": 391,
+    "passed": 412,
     "failed": 0,
-    "total": 391,
+    "total": 412,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 172
+    "new_checks": 193
   },
   "data_contract": {
     "cards": 76,
@@ -19,16 +19,16 @@
   "public_api": {
     "method": "150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Oracle policy reads internal enemy intentions (hidden in the product UI); six new demonic cards use the rule preview. Policy fixed before this run; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.",
     "completed": 150,
-    "wins": 117,
-    "defeats": 33,
+    "wins": 118,
+    "defeats": 32,
     "byProfession": {
       "assassin": {
         "runs": 50,
-        "wins": 48,
-        "defeats": 2,
-        "winRate": 0.96,
-        "hpMedian": 41,
-        "normalizedHpMedian": 38.47810129679471,
+        "wins": 49,
+        "defeats": 1,
+        "winRate": 0.98,
+        "hpMedian": 36,
+        "normalizedHpMedian": 37.09090909090909,
         "maxHitMedian": 50
       },
       "sword": {
@@ -38,7 +38,7 @@
         "winRate": 0.44,
         "hpMedian": 16.5,
         "normalizedHpMedian": 15.681818181818182,
-        "maxHitMedian": 47
+        "maxHitMedian": 46.5
       },
       "sovereign": {
         "runs": 50,
@@ -66,20 +66,20 @@
   "calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.78,
+        "actual": 0.7866666666666666,
         "min": 0.4,
         "max": 0.6,
         "passed": false
       },
       "survivorHealthMedian": {
-        "actual": 30,
+        "actual": 26,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.96,
+          "assassin": 0.98,
           "sword": 0.44,
           "sovereign": 0.94
         },
@@ -116,13 +116,14 @@
     "allProbeGates": false
   },
   "inputs": {
-    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
+    "dev/engine.js": "4e9ebd70221509f2b9cb63dc9d08c70e71a927e9c1a18553ac05ae997dd703a2",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
-    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
-    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
-    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
+    "dev/tales.js": "8e333e64775a3009af3af283a492e5a8e17562cec6c2271050cec133b2e70d0b",
+    "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
+    "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
+    "dev/event-editorial.js": "84b8d88336d30a7fc58f0efe3341bb837e2c3064fc2154f7f1ee69a04688b6ff",
     "dev/engine.test.cjs": "1fb9bdb5157741264935b93c18b3cf219c20138e9972d9fad63cbd681d4bffd9",
     "dev/rework.test.cjs": "4217273ef41fc3f517235a8ba7d1ab1a7d40800b5fa2700529e35310abe6b54a",
     "dev/reward.test.cjs": "848c5034cdd1ca1febec62eaf1383c271e81f47fab78501490cf806cfeffcd1b",
@@ -142,20 +143,21 @@
     "dev/boss-quests.test.cjs": "f14b4f39049a8a862fa2e1399040b211e549a505de75cd77afaa8b5109336650",
     "dev/wardrobe-blood.test.cjs": "aee0a9b1b94e37fc9ce808fd219b636b3518c5e78f8a44943c0d209b5604fa2f",
     "dev/boss-chain-reachability.test.cjs": "9c24738f8eb2937693a608509cfbd972bbfec05b0e8ddf61a10d1137d4c1ac06",
-    "dev/factions.test.cjs": "4ac1886c709ae21b05c501185ef2d4e74b3c4cc64641061a8ac1c02c6f9c0ccb",
-    "dev/frontier.test.cjs": "9069246a1cfe35d35940640c1a96d4331bb56e85ac8374b399d0b0ccbb338ec0",
+    "dev/factions.test.cjs": "9b999b594d136ac42f1ff7d76a7db85f416d2b3c978c818b89187dd2e715bbb2",
+    "dev/frontier.test.cjs": "3ba76ecdbd091988c2a1aea3fe94d3097b498b962a97dcfb8ba77b85b294860d",
     "dev/frontier-scheduling.test.cjs": "bcc1186d6a12c82d1bb3bba094f6b02139fa2aac1886ec794fea941230943ffe",
-    "dev/later-factions.test.cjs": "fa7fd850104a28e55389e06e6467b6dd9d2b7a5eab443202b3b18179597822c2",
+    "dev/later-factions.test.cjs": "409daa70d6d440a29d1761b2bd4e3159c8c13dfff2ec3d0ee82613ebf068083d",
     "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9",
+    "dev/p2-rework.test.cjs": "ea3b8d487b5f162f9f30a95b87fa2da0ed2066dd49a005d511687a87088868d8",
     "dev/playtest.cjs": "383c53a7f0908fce84a4475cf7720e5536aaa9e544479e2460238932421bbd71",
     "dev/v11-hidden-playtest.cjs": "9e4149f7b110204daf625707f2c9474196fce6b61922af9e3c2bf41e8f76ce85",
-    "dev/v11-regression.cjs": "e702f314b07317fbd1926add5760966e12b7e77dc0e1dc02b49dc56c6fe4044d",
+    "dev/v11-regression.cjs": "2ec37d501dc75e8c69f1bb7a5775579577c60f992079633ff42407417db78f6d",
     "dev/v11-simulate.cjs": "dbf7d406cac57d91860dcc43ddbac7e9ad75f91cedf395ca46b32c6657d6ceb1",
     "dev/elite-probe.cjs": "593dca97fda8d10573b4bb47c6497b186b5f7876a2cfa0bddc716d645f78d44d",
-    "dev/v11-engine-results.json": "70c9c60da3241ee39258de5f2806568cd8f3fa04fc27b5e29ab5d3c239e736a1",
-    "dev/v11-playtest-report.json": "856bdfe17aa430a55209bbc2b77ec045de78ffa24279b6821713c03f0d9613a3",
-    "dev/v11-hidden-playtest-report.json": "2d358306e6e8006852d4e6947fdf1645395c2f284ee6bd0ea38a66bbbd51102f",
-    "dev/v11-elite-probe-report.json": "d23661af969a0e965e1d6eb7be0f615489bacd5d0cd3176bce218b92bfe6716c"
+    "dev/v11-engine-results.json": "f5b4c5a3cc1722fa6c91f8e8ca5874325facd6e950c86f9cde4b6976fe88622f",
+    "dev/v11-playtest-report.json": "f93be8e60e34a4ea114ebfbe20e7c29fddd0c48b65129d43b36348dc3dc36a95",
+    "dev/v11-hidden-playtest-report.json": "392e6a235b75ffc56e8e2e37b250211799a77c25f84f07b88db5b08874dcf595",
+    "dev/v11-elite-probe-report.json": "afdb59abb106525dec2fe3e8c35c53bcec801c181d96b9fc5ceeced89efac43c"
   },
   "note": "Engine correctness and calibration gates are reported separately. Failed target percentages are not relabelled as passed; no seeds/policy/resource edits to manufacture balance numbers. Human difficulty remains unevaluated."
 }

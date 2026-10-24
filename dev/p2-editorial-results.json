@@ -1,0 +1,956 @@
+{
+  "count": 158,
+  "edited": 141,
+  "retained": 17,
+  "humanAccepted": false,
+  "events": [
+    {
+      "id": "well",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "shrine",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "dreamshop",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "theatre",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "umbrella",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "pawnshop",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "riftwatch",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "supply",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "cultlab",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "swordgrave",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "pilgrims",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "prisoner",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "echo",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "broker",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "liu_first",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "liu_return",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留此前救人／付钱／指路的不同招呼与报价，补充代价摘要。"
+    },
+    {
+      "id": "liu_final",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留按真实帮助回报，避免新对白捏造相识。"
+    },
+    {
+      "id": "ji_first",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "ji_return",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留展示／隐瞒宝物的真实分支，不预揭对方动机。"
+    },
+    {
+      "id": "ji_final",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留实际知情与隐藏动机决定的伏击／让路。"
+    },
+    {
+      "id": "wen_first",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "wen_return",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留解锁与未解锁的追索分支，保留每笔药资。"
+    },
+    {
+      "id": "wen_final",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "保留带证／消印／取药互斥。"
+    },
+    {
+      "id": "sect_duel",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "herb_caravan",
+      "source": "dev/engine.js",
+      "status": "保留并精修说明",
+      "reason": "苏芩已有现场动作和直接请求，保留语气及救药条件。"
+    },
+    {
+      "id": "relic_dispute",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "night_watch",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "moon_trace",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "sealed_name",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "moon_vow",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "armory",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "sovereign_wake",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "sovereign_recall",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "sovereign_memory",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "tainted_mercy",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "demonic_offer",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "demonic_warning",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "mirror_trial",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "demon_manual",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "fallen_hunt",
+      "source": "dev/engine.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "blood_lesson",
+      "source": "dev/expansion.js",
+      "status": "保留并精修说明",
+      "reason": "保留旧修直接诱惑及自损／吸血／正诀分流，补充已知施术风险。"
+    },
+    {
+      "id": "blood_debt",
+      "source": "dev/expansion.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "blood_choice",
+      "source": "dev/expansion.js",
+      "status": "保留并精修说明",
+      "reason": "保留本局血术选择回执及封卷不逆转异变。"
+    },
+    {
+      "id": "marsh_pharmacy",
+      "source": "dev/seven.js",
+      "status": "保留并精修说明",
+      "reason": "药铺报价清楚，保留具体份数并明示物品收入包裹。"
+    },
+    {
+      "id": "reed_procession",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "drowned_archive",
+      "source": "dev/seven.js",
+      "status": "保留并精修说明",
+      "reason": "换页、修页、只读题字动作与效果一致，保留。"
+    },
+    {
+      "id": "furnace_ledger",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "captive_smith",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "ash_orchard",
+      "source": "dev/seven.js",
+      "status": "保留并精修说明",
+      "reason": "保留可见药性，修正丹药收入包裹与即时治疗混淆。"
+    },
+    {
+      "id": "mirror_guest",
+      "source": "dev/seven.js",
+      "status": "保留并精修说明",
+      "reason": "保留镜中交易及退出，补充丹药用途。"
+    },
+    {
+      "id": "unfinished_portrait",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "glass_assembly",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "fate_tailor",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "silent_astrolabe",
+      "source": "dev/seven.js",
+      "status": "已改写",
+      "reason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "last_campfire",
+      "source": "dev/seven.js",
+      "status": "保留并精修说明",
+      "reason": "无人营火不虚构NPC；保留纸条，明确火符烫伤和奖励。"
+    },
+    {
+      "id": "tale_debt_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_debt_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_debt_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_medicine_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_medicine_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_medicine_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_letter_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_letter_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_letter_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_name_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_name_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_name_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_lanterns_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_lanterns_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_lanterns_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_grain_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_grain_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_grain_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_bridge_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_bridge_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_bridge_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_forge_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_forge_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_forge_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_theatre_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_theatre_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_theatre_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_well_1",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_well_2",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "tale_well_3",
+      "source": "dev/tales.js",
+      "status": "已改写",
+      "reason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
+    },
+    {
+      "id": "campfire_hunt",
+      "source": "dev/tales.js",
+      "status": "保留并精修说明",
+      "reason": "保留按堕落与证词触发的指控、交锋与返回休息，补齐提交风险。"
+    },
+    {
+      "id": "road_aftermath",
+      "source": "dev/tales.js",
+      "status": "保留并精修说明",
+      "reason": "保留首次／受助重遇差异、绕路与护车不同结算。"
+    },
+    {
+      "id": "boss_lotus_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_lotus_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_lotus_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_gate_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_gate_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_gate_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_camp_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_camp_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_camp_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_bell_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_bell_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_bell_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_marsh_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_marsh_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_marsh_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_furnace_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_furnace_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_furnace_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_mirror_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_mirror_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_mirror_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_abyss_boss_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_abyss_boss_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_abyss_boss_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_echo_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_echo_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_feiye_echo_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_retainer_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_retainer_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_retainer_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_heart_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_heart_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_heart_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_ascended_1",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_ascended_2",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_snake_ascended_3",
+      "source": "dev/boss-quests.js",
+      "status": "已改写",
+      "reason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
+    },
+    {
+      "id": "boss_lotus_awake",
+      "source": "dev/boss-quests.js",
+      "status": "保留并精修说明",
+      "reason": "保留双物证且亲历旧事才唤醒的四种善后；不新增无条件劝退。"
+    },
+    {
+      "id": "faction_lotus_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_lotus_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_furnace_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_furnace_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_gate_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_gate_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_camp_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_camp_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_snake_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_snake_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_bell_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_bell_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_marsh_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_marsh_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_mirror_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_mirror_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_abyss_boss_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_abyss_boss_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_feiye_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_feiye_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_feiye_echo_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_feiye_echo_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_retainer_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_retainer_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_heart_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_heart_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_snake_ascended_source",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "faction_snake_ascended_cave",
+      "source": "dev/enemy-factions.js",
+      "status": "已改写",
+      "reason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    }
+  ]
+}

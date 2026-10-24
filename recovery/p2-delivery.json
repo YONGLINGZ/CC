@@ -1,0 +1,14 @@
+{
+  "version": "P2 event rework, batches1–3 and automated4",
+  "zip": {
+    "file": "recovery/baiyao-rebuilt.zip",
+    "bytes": 75793357,
+    "sha256": "9bd799d5cd6c294220ab05be30e5bd2dd5fa1d04e17f89539402b27cf6739901"
+  },
+  "files": 740,
+  "runtime_art": 432,
+  "verification": "dev/p2-verification-results.json",
+  "humanUnderstandingAccepted": false,
+  "physicalPhoneTested": false,
+  "directFileBrowserVerified": false
+}

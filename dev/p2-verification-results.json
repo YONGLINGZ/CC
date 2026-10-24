@@ -1,0 +1,116 @@
+{
+  "results": [
+    {
+      "file": "dev/v11-engine-results.json",
+      "passed": 412,
+      "hash": "f5b4c5a3cc1722fa6c91f8e8ca5874325facd6e950c86f9cde4b6976fe88622f"
+    },
+    {
+      "file": "dev/event-review-results.json",
+      "count": 158,
+      "snapshots": 1889,
+      "hash": "4b9baad4461bf2035a9713f92ca615174c96a0d6036d08d755dd6ecb1f44f090"
+    },
+    {
+      "file": "dev/p2-route-results.json",
+      "runs": 600,
+      "hash": "3e1349845974727e1f3283327ba1c1efd85e70847ab55e2f9491db134fea65d6"
+    },
+    {
+      "file": "dev/p2-browser-results.json",
+      "passed": 5,
+      "hash": "cdab39b087b145bc9d833adc9883fd5f62640ce0fd13dd036d29052bd9a961c6"
+    },
+    {
+      "file": "dev/frontier-browser-results.json",
+      "passed": 7,
+      "hash": "eb91a248fc3b70aeb5fe7eb4da406fe31a86d8550ca3915247a76fd32088013d"
+    },
+    {
+      "file": "dev/later-factions-browser-results.json",
+      "passed": 7,
+      "hash": "01cbc6e13b381c3c511636f6546daf50619aa2adf76c93e77255ca0b4d34576c"
+    }
+  ],
+  "artifacts": {
+    "index.html": {
+      "bytes": 864034,
+      "sha256": "0ea48b85cad08c5fd3bbbe63492c610789d35ce02c968ccec2309c080925da01"
+    },
+    "baiyao-standalone.html": {
+      "bytes": 89164643,
+      "sha256": "aa6ed9693bf8a396c7b2e8e267a60da99e1248c3c5acba2c4bff104e3fce2589"
+    },
+    "recovery/events-md-export.zip": {
+      "bytes": 694515,
+      "sha256": "dc8b031a6e7bd4781e73d2de86147512109a5825d6c9507ad9d2cc41a12bac07"
+    },
+    "recovery/p2-review.html": {
+      "bytes": 867499,
+      "sha256": "51e277a50e5aa14b1a94e5eb310ce0db24c7de3fc89800826ae293cecb792b20"
+    }
+  },
+  "human": {
+    "completed": false,
+    "participants": 0,
+    "records": 0,
+    "template": "docs/P2_HUMAN_REVIEW.md"
+  },
+  "device": {
+    "chromium": true,
+    "physicalPhone": false,
+    "directFileBrowser": false
+  },
+  "calibration": {
+    "numeric": {
+      "overallWinRate": {
+        "actual": 0.7866666666666666,
+        "min": 0.4,
+        "max": 0.6,
+        "passed": false
+      },
+      "survivorHealthMedian": {
+        "actual": 26,
+        "min": 15,
+        "max": 25,
+        "passed": false
+      },
+      "professionWinRates": {
+        "actual": {
+          "assassin": 0.98,
+          "sword": 0.44,
+          "sovereign": 0.94
+        },
+        "min": 0.25,
+        "max": 0.75,
+        "passed": false
+      },
+      "maxHitMedian": {
+        "actual": 48,
+        "max": 34,
+        "passed": false
+      }
+    },
+    "eliteProbe": {
+      "eliteTurns": {
+        "actual": 5,
+        "min": 5,
+        "max": 9,
+        "passed": true
+      },
+      "bossTurns": {
+        "actual": 5,
+        "min": 8,
+        "max": 14,
+        "passed": false
+      },
+      "defendingNetLifeLoss": {
+        "actual": 9,
+        "maxExclusive": 20,
+        "passed": true
+      }
+    },
+    "allNumericGates": false,
+    "allProbeGates": false
+  }
+}

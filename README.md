@@ -1,6 +1,6 @@
 # 百妖夜契 · 寒渊七境
 
-2026-10-24 事件白话改造批次0：修正审阅包四项正文误导出，并补三角色、历史选择与洞府内外等显式状态。见[执行状态及158项待办](docs/EVENT_REWORK_STATUS.md)；[新版事件审阅包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/events-md-export.zip)。本批是审阅工具修复，游戏剧情改写仍按后续批次推进。
+2026-10-24 事件白话改造：批次1—3已落地；批次4自动验证完成，真人理解度验收仍待实际玩家参与。158项事件含新旧对照，来源／洞府／Boss回应、调查议价、军营连续交锋及援助报告已接入。见[逐项执行状态](docs/EVENT_REWORK_STATUS.md)、[本轮验证](docs/P2_VERIFICATION.md)及[事件审阅包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/events-md-export.zip)。
 
 本轮更新 **众生来意**：完成计划中全部37种关联敌人与十四组阵营遭遇，九位镇境者和五个特殊遭遇均已接入。P2、P3、P4本轮共新增91张独立选用画作，连同P1共111张；来源、凭证敌意、交涉／战斗互斥、一次援助和真实后续回应均有规则。详见[全量手册](docs/FACTIONS_COMPLETE.md)、[后四境画集](docs/previews/factions-p3.webp)、[特殊路线画集](docs/previews/factions-p4.webp)。
 

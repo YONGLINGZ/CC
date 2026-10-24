@@ -6,6 +6,7 @@
   const TALES = root.NightTales || (typeof module !== 'undefined' && module.exports ? require('./tales.js') : {});
   const BOSS_QUESTS = root.NightBossQuests || (typeof module !== 'undefined' && module.exports ? require('./boss-quests.js') : {});
   const ENEMY_FACTIONS=root.NightEnemyFactions||(typeof module!=='undefined'&&module.exports?require('./enemy-factions.js'):{});
+  const EDITORIAL=root.NightEditorial||(typeof module!=='undefined'&&module.exports?require('./event-editorial.js'):{});
   const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
@@ -784,10 +785,10 @@
         const n=nodes[rand(nodes.length)];n.type='event';n.storyId='faction_'+boss+'_'+kind;n.name=kind==='cave'?g.cave:g.source;n.description=kind==='cave'?g.warning:'这里的人对同一位镇守有不同的打算。';f.scheduled.push(key);
       }
     }
-    function factionBattle(record,automatic){
+    function factionBattle(record,automatic,reason=null){
       const g=ENEMY_FACTIONS.GROUPS[record.boss];record.mode='combat';record.automatic=automatic;state.event.resolved=true;
       factionState().behaviors.push({floor:state.floor,npc:g.npc,kind:automatic?'recognized':'attacked',witness:g.npc});
-      startBattle('elite',{enemyId:g.npc,name:ENEMIES[g.npc].name,factionInstance:record.nodeId});emit();return true;
+      startBattle('elite',{enemyId:g.npc,name:ENEMIES[g.npc].name,factionInstance:record.nodeId});state.battle.factionCause=reason||(automatic?(state.player.questItems.includes(g.support)?`对方认出你公开携带的「${QUEST_ITEMS[g.support].name}」：“这份约定在你身上，我不能让你靠近。”`:'对方认出你曾向他动手，拒绝再次交涉。'):`你先向${ENEMIES[g.npc].name}出手，想夺取「${g.proof}」。对方拔出武器护住它。`);log(state.battle.factionCause);if(reason){log(reason);note(reason);}emit();return true;
     }
     function chooseFaction(choice){
       const meta=state.event.factionEvent,f=factionState(),rec=f.records[meta.nodeId],g=ENEMY_FACTIONS.GROUPS[meta.boss];
@@ -797,6 +798,8 @@
         if(knownEnemy||(state.player.questItems.includes(g.support)&&!f.invalid[g.support]))return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),true);
         state.event=ENEMY_FACTIONS.build(meta.boss,meta.kind,state,meta.nodeId);state.event.choices=finishChoices(state.event.choices,state.player);emit();return true;
       }
+      if(choice.factionAction==='both'){rec.mode='combat';rec.automatic=false;rec.dual=true;f.behaviors.push({floor:state.floor,npc:'m07',kind:'attacked',witness:'m09'},{floor:state.floor,npc:'m09',kind:'attacked',witness:'m07'});startBattle('elite',{enemyId:'m07',factionInstance:meta.nodeId,factionSequence:['m09']});log('第一战：守营残卒。随后立即迎战断誓逃卒；两战只在最后领取一份精英奖励，中途不能休息。');emit();return true;}
+      if(choice.factionAction==='failedMediation')return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),false,'对账记录不足，你的劝阻被当作替逃卒拖延；双方拒绝停手。');
       if(choice.factionAction==='attack')return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),false);
       return null;
     }
@@ -850,7 +853,7 @@
         stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, peacefulBosses:0, demonicUses:0 }
       };
     }
-    function emit() { if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
+    function emit() { if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
@@ -904,6 +907,7 @@
     function defeat() {
       if (['defeat','victory'].includes(state.screen)) return;
       const b = liveBattle()?state.battle:null;
+      if(b)finishFactionEffects(b,'此行止步');
       if(b){b.phase = 'ended';clearCombatStatuses();}
       state.player.hp = 0;
       state.result = { won: false, floor: state.floor, enemy: b?.enemy.name || '缠脉毒' };
@@ -959,6 +963,7 @@
       const b = state.battle;
       const absorbed = Math.min(b.block, amount);
       b.block -= absorbed;
+      if(b.factionGuardRemaining){const used=Math.min(absorbed,b.factionGuardRemaining);b.factionGuardRemaining-=used;b.factionEffects.find(x=>x.kind==='support').absorbed+=used;}
       const damage = Math.max(0, amount - absorbed);
       log(`敌人攻击 ${amount}：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
       event('attack', { source: 'enemy', target: 'player', amount, absorbed, damage, hitIndex });
@@ -1068,10 +1073,20 @@
         } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 }); }
       }
     }
+    function finishFactionEffects(b,ending){
+      if(b.factionReport)return;
+      b.factionReport=(b.factionEffects||[]).map(x=>{const item=ENEMY_FACTIONS.ITEMS[x.item],reason=x.status==='used'?(x.kind==='support'?`首回合护盾8，实际抵挡${x.absorbed}点攻击；其余护盾不计入`:`第${x.turn}回合，本次${({playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'少抽牌',poison:'毒',counter:'反击',hits:'各段攻击'})[x.effect]||'效果'}：${Array.isArray(x.before)?x.before.join('／'):x.before}→${Array.isArray(x.after)?x.after.join('／'):x.after}`):x.status==='spent'?'此前已用尽，本战未重复触发':x.blockedByWard?'本战未用上：旧物证先完整抵消，援助保留':x.frozen?'本战未用上：相关行动被冻结或未实际出现，援助保留':'本战未用上：对手未实际施展对应效果，援助保留';return {...x,name:item.name,summary:reason};});
+      const f=factionState();f.effectHistory=f.effectHistory||[];
+      f.effectHistory.push({floor:state.floor,enemy:b.enemy.id,ending,hpLost:Math.max(0,b.openingHp-state.player.hp)+(b.sequenceLoss||0),turns:b.turn,reports:b.factionReport});
+      for(const x of b.factionReport){log(x.name+'：'+x.summary);recordJourney(null,x.name+' · '+ending,x.summary,'neutral');}
+    }
     function winBattle() {
       if (!liveBattle()) return;
       const b = state.battle;
-      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance];if(rec&&!rec.resolved&&ENEMY_FACTIONS.GROUPS[rec.boss]?.npc===b.enemy.id){rec.resolved=true;rec.outcome='defeated';f.evidence[b.factionInstance]=ENEMY_FACTIONS.GROUPS[rec.boss].proof;recordJourney(null,'取回的残页',`击退${b.enemy.name}，取得${f.evidence[b.factionInstance]}；没有领取和平赠物。`,'neutral');}}
+      if(b.factionSequence?.length){b.phase='ended';b.sequencePending={enemyId:b.factionSequence[0],factionInstance:b.factionInstance,factionSequence:b.factionSequence.slice(1),sequenceLoss:Math.max(0,b.openingHp-state.player.hp)};return;}
+      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance];if(rec&&!rec.resolved&&ENEMY_FACTIONS.GROUPS[rec.boss]?.npc===b.enemy.id){rec.resolved=true;rec.outcome='defeated';rec.dual=!!rec.dual;f.evidence[b.factionInstance]=ENEMY_FACTIONS.GROUPS[rec.boss].proof;recordJourney(null,'取回的残页',`击退${b.enemy.name}，取得${f.evidence[b.factionInstance]}；没有领取和平赠物。`,'neutral');}}
+      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance],g=rec&&ENEMY_FACTIONS.GROUPS[rec.boss];if(g&&state.player.questItems.includes(g.support)&&!f.invalid[g.support]){rec.taskCompleted=true;rec.taskReply=({gate_boss:'你守住灯棚，陪老人沿亮着的桥走到守灯处。她放下灯杆：“这段我认得了。”无名背夫仍没有获准过桥。',camp_boss:'你从逃卒身后的药箱追回剩下的一份药，交给留营药役。他当场分给两名伤卒：“只能撑到天亮。”担架没能从侧栅离营。',snake:'你挡开采鳞者后，陪井役压实井缝。药工提着空桶站在封口旁：“明天得另找水。”',bell_boss:'你把续钟绳护到家属听完这一夜的声音。抬棺人在门外重新坐下：“明天还得有人决定走不走。”'})[rec.boss];if(rec.taskReply){b.factionAftermath=rec.taskReply;recordJourney(null,g.source+' · 履约',rec.taskReply,'neutral');}}}
+      finishFactionEffects(b,'战胜对手');
       b.phase = 'ended';
       event('victory', { target: 'enemy' });
       const testimony=state.journey.bossQuests?.records[b.enemy.id],oldStory=BOSS_QUESTS.QUESTS[b.enemy.id];
@@ -1096,21 +1111,23 @@
         recordJourney(npc, '伏击已破', `击退${b.enemy.name}。你没有失去随身宝物；这段交锋已经结束。`, 'warning');
       }
       for(const factionGroup of factionContexts(b.enemy.id).filter(g=>g.frontier)){const f=factionState();for(const rec of Object.values(f.records).filter(r=>r.boss===factionGroup.groupBoss&&r.kind==='cave'&&r.resolved)){
-        let msg=null;if(rec.outcome==='help'){msg=factionGroup.reply;
+        let msg=null;if(rec.outcome==='investigation'){msg=factionGroup.investigationAftermath||'调查改变了一次现场处置，但仍不足以替所有当事人定论。';}else if(rec.outcome==='help'){msg=factionGroup.reply;
           if(b.enemy.id==='heart'&&!f.behaviors.some(x=>x.npc==='m35'&&x.kind==='oppose'))msg='你让守稿人取回了一页原稿；你尚未亲手落过那方印，不能把旁人的抉择写成自己的。';
           if(b.enemy.id==='abyss_boss'&&!f.forfeited?.life_slip)msg='你照看过从册背走来的人，但并未签下放弃护持的空符；这份帮助不能替其他人结账。';
           if(b.enemy.id==='feiye_echo')msg='两封回信的折痕仍不相同。你帮忙理过纸页，交锋没有替远方收信的人作答。';
           if(factionGroup.groupBoss==='feiye')msg='归客亲刻过的笔痕仍在祠中。你只帮助他收回自己的名字，旁人的契约另有当事人。';
           if(b.enemy.id==='snake_ascended')msg='井壁留着一道新补的白缝。那份样本只是内鳞的一角，不能替整口井作证。';
         }else if(rec.outcome==='aid'){const item=ENEMY_FACTIONS.ITEMS[factionGroup.aid];msg=`你曾收下${item.name}。${f.spent[item.id]?'那一回护持已经用过。':'它仍安静地躺在包裹里，这场交锋没有用上它。'}愿意帮忙的人仍有自己的目的，你没有因此替所有说法作证。`;if(b.enemy.id==='feiye_echo')msg+='未封回函仍未送达，不能把交锋写成履约。';}
-        else if(rec.outcome==='defeated')msg='你取得了现场证据；胜利不能替未曾见过的人补写结局。';
-        if(msg)recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');
+        else if(rec.outcome==='talk')msg=({gate_boss:'战后，剪灯客隔河喊道：“你买过的那页证词，我仍认。船只接愿意上来的人。”老人仍站在亮处。',camp_boss:'药役把核过的数目念给伤卒听：“问过药去了哪儿，与已经把人救出去，是两回事。”',snake:'采鳞者合上药账：“证词你买走了，药还没卖给你。”病人在井外继续排队，药工仍等着核验新方。',bell_boss:'掘名人指着买去的拓名记录：“这一个名字核过了。可要不要留下，家里还没谈完。”'})[factionGroup.groupBoss]||'对方仍认可当时卖给你的证词，没有把付费听证说成你已替谁完成了委托。';
+        else if(rec.outcome==='leave')msg=({gate_boss:'你绕过渡棚以后，剪灯客继续等愿意登船的人，老人留在灯下。没有人把这次渡人记在你的名下。',camp_boss:'你未介入伤卒营，药役自行分配余药，逃卒仍守着侧栅。伤者是否离营，没有确切回信。',snake:'你离开石窟时没有买药或接样。采鳞者继续谈价，药工没有因你路过就减少剂量。',bell_boss:'你没有替这一户停钟。家属与抬棺人仍在商量，掘名人将未核的那一行留白。'})[factionGroup.groupBoss]||'你当时离开了洞府；后来者仍自行处理那件事，未把处置写在你的名下。';
+        else if(rec.outcome==='defeated')msg='你取得了「'+factionGroup.proof+'」。对方在关口后认出那份证据：“它是你动手夺走的，我也会把这一点写下。”没有人因此领到和平赠物。';
+        if(msg&&!rec.replyRecorded){if(rec.outcome==='aid'&&factionGroup.opposeOutcome)msg=factionGroup.opposeOutcome+' '+msg;b.factionAftermath=[b.factionAftermath,msg].filter(Boolean).join('\n');recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');rec.replyRecorded=true;}
       }}
       if (b.kind === 'hidden') {
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
-      if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(f.behaviors.some(x=>x.kind==='promise'))recordJourney(null,'尚未带走的器谱','交锋结束，但曾接过的取谱承诺并不因此自动完成。你没有取得完整器谱。','neutral');if(f.behaviors.some(x=>x.kind==='help'))recordJourney(null,'药棚递来的话','先前受助的人留下证词：仍有人需要照看。这不表示所有伤者都已获救。','neutral');}
+      if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(b.enemy.id==='lotus_boss'&&!f.promiseReplyRecorded&&f.behaviors.some(x=>x.npc==='m03'&&x.kind==='promise')){recordJourney(null,'尚未带走的器谱','缄红一战结束，取谱承诺还未完成。探客想要的完整器谱没有出现在你的行囊里。','neutral');f.promiseReplyRecorded=true;}}
       if (b.kind === 'boss' && state.floor < totalFloors) {
         heal(18,'关口之后的补给');
         state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
@@ -1213,7 +1230,7 @@
       b.phase = 'resolving';
       b.turn++;b.enemy.hurtDuringPlayerTurn=false;
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
-      b.block = 0;
+      b.block = 0; b.factionGuardRemaining=0;
       b.weaponUsed = false; b.veilUsed = false;b.coreStrikeUsed=false;
       b.outfitBloodUsed=false;
       b.played = 0;
@@ -1319,7 +1336,7 @@
       const def = ENEMY_FACTIONS.DEFS[id]?ENEMY_FACTIONS.definition(id,state.journey.regionIndex):ENEMIES[id];
       const scaling = combatScaling(id, kind), hp = Math.round(def.hp * scaling.hpMultiplier);
       state.battle = {
-        factionDef:ENEMY_FACTIONS.DEFS[id]?def:null, factionInstance:encounter?.factionInstance||null, kind, scaling, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
+        factionDef:ENEMY_FACTIONS.DEFS[id]?def:null, factionInstance:encounter?.factionInstance||null, kind, scaling, openingHp:state.player.hp, factionSequence:encounter?.factionSequence||[], factionEffects:[], phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
         enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:ENEMY_FACTIONS.DEFS[id]?false:(['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank)), intentIndex: rollIntent(id, null) },
         block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
@@ -1345,8 +1362,16 @@
           log(`${QUEST_ITEMS[quest.items[0]].name}已备好：本战抵消首次相关异术。`);
         }
       }
-      const contexts=factionContexts(id),ff=factionState(),fg=contexts.find(g=>state.player.questItems.includes(g.support)&&!ff.invalid[g.support]&&!ff.spent[g.support]&&!ff.forfeited?.[g.support]);if(fg){ff.spent[fg.support]=true;gainBlock(8,fg.variant==='palace_owner'?'旧宫暂护':'主动接受的立场护持');}
-      for(const context of contexts){const rec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='source'&&x.resolved);if(rec){const text=rec.outcome==='support'?'你确实接受过这里的护持，公开凭证仍在。':rec.outcome==='oppose'?'你接过另一方的约定；准备并不意味着承诺已经兑现。':null;if(text){log(text);recordJourney(null,context.source+' · 交锋前',text,'neutral');}}}
+      const contexts=factionContexts(id),ff=factionState(),fg=contexts.find(g=>state.player.questItems.includes(g.support)&&!ff.invalid[g.support]&&!ff.spent[g.support]&&!ff.forfeited?.[g.support]);if(fg){ff.spent[fg.support]=true;state.battle.factionGuardRemaining=8;state.battle.factionEffects.push({item:fg.support,kind:'support',status:'used',amount:8,absorbed:0});gainBlock(8,fg.variant==='palace_owner'?'旧宫暂护':'主动接受的立场护持');}
+      for(const context of contexts){const aid=context.aid;if(state.player.questItems.includes(aid))state.battle.factionEffects.push({item:aid,kind:'aid',status:ff.spent[aid]?'spent':'carried',blockedByWard:false,frozen:false});}
+      for(const context of contexts){
+        const sourceRec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='source'&&x.resolved);
+        const caveRec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='cave'&&x.resolved);
+        if(sourceRec){const text=sourceRec.outcome==='support'?'你确实接受过这里的护持，公开凭证仍在。':sourceRec.outcome==='oppose'?'你接过另一方的约定；准备并不意味着承诺已经兑现。':sourceRec.outcome==='investigate'?`你带着调查记录来到关口：${context.investigation||'你只记录了现场说法与痕迹；这些内容不能证明尚未亲见的事。'}记录不能证明未亲眼见到的事。`:null;if(text){log(text);recordJourney(null,context.source+' · 交锋前',text,'neutral');}}
+        const lines=context.battleLines;
+        const speech=caveRec?.outcome==='investigation'||sourceRec?.outcome==='investigate'?lines?.investigation:sourceRec?.outcome==='support'?lines?.support:sourceRec?.outcome==='oppose'&&caveRec?.outcome==='aid'?lines?.oppose:null;
+        if(speech){log(`${ENEMIES[id].name}的质问：${speech}`);recordJourney(null,context.cave+' · 镇境者回话',speech,'neutral');}
+      }
       if(id==='m02'&&state.player.questItems.includes('split_nail')&&!ff.invalid.split_nail)log('纸偶听见裂芯钉鸣响：“你拿着这枚拆芯钉，要去谁家？”这一次仍须交锋。');
       const equipped=WEAPONS[state.player.equippedWeapon];if(equipped?.block)gainBlock(equipped.block,equipped.name);
       if (state.journey.nextCombatBlock > 0) {
@@ -1712,11 +1737,12 @@
       b.drainDamage=0;
       const intent = getIntent();const markedTide=enemy.id==='m16'&&b.playerMark>0&&intent.hits?.length;
       if (!enemy.frozen) {
-        const fs=factionState(),fg=factionContexts(enemy.id).find(g=>g.frontier&&state.player.questItems.includes(g.aid)&&!fs.spent[g.aid]&&intent[g.effect]>0);if(fg){intent[fg.effect]=Math.max(0,intent[fg.effect]-1);fs.spent[fg.aid]=true;intent.text+='；'+ENEMY_FACTIONS.ITEMS[fg.aid].name+'抵消1层';log(ENEMY_FACTIONS.ITEMS[fg.aid].name+'触发，本局一次。');event('enemySkill',{source:'player',target:'enemy',kind:'aid',name:ENEMY_FACTIONS.ITEMS[fg.aid].name});}
+        const fs=factionState(),fg=factionContexts(enemy.id).find(g=>g.frontier&&state.player.questItems.includes(g.aid)&&!fs.spent[g.aid]&&!fs.invalid[g.aid]&&intent[g.effect]>0);if(fg){const before=intent[fg.effect];intent[fg.effect]=Math.max(0,before-1);const report=b.factionEffects.find(x=>x.item===fg.aid);if(report)Object.assign(report,{status:'used',effect:fg.effect,before,after:intent[fg.effect],turn:b.turn});log(`${ENEMY_FACTIONS.ITEMS[fg.aid].name}：本次${({playerMark:'追索印',poison:'毒',energyPenalty:'封灵',drawPenalty:'少抽牌',counter:'反击'})[fg.effect]||'状态'} ${before}→${intent[fg.effect]}，仅此一次；已有状态不清除。`);fs.spent[fg.aid]=true;intent.text+='；'+ENEMY_FACTIONS.ITEMS[fg.aid].name+'抵消1层';log(ENEMY_FACTIONS.ITEMS[fg.aid].name+'触发，本局一次。');event('enemySkill',{source:'player',target:'enemy',kind:'aid',name:ENEMY_FACTIONS.ITEMS[fg.aid].name});}
         const f=factionState(),item=enemy.id==='lotus_boss'&&intent.name.includes('沸盏')?'heat_tongs':enemy.id==='furnace_boss'&&intent.name==='烬衣'?'cold_ash':null;
-        if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
+        if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){const report=b.factionEffects.find(x=>x.item===item);if(report)Object.assign(report,{status:'used',effect:item==='heat_tongs'?'hits':'counter',before:item==='heat_tongs'?intent.hits.map(n=>n+1):intent.counter+1,after:item==='heat_tongs'?intent.hits.slice():intent.counter,turn:b.turn});intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
       }
       if (enemy.frozen) {
+        for(const report of b.factionEffects.filter(x=>x.kind==='aid'&&x.status==='carried'))report.frozen=true;
         log(`${enemy.name}被寒意封住，跳过「${intent.name}」的整次行动。`);
         event('freeze', { source:'status',target:'enemy',skipped:true,name:intent.name });
       } else {
@@ -1737,6 +1763,7 @@
         if(intent.selfPoison){enemy.poison+=intent.selfPoison;event('poison',{source:'enemy',target:'enemy',amount:intent.selfPoison,total:enemy.poison});}
         if(intent.removeMark){const n=Math.min(enemy.mark,intent.removeMark);enemy.mark-=n;event('mark',{source:'enemy',target:'enemy',amount:-n,total:enemy.mark});}
         if(intent.wardedEffect){
+          for(const report of b.factionEffects.filter(x=>x.kind==='aid'&&x.status==='carried'))report.blockedByWard=true;
           b.bossWard.used=true;
           log(`${QUEST_ITEMS[b.bossWard.item].name}生效，抵消本次${intent.wardedLabel}；本战不再触发。`);
           event('enemySkill',{source:'player',target:'player',kind:'ward',name:QUEST_ITEMS[b.bossWard.item].name,text:`抵消${intent.wardedLabel}`});
@@ -2422,7 +2449,7 @@
       if (!choice || !canChooseEvent(index)) return false;
       if(state.event.factionEvent){const handled=chooseFaction(choice);if(handled!==null)return handled;}
       const received = applyEventChoice(choice, p);
-      if(state.event.factionEvent){const m=state.event.factionEvent,f=factionState(),rec=f.records[m.nodeId];rec.resolved=true;rec.outcome=choice.factionKey;if(m.kind==='cave'&&['talk','help','aid','question'].includes(choice.factionKey)){const npc=ENEMY_FACTIONS.GROUPS[m.boss].npc;observeFactionAbility(null,npc);f.seen[npc].notes.push({floor:state.floor,nodeId:m.nodeId,text:choice.outcome||choice.text||choice.label});}if(m.boss==='abyss_boss'&&choice.factionKey==='oppose'){f.forfeited=f.forfeited||{};f.forfeited[ENEMY_FACTIONS.GROUPS[m.boss].support]=true;}rec.known.push(choice.factionKey);f.behaviors.push({floor:state.floor,npc:ENEMY_FACTIONS.GROUPS[m.boss].npc,kind:choice.factionKey,witness:ENEMY_FACTIONS.GROUPS[m.boss].npc});if(['aid','oppose'].includes(choice.factionKey)&&m.boss==='lotus_boss')f.behaviors.push({floor:state.floor,npc:'m03',kind:'promise',witness:'m03'});}
+      if(state.event.factionEvent){const m=state.event.factionEvent,f=factionState(),rec=f.records[m.nodeId];rec.resolved=true;rec.outcome=choice.factionKey;if(m.kind==='cave'&&['talk','help','aid','question','investigation'].includes(choice.factionKey)){const npc=ENEMY_FACTIONS.GROUPS[m.boss].npc;observeFactionAbility(null,npc);f.seen[npc].notes.push({floor:state.floor,nodeId:m.nodeId,text:choice.outcome||choice.text||choice.label});}if(m.boss==='abyss_boss'&&choice.factionKey==='oppose'){f.forfeited=f.forfeited||{};f.forfeited[ENEMY_FACTIONS.GROUPS[m.boss].support]=true;}rec.known.push(choice.factionKey);f.behaviors.push({floor:state.floor,npc:ENEMY_FACTIONS.GROUPS[m.boss].npc,kind:choice.factionKey,witness:ENEMY_FACTIONS.GROUPS[m.boss].npc});if(['aid','oppose'].includes(choice.factionKey)&&m.boss==='lotus_boss')f.behaviors.push({floor:state.floor,npc:'m03',kind:'promise',witness:'m03'});}
       state.event.resolved = true;
       state.event.outcome = choice.outcome;
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
@@ -2489,8 +2516,9 @@
       const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile()});
       Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
       const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
+      const previewBattle=shadow.state.battle;
       if(!shadow.playCard(uid,true))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
-      const after=shadow.state.battle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
+      const after=previewBattle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
       const spent=type=>events.filter(e=>e.type===type&&e.amount<0).reduce((n,e)=>n-e.amount,0);
       return {available:true,cardId:card.id,cost:def.cost,hits,firstHitBonus:def.attack?(after.cardBonus||0):0,firstHitBonusCap:BALANCE.firstHitBonusCap,
         resources:{before,after:{swordIntent:after.swordIntent||0,soul:after.soul||0,energy:after.energy},spent:{swordIntent:spent('swordIntent'),soul:spent('soul')}},
@@ -2509,7 +2537,7 @@
     };
   }
 
-  const api = { describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

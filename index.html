@@ -247,6 +247,8 @@ body[data-motion="reduced"] .fx-boss-spell{animation:none}@media(prefers-reduced
 .fx-faction-strike{width:260px;height:260px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 12px #ac5b31);animation:faction-swipe .45s ease-out both}.fx-faction-strike svg{width:100%;height:100%}@keyframes faction-swipe{from{opacity:0;transform:translate(-70%,-65%) rotate(-25deg) scale(.6)}40%{opacity:1}to{opacity:0;transform:translate(-30%,-35%) rotate(20deg) scale(1.2)}}
 
 .encounter-column:has(.faction-npc){position:relative}.faction-npc{position:absolute;top:12px;right:0;width:58%;height:360px;margin:0;z-index:4}.faction-npc .portrait{position:relative;inset:auto;width:100%;height:100%;mask-image:none;-webkit-mask-image:none}.faction-npc .portrait>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;mask-image:none;-webkit-mask-image:none}@media(max-width:600px){.faction-npc{top:12px;height:220px;margin:0;width:58%}}
+
+.event-dialogue{border-left:2px solid #bfa16d;padding-left:14px;color:#f2dfc0}.choice-risk{color:#eec698!important;border-top:1px solid #bfa16d40;padding-top:6px;margin-top:6px}.event-actions .btn{min-height:44px;white-space:normal}.faction-feedback{margin:12px 0;padding:14px 18px;border:1px solid #b99b6355;background:#14242aeb;border-radius:8px;text-align:left}.faction-feedback h3{font-size:15px;margin:0 0 9px;color:#e6c690}.faction-feedback p{display:flex;flex-wrap:wrap;gap:8px;margin:7px 0;font-size:13px;line-height:1.7}.faction-feedback span{color:#d1d9d4}.faction-feedback .faction-aftermath{color:#f0dfc4;font-size:15px}.quest-item small{line-height:1.7}@media(max-width:460px){.faction-feedback{padding:12px}.event-copy{min-width:0}.choice-risk{font-size:12px}.event-actions .btn{overflow-wrap:anywhere}}
 </style></head><body>
 <div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">衣影血誓版</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
 <script>
@@ -1547,7 +1549,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   c=>E('被贴住的药单',[c.p(1)==='priority'?'喝过整剂的伤者确实带回了人，却也带回一道查封令：药棚曾给玄烬弃徒治病。':'杜蘅的药单贴上了封条。有人指证她救过玄烬弃徒，有人记得她也救过被弃徒伤过的人。','女行脚留下一张交货条，证明药在封域前已付款。它能说明来源，却不能替所有伤者证明清白。'],[
    C('testify','署名证明自己见过的部分','支付8灵石誊写供述；获得1枚百草解厄丹。','你只写亲眼见过的两碗药，没有替陌生人洗清罪名。杜蘅把一枚解毒丹交给你，执事终于肯逐条问话。',{goldCost:8,...item('antidote')}),
    C('move','帮她迁走仍在发热的病人','支付12灵石；下一战首回合护盾+12。','你没有与封条争辩，先把人搬到有风的地方。有人因此责你偏袒，病人的呼吸却不必等争论结束。',{goldCost:12,guard:12}),
-   C('distance','只核对自己的交易，离开药棚','获得12灵石退还押金。','杜蘅退清押金，没有责怪你。你保住了行程，查封的木门仍在身后落下。',{goldGain:12})]),
+   C('distance','替药棚抄清交货条，不介入查封','获得12灵石誊录工钱；不是退还从未支付的押金。','你把交货的日期和数量逐笔誊清，收下十二枚灵石工钱。杜蘅仍得面对查封，你没有替药棚作证。',{goldGain:12})]),
   c=>E('没人问出身的长凳',[c.p(2)==='distance'?'更深处的水榭里，杜蘅用旧门板重新支起药台。她认得你，却只先问伤在哪里。':'你写过的供述或搬过的病人没有解决所有争执。药棚重新开张时，长凳仍按伤势排队。',c.p(1)==='priority'?'那名伤者也在排队。他承认自己怕被问责才先递了查封文书，今日带来营中结余的药。':'女行脚把新的药包送到门口，没有再把自己的那份推开。'],[
    C('receive','接受一次治疗和一剂药','恢复14生命，获得1份凝露叶。','杜蘅同样记录了用药。她说这不是偿清人情，是让这张长凳继续有用。',{heal:14,...item('dewherb')}),
    C('supply','支付二十枚灵石，分担下一批药资','支付20灵石；获得1枚百草解厄丹和对应主角功法。','你的名字写在供药栏，不写在病人的身上。受过药的人不欠你一个必须回报的未来。',{goldCost:20,...item('antidote'),cardIds:[gift(c.role)]}),
@@ -1599,7 +1601,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
   c=>E('被算进损耗的人',[c.p(1)==='guard'?'车队按约经过营地，陶掌柜请求你继续护送。护卫带来一群付不起粮资的运粮人，问他们的劳酬何时结。':'你在新营地再见旧粮车。袋数对得上，付不起粮资的却有当初搬运它们的人。','掌柜拿出押运合同，护卫拿出伤者名单。两份都是真的，谁的损耗先入账却一直没人明说。'],[
    C('audit','先结运粮劳酬，再商量减价','支付10灵石请人逐笔核账；获得1枚回气丹。','陶掌柜删去自己一项利润，护卫交回私分的粮。谁也没有单凭善意就不必对账。',{goldCost:10,...item('healing_pill')}),
    C('discount','补二十枚灵石，替眼前伤者买粮','支付20灵石；下一战首回合护盾+14。','这批人吃到了粮，账上的劳酬仍未结清。你解决了今日的饥饿，没有把它说成全部的公道。',{goldCost:20,guard:14}),
-   C('contract','按已有委托护车，不介入分配','获得16灵石护送尾款。','掌柜结清尾款，护卫依旧守在粮袋旁。你的合同完成了，旁人的日子没有因此自动结清。',{goldGain:16})]),
+   C('contract',c.p(1)==='guard'?'按先前委托护车，不介入分粮':'接下一段短途护车，不介入分粮',c.p(1)==='guard'?'完成已接护送，获得16灵石尾款。':'现在护送车队走到下一道灯桩，获得16灵石工钱；不是先前未接委托的尾款。',c.p(1)==='guard'?'掌柜点清尾款，划去你此前接下的护送一项。运粮人的劳酬仍在另一页。':'你把车护送到下一道灯桩。掌柜付清这段新差事的十六枚灵石，未将你记成旧约的护卫。',{goldGain:16})]),
   c=>E('新秤第一次落下',[c.p(2)==='audit'?'车队在泽岸支起公秤。运粮人有了自己的账页，陶掌柜还在做买卖，只是不再独自解释所有损耗。':c.p(2)==='discount'?'你买过粮的人中，有几位回来搬货抵劳酬。掌柜愿意重谈价码，护卫则要求写清谁有权停秤。':'买卖仍在继续，护卫离队另设小灶。掌柜少了一队人，也才发现粮袋不会自己被抬过桥。','陶掌柜请你看第一笔新账。她不再问自己算不算好人，只问这笔灵石还有谁没看见。'],[
    C('escrow','让双方共同保管二十枚押金','支付20灵石；获得2份凝露叶与下一战首回合护盾+10。','一把钥匙给掌柜，一把给搬运人。你无法保证他们永不争执，但让下一次争执有账可查。',{goldCost:20,guard:10,...item('dewherb',2)}),
    C('accept','收下明码标出的谢礼','获得24灵石。','谢礼写进公开账，没有改成伤者头上的新欠款。你点清后收下。',{goldGain:24}),
@@ -1678,7 +1680,7 @@ globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"as
    {name:'门前仍有一双鞋',story:['故宅近在眼前。门阶上的鞋被擦得干净，鞋主人却永远不会回来。一个孩子说，机仆夜里仍给失踪的人缝冬衣。','孩子记得两件事：备用铜匙能开家令心匣，完整留声簧能让她听见主人最后的叮嘱。少一件，都只能闯过仍将来客视为凶手的家政机关。'],advice:'收好铜匙与留声簧，进门时会自动唤醒缄红；只有传闻、只有一件物品都无法止战。'}]},
   gate_boss:{title:'灯照不到的名字',items:['gate_names','gate_wick'],ward:'playerMark',stages:[
    {name:'渡簿上的空白',story:['桥头抄写人请求你帮他辨认泡湿的名册。当年他把无力交灵石的难民写成“无名”，好让渡灯人不必逐一记下他们的死。','他保住了自己的差事，也把那些人从被寻找的可能中抹去。如今灯影按着空白名单索人，他想补名字，却不敢让家属看见旧笔迹。'],act:'陪他补录亡者姓名',paid:'付 15 灵石，雇人核对名册',take:'替渡口搬灯，领取酬劳',outcome:'家属认出了旧笔迹，也认出了迟来的名字。抄写人没有得到宽恕，却交出一份不再空白的渡簿。',paidOutcome:'核验人把每个名字读过一遍。灵石买来了人手，没有买来原谅。'},
-   {name:'最后一寸归灯芯',story:['一位老妇藏着照微用过的灯芯。她曾央求渡灯人多留一夜，等儿子归来；多留的那一夜里，渡口最后一船人再没出发。','老妇不愿承认儿子已经不在，也知道灯芯应该回到渡口。她问你，若把等待也拿走，一个人还能靠什么活下去。'],act:'听完她的话，接下旧灯芯',paid:'付 15 灵石，为她另点家灯',take:'替她整理屋舍，收下报酬',outcome:'你没有保证儿子会回来，只答应在雾外替她寄出那封信。她把旧灯芯交给了你。',paidOutcome:'新的家灯亮起。她仍会等，却让你把渡灯人的灯芯带回桥头。'},
+   {name:'最后一寸归灯芯',story:['一位老妇藏着照微用过的灯芯。她曾央求渡灯人多留一夜，等儿子归来；多留的那一夜里，渡口最后一船人再没出发。','老妇不愿承认儿子已经不在，也知道灯芯应该回到渡口。她问你，若把等待也拿走，一个人还能靠什么活下去。'],act:'听完她的话，接下旧灯芯',paid:'付 15 灵石，为她另点家灯',take:'替她整理屋舍，收下报酬',outcome:'你没有保证儿子会回来，只记下她想写给儿子的话；你没有接下一个并未完成的送信任务。她把旧灯芯交给了你。',paidOutcome:'新的家灯亮起。她仍会等，却让你把渡灯人的灯芯带回桥头。'},
    {name:'一盏不必再等的灯',story:['灯影里的人不断报出别人的名字，唯独没叫过自己。渡灯人的职责变成了不许任何人离开的理由。','补全的渡簿能抵去她首次追索印；归灯芯可在开战时护住你。她不会因为几句劝告放下灯，但你至少知道自己正在面对什么。'],advice:'携带补名渡簿：抵消本次战斗首次施加追索印；携带归灯芯：首回合额外 8 护盾。'}]},
   camp_boss:{title:'活人的誓书',items:['camp_ledger','camp_seal'],ward:'energyPenalty',stages:[
    {name:'营外的欠命簿',story:['一名退役守卒拿出欠饷簿，想用它换盘缠。闻铮当年按誓书把逃兵送回营地，也曾替全营扣下最后一份救命药。','簿子上后来改过一行：用来救军官的药，写成了救全营。守卒签过字；他如今想揭穿谎话，也想让自己的签名先消失。'],act:'保留原签名，替他誊清真账',paid:'付 15 灵石，买下未删改的账簿',take:'只接搬运差事，收取酬劳',outcome:'账簿没有洗掉任何名字。守卒把它交给你，第一次承认自己既是受害者，也做过帮凶。',paidOutcome:'他收下盘缠，却没能收回自己的签名。原账留在你这里。'},
@@ -1761,13 +1763,13 @@ const DEFS={m01:{name:'失味膳役',boss:'lotus_boss',rank:'normal',trait:'饥�
 
 const FRONTIER={
 gate_boss:{source:'灯链断处',cave:'不点灯的渡棚',npc:'m06',support:'lamp_knot',oppose:'lamp_cut',aid:'lamp_cloth',proof:'无灯航线拓记',normal:['m04','m05'],warning:'棚外灯链全被剪断。衣外的续灯灯结，会让棚中人把你认作追兵。',supportName:'续灯灯结',opposeName:'断灯剪印',aidName:'遮灯帛',effect:'playerMark',
-sourceText:['巡灯纸役把一名迷路老人牵到亮处，却拦住没有名字的背夫。老人说，若剪断灯链，她也找不到回家的路。','渡棚里的人说名单留住的不只是恶人。续灯能护住登记者，也会让无名者继续等；断灯能打开一段逃路，却会让那段路失去照明。'],supportChoice:'交出灯芯，答应续灯护送',opposeChoice:'剪开拦路灯链，接应渡客',intro:'她把熄灯的小船推回阴影：“我剪的是拦路的链，可灯一灭，没跟上来的人也会迷路。”',testimony:'背夫的木牌被水磨平，巡灯役不敢认他；灯簿又只准有名者过渡。她留下一条不经灯簿的小路，却承认昨夜有人没能跟上。',help:'你交药给等船的老人。她选择留在亮处，不愿随船逃走；渡客没有再劝。',reply:'渡棚留下一截剪断的灯链；是否所有人都过了河，仍没有回信。'},
+sourceText:['巡灯纸役把一名迷路老人牵到灯下，却拦着一名没有姓名的背夫。老人攥着灯杆：“灯一灭，我连回家的桥在哪都找不到。”','背夫指着挂名簿：“我的木牌被水泡没了。要我在这里等到有人认领吗？”纸役没有回答，只把灯结递给你。'],supportChoice:'答应替巡灯役护灯，收下续灯结',opposeChoice:'答应剪开拦路灯链，接应渡客',opposeActionName:'履行剪链约定，带一名渡客过河',opposeAction:'你当场剪开封路灯链，护送一名无名背夫走暗水路。老人选择留在灯下；取得「遮灯帛」，可在渡灯人战中减少首次追索印。此举放弃洞府精英战奖励。',opposeOutcome:'你剪开灯链并带一名背夫过河。老人留在灯下；纸役没有保证所有人都能平安渡过。',investigationIntro:'剪灯客认出你抄下的灯簿：“名字没在册上，不等于这人不该过河。可老人也不能被留在黑里。”',intro:'剪灯客把熄灯的小船推回阴影：“我剪的是拦路的链，可灯一灭，没跟上来的人也会迷路。”',testimony:'背夫的木牌被水磨平，巡灯役不敢认他；灯簿又只准有名者过渡。她知道一条不经灯簿的小路，也承认昨夜有人没能跟上。',investigation:'你记下木牌被水磨去的痕迹，也抄了灯簿拒绝无名者的条款；这能证明谁没被登记，不能证明谁故意拦人。',investigationReply:'你拿旧渡簿和水痕带一名无名背夫走过暗水路。老人仍选择留在亮处；剪灯客没有替她作决定。',investigationAftermath:'旧渡簿只让一名背夫过河；老人仍留在灯下。剪灯客没有替任何人决定去留。',battleLines:{support:'照微认出你衣上的续灯灯结：“你答应护灯，却要进我的渡棚。灯灭之后，谁替那位老人认路？”',oppose:'照微看见断灯剪印：“你剪开链，只带走一名背夫。老人还留在岸上，别替他们说都得救了。”',investigation:'照微翻过你带来的旧渡簿：“它能证明谁没登记，却不能替我回答灯灭之后谁能回家。”'},help:'你交药给等船的老人。她选择留在亮处，不愿随船逃走；渡客没有再劝。',reply:'渡棚留下被剪断的灯链。老人留在岸边等天亮；渡客带走了愿意跟上的人。'},
 camp_boss:{source:'军令与药箱',cave:'堤下伤卒营',npc:'m09',support:'pursuit_order',oppose:'pass_fold',aid:'loose_band',proof:'空担架名册',normal:['m07','m08'],warning:'营门军徽都已剪去。公开佩着拘逃军令的人，会被守营者视作追捕者。',supportName:'拘逃军令',opposeName:'放行折符',aidName:'松誓绷带',effect:'energyPenalty',
-sourceText:['残卒要求你帮忙追回离营者：“他们带走药，留下的人就得死。”药役背着锁箱，却说自己送出的每一份药都记得人名。','堤下有人用空担架接应。离营并不意味着不再救人，追上逃卒也不能保证药会公平分给伤者。'],supportChoice:'接下军令，承诺追回药物',opposeChoice:'打开侧栅，协助伤卒离营',intro:'独臂枪手把短枪压在担架上：“你是来拿药，还是来问我们为什么走？”他身后仍有一副空担架。',testimony:'他承认曾让一队人走亮处引开巡卒；伤者因此过桥，诱饵却没有全部回来。他不肯把这件事称作两全。',help:'药箱打开，一名伤卒自己拆下军牌；另一人仍把军牌贴身放好。他们没有替全营作决定。',reply:'桥边留下脱下的军牌与一卷用空的绷带；逃走的人仍有各自的去处。'},
+sourceText:['残卒一把按住药箱：“带走一瓶，营里就少救一个人！”独臂逃卒拖着担架：“药锁了两天，他们等得到开箱吗？”','药役打断他们：“箱里还剩几份，我记得。先说清楚你们要我把药给谁。”残卒把军令递给你，逃卒伸手去推侧栅。'],supportChoice:'接受追药军令，之后拦下逃卒',opposeChoice:'答应送出一副担架，收下放行折符',opposeActionName:'按放行折符送出一副担架',opposeAction:'你只放行名册中那一副担架，不替所有逃卒作决定。药役给你一卷「松誓绷带」，可在缚誓者战中抵消一次封灵。此举放弃洞府精英战奖励。',opposeOutcome:'你把放行折符交给担架上的伤卒。他随你离营；其他人有人留下，有人另寻出路。',investigationIntro:'药役把你记下的数量与名册逐项对过：“至少这副担架在册。药箱谁锁的、药去了哪儿，还要继续查。”',intro:'独臂枪手把短枪压在担架上：“你是来拿药，还是来问我们为什么走？”他身后仍有一副空担架。',testimony:'他承认曾让一队人走亮处引开巡卒；伤者因此过桥，诱饵却没有全部回来。他不肯把这件事称作两全。',investigation:'药役核对了剩余药量与担架名册：有人确实缺药，也有一副空担架尚未登记去向。账目不能说明是谁私拿了药。',investigationReply:'你按名册陪一副担架先过侧栅，药役留下记录并交给你一卷绷带。其他伤卒与逃卒仍自行决定去留。',investigationAftermath:'名册让一副担架先过侧栅，但没有证明是谁动了药箱；营中仍有人等待查账。',battleLines:{support:'闻铮认出你身上的拘逃军令：“你来追人，还是来问药去了哪儿？誓墙上两件事写成了同一行。”',oppose:'闻铮看见放行折符：“你送走了一副担架；营里留下的人还在问药。别把放行说成救下全营。”',investigation:'闻铮核过你带来的名册：“数字对上了，缺药是真的；是谁扣下钥匙，还没有答案。”'},help:'药箱打开，一名伤卒自己拆下军牌；另一人仍把军牌贴身放好。他们没有替全营作决定。',reply:'桥边留下脱下的军牌与一卷用空的绷带；逃走的人仍有各自的去处。'},
 snake:{source:'井沿的两张方子',cave:'秤鳞石窟',npc:'m12',support:'well_oath',oppose:'well_chisel',aid:'clean_gauze',proof:'加量药账',normal:['m10','m11'],warning:'石窟秤着旧鳞。封井鳞誓露出的绿光，会被当作阻断买卖的标志。',supportName:'封井鳞誓',opposeName:'开井凿契',aidName:'净砂药纱',effect:'poison',
-sourceText:['井役把裂鳞按进泥里，井外病人却等着最后一瓶药。药工的抄方上多了一道加量记号，没有人肯认是自己写的。','封井可能挡住污潮，也会让药铺断供。开井的采鳞者说药会更便宜，却不肯先写下卖价。'],supportChoice:'帮井役封裂，接受守井约定',opposeChoice:'接下开井交易，留下凿契',intro:'她将秤砣推回自己这边：“我是来做生意的，不是来救蛇。你若要听好听话，井外多的是人说。”',testimony:'药账显示买主自己要求加量，商人也因此多收灵石。旧方可以作为诊断依据，但不能证明每个服药者都能停药，也不能代替真正治疗。',help:'你把药草交给一名手掌发黑的药工。他只减了一次用量，没有答应立刻戒药；采鳞者把这笔药钱从账上划去。',reply:'药账留着划去的一笔。井禁、药债与污染，并未因一场交锋一起消失。'},
+sourceText:['井役把裂鳞压进泥里：“井封上，药铺明天就没水。”药工指着药方上的加量记号：“有人把剂量改大了，我没有写这笔。”','采鳞者推来秤盘：“开一道取鳞的路，药材就能下山。价钱到了窟里再谈。”她没有写报价。井外那瓶药还没分给病人。'],supportChoice:'答应替井役守住封井约定',opposeChoice:'答应替采鳞者开路，收下凿契',opposeActionName:'付12灵石，交凿契验货并取得净砂药纱',opposeAction:'支付12灵石购买1份回春草；采鳞者同时交付「净砂药纱」作为开井委托的验货凭据，之后才会开路。买卖不代表治好病人或证明谁改了药方。此举放弃洞府精英战奖励。',opposeOutcome:'你付清十二枚灵石，买下回春草；采鳞者验过凿契，交出净砂药纱，并开始履行开井委托。药工和井外病人的处境仍未解决。',investigationIntro:'采鳞者看到旧价账，沉默片刻：“上回是八枚。这回井路封了，我报十二。加量那笔字，我没签。”',intro:'她将秤砣推回自己这边：“我是来做生意的。我卖你一份药材，十二枚灵石；别把买卖说成救人。”',testimony:'已核过的药账显示，买主要求加量，商人也多收了灵石。旧方能说明原先的配法，不能替病人停药或治疗。',investigation:'你核对旧方和账本：同一味药上次卖八枚灵石，这次记作十二枚；加量字迹与收款签名不是同一只手。能议价，不能据此认定谁下毒。',investigationReply:'旧价账让你把回春草的价钱谈回八枚灵石。采鳞者收了钱，仍不承认谁改了剂量；药工仍等着另找药师核方。',investigationAftermath:'旧价账让你少付四枚灵石；买主是谁、加量是谁写的，仍无人认下。井外病人的药方没有因此改动。',battleLines:{support:'绛鳞看见你带来的封井鳞誓：“你答应封井，药铺还在等明天的水。你知道他们等的是什么吗？”',oppose:'绛鳞认出开井凿契：“货已经买到，病人的方子却没变。你要取鳞，还是查谁改了剂量？”',investigation:'绛鳞看着旧价账：“价差能证明有人多收钱，不能证明是谁把剂量改大。”'},help:'你把药草交给一名手掌发黑的药工。他把今天的剂量减了一次；明天是否继续，仍由他和药师商量。',reply:'药账留着被划掉的一笔。病人今天少服了一次，井仍封着；药债没有因此结清。'},
 bell_boss:{source:'尚未系上的名字',cave:'无钟墓室',npc:'m15',support:'bell_knot',oppose:'bell_wedge',aid:'echo_wedge',proof:'归骨拓名纸',normal:['m13','m14'],warning:'墓室不挂钟。衣外的续钟铃结一响，掘名者会认为你来把姓名重新留在钟阵里。',supportName:'续钟铃结',opposeName:'停钟木楔',aidName:'止响短楔',effect:'drawPenalty',
-sourceText:['执幡役捧着一个还没系上的名字。家属盼再听一次声音，抬棺人却说自己已经在同一段路上走了十年。','补全墓名是纪念，系入钟阵才是留魂。两者不是一件事；选择前，你看见铃绳确实连着钟阵。'],supportChoice:'把新名系入钟阵，接过铃结',opposeChoice:'取下留魂绳，承诺停钟归骨',intro:'她把石拓卷递到灯下：“名字带走，骨也带走。可有的人只想再听一次，未必愿意谢我。”',testimony:'她曾凿错一块无字碑，认错的家属仍坚持供奉多年。如今她逐字问证，不再凭自己的一次善意替别人决定送别。',help:'你交药稳住拓名人的手，帮她对照旧碑。只记下本次确认的一人，不把其余空白填上。',reply:'墓外多了一张确认过的拓名纸。钟声停下之后，有人离开，也有人仍坐着等。'}
+sourceText:['家属抱着一块无字碑：“再留一晚，我还能听见他。”抬棺人把棺绳放下：“我已经背这副棺走了十年，不能再替他走一遍。”','执幡役说，补上名字只是记住死者；把名字系进钟阵，亡者才会留下。她把铃结和木楔放在你面前：“你要做的是哪一个？”'],supportChoice:'答应替家属留魂，收下续钟铃结',opposeChoice:'答应抬棺人停钟归骨，收下木楔',opposeActionName:'替这一户停钟归骨',opposeAction:'你按停钟木楔，替这一户解开续钟绳，把碑名交还家属。获得「止响短楔」，可在晚蘅战中抵消一次减抽牌。此举放弃洞府精英战奖励。',opposeOutcome:'你替这一户停下续钟。家属最终随棺车离开；抬棺人没有替其他亡者作决定。',investigationIntro:'掘名人看过你核出的碑名：“名字对得上，只说明这是谁；要不要留下，还是他们自己的话。”',intro:'她把石拓卷递到灯下：“名字带走，骨也带走。可有的人只想再听一次，未必愿意谢我。”',testimony:'她曾凿错一块无字碑，认错的家属仍坚持供奉多年。如今她逐字问证，不再凭自己的一次善意替别人决定送别。',investigation:'你把碑上的旧刻痕与抬棺名册对在一起，只能确认这一户的名字；家属是否愿意让亡者留下，仍须由他们自己决定。',investigationReply:'核名后，这户家属决定把碑留在原处，跟着棺车离开。抬棺人没有替别户剪断钟绳，并把一枚止响短楔交给你。',investigationAftermath:'这一户家属决定随棺车离开；其他无字碑仍没有被你代为补名。',battleLines:{support:'晚蘅认出你衣上的续钟铃结：“你答应替他们留一晚。你看见那户人家已经随棺车走了吗？”',oppose:'晚蘅看见停钟木楔：“你替这一户解绳，不等于其他亡者也想离开。”',investigation:'晚蘅核过你带来的碑名：“名字对了，心愿还要问活着的家属；我不能替他们说。”'},help:'你交药稳住拓名人的手，帮她对照旧碑。只记下本次确认的一人，不把其余空白填上。',reply:'墓外多了一张确认过的拓名纸。钟声停下之后，有人离开，也有人仍坐着等。'}
 };
 const LATER={
   "marsh_boss": {
@@ -2056,11 +2058,71 @@ const ITEMS={house_order:{name:'护宅家令',text:'主动承诺护宅的凭证�
 for(const[id,t]of Object.entries(ITEMS))Object.assign(t,{id,icon:'learned'});
 const GROUPS={lotus_boss:{source:'朱漆门牌下',cave:'灰宅外的拆匣洞',npc:'m03',support:'house_order',oppose:'split_nail',aid:'heat_tongs',proof:'器谱残页',normal:['m01','m02'],warning:'洞内有人专拆护宅机关；家令的红光藏不过他们的眼。'},furnace_boss:{source:'愿帖上的空位',cave:'熄炉洞中的拾灰人',npc:'m21',support:'furnace_pact',oppose:'charcoal_seal',aid:'cold_ash',proof:'寿契炭拓',normal:['m19','m20'],warning:'炉门上划去了朱印：带着有效续炉寿契的人不受欢迎。'}};
 for(const[b,g]of Object.entries(FRONTIER)){g.frontier=true;GROUPS[b]=g;for(const[key,name,stance]of [[g.support,g.supportName,'support'],[g.oppose,g.opposeName,'oppose'],[g.aid,g.aidName,null]])ITEMS[key]={id:key,name,boss:b,icon:'learned',stance,recognition:stance?'automatic':undefined,aid:!stance,text:stance==='support'?`主动接受且公开显露的约定；${DEFS[g.npc].name}会认出并引战。对应Boss首回合护盾+8一次；护持用尽仍可识别。`:stance==='oppose'?'主动实施另一方行动的凭证，可交涉；不能抵消有效支持凭证的敌意。':`对应Boss首次${({playerMark:'追索印',energyPenalty:'封灵',poison:'施毒',drawPenalty:'减抽牌'})[g.effect]}减少1，一次；旧物证先完整抵消时不消耗。`};}
+
+const ENCOUNTER_CAUSES={
+m04:'巡灯纸役举灯对着你的脸：“名簿没有你，不能过。”它仍牵着一个迷路老人，灯杆却已经横在桥口。',
+m05:'空名背夫背着两副空架，身后不断响起催他赶路的脚步。他以为你来抢木牌，担绳先抽向了你的手。',
+m06:'剪灯渡客藏着一船不在名簿中的人。她将长剪横在船头：“先说你替谁看灯，再往前走。”',
+m07:'誓甲残卒守着药箱，盾内的誓纸勒进了伤口：“药没分完，谁也不许拿走。”你靠近时，他将盾重重撞来。',
+m08:'药役把锁链缠在脚踝，仍在喊着担架上的名字。她不肯放下药箱：“等分完这一轮！”靠近的人都被她当成了催收者。',
+m09:'断誓逃卒把短枪压在空担架上：“没接回来的人还在等。你来拿我，还是拿药？”他的退路只剩侧栅。',
+m10:'井役用背上的裂鳞补井，不许任何人靠近凿口：“再开一道，污水就上来！”它把试图探路的你也推向了井外。',
+m11:'药工的手已经青黑，仍往研钵里加丹砂。他看见你伸手，先护住最后一份药：“停了这碗，谁替我挨到天亮？”',
+m12:'采鳞债客把金秤放到刀旁：“井封住，我的货就赔了。要借路，先把立场和价钱说清。”药烧白斑从领口一直延到指尖。',
+m13:'引魂役逐字报着幡上的名字，铃声却不许送行人离开：“再应一声！”你没有答，它便将窄幡拦了过来。',
+m14:'抬棺人以为你要他重新走那段路，猛地将棺梁横过来：“十年了，这回谁来接另一头？”梁后只剩空绳。',
+m15:'掘名人将石拓挡在身前，短凿护住未核清的姓名：“不许再替他们乱系。真想带走，先把人名说对。”'
+};
+for(const[id,intro]of Object.entries(ENCOUNTER_CAUSES))DEFS[id].intro=intro;
+const EXPLICIT={
+marsh_boss:{scene:['持尺人按住封水板：“板一拆，高处工坊就要泡水。”滩民指着低处的屋顶：“水已经在我们头上了！”','凿堤人把舟绳递来：“先看水位再动凿。你收封水的护符，我就不敢让你碰船。”'],action:'扶住凿堤舟，凿开已核低水的一道泄口',result:'你只凿开记过水位的这一段。两户人搬上舟，工坊开始进水；凿堤人给你一截可卸追索的浮绳。',clue:'你记下高低两处的水位与一块空堤的位置。',reply:'你照水痕留出一段低口，凿堤人带两户上舟，再将浮绳交给你。'},
+mirror_boss:{scene:['描相侍伸手遮住镜上的伤：“修好，她还能认出孩子。”裂面证人推开她：“那道疤才是我的脸。”','剥银匠放下刮刀：“先问这面镜子是谁的。不能因你怕丑，就替别人擦掉。”'],action:'征得这一位证人同意，剥开她的镜面银层',result:'证人指明愿意保留的裂痕，你只刮掉那一面的银。匠人交出磨银粉；依赖另一面镜子的母亲没有让你动手。',clue:'你核对了原画与裂痕的位置，记下镜主亲口表示愿留的部分。',reply:'你以原画指出被抹去的一道疤。证人自己圈出刮银范围，匠人将磨银粉留给你。'},
+abyss_boss:{scene:['录吏递来续命赤签：“灾厄来了，可以接一次。”缠身客指着册背：“接到谁身上？”','断签人把空符按住：“想走册外，先舍掉你自己的庇护。别只替别人算公平。”'],action:'按自己签过的空符，为一名册外来客立无债路牌',result:'你没有再领取赤签护盾；册外来客亲自刻好路牌，将一枚空栏签交给你。',clue:'你核了册背转移灾厄的对象，记下本人是否同意。',reply:'你指出一笔未经本人同意的转签，让来客自己写下离去一栏，得到空栏签。'},
+feiye:{scene:['宫侍将名帖夹紧：“入宫得庇护，也得留名。”归客抱着墓牌：“我当年自愿，如今也想自己走。”','讨名者问你：“是继续替宫里收名，还是陪他把这一张取回来？”'],action:'让归客取回自己的这一张名帖',result:'归客亲手划掉一张旧契，带着真名离开祠门；你收下一张无字路签。',clue:'你核对了入宫时的自愿记录和本人今日要求离去的笔迹。',reply:'两份笔迹都来自本人。宫侍归还这一张名帖，归客把无字路签交给你。'},
+feiye_echo:{scene:['墨偶将回信读得与原主一模一样。求真人拿出另一封：“他那夜已不能握笔，这句是谁答的？”','墨偶捏住信封：“可收信的人确实撑过来了。你要把这也说成假的吗？”'],action:'并列核验两封回函，保留未送出的原信',result:'你在两封信上分别标明代笔与本人笔迹，未封回函留在包裹；制偶人给你定音片。送信尚未完成。',clue:'你抄下两道折痕与不同笔压，能区分代答与原信。',reply:'你把两种笔迹分开标记，求真人承认墨偶帮过人，也交给你一枚定音片。'},
+retainer:{scene:['守门人正在加固避难所：“门开了，外面的东西就进来。”门里的人敲锁：“我想出去，不是想被放出去等死。”','断环客举起一段可开的门环：“留一道自选的出口，守门就不必靠锁住活人。”'],action:'拆开门后这一段锁环，让本人选择去留',result:'门环打开，一人离去，一人留下修灯。断环客将退灯扣交给你；灯门没有全部拆毁。',clue:'你记下门外安全时辰和屋内两人的不同去向请求。',reply:'你按安全时辰开门，两人各自选择去留，断环客交出一枚退灯扣。'},
+heart:{scene:['掌印者把未落印的纸藏进袖里：“再等等，总会有一个没错的答复。”守稿人按住他的手：“等的人已经替你做了。”','纸上留着后来者的字迹；封存也在改变眼前的结果。'],action:'保留原稿，记下由自己作出的这一项决定',result:'你把原稿与补写分开放好，签的是自己今日的决定。守稿人将定心灰交给你。',clue:'你辨认原纸留白与后来补写的先后次序。',reply:'你指出补写者的名字，不把无印当成默许。守稿人给你一撮定心灰。'},
+snake_ascended:{scene:['黑潮中有人兜售逆仪护符：“借它的力，至少今日能活。”白鳞看守压住裂口：“借走之后，谁来替你守？”','采鳞人把刀收进鞘：“要补裂，用掉落的内鳞，别再从她身上割。”'],action:'用已经脱落的白鳞补住这一道井缝',result:'你没有再取活鳞，只封住眼前的一道裂口。看守给你白鳞粉；井底黑潮仍没有退尽。',clue:'你核清这片内鳞已脱落，裂口只须嵌住一角。',reply:'看守照你核过的尺寸嵌好旧鳞，取边角磨成白鳞粉交给你。'}
+};
+for(const [boss,x]of Object.entries(EXPLICIT)){const g=GROUPS[boss];g.sourceText=x.scene;g.opposeActionName=x.action;g.opposeAction=x.result+'取得对应一次援助；放弃本洞府精英战奖励。';g.opposeOutcome=x.result;g.investigation=x.clue;g.investigationIntro=g.intro;g.investigationReply=x.reply;g.investigationAftermath=x.reply;g.battleLines={support:'对方认出公开的'+ITEMS[g.support].name+'：“这份约定还挂在你身上。你来，是要继续它，还是问我们当年的事？”',oppose:'对方看见'+ITEMS[g.oppose].name+'：“我听说你做了那一件事。余下的人，还得各自开口。”',investigation:'对方看过你的记录：“你记下了这一处。愿意问，就别把没看见的地方先填满。”'};}
+const COMMITMENTS={marsh_boss:['接下封水护板的委托','接下凿堤舟的泄潮委托'],mirror_boss:['付12灵石修镜，收下护持','答应向镜主询问，再协助剥银'],feiye:['接受旧宫护持与收名约定','接下还名委托，带本人去祠堂'],feiye_echo:['许可代答，收下墨偶凭证','接下核信委托，保留两封回函'],retainer:['接下守门委托，收好锁符','接下开环委托，留下出口记号'],snake_ascended:['答应引潮，收下逆仪护持','接下以旧白鳞封裂的委托']};
+for(const [boss,[support,oppose]]of Object.entries(COMMITMENTS)){GROUPS[boss].supportChoice=support;GROUPS[boss].opposeChoice=oppose;}
+for(const [boss,g]of Object.entries(GROUPS)){
+ const support=ITEMS[g.support],oppose=ITEMS[g.oppose],aid=ITEMS[g.aid];
+ if(g.frontier){support.text=`你主动接受${support.name}所代表的委托，凭证会公开发光。${DEFS[g.npc].name}看到便立即交战；另一方凭证不能抵消。只在对应镇境者交锋首回合获得8护盾一次，用尽仍会被认出。`;
+ oppose.text=`接下${oppose.name}代表的委托；取得它不等于已经完成行动。到${g.cave}可交涉履行；仍带有效${support.name}会先引战。`;
+ const effect={playerMark:'本次追索印减少1，少一层下一次首段增伤',energyPenalty:'本次封灵减少1，下回合少扣1灵力',drawPenalty:'本次少抽牌减少1，下回合少损失1张抽牌',poison:'首次施毒减少1；蛇息通常3→2，仍会中毒且不清已有毒',counter:'本次反击强度减少1'}[g.effect];
+ aid.text=`仅对应镇境者实际施展相关招式时：${effect}。本局一次；旧物证完整抵消或整次行动被冻结时不消耗。包裹显示携带／用尽，战后列明是否触发。`;}
+}
+
 function frontierEvent(base,g,rec,state,owns,witnessed){
  const c=(label,text,x={})=>({label,text,outcome:text,...x});
- if(base.factionEvent.kind==='source')return {...base,story:g.sourceText,choices:[c(g.supportChoice,ITEMS[g.support].text,{questItem:g.support,factionKey:'support',...(g.sourceCost?{goldCost:g.sourceCost}:{})}),c(g.opposeChoice,ITEMS[g.oppose].text,{questItem:g.oppose,factionKey:'oppose'}),c('只记录眼前证词','记下现场说法与痕迹，暂不接任何约定。',{factionKey:'investigate'}),c('离去','收起行囊，继续赶路。',{factionKey:'leave'})]};
- if(rec.mode==='approach')return {...base,story:[g.warning,'挂在衣外的信物藏不过这里的眼睛。你还可以绕行。'],choices:[c('探入洞府','按现有有效凭证判断态度。',{factionAction:'enter'}),c('绕行','关闭本次机会，不获奖励。',{factionKey:'leave'})]};
- const actualChoice=state.journey.factions.behaviors.some(x=>x.npc===g.npc&&x.kind==='oppose');const oppose=owns(g.oppose)&&(!g.requiresForfeit||state.journey.factions.forfeited?.[g.support])&&(!g.requiresDecision||actualChoice);return {...base,story:[g.intro,witnessed?'你记起沿途听过的那段旧事；对方没有替所有证词作保。':'话里有些名字你还陌生，眼前的说法只是其中一面。'],choices:[c(oppose?'交谈，交换一次援助':'付12灵石，听取证词',oppose?ITEMS[g.aid].text:g.testimony,oppose?{questItem:g.aid,factionKey:'aid'}:{goldCost:12,factionKey:'talk'}),c('交回春草，帮助眼前的人',g.help+'消耗回春草1，得到凝露叶1；不兼领援助。',{herbCost:1,itemGrants:[{id:'dewherb',count:1}],factionKey:'help'}),c('动手，夺取现场证据','正常玩家先手精英战；胜利只发标准战利及本次证据。',{factionAction:'attack'}),c(witnessed?'问起已见旧事后离开':'离去',witnessed?'对方不肯替未见的人保证。你记下拒答，不额外定罪。':'合上器物匣，沿原路离开。',{factionKey:witnessed?'question':'leave'})]};
+ if(base.factionEvent.kind==='source'){
+  const snake=g.groupBoss==='snake';
+  const actionName=({gate_boss:'护灯',camp_boss:'追药或送担架',snake:'守井或开井',bell_boss:'留魂或停钟'}[g.groupBoss]||'委托所述行动');
+  const opposeText=`${ITEMS[g.oppose].text} 这里只接下委托并取得凭证；${snake?'价款和药材会在洞府当面议定。':'实际行动留待洞府处理。'}`;
+  return {...base,story:g.sourceText,choices:[c(g.supportChoice,`${ITEMS[g.support].text} 这里只接下守约委托并取得凭证；${actionName}行动尚未完成。`,{questItem:g.support,factionKey:'support',...(g.sourceCost?{goldCost:g.sourceCost}:{})}),c(g.opposeChoice,opposeText,{questItem:g.oppose,factionKey:'oppose'}),c(snake?'查药方与抄方账':'只记录眼前证词',`不接委托、不领立场物。${g.investigation||'把现场说法记入手记；到相关洞府可核对，不凭此认定谁有罪。'}`,{factionKey:'investigate'}),c('离去','不支付资源、不取凭证；这次机会会错过。',{factionKey:'leave'})]};
+ }
+ if(rec.mode==='approach'){
+  const supportThreat=owns(g.support),knownEnemy=state.journey.factions.behaviors.some(x=>x.npc===g.npc&&x.kind==='attacked');
+  if(supportThreat||knownEnemy){const token=supportThreat?ITEMS[g.support].name:'你曾在此处主动交锋';const opposition=owns(g.oppose)?`你也带着「${ITEMS[g.oppose].name}」，但它不能抵消这份敌意。`:'';return {...base,story:[g.warning,`${DEFS[g.npc].name}会认出${token}。${opposition}继续进入将直接交战，玩家先手；不会被偷袭。你可以现在绕行。`],choices:[c('明知会开战，进入洞府',`${DEFS[g.npc].name}立即发动精英战；你先行动。${supportThreat?`「${ITEMS[g.support].name}」的8点护盾只在镇境Boss战生效，不在本次遭遇消耗。`:''}`,{factionAction:'enter'}),c('绕行，放弃本次交涉机会','不触发战斗，不取得奖励；之后仍可按既有地图前进。',{factionKey:'leave'})]};}
+  return {...base,story:[g.warning,'洞口没有认出你身上的立场物。你可以探入、听取证词，或在出现冲突前离开。'],choices:[c('探入洞府','尚未决定现场各方会如何回应；进去后仍可选择交涉、调查、帮助或离开。',{factionAction:'enter'}),c('绕行','关闭本次机会，不获奖励。',{factionKey:'leave'})]};
+ }
+ const actualChoice=state.journey.factions.behaviors.some(x=>x.npc===g.npc&&x.kind==='oppose');const oppose=owns(g.oppose)&&(!g.requiresForfeit||state.journey.factions.forfeited?.[g.support])&&(!g.requiresDecision||actualChoice);const investigated=state.journey.factions.behaviors.some(x=>x.npc===g.npc&&x.kind==='investigate');
+ const ordinaryIntro=g.groupBoss==='feiye'?g.intro:g.groupBoss==='snake'?'采鳞者推回秤砣：“我卖药材，不卖治愈。药账上这笔加量和加价都有买主签名，但没人认下是谁改的抄方。”':g.groupBoss==='gate_boss'?'剪灯客把半截灯链放在桌上：“护的是登记过的人，还是眼前这位老人？剪链也不能保证每个背夫都过河。”':g.groupBoss==='camp_boss'?'独臂逃卒扶正担架：“药箱里剩多少，药役知道。残卒说我偷药；我想知道他准备把药分给谁。”':g.groupBoss==='bell_boss'?'掘名人指着无字碑：“先核清这一个人的碑，再说要不要在钟阵留魂。”':g.intro;
+ const intro=investigated&&g.investigationIntro?g.investigationIntro:ordinaryIntro;
+ const examinedChoice=g.groupBoss==='snake'
+  ?c('出示旧价账，按账面价格买回春草','支付8灵石，购买1份回春草。账目只能议价，不能证明是谁改方或救回病人。',{goldCost:8,itemGrants:[{id:'herb',count:1}],factionKey:'investigation',outcome:g.investigationReply})
+  :c(({gate_boss:'出示渡簿与水痕，护送一名背夫过暗水路',camp_boss:'核对药量与名册，放行一副担架',bell_boss:'核对这一户碑名，替他们停下续钟'}[g.groupBoss]||g.opposeActionName||'出示调查记录，核实一项现场说法'),`不支付灵石；按已核的记录处理这一件事，取得「${ITEMS[g.aid].name}」一次。放弃本洞府的精英战奖励。`,{questItem:g.aid,factionKey:'investigation',outcome:g.investigationReply});
+ const p2=!!g.investigationReply;
+ const unverifiedCamp=g.groupBoss==='camp_boss'&&!investigated&&!oppose?c('没有核账，仍劝双方停手','你没有对过药箱余量和担架名册；残卒把劝说当成替逃卒拖延，当场起冲突。玩家先手；胜利获得标准精英奖励。',{factionAction:'failedMediation'}):null;
+ let first;
+ if(unverifiedCamp)first=unverifiedCamp;
+ else if(p2&&investigated&&!oppose){first=examinedChoice;if(g.requiresForfeit||g.requiresDecision){delete first.questItem;first.text='核对眼前记录，不签立场凭证，也不取得需要本人抉择才给的援助。';first.outcome=g.groupBoss==='abyss_boss'?'你查明一笔转签，来客要求本人撤签；你尚未放弃自己的护持，因此没有领取空栏签。':'你核清原稿与补写的次序；没有替纸上的人落印，也没有取得定心灰。';}}
+ else if(oppose)first=c(g.opposeActionName||'交出委托凭证，交换一次援助',g.opposeAction||ITEMS[g.aid].text,{questItem:g.aid,factionKey:'aid',...(g.groupBoss==='snake'?{goldCost:12,itemGrants:[{id:'herb',count:1}]}:{}),...(g.opposeOutcome?{outcome:g.opposeOutcome}:{})});
+ else first=c(g.groupBoss==='snake'?'付12灵石，听取药账证词':'付12灵石，听取证词',g.groupBoss==='snake'?'付款后才展示药账证词；不提供药物，也不代表病人已获救。':'付款后才展示证词；不代表你已完成现场行动。',{goldCost:12,factionKey:'talk',outcome:g.testimony});
+ const investigationLine=investigated?`你出示来源处的调查记录：${g.investigation||'你只记录了当事人的说法与现场痕迹；这些内容不能证明尚未亲见的事。'}当事人只承认记录能够证明的部分。`:witnessed?'你记得沿途听过的旧事，可以就亲眼见过的部分追问。':'你还没见过这些人；眼前的话是当事人的说法。';
+ return {...base,story:[intro,investigationLine],choices:[first,c('交回春草，帮助眼前的人',g.help+'消耗1份回春草，得到1份凝露叶；只完成这次救助。',{herbCost:1,itemGrants:[{id:'dewherb',count:1}],factionKey:'help'}),c('动手，夺取现场证据',`与${DEFS[g.npc].name}交战，玩家先手。胜利领取标准精英战奖励并记录「${g.proof}」；没有和平赠物。`,{factionAction:'attack'}),c('离开洞府','不支付、不取药、不领援助；这次调查到此为止。',{factionKey:'leave'}),...(g.groupBoss==='camp_boss'?[c('夺下药箱，两边都别拦','连续两战：守营残卒→断誓逃卒；中间不能休息，生命保留，战斗状态重置。只在第二战胜利后获得一份精英总奖励（35灵石与选牌／遗物）；不领和平赠物，两方记住你先动手。',{factionAction:'both'})]:[])]};
 }
 function groupFor(boss,state){
  const g=GROUPS[boss];if(!g)return null;
@@ -2080,7 +2142,7 @@ const choice=(label,text,extra={})=>({label,text,...extra,outcome:extra.outcome|
 if(after)return {...base,story:['门里只剩收好的工具。先前的关口已经改变，此刻再来的人不必接受一份过期的委托。'],choices:[choice('记下善后，离去','不获得战斗奖励，不重复领取旧物。',{factionKey:'aftermath'})]};
 if(g.frontier)return frontierEvent(base,g,rec,state,owns,(state.journey.bossQuests?.records[boss]?.stage||0)>0);
 if(kind==='source')return {...base,story:boss==='lotus_boss'?['门边的纸偶正替一个受伤的仆役缝衣。铜牌亮起时，它会保护来客；另一边却有人被同样的红线拦住。','药碗残留封灵药的气味，旁有破损护命阵。这是新发现的痕迹：尚不能据此指认投毒者，也不能替换夺谱纵火案的已有证词。']:['炉役把愿帖夹进炉口：“停了火，等着药的人怎么办？”墙边一位老人却只想拿回自己的寿契。','原寿契是调查证物，只有你主动接受供养才会留下续炉炉纹。支持与反对都有人付代价。'],choices:[choice('接受护持与约定',ITEMS[g.support].text,{questItem:g.support,factionKey:'support'}),choice('接受另一方的委托',ITEMS[g.oppose].text,{questItem:g.oppose,factionKey:'oppose'}),choice('只核实现场，不表立场','留下证词，不接受任何可被识别的立场凭证。',{factionKey:'investigate'}),choice('离去','不改变数值，不认作背弃。',{factionKey:'leave'})]};
-if(rec.mode==='approach')return {...base,description:g.warning,story:[g.warning,'这处洞府尚未探入。你可以看清携物的风险，再决定是否进去。'],choices:[choice('探入洞府','进入后按已持有效凭证与本次目击判断态度。',{factionAction:'enter'}),choice('绕过洞口','不进入洞府、不获奖励。',{factionKey:'leave'})]};
+if(rec.mode==='approach'){const oldEnemy=f.behaviors.some(x=>x.npc===g.npc&&x.kind==='attacked'),threat=owns(g.support)||oldEnemy;return {...base,description:g.warning,story:[g.warning,threat?`${oldEnemy?'对方记得你曾主动向他动手。':'你公开带着「'+ITEMS[g.support].name+'」，'+DEFS[g.npc].name+'会认出这份约定。'}${owns(g.oppose)?'另一方凭证不能抵消这份敌意。':''}继续进入立即交战，玩家先手；可以现在绕行。`:'洞内尚未认出敌意，你可以进入交谈，再决定是否出手。'],choices:[choice(threat?'明知会开战，进入洞府':'探入洞府',threat?'正常玩家先手精英战；对应镇境者的护持不在此消耗。':'进入后可交涉、付费听证、救助、交锋或离开。',{factionAction:'enter'}),choice('绕过洞口','放弃本次机会，不战斗也不获奖励。',{factionKey:'leave'})]};}
 if(rec.mode==='hostile')return {...base,story:['对方认出了你身上公开显露的凭证，拿起武器。没有凭空得知包裹里的普通证物。'],choices:[]};
 const witnessed=(state.journey.bossQuests?.records[boss]?.stage||0)>0;
 const opp=owns(g.oppose);return {...base,story:[boss==='lotus_boss'?'探客先看你的脸，又看腰间：“那宅子里还在烧茶？她倒一直记得给死人留座。”他把器谱筒往身后收了收。':'拾灰人收拢炭印盒：“我只替愿意退契的人找回名字。你救过谁，不能替另一个人签字。”',rec.known.includes('talk')?'你已经听过对方的说法；证词还不等于判决。':witnessed?'你记得沿途听过的旧事，可以据此询问。':'你没有亲历对方提到的人，不会替陌生名字作证。'],choices:[
@@ -2091,6 +2153,131 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
 })(typeof globalThis==='undefined'?window:globalThis);
 </script>
 <script>
+/* Reviewed event presentation. All effects remain owned by the engine. No RNG here. */
+(function(root){
+'use strict';
+const REVISION=2;
+const SCENES={
+faction_lotus_boss_source:['缝门纸偶替伤者合拢衣口，夺谱探客在另一头敲着裂芯钉。门牌照出的红光挡住了两人的路。','纸偶说：“留给活人一碗水。”探客压低声音：“替我拿器谱，我给你拆她机关的工具。”'],faction_furnace_boss_source:['炉役把愿帖夹进火口，退契老人伸手去拿，指尖立刻被灼红。','“停火，靠它熬命的人怎么办？”炉役问。老人指向帖尾：“我只要拿回自己的，不替旁人退。”'],
+well:['井底浮起一只装着遗器的匣子，水面写出三种交换：灵石、血，或只喝一口井水。','井中传来你的声音：“取宝要付价，喝水可以养伤。先看清你要拿哪一样。”'],
+shrine:['无面神像摊开掌心，供桌旁的箱子装着灵石。香灰上浮出献祭的价目。','神像说：“献血换术，撬箱便割去一截命火。供桌上的旧钱归位，我也可以替你止痛。”'],
+dreamshop:['卖梦人摆出封好的梦罐，又指向你已经练熟的旧招。','“买梦付灵石；卖旧习惯，就从此行的牌组里抹掉一式基础招。吞梦能得两式功法，醒来会伤身。”'],
+theatre:['台上纸偶正演着你的死法。班主将朱砂笔和一盏护命灯分别推到桌边。','“改戏会分走你一口血气；买灯付钱。若不想看，撕本散场，那些压在椅下的灵石也归你。”'],
+umbrella:['无影妇人撑着半把伞。伞骨夹着两页功诀，她伸手时，你的影子向她滑去一寸。','“借影会削去你这一程的命火，直到离开寒渊也不归还。或陪我走一段险路，我用伞下遗器答谢。”'],
+pawnshop:['掌柜将蛇鳞放上秤盘，每片鳞里都藏着一段别人的记忆。','“当记忆，我付六十五；赎遗物，你付四十。要放走匣里的鳞，先想清它会割伤谁的手。”'],
+riftwatch:['太微望哨断讯三日。守哨弟子抱着昏迷的同伴，名册却写了四个人。','“分些真气救他，我把剑诀和路费给你。第四个人进井后没回来……别现在问他的名字。”'],
+supply:['千灯灵商的车压在断桥边，箱中传出一下轻响。老板先挡住了你的视线。','“我雇你搬货，报酬照付，不雇你开箱。里面是器材，还是别的东西，你要问就另谈。”'],
+cultlab:['废实验室的试剂正蚀穿石盘，墙上留着玄烬教的观测记录。','残页上写着：“先看剂量再碰药瓶。血能唤醒阵纹，不能保证唤醒的东西听令。”'],
+swordgrave:['寒碑前留着三道试剑痕，一页札记压在断剑下。','札记写道：“试招须承剑气。若要舍弃旧式，照碑练到不再出手；此行便不必再带那一招。”'],
+pilgrims:['药师守着火炉，买路人坐在另一头收情报。两人将各自的价签摆到你面前。','药师说：“药换灵石。”买路人接道：“我付钱听你见过的事，别拿传闻充亲见。”'],
+prisoner:['锁魂笼中的人把一页口诀推到栏外，锁链随他的呼吸收紧。','“断锁，我拿藏物谢你；不敢放我，就只买这页口诀。买招式不等于答应带我出去。”'],
+echo:['裂隙里传出与你呼吸相同的声音。你伸手时，指尖先渗出血珠。','石壁刻着：“近者以血换回声；止步者可调息。门后是谁，无人留下可核实的名字。”'],
+broker:['千灯代理人先收起空钱袋，摊开一件待售的奇物。','“四十灵石买这件，不是我预付给你。另有一份暗单，报酬和当场风险写在下面，接不接由你。”'],
+liu_first:['柳照青扶住一只漏药的木箱，手指抖得几乎拴不住布带。雾中还有伤者在叫她。','“能帮我把人拖到灯下吗？没空救人，借些药钱也行。我不能把他们留在这儿。”'],
+liu_return:null,liu_final:null,ji_first:['季临川靠着断墙，断剑压在腿上。他指向雾里的同伴，又看了一眼你的兵刃。','“替我搭一把手，谢礼当面给。你若只愿指路，也请说清哪边有活人。”'],
+ji_return:null,ji_final:null,wen_first:['闻人烛的手腕被符锁勒出血痕。锁纹一头扣着他，另一头连着雾里的追索阵。','“断它，我能走，可残符也许会把追索引过来。只取记录就不必碰锁；别替我赌而不问。”'],
+wen_return:null,wen_final:null,
+sect_duel:['玄照门弟子横剑挡路，地上已经划出试剑的界线。','“不服便过来。”他看着你把手按上兵刃，“只是按帖试招，不是分生死；剑气擦伤照样得自己受。”'],
+herb_caravan:null,
+relic_dispute:['两宗弟子各拉住一只匣子的铜环，一人亮出旧契，一人指着匣上的本门刻印。','“先看契上的交货人！”“那印是谁盗用的，你问过没有？”两人都把匣子往自己身边拉。'],
+night_watch:['破亭里，各宗来客把兵刃放在各自伸手可及的地方，亭外的东西正沿灯影游走。','守灯人说：“先轮着看火。”持刀客答：“今晚我不问你的师门，天亮各走各的。”'],
+moon_trace:['沉钟底下压着一柄古剑，剑气冻住了附近积水，剑柄却没有封死。','钟沿小字写着：“可带走，不代表能驾驭。修为不及仍强用，剑会反噬，甚至在交锋中自作主张。”'],
+sealed_name:['残页夹在失踪者的行囊里，姓名那一格被反复刮去。纸背留着通向更深井道的记号。','留字人写道：“它是路上的证据，不是通行令。愿查就保存；只取眼前补给，也别冒认已经查清。”'],
+moon_vow:['碑前摆着一块空白誓石，你的指尖靠近时，石上先映出一线月光。','碑文写道：“留下自己的见证，不替后来者许愿。”你可以按下手印，也可以只取路边药草。'],
+armory:['守匣人把几柄剑依次摆好，剑价与驾驭要求分别写在柄旁。','“买下只是收入包裹，佩哪柄还得你自己选。神剑能硬拿，修为不足时，吃亏的也会是持剑人。”'],
+sovereign_wake:['旧宫台阶上落着绯夜用过的印。倒影先她一步拾起，问她还记不记得原来的主人。','绯夜说：“印放下。你带走的那一部分，我亲自取。”'],
+sovereign_recall:['旧部把锁灯举到绯夜面前，灯内仍有人敲击。殿深处传来卫烬的脚步声。','“我替您留住了所有人。”绯夜看向锁扣：“先打开它，再谈你究竟留住了什么。”'],
+sovereign_memory:['绯夜在心海里看见一张未盖印的纸。另一个声音一遍遍催她补上当年的答复。','“你忘了谁？”声音问。她没有去拿印：“先让我看清纸上原来写的什么。”'],
+tainted_mercy:['裴隐捂着手臂求援，药囊上的封口却刚被割过。你靠近时，他的手伸向你的伤处。','“同道，借一点药便好。”他说得很急。药味混着甜腥，与你认得的止血散不太一样。'],
+demonic_offer:['经脉里的异样越来越清楚。黑衣旧修递来一页口诀，指尖凝出温热血光。','“它能即刻回气，不必等毒慢慢退。”她按住书页，“但反复用它会改变心性。学术、治毒，是两件事。”'],
+demonic_warning:['旧识把清心玉放在剑穗旁，另一只手里是治毒的药。','“玉护心神，不拔毒；药拔毒，不替你收住心念。东西有限，这次只能择一。已经改变的心性，玉也拉不回来。”'],
+mirror_trial:['镜中人伸手触了触你掌心的黑线，又看向剑穗上的空位。','“清心玉能守住神志，拔毒药才管经脉。别把暂时不痛，当作两件事都治好了。”'],
+demon_manual:['井下残卷分成数页，血指印停在每页不同的起势上。','页边写着：“取卷只得招式，不解旧毒。自损先付，吸血只取真正伤到的生机；死后没有下一招。”'],
+fallen_hunt:['裴隐终于放下遮伤的手，认出了你用过的那只药囊。身后的经卷正被他收进袖里。','“药是我递的，你也确实喝了。”他说，“如今来讨解法，先看你还能不能握稳剑。”'],
+blood_lesson:null,
+blood_debt:['棚下的伤者等不到药，守棚人把一名俘虏推到前面。旧修送来的空瓶还放在桌上。','守棚人说：“用他续命便是。”俘虏后退，伤者却先开口：“要拿谁的命救我，至少先让我听见。”'],
+blood_choice:null,
+marsh_pharmacy:null,reed_procession:['苇间女子把纸鹤放在湿衣上烘，远处的送行队已经看不见了。','“折好它，能给迷路的人指灯。你也可以陪我把湿纸烘干，别一着急就全揉破。”'],
+drowned_archive:null,
+furnace_ledger:['女子在炉边烧去已结清的账页，炉口逐枚落下供人取走的冷灵石。','“二十枚，换我炼好的丹。桌上冷石是废炉料，拿走无妨，不记新债；别碰那些还连着人名的账。”'],
+captive_smith:['铸匠站在炉前白线以内，烧红的链子压住了她一只脚。门虽开着，链子没有断。','“先压住炉门，我才能落最后一锤。别替我拽链。”她把修符价码推来，“若不冒险，就做这笔买卖。”'],
+ash_orchard:null,mirror_guest:null,unfinished_portrait:['画上的衣冠和手势俱全，只有脸还留白。一张纸请后来者在画边补一笔花色，别替画中人添脸。','旧画谱旁标着二十四灵石：“学留白，便将一式基础招从此行所用功法中练掉；不是买下整幅画像。”'],
+glass_assembly:['十一道人影围着琉璃桌，空位前留着灯、刃、叶三个匣子。桌规写着：行路者可取一匣，取后离席。','灯匣和叶匣是供给；刃匣中的功诀要付二十五灵石。玉槌只用来示意散席，这里没有要你代投的票。'],
+fate_tailor:['白发女子翻看你衣上的破口，黑线团在脚边滚了一圈。','“补伤管疼，拔毒管黑线，价钱各算。名字不必留下。我那句劝告，也不是要另收你一笔账。”'],
+silent_astrolabe:['星盘卡在缺齿处，旁边留着铜齿匣和修补价码。指针下刻着一条可供运气的脉路。','修补可取出槽内功诀；顺脉运气可以调息。你若不碰星盘，也能从断阶另一侧绕过去。'],
+last_campfire:null,campfire_hunt:null,road_aftermath:null
+};
+// Each pair belongs to one particular encounter; history-dependent scene openings stay intact.
+const TALE_DIALOGUE={
+debt:[['岑娘：“十二枚，明天来收。我伤成这样，撑不出一趟船。”','“那两双鞋是谁的？”她把鞋推回凳下：“过河人留下的。”'],['老人：“不登记，营里不发粮。”岑娘指着旧名：“追兵也照这个找人！”'],['岑娘把账摊开：“收钱、还钱，当着彼此念。今天这一笔，你打算怎么办？”']],
+medicine:[['杜蘅：“这两碗给眼前的人。你要买，只有我另外留的备用丹。”','伤者说要赶回营地，女行脚按住发热的额头：“我也还没死。”'],['执事：“你给玄烬弃徒治过伤。”杜蘅把交货条放下：“查药可以，先让病人透气。”'],['杜蘅拉开一张长凳：“伤在哪里？先坐，别站着论功劳。”']],
+letter:[['阿筠：“烧了，外面的人还能领抚恤。送去，他们就会知道他开过门。”'],['家属：“我想看原信。公开之后，明天的饭钱谁付？”阿筠把两份抚恤单并在桌上。'],['阿筠：“原件留给家里，复本留给查案的人。碑上写什么，你还想再听他们说一次吗？”']],
+name:[['许渡：“先替伤势作证就行，门派的事……能不能过关后再说？”'],['原主：“牌还我。”许渡攥着衣领：“还了，他们又会把我赶出去。”守关者敲了敲只剩一格的名册。'],['许渡这次先报了真名：“牌已经不必借了。今天的活，是我自己接的。”']],
+lanterns:[['孟夫人：“灯回来，就有人回来。”帘后的人轻声说：“娘，我在这里。”'],['孟清：“我不是姐姐的归魂。我活着，也想出门。”孟夫人按住船票：“雾里还能有人回来吗？”'],['河灯顺流而下。孟夫人在信上慢慢写出“孟清”，停笔问：“这样写，对吗？”']],
+grain:[['陶掌柜：“护送费翻倍，粮也得涨。”护卫压住裂开的粮袋：“搬粮的人还没领工钱。”'],['运粮人：“粮是我们扛来的，饭却买不起。”陶掌柜翻开合同：“护送与卖粮原是两笔。”'],['陶掌柜把账册放在秤旁：“哪一笔不对，当场问。”护卫还站在粮袋边，没替她应承。']],
+bridge:[['石砚：“这段接上，担架就不用下水。”女医递来小刀：“我能取一点伤处的样本吗？”'],['村人举火把：“桥下藏着异变的人！”石砚挡住半截桥板：“先看清谁还在修路。”'],['新工匠接过锤子：“这里按谁的尺寸？”石砚留下的刻痕正好对上下一根梁。']],
+forge:[['陆炉按住炉门：“这是付过价的材料。”妇人指着炉内的扣子：“那是我儿子的衣扣！”'],['认物的人说：“名字给我留下，别只说东西已经熔了。”陆炉没有再把订单盖在名单上。'],['陆炉把剑与账分开放：“剑归谁，名字记谁，都在这里。要不要拿，请你看完。”']],
+theatre:[['停云：“这戏有人付钱，要删一场。”幸存者站在空椅旁：“删的是我们逃出来那晚。”'],['资助人压住戏本：“我付的是团圆戏。”幸存者抽回纸页：“活着的人还在，你不能替我演完。”'],['停云卸下头面：“留什么、唱什么，今天当着人说。散场后，工钱也照账结。”']],
+well:[['井娘托住铜轮：“替我转一班，我已经守了两夜。”管事拿着玉印：“换人也要先登记。”'],['井娘：“我不再一个人守了。”管事指着账：“修轮的钱，还是轮班的钱？”'],['新凳子摆到井边。接班人先看时辰：“这一班轮到谁？别再只写她一个名字。”']]
+};
+const BOSS_DIALOGUE={
+lotus_boss:[['木匠：“他们拿着修门收据进来，烧门时却把我女儿锁在里头。”','“这把是主人的备用匙。留声簧还少半句，单拿钥匙劝不住她。”'],['修器女修反复拨动簧片：“我修过他们的开门器。我怕写上名字，就得跟着认罪。”','簧片响起：“别追出去……救活着的人。”她终于停手，让你把后半句听完。'],['孩子指着空鞋：“她还在给这双鞋的主人烧水。钥匙开匣，簧片让她听全；缺哪件，她都只认得复仇。”']],
+gate_boss:[['抄写人：“我写成无名，就不用报少了几个人。”家属翻出旧笔迹：“那我们该到哪里找？”'],['老妇握着灯芯：“儿子等不到了，我还能等什么？”她看向门外，“这盏渡灯也该给后来的人用了。”'],['照微在灯后问：“名字补回来，就都能回家了吗？”同行人摊开渡簿：“先让后来者知道该找谁。”']],
+camp_boss:[['守卒用指甲刮自己的签名：“账给你，这笔能不能不留？”药量旁却写着“救全营”，领药人只有一位军官。'],['军医放下营印：“那夜我把会走的人留下守路，让躺着的人先走。有人留下后再没回来。”'],['闻铮按着誓墙：“药是谁领的，誓是谁签的？把原账摊开，别只给我念誓文。”']],
+snake:[['采药人压住试方簿：“加量多卖三瓶，我抄的。我家那月的粮，也是从这里来的。”'],['孩子抱着旧鳞：“说借一次，后来每月都算利息。”债主伸手：“鳞给我，旧契就当面烧。”'],['绛鳞守在药井旁：“方子改了以后，再没人来问喝药的人。你来查哪一笔？”']],
+bell_boss:[['抄帖女修：“他们说异乡人不必写。我弟弟的路费，就从这笔工钱里付。”家属把遗物一件件放下。'],['铸钟匠握不稳木槌：“钟会留住未尽的愿，我写成余韵。说出缺陷，工坊那年就卖不出钟。”'],['晚蘅听着补全的姓名：“补名字，是记住他们。把绳系回钟里，才是叫他们留下。”']],
+marsh_boss:[['水工：“尺少三寸，堤才过得了验收。工坊保住，那户人家没等到水警。”'],['摆渡妇：“最后一根绳给了我娘。对岸喊到第三声，我还没解开结。”'],['泠汐把月珠举出水：“每一声我都记着。可再开一回闸，你让我先救谁？”']],
+furnace_boss:[['母亲指着寿契：“这指印是我昏睡时按的。”青年说：“那时我只想你活过来。”'],['守炉人展开女儿的信：“她说不愿再听炉底哭。我烧过的退契请求，都记在背面。”'],['赤绫站在炉前：“我关炉，靠它续命的人怎么办？”门上那人写着“不续”的手印尚未干。']],
+mirror_boss:[['学徒：“伤疤修掉，婚宴才好看。”画中人抚过原稿：“可你问过我想露哪一面吗？”'],['磨镜老人：“我收过封口钱。等自己的脸也照不出来，才肯刮银。”'],['素照举起空白脸：“挑一张留给后来人吧。”镜里的人同时开口：“先把原稿还来。”']],
+abyss_boss:[['书记：“当年为救你，多少人少活了几年。”长大的人把笔推开：“所以你又替我签了下一轮？”'],['铸印师：“只能拒收新命，救不回旧册的人。”她把写着“逆转”的价签撕下，“这一句，我得亲口改。”'],['命枢里的声音说：“还有人肯签。”册外那人按住空栏：“先问清签的是自己的，还是别人的命。”']],
+feiye:[['收帖人：“当初我求她收留，名字自己按的。”归客把名帖递回：“如今我想走，也该让我自己说。”'],['灯匠举起铜环：“新锁可开，可工钱仍要有人付。”门内的人把攒下的路费放到桌上。'],['旧宫门前有人端着茶：“归来该是客，不该先变成不能走的人。”']],
+feiye_echo:[['墨偶拿出旧札：“这封是我代回的，他那夜已经握不动笔。”收信人问：“所以每句话都是你说的？”'],['制镜人：“裂缝会露出两种笔迹。”她把镜边翻过来，“这次我不替它磨平。”'],['倒影捏着回信：“帮过的人还记得我。”绯夜看见两道折痕：“记得，不等于他们答应由你继续代答。”']],
+retainer:[['守簿人：“有人请我别报去向。我把请求留在背页，没有先替他们写死亡。”'],['灯匠：“开锁以后，也有人回来修灯。可那份工钱，不能拿不许走来抵。”'],['卫烬指着旧席：“我守到今天！”席外的人答：“我们记得。钥匙也该还给我们。”']],
+heart:[['执笔人翻出未盖印纸：“您没有答，我就照自己想的做了，后来写成默许。”'],['守梦人：“忘了便能睡。”他又收起灯灰，“但赔偿要送去谁家，我还得记住。”'],['心影问：“那次没答，便能算没做过？”绯夜把未落印的纸按在案上，先看见了后来擅行的名字。']],
+snake_ascended:[['抄写人：“后两笔是教徒改的。”你指向第一道删痕，他收回手：“那一笔，是我。”'],['采鳞人停下刀：“我说剥掉黑鳞就能救她。她的伤口，却从那一天再没合过。”'],['深井中的声音说全是灾变的错。绛鳞盯着灾前签过的旧契，指尖没有离开自己的名字。']]
+};
+const BOSS_WORK={lotus_boss:['替木匠护送木料','替修器者整理未涉案的零件'],gate_boss:['搬灯油到渡桥','替老妇修好漏雨的窗'],camp_boss:['搬运营外行囊','清点军医留下的空箱'],snake:['运送无毒草药','替孩子把药送到桥下'],bell_boss:['替抄帖者送纸灯','替铸钟匠清理旧模'],marsh_boss:['搬开潮尺旁的淤石','帮摆渡妇修一块船板'],furnace_boss:['替抄手整理空白契纸','把守炉人的冷灰运出门'],mirror_boss:['替画徒磨不涉原稿的颜料','帮磨镜老人收拢碎银'],abyss_boss:['替书记搬运空白册页','替铸印师清理废印模'],feiye:['替收帖人整理已退回的名夹','替灯匠缠好新铜线'],feiye_echo:['替墨偶晒干未封口的信纸','替制镜者归拢碎框'],retainer:['替守簿人搬空书匣','替灯匠修好一盏路灯'],heart:['替执笔人誊抄无名页','替守梦人整理未售药瓶'],snake_ascended:['替抄写人装订空白药簿','替看守搬走废弃鳞匣']};
+const RETAIN={liu_return:'保留此前救人／付钱／指路的不同招呼与报价，补充代价摘要。',liu_final:'保留按真实帮助回报，避免新对白捏造相识。',ji_return:'保留展示／隐瞒宝物的真实分支，不预揭对方动机。',ji_final:'保留实际知情与隐藏动机决定的伏击／让路。',wen_return:'保留解锁与未解锁的追索分支，保留每笔药资。',wen_final:'保留带证／消印／取药互斥。',herb_caravan:'苏芩已有现场动作和直接请求，保留语气及救药条件。',blood_lesson:'保留旧修直接诱惑及自损／吸血／正诀分流，补充已知施术风险。',blood_choice:'保留本局血术选择回执及封卷不逆转异变。',marsh_pharmacy:'药铺报价清楚，保留具体份数并明示物品收入包裹。',drowned_archive:'换页、修页、只读题字动作与效果一致，保留。',ash_orchard:'保留可见药性，修正丹药收入包裹与即时治疗混淆。',mirror_guest:'保留镜中交易及退出，补充丹药用途。',last_campfire:'无人营火不虚构NPC；保留纸条，明确火符烫伤和奖励。',campfire_hunt:'保留按堕落与证词触发的指控、交锋与返回休息，补齐提交风险。',road_aftermath:'保留首次／受助重遇差异、绕路与护车不同结算。',boss_lotus_awake:'保留双物证且亲历旧事才唤醒的四种善后；不新增无条件劝退。'};
+function costs(c,state,defs){
+ const a=[];if(c.goldCost)a.push(`支付${c.goldCost}灵石`);if(c.hpCost)a.push(`失去${c.hpCost}生命（当前生命须大于此数）`);if(c.maxHpCost)a.push(`本局最大生命减少${c.maxHpCost}，当前生命最多降至新上限`);if(c.herbCost)a.push(`交出${c.herbCost}份回春草`);
+ if(c.removeBasic){const card=state?.player?.deck?.find(x=>['C01','C02','S01','S02','F01','F02'].includes(x.id));a.push(`永久移除本局${card?'「'+defs.CARDS[card.id].name+'」这一个实例':'一张基础牌'}，至少留5张`);}
+ if(c.battle)a.push(`进入${c.battle.name||defs?.ENEMIES?.[c.battle.enemyId]?.name||'对手'}战，落败结束本局`);
+ if(c.learnDemonic||c.cardIds?.some(id=>id.startsWith('D')))a.push('反复使用禁术可能改变心性；清心玉可护心神，不治毒、不逆转已有异变');
+ if(c.itemGrants?.length)a.push('所得药物收入包裹，须服用才生效');
+ return a.join('；');
+}
+function rewrite(e,state,defs){
+ if(!e||e.editorialRevision===REVISION)return e;
+ const id=e.id;e.editorialRevision=REVISION;if(e.choices?.[0]?.factionKey==='aftermath')return e;
+ if(SCENES[id]&&!(id==='demon_manual'&&e.choices?.some(c=>c.flags?.fallenPlunder))){e.story=SCENES[id].slice();e.description=e.story[0];}
+ const tm=/^tale_(.+)_([123])$/.exec(id);
+ if(tm&&TALE_DIALOGUE[tm[1]]){
+  const speech=TALE_DIALOGUE[tm[1]][+tm[2]-1];
+  // Keep the state-dependent first paragraph and the previous actual outcome.
+  e.story=[e.story[0],...speech];
+ }
+ const bm=/^boss_(.+)_([123])$/.exec(id);
+ if(bm&&BOSS_DIALOGUE[bm[1]]){
+  e.story=[...BOSS_DIALOGUE[bm[1]][+bm[2]-1],...(+(bm[2])===3?[]:[e.story[0]])];
+  const q=defs?.BOSS_QUESTS?.[bm[1]];
+  if(+bm[2]===3&&q){const held=q.items.map(k=>(state?.player?.questItems||[]).includes(k)?'已持有「'+defs.QUEST_ITEMS[k].name+'」':'尚缺「'+defs.QUEST_ITEMS[k].name+'」');e.story.push(held.join('；')+'。物证只作用于对应交锋。');}
+  if(bm[1]==='snake'&&+bm[2]===3&&q){if(state?.player?.questItems?.includes('snake_formula'))e.story.push('她闻到你按原方制的药引：“这味，不该加倍。”');if(state?.player?.questItems?.includes('snake_scale'))e.story.push('她认出你掌中的旧鳞：“那个孩子还留着它？”');}
+  for(const c of e.choices||[]){if(c.key==='work'){const work=BOSS_WORK[bm[1]][+bm[2]-1];c.label=work+'，收取工钱';c.outcome=work+'。对方当面点清十八枚灵石，关键物品仍由原主保存。';}if(c.key==='redeem'&&c.outcome.includes('事情不因此变得清白')){const item=defs?.QUEST_ITEMS?.[c.questItem]?.name||'旧物';c.outcome='对方点清十五枚灵石，将「'+item+'」包好交给你，又替你包扎伤口。原记录上的签名和划痕一并保留。';}if(c.key==='prepare')c.outcome=`你按${e.name}中查到的线索重画护符；${defs?.ENEMIES?.[bm[1]]?.name||'关口守者'}战首回合将多10护盾。`;}
+ }
+ for(const c of e.choices||[]){c.riskSummary=costs(c,state,defs);}
+ if(id==='umbrella'&&e.choices?.[0])e.choices[0].text='影子在本局不会归还；削去的最大生命到下一局才恢复，须至少保留 5。';
+ if(id==='shrine'&&e.choices?.[1]){e.choices[1].outcome='你撬开箱盖，神像掌中的细线割去6点命火。灵石装进袋中；没有另记需要日后偿还的债。';e.choices[1].text='最大生命的损失持续本局，须至少保留 5；没有额外追债。';}
+ if(id==='pawnshop'&&e.choices?.[2])e.choices[2].outcome='蛇鳞割开手指，卷着符页落进你掌中。掌柜敲敲破掉的玻璃：“赔物的账，就用你这六滴血结了。”';
+ if(id==='ash_orchard'&&e.choices?.[0])e.choices[0].text='获得回气丹×1，收入包裹；服用时恢复24生命，此刻不直接治疗。';
+ if(id==='mirror_guest'&&e.choices?.[1])e.choices[1].text='获得虎魄丹×1；战斗中服用，本场攻击伤害提高，效果见包裹。';
+ if(id==='dreamshop'&&e.choices?.[1])e.choices[1].text=e.choices[1].riskSummary;
+ return e;
+}
+function review(id){return {status:RETAIN[id]?'保留并精修说明':'已改写',reason:RETAIN[id]||(id.startsWith('faction_')?'按组区分当事人、公开凭证风险、实际委托与洞府处置。':id.startsWith('boss_')?'改为当事人直接对白、对应物证与具体准备结果；保留原条件。':id.startsWith('tale_')?'保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。':'改写现场、直接请求与已知代价；保留原数值及历史前提。')};}
+const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};root.NightEditorial=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis==='object'?globalThis:window);
+</script>
+<script>
 /* 百妖夜契 — deterministic, DOM-independent game rules. */
 (function (root) {
   'use strict';
@@ -2099,6 +2286,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
   const TALES = root.NightTales || (typeof module !== 'undefined' && module.exports ? require('./tales.js') : {});
   const BOSS_QUESTS = root.NightBossQuests || (typeof module !== 'undefined' && module.exports ? require('./boss-quests.js') : {});
   const ENEMY_FACTIONS=root.NightEnemyFactions||(typeof module!=='undefined'&&module.exports?require('./enemy-factions.js'):{});
+  const EDITORIAL=root.NightEditorial||(typeof module!=='undefined'&&module.exports?require('./event-editorial.js'):{});
   const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
@@ -2877,10 +3065,10 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         const n=nodes[rand(nodes.length)];n.type='event';n.storyId='faction_'+boss+'_'+kind;n.name=kind==='cave'?g.cave:g.source;n.description=kind==='cave'?g.warning:'这里的人对同一位镇守有不同的打算。';f.scheduled.push(key);
       }
     }
-    function factionBattle(record,automatic){
+    function factionBattle(record,automatic,reason=null){
       const g=ENEMY_FACTIONS.GROUPS[record.boss];record.mode='combat';record.automatic=automatic;state.event.resolved=true;
       factionState().behaviors.push({floor:state.floor,npc:g.npc,kind:automatic?'recognized':'attacked',witness:g.npc});
-      startBattle('elite',{enemyId:g.npc,name:ENEMIES[g.npc].name,factionInstance:record.nodeId});emit();return true;
+      startBattle('elite',{enemyId:g.npc,name:ENEMIES[g.npc].name,factionInstance:record.nodeId});state.battle.factionCause=reason||(automatic?(state.player.questItems.includes(g.support)?`对方认出你公开携带的「${QUEST_ITEMS[g.support].name}」：“这份约定在你身上，我不能让你靠近。”`:'对方认出你曾向他动手，拒绝再次交涉。'):`你先向${ENEMIES[g.npc].name}出手，想夺取「${g.proof}」。对方拔出武器护住它。`);log(state.battle.factionCause);if(reason){log(reason);note(reason);}emit();return true;
     }
     function chooseFaction(choice){
       const meta=state.event.factionEvent,f=factionState(),rec=f.records[meta.nodeId],g=ENEMY_FACTIONS.GROUPS[meta.boss];
@@ -2890,6 +3078,8 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         if(knownEnemy||(state.player.questItems.includes(g.support)&&!f.invalid[g.support]))return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),true);
         state.event=ENEMY_FACTIONS.build(meta.boss,meta.kind,state,meta.nodeId);state.event.choices=finishChoices(state.event.choices,state.player);emit();return true;
       }
+      if(choice.factionAction==='both'){rec.mode='combat';rec.automatic=false;rec.dual=true;f.behaviors.push({floor:state.floor,npc:'m07',kind:'attacked',witness:'m09'},{floor:state.floor,npc:'m09',kind:'attacked',witness:'m07'});startBattle('elite',{enemyId:'m07',factionInstance:meta.nodeId,factionSequence:['m09']});log('第一战：守营残卒。随后立即迎战断誓逃卒；两战只在最后领取一份精英奖励，中途不能休息。');emit();return true;}
+      if(choice.factionAction==='failedMediation')return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),false,'对账记录不足，你的劝阻被当作替逃卒拖延；双方拒绝停手。');
       if(choice.factionAction==='attack')return factionBattle(Object.assign(rec,{nodeId:meta.nodeId}),false);
       return null;
     }
@@ -2943,7 +3133,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, peacefulBosses:0, demonicUses:0 }
       };
     }
-    function emit() { if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
+    function emit() { if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
@@ -2997,6 +3187,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
     function defeat() {
       if (['defeat','victory'].includes(state.screen)) return;
       const b = liveBattle()?state.battle:null;
+      if(b)finishFactionEffects(b,'此行止步');
       if(b){b.phase = 'ended';clearCombatStatuses();}
       state.player.hp = 0;
       state.result = { won: false, floor: state.floor, enemy: b?.enemy.name || '缠脉毒' };
@@ -3052,6 +3243,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       const b = state.battle;
       const absorbed = Math.min(b.block, amount);
       b.block -= absorbed;
+      if(b.factionGuardRemaining){const used=Math.min(absorbed,b.factionGuardRemaining);b.factionGuardRemaining-=used;b.factionEffects.find(x=>x.kind==='support').absorbed+=used;}
       const damage = Math.max(0, amount - absorbed);
       log(`敌人攻击 ${amount}：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
       event('attack', { source: 'enemy', target: 'player', amount, absorbed, damage, hitIndex });
@@ -3161,10 +3353,20 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 }); }
       }
     }
+    function finishFactionEffects(b,ending){
+      if(b.factionReport)return;
+      b.factionReport=(b.factionEffects||[]).map(x=>{const item=ENEMY_FACTIONS.ITEMS[x.item],reason=x.status==='used'?(x.kind==='support'?`首回合护盾8，实际抵挡${x.absorbed}点攻击；其余护盾不计入`:`第${x.turn}回合，本次${({playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'少抽牌',poison:'毒',counter:'反击',hits:'各段攻击'})[x.effect]||'效果'}：${Array.isArray(x.before)?x.before.join('／'):x.before}→${Array.isArray(x.after)?x.after.join('／'):x.after}`):x.status==='spent'?'此前已用尽，本战未重复触发':x.blockedByWard?'本战未用上：旧物证先完整抵消，援助保留':x.frozen?'本战未用上：相关行动被冻结或未实际出现，援助保留':'本战未用上：对手未实际施展对应效果，援助保留';return {...x,name:item.name,summary:reason};});
+      const f=factionState();f.effectHistory=f.effectHistory||[];
+      f.effectHistory.push({floor:state.floor,enemy:b.enemy.id,ending,hpLost:Math.max(0,b.openingHp-state.player.hp)+(b.sequenceLoss||0),turns:b.turn,reports:b.factionReport});
+      for(const x of b.factionReport){log(x.name+'：'+x.summary);recordJourney(null,x.name+' · '+ending,x.summary,'neutral');}
+    }
     function winBattle() {
       if (!liveBattle()) return;
       const b = state.battle;
-      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance];if(rec&&!rec.resolved&&ENEMY_FACTIONS.GROUPS[rec.boss]?.npc===b.enemy.id){rec.resolved=true;rec.outcome='defeated';f.evidence[b.factionInstance]=ENEMY_FACTIONS.GROUPS[rec.boss].proof;recordJourney(null,'取回的残页',`击退${b.enemy.name}，取得${f.evidence[b.factionInstance]}；没有领取和平赠物。`,'neutral');}}
+      if(b.factionSequence?.length){b.phase='ended';b.sequencePending={enemyId:b.factionSequence[0],factionInstance:b.factionInstance,factionSequence:b.factionSequence.slice(1),sequenceLoss:Math.max(0,b.openingHp-state.player.hp)};return;}
+      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance];if(rec&&!rec.resolved&&ENEMY_FACTIONS.GROUPS[rec.boss]?.npc===b.enemy.id){rec.resolved=true;rec.outcome='defeated';rec.dual=!!rec.dual;f.evidence[b.factionInstance]=ENEMY_FACTIONS.GROUPS[rec.boss].proof;recordJourney(null,'取回的残页',`击退${b.enemy.name}，取得${f.evidence[b.factionInstance]}；没有领取和平赠物。`,'neutral');}}
+      if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance],g=rec&&ENEMY_FACTIONS.GROUPS[rec.boss];if(g&&state.player.questItems.includes(g.support)&&!f.invalid[g.support]){rec.taskCompleted=true;rec.taskReply=({gate_boss:'你守住灯棚，陪老人沿亮着的桥走到守灯处。她放下灯杆：“这段我认得了。”无名背夫仍没有获准过桥。',camp_boss:'你从逃卒身后的药箱追回剩下的一份药，交给留营药役。他当场分给两名伤卒：“只能撑到天亮。”担架没能从侧栅离营。',snake:'你挡开采鳞者后，陪井役压实井缝。药工提着空桶站在封口旁：“明天得另找水。”',bell_boss:'你把续钟绳护到家属听完这一夜的声音。抬棺人在门外重新坐下：“明天还得有人决定走不走。”'})[rec.boss];if(rec.taskReply){b.factionAftermath=rec.taskReply;recordJourney(null,g.source+' · 履约',rec.taskReply,'neutral');}}}
+      finishFactionEffects(b,'战胜对手');
       b.phase = 'ended';
       event('victory', { target: 'enemy' });
       const testimony=state.journey.bossQuests?.records[b.enemy.id],oldStory=BOSS_QUESTS.QUESTS[b.enemy.id];
@@ -3189,21 +3391,23 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         recordJourney(npc, '伏击已破', `击退${b.enemy.name}。你没有失去随身宝物；这段交锋已经结束。`, 'warning');
       }
       for(const factionGroup of factionContexts(b.enemy.id).filter(g=>g.frontier)){const f=factionState();for(const rec of Object.values(f.records).filter(r=>r.boss===factionGroup.groupBoss&&r.kind==='cave'&&r.resolved)){
-        let msg=null;if(rec.outcome==='help'){msg=factionGroup.reply;
+        let msg=null;if(rec.outcome==='investigation'){msg=factionGroup.investigationAftermath||'调查改变了一次现场处置，但仍不足以替所有当事人定论。';}else if(rec.outcome==='help'){msg=factionGroup.reply;
           if(b.enemy.id==='heart'&&!f.behaviors.some(x=>x.npc==='m35'&&x.kind==='oppose'))msg='你让守稿人取回了一页原稿；你尚未亲手落过那方印，不能把旁人的抉择写成自己的。';
           if(b.enemy.id==='abyss_boss'&&!f.forfeited?.life_slip)msg='你照看过从册背走来的人，但并未签下放弃护持的空符；这份帮助不能替其他人结账。';
           if(b.enemy.id==='feiye_echo')msg='两封回信的折痕仍不相同。你帮忙理过纸页，交锋没有替远方收信的人作答。';
           if(factionGroup.groupBoss==='feiye')msg='归客亲刻过的笔痕仍在祠中。你只帮助他收回自己的名字，旁人的契约另有当事人。';
           if(b.enemy.id==='snake_ascended')msg='井壁留着一道新补的白缝。那份样本只是内鳞的一角，不能替整口井作证。';
         }else if(rec.outcome==='aid'){const item=ENEMY_FACTIONS.ITEMS[factionGroup.aid];msg=`你曾收下${item.name}。${f.spent[item.id]?'那一回护持已经用过。':'它仍安静地躺在包裹里，这场交锋没有用上它。'}愿意帮忙的人仍有自己的目的，你没有因此替所有说法作证。`;if(b.enemy.id==='feiye_echo')msg+='未封回函仍未送达，不能把交锋写成履约。';}
-        else if(rec.outcome==='defeated')msg='你取得了现场证据；胜利不能替未曾见过的人补写结局。';
-        if(msg)recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');
+        else if(rec.outcome==='talk')msg=({gate_boss:'战后，剪灯客隔河喊道：“你买过的那页证词，我仍认。船只接愿意上来的人。”老人仍站在亮处。',camp_boss:'药役把核过的数目念给伤卒听：“问过药去了哪儿，与已经把人救出去，是两回事。”',snake:'采鳞者合上药账：“证词你买走了，药还没卖给你。”病人在井外继续排队，药工仍等着核验新方。',bell_boss:'掘名人指着买去的拓名记录：“这一个名字核过了。可要不要留下，家里还没谈完。”'})[factionGroup.groupBoss]||'对方仍认可当时卖给你的证词，没有把付费听证说成你已替谁完成了委托。';
+        else if(rec.outcome==='leave')msg=({gate_boss:'你绕过渡棚以后，剪灯客继续等愿意登船的人，老人留在灯下。没有人把这次渡人记在你的名下。',camp_boss:'你未介入伤卒营，药役自行分配余药，逃卒仍守着侧栅。伤者是否离营，没有确切回信。',snake:'你离开石窟时没有买药或接样。采鳞者继续谈价，药工没有因你路过就减少剂量。',bell_boss:'你没有替这一户停钟。家属与抬棺人仍在商量，掘名人将未核的那一行留白。'})[factionGroup.groupBoss]||'你当时离开了洞府；后来者仍自行处理那件事，未把处置写在你的名下。';
+        else if(rec.outcome==='defeated')msg='你取得了「'+factionGroup.proof+'」。对方在关口后认出那份证据：“它是你动手夺走的，我也会把这一点写下。”没有人因此领到和平赠物。';
+        if(msg&&!rec.replyRecorded){if(rec.outcome==='aid'&&factionGroup.opposeOutcome)msg=factionGroup.opposeOutcome+' '+msg;b.factionAftermath=[b.factionAftermath,msg].filter(Boolean).join('\n');recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');rec.replyRecorded=true;}
       }}
       if (b.kind === 'hidden') {
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
-      if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(f.behaviors.some(x=>x.kind==='promise'))recordJourney(null,'尚未带走的器谱','交锋结束，但曾接过的取谱承诺并不因此自动完成。你没有取得完整器谱。','neutral');if(f.behaviors.some(x=>x.kind==='help'))recordJourney(null,'药棚递来的话','先前受助的人留下证词：仍有人需要照看。这不表示所有伤者都已获救。','neutral');}
+      if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(b.enemy.id==='lotus_boss'&&!f.promiseReplyRecorded&&f.behaviors.some(x=>x.npc==='m03'&&x.kind==='promise')){recordJourney(null,'尚未带走的器谱','缄红一战结束，取谱承诺还未完成。探客想要的完整器谱没有出现在你的行囊里。','neutral');f.promiseReplyRecorded=true;}}
       if (b.kind === 'boss' && state.floor < totalFloors) {
         heal(18,'关口之后的补给');
         state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
@@ -3306,7 +3510,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       b.phase = 'resolving';
       b.turn++;b.enemy.hurtDuringPlayerTurn=false;
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
-      b.block = 0;
+      b.block = 0; b.factionGuardRemaining=0;
       b.weaponUsed = false; b.veilUsed = false;b.coreStrikeUsed=false;
       b.outfitBloodUsed=false;
       b.played = 0;
@@ -3412,7 +3616,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       const def = ENEMY_FACTIONS.DEFS[id]?ENEMY_FACTIONS.definition(id,state.journey.regionIndex):ENEMIES[id];
       const scaling = combatScaling(id, kind), hp = Math.round(def.hp * scaling.hpMultiplier);
       state.battle = {
-        factionDef:ENEMY_FACTIONS.DEFS[id]?def:null, factionInstance:encounter?.factionInstance||null, kind, scaling, phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
+        factionDef:ENEMY_FACTIONS.DEFS[id]?def:null, factionInstance:encounter?.factionInstance||null, kind, scaling, openingHp:state.player.hp, factionSequence:encounter?.factionSequence||[], factionEffects:[], phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
         discard: [], exhaust: [], resolving: [],
         enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:ENEMY_FACTIONS.DEFS[id]?false:(['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank)), intentIndex: rollIntent(id, null) },
         block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
@@ -3438,8 +3642,16 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
           log(`${QUEST_ITEMS[quest.items[0]].name}已备好：本战抵消首次相关异术。`);
         }
       }
-      const contexts=factionContexts(id),ff=factionState(),fg=contexts.find(g=>state.player.questItems.includes(g.support)&&!ff.invalid[g.support]&&!ff.spent[g.support]&&!ff.forfeited?.[g.support]);if(fg){ff.spent[fg.support]=true;gainBlock(8,fg.variant==='palace_owner'?'旧宫暂护':'主动接受的立场护持');}
-      for(const context of contexts){const rec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='source'&&x.resolved);if(rec){const text=rec.outcome==='support'?'你确实接受过这里的护持，公开凭证仍在。':rec.outcome==='oppose'?'你接过另一方的约定；准备并不意味着承诺已经兑现。':null;if(text){log(text);recordJourney(null,context.source+' · 交锋前',text,'neutral');}}}
+      const contexts=factionContexts(id),ff=factionState(),fg=contexts.find(g=>state.player.questItems.includes(g.support)&&!ff.invalid[g.support]&&!ff.spent[g.support]&&!ff.forfeited?.[g.support]);if(fg){ff.spent[fg.support]=true;state.battle.factionGuardRemaining=8;state.battle.factionEffects.push({item:fg.support,kind:'support',status:'used',amount:8,absorbed:0});gainBlock(8,fg.variant==='palace_owner'?'旧宫暂护':'主动接受的立场护持');}
+      for(const context of contexts){const aid=context.aid;if(state.player.questItems.includes(aid))state.battle.factionEffects.push({item:aid,kind:'aid',status:ff.spent[aid]?'spent':'carried',blockedByWard:false,frozen:false});}
+      for(const context of contexts){
+        const sourceRec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='source'&&x.resolved);
+        const caveRec=Object.values(ff.records).find(x=>x.boss===context.groupBoss&&x.kind==='cave'&&x.resolved);
+        if(sourceRec){const text=sourceRec.outcome==='support'?'你确实接受过这里的护持，公开凭证仍在。':sourceRec.outcome==='oppose'?'你接过另一方的约定；准备并不意味着承诺已经兑现。':sourceRec.outcome==='investigate'?`你带着调查记录来到关口：${context.investigation||'你只记录了现场说法与痕迹；这些内容不能证明尚未亲见的事。'}记录不能证明未亲眼见到的事。`:null;if(text){log(text);recordJourney(null,context.source+' · 交锋前',text,'neutral');}}
+        const lines=context.battleLines;
+        const speech=caveRec?.outcome==='investigation'||sourceRec?.outcome==='investigate'?lines?.investigation:sourceRec?.outcome==='support'?lines?.support:sourceRec?.outcome==='oppose'&&caveRec?.outcome==='aid'?lines?.oppose:null;
+        if(speech){log(`${ENEMIES[id].name}的质问：${speech}`);recordJourney(null,context.cave+' · 镇境者回话',speech,'neutral');}
+      }
       if(id==='m02'&&state.player.questItems.includes('split_nail')&&!ff.invalid.split_nail)log('纸偶听见裂芯钉鸣响：“你拿着这枚拆芯钉，要去谁家？”这一次仍须交锋。');
       const equipped=WEAPONS[state.player.equippedWeapon];if(equipped?.block)gainBlock(equipped.block,equipped.name);
       if (state.journey.nextCombatBlock > 0) {
@@ -3805,11 +4017,12 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       b.drainDamage=0;
       const intent = getIntent();const markedTide=enemy.id==='m16'&&b.playerMark>0&&intent.hits?.length;
       if (!enemy.frozen) {
-        const fs=factionState(),fg=factionContexts(enemy.id).find(g=>g.frontier&&state.player.questItems.includes(g.aid)&&!fs.spent[g.aid]&&intent[g.effect]>0);if(fg){intent[fg.effect]=Math.max(0,intent[fg.effect]-1);fs.spent[fg.aid]=true;intent.text+='；'+ENEMY_FACTIONS.ITEMS[fg.aid].name+'抵消1层';log(ENEMY_FACTIONS.ITEMS[fg.aid].name+'触发，本局一次。');event('enemySkill',{source:'player',target:'enemy',kind:'aid',name:ENEMY_FACTIONS.ITEMS[fg.aid].name});}
+        const fs=factionState(),fg=factionContexts(enemy.id).find(g=>g.frontier&&state.player.questItems.includes(g.aid)&&!fs.spent[g.aid]&&!fs.invalid[g.aid]&&intent[g.effect]>0);if(fg){const before=intent[fg.effect];intent[fg.effect]=Math.max(0,before-1);const report=b.factionEffects.find(x=>x.item===fg.aid);if(report)Object.assign(report,{status:'used',effect:fg.effect,before,after:intent[fg.effect],turn:b.turn});log(`${ENEMY_FACTIONS.ITEMS[fg.aid].name}：本次${({playerMark:'追索印',poison:'毒',energyPenalty:'封灵',drawPenalty:'少抽牌',counter:'反击'})[fg.effect]||'状态'} ${before}→${intent[fg.effect]}，仅此一次；已有状态不清除。`);fs.spent[fg.aid]=true;intent.text+='；'+ENEMY_FACTIONS.ITEMS[fg.aid].name+'抵消1层';log(ENEMY_FACTIONS.ITEMS[fg.aid].name+'触发，本局一次。');event('enemySkill',{source:'player',target:'enemy',kind:'aid',name:ENEMY_FACTIONS.ITEMS[fg.aid].name});}
         const f=factionState(),item=enemy.id==='lotus_boss'&&intent.name.includes('沸盏')?'heat_tongs':enemy.id==='furnace_boss'&&intent.name==='烬衣'?'cold_ash':null;
-        if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
+        if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){const report=b.factionEffects.find(x=>x.item===item);if(report)Object.assign(report,{status:'used',effect:item==='heat_tongs'?'hits':'counter',before:item==='heat_tongs'?intent.hits.map(n=>n+1):intent.counter+1,after:item==='heat_tongs'?intent.hits.slice():intent.counter,turn:b.turn});intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
       }
       if (enemy.frozen) {
+        for(const report of b.factionEffects.filter(x=>x.kind==='aid'&&x.status==='carried'))report.frozen=true;
         log(`${enemy.name}被寒意封住，跳过「${intent.name}」的整次行动。`);
         event('freeze', { source:'status',target:'enemy',skipped:true,name:intent.name });
       } else {
@@ -3830,6 +4043,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
         if(intent.selfPoison){enemy.poison+=intent.selfPoison;event('poison',{source:'enemy',target:'enemy',amount:intent.selfPoison,total:enemy.poison});}
         if(intent.removeMark){const n=Math.min(enemy.mark,intent.removeMark);enemy.mark-=n;event('mark',{source:'enemy',target:'enemy',amount:-n,total:enemy.mark});}
         if(intent.wardedEffect){
+          for(const report of b.factionEffects.filter(x=>x.kind==='aid'&&x.status==='carried'))report.blockedByWard=true;
           b.bossWard.used=true;
           log(`${QUEST_ITEMS[b.bossWard.item].name}生效，抵消本次${intent.wardedLabel}；本战不再触发。`);
           event('enemySkill',{source:'player',target:'player',kind:'ward',name:QUEST_ITEMS[b.bossWard.item].name,text:`抵消${intent.wardedLabel}`});
@@ -4515,7 +4729,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       if (!choice || !canChooseEvent(index)) return false;
       if(state.event.factionEvent){const handled=chooseFaction(choice);if(handled!==null)return handled;}
       const received = applyEventChoice(choice, p);
-      if(state.event.factionEvent){const m=state.event.factionEvent,f=factionState(),rec=f.records[m.nodeId];rec.resolved=true;rec.outcome=choice.factionKey;if(m.kind==='cave'&&['talk','help','aid','question'].includes(choice.factionKey)){const npc=ENEMY_FACTIONS.GROUPS[m.boss].npc;observeFactionAbility(null,npc);f.seen[npc].notes.push({floor:state.floor,nodeId:m.nodeId,text:choice.outcome||choice.text||choice.label});}if(m.boss==='abyss_boss'&&choice.factionKey==='oppose'){f.forfeited=f.forfeited||{};f.forfeited[ENEMY_FACTIONS.GROUPS[m.boss].support]=true;}rec.known.push(choice.factionKey);f.behaviors.push({floor:state.floor,npc:ENEMY_FACTIONS.GROUPS[m.boss].npc,kind:choice.factionKey,witness:ENEMY_FACTIONS.GROUPS[m.boss].npc});if(['aid','oppose'].includes(choice.factionKey)&&m.boss==='lotus_boss')f.behaviors.push({floor:state.floor,npc:'m03',kind:'promise',witness:'m03'});}
+      if(state.event.factionEvent){const m=state.event.factionEvent,f=factionState(),rec=f.records[m.nodeId];rec.resolved=true;rec.outcome=choice.factionKey;if(m.kind==='cave'&&['talk','help','aid','question','investigation'].includes(choice.factionKey)){const npc=ENEMY_FACTIONS.GROUPS[m.boss].npc;observeFactionAbility(null,npc);f.seen[npc].notes.push({floor:state.floor,nodeId:m.nodeId,text:choice.outcome||choice.text||choice.label});}if(m.boss==='abyss_boss'&&choice.factionKey==='oppose'){f.forfeited=f.forfeited||{};f.forfeited[ENEMY_FACTIONS.GROUPS[m.boss].support]=true;}rec.known.push(choice.factionKey);f.behaviors.push({floor:state.floor,npc:ENEMY_FACTIONS.GROUPS[m.boss].npc,kind:choice.factionKey,witness:ENEMY_FACTIONS.GROUPS[m.boss].npc});if(['aid','oppose'].includes(choice.factionKey)&&m.boss==='lotus_boss')f.behaviors.push({floor:state.floor,npc:'m03',kind:'promise',witness:'m03'});}
       state.event.resolved = true;
       state.event.outcome = choice.outcome;
       state.event.received = received.length ? received.join(' · ') : '没有取走任何东西';
@@ -4582,8 +4796,9 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
       const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile()});
       Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
       const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
+      const previewBattle=shadow.state.battle;
       if(!shadow.playCard(uid,true))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
-      const after=shadow.state.battle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
+      const after=previewBattle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
       const spent=type=>events.filter(e=>e.type===type&&e.amount<0).reduce((n,e)=>n-e.amount,0);
       return {available:true,cardId:card.id,cost:def.cost,hits,firstHitBonus:def.attack?(after.cardBonus||0):0,firstHitBonusCap:BALANCE.firstHitBonusCap,
         resources:{before,after:{swordIntent:after.swordIntent||0,soul:after.soul||0,energy:after.energy},spent:{swordIntent:spent('swordIntent'),soul:spent('soul')}},
@@ -4602,7 +4817,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
     };
   }
 
-  const api = { describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);
@@ -4821,31 +5036,35 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
   function battleScreen(){
     const s=game.state,b=s.battle,e=b.enemy,active=b.phase==='player'&&!window.uiBusy,h=hero(),sword=heroId()==='sword';
     if(!active||!b.hand.some(c=>c.uid===selected))selected=null;
-    return `<div class="battle-top"><span class="gold">第 ${b.turn} 回合 / ${active?'你的回合':'敌人行动中…'}</span><span class="muted">${selected?'点击敌人结算 · 再点同牌或 Esc 取消':'攻击／施加状态的牌先选牌再点敌人；其他牌点击即用'}</span></div><section class="battle-stage ${bossData(e.id)?'boss-battle':''}" data-enemy="${esc(e.id)}">${regionBackground('battle-background')}<div class="stage-mist" aria-hidden="true"></div><div class="combatant player-combatant" data-combatant="player">${portrait(heroKind())}<div class="combatant-title"><h3>${esc(h.name)} <small class="muted">${esc(h.profession)}</small></h3><div class="stats"><span>护盾 <b class="gold" id="player-block">${b.block}</b></span></div>${combatStatusMarkup(b)}</div></div><div class="battle-focus"><small>雾中交锋</small><div class="combo-meter" id="combo-meter"><b>${b.played}</b><span>本回合出牌</span></div></div><div class="combatant enemy-combatant" data-combatant="enemy"><button class="enemy-target ${selected?'targetable':''}" data-action="target" ${!selected||!active?'disabled':''} aria-label="目标：${esc(e.name)}，生命 ${e.hp}，护盾 ${e.block}">${portrait(e.id==='raider'&&b.storyEncounter?.npc==='ji'?'ji':e.id)}<div class="combatant-title"><h3>${esc(e.name)}</h3><div class="stats"><span>生命 <b id="enemy-hp">${e.hp}</b> / ${e.maxHp}</span><span>护盾 <b class="gold" id="enemy-block">${e.block}</b></span></div><div class="enemy-bar"><i id="enemy-hp-bar" style="width:${100*e.hp/e.maxHp}%"></i></div></div></button>${enemyStatusMarkup(e)}${selected?`<div class="target-tip">点击敌人，${heroId()==='sovereign'?'引魂':sword?'出剑':'发动潜袭'}</div>`:''}</div></section>${bossBattleLore(e)}${coreResourcesMarkup(b)}<div id="selection-preview" class="selection-preview" hidden></div><div class="build-hint">${battleHint(b)}</div><div class="battle-tools"><div class="pile-buttons">${[['draw','抽牌堆'],['discard','弃牌堆'],['exhaust','消耗区']].map(([id,name])=>btn('pile',`${name}<b>${b[id].length}</b>`,'',`data-pile="${id}"`)).join('')}${btn('deck',`本局牌组<b>${s.player.deck.length}</b>`,'')}${btn('log','完整日志','')}${btn('bag',symbol('bag')+'包裹','battle-bag')}</div>${btn('end-turn',active?'结束回合 →':'结算中…','btn primary',!active?'disabled':'')}</div><div class="hand-caption"><span>手牌 ${b.hand.length} / 10 · 本回合已打出 <b id="hand-played">${b.played}</b> 张</span><span>表现：${({full:'完整',fast:'快速',reduced:'减少动态'})[motionMode]} · 顶部「声画设置」可切换</span></div><section class="hand" aria-label="手牌">${b.hand.length?b.hand.map(c=>cardMarkup(c,'hand')).join(''):'<div class="empty">手牌已空，可以结束回合。</div>'}</section><div class="log-row"><span>战斗记录</span><div class="logs" id="recent-logs" aria-live="polite">${visibleLogs(b.logs,true).slice(-8).map(log=>`<p>${esc(log)}</p>`).join('')}</div></div>`;
+    return `<div class="battle-top"><span class="gold">第 ${b.turn} 回合 / ${active?'你的回合':'敌人行动中…'}</span><span class="muted">${selected?'点击敌人结算 · 再点同牌或 Esc 取消':'攻击／施加状态的牌先选牌再点敌人；其他牌点击即用'}</span></div><section class="battle-stage ${bossData(e.id)?'boss-battle':''}" data-enemy="${esc(e.id)}">${regionBackground('battle-background')}<div class="stage-mist" aria-hidden="true"></div><div class="combatant player-combatant" data-combatant="player">${portrait(heroKind())}<div class="combatant-title"><h3>${esc(h.name)} <small class="muted">${esc(h.profession)}</small></h3><div class="stats"><span>护盾 <b class="gold" id="player-block">${b.block}</b></span></div>${combatStatusMarkup(b)}</div></div><div class="battle-focus"><small>雾中交锋</small><div class="combo-meter" id="combo-meter"><b>${b.played}</b><span>本回合出牌</span></div></div><div class="combatant enemy-combatant" data-combatant="enemy"><button class="enemy-target ${selected?'targetable':''}" data-action="target" ${!selected||!active?'disabled':''} aria-label="目标：${esc(e.name)}，生命 ${e.hp}，护盾 ${e.block}">${portrait(e.id==='raider'&&b.storyEncounter?.npc==='ji'?'ji':e.id)}<div class="combatant-title"><h3>${esc(e.name)}</h3><div class="stats"><span>生命 <b id="enemy-hp">${e.hp}</b> / ${e.maxHp}</span><span>护盾 <b class="gold" id="enemy-block">${e.block}</b></span></div><div class="enemy-bar"><i id="enemy-hp-bar" style="width:${100*e.hp/e.maxHp}%"></i></div></div></button>${enemyStatusMarkup(e)}${selected?`<div class="target-tip">点击敌人，${heroId()==='sovereign'?'引魂':sword?'出剑':'发动潜袭'}</div>`:''}</div></section>${bossBattleLore(e)}${factionFeedback(b)}${coreResourcesMarkup(b)}<div id="selection-preview" class="selection-preview" hidden></div><div class="build-hint">${battleHint(b)}</div><div class="battle-tools"><div class="pile-buttons">${[['draw','抽牌堆'],['discard','弃牌堆'],['exhaust','消耗区']].map(([id,name])=>btn('pile',`${name}<b>${b[id].length}</b>`,'',`data-pile="${id}"`)).join('')}${btn('deck',`本局牌组<b>${s.player.deck.length}</b>`,'')}${btn('log','完整日志','')}${btn('bag',symbol('bag')+'包裹','battle-bag')}</div>${btn('end-turn',active?'结束回合 →':'结算中…','btn primary',!active?'disabled':'')}</div><div class="hand-caption"><span>手牌 ${b.hand.length} / 10 · 本回合已打出 <b id="hand-played">${b.played}</b> 张</span><span>表现：${({full:'完整',fast:'快速',reduced:'减少动态'})[motionMode]} · 顶部「声画设置」可切换</span></div><section class="hand" aria-label="手牌">${b.hand.length?b.hand.map(c=>cardMarkup(c,'hand')).join(''):'<div class="empty">手牌已空，可以结束回合。</div>'}</section><div class="log-row"><span>战斗记录</span><div class="logs" id="recent-logs" aria-live="polite">${visibleLogs(b.logs,true).slice(-8).map(log=>`<p>${esc(log)}</p>`).join('')}</div></div>`;
+  }
+  function factionFeedback(b,ended=false){
+    if(!b)return '';const rows=ended?(b.factionReport||[]):(b.factionEffects||[]);if(!rows.length&&!b.factionAftermath)return '';
+    return `<aside class="faction-feedback" aria-label="本次约定与援助"><h3>${ended?'这一战，约定如何生效':'随身约定'}</h3>${ended&&b.factionAftermath?`<p class="faction-aftermath">${esc(b.factionAftermath)}</p>`:''}${rows.map(x=>`<p data-faction-effect="${esc(x.item)}"><b>${esc(x.name||NightPact.QUEST_ITEMS[x.item]?.name)}</b><span>${esc(ended?x.summary:x.kind==='support'?`护持已生效 · 8护盾中实际抵挡${x.absorbed}点`:x.status==='used'?'本战已触发 · 本局效果用尽':x.status==='spent'?'此前已用尽':'携带中 · 尚未触发')}</span></p>`).join('')}</aside>`;
   }
   function rewardScreen(){
     const s=game.state,r=s.reward,fresh=!seenRewards.has(r)||(!r.relicPending&&!seenCardRewards.has(r));seenRewards.add(r);if(!r.relicPending)seenCardRewards.add(r);
     const strong=r.cards.some(id=>CARDS[id].rarity==='rare'),current=STARTERS[s.starter]?.name||'当前';
-    return head('BATTLE WON / 夜契入手',r.relicPending?'珍藏现世，只取其一':strong?'金铃示宝，佳契在前':'战利入袖，再添一契',`每次战利至少一张${current}职业技能；精英战利必含一张稀有牌。先收好珍藏，再选择一张入组。`, `第${chineseNumber(s.floor)}段 · 战斗胜利`)+`<section class="loot-stage ${fresh?'loot-entrance':''} ${r.relicPending?'awaiting-relic':''}"><div class="loot-radiance" aria-hidden="true"></div>${r.caveLoot?caveLoot(r.caveLoot):''}<div class="reward-summary"><span class="xp-receipt">灵识等级 <b>${s.player.level||1}</b> · 历练 ${s.player.xp||0}${r.xp?` · 本战 +${r.xp}`:''}</span><span class="coin-receipt"><i>晶</i>已入袋 <b>+${r.gold}</b> 灵石</span>${r.relic?`<span class="relic-receipt">已收好：<b>${esc(RELICS[r.relic]?.name)}</b></span>`:''}<span class="muted">本局最高连招 ${s.stats.maxCombo||0} 张 · 最强一击 ${s.stats.maxHit||0}</span></div>${r.relicPending?`<div class="loot-section-label"><span>贰宝择壹</span><p>本次两件珍藏已固定，点击一件纳入行囊，效果立即生效。</p></div><div class="relic-choices">${(r.relicChoices||[]).map(id=>relicCard(id,'choose')).join('')}</div>`:r.relic?`<div class="collected-relic">${relicCard(r.relic)}<div><div class="eyebrow">已获得 · 效果生效</div><h3>它会陪你走完今夜</h3><p>${esc(RELICS[r.relic]?.text||'')}</p></div></div>`:''}<div class="loot-section-label card-choice-label"><span>${r.relicPending?'先纳珍藏，再揭技能':'择一张技能'}</span><p>${r.relicPending?'技能三选一仍在后方等候；领取珍藏后再从三张中取一张。':'暖金辉光标明稀有技能。悬停可查看放大的画面与完整规则。'}</p></div><div class="reward-cards">${r.cards.map((c,i)=>`<div class="reward-slot ${CARDS[c].rarity==='rare'?'rare-slot':''}" style="--reveal-delay:${i*95}ms"><i class="loot-beam" aria-hidden="true"></i>${cardMarkup(c,'reward')}${CARDS[c].category===s.starter?'<span class="synergy-tag">与你的起手战法呼应</span>':''}</div>`).join('')}</div><div class="reward-foot">${btn('reroll-reward',s.rewardRerolls>0&&!r.rerolled?'命运改签 · 免费重抽本屏三张':'本局改签已用尽','btn ghost',s.rewardRerolls>0&&!r.rerolled?'':'disabled')}${btn('skip-reward','跳过选牌，继续探索 →','btn ghost',r.relicPending?'disabled':'')}<small>${s.battle?.storyEncounter?.resumeRest?'领取或跳过后，回到原休息点；此时尚未完成该节点。':'改签本局仅一次，不改变灵石与珍藏；每份战利只发放一次。'}</small></div></section>`;
+    return head('BATTLE WON / 夜契入手',r.relicPending?'珍藏现世，只取其一':strong?'金铃示宝，佳契在前':'战利入袖，再添一契',`每次战利至少一张${current}职业技能；精英战利必含一张稀有牌。先收好珍藏，再选择一张入组。`, `第${chineseNumber(s.floor)}段 · 战斗胜利`)+`<section class="loot-stage ${fresh?'loot-entrance':''} ${r.relicPending?'awaiting-relic':''}"><div class="loot-radiance" aria-hidden="true"></div>${r.caveLoot?caveLoot(r.caveLoot):''}${factionFeedback(s.battle,true)}<div class="reward-summary"><span class="xp-receipt">灵识等级 <b>${s.player.level||1}</b> · 历练 ${s.player.xp||0}${r.xp?` · 本战 +${r.xp}`:''}</span><span class="coin-receipt"><i>晶</i>已入袋 <b>+${r.gold}</b> 灵石</span>${r.relic?`<span class="relic-receipt">已收好：<b>${esc(RELICS[r.relic]?.name)}</b></span>`:''}<span class="muted">本局最高连招 ${s.stats.maxCombo||0} 张 · 最强一击 ${s.stats.maxHit||0}</span></div>${r.relicPending?`<div class="loot-section-label"><span>贰宝择壹</span><p>本次两件珍藏已固定，点击一件纳入行囊，效果立即生效。</p></div><div class="relic-choices">${(r.relicChoices||[]).map(id=>relicCard(id,'choose')).join('')}</div>`:r.relic?`<div class="collected-relic">${relicCard(r.relic)}<div><div class="eyebrow">已获得 · 效果生效</div><h3>它会陪你走完今夜</h3><p>${esc(RELICS[r.relic]?.text||'')}</p></div></div>`:''}<div class="loot-section-label card-choice-label"><span>${r.relicPending?'先纳珍藏，再揭技能':'择一张技能'}</span><p>${r.relicPending?'技能三选一仍在后方等候；领取珍藏后再从三张中取一张。':'暖金辉光标明稀有技能。悬停可查看放大的画面与完整规则。'}</p></div><div class="reward-cards">${r.cards.map((c,i)=>`<div class="reward-slot ${CARDS[c].rarity==='rare'?'rare-slot':''}" style="--reveal-delay:${i*95}ms"><i class="loot-beam" aria-hidden="true"></i>${cardMarkup(c,'reward')}${CARDS[c].category===s.starter?'<span class="synergy-tag">与你的起手战法呼应</span>':''}</div>`).join('')}</div><div class="reward-foot">${btn('reroll-reward',s.rewardRerolls>0&&!r.rerolled?'命运改签 · 免费重抽本屏三张':'本局改签已用尽','btn ghost',s.rewardRerolls>0&&!r.rerolled?'':'disabled')}${btn('skip-reward','跳过选牌，继续探索 →','btn ghost',r.relicPending?'disabled':'')}<small>${s.battle?.storyEncounter?.resumeRest?'领取或跳过后，回到原休息点；此时尚未完成该节点。':'改签本局仅一次，不改变灵石与珍藏；每份战利只发放一次。'}</small></div></section>`;
   }
   function restScreen(){const p=game.state.player,amount=Math.min(18,p.maxHp-p.hp),a=afflictionStatus();return `<section class="event-layout">${encounterArt('rest','栖月温泉','息','且将金铃，暂寄雨声。')}<div class="event-copy"><div class="eyebrow">A MOMENT OF PEACE / 月下歇息</div><h2>且听，一夜雨声</h2><p class="story">隔绝黑雾的阵灯仍在燃烧。<br>${heroQuote('你将金铃拢入掌心，暂且不问来路。','你将长剑横置膝上，霜声渐息。')}</p><p class="description">当前生命 ${p.hp} / ${p.maxHp}。<br>此处只能停留一次，歇息后便会继续前行。</p><div class="event-actions">${btn('rest',`静坐调息 · 恢复 ${amount} 点生命<small>恢复不超过最大生命；随后继续当前路径</small>`,'btn primary','data-heal="true"')}${a.revealed&&a.active?btn('rest-cleanse','静息调脉 · 恢复 6 生命<small>调匀经脉，暂缓异样；随后继续前行</small>','btn cleanse-choice'):''}${btn('rest','直接离开 →','btn ghost','data-heal="false"')}</div></div></section>`;}
 
   function foxScreen(){const p=game.state.player,ok=p.maxHp>8&&!p.relics.includes('fox');return `<section class="event-layout">${encounterArt('fox','狐影朱亭','契','八分命火，一线生机。')}<div class="event-copy"><div class="eyebrow">THE FOX'S BARGAIN / 狐灯邀约</div><h2>以寿，换一线生机</h2><p class="story">“别急着拒绝，${esc(hero().name)}。<br>我只收你八分命火——<br>换你命悬一线时，再睁一次眼。”</p><p class="description">签约后，最大生命 ${p.maxHp} → ${p.maxHp-8}；当前生命最高降至新上限。<br>获得「狐契」：本局下一次致命伤免死，生命设为 12（不超过最大生命）；触发后消失，后续伤害照常结算。</p><div class="event-actions">${btn('fox','签订狐契 · 最大生命 −8，获得一次免死<small>代价仅在本局生效，无隐藏惩罚</small>','btn primary',`data-sign="true" ${ok?'':'disabled'}`)}${!ok?'<p class="reason">最大生命不足，或已经持有狐契。</p>':''}${btn('fox','婉拒交易 · 数值不变，继续前进 →','btn ghost','data-sign="false"')}</div></div></section>`;}
   function eventScreen(){
-    const e=game.state.event,story=(e.story||[e.description]).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join(''),art=`<div class="encounter-column">${encounterArt(e.id,e.name,e.glyph||'异','')}${e.npcArt?`<div class="faction-npc">${portrait(e.npcArt,{player:false})}</div>`:''}</div>`,connection=e.connection?`<aside class="event-connection"><span>你记得</span><p>${esc(e.connection)}</p></aside>`:'';
+    const e=game.state.event,story=(e.story||[e.description]).filter(Boolean).map(p=>`<p class="${/[“”]/.test(p)?'event-dialogue':''}">${esc(p)}</p>`).join(''),art=`<div class="encounter-column">${encounterArt(e.id,e.name,e.glyph||'异','')}${e.npcArt?`<div class="faction-npc">${portrait(e.npcArt,{player:false})}</div>`:''}</div>`,connection=e.connection?`<aside class="event-connection"><span>你记得</span><p>${esc(e.connection)}</p></aside>`:'';
     if(e.resolved)return `<section class="event-layout ${e.npc?'linked-encounter':''}">${art}<div class="event-copy"><div class="eyebrow">AFTER THE CHOICE / 这一次，你选择了</div><h2>${esc(e.name)}</h2>${connection}<div class="event-story">${story}</div><div class="event-outcome"><span>落下的一笔</span><b>${esc(e.choiceLabel||'')}</b><p>${esc(e.outcome||'')}</p><small>${esc(e.received||'没有即时变化')}</small></div>${eventLootPreview(e)}<div class="event-actions">${btn('event-leave',e.battle?'迎向来人 →':e.interruption&&e.resumeRest?'回到火塘，调息片刻 →':'记下这一段，继续前行 →','btn primary')}${btn('journal','查看行旅手记','btn ghost small')}</div></div></section>`;
-    return `<section class="event-layout ${e.npc?'linked-encounter':''}">${art}<div class="event-copy"><div class="eyebrow">A MOMENT IN THE FOG / 雾中一刻</div><h2>${esc(e.name)}</h2>${connection}<div class="event-story">${story}</div><div class="event-actions">${e.choices.map((c,i)=>btn('event-choice',`${esc(c.label)}<small>${esc(c.text||'')}</small>`,'btn '+(i===0?'primary':'ghost')+(c.battle?' battle-choice':''),`data-index="${i}" ${!game.canChooseEvent(i)?'disabled':''}`)).join('')}</div>${e.choices.some((c,i)=>!game.canChooseEvent(i))?'<p class="reason">当前生命、灵石、草药或牌组不足以支付灰色选项的代价。</p>':''}</div></section>`;
+    return `<section class="event-layout ${e.npc?'linked-encounter':''}">${art}<div class="event-copy"><div class="eyebrow">A MOMENT IN THE FOG / 雾中一刻</div><h2>${esc(e.name)}</h2>${connection}<div class="event-story">${story}</div><div class="event-actions">${e.choices.map((c,i)=>btn('event-choice',`${esc(c.label)}<small>${esc(c.text||'')}</small>${c.riskSummary?`<small class="choice-risk">${esc(c.riskSummary)}</small>`:''}`,'btn '+(i===0?'primary':'ghost')+(c.battle?' battle-choice':''),`data-index="${i}" ${!game.canChooseEvent(i)?'disabled':''}`)).join('')}</div>${e.choices.some((c,i)=>!game.canChooseEvent(i))?'<p class="reason">当前生命、灵石、草药或牌组不足以支付灰色选项的代价。</p>':''}</div></section>`;
   }
 
   function itemEmblem(id,cls='item-emblem'){const item=ITEMS[id]||{};return `<div class="${cls}" aria-hidden="true">${globalThis.YokaiArt?.items?.[id]||symbol(item.icon||'pill')}</div>`;}
-  function bagContents(){const entries=game.getInventory?.()||[],questItems=(game.state.player.questItems||[]).map(id=>NightPact.QUEST_ITEMS?.[id]).filter(Boolean),b=game.state.screen==='battle'?game.state.battle:null;return `<div class="bag-note">${symbol('bag')}<p>${b?'每个玩家回合可服用一件，不消耗灵力。战斗结束后，未用的物品继续保留。':'物品跟随本局。药草与丹药只能在有效时使用，聚灵丹仅在玩家回合服用。'}</p></div>${questItems.length?`<section class="quest-items"><h3>随身信物</h3><div class="bag-grid">${questItems.map(item=>`<article class="bag-item quest-item" data-quest-item="${esc(item.id)}">${NightPact.ENEMY_FACTIONS?.ITEMS[item.id]?picture('factionItems',item.id,'符',item.name,'faction-item-art'):symbol(item.icon||'learned')}<small>${game.state.journey.factions?.spent[item.id]?'本次效果已用尽 · ':''}本局任务信物 · 无需服用</small><h3>${esc(item.name)}</h3><p>${esc(item.text)}</p></article>`).join('')}</div></section>`:''}${entries.length?`<div class="bag-grid">${entries.map(item=>`<article class="bag-item rarity-${esc(item.rarity||'common')}" data-item-id="${esc(item.id)}" data-rarity="${esc(item.rarity||'common')}">${itemEmblem(item.id)}<span class="item-count">× ${item.count}</span><small>${({rare:'稀世灵丹',uncommon:'精炼灵药',common:'行旅药材'})[item.rarity]||'行旅之物'}</small><h3>${esc(item.name)}</h3><p>${esc(item.text)}</p>${btn('use-item',item.usable?'服用一份':esc(item.reason||'此刻无法服用'),'btn '+(item.usable?'primary':'ghost'),`data-item="${esc(item.id)}" ${item.usable&&!window.uiBusy?'':'disabled'}`)}</article>`).join('')}</div>`:`<div class="bag-empty">${symbol('bag')}<h3>${questItems.length?'暂无可服用药物':'行囊尚空'}</h3><p>洞府中的灵草与遗丹、夜市购得的补给，都会收在这里。</p></div>`}`;}
+  function bagContents(){const entries=game.getInventory?.()||[],questItems=(game.state.player.questItems||[]).map(id=>NightPact.QUEST_ITEMS?.[id]).filter(Boolean),b=game.state.screen==='battle'?game.state.battle:null;return `<div class="bag-note">${symbol('bag')}<p>${b?'每个玩家回合可服用一件，不消耗灵力。战斗结束后，未用的物品继续保留。':'物品跟随本局。药草与丹药只能在有效时使用，聚灵丹仅在玩家回合服用。'}</p></div>${questItems.length?`<section class="quest-items"><h3>随身信物</h3><div class="bag-grid">${questItems.map(item=>`<article class="bag-item quest-item" data-quest-item="${esc(item.id)}">${NightPact.ENEMY_FACTIONS?.ITEMS[item.id]?picture('factionItems',item.id,'符',item.name,'faction-item-art'):symbol(item.icon||'learned')}<small>${game.state.journey.factions?.spent[item.id]?'本局效果已用尽 · ':'携带中 · '}本局任务信物 · 无需服用</small><h3>${esc(item.name)}</h3><p>${esc(item.text)}</p></article>`).join('')}</div></section>`:''}${entries.length?`<div class="bag-grid">${entries.map(item=>`<article class="bag-item rarity-${esc(item.rarity||'common')}" data-item-id="${esc(item.id)}" data-rarity="${esc(item.rarity||'common')}">${itemEmblem(item.id)}<span class="item-count">× ${item.count}</span><small>${({rare:'稀世灵丹',uncommon:'精炼灵药',common:'行旅药材'})[item.rarity]||'行旅之物'}</small><h3>${esc(item.name)}</h3><p>${esc(item.text)}</p>${btn('use-item',item.usable?'服用一份':esc(item.reason||'此刻无法服用'),'btn '+(item.usable?'primary':'ghost'),`data-item="${esc(item.id)}" ${item.usable&&!window.uiBusy?'':'disabled'}`)}</article>`).join('')}</div>`:`<div class="bag-empty">${symbol('bag')}<h3>${questItems.length?'暂无可服用药物':'行囊尚空'}</h3><p>洞府中的灵草与遗丹、夜市购得的补给，都会收在这里。</p></div>`}`;}
   function caveLoot(result){if(!result)return '';return `<div class="cave-loot rarity-${esc(result.rarity||'common')}" data-rarity="${esc(result.rarity||'common')}"><span class="loot-rarity">${result.rarity==='rare'?'宝光乍现':'探有所获'}</span><h3>${esc(result.title||'石室遗藏')}</h3><p>${esc(result.text||'')}</p><div class="cave-rewards">${(result.rewards||[]).map(reward=>`<div class="cave-reward">${reward.kind==='item'?itemEmblem(reward.id,'loot-emblem'):`<div class="loot-emblem">${symbol(reward.kind==='relic'?'relic':'shop')}</div>`}<div><b>${esc(reward.name||ITEMS[reward.id]?.name||RELICS[reward.id]?.name||'遗藏')}</b><small>${reward.amount?`× ${reward.amount}`:'已收入行囊'}</small></div></div>`).join('')}</div></div>`;}
   function caveScreen(){const cave=game.state.cave||{},result=cave.explored?cave.result:null,resolved=cave.status==='resolved'||cave.resolved;return `<section class="cave-screen"><div class="cave-art">${picture('events','cave','探','雾掩洞口，石室深处透出微光','cave-illustration')}<div class="cave-inscription"><span>不知何人所留</span><b>未知洞府</b></div></div><div class="cave-copy"><div class="eyebrow">A HOLLOW BEYOND THE PATH / 山腹藏幽</div><h2>${esc(cave.name||'未知洞府')}</h2><p class="story">${esc(cave.description||'蔓草遮住半扇石门。门缝里没有风，却有一点像烛火的光在慢慢移动。')}</p>${result?caveLoot(result):'<p class="description">石室可能留有药草、丹药与珍藏，也可能仍有守卫盘踞。进门前，可以先整理随身包裹。</p>'}<div class="actions">${!resolved?btn('cave-explore','拨开蔓草，入洞探看 →','btn primary'):''}${btn('cave-leave',resolved?'收妥行囊，继续前行 →':'不惊扰此地，沿路离开 →','btn '+(resolved?'primary':'ghost'))}${btn('bag',symbol('bag')+'整理包裹','btn ghost')}</div></div></section>`;}
   function shopSupplies(shop){if(!shop.items?.length)return '';const gold=game.state.player.gold;return `<section class="shop-supplies">${head('TRAVELLER’S PROVISIONS / 入山备药','药草与丹丸','购得物品收入包裹，需要时再服用；每份只售一次。')}<div class="supply-grid">${shop.items.map((entry,index)=>{const item=ITEMS[entry.id];if(!item)return '';const disabled=entry.bought||gold<entry.price;return `<article class="supply-card rarity-${esc(item.rarity||'common')}" data-item-id="${esc(entry.id)}" data-rarity="${esc(item.rarity||'common')}">${itemEmblem(entry.id)}<div class="supply-copy"><h3>${esc(item.name)}</h3><p>${esc(item.text)}</p>${btn('buy-item',entry.bought?'已收入包裹':`${entry.price} 灵石 · ${gold<entry.price?'灵石不足':'收入包裹'}`,'btn '+(disabled?'ghost':'primary'),`data-index="${index}" ${disabled?'disabled':''}`)}</div></article>`;}).join('')}</div></section>`;}
 
   function eventLootPreview(e){const chosen=e.choices?.find(c=>c.label===e.choiceLabel),held=game.state.player.relics;return `<div class="event-loot-preview">${chosen?.relic&&held.includes(chosen.relic)&&e.received?.includes(`秘宝「${RELICS[chosen.relic]?.name}」`)?relicCard(chosen.relic):''}${(chosen?.cardIds||[]).map(id=>cardMarkup(id)).join('')}</div>`;}
   function shopScreen(){const s=game.state,p=s.player,shop=s.shop,a=afflictionStatus();return head('THE SPIRIT BAZAAR / 千灯灵坊','灵石现结，险地不赊','千灯商盟的行脚修士裹着护命符进雾，只为收购灾变灵物赚取差价。“寻常人来探真相，我们来挣他们的灵石。”非基础牌每张 35 灵石，每件商品每次到访仅能购买一次。',`可用灵石 ${p.gold}`)+`<div class="shop-layout">${encounterArt('shop','千灯灵坊','市','护命符可少烧一张，灵石却不能少收一枚。')}<aside class="shop-note">${a.revealed?`<section class="antidote-service"><h3>药匣 · 抑毒散</h3><p>恢复 6 生命，温养经脉，暂缓异样。<br>每次到访仅能服用一次。</p>${btn('buy-antidote',!a.active?'此刻无需服药':shop.antidoteBought?'本次抑毒散已用':p.gold<30?'30 灵石 · 灵石不足':'30 灵石 · 服用抑毒散','btn '+(a.active&&p.gold>=30?'primary':'ghost'),!a.active||shop.antidoteBought||p.gold<30?'disabled':'')}<small>药气温润，只解一时急迫。</small></section>`:''}<h3>断契 · 删牌</h3><p>永久移除本局牌组中的一个指定实例。<br>牌组最少保留 5 张。</p><p>每次到访仅一次，价格 40 灵石。</p>${btn('remove-panel',shop.removed?'本次删牌已使用':'40 灵石 · 选择要移除的牌','btn ghost',shop.removed||p.gold<40||p.deck.length<=5?'disabled':'')}<div class="reason">${shop.removed?'已完成本次服务':p.deck.length<=5?'牌组已达 5 张下限':p.gold<40?'灵石不足 40':'选中具体实例后才扣款'}</div></aside><div class="shop-goods">${shop.cards.map((c,i)=>`<div class="shop-item">${cardMarkup(c.id)}${btn('buy',c.bought?'已售出':'35 灵石 · 购买',`btn ${!c.bought&&p.gold>=35?'primary':'ghost'}`,`data-index="${i}" ${c.bought||p.gold<35?'disabled':''}`)}<div class="reason">${c.bought?'已加入本局牌组':p.gold<35?'灵石不足 35':'下场战斗洗入牌堆'}</div></div>`).join('')}</div></div>${shop.weapons?.length?`<section class="shop-weapons"><div class="screen-head"><div><div class="eyebrow">SWORDS THAT REMEMBER / 器有其主</div><h2>灯下剑匣</h2><p>灵识等级不足也能佩带高阶剑器，收下前请读清反噬。</p></div></div><div class="weapon-grid">${shop.weapons.map((w,i)=>weaponCard(w.id,'shop',i)).join('')}</div></section>`:''}${shop.outfits?.length?`<section class="shop-outfits"><h2>云锦衣囊</h2><p>衣料也要护命符运进来，灵商不肯白送。购买后可在随身装备中换装；不同衣装效果不叠加。</p><div class="weapon-grid">${shop.outfits.map(o=>outfitCard(o.id,true)).join('')}</div></section>`:''}${shopSupplies(shop)}<div class="shop-bottom"><span>商品进入时固定，查看牌组不会刷新。</span>${btn('leave-shop','离开商店 →','btn primary')}</div>`;}
-  function endingScreen(win){const s=game.state,p=s.player,hiddenWon=win&&s.battle?.enemy.id==='feiye',sovereign=heroId()==='sovereign';return `<section class="ending"><div class="ending-copy"><div class="eyebrow">${win?'THE ABYSS REMAINS / 封域初探完结':'THE FOG REMEMBERS / 探查未归'}</div><h2>${hiddenWon?'月后的名字，终于落定':win&&sovereign?'散落之身，归于一人':win?'雾未散，人已归':'此行，未能归'}</h2><p class="story">${win&&hiddenWon?`那道身影放下指尖的月光。她没有说认输，只报出了自己的名字。<br>绯夜已解锁，可返回选角开启她自己的旅程。`:win&&sovereign?`旧影散去，三处失落的力量回到掌心。<br>变心者的誓言已经结束，镜里的声音也终于安静。<br>“现在，轮到雾外的人还账了。”`:win?`${esc(s.result?.enemy||'深渊之主')}倒下，七境深处的裂隙终于沉寂。<br>你带回一枚残缺的实验铭牌，各方已经等在雾外。<br>“${heroQuote('价码，得重新谈。','人未找全。我会再来。')}”<br>寒渊的真相，仍有一半藏在黑雾里。`:`你倒在第${chineseNumber(s.result?.floor||s.floor)}段，败于${esc(s.result?.enemy||'封域异物')}。<br>黑雾再次合拢，留下无人认领的脚印。<br>下一次，换一条路，或换一种出牌的方式。`}</p><div class="ending-stats"><span>生命 <b>${p.hp}</b> / ${p.maxHp}</span><span>灵石 <b>${p.gold}</b></span><span>牌组 <b>${p.deck.length}</b> 张</span><span>战胜 <b>${s.stats.battles}</b> 场</span><span>最高连招 <b>${s.stats.maxCombo||0}</b></span><span>最强一击 <b>${s.stats.maxHit||0}</b></span></div><div class="ending-relics">${relics(p.relics)}</div><div class="ending-journey"><h3>雾中结下的因缘</h3>${relationsMarkup()}${journalMarkup(3)}${btn('journal','翻看完整行旅手记','btn ghost small')}</div><div class="ending-route">本次路线：${s.history.map(h=>esc(h.name||nodes[h.type]?.[1]||h.type)).join(' → ')}</div><div class="actions">${btn('start',`以${esc(hero().name)}重新出发 · ${esc(STARTERS[s.starter]?.name||s.starter)}`,'btn primary')}${btn('title','返回选角','btn ghost')}${btn('deck','查看最终牌组','btn ghost')}${hiddenWon?btn('profile','查看解锁凭证','btn ghost'):''}</div><p class="note">重新开始将清空本局生命变化、灵石、牌组增删、遗物与路线进度。</p></div>${portrait(heroKind())}</section>`;}
+  function endingScreen(win){const s=game.state,p=s.player,hiddenWon=win&&s.battle?.enemy.id==='feiye',sovereign=heroId()==='sovereign';return `<section class="ending"><div class="ending-copy"><div class="eyebrow">${win?'THE ABYSS REMAINS / 封域初探完结':'THE FOG REMEMBERS / 探查未归'}</div><h2>${hiddenWon?'月后的名字，终于落定':win&&sovereign?'散落之身，归于一人':win?'雾未散，人已归':'此行，未能归'}</h2><p class="story">${win&&hiddenWon?`那道身影放下指尖的月光。她没有说认输，只报出了自己的名字。<br>绯夜已解锁，可返回选角开启她自己的旅程。`:win&&sovereign?`旧影散去，三处失落的力量回到掌心。<br>变心者的誓言已经结束，镜里的声音也终于安静。<br>“现在，轮到雾外的人还账了。”`:win?`${esc(s.result?.enemy||'深渊之主')}倒下，七境深处的裂隙终于沉寂。<br>你带回一枚残缺的实验铭牌，各方已经等在雾外。<br>“${heroQuote('价码，得重新谈。','人未找全。我会再来。')}”<br>寒渊的真相，仍有一半藏在黑雾里。`:`你倒在第${chineseNumber(s.result?.floor||s.floor)}段，败于${esc(s.result?.enemy||'封域异物')}。<br>黑雾再次合拢，留下无人认领的脚印。<br>下一次，换一条路，或换一种出牌的方式。`}</p><div class="ending-stats"><span>生命 <b>${p.hp}</b> / ${p.maxHp}</span><span>灵石 <b>${p.gold}</b></span><span>牌组 <b>${p.deck.length}</b> 张</span><span>战胜 <b>${s.stats.battles}</b> 场</span><span>最高连招 <b>${s.stats.maxCombo||0}</b></span><span>最强一击 <b>${s.stats.maxHit||0}</b></span></div><div class="ending-relics">${relics(p.relics)}</div>${factionFeedback(s.battle,true)}<div class="ending-journey"><h3>雾中结下的因缘</h3>${relationsMarkup()}${journalMarkup(3)}${btn('journal','翻看完整行旅手记','btn ghost small')}</div><div class="ending-route">本次路线：${s.history.map(h=>esc(h.name||nodes[h.type]?.[1]||h.type)).join(' → ')}</div><div class="actions">${btn('start',`以${esc(hero().name)}重新出发 · ${esc(STARTERS[s.starter]?.name||s.starter)}`,'btn primary')}${btn('title','返回选角','btn ghost')}${btn('deck','查看最终牌组','btn ghost')}${hiddenWon?btn('profile','查看解锁凭证','btn ghost'):''}</div><p class="note">重新开始将清空本局生命变化、灵石、牌组增删、遗物与路线进度。</p></div>${portrait(heroKind())}</section>`;}
   function render(){if(!game||holdRender)return;rememberMapScroll();if(game.state.screen==='title'&&!isUnlocked(chosenCharacter)){chosenCharacter='assassin';starter='mark';}if(game.state.screen!=='title'){starter=game.state.starter;chosenCharacter=game.state.character||chosenCharacter;}hidePreview();disposePortraits(app);renderAudioToggle();renderHud();const previous=lastScreen;lastScreen=game.state.screen;document.body.dataset.screen=lastScreen;document.body.dataset.opening=lastScreen==='title'?openingScreen:'';document.body.dataset.character=heroId();document.body.dataset.fallen=String(isFallen());const pages={title:titleScreen,arrival:arrivalScreen,map:mapScreen,threshold:thresholdScreen,battle:battleScreen,reward:rewardScreen,rest:restScreen,fox:foxScreen,event:eventScreen,cave:caveScreen,shop:shopScreen,victory:()=>endingScreen(true),defeat:()=>endingScreen(false)};app.innerHTML=(pages[game.state.screen]||titleScreen)();if(game.state.screen==='map')requestAnimationFrame(focusCurrentMap);if(modal)renderModal();const logs=document.getElementById('recent-logs');if(logs)logs.scrollTop=logs.scrollHeight;if(previous!==lastScreen)screenCue(lastScreen);}
   function renderAudioToggle(){const state=audio()?.getState?.()||{muted:false,volume:.3},el=document.getElementById('audio-nav');if(el){el.textContent=state.muted?'声音：关':'声音：开';el.setAttribute('aria-pressed',String(state.muted));}}
   function screenCue(screen){if(screen==='reward')audio()?.playCue?.(game.state.reward?.cards.some(id=>CARDS[id].rarity==='rare')?'rareReveal':'rewardReveal');if(['fox','rest','shop','event','cave'].includes(screen)){const id=screen==='event'?game.state.event.id:screen;lastEncounter=id;audio()?.playEncounter?.(id);}if(screen==='victory')audio()?.playCue?.('win');if(screen==='defeat')audio()?.playCue?.('death');}
@@ -4858,7 +5077,7 @@ const api={BUDGETS,DEFS,ITEMS,GROUPS,EVENTS,groupFor,definition,build};root.Nigh
   function intentSummary(intent){const parts=[];if(intent.clearMark)parts.push('清除猎印');if(intent.clearChill)parts.push('清除霜寒');if(intent.clearBleed)parts.push('清除流血');if(intent.heal)parts.push(`恢复 ${intent.heal} 生命`);if(intent.block)parts.push(`护盾 ${intent.block}`);const hits=intent.hits||[];if(hits.length)parts.push(hits.length===1?`攻击 ${hits[0]}`:`${hits.length} 段攻击 × ${hits.join(' / ')}`);if(intent.poison)parts.push(`毒 ${intent.poison} 层`);if(intent.playerMark)parts.push(`对你施加 ${intent.playerMark} 层追索印`);if(intent.counter)parts.push(`反击 ${intent.counter}`);if(intent.energyPenalty)parts.push(`下回合灵力 −${intent.energyPenalty}`);if(intent.drawPenalty)parts.push(`下回合少抽 ${intent.drawPenalty}`);return parts.join(' · ')||intent.text||'气息未定';}
   function bossGallery(){return `<div class="boss-gallery">${bossIds().map(id=>{const boss=bossData(id);return `<button class="boss-gallery-card" data-action="boss-detail" data-boss="${esc(id)}">${portrait(id,{player:false})}<div><small>${({early:'雾外守关',middle:'封域深处',final:'终极之敌'})[boss.tier]||'镇境之敌'}</small><h3>${esc(boss.name)}</h3><p>${esc(boss.title||'')}</p><span>展开人物画卷 →</span></div></button>`;}).join('')}</div>`;}
   function bossDetail(id){const boss=bossData(id);if(!boss)return '<p class="muted">这卷人物志尚未展开。</p>';return `<article class="boss-dossier" data-boss="${esc(id)}">${portrait(id,{player:false})}<div class="boss-dossier-copy"><div class="eyebrow">${esc(boss.title||'封域之主')}</div><h3>${esc(boss.name)}</h3><p class="boss-biography">${esc(boss.lore||'雾中的故事，尚待亲眼见证。')}</p>${(boss.quotes||[]).map(quote=>`<blockquote>“${esc(quote.replace(/^[“”]|[“”]$/g,''))}”</blockquote>`).join('')}${boss.passive?`<div class="boss-trait"><b>战斗气质</b><p>${esc(boss.passive)}</p></div>`:''}<p class="note">旧事可以循迹寻访。对方将如何出手，需要在交锋中亲眼见证。</p><div class="actions">${btn('bosses','返回人物志','btn ghost small')}</div></div></article>`;}
-  function bossBattleLore(enemy){const visitor=NightPact.ENEMY_FACTIONS?.DEFS[enemy.id];if(visitor)return `<aside class="boss-battle-lore"><div><span>眼前的来客</span><p>${esc(visitor.intro)}</p></div></aside>`;const boss=bossData(enemy.id);return boss?`<aside class="boss-battle-lore"><div><span>${esc(boss.title||'镇境之敌')}</span><p>“${esc(boss.quotes?.[0]||'雾深处，并无归途。')}”</p></div>${btn('boss-detail','读这段旧事','btn ghost small',`data-boss="${esc(enemy.id)}"`)}</aside>`:'';}
+  function bossBattleLore(enemy){const visitor=NightPact.ENEMY_FACTIONS?.DEFS[enemy.id];if(visitor)return `<aside class="boss-battle-lore"><div><span>眼前的来客</span><p>${esc(visitor.intro)}</p>${game.state.battle?.factionCause?`<p class="event-dialogue">${esc(game.state.battle.factionCause)}</p>`:''}</div></aside>`;const boss=bossData(enemy.id);return boss?`<aside class="boss-battle-lore"><div><span>${esc(boss.title||'镇境之敌')}</span><p>“${esc(boss.quotes?.[0]||'雾深处，并无归途。')}”</p></div>${btn('boss-detail','读这段旧事','btn ghost small',`data-boss="${esc(enemy.id)}"`)}</aside>`:'';}
   function renderModal(){
     const s=game.state;let title='',hint='',body='';
     if(modal.kind==='bosses'){title='封域人物志';hint='镇境之人与雾后旧影，各有执念与未了的旧事。';body=bossGallery();}
