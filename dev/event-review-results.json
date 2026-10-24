@@ -1,0 +1,1280 @@
+{
+  "count": 158,
+  "snapshots": 1637,
+  "allIdentitiesMatched": true,
+  "inputs": {
+    "dev/engine.js": "2f4ca596ab0cda1338efb71fbad76bc7d0629cbe66586c5e447d08f333ed3265",
+    "dev/enemy-factions.js": "6d007bf50b9e0da32aa58ed471135e41aed137b106672e28bbfbc24e782e25f7",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
+    "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
+    "dev/export-events-md.cjs": "f148e2af01ff2eef7508b8be73f1ae5e55e77aef3e369a6a9f8b531abb369758"
+  },
+  "events": [
+    {
+      "id": "well",
+      "file": "00_基础与固定事件/well__倒映祈愿井.md",
+      "name": "倒映祈愿井",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "shrine",
+      "file": "00_基础与固定事件/shrine__无面旧神龛.md",
+      "name": "无面旧神龛",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "dreamshop",
+      "file": "00_基础与固定事件/dreamshop__卖梦人的摊位.md",
+      "name": "卖梦人的摊位",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "theatre",
+      "file": "00_基础与固定事件/theatre__纸灯戏台.md",
+      "name": "纸灯戏台",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "umbrella",
+      "file": "00_基础与固定事件/umbrella__雨夜借伞.md",
+      "name": "雨夜借伞",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "pawnshop",
+      "file": "00_基础与固定事件/pawnshop__蛇鳞当铺.md",
+      "name": "蛇鳞当铺",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "riftwatch",
+      "file": "00_基础与固定事件/riftwatch__封域望哨.md",
+      "name": "封域望哨",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "supply",
+      "file": "00_基础与固定事件/supply__断桥灵商.md",
+      "name": "断桥灵商",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "cultlab",
+      "file": "00_基础与固定事件/cultlab__逆仪残室.md",
+      "name": "逆仪残室",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "swordgrave",
+      "file": "00_基础与固定事件/swordgrave__寒碑剑冢.md",
+      "name": "寒碑剑冢",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "pilgrims",
+      "file": "00_基础与固定事件/pilgrims__失序行营.md",
+      "name": "失序行营",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "prisoner",
+      "file": "00_基础与固定事件/prisoner__锁魂囚笼.md",
+      "name": "锁魂囚笼",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "echo",
+      "file": "00_基础与固定事件/echo__异声裂隙.md",
+      "name": "异声裂隙",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "broker",
+      "file": "00_基础与固定事件/broker__千灯密约.md",
+      "name": "千灯密约",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "liu_first",
+      "file": "00_基础与固定事件/liu_first__药箱旁的求援.md",
+      "name": "药箱旁的求援",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "liu_return",
+      "file": "00_基础与固定事件/liu_return__青绦再逢.md",
+      "name": "青绦再逢",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "liu_final",
+      "file": "00_基础与固定事件/liu_final__留给你的那盏灯.md",
+      "name": "留给你的那盏灯",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "ji_first",
+      "file": "00_基础与固定事件/ji_first__断剑客的请求.md",
+      "name": "断剑客的请求",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "ji_return",
+      "file": "00_基础与固定事件/ji_return__灯下验宝.md",
+      "name": "灯下验宝",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "ji_final",
+      "file": "00_基础与固定事件/ji_final__未出的那一剑.md",
+      "name": "未出的那一剑",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "wen_first",
+      "file": "00_基础与固定事件/wen_first__符锁下的人.md",
+      "name": "符锁下的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "wen_return",
+      "file": "00_基础与固定事件/wen_return__符息追来时.md",
+      "name": "符息追来时",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "wen_final",
+      "file": "00_基础与固定事件/wen_final__留存之证.md",
+      "name": "留存之证",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "sect_duel",
+      "file": "00_基础与固定事件/sect_duel__玄照门的试剑帖.md",
+      "name": "玄照门的试剑帖",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "herb_caravan",
+      "file": "00_基础与固定事件/herb_caravan__百草庵的归程.md",
+      "name": "百草庵的归程",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "relic_dispute",
+      "file": "00_基础与固定事件/relic_dispute__两宗一匣.md",
+      "name": "两宗一匣",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "night_watch",
+      "file": "00_基础与固定事件/night_watch__同一盏守夜灯.md",
+      "name": "同一盏守夜灯",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "moon_trace",
+      "file": "01_扩展事件/moon_trace__沉钟与旧剑.md",
+      "name": "沉钟与旧剑",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "sealed_name",
+      "file": "01_扩展事件/sealed_name__缺字的残页.md",
+      "name": "缺字的残页",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "moon_vow",
+      "file": "01_扩展事件/moon_vow__无字之誓.md",
+      "name": "无字之誓",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "armory",
+      "file": "01_扩展事件/armory__封存剑匣.md",
+      "name": "封存剑匣",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "sovereign_wake",
+      "file": "01_扩展事件/sovereign_wake__旧宫无名.md",
+      "name": "旧宫无名",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "sovereign_recall",
+      "file": "01_扩展事件/sovereign_recall__旧席换主人.md",
+      "name": "旧席换主人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "sovereign_memory",
+      "file": "01_扩展事件/sovereign_memory__心海未归.md",
+      "name": "心海未归",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tainted_mercy",
+      "file": "01_扩展事件/tainted_mercy__雾中求援.md",
+      "name": "雾中求援",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "demonic_offer",
+      "file": "05_剑修禁术与异变/demonic_offer__伤口里的低语.md",
+      "name": "伤口里的低语",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "demonic_warning",
+      "file": "05_剑修禁术与异变/demonic_warning__剑穗与清心玉.md",
+      "name": "剑穗与清心玉",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "mirror_trial",
+      "file": "01_扩展事件/mirror_trial__照心残镜.md",
+      "name": "照心残镜",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "demon_manual",
+      "file": "01_扩展事件/demon_manual__井下残卷.md",
+      "name": "井下残卷",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "fallen_hunt",
+      "file": "05_剑修禁术与异变/fallen_hunt__故药再逢.md",
+      "name": "故药再逢",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "blood_lesson",
+      "file": "05_剑修禁术与异变/blood_lesson__血盏中不肯散的光.md",
+      "name": "血盏中不肯散的光",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "blood_debt",
+      "file": "05_剑修禁术与异变/blood_debt__谁的命拿来续命.md",
+      "name": "谁的命拿来续命",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "blood_choice",
+      "file": "05_剑修禁术与异变/blood_choice__经末没有写下的人.md",
+      "name": "经末没有写下的人",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "marsh_pharmacy",
+      "file": "01_七境事件/marsh_pharmacy__水上药庐.md",
+      "name": "水上药庐",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "reed_procession",
+      "file": "01_七境事件/reed_procession__苇间送行.md",
+      "name": "苇间送行",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "drowned_archive",
+      "file": "01_七境事件/drowned_archive__沉底书楼.md",
+      "name": "沉底书楼",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "furnace_ledger",
+      "file": "01_七境事件/furnace_ledger__焚愿账房.md",
+      "name": "焚愿账房",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "captive_smith",
+      "file": "01_七境事件/captive_smith__炉侧敲声.md",
+      "name": "炉侧敲声",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "ash_orchard",
+      "file": "01_七境事件/ash_orchard__灰烬果园.md",
+      "name": "灰烬果园",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "mirror_guest",
+      "file": "01_七境事件/mirror_guest__隔镜来客.md",
+      "name": "隔镜来客",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "unfinished_portrait",
+      "file": "01_七境事件/unfinished_portrait__未竟之像.md",
+      "name": "未竟之像",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "glass_assembly",
+      "file": "01_七境事件/glass_assembly__琉璃议席.md",
+      "name": "琉璃议席",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "fate_tailor",
+      "file": "01_七境事件/fate_tailor__补命针线.md",
+      "name": "补命针线",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "silent_astrolabe",
+      "file": "01_七境事件/silent_astrolabe__停转星盘.md",
+      "name": "停转星盘",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "last_campfire",
+      "file": "01_七境事件/last_campfire__最后一盏营火.md",
+      "name": "最后一盏营火",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_debt_1",
+      "file": "02_十套人间故事/debt/tale_debt_1__雨棚下的铜碗.md",
+      "name": "雨棚下的铜碗",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_debt_2",
+      "file": "02_十套人间故事/debt/tale_debt_2__册页里的鞋印.md",
+      "name": "册页里的鞋印",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_debt_3",
+      "file": "02_十套人间故事/debt/tale_debt_3__灯下有人还灵石.md",
+      "name": "灯下有人还灵石",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_medicine_1",
+      "file": "02_十套人间故事/medicine/tale_medicine_1__药棚只剩两碗.md",
+      "name": "药棚只剩两碗",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_medicine_2",
+      "file": "02_十套人间故事/medicine/tale_medicine_2__被贴住的药单.md",
+      "name": "被贴住的药单",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_medicine_3",
+      "file": "02_十套人间故事/medicine/tale_medicine_3__没人问出身的长凳.md",
+      "name": "没人问出身的长凳",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_letter_1",
+      "file": "02_十套人间故事/letter/tale_letter_1__火盆上的封口.md",
+      "name": "火盆上的封口",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_letter_2",
+      "file": "02_十套人间故事/letter/tale_letter_2__两份不同的抚恤单.md",
+      "name": "两份不同的抚恤单",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_letter_3",
+      "file": "02_十套人间故事/letter/tale_letter_3__碑上留白.md",
+      "name": "碑上留白",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_name_1",
+      "file": "02_十套人间故事/name/tale_name_1__衣领里的玉牌.md",
+      "name": "衣领里的玉牌",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_name_2",
+      "file": "02_十套人间故事/name/tale_name_2__同一块牌的两个人.md",
+      "name": "同一块牌的两个人",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_name_3",
+      "file": "02_十套人间故事/name/tale_name_3__能够自报名姓.md",
+      "name": "能够自报名姓",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_lanterns_1",
+      "file": "02_十套人间故事/lanterns/tale_lanterns_1__灯在向上游.md",
+      "name": "灯在向上游",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_lanterns_2",
+      "file": "02_十套人间故事/lanterns/tale_lanterns_2__水里的人不是倒影.md",
+      "name": "水里的人不是倒影",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_lanterns_3",
+      "file": "02_十套人间故事/lanterns/tale_lanterns_3__顺流而下的一盏.md",
+      "name": "顺流而下的一盏",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_grain_1",
+      "file": "02_十套人间故事/grain/tale_grain_1__秤盘里的最后一升.md",
+      "name": "秤盘里的最后一升",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_grain_2",
+      "file": "02_十套人间故事/grain/tale_grain_2__被算进损耗的人.md",
+      "name": "被算进损耗的人",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_grain_3",
+      "file": "02_十套人间故事/grain/tale_grain_3__新秤第一次落下.md",
+      "name": "新秤第一次落下",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_bridge_1",
+      "file": "02_十套人间故事/bridge/tale_bridge_1__还在修桥的人.md",
+      "name": "还在修桥的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_bridge_2",
+      "file": "02_十套人间故事/bridge/tale_bridge_2__火把照向桥下.md",
+      "name": "火把照向桥下",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_bridge_3",
+      "file": "02_十套人间故事/bridge/tale_bridge_3__桥有第二个工匠.md",
+      "name": "桥有第二个工匠",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_forge_1",
+      "file": "02_十套人间故事/forge/tale_forge_1__炉里有人的回声.md",
+      "name": "炉里有人的回声",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_forge_2",
+      "file": "02_十套人间故事/forge/tale_forge_2__剑胚与姓名.md",
+      "name": "剑胚与姓名",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_forge_3",
+      "file": "02_十套人间故事/forge/tale_forge_3__炉火照得到的地方.md",
+      "name": "炉火照得到的地方",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_theatre_1",
+      "file": "02_十套人间故事/theatre/tale_theatre_1__没有客人的开场.md",
+      "name": "没有客人的开场",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_theatre_2",
+      "file": "02_十套人间故事/theatre/tale_theatre_2__戏本上不能写的人.md",
+      "name": "戏本上不能写的人",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_theatre_3",
+      "file": "02_十套人间故事/theatre/tale_theatre_3__谁来决定散场.md",
+      "name": "谁来决定散场",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_well_1",
+      "file": "02_十套人间故事/well/tale_well_1__井绳磨出的伤.md",
+      "name": "井绳磨出的伤",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_well_2",
+      "file": "02_十套人间故事/well/tale_well_2__玉印背面的名字.md",
+      "name": "玉印背面的名字",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "tale_well_3",
+      "file": "02_十套人间故事/well/tale_well_3__井边多出来的凳子.md",
+      "name": "井边多出来的凳子",
+      "identityMatched": true,
+      "snapshots": 27,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "campfire_hunt",
+      "file": "06_途中突发/campfire_hunt__火光忽然静了.md",
+      "name": "火光忽然静了",
+      "identityMatched": true,
+      "snapshots": 2,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "road_aftermath",
+      "file": "06_途中突发/road_aftermath__雾里忽来车声.md",
+      "name": "雾里忽来车声",
+      "identityMatched": true,
+      "snapshots": 9,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_lotus_boss_1",
+      "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_1__灰里的一把钥匙.md",
+      "name": "灰里的一把钥匙",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_lotus_boss_2",
+      "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_2__留声簧里缺掉的半句.md",
+      "name": "留声簧里缺掉的半句",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_lotus_boss_3",
+      "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_3__门前仍有一双鞋.md",
+      "name": "门前仍有一双鞋",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_gate_boss_1",
+      "file": "03_Boss旧事/gate_boss/boss_gate_boss_1__渡簿上的空白.md",
+      "name": "渡簿上的空白",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_gate_boss_2",
+      "file": "03_Boss旧事/gate_boss/boss_gate_boss_2__最后一寸归灯芯.md",
+      "name": "最后一寸归灯芯",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_gate_boss_3",
+      "file": "03_Boss旧事/gate_boss/boss_gate_boss_3__一盏不必再等的灯.md",
+      "name": "一盏不必再等的灯",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_camp_boss_1",
+      "file": "03_Boss旧事/camp_boss/boss_camp_boss_1__营外的欠命簿.md",
+      "name": "营外的欠命簿",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_camp_boss_2",
+      "file": "03_Boss旧事/camp_boss/boss_camp_boss_2__不再发号施令的印.md",
+      "name": "不再发号施令的印",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_camp_boss_3",
+      "file": "03_Boss旧事/camp_boss/boss_camp_boss_3__誓言留给谁.md",
+      "name": "誓言留给谁",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_1",
+      "file": "03_Boss旧事/snake/boss_snake_1__药摊后的试方簿.md",
+      "name": "药摊后的试方簿",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_2",
+      "file": "03_Boss旧事/snake/boss_snake_2__不该拿去抵债的旧鳞.md",
+      "name": "不该拿去抵债的旧鳞",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_3",
+      "file": "03_Boss旧事/snake/boss_snake_3__蛇息前的一缕药香.md",
+      "name": "蛇息前的一缕药香",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_bell_boss_1",
+      "file": "03_Boss旧事/bell_boss/boss_bell_boss_1__没有写进丧帖的人.md",
+      "name": "没有写进丧帖的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_bell_boss_2",
+      "file": "03_Boss旧事/bell_boss/boss_bell_boss_2__敲钟人的手还在发抖.md",
+      "name": "敲钟人的手还在发抖",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_bell_boss_3",
+      "file": "03_Boss旧事/bell_boss/boss_bell_boss_3__钟停之前的一次呼吸.md",
+      "name": "钟停之前的一次呼吸",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_marsh_boss_1",
+      "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_1__刻错的水位.md",
+      "name": "刻错的水位",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_marsh_boss_2",
+      "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_2__只救一人的绳.md",
+      "name": "只救一人的绳",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_marsh_boss_3",
+      "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_3__月珠里退不了的潮.md",
+      "name": "月珠里退不了的潮",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_furnace_boss_1",
+      "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_1__替母亲签下的年岁.md",
+      "name": "替母亲签下的年岁",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_furnace_boss_2",
+      "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_2__守炉人的私藏.md",
+      "name": "守炉人的私藏",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_furnace_boss_3",
+      "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_3__有些愿望不能代许.md",
+      "name": "有些愿望不能代许",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_mirror_boss_1",
+      "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_1__被修掉的伤疤.md",
+      "name": "被修掉的伤疤",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_mirror_boss_2",
+      "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_2__照不出人的镜背.md",
+      "name": "照不出人的镜背",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_mirror_boss_3",
+      "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_3__不必挑一张好看的脸.md",
+      "name": "不必挑一张好看的脸",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_abyss_boss_1",
+      "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_1__账页外的孩子.md",
+      "name": "账页外的孩子",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_abyss_boss_2",
+      "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_2__没有归属的空印.md",
+      "name": "没有归属的空印",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_abyss_boss_3",
+      "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_3__最后一笔不替谁签.md",
+      "name": "最后一笔不替谁签",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_1",
+      "file": "03_Boss旧事/feiye/boss_feiye_1__借出去的名字.md",
+      "name": "借出去的名字",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_2",
+      "file": "03_Boss旧事/feiye/boss_feiye_2__不肯熄灭的灯结.md",
+      "name": "不肯熄灭的灯结",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_3",
+      "file": "03_Boss旧事/feiye/boss_feiye_3__还给井外的人.md",
+      "name": "还给井外的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_echo_1",
+      "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_1__同一封回信.md",
+      "name": "同一封回信",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_echo_2",
+      "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_2__替身记得的人.md",
+      "name": "替身记得的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_feiye_echo_3",
+      "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_3__谁来履行剩下的话.md",
+      "name": "谁来履行剩下的话",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_retainer_1",
+      "file": "03_Boss旧事/retainer/boss_retainer_1__只许入不许出的门.md",
+      "name": "只许入不许出的门",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_retainer_2",
+      "file": "03_Boss旧事/retainer/boss_retainer_2__一枚可以退还的铜环.md",
+      "name": "一枚可以退还的铜环",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_retainer_3",
+      "file": "03_Boss旧事/retainer/boss_retainer_3__留下不必先被锁住.md",
+      "name": "留下不必先被锁住",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_heart_1",
+      "file": "03_Boss旧事/heart/boss_heart_1__一张没有盖印的纸.md",
+      "name": "一张没有盖印的纸",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_heart_2",
+      "file": "03_Boss旧事/heart/boss_heart_2__醒来后仍得记得.md",
+      "name": "醒来后仍得记得",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_heart_3",
+      "file": "03_Boss旧事/heart/boss_heart_3__让犹豫有一个位置.md",
+      "name": "让犹豫有一个位置",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_ascended_1",
+      "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_1__两种字迹的药注.md",
+      "name": "两种字迹的药注",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_ascended_2",
+      "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_2__鳞片最里的一点白.md",
+      "name": "鳞片最里的一点白",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_snake_ascended_3",
+      "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_3__深井不是借口.md",
+      "name": "深井不是借口",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "boss_lotus_awake",
+      "file": "03_Boss旧事/lotus_boss/boss_lotus_awake__茶凉之前，请先救活着的人.md",
+      "name": "茶凉之前，请先救活着的人",
+      "identityMatched": true,
+      "snapshots": 3,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_lotus_boss_source",
+      "file": "04_阵营洞府/lotus_boss/faction_lotus_boss_source__朱漆门牌下.md",
+      "name": "朱漆门牌下",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_lotus_boss_cave",
+      "file": "04_阵营洞府/lotus_boss/faction_lotus_boss_cave__灰宅外的拆匣洞.md",
+      "name": "灰宅外的拆匣洞",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_furnace_boss_source",
+      "file": "04_阵营洞府/furnace_boss/faction_furnace_boss_source__愿帖上的空位.md",
+      "name": "愿帖上的空位",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_furnace_boss_cave",
+      "file": "04_阵营洞府/furnace_boss/faction_furnace_boss_cave__熄炉洞中的拾灰人.md",
+      "name": "熄炉洞中的拾灰人",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_gate_boss_source",
+      "file": "04_阵营洞府/gate_boss/faction_gate_boss_source__灯链断处.md",
+      "name": "灯链断处",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_gate_boss_cave",
+      "file": "04_阵营洞府/gate_boss/faction_gate_boss_cave__不点灯的渡棚.md",
+      "name": "不点灯的渡棚",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_camp_boss_source",
+      "file": "04_阵营洞府/camp_boss/faction_camp_boss_source__军令与药箱.md",
+      "name": "军令与药箱",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_camp_boss_cave",
+      "file": "04_阵营洞府/camp_boss/faction_camp_boss_cave__堤下伤卒营.md",
+      "name": "堤下伤卒营",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_snake_source",
+      "file": "04_阵营洞府/snake/faction_snake_source__井沿的两张方子.md",
+      "name": "井沿的两张方子",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_snake_cave",
+      "file": "04_阵营洞府/snake/faction_snake_cave__秤鳞石窟.md",
+      "name": "秤鳞石窟",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_bell_boss_source",
+      "file": "04_阵营洞府/bell_boss/faction_bell_boss_source__尚未系上的名字.md",
+      "name": "尚未系上的名字",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_bell_boss_cave",
+      "file": "04_阵营洞府/bell_boss/faction_bell_boss_cave__无钟墓室.md",
+      "name": "无钟墓室",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_marsh_boss_source",
+      "file": "04_阵营洞府/marsh_boss/faction_marsh_boss_source__潮尺停下的地方.md",
+      "name": "潮尺停下的地方",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_marsh_boss_cave",
+      "file": "04_阵营洞府/marsh_boss/faction_marsh_boss_cave__干堤底舱.md",
+      "name": "干堤底舱",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_mirror_boss_source",
+      "file": "04_阵营洞府/mirror_boss/faction_mirror_boss_source__镜面上被擦掉的伤.md",
+      "name": "镜面上被擦掉的伤",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_mirror_boss_cave",
+      "file": "04_阵营洞府/mirror_boss/faction_mirror_boss_cave__剥银作坊.md",
+      "name": "剥银作坊",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_abyss_boss_source",
+      "file": "04_阵营洞府/abyss_boss/faction_abyss_boss_source__命册旁的一栏空白.md",
+      "name": "命册旁的一栏空白",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_abyss_boss_cave",
+      "file": "04_阵营洞府/abyss_boss/faction_abyss_boss_cave__命册外的驿台.md",
+      "name": "命册外的驿台",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_feiye_source",
+      "file": "04_阵营洞府/feiye/faction_feiye_source__祠前待还的名帖.md",
+      "name": "祠前待还的名帖",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_feiye_cave",
+      "file": "04_阵营洞府/feiye/faction_feiye_cave__无名祠堂.md",
+      "name": "无名祠堂",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_feiye_echo_source",
+      "file": "04_阵营洞府/feiye_echo/faction_feiye_echo_source__两封同笔迹的信.md",
+      "name": "两封同笔迹的信",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_feiye_echo_cave",
+      "file": "04_阵营洞府/feiye_echo/faction_feiye_echo_cave__双信洞.md",
+      "name": "双信洞",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_retainer_source",
+      "file": "04_阵营洞府/retainer/faction_retainer_source__灯锁与门后的声音.md",
+      "name": "灯锁与门后的声音",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_retainer_cave",
+      "file": "04_阵营洞府/retainer/faction_retainer_cave__只向内开的门.md",
+      "name": "只向内开的门",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_heart_source",
+      "file": "04_阵营洞府/heart/faction_heart_source__仍未落下的印.md",
+      "name": "仍未落下的印",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_heart_cave",
+      "file": "04_阵营洞府/heart/faction_heart_cave__未落印的石室.md",
+      "name": "未落印的石室",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_snake_ascended_source",
+      "file": "04_阵营洞府/snake_ascended/faction_snake_ascended_source__黑潮边的一片白鳞.md",
+      "name": "黑潮边的一片白鳞",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    },
+    {
+      "id": "faction_snake_ascended_cave",
+      "file": "04_阵营洞府/snake_ascended/faction_snake_ascended_cave__井壁白鳞窟.md",
+      "name": "井壁白鳞窟",
+      "identityMatched": true,
+      "snapshots": 33,
+      "editorialStatus": "待逐项白话改造和人工复核"
+    }
+  ]
+}
