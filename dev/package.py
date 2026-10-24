@@ -11,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_ART = {
-    'faction-combat':6,'faction-items':6,'faction-scenes':2,'outfits':20, 'portraits': 37, 'cards': 76, 'events': 91, 'relics': 15,
+    'faction-combat':10,'faction-items':18,'faction-scenes':6,'outfits':20, 'portraits': 49, 'cards': 76, 'events': 91, 'relics': 15,
     'puppet': 13, 'regions': 7, 'weapons': 4, 'items': 1,
     'events-sword': 21, 'events-sovereign': 21, 'events-sword_fallen': 21,
 }
@@ -105,7 +105,7 @@ def verify_recovery(evidence_name, manifest_name, script_name, count, mode, outp
     verify_hash(script_name, evidence['script_sha256'])
     verify_inputs(manifest, 'files')
     verify_inputs(manifest, 'asset_sha256')
-    expected_assets = 341 if mode == 'full-webp' else 0
+    expected_assets = 373 if mode == 'full-webp' else 0
     require(evidence['asset_count_in_payload'] == manifest['asset_count'] == expected_assets,
             'Unexpected recovery payload asset count')
     return evidence, manifest
@@ -193,13 +193,13 @@ def main():
         images = sorted((ROOT / 'assets' / folder).glob('*.webp'))
         require(len(images) == count, 'Unexpected runtime art count: ' + folder)
         artwork.extend(images)
-    require(len(artwork) == 341, 'Expected 341 runtime WebPs')
+    require(len(artwork) == 373, 'Expected 373 runtime WebPs')
     artifact_paths = {p.relative_to(ROOT).as_posix() for p in artwork}
     require(set(browser['assetInputs']) == artifact_paths, 'Browser did not verify every runtime art file')
     require(set(full_manifest['asset_sha256']) == set(source_manifest['asset_sha256']) == artifact_paths,
             'Recovery art coverage differs from runtime art')
     decoded = browser.get('allAssetDecode', [])
-    require(len(decoded) >= 341 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
+    require(len(decoded) >= 373 and all(x['width'] > 0 and x['height'] > 0 for x in decoded),
             'Runtime image decoding was not verified')
     wardrobe = report('dev/wardrobe-blood-browser-results.json')
     passed(wardrobe, 9, 'outfits, hidden intent and blood skills')
@@ -232,6 +232,20 @@ def main():
     for e in faction_art:
         verify_hash(e['path'],e['sha256'])
         require(e['reviewed'],'Unreviewed faction art')
+    probe=report('dev/frontier-probe-results.json')
+    verify_inputs(probe)
+    require(len(probe['runs'])==60 and probe['stalled']==0,'Incomplete or stalled frontier arena probe')
+    frontier=report('dev/frontier-browser-results.json')
+    passed(frontier,7,'four new frontier faction groups')
+    verify_inputs(frontier)
+    frontier_art=report('dev/frontier-art-manifest.json')['entries']
+    require(len(frontier_art)==32,'Expected 32 new frontier paintings')
+    with zipfile.ZipFile(root_file('recovery/frontier-art-originals.zip')) as masters:
+        require(masters.testzip() is None and len(masters.namelist())==32,'Frontier master CRC or count failed')
+        for e in frontier_art:
+            verify_hash(e['path'],e['sha256'])
+            require(e['reviewed'],'Unreviewed frontier painting')
+            require(hashlib.sha256(masters.read(e['group']+'/'+e['id']+'.png')).hexdigest()==e['original_sha256'],'Frontier PNG master changed')
     new_art = verify_new_art()
     require(new_art.issubset(artifact_paths), 'New v11 art is missing from runtime package')
     for html in ('index.html', 'baiyao-standalone.html'):
@@ -242,7 +256,7 @@ def main():
     require(not any(p.suffix.lower() in {'.glb', '.gltf', '.obj', '.fbx', '.vrm'}
                     for p in (ROOT / 'assets').rglob('*')), '3D runtime model assets found')
 
-    members = [root_file(n) for n in ['index.html', 'baiyao-standalone.html', 'README.md',
+    members = [root_file(n) for n in ['index.html', 'README.md',
                'GAME_README.md', 'TESTING.md', 'PERSISTENCE.md', 'LIVE2D_STATUS.md']]
     members += artwork
     members += sorted(p for p in (ROOT / 'dev').iterdir() if p.is_file() and
@@ -294,18 +308,19 @@ def main():
                       'dev/v8-audio-regression-results.json', 'dev/v8-sword-audio-results.json',
                       'dev/v8-audio-results.json', 'dev/v11-regression-results.json',
                       'dev/v11-source-browser-results.json', 'dev/v11-art-manifest.json', 'dev/v11-scene-art-manifest.json',
-                      'dev/faction-art-manifest.json','dev/factions-browser-results.json','dev/enemy-factions.js','dev/factions.test.cjs','dev/wardrobe-art-manifest.json', 'dev/story-boss-art-manifest.json', 'dev/wardrobe-blood-browser-results.json', 'dev/wardrobe-blood.test.cjs', 'dev/boss-chain-reachability.test.cjs', 'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
+                      'dev/frontier-probe-results.json','dev/frontier-probe.cjs','dev/frontier-art-manifest.json','dev/frontier-browser-results.json','dev/frontier.test.cjs','dev/faction-art-manifest.json','dev/factions-browser-results.json','dev/enemy-factions.js','dev/factions.test.cjs','dev/wardrobe-art-manifest.json', 'dev/story-boss-art-manifest.json', 'dev/wardrobe-blood-browser-results.json', 'dev/wardrobe-blood.test.cjs', 'dev/boss-chain-reachability.test.cjs', 'dev/v8-role-art-manifest.json', 'dev/v8-file-browser-results.json', 'recovery/tests.json',
                       'recovery/source-tests.json', 'recovery/manifest.json', 'recovery/source-manifest.json']
     receipt = {
-        'version': '寒渊七境 · 器物与来意', 'date': '2026-10-24', 'timezone': 'Asia/Shanghai', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
+        'version': '寒渊七境 · 灯渡与旧誓', 'date': '2026-10-24', 'timezone': 'Asia/Shanghai', 'based_on': 'user 33.zip, v10 and audited numerical proposal',
         'game_html': describe(root_file('index.html')),
         'standalone_html': describe(root_file('baiyao-standalone.html')),
         'play_zip': describe(archive), 'zip_crc': 'PASS', 'zip_every_member_byte_exact': True,
+        'frontier_png_masters': {**describe(root_file('recovery/frontier-art-originals.zip')),'files':32,'crc':'PASS','each_png_sha256':'PASS','separate_download':True},
         'faction_png_masters': {**describe(originals), 'files':20, 'crc':'PASS', 'each_png_sha256':'PASS', 'separate_download':True},
         'zip_members': len(payload), 'editable_shell_in_zip': True,
         'runtime_art': {folder: {'count': count, 'bytes': sum(p.stat().st_size for p in
                         (ROOT / 'assets' / folder).glob('*.webp'))} for folder, count in EXPECTED_ART.items()},
-        'runtime_art_total': 341, 'new_generated_art_files': 20, 'retained_tales_art_files': 34, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
+        'runtime_art_total': 373, 'new_generated_art_files': 32, 'retained_tales_art_files': 34, 'retained_v11_generated_art_files': 28, 'inline_vector_icons': len(vectors['icons']), 'universal_map_icons': 8, 'inline_cave_scene': True, 'inline_item_art': len(vectors['items']), 'map_direction': 'bottom-to-top', 'map_node_shape':'pentagon', 'hidden_narrative_counters': True, 'status_details_on_click_only': True, 'core_resources_always_labelled': True,
         'boss_quests': {'chains': 14, 'stages_per_chain': 3, 'choices_per_event': 4, 'awakening_event': 1, 'new_quest_items': 28, 'rule_checks': 28, 'browser_checks': boss_quests['passed'], 'art_source': 'fourteen individual portraits; four legacy story thumbnails repainted at full resolution', 'enemy_statuses_only_when_applied': True, 'corner_stack_badges': True, 'currency': '灵石', 'puppet_requires_both_witnessed_items': True},
         'tales': {'browser_groups': tales['passed'], 'new_rule_checks': 23, 'cave_painted': True, 'fall_portrait_existing_three_states_verified': True, 'resume_rest_after_patrol_reward': True, 'new_art_files':34},
         'batch_a': {'browser_groups': batch_a['passed'], 'new_rule_checks': 15,
@@ -316,15 +331,16 @@ def main():
                     'physical_phone_tested': False, 'cross_browser_tested': False},
         'outfits': {'items':5,'item_paintings':5,'character_paintings':15,'browser_groups':wardrobe['passed'],'new_cards':6,'linked_acquisition_events':3,'separate_wounded_paintings':False},
         'enemy_next_action_visible':False,
+        'frontier_p2': {'implemented_templates':18,'new_templates':12,'new_groups':4,'new_events':8,'new_art':32,'browser_groups':frontier['passed'],'remaining_candidates':19},
         'factions_p1': {'implemented_templates':6,'candidate_templates':37,'groups':2,'events':4,'art':20,'browser_groups':factions['passed'],'new_ordinary_scaling':False},
         'professions': ['影契刺客', '霜华剑修', '无相宫主'],
         'map_stages': 70, 'steps_per_chapter': 10, 'regions': 7,
         'route_templates': 20, 'chapter_templates_selected_independently': True,
         'nodes_per_chapter': [42, 46], 'nodes_per_run': [294, 322], 'random_node_types': True,
-        'story_events': 134, 'linked_story_chains': 28, 'new_chains': 0, 'new_linked_events': 0, 'chains_sampled_per_run': 3, 'travel_interruptions': 2, 'cards': 76, 'sound_profiles': 76,
-        'event_sound_profiles': 126, 'role_specific_event_variants': 63, 'weapons': 4,
+        'story_events': 142, 'linked_story_chains': 28, 'new_chains': 0, 'new_linked_events': 0, 'chains_sampled_per_run': 3, 'travel_interruptions': 2, 'cards': 76, 'sound_profiles': 76,
+        'event_sound_profiles': 134, 'role_specific_event_variants': 63, 'weapons': 4,
         'reworked_boss': {'id':'lotus_boss','name':'故宅机仆·缄红','new_portraits':1,'household_tools':4,'revenge_threshold':0.5,'revenge_per_hit':1,'new_sound_cues':5,'focused_rule_checks':12},
-        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':31, 'boss_illustrations':9, 'special_encounter_portraits':5, 'quest_items': 35, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
+        'boss_roster': {'early':5,'middle':3,'final':1}, 'enemies':43, 'boss_illustrations':9, 'special_encounter_portraits':5, 'quest_items': 47, 'meta_unlock_storage': True, 'formal_cubism_model_exported': False,
         'consumables':7, 'cave_loot_fixed_on_entry':True, 'combat_consumable_limit_per_turn':1,
         'frost':{'cap':10,'decay_after_enemy_turn':1,'slow_threshold':5,'damage_reduction_per_hit':1,'freeze_threshold':10,'freeze_chance':0.1,'elite_applications_per_stack':2},
         'bleed':{'cap':7,'chance_per_stack':0.03,'damage':'uniform 1..stacks, bypass shield','tick':'enemy turn start'},

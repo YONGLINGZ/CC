@@ -3,7 +3,7 @@
   "failed": 0,
   "checks": [
     {
-      "name": "76 independent signatures across three roles; 126 encounter motifs",
+      "name": "76 independent signatures across three roles; 134 encounter motifs",
       "passed": true
     },
     {
@@ -30,7 +30,7 @@
       "noiseSources": 153
     },
     {
-      "name": "126 encounters, snake intents, defense/poison/relic/reward cues all produce graph",
+      "name": "134 encounters, snake intents, defense/poison/relic/reward cues all produce graph",
       "passed": true
     },
     {
@@ -49,11 +49,11 @@
       "name": "52 OfflineAudioContext renders contain distinct, unclipped, non-silent sound",
       "passed": true,
       "distinctRenders": 76,
-      "minRMS": 0.0013293803525001372,
-      "maxPeak": 0.18687032163143158
+      "minRMS": 0.0013293803525463426,
+      "maxPeak": 0.18687061965465546
     }
   ],
   "preview": "/workspace/scratch/audio-preview.wav",
-  "audioSha256": "2ac09bcfac01330115f287131fa4354b59ed0cf602f1af39e1e8b8c49973f826",
+  "audioSha256": "3cbad37a0e7415aee7a8929f740f955113366b6e4a18b23a3a735ae78890adf7",
   "note": "Programmatically synthesized effects; real Chromium AudioContext/OfflineAudioContext executed. Listening quality is not a test assertion."
 }

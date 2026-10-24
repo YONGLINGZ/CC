@@ -3,4 +3,5 @@ __pycache__/
 recovery/*.zip
 !recovery/baiyao-rebuilt.zip
 !recovery/factions-art-originals.zip
+!recovery/frontier-art-originals.zip
 recovery/*.bundle

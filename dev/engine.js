@@ -1039,7 +1039,7 @@
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
-      if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(f.behaviors.some(x=>x.kind==='promise'))recordJourney(null,'尚未带走的器谱','交锋结束，但曾接过的取谱承诺并不因此自动完成。你没有取得完整器谱。','neutral');if(f.behaviors.some(x=>x.kind==='help'))recordJourney(null,'药棚递来的话','先前受助的人留下证词：仍有人需要照看。这不表示所有伤者都已获救。','neutral');}
+      if (b.kind === 'boss') {state.stats.chapterBosses++;const group=ENEMY_FACTIONS.GROUPS[b.enemy.id];if(group?.frontier){const f=factionState();for(const rec of Object.values(f.records).filter(r=>r.boss===b.enemy.id&&r.resolved)){const msg=rec.outcome==='help'?group.reply:rec.outcome==='defeated'?'你取得现场证据；这不等于已替所有人解决困境。':rec.outcome==='aid'?'援助来自一个有自己目的的人；交锋不能替那份证词盖棺定论。':null;if(msg)recordJourney(null,group.cave+' · 回声',msg,'neutral');}}const f=factionState();if(f.behaviors.some(x=>x.kind==='promise'))recordJourney(null,'尚未带走的器谱','交锋结束，但曾接过的取谱承诺并不因此自动完成。你没有取得完整器谱。','neutral');if(f.behaviors.some(x=>x.kind==='help'))recordJourney(null,'药棚递来的话','先前受助的人留下证词：仍有人需要照看。这不表示所有伤者都已获救。','neutral');}
       if (b.kind === 'boss' && state.floor < totalFloors) {
         heal(18,'关口之后的补给');
         state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
@@ -1105,6 +1105,7 @@
       amount=Math.max(0,amount);
       const absorbed = Math.min(b.enemy.block, amount);
       b.enemy.block -= absorbed;
+      if(b.enemy.id==='m07'&&absorbed>0&&b.enemy.block===0&&!b.enemy.armorCracked){b.enemy.armorCracked=true;b.enemy.armorPenalty=true;log('旧甲缺口：下次守桥护盾减少2，仅一次。');}
       const damage = Math.max(0, amount - absorbed);
       if (kind === 'card') state.stats.maxHit = Math.max(state.stats.maxHit, amount);
       const actualLoss=Math.min(b.enemy.hp,damage);
@@ -1619,6 +1620,7 @@
       b.drainDamage=0;
       const intent = getIntent();
       if (!enemy.frozen) {
+        const fg=ENEMY_FACTIONS.GROUPS[enemy.id],fs=factionState();if(fg?.frontier&&state.player.questItems.includes(fg.aid)&&!fs.spent[fg.aid]&&intent[fg.effect]>0){intent[fg.effect]=Math.max(0,intent[fg.effect]-1);fs.spent[fg.aid]=true;intent.text+='；'+ENEMY_FACTIONS.ITEMS[fg.aid].name+'抵消1层';log(ENEMY_FACTIONS.ITEMS[fg.aid].name+'触发，本局一次。');event('enemySkill',{source:'player',target:'enemy',kind:'aid',name:ENEMY_FACTIONS.ITEMS[fg.aid].name});}
         const f=factionState(),item=enemy.id==='lotus_boss'&&intent.name.includes('沸盏')?'heat_tongs':enemy.id==='furnace_boss'&&intent.name==='烬衣'?'cold_ash':null;
         if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
       }
@@ -1633,6 +1635,12 @@
         }
         if(ENEMY_FACTIONS.DEFS[enemy.id]){const f=factionState();f.seen=f.seen||{};const seen=f.seen[enemy.id]||(f.seen[enemy.id]={name:enemy.name,abilities:[]});if(!seen.abilities.includes(intent.name))seen.abilities.push(intent.name);}
         log(`${enemy.name}使用「${intent.name}」：${intent.text}。`);
+        if(intent.limit){enemy.actionUses=enemy.actionUses||{};enemy.actionUses[intent.name]=(enemy.actionUses[intent.name]||0)+1;}
+        if(enemy.id==='m07'&&intent.name==='守桥'&&enemy.armorPenalty)enemy.armorPenalty=false;
+        if(enemy.id==='m14'&&intent.name==='歇肩'&&enemy.hp<enemy.maxHp*.3&&!enemy.shoulderSpent)enemy.shoulderSpent=true;
+        if(intent.selfCost){enemy.hp=Math.max(0,enemy.hp-intent.selfCost);event('selfDamage',{source:'enemy',target:'enemy',amount:intent.selfCost,damage:intent.selfCost});if(enemy.hp===0){winBattle();emit();return true;}}
+        if(intent.selfPoison){enemy.poison+=intent.selfPoison;event('poison',{source:'enemy',target:'enemy',amount:intent.selfPoison,total:enemy.poison});}
+        if(intent.removeMark){const n=Math.min(enemy.mark,intent.removeMark);enemy.mark-=n;event('mark',{source:'enemy',target:'enemy',amount:-n,total:enemy.mark});}
         if(intent.wardedEffect){
           b.bossWard.used=true;
           log(`${QUEST_ITEMS[b.bossWard.item].name}生效，抵消本次${intent.wardedLabel}；本战不再触发。`);
@@ -2374,7 +2382,10 @@
     }
     function getIntent() {
       const b=state.battle;if(!b)return null;
-      const def=(b.factionDef?.id===b.enemy.id?b.factionDef:ENEMIES[b.enemy.id]),intent={...def.intents[b.enemy.intentIndex]};
+      const def=(b.factionDef?.id===b.enemy.id?b.factionDef:ENEMIES[b.enemy.id]);let intent={...def.intents[b.enemy.intentIndex]};
+      if(intent.limit&&(b.enemy.actionUses?.[intent.name]||0)>=intent.limit){if(intent.limited)intent[intent.limited]=0;else intent={name:intent.name+' · 已耗尽',hits:[intent.fallback||1]};}
+      if(b.enemy.id==='m07'&&intent.name==='守桥'&&b.enemy.armorPenalty)intent.block=Math.max(0,intent.block-2);
+      if(b.enemy.id==='m14'&&intent.name==='歇肩'&&b.enemy.hp<b.enemy.maxHp*.3&&!b.enemy.shoulderSpent)intent.block=Math.floor(intent.block/2);
       const ward=b.bossWard;
       if(ward&&!ward.used&&intent[ward.effect]){
         intent.wardedEffect=ward.effect;intent.wardedLabel=({poison:'施毒',playerMark:'追索印',energyPenalty:'封灵',drawPenalty:'封住抽牌',counter:'反击架势'})[ward.effect];
@@ -2388,6 +2399,7 @@
       const reduction=chill>=5&&!intent.clearChill?1:0;
       const frenzy=b.enemy.id==='m01'&&b.enemy.hp<=b.enemy.maxHp/2&&b.enemy.frenzyUses<3?1:0;
       const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus+revengeBonus+frenzy+(index===0?(b.enemy.heat||0)*3:0)-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
+      if(intent.selfCost)parts.push(`自身失去${intent.selfCost}生命`);if(intent.selfPoison)parts.push(`自身获得毒${intent.selfPoison}`);if(intent.removeMark)parts.push(`移除自身猎印${intent.removeMark}`);
       if(intent.clearMark)parts.push('清除全部猎印');
       if(intent.clearChill)parts.push('清除全部霜寒与未凝寒意');
       if(intent.clearBleed)parts.push('清除全部流血');

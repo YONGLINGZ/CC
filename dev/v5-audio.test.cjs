@@ -21,7 +21,7 @@ function digest(value){return crypto.createHash('sha256').update(value).digest('
   await test('old 36 assassin signatures are byte-identical to v4; 16 sword signatures are independent',async()=>{
     const old=audio.assassinProfiles.map(id=>audio.profile(id));
     assert.equal(digest(JSON.stringify(old)),'fdfea696abffe826a17d8aeccb35007954fe6fe131ccb2f587a510261d872b53');
-    assert.deepEqual(audio.swordProfiles,swordIds);assert.equal(audio.profiles.length,76);assert.equal(audio.encounters.length,126);
+    assert.deepEqual(audio.swordProfiles,swordIds);assert.equal(audio.profiles.length,76);assert.equal(audio.encounters.length,134);
     assert.equal(new Set(audio.profiles.map(id=>audio.profile(id).signature)).size,76);
     assert.ok(swordIds.every(id=>!['claw','pounce','tear'].includes(audio.profile(id).kind)));
     report.assassinProfilesPreserved=36;report.newProfiles=swordIds.map(id=>({id,...audio.profile(id)}));

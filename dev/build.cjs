@@ -42,7 +42,7 @@ if(gameData.CHARACTERS?.sovereign){
   resources.puppet.feiye=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','feiye-'+id)]));
 }
 resources.puppet.sword_fallen=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','sword_fallen-'+id)]));
-resources.factionCombat=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.DEFS).map(id=>[id,asset('faction-combat',id)]));
+resources.factionCombat=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.DEFS).filter(id=>gameData.ENEMY_FACTIONS.DEFS[id].rank==='elite'||['m01','m02','m19','m20'].includes(id)).map(id=>[id,asset('faction-combat',id)]));
 resources.factionItems=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.ITEMS).map(id=>[id,asset('faction-items',id)]));
 resources.factionScenes=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.GROUPS).map(id=>[id,asset('faction-scenes',id)]));
 resources.puppetRig={};

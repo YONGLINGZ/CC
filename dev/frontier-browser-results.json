@@ -1,0 +1,135 @@
+{
+  "format": "baiyao-frontier-browser",
+  "method": "Actual Chromium clicks, decoded boss portraits, mobile viewport geometry and OfflineAudioContext samples. Route/rare-state fixtures are labelled. No physical-phone or human play claim.",
+  "inputs": {
+    "index.html": "13c33efdefd73d847cbbd75608ca893540256418965fb94f7b18912ff72e6273",
+    "baiyao-standalone.html": "e9405328641a3f5a487287d190027ab2a55bb18fd2b184246232eccc0030e1d1",
+    "dev/engine.js": "aca1cbe56cf0ad080d854ddc1aa0aaf3b17ef429b36ce5eaebb2174c870df9ed",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
+    "dev/expedition.js": "de6f4b1cda0a9283b718a8e3c9a41d8b59ee71bc55aadf952df90abb9f3c55bd",
+    "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
+    "dev/tales.js": "342f6009d496f953daff740c43d71900ac52158771a5e95d93dd4d5e23b43646",
+    "dev/boss-quests.js": "4de05154a772dbbcde21c4acf72cb8d68783c49531e294d9868e2341d5cda2c1",
+    "dev/enemy-factions.js": "81fb0270bf99d0fa3f42d894d349bb177c4d210f53dc1b57c58e6dfbd530c0c9",
+    "dev/ui.js": "183d8cf249677b4e382eae474900a488384539d9a643283709244056c124a5ea",
+    "dev/shell.html": "03dbf1c5ed85939f1b17fb2be961f09cece88c8c3360c1de83713df0bbcf1e59",
+    "dev/audio.js": "3cbad37a0e7415aee7a8929f740f955113366b6e4a18b23a3a735ae78890adf7",
+    "dev/build.cjs": "1dd14e0737d12e9daac7ecdc9195deb3c63a1c3c06fb6ccebb4d771de8db81f4",
+    "dev/frontier-browser.test.cjs": "4d2a1f17d145007a1ec94bec293fedfa4343e70c5fdba19c3b74b2e3cfcfbba9"
+  },
+  "results": [
+    {
+      "name": "both source→cave routes use distinct scenes and peaceful aid resolves exactly once",
+      "ok": true
+    },
+    {
+      "name": "visible supporting credentials cause normal elite battle even with opposition; no intent preview",
+      "ok": true
+    },
+    {
+      "name": "evidence alone stays neutral; missing herbs and spirit stones cannot be spent",
+      "ok": true
+    },
+    {
+      "name": "twelve real battles decode separate battle poses, record observed abilities and show current heat only",
+      "ok": true
+    },
+    {
+      "name": "active attack gives evidence and standard reward, never a peace gift or second settlement",
+      "ok": true
+    },
+    {
+      "name": "360/390/430 layouts and all thirty-two new paintings decode without clipping the page",
+      "ok": true
+    },
+    {
+      "name": "eight new offline encounter sounds render; frozen files and external-request checks hold",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/workspace/scratch/frontier-faction-gate_boss.png",
+    "/workspace/scratch/frontier-faction-camp_boss.png",
+    "/workspace/scratch/frontier-faction-snake.png",
+    "/workspace/scratch/frontier-faction-bell_boss.png",
+    "/workspace/scratch/frontier-faction-mobile.png"
+  ],
+  "routes": [
+    "gate_boss",
+    "camp_boss",
+    "snake",
+    "bell_boss"
+  ],
+  "enemies": [
+    "m04",
+    "m05",
+    "m06",
+    "m07",
+    "m08",
+    "m09",
+    "m10",
+    "m11",
+    "m12",
+    "m13",
+    "m14",
+    "m15"
+  ],
+  "mobile": [
+    360,
+    390,
+    430
+  ],
+  "art": [
+    "assets/portraits/m04.webp",
+    "assets/portraits/m05.webp",
+    "assets/portraits/m06.webp",
+    "assets/portraits/m07.webp",
+    "assets/portraits/m08.webp",
+    "assets/portraits/m09.webp",
+    "assets/portraits/m10.webp",
+    "assets/portraits/m11.webp",
+    "assets/portraits/m12.webp",
+    "assets/portraits/m13.webp",
+    "assets/portraits/m14.webp",
+    "assets/portraits/m15.webp",
+    "assets/faction-combat/m06.webp",
+    "assets/faction-combat/m09.webp",
+    "assets/faction-combat/m12.webp",
+    "assets/faction-combat/m15.webp",
+    "assets/faction-items/lamp_knot.webp",
+    "assets/faction-items/lamp_cut.webp",
+    "assets/faction-items/lamp_cloth.webp",
+    "assets/faction-items/pursuit_order.webp",
+    "assets/faction-items/pass_fold.webp",
+    "assets/faction-items/loose_band.webp",
+    "assets/faction-items/well_oath.webp",
+    "assets/faction-items/well_chisel.webp",
+    "assets/faction-items/clean_gauze.webp",
+    "assets/faction-items/bell_knot.webp",
+    "assets/faction-items/bell_wedge.webp",
+    "assets/faction-items/echo_wedge.webp",
+    "assets/faction-scenes/gate_boss.webp",
+    "assets/faction-scenes/camp_boss.webp",
+    "assets/faction-scenes/snake.webp",
+    "assets/faction-scenes/bell_boss.webp"
+  ],
+  "audio": {
+    "ids": [
+      "faction_gate_boss_source",
+      "faction_gate_boss_cave",
+      "faction_camp_boss_source",
+      "faction_camp_boss_cave",
+      "faction_snake_source",
+      "faction_snake_cave",
+      "faction_bell_boss_source",
+      "faction_bell_boss_cave"
+    ],
+    "frames": 449820,
+    "finite": true,
+    "nonzero": true
+  },
+  "passed": 7,
+  "failed": 0
+}

@@ -43,9 +43,10 @@ ASSET_GROUPS = {
 release_data = json.loads(subprocess.check_output(["node", "-e", "const n=require('./dev/engine.js');console.log(JSON.stringify({portraits:[...new Set(['cat','fox','sword_fallen',...Object.keys(n.ENEMIES),...Object.keys(n.NPCS)])],regions:n.REGIONS.map(r=>r.id),events:[...new Set([...(n.EVENT_ART_IDS||n.EVENT_IDS),'fox','rest','shop'])]}))"], cwd=ROOT, text=True))
 for group in ("portraits", "regions", "events"):
     ASSET_GROUPS[group] = tuple(release_data[group])
-ASSET_GROUPS['faction-combat']=('m01','m02','m03','m19','m20','m21')
-ASSET_GROUPS['faction-items']=('house_order','split_nail','furnace_pact','charcoal_seal','heat_tongs','cold_ash')
-ASSET_GROUPS['faction-scenes']=('lotus_boss','furnace_boss')
+factions = json.loads(subprocess.check_output(['node','-e',"const f=require('./dev/enemy-factions.js');console.log(JSON.stringify({combat:Object.keys(f.DEFS).filter(id=>f.DEFS[id].rank==='elite'||['m01','m02','m19','m20'].includes(id)),items:Object.keys(f.ITEMS),scenes:Object.keys(f.GROUPS)}))"],cwd=ROOT,text=True))
+ASSET_GROUPS['faction-combat']=tuple(factions['combat'])
+ASSET_GROUPS['faction-items']=tuple(factions['items'])
+ASSET_GROUPS['faction-scenes']=tuple(factions['scenes'])
 ASSET_GROUPS['outfits'] = tuple(role+'-'+outfit for outfit in ('mist','lotus','ember','moon','blood') for role in ('item','cat','sword','sword_fallen'))
 ASSET_NAMES = tuple(f"assets/{group}/{name}.webp" for group, names in ASSET_GROUPS.items() for name in names)
 
