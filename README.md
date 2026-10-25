@@ -24,13 +24,15 @@ P1与P2的阶段记录保留在各自手册；当前完整范围见本页开头�
 
 镇境阵容共有九位：前期五位依境按不同权重抽取三位且不重复，第四至第六境分别面对三位中期镇守，第七境迎战归墟司命。绛鳞是前期守关者。人物志可以查看画卷与背景，镜中人、卫烬、心影、逆仪绛鳞本轮已换为完整高分辨率原画。
 
-当前共有76张技能、158种剧情事件、150段事件音效和432张运行 WebP。核心剑意、魂息常驻名称、数字和刻度；敌方状态只在实际施加后显示符纹与右下角层数。卡牌目标选择仍有规则层预览，不公开敌方下一招。
+当前共有88张技能、161种剧情事件、153段事件音效和452张声明的运行 WebP。核心剑意、魂息常驻名称、数字和刻度；敌方状态只在实际施加后显示符纹与右下角层数。卡牌目标选择仍有规则层预览，不公开敌方下一招。
+
+本次新增可直接选用的合欢宗角色「晏绮罗」。她以56生命和「照心镜」入场，起手十张牌围绕“立即出手／藏入薄纱”双模式展开：两道藏招位各自支付一次灵力，敌方阶段按条件触发或失效；每场可观息3次、每回合最多1次，只读取“攻击／非攻击”类别，不公开具体招式。她的个人线在第7、35、57段前后插入三场可回到原路线的剧情，围绕秦蘅、路引和祭仪账册作出真实选择。新增12张合欢牌、三张事件图、三档主角立绘、12张独立画卡和照心镜原画；缺图时仍由内联后备图保证可玩。
 
 ## 下载与启动
 
 原始PNG母图另包保存：[P3后四境24张](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/later-p3-art-originals.zip) · [P4特殊路线35张](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/special-p4-art-originals.zip)。试玩只需下面的游戏包或单文件。
 
-- [完整游戏 ZIP](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/baiyao-rebuilt.zip)：全部解压，打开 `index.html`，保留 `assets/`。
+- [完整游戏 ZIP](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/baiyao-hehuan.zip)：全部解压，打开 `index.html`，保留 `assets/`。
 - [完整单文件 HTML](https://raw.githubusercontent.com/YONGLINGZ/CC/main/baiyao-standalone.html)：保存为 `.html`，用桌面浏览器打开。
 
 完全离线，无需安装、账号或大模型 API。攻击牌先点牌再点敌人，同牌再点一次或按 Esc 取消；无目标牌直接使用。顶部可查看牌组、包裹、手记、随身装备和人物志。开局带两份回春草，战斗中每个玩家回合可用一件药物。

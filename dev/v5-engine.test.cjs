@@ -18,7 +18,7 @@ function injectNode(g,type) {const s=g.state,n=s.map.flat().find(n=>n.type===typ
 function kill(g) {const b=g.state.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=10;play(g,g.state.character==='sword'?'S01':'C01');}
 
 test('两职业与四开局真实独立：牌组、初始遗物、成年角色元数据和重开',()=>{
-  assert.deepEqual(Object.keys(CHARACTERS),['assassin','sword','sovereign']);assert.equal(CHARACTERS.sword.adult,true);assert.match(CHARACTERS.sword.description,/清冷|寡言/);
+  assert.deepEqual(Object.keys(CHARACTERS),['assassin','sword','sovereign','hehuan']);assert.equal(CHARACTERS.sword.adult,true);assert.match(CHARACTERS.sword.description,/清冷|寡言/);
   const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random()});g.newRun('sword'); g.enterRegion();let s=g.state;
   assert.equal(s.character,'sword');assert.equal(s.player.character,'sword');assert.deepEqual(s.player.relics,['frostseal']);
   assert.deepEqual(s.player.deck.map(c=>c.id),STARTERS.sword.cards);assert.equal(new Set(s.player.deck.map(c=>c.uid)).size,10);

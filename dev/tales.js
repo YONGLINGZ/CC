@@ -4,7 +4,7 @@
  const C=(key,label,text,outcome,effects={})=>({key,label,text,outcome,...effects});
  const E=(name,story,choices)=>({name,story,choices});
  const item=(id,count=1)=>({itemGrants:[{id,count}]});
- const gift=role=>role==='sword'?'S14':role==='sovereign'?'F07':'C18';
+ const gift=role=>role==='hehuan'?'H07':role==='sword'?'S14':role==='sovereign'?'F07':'C18';
  const CHAIN_DEFS={
  debt:{name:'渡口的旧账',person:'岑娘',theme:'欠债的人与替人记债的人，各自藏着一份不能毁掉的账。',stages:[
   c=>E('雨棚下的铜碗',['岑娘在废渡口支起一只空碗。她说欠了十二枚灵石，催债人明日便来，手臂上的伤让她撑不动船。','木凳下放着两双小鞋。你问是谁的，她只把鞋往里推：“过河的人留下的。”'],[

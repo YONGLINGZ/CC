@@ -1,17 +1,18 @@
 {
-  "count": 158,
-  "snapshots": 1889,
+  "count": 161,
+  "snapshots": 1904,
   "allIdentitiesMatched": true,
   "inputs": {
-    "dev/engine.js": "4e9ebd70221509f2b9cb63dc9d08c70e71a927e9c1a18553ac05ae997dd703a2",
+    "dev/engine.js": "7a9b0ea94f42257ca561cbab4c2b05d3cb2ab80ca9cf284f7010e0cb0a5f6ca8",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
-    "dev/tales.js": "8e333e64775a3009af3af283a492e5a8e17562cec6c2271050cec133b2e70d0b",
+    "dev/tales.js": "2be977ffb4db7e20961b5091683e179d781884a494ad4b1a4569f494cb0369af",
     "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
-    "dev/export-events-md.cjs": "9f314b6d31ca239dbce966f16534e71c67e779219659faf777d390ac0ef19992",
-    "dev/event-editorial.js": "84b8d88336d30a7fc58f0efe3341bb837e2c3064fc2154f7f1ee69a04688b6ff",
-    "dev/events-before-p2.json": "c8499bb6d3b58c74e99a343b6547e4d972da8c9bebf2c3bf1da3930fb4772b4a"
+    "dev/export-events-md.cjs": "b5a8ecc8dbc2bc1b73c1a62e405b276419f4b3bed4f5edd76d6e1082259a3caf",
+    "dev/event-editorial.js": "4813035623c9ba82c2e3b8695b7c1cb53ab6fd08db5671fd1495410777b16f90",
+    "dev/events-before-p2.json": "c8499bb6d3b58c74e99a343b6547e4d972da8c9bebf2c3bf1da3930fb4772b4a",
+    "dev/hehuan.js": "69481e42f894c29b17c1418b2a7f9c89ea25739aacf89de97f1e8b15087d46e0"
   },
   "events": [
     {
@@ -1435,6 +1436,33 @@
       "snapshots": 42,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
+    },
+    {
+      "id": "hehuan_checkpoint",
+      "file": "07_合欢宗个人线/hehuan_checkpoint__门前的路引.md",
+      "name": "门前的路引",
+      "identityMatched": true,
+      "snapshots": 5,
+      "editorialStatus": "新增角色事件",
+      "reviewReason": "晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。"
+    },
+    {
+      "id": "hehuan_qinheng",
+      "file": "07_合欢宗个人线/hehuan_qinheng__账册旁的活人.md",
+      "name": "账册旁的活人",
+      "identityMatched": true,
+      "snapshots": 5,
+      "editorialStatus": "新增角色事件",
+      "reviewReason": "晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。"
+    },
+    {
+      "id": "hehuan_ledger",
+      "file": "07_合欢宗个人线/hehuan_ledger__原件只够交给一方.md",
+      "name": "原件只够交给一方",
+      "identityMatched": true,
+      "snapshots": 5,
+      "editorialStatus": "新增角色事件",
+      "reviewReason": "晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。"
     }
   ]
 }

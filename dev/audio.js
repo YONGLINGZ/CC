@@ -8,6 +8,18 @@
   // Every card has its own timbre, gesture, pitch movement and small cast motif.
   // Damage sounds are played by each actual attack event, never by the cast event.
   const PROFILES = Object.freeze({
+    H01: {name:'撩弦',kind:'moon',pitch:703,tail:1779,length:0.253,body:115,weight:.15,notes:[347,513,763]},
+    H02: {name:'流纱',kind:'shield',pitch:746,tail:1858,length:0.266,body:120,weight:.15,notes:[364,532,786]},
+    H03: {name:'请君近前',kind:'focus',pitch:789,tail:1937,length:0.279,body:125,weight:.15,notes:[381,551,809]},
+    H04: {name:'偷香',kind:'soul',pitch:832,tail:2016,length:0.292,body:130,weight:.15,notes:[398,570,832]},
+    H05: {name:'回眸',kind:'focus',pitch:875,tail:2095,length:0.305,body:135,weight:.15,notes:[415,589,855]},
+    H06: {name:'换席',kind:'focus',pitch:918,tail:2174,length:0.318,body:140,weight:.15,notes:[432,608,878]},
+    H07: {name:'借势',kind:'moon',pitch:961,tail:2253,length:0.331,body:145,weight:.15,notes:[449,627,901]},
+    H08: {name:'乱息',kind:'shield',pitch:1004,tail:2332,length:0.344,body:150,weight:.15,notes:[466,646,924]},
+    H09: {name:'解带',kind:'sword',pitch:1047,tail:2411,length:0.357,body:155,weight:.15,notes:[483,665,947]},
+    H10: {name:'两清',kind:'blood',pitch:1090,tail:2490,length:0.370,body:160,weight:.15,notes:[500,684,970]},
+    H11: {name:'空席',kind:'shield',pitch:1133,tail:2569,length:0.383,body:165,weight:.15,notes:[517,703,993]},
+    H12: {name:'满堂红',kind:'eclipse',pitch:1176,tail:2648,length:0.396,body:170,weight:.15,notes:[534,722,1016]},
     D07: {name:'焚血斩',kind:'blood',pitch:416,tail:2090,length:.37,body:66,weight:.20,notes:[297,359,671]},
     D08: {name:'夺生指',kind:'soul',pitch:449,tail:2260,length:.38,body:69,weight:.20,notes:[318,376,704]},
     D09: {name:'血衣',kind:'shield',pitch:482,tail:2430,length:.39,body:72,weight:.20,notes:[339,393,737]},
@@ -86,6 +98,9 @@
     S16: { name:'万川归寂', kind:'swordstorm', pitch:1568, tail:4704, length:.72, body:98, weight:.25, notes:[392,784,1175,1568,2349] }
   });
   const ENCOUNTERS = Object.freeze({
+    hehuan_checkpoint:{name:'门前盘查',notes:[293,440,587],kind:'chain',air:1370},
+    hehuan_qinheng:{name:'账册旁的活人',notes:[349,466,698],kind:'wood',air:1150},
+    hehuan_ledger:{name:'账册交给谁',notes:[392,523,784],kind:'echo',air:1680},
     tainted_mercy: { name:'路边的茶', notes:[330,494,740], kind:'wood', air:950 },
     demonic_offer: { name:'灰衣人的药', notes:[165,247,370], kind:'ritual', air:780 },
     demonic_warning: { name:'剑穗与清心玉', notes:[523,784,1046], kind:'glass', air:2200 },
@@ -368,7 +383,7 @@
     return withSound('card:'+id,(bus,t)=>{
       // Cards without a later shield/heal/mark/hit event need their own full
       // focus, bell or energy gesture here. Attack cards remain cast-only.
-      playSignature(bus,p,['C09','C10','C11','C20','C25','S03','S09','S10','S11','F03','F08','F11','D05'].includes(id)?'impact':'cast',0,t);
+      playSignature(bus,p,['H05','H06','C09','C10','C11','C20','C25','S03','S09','S10','S11','F03','F08','F11','D05'].includes(id)?'impact':'cast',0,t);
     },id);
   }
   function preview(id) {
@@ -455,7 +470,7 @@
   function playEvent(event,context={}) {
     if(!event||typeof event!=='object')return false;
     const cardId=event.cardId||context.cardId,type=event.type,p=PROFILES[cardId],payload={...event,cardId};
-    if(type==='card')return playCard(cardId);
+    if(type==='card')return playCard(cardId);if(type==='trapSet'||type==='trapTrigger')return playCard(event.cardId||cardId);if(type==='breath')return playCue('focus',event);
     if(type==='attack'){
       if(event.source==='enemy'){
         const enemy=context.enemyId||event.enemyId,intent=String(event.intent||context.intentName||context.intent||'');

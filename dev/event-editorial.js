@@ -85,7 +85,7 @@ const BOSS_WORK={lotus_boss:['替木匠护送木料','替修器者整理未涉�
 const RETAIN={liu_return:'保留此前救人／付钱／指路的不同招呼与报价，补充代价摘要。',liu_final:'保留按真实帮助回报，避免新对白捏造相识。',ji_return:'保留展示／隐瞒宝物的真实分支，不预揭对方动机。',ji_final:'保留实际知情与隐藏动机决定的伏击／让路。',wen_return:'保留解锁与未解锁的追索分支，保留每笔药资。',wen_final:'保留带证／消印／取药互斥。',herb_caravan:'苏芩已有现场动作和直接请求，保留语气及救药条件。',blood_lesson:'保留旧修直接诱惑及自损／吸血／正诀分流，补充已知施术风险。',blood_choice:'保留本局血术选择回执及封卷不逆转异变。',marsh_pharmacy:'药铺报价清楚，保留具体份数并明示物品收入包裹。',drowned_archive:'换页、修页、只读题字动作与效果一致，保留。',ash_orchard:'保留可见药性，修正丹药收入包裹与即时治疗混淆。',mirror_guest:'保留镜中交易及退出，补充丹药用途。',last_campfire:'无人营火不虚构NPC；保留纸条，明确火符烫伤和奖励。',campfire_hunt:'保留按堕落与证词触发的指控、交锋与返回休息，补齐提交风险。',road_aftermath:'保留首次／受助重遇差异、绕路与护车不同结算。',boss_lotus_awake:'保留双物证且亲历旧事才唤醒的四种善后；不新增无条件劝退。'};
 function costs(c,state,defs){
  const a=[];if(c.goldCost)a.push(`支付${c.goldCost}灵石`);if(c.hpCost)a.push(`失去${c.hpCost}生命（当前生命须大于此数）`);if(c.maxHpCost)a.push(`本局最大生命减少${c.maxHpCost}，当前生命最多降至新上限`);if(c.herbCost)a.push(`交出${c.herbCost}份回春草`);
- if(c.removeBasic){const card=state?.player?.deck?.find(x=>['C01','C02','S01','S02','F01','F02'].includes(x.id));a.push(`永久移除本局${card?'「'+defs.CARDS[card.id].name+'」这一个实例':'一张基础牌'}，至少留5张`);}
+ if(c.removeBasic){const card=state?.player?.deck?.find(x=>['C01','C02','S01','S02','F01','F02','H01','H02'].includes(x.id));a.push(`永久移除本局${card?'「'+defs.CARDS[card.id].name+'」这一个实例':'一张基础牌'}，至少留5张`);}
  if(c.battle)a.push(`进入${c.battle.name||defs?.ENEMIES?.[c.battle.enemyId]?.name||'对手'}战，落败结束本局`);
  if(c.learnDemonic||c.cardIds?.some(id=>id.startsWith('D')))a.push('反复使用禁术可能改变心性；清心玉可护心神，不治毒、不逆转已有异变');
  if(c.itemGrants?.length)a.push('所得药物收入包裹，须服用才生效');
@@ -118,6 +118,6 @@ function rewrite(e,state,defs){
  if(id==='dreamshop'&&e.choices?.[1])e.choices[1].text=e.choices[1].riskSummary;
  return e;
 }
-function review(id){return {status:RETAIN[id]?'保留并精修说明':'已改写',reason:RETAIN[id]||(id.startsWith('faction_')?'按组区分当事人、公开凭证风险、实际委托与洞府处置。':id.startsWith('boss_')?'改为当事人直接对白、对应物证与具体准备结果；保留原条件。':id.startsWith('tale_')?'保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。':'改写现场、直接请求与已知代价；保留原数值及历史前提。')};}
+function review(id){if(id.startsWith('hehuan_'))return {status:'新增角色事件',reason:'晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。'};return {status:RETAIN[id]?'保留并精修说明':'已改写',reason:RETAIN[id]||(id.startsWith('faction_')?'按组区分当事人、公开凭证风险、实际委托与洞府处置。':id.startsWith('boss_')?'改为当事人直接对白、对应物证与具体准备结果；保留原条件。':id.startsWith('tale_')?'保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。':'改写现场、直接请求与已知代价；保留原数值及历史前提。')};}
 const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};root.NightEditorial=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis==='object'?globalThis:window);

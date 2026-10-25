@@ -7,7 +7,8 @@
   const BOSS_QUESTS = root.NightBossQuests || (typeof module !== 'undefined' && module.exports ? require('./boss-quests.js') : {});
   const ENEMY_FACTIONS=root.NightEnemyFactions||(typeof module!=='undefined'&&module.exports?require('./enemy-factions.js'):{});
   const EDITORIAL=root.NightEditorial||(typeof module!=='undefined'&&module.exports?require('./event-editorial.js'):{});
-  const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS};
+  const HEHUAN=root.NightHehuan||(typeof module!=='undefined'&&module.exports?require('./hehuan.js'):{});
+  const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS,...HEHUAN.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
@@ -74,7 +75,7 @@
     S15: { name: '碎霜', cost: 2, text: '移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。', target: true, attack: true },
     S16: { name: '万川归寂', cost: 3, text: '消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。', target: true, attack: true }
   });
-  Object.assign(CARDS, EXPANSION.CARDS || {});
+  Object.assign(CARDS, EXPANSION.CARDS || {}, HEHUAN.CARDS || {});
   Object.values(CARDS).forEach(card => {
     card.attack = !!card.attack;
     card.exhaust = !!card.exhaust;
@@ -90,7 +91,7 @@
   for (const [category, ids] of Object.entries(CARD_GROUPS)) for (const id of ids) CARDS[id].category = category;
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
-    card.character = id.startsWith('F') ? 'sovereign' : /^[SD]/.test(id) ? 'sword' : 'assassin';
+    card.character = card.character || (id.startsWith('F') ? 'sovereign' : /^[SD]/.test(id) ? 'sword' : 'assassin');
     card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','C35','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
@@ -102,6 +103,7 @@
   };
 
   Object.assign(STARTERS, EXPANSION.STARTERS || (EXPANSION.STARTER ? {sovereign: EXPANSION.STARTER} : {}));
+  Object.assign(STARTERS, HEHUAN.STARTERS || {});
   for (const starter of Object.values(STARTERS)) starter.character = starter.character || 'assassin';
   const CHARACTERS = {
     assassin: { id: 'assassin', name: '夜铃', profession: '影契刺客', portrait: 'cat', adult: true,
@@ -112,12 +114,14 @@
       quote: '“跟紧。不要回头。”', accent: '#a6dce9', starters: ['sword'] }
   };
   Object.assign(CHARACTERS, EXPANSION.CHARACTERS || (EXPANSION.CHARACTER ? {sovereign: EXPANSION.CHARACTER} : {}));
+  Object.assign(CHARACTERS, HEHUAN.CHARACTERS || {});
   const FACTIONS = {
     taiwei: { name: '太微剑宗', motive: '探明失踪同门与反噬边界，阻止灾变外溢。' },
     cult: { name: '玄烬残众', motive: '收回实验残页，掩盖归墟引灵仪失控的证据。' },
     guild: { name: '千灯商盟', motive: '收购奇物与情报，抢占无人知晓的代价。' },
     wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
   };
+  Object.assign(FACTIONS, HEHUAN.FACTION || {});
   const LEGACY_REGIONS = [
     { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,10], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
     { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋灵石更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
@@ -207,7 +211,7 @@
     def.weights = (INTENT_WEIGHTS[id] || def.intents.map(() => 1)).slice();
   }
 
-  Object.assign(RELICS, EXPANSION.RELICS || {});
+  Object.assign(RELICS, EXPANSION.RELICS || {}, HEHUAN.RELICS || {});
   const WEAPONS = EXPANSION.WEAPONS || {};
   const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
   Object.assign(ENVIRONMENTS, {
@@ -842,9 +846,9 @@
       return {
         screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
-          hp: 60, maxHp: 60, gold: 60, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', outfitInventory:character==='sovereign'?[]:['mist'], equippedOutfit:null, questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
+          hp: character==='hehuan'?56:60, maxHp:character==='hehuan'?56:60, gold:60, faction:character==='hehuan'?'hehuan':null, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', outfitInventory:['assassin','sword'].includes(character)?['mist']:[], equippedOutfit:null, questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
           deck: cards.map(makeCard),
-          relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell']
+          relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : character==='hehuan'?'heartmirror':'bell']
         },
         floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null, cave: null, interruption:null,
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
@@ -853,17 +857,18 @@
         stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, peacefulBosses:0, demonicUses:0 }
       };
     }
-    function emit() { if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
+    function emit() { if(state?.screen==='event'&&state.event&&state.character==='hehuan'&&!state.event.hehuanIdentityShown){const reply=HEHUAN.identityReply(state.event,state);if(reply){state.event.story=[...(state.event.story||[]),reply];state.event.hehuanIdentityShown=true;}} if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
-      return {energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
+      return {traps:(b.traps||[]).map(c=>({...c})),breathRemaining:b.breathRemaining||0,breathUsedTurn:b.breathUsedTurn||0,breathRevealedTurn:b.breathRevealedTurn||0,energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
     }
     function event(type, data = {}) {
       const b = state.battle;
       if (!b) return;
       const entry = { id: ++eventSerial, type, source: 'player', target: 'player', ...data, resources:combatResources() };
       if (b.resolving && b.resolving[0] && !entry.cardId) entry.cardId = b.resolving[0].id;
+      if(b.activeTrap){if(!entry.cardId)entry.cardId=b.activeTrap.id;if(!entry.trapUid)entry.trapUid=b.activeTrap.uid;}
       b.events.push(entry);
       return entry;
     }
@@ -895,6 +900,7 @@
     }
     function clearCombatStatuses() {
       const b = state.battle;
+      finishTraps('战斗结束，未兑现的藏招清理');b.nextTrapBlock=0;
       b.block = b.energy = b.poison = b.playerMark = 0;
       b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = b.enemy.chillProgress = b.enemy.bleed = b.enemy.counter = 0;
       b.enemy.frozen = null;
@@ -1083,10 +1089,11 @@
     function winBattle() {
       if (!liveBattle()) return;
       const b = state.battle;
-      if(b.factionSequence?.length){b.phase='ended';b.sequencePending={enemyId:b.factionSequence[0],factionInstance:b.factionInstance,factionSequence:b.factionSequence.slice(1),sequenceLoss:Math.max(0,b.openingHp-state.player.hp)};return;}
+      if(b.factionSequence?.length){finishTraps('当前对手已倒下，藏招不会追击下一场');b.nextTrapBlock=0;b.phase='ended';b.sequencePending={enemyId:b.factionSequence[0],factionInstance:b.factionInstance,factionSequence:b.factionSequence.slice(1),sequenceLoss:Math.max(0,b.openingHp-state.player.hp)};return;}
       if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance];if(rec&&!rec.resolved&&ENEMY_FACTIONS.GROUPS[rec.boss]?.npc===b.enemy.id){rec.resolved=true;rec.outcome='defeated';rec.dual=!!rec.dual;f.evidence[b.factionInstance]=ENEMY_FACTIONS.GROUPS[rec.boss].proof;recordJourney(null,'取回的残页',`击退${b.enemy.name}，取得${f.evidence[b.factionInstance]}；没有领取和平赠物。`,'neutral');}}
       if(b.factionInstance){const f=factionState(),rec=f.records[b.factionInstance],g=rec&&ENEMY_FACTIONS.GROUPS[rec.boss];if(g&&state.player.questItems.includes(g.support)&&!f.invalid[g.support]){rec.taskCompleted=true;rec.taskReply=({gate_boss:'你守住灯棚，陪老人沿亮着的桥走到守灯处。她放下灯杆：“这段我认得了。”无名背夫仍没有获准过桥。',camp_boss:'你从逃卒身后的药箱追回剩下的一份药，交给留营药役。他当场分给两名伤卒：“只能撑到天亮。”担架没能从侧栅离营。',snake:'你挡开采鳞者后，陪井役压实井缝。药工提着空桶站在封口旁：“明天得另找水。”',bell_boss:'你把续钟绳护到家属听完这一夜的声音。抬棺人在门外重新坐下：“明天还得有人决定走不走。”'})[rec.boss];if(rec.taskReply){b.factionAftermath=rec.taskReply;recordJourney(null,g.source+' · 履约',rec.taskReply,'neutral');}}}
       finishFactionEffects(b,'战胜对手');
+      if(b.hehuanEncounter&&!b.hehuanEncounter.settled){const result=b.hehuanEncounter,j=hehuanJourney();Object.assign(j.flags,result.victoryFlags||{});for(const id of result.victoryItems||[])if(!state.player.questItems.includes(id))state.player.questItems.push(id);result.settled=true;j.lastOutcome=result.victoryOutcome;b.factionAftermath=result.victoryOutcome;recordJourney(null,'扇后的账，眼前的人',result.victoryOutcome,'neutral');}
       b.phase = 'ended';
       event('victory', { target: 'enemy' });
       const testimony=state.journey.bossQuests?.records[b.enemy.id],oldStory=BOSS_QUESTS.QUESTS[b.enemy.id];
@@ -1105,7 +1112,7 @@
       }
       if(b.storyEncounter?.lootCards){for(const id of b.storyEncounter.lootCards)if(CARDS[id]){state.player.deck.push(makeCard(id));if(id.startsWith('D'))state.player.path.learned=true;}recordJourney(null,'新得经页',b.storyEncounter.lootCards.map(id=>CARDS[id].name).join('、'),'warning');}
       log(`击败${b.enemy.name}！`);
-      if (b.storyEncounter && !b.factionInstance) {
+      if (b.storyEncounter && !b.factionInstance && !b.hehuanEncounter) {
         const npc = b.storyEncounter.npc;
         if (npc) state.journey.relationships[npc] = { status: '交锋已了', text: `你击退了${b.enemy.name}，守住了携带的物品。` };
         recordJourney(npc, '伏击已破', `击退${b.enemy.name}。你没有失去随身宝物；这段交锋已经结束。`, 'warning');
@@ -1143,7 +1150,7 @@
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil','heartmirror'].includes(id) && !hasRelic(id));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -1186,7 +1193,7 @@
       log('代死账尽：保留1生命；借壳治疗额度同时耗尽，本战不再生效。');event('enemySkill',{source:'enemy',target:'enemy',kind:'lifeShell',name:'代死账尽',amount:1});return true;
     }
     // The killing heal is resolved before victory changes the screen.
-    function enemyHit(amount, killingHeal = 0, alwaysHeal = 0, kind = 'card', drainCap = 0) {
+    function enemyHit(amount, killingHeal = 0, alwaysHeal = 0, kind = 'card', drainCap = 0, lifeHeal = 0) {
       const b = state.battle;
       if(kind==='card'){
         const added=b.hitIndex===0?(b.cardBonus||0):0;
@@ -1205,19 +1212,20 @@
         if(b.enemy.id==='m17'&&!b.enemy.jarBroken&&b.cardAbsorbed>=(b.factionDef?.budgetD||6)){b.enemy.jarBroken=true;observeFactionAbility('瓮裂');log('瓮裂：单张牌累计破盾达到本境预算，此后抱紧护盾减少3。');event('enemySkill',{source:'player',target:'enemy',kind:'jar',name:'瓮裂',amount:3});}
         if(damage>0&&b.enemy.thinPowder){b.enemy.thinPowder=false;damage+=2;amount+=2;log('薄粉破开：本张攻击牌首次生命伤害额外+2，仅该段。');}
       }
-      if (kind === 'card') state.stats.maxHit = Math.max(state.stats.maxHit, amount);
+      if (kind === 'card'||kind==='trap') state.stats.maxHit = Math.max(state.stats.maxHit, amount);
       const beforeHp=b.enemy.hp;
       b.enemy.hp = Math.max(0, b.enemy.hp - damage);
       const saved=preventEnemyDeath(),actualLoss=Math.max(0,beforeHp-b.enemy.hp);if(saved)damage=actualLoss;
       if(actualLoss>0&&b.resolving?.length)b.enemy.hurtDuringPlayerTurn=true;
       log(`对${b.enemy.name}造成 ${amount} 点伤害：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
-      event('attack', { target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind });
+      event('attack', { source:kind==='trap'?'trap':'player',target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind });
+      if(lifeHeal&&actualLoss>0&&state.player.hp>0)heal(lifeHeal,'两清 · 伤及生命');
       if(drainCap&&actualLoss)heal(Math.min(drainCap,actualLoss),'夺生 · 实际生命汲取');
       if (alwaysHeal) heal(alwaysHeal, '血饮');
       if (b.enemy.hp <= 0) {
         if (killingHeal) heal(killingHeal, '噬魂击杀');
         winBattle();
-      } else if (kind === 'card' && damage > 0 && b.enemy.counter > 0 && !b.enemyCounterUsedForCard) {
+      } else if (['card','trap'].includes(kind) && damage > 0 && b.enemy.counter > 0 && !b.enemyCounterUsedForCard) {
         b.enemyCounterUsedForCard = true;
         log(`${b.enemy.name}的架势反击：本张攻击牌首次伤及生命，反击 ${b.enemy.counter} 点。`);
         event('enemySkill', {source:'enemy',target:'player',kind:'counter',amount:b.enemy.counter,name:'架势反击'});
@@ -1282,6 +1290,7 @@
         log('梦匣触发：首回合额外获得 1 灵力、抽 2 张牌。');
         event('relic', { relic: 'dream', name: RELICS.dream.name, amount: 2 });
       }
+      if(b.nextTrapBlock){const amount=b.nextTrapBlock;b.nextTrapBlock=0;gainBlock(amount,'回眸藏招·下回合护盾');}
       if (b.nextEnergy || b.nextDraw) log(`蓄势触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
       b.nextEnergy = b.nextDraw = 0;
       b.energy = turnEnergy;
@@ -1337,7 +1346,7 @@
       const scaling = combatScaling(id, kind), hp = Math.round(def.hp * scaling.hpMultiplier);
       state.battle = {
         factionDef:ENEMY_FACTIONS.DEFS[id]?def:null, factionInstance:encounter?.factionInstance||null, kind, scaling, openingHp:state.player.hp, factionSequence:encounter?.factionSequence||[], factionEffects:[], phase: 'resolving', hand: [], draw: shuffle(state.player.deck.map(card => ({ ...card }))),
-        discard: [], exhaust: [], resolving: [],
+        discard: [], exhaust: [], resolving: [], traps:[], trapStats:{set:0,triggered:0,expired:0}, breathRemaining:state.character==='hehuan'?3:0, breathUsedTurn:0, breathRevealedTurn:0, nextTrapBlock:0,
         enemy: { id, name: encounter?.name || def.name, hp, maxHp: hp, block: 0, mark: 0, poison: 0, chill: 0, chillProgress:0, bleed:0, counter:0, frozen:null, frostResistant:ENEMY_FACTIONS.DEFS[id]?false:(['elite','boss','hidden'].includes(kind)||['elite','boss','hidden'].includes(def.rank)), intentIndex: rollIntent(id, null) },
         block: 0, energy: 0, poison: 0, playerMark: 0, swordIntent: 0, soul:0, environment:getEnvironment(), weaponOmen:'', weaponUsed:false, veilUsed:false, frostsealUsed: false, turn: 0, played: 0,
         nextAttack: 0, nextEnergy: 0, nextDraw: 0, bellUsed: false, jadeUsed: false,
@@ -1345,6 +1354,7 @@
         mirrorUsed: false, nineUsed: false,
         logs: [`进入第 ${state.floor} 段，与${encounter?.name || def.name}交战。`]
       };
+      if(encounter?.hehuanBattle)state.battle.hehuanEncounter=JSON.parse(JSON.stringify(encounter.hehuanBattle));
       observeFactionAbility(null,id);
       state.battle.enemy.heat=0;state.battle.enemy.frenzyUses=0;state.battle.enemy.drained=0;
       state.player.pendingPillPower = 0;
@@ -1393,6 +1403,7 @@
       activeNode = null;
     }
     function advance() {
+      if(resumeHehuanNode())return;
       completeNode();
       state.floor++;
       const regionIndex = Math.min(regions.length - 1, Math.floor((state.floor - 1) / 10));
@@ -1418,6 +1429,7 @@
       if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
       state = freshState('arrival', starter);
       expedition.resetRun();
+      if(state.character==='hehuan'){hehuanJourney();recordJourney(null,'这趟，连账一起算',HEHUAN.INITIAL_STORY.join('\n'),'neutral');}
       if(talesEnabled)initializeTales();
       if(bossQuestsEnabled)initializeBossQuests();
       activeNode = null;
@@ -1451,11 +1463,22 @@
     function recordJourney(npc, title, text, tone = 'neutral') {
       state.journey.journal.push({ floor: state.floor, region: state.journey.regionIndex, npc: npc || null, title, text, tone });
     }
+    function hehuanJourney(){return state.journey.hehuan||(state.journey.hehuan={stage:0,flags:{},lastOutcome:'',resume:null});}
+    function beginHehuanStory(node){
+      if(state.character!=='hehuan'||HEHUAN.STORY_IDS?.includes(node.storyId))return false;
+      const j=hehuanJourney(),step=j.stage||0;if(j.resume||step>=3||state.floor<HEHUAN.PERSONAL_SLOTS[step])return false;
+      j.resume={nodeId:node.id,floor:state.floor};state.screen='event';state.event=HEHUAN.buildEvent(HEHUAN.STORY_IDS[step],state);state.event.choices=finishChoices(state.event.choices,state.player);note('原路未动。先处理眼前的人，再回到你选择的地标。');return true;
+    }
+    function resumeHehuanNode(){
+      const j=state.journey.hehuan,frame=j?.resume;if(!frame)return false;j.resume=null;activeNode=null;state.screen='map';state.event=null;state.reward=null;state.battle=null;state.floor=frame.floor;
+      enterNode(frame.nodeId);return true;
+    }
     function enterNode(idOrType) {
       if (state.screen !== 'map') return false;
       const available = getAvailableNodes();
       const node = available.find(item => item.id === idOrType) || available.find(item => item.type === idOrType);
       if (!node || state.history.some(item => item.floor === state.floor)) return false;
+      if(beginHehuanStory(node)){emit();return true;}
       const type = node.type;
       activeNode = node;
       state.notice = '';
@@ -1467,7 +1490,7 @@
       else {
         state.screen = type;
         if (type === 'shop') {
-          state.shop = { outfits:state.character==='sovereign'?[]:Object.values(EXPANSION.OUTFITS).filter(o=>!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
+          state.shop = { outfits:!['assassin','sword'].includes(state.character)?[]:Object.values(EXPANSION.OUTFITS).filter(o=>!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
           state.shop.items = expedition.makeShopStock();
         }
         if (type === 'event') state.event = makeEvent();
@@ -1476,7 +1499,69 @@
       emit();
       return true;
     }
-    function playCard(uid, target = false) {
+    function getBreath() {
+      const b=state.battle,enabled=state.character==='hehuan'&&hasRelic('heartmirror')&&liveBattle();
+      if(!enabled)return {enabled:false,remaining:0,usedThisTurn:false,revealed:false,category:null,skipped:false};
+      const revealed=b.breathRevealedTurn===b.turn,usedThisTurn=b.breathUsedTurn===b.turn,intent=revealed?getIntent():null;
+      return {enabled:true,remaining:Number.isInteger(b.breathRemaining)?b.breathRemaining:3,usedThisTurn,revealed,category:!revealed||intent.frozen?null:(intent.baseHits||intent.hits||[]).length?'attack':'nonattack',skipped:!!(revealed&&intent.frozen)};
+    }
+    function revealBreath() {
+      const b=state.battle,current=getBreath();
+      if(!current.enabled||b.phase!=='player'||current.usedThisTurn||current.remaining<=0)return false;
+      beginEvents();b.breathRemaining=current.remaining-1;b.breathUsedTurn=b.turn;b.breathRevealedTurn=b.turn;
+      const observation=getBreath();log(observation.skipped?'观息：这次行动已被完全封住。':observation.category==='attack'?'观息：对方正准备攻击，可能同时施术；具体伤害未知。':'观息：对方准备施术，没有主动攻击段；具体效果未知。');
+      event('breath',{remaining:b.breathRemaining,category:observation.category,skipped:observation.skipped});emit();return true;
+    }
+    function setTrap(uid) {
+      const b=state.battle;if(state.character!=='hehuan'||!liveBattle()||b.phase!=='player')return false;
+      const index=b.hand.findIndex(c=>c.uid===uid),card=b.hand[index],def=card&&CARDS[card.id];
+      if(!def?.trap||def.character!=='hehuan')return false;
+      b.traps=b.traps||[];
+      if(b.traps.length>=2){note('两处薄纱都已藏牌，不能覆盖；可用换席收回。');emit();return false;}
+      if(b.energy<def.cost){note(`灵力不足：「${def.name}」需要 ${def.cost} 点灵力。`);emit();return false;}
+      if(b.enemy.hp<=0||state.player.hp<=0)return false;
+      beginEvents();b.phase='resolving';b.energy-=def.cost;b.hand.splice(index,1);
+      Object.assign(card,{paidEnergy:def.cost,placedTurn:b.turn});b.traps.push(card);
+      b.played++;state.stats.cardsPlayed++;state.stats.maxCombo=Math.max(state.stats.maxCombo,b.played);
+      b.trapStats=b.trapStats||{set:0,triggered:0,expired:0};b.trapStats.set++;
+      log(`将「${def.name}」藏入薄纱，支付 ${def.cost} 灵力；只等待下一次敌方行动，费用不返还。`);
+      event('card',{cardId:card.id,name:def.name,cost:def.cost,mode:'trap'});
+      event('trapSet',{cardId:card.id,uid:card.uid,name:def.name,cost:def.cost,slot:b.traps.length-1});
+      if(hasRelic('jade')&&b.played===3&&!b.jadeUsed){b.jadeUsed=true;b.energy++;log('磨爪玉触发：第3张牌结算后，获得1灵力。');event('relic',{relic:'jade',name:RELICS.jade.name,amount:1});}
+      b.phase='player';event('resources',{reason:'藏招已放置'});emit();return true;
+    }
+    function primeTraps(intent) {
+      const b=state.battle,isAttack=(intent.baseHits||intent.hits||[]).length>0,one=(b.traps||[]).length===1;
+      b.trapResolution=(b.traps||[]).map(card=>{const def=CARDS[card.id],t=def.trap,eligible=(!t.onlyTrap||one)&&(t.condition==='action'||t.condition===(isAttack?'attack':'nonattack'));return {card,def,rule:t,eligible,triggered:false,reason:t.onlyTrap&&!one?'行动开始时不是唯一藏招':isAttack?'敌人此次进行了攻击，条件不符':'敌人此次没有攻击，条件不符'};});
+      for(const slot of b.trapResolution){if(!slot.eligible)continue;const before=slot.rule.before||{};if(!Object.keys(before).length)continue;announceTrap(slot,'before');
+        if(before.block)gainBlock(before.block,slot.def.name+'·藏招');
+        if(before.cleanseIncoming){const key=intent.poison>0?'poison':intent.playerMark>0?'playerMark':null;if(key){const previous=intent[key];intent[key]=Math.max(0,previous-1);log(`乱息藏招：本次新增${key==='poison'?'毒':'追索印'} ${previous}→${intent[key]}，不清已有状态。`);event('trapCleanse',{cardId:slot.card.id,effect:key,before:previous,after:intent[key]});}}
+      }
+    }
+    function announceTrap(slot,timing) {
+      const b=state.battle;if(slot.triggered)return;slot.triggered=true;b.trapStats=b.trapStats||{set:0,triggered:0,expired:0};b.trapStats.triggered++;
+      log(`「${slot.def.name}」藏招触发，仅结算一次。`);event('trapTrigger',{cardId:slot.card.id,uid:slot.card.uid,name:slot.def.name,timing});
+    }
+    function resolveTrapsAfter() {
+      const b=state.battle;
+      for(const slot of b.trapResolution||[]){if(!slot.eligible||!liveBattle()||state.battle!==b||state.player.hp<=0)continue;const after=slot.rule.after||{};if(Object.keys(after).length)announceTrap(slot,'after');
+        b.activeTrap=slot.card;b.enemyCounterUsedForCard=false;
+        if(after.removeBlock){const removed=Math.min(b.enemy.block,after.removeBlock);b.enemy.block-=removed;log(`${slot.def.name}：移除敌人 ${removed} 护盾。`);event('block',{source:'trap',target:'enemy',cardId:slot.card.id,amount:-removed,total:b.enemy.block});}
+        if(after.damage){const bonus=Math.min(BALANCE.firstHitBonusCap,(b.bloodPower||0)+(b.pillPower||0)+(state.player.power||0));enemyHit(after.damage+bonus,0,0,'trap',0,after.healOnLife||0);}
+        if(liveBattle()&&state.battle===b){b.nextDraw+=after.drawNext||0;b.nextEnergy+=after.energyNext||0;b.nextTrapBlock=(b.nextTrapBlock||0)+(after.blockNext||0);if(after.drawNext||after.energyNext||after.blockNext)log(`${slot.def.name}安排下回合：额外抽${after.drawNext||0}张、灵力+${after.energyNext||0}、护盾+${after.blockNext||0}。`);}
+        delete b.activeTrap;
+      }
+      if(liveBattle()&&state.battle===b)finishTraps('本次敌方阶段结束');
+    }
+    function finishTraps(reason) {
+      const b=state.battle;if(!b)return;
+      const cards=b.traps||[],resolution=b.trapResolution||[];b.traps=[];
+      for(const card of cards){const slot=resolution.find(x=>x.card.uid===card.uid),def=CARDS[card.id];if(!slot?.triggered){b.trapStats=b.trapStats||{set:0,triggered:0,expired:0};b.trapStats.expired++;const why=slot&&!slot.eligible?slot.reason:reason;log(`「${def.name}」藏招失效：${why}；已支付${card.paidEnergy??def.cost}灵力不返还。`);event('trapExpired',{cardId:card.id,uid:card.uid,name:def.name,reason:why,cost:card.paidEnergy??def.cost});}
+        (def.exhaust?b.exhaust:b.discard).push(card);
+      }
+      delete b.trapResolution;delete b.activeTrap;
+    }
+    function playCard(uid, target = false, recallUid = null) {
       const b = state.battle;
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
       const index = b.hand.findIndex(card => card.uid === uid);
@@ -1486,6 +1571,7 @@
       if(card.id.startsWith('D')&&(!state.player.path.learned||state.character!=='sword')){
         note('尚未习得魔修技能，无法使用这张牌。');emit();return false;
       }
+      if(card.id==='H06'){const recalled=(b.traps||[]).find(c=>c.uid===(recallUid||((b.traps||[]).length===1?b.traps[0].uid:null)));if(!recalled||b.hand.length>=10){note(!recalled?'先选择一张已藏的牌收回。':'手牌已满，无法收回藏招。');emit();return false;}recallUid=recalled.uid;}
       if (def.target && target !== true && target !== b.enemy.id) {
         note('请先选择卡牌，再点击敌人。取消选择不消耗灵力。');
         emit();
@@ -1534,6 +1620,18 @@
       }
       b.cardBonus=bonus;
       switch (card.id) {
+        case 'H01': enemyHit(6+bonus);break;
+        case 'H02': gainBlock(6,def.name);break;
+        case 'H03': enemyHit(4+bonus);if(liveBattle())drawCards(1);break;
+        case 'H04': enemyHit(4+bonus);if(liveBattle())gainBlock(4,def.name);break;
+        case 'H05': drawCards(2);break;
+        case 'H06': {const i=b.traps.findIndex(c=>c.uid===recallUid);if(i>=0){const [returned]=b.traps.splice(i,1);b.hand.push(returned);event('trapRecall',{cardId:returned.id,uid:returned.uid,name:CARDS[returned.id].name});log(`换席：收回「${CARDS[returned.id].name}」，原先费用不返还。`);drawCards(1);}break;}
+        case 'H07': enemyHit(10+bonus);if(liveBattle())gainBlock(6,def.name);break;
+        case 'H08': {gainBlock(6,def.name);const removed=Math.min(1,b.poison);b.poison-=removed;event('poison',{amount:-removed,total:b.poison});break;}
+        case 'H09': {const removed=Math.min(6,b.enemy.block);b.enemy.block-=removed;event('block',{target:'enemy',amount:-removed,total:b.enemy.block});enemyHit(4+bonus);break;}
+        case 'H10': enemyHit(12+bonus);break;
+        case 'H11': gainBlock(7,def.name);break;
+        case 'H12': enemyHit(18+bonus);break;
         case 'D07': if(loseLife(5,def.name,true))enemyHit(18+bonus);break;
         case 'D08': enemyHit(7+bonus,0,0,'card',7);break;
         case 'D09': if(loseLife(4,def.name,true))gainBlock(13,def.name);break;
@@ -1741,7 +1839,9 @@
         const f=factionState(),item=enemy.id==='lotus_boss'&&intent.name.includes('沸盏')?'heat_tongs':enemy.id==='furnace_boss'&&intent.name==='烬衣'?'cold_ash':null;
         if(item&&state.player.questItems.includes(item)&&!f.spent[item]){if(item==='heat_tongs'&&intent.hits?.some(n=>n>0)){intent.hits=intent.hits.map(n=>Math.max(0,n-1));f.spent[item]=true;}if(item==='cold_ash'&&intent.counter>0){intent.counter=Math.max(0,intent.counter-1);f.spent[item]=true;}if(f.spent[item]){const report=b.factionEffects.find(x=>x.item===item);if(report)Object.assign(report,{status:'used',effect:item==='heat_tongs'?'hits':'counter',before:item==='heat_tongs'?intent.hits.map(n=>n+1):intent.counter+1,after:item==='heat_tongs'?intent.hits.slice():intent.counter,turn:b.turn});intent.text=`援助后：攻击 ${(intent.hits||[]).join('／')||'无'}，护盾 ${intent.block||0}，反击 ${intent.counter||0}`;log(ENEMY_FACTIONS.ITEMS[item].name+'触发，本局援助已用尽。');event('enemySkill',{source:'player',target:'enemy',name:ENEMY_FACTIONS.ITEMS[item].name,kind:'aid'});}}
       }
+      if(!enemy.frozen)primeTraps(intent);
       if (enemy.frozen) {
+        finishTraps('敌人整次行动被跳过');
         for(const report of b.factionEffects.filter(x=>x.kind==='aid'&&x.status==='carried'))report.frozen=true;
         log(`${enemy.name}被寒意封住，跳过「${intent.name}」的整次行动。`);
         event('freeze', { source:'status',target:'enemy',skipped:true,name:intent.name });
@@ -1830,6 +1930,7 @@
           event('playerMark',{source:'enemy',target:'player',amount:b.playerMark-before,total:b.playerMark});
         }
       }
+      if(!enemy.frozen){resolveTrapsAfter();if(!liveBattle()||state.battle!==b){emit();return true;}}
       if (enemy.chill > 0) addChill(-1,'敌人回合结束，霜寒消退');
       enemy.frozen=null;
       delete b.revengeIntentBonus;
@@ -1923,12 +2024,13 @@
       return pool.length ? pool[rand(pool.length)] : null;
     }
     function choiceAvailable(choice, p) {
+      if(choice.requiresHehuanItem&&!p.questItems.includes(choice.requiresHehuanItem))return false;
       if(choice.requiresAffliction&&!p.affliction.active)return false;
       if(choice.herbCost&&(p.inventory?.herb||0)<choice.herbCost)return false;
       if ((choice.goldCost || 0) > p.gold) return false;
       if ((choice.hpCost || 0) > 0 && p.hp <= choice.hpCost) return false;
       if ((choice.maxHpCost || 0) > 0 && p.maxHp - choice.maxHpCost < 5) return false;
-      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02','F01','F02'].includes(card.id)))) return false;
+      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02','F01','F02','H01','H02'].includes(card.id)))) return false;
       return true;
     }
     function canChooseEvent(index){const e=state.event;if(state.screen!=='event'||!e||e.resolved||!Number.isInteger(index))return false;const c=e.choices[index];return !!c&&!c.locked&&choiceAvailable(c,state.player);}
@@ -1944,6 +2046,8 @@
     }
     function applyEventChoice(choice, p) {
       const received = [];
+      if(choice.hehuanFlags&&state.character==='hehuan')Object.assign(hehuanJourney().flags,choice.hehuanFlags);
+      if(choice.hehuanItemsRemove)for(const item of choice.hehuanItemsRemove)p.questItems=p.questItems.filter(id=>id!==item);
       if(choice.returnFactionTools){state.player.questItems=state.player.questItems.filter(id=>!['split_nail','heat_tongs'].includes(id));factionState().invalid.split_nail=true;factionState().invalid.heat_tongs=true;received.push('已退还取谱器物');}
       if(choice.herbCost){p.inventory.herb-=choice.herbCost;received.push(`回春草 −${choice.herbCost}`);}
       if (choice.goldCost) {
@@ -1960,7 +2064,7 @@
         received.push(`最大生命 −${choice.maxHpCost}`);
       }
       if (choice.removeBasic) {
-        const index = p.deck.findIndex(card => ['C01','C02','S01','S02','F01','F02'].includes(card.id));
+        const index = p.deck.findIndex(card => ['C01','C02','S01','S02','F01','F02','H01','H02'].includes(card.id));
         if (index >= 0) {
           const [card] = p.deck.splice(index, 1);
           received.push(`移除「${CARDS[card.id].name}」`);
@@ -2185,6 +2289,8 @@
       };
     }
     function makeEvent() {
+      if(state.character==='hehuan'&&HEHUAN.STORY_IDS?.includes(activeNode?.storyId)){const e=HEHUAN.buildEvent(activeNode.storyId,state);e.choices=finishChoices(e.choices,state.player);return e;}
+
       const p = state.player;
       if(!legacyCampaign&&options.factions!==false){const id=activeNode?.storyId;for(const boss of Object.keys(ENEMY_FACTIONS.GROUPS))for(const kind of ['source','cave'])if(id==='faction_'+boss+'_'+kind){factionState();const e=ENEMY_FACTIONS.build(boss,kind,state,activeNode.id);e.choices=finishChoices(e.choices,p);state.seenEvents.push(id);return e;}}
       const bloodId=activeNode?.storyId,bloodDef=EXPANSION.BLOOD_EVENTS?.[bloodId];
@@ -2456,6 +2562,7 @@
       state.event.choiceLabel = choice.label;
       if (choice.flags) Object.assign(state.journey.flags, choice.flags);
       if(EXPANSION.BLOOD_EVENTS?.[state.event.id])state.journey.flags.bloodChapter=(state.journey.flags.bloodChapter||0)+1;
+      if(state.event.hehuanStory){const j=hehuanJourney();j.stage=Math.max(j.stage,state.event.hehuanStory.step);j.lastOutcome=choice.outcome;received.push('个人线索已写入手记');}
       if(state.event.bossQuest){
         const {boss,step}=state.event.bossQuest,record=state.journey.bossQuests.records[boss];
         record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;
@@ -2509,7 +2616,7 @@
 
     // Isolated rule replay: never reads or advances the live RNG, emits to UI, or writes a profile.
     // Only public results are returned; hidden drawn card identities and future rewards stay private.
-    function previewCard(uid) {
+    function previewCard(uid, recallUid = null) {
       const b=state.battle,card=b?.hand.find(c=>c.uid===uid),def=card&&CARDS[card.id];
       if(state.screen!=='battle'||!b||b.phase!=='player'||!def)return null;
       if(def.cost>b.energy)return {available:false,reason:'灵力不足',cost:def.cost};
@@ -2517,7 +2624,7 @@
       Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
       const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
       const previewBattle=shadow.state.battle;
-      if(!shadow.playCard(uid,true))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
+      if(!shadow.playCard(uid,true,recallUid))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
       const after=previewBattle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
       const spent=type=>events.filter(e=>e.type===type&&e.amount<0).reduce((n,e)=>n-e.amount,0);
       return {available:true,cardId:card.id,cost:def.cost,hits,firstHitBonus:def.attack?(after.cardBonus||0):0,firstHitBonusCap:BALANCE.firstHitBonusCap,
@@ -2531,13 +2638,13 @@
     const expedition = EXPEDITION.create({getState:()=>state,rng,heal,note,emit,event,log,beginEvents,cureAffliction,startBattle,advance,addRelic,relics:RELICS});
     expedition.resetRun();
     return {
-      get state() { return state; }, newRun, enterRegion, enterNode, playCard, endTurn, resolveEnemyTurn,
+      get state() { return state; }, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
       getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 
-  const api = { EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS, LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { HEHUAN, EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[]),...(HEHUAN.STORY_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS:[...EVENT_IDS,...(HEHUAN.STORY_IDS||[])], LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

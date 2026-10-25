@@ -4,7 +4,7 @@ const N=require('./engine.js'),root=path.resolve(__dirname,'..');
 test('all registered event exports have matching identities, current inputs and distinct boss chain folders',()=>{
  cp.execFileSync(process.execPath,['dev/export-events-md.cjs'],{cwd:root,stdio:'pipe'});
  const report=JSON.parse(fs.readFileSync(path.join(__dirname,'event-review-results.json')));
- assert.equal(report.count,158);assert.equal(report.allIdentitiesMatched,true);
+ assert.equal(report.count,N.EVENT_IDS.length);assert.equal(report.allIdentitiesMatched,true);
  assert.deepEqual(report.events.map(e=>e.id).sort(),N.EVENT_IDS.slice().sort());
  for(const [file,digest] of Object.entries(report.inputs))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),digest);
  let actual=0;for(const e of report.events){const snapshots=JSON.parse(fs.readFileSync(path.join(root,'recovery/events-md-export',e.file.replace(/\.md$/,'.snapshots.json'))));assert.equal(snapshots.length,e.snapshots);for(const x of snapshots)assert.equal(x.event.id,e.id);actual+=snapshots.length;}

@@ -1,0 +1,188 @@
+{
+  "character": "hehuan",
+  "name": "晏绮罗",
+  "age": 28,
+  "tool": "image_gen.imagegen",
+  "scope": "20 original runtime assets (19 planned character/card/story assets plus initial relic icon); three states edited from one definitive reference, one directly cropped avatar, twelve separately selected card panels, three story scene panels. Only cropping and format encoding after image generation, no programmatic drawing.",
+  "stateNotes": {
+    "normal": "Knowing smile and relaxed invitation; intact hems.",
+    "wounded": "Concentrated unsmiling face, defensive raised fan, loose hair and frayed hems.",
+    "critical": "Exhausted but defiant face, lowered fan supporting stance, drooping frayed silk and shallow battle scratches."
+  },
+  "entries": [
+    {
+      "file": "assets/puppet/hehuan-normal.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 404434,
+      "sha256": "4b7c4d816a4736cc1770e5a8bd57340a32fcc4f8c8c5d12318b3682329387802",
+      "source_png": "/workspace/generated_images/exec-769b4fdf-943a-4d02-9005-e2c586dc7aa1.png",
+      "state": "normal",
+      "alpha": true
+    },
+    {
+      "file": "assets/puppet/hehuan-wounded.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 566792,
+      "sha256": "8c54e75ced4c3485a47efc723c55ff076ce373316b2fece00d9161c1413fd07f",
+      "source_png": "/workspace/generated_images/exec-f032ff05-a582-45a8-9d10-176320c62998.png",
+      "state": "wounded",
+      "alpha": true
+    },
+    {
+      "file": "assets/puppet/hehuan-critical.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 409224,
+      "sha256": "ae1a24cb2457753d4171915970d94219417912f2e8bc1513b5cc1f390beab961",
+      "source_png": "/workspace/generated_images/exec-b0a9dbbd-7984-4e12-9273-4798336ff36f.png",
+      "state": "critical",
+      "alpha": true
+    },
+    {
+      "file": "assets/portraits/hehuan.webp",
+      "width": 600,
+      "height": 800,
+      "bytes": 165378,
+      "sha256": "a2103bee6868a3533ea6d3f4b9793dd22a6a188ff9ea380fc6d76320ad3e8681",
+      "source_png": "/workspace/generated_images/exec-769b4fdf-943a-4d02-9005-e2c586dc7aa1.png",
+      "crop": [
+        275,
+        0,
+        875,
+        800
+      ],
+      "alpha": true
+    },
+    {
+      "file": "assets/cards/H01.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 36684,
+      "sha256": "5ec8841da4cd93a820f560a896328b287b9d0089dfcec00e2beeb71ccfb27977",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H02.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 54586,
+      "sha256": "4f258c26a9c43f2e20a770322cfefd84e0674acab83c3b6357a0aa2d9f05b65c",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H03.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 39166,
+      "sha256": "9c8f12be4630dacf2560d23af35cd7c0c9084ca9bf8459dff70f84008ad86a93",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H04.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 44320,
+      "sha256": "1d8354932a7b3c124c2413a791b946fc98d76984c28354fbe69baf11a90f662b",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H05.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 40318,
+      "sha256": "02cc57204304fc30b20ae523a305d93ff3e558441183cfbaca99542975240cbe",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H06.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 36302,
+      "sha256": "a9f9c0618647c5b7b42b3c904460deaf9301cc3cb7561ae2e85ed8d332389b6a",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H07.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 42294,
+      "sha256": "ba1ce5e40a09281971ce7599d8a501f0a13c29c8775fe1b4d52b5c67ae8ac776",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H08.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 48758,
+      "sha256": "bd98b0ba148576ab918ae9062fefc7037c82d3c58ecc3af22b1f9409bc1aabcd",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H09.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 52158,
+      "sha256": "ee057c62d0a836b26ebb3e72ef5ce92f68860c62292cad280693d3c3aa12ec33",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H10.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 43242,
+      "sha256": "6ca3a085490accae54b94b0254cf86e29bfc388c824fdee4341eb636d9f0098a",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H11.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 34898,
+      "sha256": "a83d232b8ab063e85a190ec3059ba1596c957de0d7b9c6095acf690bd20ac1eb",
+      "alpha": false
+    },
+    {
+      "file": "assets/cards/H12.webp",
+      "width": 362,
+      "height": 362,
+      "bytes": 60644,
+      "sha256": "a85a5231e53a1f613c5bb08a86d816d60b955499d095df18d198c6bc3c002efd",
+      "alpha": false
+    },
+    {
+      "file": "assets/events/hehuan_checkpoint.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 128632,
+      "sha256": "2453622a8deabfe05556f25ff6ccf43cdf087f9f3fefc2bb8e5bae200c06af93",
+      "alpha": false
+    },
+    {
+      "file": "assets/events/hehuan_qinheng.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 141580,
+      "sha256": "141641d73b65a545f4725e4b2e04354bc7184a81e1fc6e3247e8726bbdc14678",
+      "alpha": false
+    },
+    {
+      "file": "assets/events/hehuan_ledger.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 133628,
+      "sha256": "f7d191eefa1213ee5be8a6a5138648a667bb17ff03d64aa47b4e07142b409a28",
+      "alpha": false
+    },
+    {
+      "file": "assets/relics/heartmirror.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 340308,
+      "sha256": "02d41b8a85558c7a84b8e3da60ef9a4d13afda686c52344143a7d10361c78083",
+      "source_png": "/workspace/generated_images/exec-98859825-8b19-479b-84c6-1f7e3ed013d9.png",
+      "alpha": false
+    }
+  ]
+}

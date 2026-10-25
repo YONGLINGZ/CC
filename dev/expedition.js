@@ -93,7 +93,7 @@
       if(roll<.43)return {kind:'coins',title:'遗落的铜匣',text:'铜匣底铺着一层旧绒，散落的灵石仍带着微光。',rewards:[{kind:'gold',amount:25+Math.floor(random()*21),name:'灵石'}]};
       if(roll<.63)return {kind:'herbs',title:'石缝里的药香',text:'滴水润着一簇完好的灵草。你辨清药性，收进了包裹。',rewards:[rewardItem(pick(['herb','dewherb']),2+Math.floor(random()*2))]};
       if(roll<.85){const id=pick(['healing_pill','spirit_pill','battle_pill','antidote','fullheal_pill']);return {kind:'pills',title:ITEMS[id].rarity==='rare'?'封存的玉瓶':'未冷的丹炉',text:'炉旁的玉瓶封蜡未破，药香在瓶口凝成一线白雾。',rewards:[rewardItem(id)]};}
-      const available=Object.keys(hooks.relics||{}).filter(id=>!['bell','fox','frostseal','veil'].includes(id)&&!s.player.relics.includes(id));
+      const available=Object.keys(hooks.relics||{}).filter(id=>!['bell','fox','frostseal','veil','heartmirror'].includes(id)&&!s.player.relics.includes(id));
       if(available.length){const id=pick(available);return {kind:'treasure',title:'尘封秘藏',text:'重重封印自行散去。一件完整的灵物悬在石台上，仿佛等了很久。',rewards:[{kind:'relic',id,amount:1,name:hooks.relics[id].name}]};}
       return {kind:'treasure',title:'满匣流光',text:'封印后的石匣盛满灵石。你将这份意外之财收好。',rewards:[{kind:'gold',amount:60,name:'灵石'},rewardItem('fullheal_pill')]};
     }

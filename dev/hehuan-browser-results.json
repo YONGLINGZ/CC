@@ -1,0 +1,57 @@
+{
+  "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
+  "inputs": {
+    "dev/hehuan.js": "69481e42f894c29b17c1418b2a7f9c89ea25739aacf89de97f1e8b15087d46e0",
+    "dev/engine.js": "7a9b0ea94f42257ca561cbab4c2b05d3cb2ab80ca9cf284f7010e0cb0a5f6ca8",
+    "dev/ui.js": "26e16734e0684927b99702d75d637a94316b2b945a03900c47539ef68141bcac",
+    "dev/shell.html": "05699d16643ffa2d54e6b7917eb02e776dce17861fa54a84de826338dc531f59",
+    "dev/audio.js": "95e656ad02caaa7b9f88b40b2135eb50dc359acea8c5703d61529d95fcf683ef",
+    "dev/build.cjs": "ceb32572f5010a82d8ac75666c489ffa6a7566366f6325ee554f0546a631d7e9",
+    "index.html": "1ed7e803d10e4bc8128268b0af094965feb634e78677c18bdac3553ac6c4cda8",
+    "baiyao-standalone.html": "210e9938323b3c9f6a48b69f3e62509be39d4a906f11d76310429841b1e71cf9",
+    "dev/hehuan-browser.test.cjs": "ae617a1265ffe52aeca5b3b0749ace896940352ab8eee7c5128d427f18b0f70e"
+  },
+  "results": [
+    {
+      "name": "new character is directly selectable with56life, own art, objective and ten-card tactic",
+      "ok": true
+    },
+    {
+      "name": "both modes show full rules; target cancellation pays nothing; full slots reject a third placement",
+      "ok": true
+    },
+    {
+      "name": "observe only reveals category, is once per turn and cannot reroll or spend again",
+      "ok": true
+    },
+    {
+      "name": "H06 chooses an actual concealed instance and cancel/recall never refunds its original fee",
+      "ok": true
+    },
+    {
+      "name": "actual enemy phase resolves both traps once and changes life/damage with no intent preview",
+      "ok": true
+    },
+    {
+      "name": "guaranteed personal scene returns to the original P2 node and has its own painting",
+      "ok": true
+    },
+    {
+      "name": "three portrait states and20 generated images decode;360/390/430 controls remain touchable",
+      "ok": true
+    },
+    {
+      "name": "new card sounds render offline, standalone contains same character, and frozen inputs match",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "screenshots": [
+    "/workspace/scratch/hehuan-map.png",
+    "/workspace/scratch/hehuan-traps.png",
+    "/workspace/scratch/hehuan-mobile.png"
+  ],
+  "passed": 8,
+  "failed": 0
+}

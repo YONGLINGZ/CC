@@ -1,0 +1,14 @@
+{
+  "version": "hehuan-v1",
+  "zip": {
+    "file": "recovery/baiyao-hehuan.zip",
+    "bytes": 94955715,
+    "sha256": "4fad52093144e1b4122c07d9ec7d712b515b00da6b3d0fb10147b4e3c310f5af"
+  },
+  "files": 772,
+  "runtimeArt": 452,
+  "verification": "dev/hehuan-verification-results.json",
+  "humanPlaytest": false,
+  "physicalPhoneTested": false,
+  "directFileBrowserTested": false
+}

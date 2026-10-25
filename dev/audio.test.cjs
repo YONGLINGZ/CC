@@ -24,11 +24,11 @@ function wav(samples, rate) {
 (async () => {
   let browser;
   try {
-    await check('76 independent signatures across three roles; 150 encounter motifs', () => {
-      assert.equal(audio.profiles.length,76); assert.equal(audio.encounters.length,150);
+    await check('88 independent signatures across four roles; 153 encounter motifs', () => {
+      assert.equal(audio.profiles.length,88); assert.equal(audio.encounters.length,153);
       assert.equal(audio.assassinProfiles.length,36);assert.equal(audio.swordProfiles.length,16);
       const profiles = audio.profiles.map(id => audio.profile(id));
-      assert.equal(new Set(profiles.map(p => p.signature)).size,76);
+      assert.equal(new Set(profiles.map(p => p.signature)).size,88);
       assert.equal(audio.profile('C99'),null);
       const first=audio.profile('C01');first.notes[0]=1;assert.notEqual(audio.profile('C01').notes[0],1);
     });
@@ -76,7 +76,7 @@ function wav(samples, rate) {
       await page.evaluate(async()=>{for(const id of NightAudio.profiles){NightAudio.playCard(id);await new Promise(r=>setTimeout(r,45));}
         for(const id of NightAudio.profiles){NightAudio.playEvent({type:'attack',source:'player',cardId:id,hitIndex:1,damage:6});await new Promise(r=>setTimeout(r,id.startsWith('S')?200:125));}});
       const result=await page.evaluate(()=>({state:NightAudio.getState(),graph}));
-      assert.equal(result.state.profilesUsed.length,76);assert.ok(result.graph.oscillators>100);assert.ok(result.graph.buffers>40);
+      assert.equal(result.state.profilesUsed.length,88);assert.ok(result.graph.oscillators>100);assert.ok(result.graph.buffers>40);
       assert.ok(result.graph.startCalls>160);assert.ok(result.graph.connections>300);assert.ok(result.state.eventsPlayed>=140);
       assert.equal(result.state.rejectedVoices,0);assert.ok(result.state.peakScheduled<=result.state.maxVoices);
       return { sourcesCreated:result.state.sourcesCreated,oscillators:result.graph.oscillators,noiseSources:result.graph.buffers };
@@ -90,7 +90,7 @@ function wav(samples, rate) {
         }
         return {out,state:NightAudio.getState()};
       });
-      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,150);assert.equal(checks.state.rejectedVoices,0);
+      assert.ok(checks.out.every(Boolean));assert.equal(checks.state.encountersUsed.length,153);assert.equal(checks.state.rejectedVoices,0);
     });
     await check('ordinary enemy and snake intent events select matching attack sound',async()=>{
       const result=await page.evaluate(async()=>{
@@ -128,7 +128,7 @@ function wav(samples, rate) {
           for(let i=Math.floor(j*1.2*rate);i<Math.floor((j*1.2+.95)*rate);i++){sum+=a[i]*a[i];peak=Math.max(peak,Math.abs(a[i]));hash=Math.imul(hash^Math.round(a[i]*32767),16777619);}
           return {id,rms:Math.sqrt(sum/(.95*rate)),peak,hash:hash>>>0};});return values;
       });
-      assert.equal(result.length,76);assert.equal(new Set(result.map(p=>p.hash)).size,76);
+      assert.equal(result.length,88);assert.equal(new Set(result.map(p=>p.hash)).size,88);
       for(const p of result){assert.ok(p.rms>.0004,p.id+' silent');assert.ok(p.peak<.85,p.id+' clips');assert.ok(Number.isFinite(p.rms));}
       return {distinctRenders:result.length,minRMS:Math.min(...result.map(p=>p.rms)),maxPeak:Math.max(...result.map(p=>p.peak))};
     });
