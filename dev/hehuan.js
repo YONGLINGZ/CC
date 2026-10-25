@@ -17,7 +17,34 @@
     H11:{name:'空席',cost:1,text:'获得 7 点护盾。',target:false,archetype:'weave',trap:trap('action','敌人行动开始时，若它是唯一藏招，先获得 10 点护盾，整招结束后造成 8 点伤害；否则失效。',{block:10},{damage:8},{onlyTrap:true})},
     H12:{name:'满堂红',cost:3,text:'造成 18 点伤害。',target:true,attack:true,archetype:'lure',trap:trap('action','敌人整次行动后，造成 26 点伤害。',{}, {damage:26})}
   };
-  for(const [id,c]of Object.entries(CARDS))Object.assign(c,{id,character:'hehuan',category:'hehuan',rarity:['H10','H12'].includes(id)?'rare':['H06','H07','H08','H09','H11'].includes(id)?'uncommon':'common',attack:!!c.attack,exhaust:!!c.exhaust});
+  Object.assign(CARDS,{
+    H13:{name:'欲擒故纵',cost:1,text:'撤下最后放入的一张藏招，退回该牌已支付的灵力；原牌按规则弃置或消耗。再获得3护盾。没有藏招仍获盾。',trap:trap('attack','敌人攻击前获得5护盾，整招结束后下回合额外获得1灵力。',{block:5},{energyNext:1})},
+    H14:{name:'红绡借刃',cost:1,text:'造成6伤害；若已有两张藏招，额外增加4伤害，不消耗藏招。',attack:true,target:true,trap:trap('attack','敌人攻击结束后，连续攻击2次，每次5伤害。',{}, {damage:5,hits:2})},
+    H15:{name:'隔帘听雨',cost:0,text:'获得2护盾，每有一张藏招再加2护盾。消耗。',exhaust:true,trap:trap('nonattack','敌人不攻击的动作结束后，下回合额外获得1灵力、抽1张。消耗。',{}, {energyNext:1,drawNext:1})},
+    H16:{name:'花信误',cost:1,text:'获得5护盾；若自身有追索印，再使本回合下一张攻击首段伤害+5。不清印。',trap:trap('action','敌人行动前获得2护盾，结束后移除敌人4护盾，下回合额外抽1张。',{block:2},{removeBlock:4,drawNext:1})},
+    H17:{name:'以柔缚刚',cost:2,text:'获得10护盾，本轮每次护盾挡住攻击时反击2伤害，到下回合清除。',trap:trap('attack','敌人攻击前获得10护盾，整招结束后移除其6护盾。',{block:10},{removeBlock:6})},
+    H18:{name:'香销玉暖',cost:1,text:'恢复3生命；若没有藏招，改为恢复5生命。消耗。',exhaust:true,trap:trap('action','敌人行动结束后，自身仍存活则恢复3生命。消耗。',{}, {heal:3})},
+    H19:{name:'留客盏',cost:1,text:'抽1张牌；若抽牌前手牌不多于3张，改为抽2张。',trap:trap('attack','敌人攻击前抵消本次新增的1层毒或追索印，优先毒；结束后下回合额外1灵力。', {cleanseIncoming:1},{energyNext:1})},
+    H20:{name:'偷梁换柱',cost:0,text:'交换两张藏招的结算顺序（不足两张不交换），然后抽1张牌。消耗。',exhaust:true,trap:trap('action','敌人行动前获得3护盾，结束后下回合额外抽1张。消耗。',{block:3},{drawNext:1})},
+    H21:{name:'同心结',cost:1,text:'获得4护盾，每有一张藏招再加2护盾。',trap:trap('action','敌人行动前，每张藏招提供3护盾；结束后，每张藏招造成3伤害。按行动开始时的藏招数计算。',{blockPerTrap:3},{damagePerTrap:3})},
+    H22:{name:'落花逐水',cost:1,text:'依次造成1、3、5点伤害。首段增幅只作用于第一段。',attack:true,target:true,trap:trap('nonattack','敌人不攻击的动作结束后，造成4伤害，下回合额外抽2张。',{}, {damage:4,drawNext:2})},
+    H23:{name:'藏月入袖',cost:1,text:'弃置手中最左侧一张牌（没有则不弃），然后抽2张。',trap:trap('action','敌人行动结束后，下回合额外抽3张，但少获得1灵力。',{}, {drawNext:3,energyTax:1})},
+    H24:{name:'无声挑灯',cost:1,text:'清除敌人当前架势反击，再获得5护盾，不阻止其以后重新架势。',target:true,trap:trap('action','敌人行动前抵消本次新增的1层毒或追索印，结束后移除其8护盾。',{cleanseIncoming:1},{removeBlock:8})},
+    H25:{name:'笑里藏针',cost:2,text:'先造成4伤害，每有一张藏招再攻击一次、每次4伤害，不消耗藏招。',attack:true,target:true,trap:trap('attack','敌人攻击结束后，连续攻击3次，每次3伤害。',{}, {damage:3,hits:3})},
+    H26:{name:'春风照影',cost:0,text:'敌人获得3护盾；下个玩家回合开始时获得5护盾。消耗。',trap:trap('nonattack','敌人不攻击的动作结束后，移除其全部护盾并恢复自身2生命。消耗。',{}, {removeAllBlock:true,heal:2}),exhaust:true},
+    H27:{name:'双生绡',cost:1,text:'若已有两张藏招，本回合下一张攻击首段伤害+6；否则抽2张牌。',trap:trap('action','敌人行动结束后，若行动开始时有两张藏招，下回合额外2灵力；否则额外抽2张。',{}, {pairedResources:true})},
+    H28:{name:'燃香待客',cost:1,text:'本场每个玩家回合首次放入藏招时，获得2护盾；多次施放最多升至4护盾。消耗。',exhaust:true,trap:trap('action','敌人行动前获得2护盾，结束后恢复1生命、下回合额外抽1张。消耗。',{block:2},{heal:1,drawNext:1})},
+    H29:{name:'断线风筝',cost:1,text:'移除自身2层普通战斗毒和2层追索印，再抽1张；不解除旅途异状。',trap:trap('attack','敌人攻击前获得4护盾；结束后清除其当前架势反击，下回合额外抽1张。',{block:4},{clearCounter:true,drawNext:1})},
+    H30:{name:'帘外惊鸿',cost:2,text:'造成9伤害；弃牌堆每有一种合欢牌，伤害+1，最多+6。',attack:true,target:true,trap:trap('nonattack','敌人不攻击的动作结束后造成6伤害；弃牌堆每种合欢牌额外+1，最多+6。',{}, {damage:6,discardDiversity:6})},
+    H31:{name:'余音绕梁',cost:1,text:'本战每已触发3张藏招，额外抽1张，最多额外2张；基础抽1张。',trap:trap('action','敌人行动结束后，下回合额外抽1张并在开始时获得4护盾。',{}, {drawNext:1,blockNext:4})},
+    H32:{name:'捧心问月',cost:2,text:'消耗剩余全部灵力，恢复2＋2×额外消耗灵力的生命，最多恢复8。消耗。',exhaust:true,trap:trap('action','敌人行动结束后，若它是唯一藏招恢复4生命，否则恢复2生命；下回合额外抽1张。消耗。',{}, {healBySolitude:true,drawNext:1})},
+    H33:{name:'红尘织梦',cost:2,text:'本场每张藏招第一段伤害额外+2，最多叠至+4，计入额外增幅上限8；抽1张。消耗。',exhaust:true,rarity:'rare',trap:trap('action','敌人行动前使其获得4护盾，结束后造成14伤害。消耗。',{enemyBlock:4},{damage:14})},
+    H34:{name:'千面一笑',cost:1,text:'若两张藏招的触发条件不同，获得10护盾并抽1张；否则获得4护盾。',trap:trap('action','敌人行动前，若两张藏招的触发条件不同获得9护盾，否则获得4护盾。',{diverseBlock:true})},
+    H35:{name:'倾城一舞',cost:3,text:'造成6＋8×当前藏招数的伤害，再获得5×藏招数的护盾；不消耗藏招。',attack:true,target:true,rarity:'rare',trap:trap('action','敌人行动结束后造成12伤害，若自身仍存活恢复2生命，下回合额外抽1张。',{}, {damage:12,heal:2,drawNext:1})},
+    H36:{name:'百转归心',cost:3,text:'消耗弃牌堆最新的最多3张合欢牌；每实际消耗1张，获得1灵力并造成5伤害。没有则无收益。消耗。',attack:true,target:true,exhaust:true,rarity:'rare',trap:trap('action','敌人行动结束后，消耗区每有一种合欢牌造成2伤害，最多18；下回合开始时获得2护盾。消耗。',{}, {exhaustDiversity:2,blockNext:2})}
+  });
+  for(const id of ['H13','H14','H15','H16','H18','H19','H20','H21','H22','H23','H24','H29','H31'])CARDS[id].rarity='common';
+  for(const [id,c]of Object.entries(CARDS))Object.assign(c,{id,character:'hehuan',category:'hehuan',target:!!c.target,rarity:c.rarity||(['H10','H12'].includes(id)?'rare':['H06','H07','H08','H09','H11'].includes(id)||Number(id.slice(1))>12?'uncommon':'common'),attack:!!c.attack,exhaust:!!c.exhaust});
   const STARTERS={hehuan:{character:'hehuan',name:'纱里藏招',description:'同一张牌可以立即出手，也可以藏进两个纱位，等敌人行动时兑现。每战三次观息只辨攻击与否，不预告招式。',cards:['H01','H01','H02','H02','H02','H03','H03','H04','H04','H05']}};
   const CHARACTERS={hehuan:{id:'hehuan',name:'晏绮罗',profession:'合欢宗外堂执事',portrait:'hehuan',adult:true,age:28,locked:false,faction:'hehuan',initialHp:56,initialRelic:'heartmirror',description:'她擅长把杀招藏进薄纱，等敌人自己撞上来。此次入域，要找回被宗门卖掉的成年师妹秦蘅，取得长老交人给祭仪的账册。',quote:'看够了吗？看够了，就该看我的手了。',accent:'#b5965b',starters:['hehuan']}};
   const RELICS={heartmirror:{name:'照心镜',text:'每场战斗可观息 3 次，每个玩家回合最多一次，0 灵力。只看下一次动作是攻击还是不攻击，不显示招名、伤害、段数或附加状态；读的是已确定动作，不重抽。'}};

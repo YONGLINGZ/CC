@@ -31,7 +31,9 @@ for folder in ['dev', 'docs']:
     for item in (root / folder).rglob('*'):
         if item.is_file() and item.suffix in {'.js', '.cjs', '.py', '.html', '.md', '.json', '.webp'}:
             names.add(str(item.relative_to(root)))
-for filename in ['recovery/events-md-export.zip', 'recovery/hehuan-art-originals.zip']:
+# Original paintings are published as a separate art archive, not duplicated
+# inside the runnable game package.
+for filename in ['recovery/events-md-export.zip']:
     if (root / filename).is_file():
         names.add(filename)
 

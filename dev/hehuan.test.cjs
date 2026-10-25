@@ -17,7 +17,7 @@ function trapHits(b){return (b.events||[]).filter(e=>e.type==='attack'&&e.source
 test('Hehuan starts unlocked at56 HP with the exact ten cards, unique relic and independent identity',()=>{
  const g=game(),s=g.state;A.equal(s.character,'hehuan');A.equal(s.player.character,'hehuan');A.equal(s.player.hp,56);A.equal(s.player.maxHp,56);A.equal(s.player.gold,60);A.deepEqual(s.player.relics,['heartmirror']);A.equal(s.player.path.fallen,false);A.equal(s.player.path.corruption,0);A.equal(N.CHARACTERS.hehuan.faction,'hehuan');A.equal(!!N.CHARACTERS.hehuan.locked,false);
  A.deepEqual(s.player.deck.map(c=>c.id).sort(),['H01','H01','H02','H02','H02','H03','H03','H04','H04','H05'].sort());A.equal(new Set(s.player.deck.map(c=>c.uid)).size,10);
- for(let n=1;n<=12;n++){const id='H'+String(n).padStart(2,'0');A.equal(N.CARDS[id].character,'hehuan');A.ok(N.CARDS[id].trap?.text);}
+ for(let n=1;n<=36;n++){const id='H'+String(n).padStart(2,'0');A.equal(N.CARDS[id].character,'hehuan');A.ok(N.CARDS[id].trap?.text);}
  const b=at(g);A.equal(b.hand.length,5);A.equal(b.energy,3);A.equal(b.traps.length,0);A.equal(g.getBreath().remaining,3);
 });
 

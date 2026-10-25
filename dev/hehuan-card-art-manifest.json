@@ -1,21 +1,14 @@
 {
-  "format": "hehuan-card-art-v1",
-  "method": "One independently painted twelve-panel image generation; exact uniform-grid crop and WebP encoding only. No procedural repainting.",
-  "source": "recovery/hehuan-card-sheet.png",
-  "sourceSize": [
-    1086,
-    1448
-  ],
-  "sourceSha256": "4b8a63bc4f04b61f3af0f5b53472369c24471a3e9daba9c8f999789e208361d7",
+  "method": "Three independently painted 12-panel sheets; distinct selected panels; no recoloring of old cards",
   "entries": [
     {
-      "id": "H01",
-      "name": "撩弦",
       "file": "assets/cards/H01.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 36684,
-      "sha256": "5ec8841da4cd93a820f560a896328b287b9d0089dfcec00e2beeb71ccfb27977",
+      "width": 420,
+      "height": 420,
+      "bytes": 55742,
+      "sha256": "9255b0e59f661cb38dc17c6d67eb3d64369272432cce25cdb4bc5526d088aa6b",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         0,
         0,
@@ -24,13 +17,13 @@
       ]
     },
     {
-      "id": "H02",
-      "name": "流纱",
       "file": "assets/cards/H02.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 54586,
-      "sha256": "4f258c26a9c43f2e20a770322cfefd84e0674acab83c3b6357a0aa2d9f05b65c",
+      "width": 420,
+      "height": 420,
+      "bytes": 59676,
+      "sha256": "ed4d51cc5437f1bade684501fd40611b3eae8a94ba38738b7a2f1e2f2376455d",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         362,
         0,
@@ -39,13 +32,13 @@
       ]
     },
     {
-      "id": "H03",
-      "name": "请君近前",
       "file": "assets/cards/H03.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 39166,
-      "sha256": "9c8f12be4630dacf2560d23af35cd7c0c9084ca9bf8459dff70f84008ad86a93",
+      "width": 420,
+      "height": 420,
+      "bytes": 50962,
+      "sha256": "d6050161afd7e3fe2fa806d8037d6b9a6df46d28b83537251608cf429007bda8",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         724,
         0,
@@ -54,13 +47,13 @@
       ]
     },
     {
-      "id": "H04",
-      "name": "偷香",
       "file": "assets/cards/H04.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 44320,
-      "sha256": "1d8354932a7b3c124c2413a791b946fc98d76984c28354fbe69baf11a90f662b",
+      "width": 420,
+      "height": 420,
+      "bytes": 41650,
+      "sha256": "74294ee2e8f0c4fb843d527c4f827c5a827347d7acd8e70e674a55b6cdf186c0",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         0,
         362,
@@ -69,13 +62,13 @@
       ]
     },
     {
-      "id": "H05",
-      "name": "回眸",
       "file": "assets/cards/H05.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 40318,
-      "sha256": "02cc57204304fc30b20ae523a305d93ff3e558441183cfbaca99542975240cbe",
+      "width": 420,
+      "height": 420,
+      "bytes": 50582,
+      "sha256": "6e06c9dde450116a608faf46a455e1d9c4fb6081c45aff4cf02e59780a0d4abf",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         362,
         362,
@@ -84,13 +77,13 @@
       ]
     },
     {
-      "id": "H06",
-      "name": "换席",
       "file": "assets/cards/H06.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 36302,
-      "sha256": "a9f9c0618647c5b7b42b3c904460deaf9301cc3cb7561ae2e85ed8d332389b6a",
+      "width": 420,
+      "height": 420,
+      "bytes": 65436,
+      "sha256": "86947811ce795d4957848325ce5d59b7320046fe5b1af78953c1334ed6740dfe",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         724,
         362,
@@ -99,13 +92,13 @@
       ]
     },
     {
-      "id": "H07",
-      "name": "借势",
       "file": "assets/cards/H07.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 42294,
-      "sha256": "ba1ce5e40a09281971ce7599d8a501f0a13c29c8775fe1b4d52b5c67ae8ac776",
+      "width": 420,
+      "height": 420,
+      "bytes": 60376,
+      "sha256": "97ee91923bf1cc2d17b09b2b703a939f6860b158b6df91e722000e5ab53f9015",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         0,
         724,
@@ -114,13 +107,13 @@
       ]
     },
     {
-      "id": "H08",
-      "name": "乱息",
       "file": "assets/cards/H08.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 48758,
-      "sha256": "bd98b0ba148576ab918ae9062fefc7037c82d3c58ecc3af22b1f9409bc1aabcd",
+      "width": 420,
+      "height": 420,
+      "bytes": 50332,
+      "sha256": "4d0f6e81775bc31a3edc04c438a4c0928e9d13663f199550f4828b4b55e5bacf",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         362,
         724,
@@ -129,13 +122,13 @@
       ]
     },
     {
-      "id": "H09",
-      "name": "解带",
       "file": "assets/cards/H09.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 52158,
-      "sha256": "ee057c62d0a836b26ebb3e72ef5ce92f68860c62292cad280693d3c3aa12ec33",
+      "width": 420,
+      "height": 420,
+      "bytes": 54722,
+      "sha256": "8be254670d1c68f78938fb45e72e8045d1c970c4bb2ee68ae46a6afc1fe56e85",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         724,
         724,
@@ -144,13 +137,13 @@
       ]
     },
     {
-      "id": "H10",
-      "name": "两清",
       "file": "assets/cards/H10.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 43242,
-      "sha256": "6ca3a085490accae54b94b0254cf86e29bfc388c824fdee4341eb636d9f0098a",
+      "width": 420,
+      "height": 420,
+      "bytes": 58162,
+      "sha256": "dd9db9b1b8fcbd7c8aaebf67c5d609760f979923c63ab360a059d6a8cff4b42b",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         0,
         1086,
@@ -159,13 +152,13 @@
       ]
     },
     {
-      "id": "H11",
-      "name": "空席",
       "file": "assets/cards/H11.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 34898,
-      "sha256": "a83d232b8ab063e85a190ec3059ba1596c957de0d7b9c6095acf690bd20ac1eb",
+      "width": 420,
+      "height": 420,
+      "bytes": 61628,
+      "sha256": "66f03524da6e8688e2af2b46fd99fb2d328eb329c11e88f1aa58ab53871845ef",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         362,
         1086,
@@ -174,18 +167,378 @@
       ]
     },
     {
-      "id": "H12",
-      "name": "满堂红",
       "file": "assets/cards/H12.webp",
-      "width": 362,
-      "height": 362,
-      "bytes": 60644,
-      "sha256": "a85a5231e53a1f613c5bb08a86d816d60b955499d095df18d198c6bc3c002efd",
+      "width": 420,
+      "height": 420,
+      "bytes": 72288,
+      "sha256": "73316c810694bfd27de2e49c5832e752d7cc13a2f8cf678e77e801e3c9500e6d",
+      "source_png": "exec-3e14cc47-a8c9-4399-9bc8-d54204fee273.png",
+      "alpha": false,
       "sourceCrop": [
         724,
         1086,
         1086,
         1448
+      ]
+    },
+    {
+      "file": "assets/cards/H13.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 65722,
+      "sha256": "8c646edf056bab8bba848e448af8fc4c31d8267837b6cbb292fa656a174e6168",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        0,
+        362,
+        362
+      ]
+    },
+    {
+      "file": "assets/cards/H14.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 62458,
+      "sha256": "be320c02ac79abce29c149bcf8a712a6b5589053e5f6dc1db20354c5e6c1250a",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        362,
+        0,
+        724,
+        362
+      ]
+    },
+    {
+      "file": "assets/cards/H15.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 61428,
+      "sha256": "7f7c32717d7d93fb70382d3c8cbc43b471db1ff71267d35cc2a97a9ac80e26c4",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        724,
+        0,
+        1086,
+        362
+      ]
+    },
+    {
+      "file": "assets/cards/H16.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 53122,
+      "sha256": "01d4779ff245990573642b9159e3d895c050210796c88d157eb1a8fe7fee3980",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        362,
+        362,
+        724
+      ]
+    },
+    {
+      "file": "assets/cards/H17.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 66310,
+      "sha256": "30acb6e0535c7b7478d8cf12b14d37580be6bcfaeb53f9dc98f2dafa92c5d04e",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        362,
+        362,
+        724,
+        724
+      ]
+    },
+    {
+      "file": "assets/cards/H18.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 54434,
+      "sha256": "f6af09717f863f10e1bb6d5644ff26047dab9eb10831d44a2dc9ce8db89c9543",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        724,
+        362,
+        1086,
+        724
+      ]
+    },
+    {
+      "file": "assets/cards/H19.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 58048,
+      "sha256": "1879592f6a4fbbc14d3d5d506e7948f93377e17ac36f7b678f02ef29d15a0654",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        724,
+        362,
+        1086
+      ]
+    },
+    {
+      "file": "assets/cards/H20.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 58874,
+      "sha256": "e944686aad334ee52ff860036101dee1b9d88fa785795b10f74d43b83c16c636",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        362,
+        724,
+        724,
+        1086
+      ]
+    },
+    {
+      "file": "assets/cards/H21.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 56300,
+      "sha256": "3e523634f75936cc9c44d732af226231946bca5da2e6afe33d948200d4508cab",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        724,
+        724,
+        1086,
+        1086
+      ]
+    },
+    {
+      "file": "assets/cards/H22.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 66774,
+      "sha256": "aee0b4dc1ff1ece37bf5da913b459fd56b023fa7e7b87b85b7aa1b85d86c12e7",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        1086,
+        362,
+        1448
+      ]
+    },
+    {
+      "file": "assets/cards/H23.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 55470,
+      "sha256": "11a6c04071b3d1849cc8ace0f80bf377183e06edb6b4edfd47d4f2f4ace8db9b",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        362,
+        1086,
+        724,
+        1448
+      ]
+    },
+    {
+      "file": "assets/cards/H24.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 56358,
+      "sha256": "5dbeee82a91bbcc18c035c514c001bb0091f41d1242dd125d0dec6da392349e1",
+      "source_png": "exec-df02b6e3-e4c6-42a1-96fd-37faa307089b.png",
+      "alpha": false,
+      "sourceCrop": [
+        724,
+        1086,
+        1086,
+        1448
+      ]
+    },
+    {
+      "file": "assets/cards/H25.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 56058,
+      "sha256": "5af3267a138dfee7be5d5cc528a7a99fa8e675443ab0d937764a3bb718917cd7",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        0,
+        341,
+        384
+      ]
+    },
+    {
+      "file": "assets/cards/H26.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 69652,
+      "sha256": "1605f7b52060ee701a5cc7a6eb9ea386b467286d37505c417815e071243b9adb",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        341,
+        0,
+        683,
+        384
+      ]
+    },
+    {
+      "file": "assets/cards/H27.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 61800,
+      "sha256": "a26e5a9b934acf6a9c62b2049d3cd87d5c3aceecc8e89c7735727e91f0c349c7",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        683,
+        0,
+        1024,
+        384
+      ]
+    },
+    {
+      "file": "assets/cards/H28.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 64278,
+      "sha256": "0c78c3e97b31582637d3cbf63734c8d7a49bf02ac222b02d999b8e877c101d5a",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        384,
+        341,
+        768
+      ]
+    },
+    {
+      "file": "assets/cards/H29.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 56890,
+      "sha256": "6fe0281b43c8b54ce7edb40213e179cbf7af2126727e39b96ce167a104fb22d7",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        341,
+        384,
+        683,
+        768
+      ]
+    },
+    {
+      "file": "assets/cards/H30.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 53494,
+      "sha256": "77eb6175b768098fcb72cd70a8aa4275954b9d6ffd0fefd7538844fdda9590dd",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        683,
+        384,
+        1024,
+        768
+      ]
+    },
+    {
+      "file": "assets/cards/H31.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 67600,
+      "sha256": "fa67784f82d33baa3fd0ce98b0bb3b30d92395c92b35b851a77d8818d4fde224",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        768,
+        341,
+        1152
+      ]
+    },
+    {
+      "file": "assets/cards/H32.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 66098,
+      "sha256": "44828a7d765ff7fb981ca904677861b3fcdd6706ed2540c9f78902248b299ee2",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        341,
+        768,
+        683,
+        1152
+      ]
+    },
+    {
+      "file": "assets/cards/H33.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 72476,
+      "sha256": "8720cfe61517c7e1b6fb3534e47e7a512f34a3d3fc22a1fdffa901a1669f90c4",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        683,
+        768,
+        1024,
+        1152
+      ]
+    },
+    {
+      "file": "assets/cards/H34.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 68062,
+      "sha256": "a36afa3598e7de9aa35ff25ffde1fda550a593cf5297705bd1516799dcd2181a",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        0,
+        1152,
+        341,
+        1536
+      ]
+    },
+    {
+      "file": "assets/cards/H35.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 68958,
+      "sha256": "04d0abd36c0c3faf4b5ac498079ddcaa9adc8cb10577a5fdf5fe90759ab1e5f7",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        341,
+        1152,
+        683,
+        1536
+      ]
+    },
+    {
+      "file": "assets/cards/H36.webp",
+      "width": 420,
+      "height": 420,
+      "bytes": 59450,
+      "sha256": "aa5c356832f7e5dd408360032cfe7361a1f2cfb73b3b8c102301bb4e285781b7",
+      "source_png": "exec-b16af832-a733-4215-a9fb-7b8d8e614ee4.png",
+      "alpha": false,
+      "sourceCrop": [
+        683,
+        1152,
+        1024,
+        1536
       ]
     }
   ]

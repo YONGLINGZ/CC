@@ -104,6 +104,7 @@ test('robbery starts actual combat, retains treasure, grants rewards once, and a
   eventAt(g,'ji_return');resolve(g,0);g.leaveEvent();eventAt(g,'ji_final');const held=s.player.relics.slice(),floor=s.floor;
   resolve(g,0);assert.equal(s.screen,'event');assert.equal(s.event.battle.enemyId,'raider');assert.equal(g.leaveEvent(),true);
   assert.equal(s.screen,'battle');assert.equal(s.battle.enemy.name,'季临川');assert.equal(s.battle.enemy.hp,42);assert.equal(g.leaveEvent(),false);
+  s.battle.enemy.intentIndex=0; // Isolate this reward/advance fixture from expanded reward-pool RNG consumption.
   assert.deepEqual(g.getIntent().hits,[7]);const before=s.player.gold;killFixture(g);assert.equal(s.screen,'reward');assert.equal(s.player.gold,before+20);assert.deepEqual(s.player.relics,held);
   assert.equal(g.playCard('fixture-finisher',true),false);assert.equal(s.player.gold,before+20);assert.equal(s.history.filter(x=>x.floor===floor).length,0);
   finishReward(g);assert.equal(s.floor,floor+1);assert.equal(s.history.filter(x=>x.floor===floor).length,1);assert.equal(g.chooseReward(null),false);assert.equal(g.leaveEvent(),false);

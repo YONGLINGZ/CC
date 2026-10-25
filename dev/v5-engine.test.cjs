@@ -27,8 +27,8 @@ test('两职业与四开局真实独立：牌组、初始遗物、成年角色�
 });
 
 test('剑修16种卡是独立数据，费用、目标、完整效果和稀有池均存在',()=>{
-  for(let i=1;i<=16;i++){const id='S'+String(i).padStart(2,'0'),c=CARDS[id];assert.ok(c);assert.equal(c.character,'sword');assert.ok(c.text.length>6);assert.ok(Number.isInteger(c.cost)&&c.cost>=0);assert.equal(typeof c.target,'boolean');}
-  assert.equal(Object.values(CARDS).filter(c=>c.character==='sword'&&!c.storyOnly).length,16);
+  for(let i=1;i<=36;i++){const id='S'+String(i).padStart(2,'0'),c=CARDS[id];assert.ok(c);assert.equal(c.character,'sword');assert.ok(c.text.length>6);assert.ok(Number.isInteger(c.cost)&&c.cost>=0);assert.equal(typeof c.target,'boolean');}
+  assert.equal(Object.values(CARDS).filter(c=>c.character==='sword'&&!c.storyOnly).length,36);
   assert.equal(Object.values(CARDS).filter(c=>c.character==='assassin').length,36);
   assert.deepEqual(['S15','S16'].filter(id=>CARDS[id].rarity==='rare'),['S15','S16']);
 });

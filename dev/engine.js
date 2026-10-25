@@ -75,6 +75,28 @@
     S15: { name: '碎霜', cost: 2, text: '移除敌人全部霜寒，造成 12＋2×移除层数的伤害；若敌人仍存活，获得等量剑意。', target: true, attack: true },
     S16: { name: '万川归寂', cost: 3, text: '消耗全部剑意，造成 16＋4×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。', target: true, attack: true }
   });
+  Object.assign(CARDS, {
+    S17:{name:'万剑归宗',cost:3,text:'消耗全部剑意，连续攻击 1＋消耗层数次，每次 3 点伤害。只有第一段获得首段增幅。',attack:true,target:true,rarity:'rare',category:'blade'},
+    S18:{name:'一剑开天门',cost:3,text:'先移除敌人全部护盾，再消耗剩余全部灵力，造成 22＋4×额外消耗灵力的伤害。消耗。',attack:true,target:true,exhaust:true,rarity:'rare',category:'blade'},
+    S19:{name:'御剑出鞘',cost:1,text:'造成 4 点伤害，御剑增加 2 层（上限6）。每次结束回合，御剑造成等于层数的伤害，然后减1层。',attack:true,target:true,category:'blade'},
+    S20:{name:'两仪剑阵',cost:1,text:'本场每个玩家回合开始获得 3 护盾，立即也获得 3 护盾。剑阵护盾上限6。消耗。',target:false,exhaust:true,category:'blade'},
+    S21:{name:'剑气长城',cost:2,text:'消耗剩余全部灵力，获得 8＋4×额外消耗灵力的护盾；下回合额外抽1张。',target:false,category:'blade'},
+    S22:{name:'拔剑问心',cost:0,text:'清除自身全部追索印，获得 1＋移除层数的剑意，最多获得4层。不清毒。消耗。',target:false,exhaust:true,category:'blade'},
+    S23:{name:'破军',cost:1,text:'先清除敌人当前的架势反击，再造成 6 点伤害。不影响其以后重新架势。',attack:true,target:true,category:'blade'},
+    S24:{name:'藏锋养神',cost:1,text:'获得6护盾；若剑意至少2层，消耗2层并恢复4生命。',target:false,category:'blade'},
+    S25:{name:'朝游北海',cost:0,text:'本回合此后每抽到1张攻击牌，获得1护盾；可叠至每张3护盾。然后抽1张。消耗。',target:false,exhaust:true,category:'blade'},
+    S26:{name:'剑履山河',cost:1,text:'依次造成2、4、6点伤害；敌人仍存活且自身仍存活时，获得2层剑意。',attack:true,target:true,category:'blade'},
+    S27:{name:'寒江独钓',cost:1,text:'获得6护盾；若敌人有至少3层霜寒，移除3层，本轮每次护盾挡住攻击时反击6伤害。到下回合清除。',target:true,category:'ice'},
+    S28:{name:'霜封剑匣',cost:1,text:'施加1层霜寒；若结算后敌人霜寒至少5层，下回合额外抽2张，否则额外抽1张。',target:true,category:'ice'},
+    S29:{name:'冰魄回澜',cost:0,text:'清空自身全部护盾，获得2层剑意，并抽1＋每清空6护盾的张数，最多抽3张。消耗。',target:false,exhaust:true,category:'ice'},
+    S30:{name:'乘风归鞘',cost:1,text:'将弃牌堆费用最高的一张正道剑术攻击牌取回手中。同费取最早弃置者；没有则抽1张。不减费用。',target:false,category:'blade'},
+    S31:{name:'斩断尘缘',cost:1,text:'消耗手中费用最高的一张牌，同费取最左侧；若实际消耗，获得3剑意、5护盾。手牌已空则无收益。',target:false,category:'blade'},
+    S32:{name:'剑心通明',cost:1,text:'本场每个玩家回合开始获得1剑意，立即获得1剑意。每回合自动所得上限2。消耗。',target:false,exhaust:true,category:'blade'},
+    S33:{name:'万里横江',cost:2,text:'造成8伤害；若结算前自身护盾多于敌人，且双方仍存活，清空双方护盾，再造成12伤害。',attack:true,target:true,category:'blade'},
+    S34:{name:'破晓长歌',cost:2,text:'若是本回合第一张牌，获得3剑意并抽2张；否则获得8护盾、1剑意。',target:false,category:'blade'},
+    S35:{name:'剑开云海',cost:2,text:'移除敌人全部护盾，造成10伤害；若敌人仍存活，每实际移除6护盾抽1张，最多抽2张。',attack:true,target:true,category:'blade'},
+    S36:{name:'天地一剑',cost:3,text:'消耗全部剑意与御剑层数，造成 20＋3×消耗剑意＋4×消耗御剑的伤害。御剑随后不再自动攻击。消耗。',attack:true,target:true,exhaust:true,rarity:'rare',category:'blade'}
+  });
   Object.assign(CARDS, EXPANSION.CARDS || {}, HEHUAN.CARDS || {});
   Object.values(CARDS).forEach(card => {
     card.attack = !!card.attack;
@@ -92,6 +114,7 @@
   CARDS.C01.category = 'basic';
   for (const [id, card] of Object.entries(CARDS)) {
     card.character = card.character || (id.startsWith('F') ? 'sovereign' : /^[SD]/.test(id) ? 'sword' : 'assassin');
+    if(/^S/.test(id)&&Number(id.slice(1))>=17&&!card.rarity)card.rarity=['S19','S22','S26','S28'].includes(id)?'common':'uncommon';
     card.rarity = card.rarity || (['C21','C24','C27','C28','C33','C34','C35','S15','S16'].includes(id) ? 'rare' : (id.startsWith('S') ? ['S04','S08','S10','S11','S12','S13','S14'].includes(id) : Number(id.slice(1)) > 16) ? 'uncommon' : 'common');
   }
   const CLASSIC = ['C01','C01','C01','C01','C02','C02','C02','C02','C03','C04'];
@@ -861,7 +884,7 @@
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
-      return {traps:(b.traps||[]).map(c=>({...c})),breathRemaining:b.breathRemaining||0,breathUsedTurn:b.breathUsedTurn||0,breathRevealedTurn:b.breathRevealedTurn||0,energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
+      return {orbit:b.orbit||0,swordFormation:b.swordFormation||0,clearSwordHeart:b.clearSwordHeart||0,silkGuard:b.silkGuard||0,trapPower:b.trapPower||0,drawWard:b.drawWard||0,traps:(b.traps||[]).map(c=>({...c})),breathRemaining:b.breathRemaining||0,breathUsedTurn:b.breathUsedTurn||0,breathRevealedTurn:b.breathRevealedTurn||0,energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
     }
     function event(type, data = {}) {
       const b = state.battle;
@@ -869,6 +892,7 @@
       const entry = { id: ++eventSerial, type, source: 'player', target: 'player', ...data, resources:combatResources() };
       if (b.resolving && b.resolving[0] && !entry.cardId) entry.cardId = b.resolving[0].id;
       if(b.activeTrap){if(!entry.cardId)entry.cardId=b.activeTrap.id;if(!entry.trapUid)entry.trapUid=b.activeTrap.uid;}
+      if(b.effectCardId&&!entry.cardId)entry.cardId=b.effectCardId;
       b.events.push(entry);
       return entry;
     }
@@ -905,6 +929,7 @@
       b.enemy.block = b.enemy.mark = b.enemy.poison = b.enemy.chill = b.enemy.chillProgress = b.enemy.bleed = b.enemy.counter = 0;
       b.enemy.frozen = null;
       b.swordIntent = 0; b.soul = 0;
+      b.orbit=b.swordFormation=b.clearSwordHeart=b.silkGuard=b.trapPower=b.drawWard=0;
       b.nextAttack = b.nextEnergy = b.nextDraw = 0;
       b.bloodPower = b.riposte = b.pillPower = b.nextEnergyPenalty = b.nextDrawPenalty = 0;
       b.bellUsed = b.jadeUsed = b.frostsealUsed = false;
@@ -1076,7 +1101,7 @@
           log(`手牌已达 10 张：溢出的「${CARDS[card.id].name}」进入弃牌堆。`);
           note('手牌上限 10 张，溢出的牌已弃置。');
           event('discard', { cardId: card.id, overflow: true });
-        } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 }); }
+        } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 });if(b.drawWard&&CARDS[card.id]?.attack)gainBlock(b.drawWard,'朝游北海·抽到攻击'); }
       }
     }
     function finishFactionEffects(b,ending){
@@ -1257,6 +1282,9 @@
         log(`毒减至 ${b.poison} 层。`);
       }
       if(!tickAffliction('turn'))return;
+      b.drawWard=0;b.silkGuardUsed=false;
+      if(b.swordFormation)gainBlock(state.player.path.fallen?Math.floor(b.swordFormation/2):b.swordFormation,'两仪剑阵');
+      if(b.clearSwordHeart)addSwordIntent(b.clearSwordHeart,'剑心通明');
       let turnEnergy = 3 + b.nextEnergy;
       if (b.nextEnergyPenalty) {
         turnEnergy = Math.max(0, turnEnergy - b.nextEnergyPenalty);
@@ -1522,6 +1550,7 @@
       if(b.enemy.hp<=0||state.player.hp<=0)return false;
       beginEvents();b.phase='resolving';b.energy-=def.cost;b.hand.splice(index,1);
       Object.assign(card,{paidEnergy:def.cost,placedTurn:b.turn});b.traps.push(card);
+      if(b.silkGuard&&!b.silkGuardUsed){b.silkGuardUsed=true;gainBlock(b.silkGuard,'燃香待客');}
       b.played++;state.stats.cardsPlayed++;state.stats.maxCombo=Math.max(state.stats.maxCombo,b.played);
       b.trapStats=b.trapStats||{set:0,triggered:0,expired:0};b.trapStats.set++;
       log(`将「${def.name}」藏入薄纱，支付 ${def.cost} 灵力；只等待下一次敌方行动，费用不返还。`);
@@ -1535,6 +1564,9 @@
       b.trapResolution=(b.traps||[]).map(card=>{const def=CARDS[card.id],t=def.trap,eligible=(!t.onlyTrap||one)&&(t.condition==='action'||t.condition===(isAttack?'attack':'nonattack'));return {card,def,rule:t,eligible,triggered:false,reason:t.onlyTrap&&!one?'行动开始时不是唯一藏招':isAttack?'敌人此次进行了攻击，条件不符':'敌人此次没有攻击，条件不符'};});
       for(const slot of b.trapResolution){if(!slot.eligible)continue;const before=slot.rule.before||{};if(!Object.keys(before).length)continue;announceTrap(slot,'before');
         if(before.block)gainBlock(before.block,slot.def.name+'·藏招');
+        if(before.blockPerTrap)gainBlock(before.blockPerTrap*b.trapResolution.length,slot.def.name+'·结绡');
+        if(before.diverseBlock)gainBlock(b.trapResolution.length===2&&new Set(b.trapResolution.map(s=>s.rule.condition)).size===2?9:4,slot.def.name+'·异势');
+        if(before.enemyBlock){b.enemy.block+=before.enemyBlock;event('block',{source:'trap',target:'enemy',amount:before.enemyBlock,total:b.enemy.block});log(slot.def.name+'：敌人获得'+before.enemyBlock+'护盾。');}
         if(before.cleanseIncoming){const key=intent.poison>0?'poison':intent.playerMark>0?'playerMark':null;if(key){const previous=intent[key];intent[key]=Math.max(0,previous-1);log(`乱息藏招：本次新增${key==='poison'?'毒':'追索印'} ${previous}→${intent[key]}，不清已有状态。`);event('trapCleanse',{cardId:slot.card.id,effect:key,before:previous,after:intent[key]});}}
       }
     }
@@ -1546,8 +1578,12 @@
       const b=state.battle;
       for(const slot of b.trapResolution||[]){if(!slot.eligible||!liveBattle()||state.battle!==b||state.player.hp<=0)continue;const after=slot.rule.after||{};if(Object.keys(after).length)announceTrap(slot,'after');
         b.activeTrap=slot.card;b.enemyCounterUsedForCard=false;
-        if(after.removeBlock){const removed=Math.min(b.enemy.block,after.removeBlock);b.enemy.block-=removed;log(`${slot.def.name}：移除敌人 ${removed} 护盾。`);event('block',{source:'trap',target:'enemy',cardId:slot.card.id,amount:-removed,total:b.enemy.block});}
-        if(after.damage){const bonus=Math.min(BALANCE.firstHitBonusCap,(b.bloodPower||0)+(b.pillPower||0)+(state.player.power||0));enemyHit(after.damage+bonus,0,0,'trap',0,after.healOnLife||0);}
+        if(after.removeBlock||after.removeAllBlock)stripEnemyBlock(after.removeAllBlock?b.enemy.block:after.removeBlock,slot.def.name);
+        if(after.clearCounter){b.enemy.counter=0;log(slot.def.name+'：架势反击清除。');event('enemySkill',{target:'enemy',kind:'counter',amount:0,name:'架势已散'});}
+        const damage=(after.damage||0)+(after.damagePerTrap||0)*b.trapResolution.length+(after.discardDiversity?Math.min(after.discardDiversity,new Set(b.discard.filter(c=>c.id.startsWith('H')).map(c=>c.id)).size):0)+(after.exhaustDiversity?Math.min(18,after.exhaustDiversity*new Set(b.exhaust.filter(c=>c.id.startsWith('H')).map(c=>c.id)).size):0),recovery=after.healBySolitude?(b.trapResolution.length===1?4:2):(after.heal||0);
+        if(damage){const bonus=Math.min(BALANCE.firstHitBonusCap,(b.bloodPower||0)+(b.pillPower||0)+(state.player.power||0)+(b.trapPower||0));for(let i=0;i<(after.hits||1)&&liveBattle();i++)enemyHit(damage+(i===0?bonus:0),0,i===(after.hits||1)-1?recovery:0,'trap',0,after.healOnLife||0);}else if(recovery&&liveBattle())heal(recovery,slot.def.name);
+        if(after.pairedResources&&liveBattle()){if(b.trapResolution.length===2)b.nextEnergy+=2;else b.nextDraw+=2;log(slot.def.name+'：'+(b.trapResolution.length===2?'下回合灵力+2':'下回合抽牌+2'));}
+        if(after.energyTax&&liveBattle()){b.nextEnergyPenalty=(b.nextEnergyPenalty||0)+after.energyTax;log(slot.def.name+'：下回合灵力-'+after.energyTax);}
         if(liveBattle()&&state.battle===b){b.nextDraw+=after.drawNext||0;b.nextEnergy+=after.energyNext||0;b.nextTrapBlock=(b.nextTrapBlock||0)+(after.blockNext||0);if(after.drawNext||after.energyNext||after.blockNext)log(`${slot.def.name}安排下回合：额外抽${after.drawNext||0}张、灵力+${after.energyNext||0}、护盾+${after.blockNext||0}。`);}
         delete b.activeTrap;
       }
@@ -1561,6 +1597,10 @@
       }
       delete b.trapResolution;delete b.activeTrap;
     }
+    function stripEnemyBlock(amount,reason){const b=state.battle,removed=Math.min(b.enemy.block,Math.max(0,amount));b.enemy.block-=removed;event('block',{target:'enemy',amount:-removed,total:b.enemy.block});log(reason+'：移除敌人'+removed+'护盾。');return removed;}
+    function clearPursuit(amount,reason){const b=state.battle,removed=Math.min(b.playerMark||0,amount);b.playerMark-=removed;event('playerMark',{amount:-removed,total:b.playerMark});log(reason+'：移除追索印'+removed+'层。');return removed;}
+    function spendRemainingEnergy(reason){const b=state.battle,n=b.energy;b.energy=0;event('energy',{amount:-n,total:0,reason});return n;}
+    function clearOwnBlock(reason){const b=state.battle,n=b.block;b.block=0;event('blockClear',{amount:-n,total:0,reason});return n;}
     function playCard(uid, target = false, recallUid = null) {
       const b = state.battle;
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
@@ -1632,6 +1672,30 @@
         case 'H10': enemyHit(12+bonus);break;
         case 'H11': gainBlock(7,def.name);break;
         case 'H12': enemyHit(18+bonus);break;
+        case 'H13': {const c=b.traps.pop();if(c){b.energy+=c.paidEnergy??CARDS[c.id].cost;(CARDS[c.id].exhaust||c.ephemeral?b.exhaust:b.discard).push(c);event('trapRecall',{cardId:c.id,uid:c.uid});event('energy',{amount:c.paidEnergy??CARDS[c.id].cost,total:b.energy});log('欲擒故纵：撤下'+CARDS[c.id].name+'并退还原费用。');}gainBlock(3,def.name);break;}
+        case 'H14': enemyHit(6+(b.traps.length===2?4:0)+bonus);break;
+        case 'H15': gainBlock(2+2*b.traps.length,def.name);break;
+        case 'H16': gainBlock(5,def.name);if(b.playerMark)b.nextAttack+=5;break;
+        case 'H17': gainBlock(10,def.name);b.riposte+=2;break;
+        case 'H18': heal(b.traps.length?3:5,def.name);break;
+        case 'H19': drawCards(b.hand.length<=3?2:1);break;
+        case 'H20': b.traps.reverse();event('trapOrder',{name:def.name});drawCards(1);break;
+        case 'H21': gainBlock(4+2*b.traps.length,def.name);break;
+        case 'H22': for(const [i,n]of [1,3,5].entries())if(liveBattle())enemyHit(n+(i===0?bonus:0));break;
+        case 'H23': if(b.hand.length){const c=b.hand.shift();b.discard.push(c);event('discard',{cardId:c.id});}drawCards(2);break;
+        case 'H24': b.enemy.counter=0;event('enemySkill',{target:'enemy',kind:'counter',name:'架势已散',amount:0});gainBlock(5,def.name);break;
+        case 'H25': {const hits=1+b.traps.length;for(let i=0;i<hits&&liveBattle();i++)enemyHit(4+(i===0?bonus:0));break;}
+        case 'H26': b.enemy.block+=3;event('block',{target:'enemy',amount:3,total:b.enemy.block});b.nextTrapBlock+=5;break;
+        case 'H27': if(b.traps.length===2)b.nextAttack+=6;else drawCards(2);break;
+        case 'H28': b.silkGuard=Math.min(4,(b.silkGuard||0)+2);log('燃香待客：每回合首次藏招护盾'+b.silkGuard);break;
+        case 'H29': {const removed=Math.min(2,b.poison);b.poison-=removed;event('poison',{amount:-removed,total:b.poison});clearPursuit(2,def.name);drawCards(1);break;}
+        case 'H30': enemyHit(9+Math.min(6,new Set(b.discard.filter(c=>c.id.startsWith('H')).map(c=>c.id)).size)+bonus);break;
+        case 'H31': drawCards(1+Math.min(2,Math.floor(b.trapStats.triggered/3)));break;
+        case 'H32': heal(Math.min(8,2+2*spendRemainingEnergy(def.name)),def.name);break;
+        case 'H33': b.trapPower=Math.min(4,(b.trapPower||0)+2);log('红尘织梦：藏招首段额外+'+b.trapPower);drawCards(1);break;
+        case 'H34': if(b.traps.length===2&&new Set(b.traps.map(c=>CARDS[c.id].trap.condition)).size===2){gainBlock(10,def.name);drawCards(1);}else gainBlock(4,def.name);break;
+        case 'H35': {const n=b.traps.length;enemyHit(6+8*n+bonus);if(liveBattle())gainBlock(5*n,def.name);break;}
+        case 'H36': {const removed=[];for(let i=b.discard.length-1;i>=0&&removed.length<3;i--)if(b.discard[i].id.startsWith('H'))removed.push(...b.discard.splice(i,1));b.exhaust.push(...removed);for(let i=0;i<removed.length&&liveBattle();i++){b.energy++;event('energy',{amount:1,total:b.energy});enemyHit(5+(i===0?bonus:0));}log('百转归心：本场消耗'+removed.length+'张弃牌。');break;}
         case 'D07': if(loseLife(5,def.name,true))enemyHit(18+bonus);break;
         case 'D08': enemyHit(7+bonus,0,0,'card',7);break;
         case 'D09': if(loseLife(4,def.name,true))gainBlock(13,def.name);break;
@@ -1690,6 +1754,26 @@
           if (liveBattle()) addChill(3, def.name);
           break;
         }
+        case 'S17': {const used=consumeSwordIntent(8);for(let i=0;i<1+used&&liveBattle();i++)enemyHit(3+(i===0?bonus:0));break;}
+        case 'S18': stripEnemyBlock(b.enemy.block,def.name);enemyHit(22+4*spendRemainingEnergy(def.name)+bonus);break;
+        case 'S19': enemyHit(4+bonus);if(liveBattle()){b.orbit=Math.min(6,(b.orbit||0)+2);log('御剑：'+b.orbit+'层，结束回合自动攻击。');}break;
+        case 'S20': b.swordFormation=Math.min(6,(b.swordFormation||0)+3);gainBlock(3,def.name);break;
+        case 'S21': gainBlock(8+4*spendRemainingEnergy(def.name),def.name);b.nextDraw++;break;
+        case 'S22': {const n=clearPursuit(5,def.name);addSwordIntent(Math.min(4,1+n),def.name);break;}
+        case 'S23': b.enemy.counter=0;event('enemySkill',{target:'enemy',kind:'counter',name:'架势已散',amount:0});enemyHit(6+bonus);break;
+        case 'S24': gainBlock(6,def.name);if(b.swordIntent>=2){consumeSwordIntent(2);heal(4,def.name);}break;
+        case 'S25': b.drawWard=Math.min(3,(b.drawWard||0)+1);drawCards(1);break;
+        case 'S26': for(const [i,n]of [2,4,6].entries())if(liveBattle())enemyHit(n+(i===0?bonus:0));if(liveBattle())addSwordIntent(2,def.name);break;
+        case 'S27': gainBlock(6,def.name);if(b.enemy.chill>=3){addChill(-3,def.name);b.riposte+=6;}break;
+        case 'S28': addChill(1,def.name);b.nextDraw+=b.enemy.chill>=5?2:1;break;
+        case 'S29': {const n=clearOwnBlock(def.name);addSwordIntent(2,def.name);drawCards(Math.min(3,1+Math.floor(n/6)));break;}
+        case 'S30': {let index=-1;for(let i=0;i<b.discard.length;i++){const c=b.discard[i];if(c.id.startsWith('S')&&CARDS[c.id].attack&&(index<0||CARDS[c.id].cost>CARDS[b.discard[index].id].cost))index=i;}if(index>=0){const c=b.discard.splice(index,1)[0];b.hand.push(c);event('returnCard',{cardId:c.id,name:CARDS[c.id].name});log('乘风归鞘：取回'+CARDS[c.id].name);}else drawCards(1);break;}
+        case 'S31': {let i=-1;for(let n=0;n<b.hand.length;n++)if(i<0||CARDS[b.hand[n].id].cost>CARDS[b.hand[i].id].cost)i=n;if(i>=0){const c=b.hand.splice(i,1)[0];b.exhaust.push(c);event('exhaust',{cardId:c.id});addSwordIntent(3,def.name);gainBlock(5,def.name);}break;}
+        case 'S32': b.clearSwordHeart=Math.min(2,(b.clearSwordHeart||0)+1);addSwordIntent(1,def.name);break;
+        case 'S33': {const wins=b.block>b.enemy.block;enemyHit(8+bonus);if(wins&&liveBattle()){clearOwnBlock(def.name);stripEnemyBlock(b.enemy.block,def.name);enemyHit(12);}break;}
+        case 'S34': if(previousPlayed===0){addSwordIntent(3,def.name);drawCards(2);}else{gainBlock(8,def.name);addSwordIntent(1,def.name);}break;
+        case 'S35': {const n=stripEnemyBlock(b.enemy.block,def.name);enemyHit(10+bonus);if(liveBattle())drawCards(Math.min(2,Math.floor(n/6)));break;}
+        case 'S36': {const used=consumeSwordIntent(8),orbit=b.orbit||0;b.orbit=0;enemyHit(20+3*used+4*orbit+bonus);break;}
         case 'C01': enemyHit(6 + bonus); break;
         case 'C02': gainBlock(5, def.name); break;
         case 'C03': addMark(2); break;
@@ -1801,6 +1885,8 @@
       b.nextAttack = 0;
       b.discard.push(...b.hand);
       b.hand = [];
+      b.drawWard=0;
+      if(b.orbit){const amount=state.player.path.fallen?Math.floor(b.orbit/2):b.orbit;b.effectCardId='S19';log('御剑回旋：造成'+amount+'伤害，御剑减少1层。');b.orbit--;enemyHit(amount,0,0,'orbit');delete b.effectCardId;if(!liveBattle()){emit();return true;}}
       note('敌人正在行动……');
       log('结束回合：剩余手牌全部弃置，候机增伤清除。');
       emit();

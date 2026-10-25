@@ -1,15 +1,15 @@
 {
   "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
   "inputs": {
-    "dev/hehuan.js": "2c5dbec8cdfcf93f91b7de26c38cb52594d04cf4d13ec6e368404bb2c6f40a8b",
-    "dev/engine.js": "b761ba4559ca710850030487c60cd8671dd438ab3e0c6f3f6c6b9f0bb7fd0e7a",
-    "dev/ui.js": "5a1f8155150166112910c5aa9a86a58fb5581c18066965e4efa8820aaeeadd33",
+    "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
+    "dev/engine.js": "f798a2e17094f2e0a2e0128eb94834bad72330b64390f9798d888736d82cdd0b",
+    "dev/ui.js": "f458db52841c28d51475cd5c6087356cf7ce30cc83755e08bc61a2dfcab75576",
     "dev/shell.html": "dfba0cd1d4b2f6c056db0f0c0d3f312c6c815fd7e5f70bba3fc84df76502b7b8",
-    "dev/audio.js": "4574ceb71502a62d7e84ffa7196239e5f5846ca5a2dfc5b558f8b9c8606a3a4f",
+    "dev/audio.js": "4dd7271321454208c3ca8accd2fa421ab3dd3c9fd2b833526927e91658100c96",
     "dev/build.cjs": "bc1508ba0f1a9063bb192eb7763f0181bb8de189b6ce5a518058af2ba7ba98af",
-    "index.html": "64a9d097b59afef05dbbfa26b214edd4f0b89d4827f1e7b2fdafcbd0e548f707",
-    "baiyao-standalone.html": "3a0c1a3199eedf3493db0dc7f164142b8dbb5d07234fffff1beeb51b94ef55fd",
-    "dev/hehuan-browser.test.cjs": "18e7d55b59796a8a0d2d834a778805c6f39d57e5b1f39fc13c3750899629b8eb"
+    "index.html": "af3298762e356f2a317c5bfa31d4a077c896fa941b4598bab281b0bcc18def12",
+    "baiyao-standalone.html": "8e73b3edf1085b3f76a90fc3d7b05098cf3cc12cb75cb5e6d35406f83137082c",
+    "dev/hehuan-browser.test.cjs": "178d474e902ac28447ebca9e2732a6726e774caf69eae584a483b1af32bb64ab"
   },
   "results": [
     {
@@ -37,7 +37,7 @@
       "ok": true
     },
     {
-      "name": "three portrait states and20 generated images decode;360/390/430 controls remain touchable",
+      "name": "three portrait states and44 generated images decode;360/390/430 controls remain touchable",
       "ok": true
     },
     {
@@ -50,6 +50,10 @@
     },
     {
       "name": "world home replaces portraits; hidden role stays absent until CDKEY succeeds and persists without resetting the run",
+      "ok": true
+    },
+    {
+      "name": "both 36-card catalogues, actual sword rain/orbit and trap refund/reordering work with the pink art",
       "ok": true
     },
     {
@@ -69,8 +73,10 @@
     "/workspace/scratch/hehuan-fixed-injured-camp.png",
     "/workspace/scratch/hehuan-all-faction-scenes-audit.png",
     "/workspace/scratch/hehuan-world-home.png",
-    "/workspace/scratch/hehuan-world-home-mobile.png"
+    "/workspace/scratch/hehuan-world-home-mobile.png",
+    "/workspace/scratch/hehuan-sword36.png",
+    "/workspace/scratch/hehuan-pink36.png"
   ],
-  "passed": 11,
+  "passed": 12,
   "failed": 0
 }

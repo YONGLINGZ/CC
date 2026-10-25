@@ -14,19 +14,21 @@ for (const entry of manifest.entries) {
   assert.ok(fs.existsSync(path.join(root, entry.file)), `missing art: ${entry.file}`);
   assert.equal(sha(entry.file), entry.sha256, `stale art hash: ${entry.file}`);
 }
-assert.equal(manifest.entries.length, 20, 'expected 20 new runtime art assets');
+assert.equal(manifest.entries.length, 44, 'expected 44 hehuan runtime art assets');
+const expandedArt=readJson('dev/cards36-art-manifest.json');
+for(const entry of expandedArt.entries)assert.equal(sha(entry.file),entry.sha256,`stale expanded art: ${entry.file}`);
 const homeArt=readJson('dev/home-art-manifest.json');
 for(const entry of [homeArt.runtime,homeArt.original])assert.equal(sha(entry.file),entry.sha256,`stale home artwork: ${entry.file}`);
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
-assert.equal(browser.passed, 11, 'browser receipt must cover all eleven checks');
+assert.equal(browser.passed, 12, 'browser receipt must cover all twelve checks');
 for (const [file, hash] of Object.entries(browser.inputs)) assert.equal(sha(file), hash, `stale browser input: ${file}`);
 
 const regression = readJson('dev/v11-regression-results.json');
 assert.equal(regression.engine.failed, 0, 'v11 engine regression failed');
-assert.equal(regression.engine.passed, 448, 'unexpected v11 regression count');
-assert.equal(regression.data_contract.cards, 88);
+assert.ok(regression.engine.passed>=527, 'expanded suite must retain prior checks');
+assert.equal(regression.data_contract.cards, 132);
 assert.equal(regression.data_contract.events, 161);
 assert.equal(regression.data_contract.regions, 7);
 

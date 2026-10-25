@@ -1,7 +1,7 @@
 {
   "method": "180 connected fast-clear fixtures (three characters, both stances, thirty seeds). Original map links, RNG and story schedules retained; HP and spirit stones explicitly refilled and combat reduced to one or two hits. Reachability, not difficulty or human play.",
   "inputs": {
-    "dev/engine.js": "b761ba4559ca710850030487c60cd8671dd438ab3e0c6f3f6c6b9f0bb7fd0e7a",
+    "dev/engine.js": "f798a2e17094f2e0a2e0128eb94834bad72330b64390f9798d888736d82cdd0b",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
     "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9"
   },
@@ -6083,7 +6083,7 @@
           "automatic": false
         },
         {
-          "id": "f8-3",
+          "id": "f8-0",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6097,7 +6097,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "defeated",
@@ -6111,21 +6111,21 @@
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-1",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f34-2",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6139,28 +6139,28 @@
           "automatic": false
         },
         {
-          "id": "f48-0",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f64-2",
+          "id": "f64-1",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
@@ -6183,21 +6183,28 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f8-1",
+          "id": "f4-2",
           "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "talk",
+          "kind": "source",
+          "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f15-0",
+          "id": "f8-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f14-1",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6218,7 +6225,7 @@
           "automatic": true
         },
         {
-          "id": "f35-3",
+          "id": "f35-5",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -6232,21 +6239,21 @@
           "automatic": true
         },
         {
-          "id": "f44-1",
+          "id": "f45-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-3",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f55-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
@@ -6260,18 +6267,11 @@
           "automatic": true
         },
         {
-          "id": "f66-0",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f67-0",
+          "id": "f67-3",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
+          "outcome": "talk",
+          "automatic": false
         }
       ],
       "theme": "feiye"
@@ -6290,7 +6290,7 @@
           "automatic": false
         },
         {
-          "id": "f15-0",
+          "id": "f14-1",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "support",
@@ -6304,14 +6304,14 @@
           "automatic": true
         },
         {
-          "id": "f25-1",
+          "id": "f25-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6325,28 +6325,28 @@
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-0",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-3",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
@@ -6397,7 +6397,7 @@
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6425,14 +6425,14 @@
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-0",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -6446,14 +6446,14 @@
           "automatic": true
         },
         {
-          "id": "f54-2",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-0",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6467,7 +6467,7 @@
           "automatic": false
         },
         {
-          "id": "f67-3",
+          "id": "f67-2",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
@@ -6483,28 +6483,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-1",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
           "id": "f8-2",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "defeated",
-          "automatic": true
+          "automatic": false
         },
         {
-          "id": "f14-1",
+          "id": "f14-2",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-1",
+          "id": "f18-0",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6532,14 +6525,14 @@
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -6553,35 +6546,35 @@
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-3",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f66-3",
-          "boss": "feiye",
+          "id": "f64-0",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f67-3",
-          "boss": "feiye",
+          "id": "f68-2",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -6590,14 +6583,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f15-0",
+          "id": "f4-0",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f15-1",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6618,14 +6618,14 @@
           "automatic": true
         },
         {
-          "id": "f35-0",
+          "id": "f35-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f45-6",
+          "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -6639,7 +6639,7 @@
           "automatic": true
         },
         {
-          "id": "f54-2",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
@@ -6653,14 +6653,21 @@
           "automatic": true
         },
         {
-          "id": "f67-3",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "talk",
+          "id": "f64-0",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
           "automatic": false
+        },
+        {
+          "id": "f68-2",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -6669,18 +6676,11 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-2",
+          "id": "f4-1",
           "boss": "snake",
           "kind": "source",
           "outcome": "support",
           "automatic": false
-        },
-        {
-          "id": "f8-2",
-          "boss": "snake",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
         },
         {
           "id": "f14-1",
@@ -6690,21 +6690,21 @@
           "automatic": false
         },
         {
-          "id": "f18-1",
+          "id": "f18-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f25-1",
+          "id": "f25-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-1",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6718,13 +6718,6 @@
           "automatic": false
         },
         {
-          "id": "f38-0",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
           "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
@@ -6732,7 +6725,7 @@
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6746,28 +6739,14 @@
           "automatic": false
         },
         {
-          "id": "f58-2",
-          "boss": "mirror_boss",
+          "id": "f67-1",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f64-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
+          "outcome": "talk",
           "automatic": false
-        },
-        {
-          "id": "f68-1",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -6776,14 +6755,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f14-1",
+          "id": "f4-1",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-3",
+          "id": "f18-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6804,56 +6790,42 @@
           "automatic": true
         },
         {
-          "id": "f35-7",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-3",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f45-2",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f65-0",
+          "id": "f64-1",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-2",
+          "id": "f68-3",
           "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6911,14 +6883,114 @@
           "automatic": true
         },
         {
-          "id": "f34-2",
+          "id": "f35-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-0",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f45-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-3",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-3",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-0",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f65-3",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 10,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-1",
+          "boss": "snake",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f24-3",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-2",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f34-0",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -6947,99 +7019,6 @@
         },
         {
           "id": "f58-0",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f65-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f68-1",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 10,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-0",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f14-2",
-          "boss": "snake",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-0",
-          "boss": "snake",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-3",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-2",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f34-0",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-3",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-0",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -7104,8 +7083,115 @@
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-2",
           "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f34-1",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-0",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-1",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-2",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f64-0",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f68-2",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 12,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
+          "boss": "snake",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f14-2",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-0",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f25-0",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-2",
+          "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
@@ -7132,6 +7218,220 @@
           "automatic": false
         },
         {
+          "id": "f48-3",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-0",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-3",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f64-1",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 13,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f8-2",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f15-1",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
+          "boss": "snake",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f24-2",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-2",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f34-1",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-1",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-0",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-2",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-1",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f64-1",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 14,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f8-3",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f14-2",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-1",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f24-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f35-1",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-1",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
           "id": "f48-0",
           "boss": "furnace_boss",
           "kind": "cave",
@@ -7146,7 +7446,7 @@
           "automatic": false
         },
         {
-          "id": "f58-0",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -7172,46 +7472,153 @@
     {
       "starter": "sword",
       "stance": 0,
-      "seed": 12,
+      "seed": 15,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f25-0",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f34-2",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-2",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-2",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-0",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f66-1",
+          "boss": "feiye",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f67-1",
+          "boss": "feiye",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "feiye"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 16,
       "nodes": 70,
       "records": [
         {
           "id": "f4-2",
-          "boss": "snake",
+          "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
+        },
+        {
+          "id": "f8-2",
+          "boss": "gate_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
         },
         {
           "id": "f14-1",
-          "boss": "lotus_boss",
+          "boss": "camp_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-0",
-          "boss": "lotus_boss",
+          "id": "f18-3",
+          "boss": "camp_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f25-1",
+          "id": "f24-2",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f35-6",
+          "id": "f35-3",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -7219,6 +7626,106 @@
         },
         {
           "id": "f38-1",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f45-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-3",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-1",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f64-0",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 17,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-2",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f24-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f35-0",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -7233,6 +7740,113 @@
         },
         {
           "id": "f48-2",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f54-1",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f66-3",
+          "boss": "feiye",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f67-5",
+          "boss": "feiye",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        }
+      ],
+      "theme": "feiye"
+    },
+    {
+      "starter": "sword",
+      "stance": 0,
+      "seed": 18,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "gate_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
+          "boss": "gate_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f14-2",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f24-2",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f34-3",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f38-3",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -7265,339 +7879,39 @@
     {
       "starter": "sword",
       "stance": 0,
-      "seed": 13,
+      "seed": 19,
       "nodes": 70,
       "records": [
         {
           "id": "f4-1",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f15-3",
-          "boss": "snake",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-2",
-          "boss": "snake",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-2",
           "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-2",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f34-0",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-1",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f66-0",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f67-1",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 14,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-1",
-          "boss": "camp_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
           "id": "f8-1",
-          "boss": "camp_boss",
+          "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f14-2",
-          "boss": "lotus_boss",
+          "id": "f15-1",
+          "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
           "id": "f18-2",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-1",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f35-0",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f38-3",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-3",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-2",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f66-4",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f67-5",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 15,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-3",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f8-2",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f14-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-2",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f25-0",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-1",
-          "boss": "camp_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f38-1",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-2",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-3",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f66-2",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f67-3",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 16,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-2",
-          "boss": "gate_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f8-2",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f14-2",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-2",
-          "boss": "camp_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-2",
+          "id": "f25-1",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "support",
@@ -7611,207 +7925,7 @@
           "automatic": true
         },
         {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f38-1",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-1",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-3",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f67-3",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "talk",
-          "automatic": false
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 17,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-1",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f14-1",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-1",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-1",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f38-1",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-1",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f64-0",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f68-3",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 18,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-1",
-          "boss": "gate_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f8-2",
-          "boss": "gate_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f14-0",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-0",
-          "boss": "camp_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f24-2",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-1",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f34-0",
+          "id": "f35-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -7825,107 +7939,7 @@
           "automatic": true
         },
         {
-          "id": "f44-1",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f48-3",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f65-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f68-0",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 0,
-      "seed": 19,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-2",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f14-2",
-          "boss": "gate_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f18-3",
-          "boss": "gate_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f25-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f28-0",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f35-6",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f38-2",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f45-5",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -7953,21 +7967,21 @@
           "automatic": true
         },
         {
-          "id": "f66-3",
-          "boss": "feiye",
+          "id": "f64-3",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f67-5",
-          "boss": "feiye",
+          "id": "f68-2",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -7976,28 +7990,28 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-0",
+          "id": "f4-2",
           "boss": "snake",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f8-1",
+          "id": "f8-3",
           "boss": "snake",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f14-1",
+          "id": "f15-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-1",
+          "id": "f18-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8011,63 +8025,63 @@
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f35-0",
+          "id": "f35-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f45-5",
+          "id": "f45-4",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f55-3",
+          "id": "f55-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-3",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f65-1",
+          "id": "f65-3",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-1",
+          "id": "f68-2",
           "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8083,10 +8097,10 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-0",
+          "id": "f8-0",
           "boss": "snake",
-          "kind": "source",
-          "outcome": "support",
+          "kind": "cave",
+          "outcome": "talk",
           "automatic": false
         },
         {
@@ -8097,7 +8111,7 @@
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8118,21 +8132,21 @@
           "automatic": true
         },
         {
-          "id": "f34-0",
+          "id": "f35-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -8153,21 +8167,21 @@
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f64-0",
+          "id": "f65-4",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-0",
+          "id": "f68-1",
           "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8183,14 +8197,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f14-1",
+          "id": "f4-1",
+          "boss": "gate_boss",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f15-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8204,7 +8225,7 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8218,14 +8239,21 @@
           "automatic": false
         },
         {
-          "id": "f44-0",
+          "id": "f38-3",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
+        },
+        {
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-3",
+          "id": "f48-0",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8246,21 +8274,21 @@
           "automatic": true
         },
         {
-          "id": "f64-0",
-          "boss": "abyss_boss",
+          "id": "f66-1",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-1",
-          "boss": "abyss_boss",
+          "id": "f67-2",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -8269,21 +8297,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-2",
+          "id": "f4-1",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f14-0",
+          "id": "f14-1",
           "boss": "camp_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8304,21 +8332,21 @@
           "automatic": true
         },
         {
-          "id": "f34-1",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
@@ -8339,28 +8367,28 @@
           "automatic": false
         },
         {
-          "id": "f58-0",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f66-0",
-          "boss": "feiye",
+          "id": "f65-1",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f67-0",
-          "boss": "feiye",
+          "id": "f68-1",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -8404,14 +8432,14 @@
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f34-1",
+          "id": "f35-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -8432,7 +8460,7 @@
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8446,28 +8474,21 @@
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f65-0",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f68-2",
-          "boss": "abyss_boss",
+          "id": "f67-2",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
+          "outcome": "talk",
+          "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -8476,10 +8497,10 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f8-2",
+          "id": "f4-1",
           "boss": "gate_boss",
-          "kind": "cave",
-          "outcome": "talk",
+          "kind": "source",
+          "outcome": "support",
           "automatic": false
         },
         {
@@ -8490,77 +8511,84 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-3",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f25-1",
+          "id": "f25-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-0",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f35-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-0",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-3",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f67-1",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "talk",
+          "id": "f65-3",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
           "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -8583,35 +8611,35 @@
           "automatic": true
         },
         {
-          "id": "f14-3",
+          "id": "f15-0",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f18-1",
+          "id": "f18-2",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f25-1",
+          "id": "f25-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f34-1",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -8646,28 +8674,28 @@
           "automatic": false
         },
         {
-          "id": "f58-0",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f64-2",
-          "boss": "abyss_boss",
+          "id": "f66-1",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-2",
-          "boss": "abyss_boss",
+          "id": "f67-1",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -8704,14 +8732,14 @@
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-1",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f35-3",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
@@ -8732,35 +8760,21 @@
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-2",
-          "boss": "mirror_boss",
+          "id": "f67-4",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
-        },
-        {
-          "id": "f65-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
+          "outcome": "talk",
           "automatic": false
-        },
-        {
-          "id": "f68-3",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -8769,11 +8783,18 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f8-3",
+          "id": "f4-3",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "support",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
           "boss": "snake",
           "kind": "cave",
-          "outcome": "talk",
-          "automatic": false
+          "outcome": "defeated",
+          "automatic": true
         },
         {
           "id": "f14-0",
@@ -8783,7 +8804,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-1",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8811,7 +8832,7 @@
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-0",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8825,7 +8846,7 @@
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8839,28 +8860,28 @@
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f64-1",
-          "boss": "abyss_boss",
+          "id": "f66-1",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-1",
-          "boss": "abyss_boss",
+          "id": "f67-2",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -8897,35 +8918,35 @@
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f34-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f44-0",
+          "id": "f44-3",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -8953,7 +8974,7 @@
           "automatic": false
         },
         {
-          "id": "f67-2",
+          "id": "f67-3",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
@@ -8990,7 +9011,7 @@
           "automatic": true
         },
         {
-          "id": "f25-2",
+          "id": "f25-0",
           "boss": "snake",
           "kind": "source",
           "outcome": "support",
@@ -9004,56 +9025,56 @@
           "automatic": true
         },
         {
-          "id": "f35-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f45-0",
+          "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f66-2",
+          "id": "f66-0",
           "boss": "feiye",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f67-4",
+          "id": "f67-0",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
@@ -9076,7 +9097,7 @@
           "automatic": false
         },
         {
-          "id": "f8-3",
+          "id": "f8-0",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9090,7 +9111,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
@@ -9104,28 +9125,28 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-1",
+          "id": "f34-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9139,14 +9160,121 @@
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-3",
+          "id": "f58-0",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f66-2",
+          "boss": "feiye",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f67-3",
+          "boss": "feiye",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        }
+      ],
+      "theme": "feiye"
+    },
+    {
+      "starter": "sword",
+      "stance": 1,
+      "seed": 2,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f14-1",
+          "boss": "gate_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-3",
+          "boss": "gate_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f25-0",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "snake",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f34-2",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f48-0",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f54-3",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9172,67 +9300,60 @@
     {
       "starter": "sword",
       "stance": 1,
-      "seed": 2,
+      "seed": 3,
       "nodes": 70,
       "records": [
         {
-          "id": "f8-1",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "talk",
-          "automatic": false
-        },
-        {
-          "id": "f15-0",
+          "id": "f4-1",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f18-0",
-          "boss": "gate_boss",
+          "id": "f14-1",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
+          "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
           "id": "f25-1",
-          "boss": "snake",
+          "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f28-1",
-          "boss": "snake",
+          "id": "f28-3",
+          "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f35-3",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f44-2",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9253,117 +9374,10 @@
           "automatic": false
         },
         {
-          "id": "f66-3",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f67-5",
+          "id": "f67-4",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 1,
-      "seed": 3,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-1",
-          "boss": "gate_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f15-0",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f18-2",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f25-0",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f28-2",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f38-0",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f48-1",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f54-3",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f66-0",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f67-0",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
@@ -9390,21 +9404,21 @@
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f25-0",
+          "id": "f25-1",
           "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
@@ -9425,49 +9439,49 @@
           "automatic": false
         },
         {
-          "id": "f44-1",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-3",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
+          "id": "f65-3",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-3",
-          "boss": "feiye",
+          "id": "f68-1",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -9476,17 +9490,10 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-1",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
           "id": "f8-2",
           "boss": "camp_boss",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "defeated",
           "automatic": false
         },
         {
@@ -9525,7 +9532,7 @@
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9546,7 +9553,7 @@
           "automatic": false
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9560,14 +9567,14 @@
           "automatic": false
         },
         {
-          "id": "f66-3",
+          "id": "f66-0",
           "boss": "feiye",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-4",
+          "id": "f67-0",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "aid",
@@ -9583,14 +9590,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f15-0",
+          "id": "f4-0",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f15-1",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9604,14 +9618,14 @@
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f35-2",
+          "id": "f35-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9633,113 +9647,6 @@
         },
         {
           "id": "f54-0",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f64-0",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-1",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 1,
-      "seed": 7,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-2",
-          "boss": "snake",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f8-2",
-          "boss": "snake",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f14-1",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f18-1",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f25-1",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f28-3",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f35-7",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f38-3",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f44-2",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f48-3",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9772,9 +9679,16 @@
     {
       "starter": "sword",
       "stance": 1,
-      "seed": 8,
+      "seed": 7,
       "nodes": 70,
       "records": [
+        {
+          "id": "f4-1",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
         {
           "id": "f14-1",
           "boss": "bell_boss",
@@ -9783,7 +9697,86 @@
           "automatic": false
         },
         {
-          "id": "f18-3",
+          "id": "f18-2",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f25-1",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f28-3",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f35-7",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f45-6",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f48-3",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f55-2",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f67-1",
+          "boss": "feiye",
+          "kind": "cave",
+          "outcome": "talk",
+          "automatic": false
+        }
+      ],
+      "theme": "feiye"
+    },
+    {
+      "starter": "sword",
+      "stance": 1,
+      "seed": 8,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9797,7 +9790,7 @@
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9811,7 +9804,7 @@
           "automatic": false
         },
         {
-          "id": "f45-3",
+          "id": "f45-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9825,28 +9818,28 @@
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
+          "id": "f65-1",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-3",
-          "boss": "feiye",
+          "id": "f68-1",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -9897,14 +9890,14 @@
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-0",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9925,7 +9918,7 @@
           "automatic": false
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9939,10 +9932,17 @@
           "automatic": false
         },
         {
-          "id": "f67-5",
+          "id": "f66-1",
+          "boss": "feiye",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f67-2",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "talk",
+          "outcome": "aid",
           "automatic": false
         }
       ],
@@ -9955,7 +9955,7 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-0",
+          "id": "f4-1",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -9969,7 +9969,7 @@
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
@@ -9983,7 +9983,7 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-2",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -9997,14 +9997,14 @@
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-0",
+          "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10025,14 +10025,14 @@
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f67-3",
+          "id": "f67-4",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "talk",
@@ -10069,7 +10069,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-3",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10083,21 +10083,21 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-3",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10111,42 +10111,42 @@
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-0",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-0",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f66-0",
-          "boss": "feiye",
+          "id": "f64-0",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-0",
-          "boss": "feiye",
+          "id": "f68-2",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -10155,10 +10155,17 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-2",
+          "id": "f4-1",
           "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
+          "boss": "snake",
+          "kind": "cave",
+          "outcome": "aid",
           "automatic": false
         },
         {
@@ -10190,21 +10197,21 @@
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-0",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10225,21 +10232,21 @@
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-3",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f65-0",
+          "id": "f64-1",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f68-2",
+          "id": "f68-3",
           "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10262,7 +10269,14 @@
           "automatic": false
         },
         {
-          "id": "f15-3",
+          "id": "f8-2",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
           "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
@@ -10290,10 +10304,17 @@
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f35-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f38-2",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "aid",
           "automatic": false
         },
         {
@@ -10311,10 +10332,17 @@
           "automatic": false
         },
         {
-          "id": "f54-1",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f58-2",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
           "automatic": false
         },
         {
@@ -10325,7 +10353,7 @@
           "automatic": false
         },
         {
-          "id": "f67-3",
+          "id": "f67-4",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "aid",
@@ -10348,21 +10376,21 @@
           "automatic": false
         },
         {
-          "id": "f8-1",
+          "id": "f8-3",
           "boss": "camp_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f14-1",
+          "id": "f14-2",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f18-3",
+          "id": "f18-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10383,42 +10411,42 @@
           "automatic": false
         },
         {
-          "id": "f35-2",
+          "id": "f35-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-0",
+          "id": "f38-1",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-0",
+          "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-3",
+          "id": "f48-0",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10441,28 +10469,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-3",
+          "id": "f4-1",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f8-2",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f15-0",
+          "id": "f14-2",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-1",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10483,7 +10504,7 @@
           "automatic": false
         },
         {
-          "id": "f34-1",
+          "id": "f34-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10518,28 +10539,28 @@
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-3",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f64-0",
-          "boss": "abyss_boss",
+          "id": "f66-0",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f68-1",
-          "boss": "abyss_boss",
+          "id": "f67-0",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -10562,7 +10583,7 @@
           "automatic": false
         },
         {
-          "id": "f15-1",
+          "id": "f14-2",
           "boss": "camp_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10604,14 +10625,14 @@
           "automatic": false
         },
         {
-          "id": "f45-4",
+          "id": "f45-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-0",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10655,21 +10676,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-1",
+          "id": "f4-2",
           "boss": "camp_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f14-1",
+          "id": "f14-2",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f18-1",
+          "id": "f18-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10690,7 +10711,7 @@
           "automatic": false
         },
         {
-          "id": "f35-6",
+          "id": "f35-5",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10704,21 +10725,21 @@
           "automatic": false
         },
         {
-          "id": "f45-1",
+          "id": "f45-3",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-1",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10732,21 +10753,14 @@
           "automatic": false
         },
         {
-          "id": "f64-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-1",
-          "boss": "abyss_boss",
+          "id": "f67-4",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sword",
@@ -10762,14 +10776,14 @@
           "automatic": false
         },
         {
-          "id": "f8-2",
+          "id": "f8-1",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f14-0",
+          "id": "f14-2",
           "boss": "camp_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10797,21 +10811,21 @@
           "automatic": false
         },
         {
-          "id": "f35-2",
+          "id": "f34-3",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f45-5",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10825,31 +10839,24 @@
           "automatic": false
         },
         {
-          "id": "f55-2",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-3",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f67-3",
+          "id": "f67-2",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
@@ -10862,14 +10869,21 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-2",
+          "id": "f4-1",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f14-2",
+          "id": "f8-1",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f14-3",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -10883,28 +10897,28 @@
           "automatic": false
         },
         {
-          "id": "f25-2",
+          "id": "f25-0",
           "boss": "bell_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-1",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10939,7 +10953,7 @@
           "automatic": false
         },
         {
-          "id": "f67-4",
+          "id": "f67-3",
           "boss": "feiye",
           "kind": "cave",
           "outcome": "talk",
@@ -10955,14 +10969,14 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-0",
+          "id": "f4-2",
           "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f8-1",
+          "id": "f8-3",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
@@ -10976,7 +10990,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -10990,21 +11004,21 @@
           "automatic": false
         },
         {
-          "id": "f28-2",
+          "id": "f28-0",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f35-1",
+          "id": "f35-0",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-3",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11018,21 +11032,21 @@
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f55-0",
+          "id": "f55-4",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11062,10 +11076,10 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f4-0",
+          "id": "f8-0",
           "boss": "snake",
-          "kind": "source",
-          "outcome": "oppose",
+          "kind": "cave",
+          "outcome": "talk",
           "automatic": false
         },
         {
@@ -11076,7 +11090,7 @@
           "automatic": false
         },
         {
-          "id": "f18-0",
+          "id": "f18-1",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11091,6 +11105,199 @@
         },
         {
           "id": "f28-0",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f35-4",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f38-3",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f48-3",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f54-0",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f64-1",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f68-0",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 1,
+      "seed": 22,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "gate_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f15-0",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-2",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f24-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f34-1",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f48-2",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f54-0",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f66-3",
+          "boss": "feiye",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f67-5",
+          "boss": "feiye",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        }
+      ],
+      "theme": "feiye"
+    },
+    {
+      "starter": "sword",
+      "stance": 1,
+      "seed": 23,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f14-1",
+          "boss": "camp_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-1",
+          "boss": "camp_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f24-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f28-3",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11118,21 +11325,21 @@
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11140,185 +11347,6 @@
         },
         {
           "id": "f64-0",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-2",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 1,
-      "seed": 22,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f14-1",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f18-0",
-          "boss": "lotus_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f24-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f28-3",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f44-2",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f48-1",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f66-0",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f67-2",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        }
-      ],
-      "theme": "feiye"
-    },
-    {
-      "starter": "sword",
-      "stance": 1,
-      "seed": 23,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f4-2",
-          "boss": "lotus_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f14-0",
-          "boss": "camp_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f18-0",
-          "boss": "camp_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f24-2",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f28-3",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f34-1",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f44-0",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f48-0",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f54-1",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f65-0",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11355,106 +11383,6 @@
           "automatic": false
         },
         {
-          "id": "f14-1",
-          "boss": "bell_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f18-3",
-          "boss": "bell_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f25-1",
-          "boss": "snake",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f28-3",
-          "boss": "snake",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f35-2",
-          "boss": "marsh_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f38-3",
-          "boss": "marsh_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f44-1",
-          "boss": "furnace_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f48-0",
-          "boss": "furnace_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f54-0",
-          "boss": "mirror_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f58-1",
-          "boss": "mirror_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        },
-        {
-          "id": "f64-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-1",
-          "boss": "abyss_boss",
-          "kind": "cave",
-          "outcome": "aid",
-          "automatic": false
-        }
-      ],
-      "theme": "abyss_boss"
-    },
-    {
-      "starter": "sword",
-      "stance": 1,
-      "seed": 25,
-      "nodes": 70,
-      "records": [
-        {
-          "id": "f8-2",
-          "boss": "gate_boss",
-          "kind": "cave",
-          "outcome": "talk",
-          "automatic": false
-        },
-        {
           "id": "f14-2",
           "boss": "bell_boss",
           "kind": "source",
@@ -11462,7 +11390,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-1",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11470,27 +11398,27 @@
         },
         {
           "id": "f25-0",
-          "boss": "lotus_boss",
+          "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f28-1",
-          "boss": "lotus_boss",
+          "id": "f28-2",
+          "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f35-0",
+          "id": "f34-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11511,7 +11439,107 @@
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
+          "boss": "mirror_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f58-1",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f64-1",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f68-0",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        }
+      ],
+      "theme": "abyss_boss"
+    },
+    {
+      "starter": "sword",
+      "stance": 1,
+      "seed": 25,
+      "nodes": 70,
+      "records": [
+        {
+          "id": "f4-1",
+          "boss": "gate_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f14-2",
+          "boss": "bell_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f18-3",
+          "boss": "bell_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f25-1",
+          "boss": "lotus_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f28-1",
+          "boss": "lotus_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f35-0",
+          "boss": "marsh_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f38-3",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f44-1",
+          "boss": "furnace_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f48-1",
+          "boss": "furnace_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11525,14 +11553,14 @@
           "automatic": false
         },
         {
-          "id": "f65-3",
+          "id": "f64-2",
           "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f68-2",
+          "id": "f68-0",
           "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11562,7 +11590,7 @@
           "automatic": false
         },
         {
-          "id": "f15-0",
+          "id": "f14-2",
           "boss": "gate_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11576,7 +11604,7 @@
           "automatic": false
         },
         {
-          "id": "f25-1",
+          "id": "f25-0",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11597,28 +11625,28 @@
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-3",
+          "id": "f44-1",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11632,17 +11660,10 @@
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f67-3",
+          "id": "f67-0",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
@@ -11683,21 +11704,28 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-1",
+          "id": "f35-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f44-2",
+          "id": "f38-3",
+          "boss": "marsh_boss",
+          "kind": "cave",
+          "outcome": "aid",
+          "automatic": false
+        },
+        {
+          "id": "f45-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11718,17 +11746,17 @@
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
-          "kind": "source",
-          "outcome": "oppose",
+          "id": "f58-0",
+          "boss": "mirror_boss",
+          "kind": "cave",
+          "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f67-3",
+          "id": "f67-1",
           "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
@@ -11741,10 +11769,17 @@
       "nodes": 70,
       "records": [
         {
-          "id": "f8-3",
+          "id": "f4-3",
+          "boss": "snake",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f8-1",
           "boss": "snake",
           "kind": "cave",
-          "outcome": "talk",
+          "outcome": "aid",
           "automatic": false
         },
         {
@@ -11755,7 +11790,7 @@
           "automatic": false
         },
         {
-          "id": "f18-2",
+          "id": "f18-0",
           "boss": "gate_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11769,7 +11804,7 @@
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-2",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "aid",
@@ -11797,14 +11832,14 @@
           "automatic": false
         },
         {
-          "id": "f48-3",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11818,21 +11853,21 @@
           "automatic": false
         },
         {
-          "id": "f66-1",
-          "boss": "feiye",
+          "id": "f65-0",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-1",
-          "boss": "feiye",
+          "id": "f68-1",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -11869,42 +11904,42 @@
           "automatic": false
         },
         {
-          "id": "f28-1",
+          "id": "f28-0",
           "boss": "bell_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-1",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f38-2",
+          "id": "f38-3",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-1",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-0",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-2",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11918,21 +11953,21 @@
           "automatic": false
         },
         {
-          "id": "f66-2",
-          "boss": "feiye",
+          "id": "f64-0",
+          "boss": "abyss_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f67-3",
-          "boss": "feiye",
+          "id": "f68-3",
+          "boss": "abyss_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sword",
@@ -11962,21 +11997,21 @@
           "automatic": false
         },
         {
-          "id": "f25-2",
+          "id": "f25-1",
           "boss": "snake",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f28-3",
+          "id": "f28-1",
           "boss": "snake",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f34-0",
+          "id": "f34-2",
           "boss": "marsh_boss",
           "kind": "source",
           "outcome": "oppose",
@@ -11997,42 +12032,35 @@
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-3",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-0",
+          "id": "f54-1",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-1",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f65-4",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-2",
-          "boss": "abyss_boss",
+          "id": "f67-3",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sovereign",

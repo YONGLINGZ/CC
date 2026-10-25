@@ -2,11 +2,11 @@
   "version": "hehuan-v1",
   "zip": {
     "file": "recovery/baiyao-hehuan.zip",
-    "bytes": 95343309,
-    "sha256": "1dc0b32ecdf8761f09732a5911b1789691ba8eebf72634167d7886bbc11272b7"
+    "bytes": 82005042,
+    "sha256": "75ed80372159ebe4659c58f9521e09e712c52bec02e540d8e7794c6edd0fb936"
   },
-  "files": 774,
-  "runtimeArt": 453,
+  "files": 822,
+  "runtimeArt": 497,
   "verification": "dev/hehuan-verification-results.json",
   "humanPlaytest": false,
   "physicalPhoneTested": false,
