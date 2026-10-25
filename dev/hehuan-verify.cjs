@@ -15,10 +15,12 @@ for (const entry of manifest.entries) {
   assert.equal(sha(entry.file), entry.sha256, `stale art hash: ${entry.file}`);
 }
 assert.equal(manifest.entries.length, 20, 'expected 20 new runtime art assets');
+const homeArt=readJson('dev/home-art-manifest.json');
+for(const entry of [homeArt.runtime,homeArt.original])assert.equal(sha(entry.file),entry.sha256,`stale home artwork: ${entry.file}`);
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
-assert.equal(browser.passed, 10, 'browser receipt must cover all ten checks');
+assert.equal(browser.passed, 11, 'browser receipt must cover all eleven checks');
 for (const [file, hash] of Object.entries(browser.inputs)) assert.equal(sha(file), hash, `stale browser input: ${file}`);
 
 const regression = readJson('dev/v11-regression-results.json');
@@ -41,6 +43,7 @@ const result = {
   browserChecks: browser.passed,
   regression: regression.engine,
   art: { count: manifest.entries.length, manifest: 'dev/hehuan-art-manifest.json' },
+  homeArt: homeArt.runtime,
   artifacts: Object.fromEntries(['index.html', 'baiyao-standalone.html'].map(file => [file, { bytes: fs.statSync(path.join(root, file)).size, sha256: sha(file) }]))
 };
 fs.writeFileSync(path.join(root, 'dev/hehuan-verification-results.json'), JSON.stringify(result, null, 2) + '\n');

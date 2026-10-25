@@ -27,7 +27,7 @@ function asset(folder,id){
   return inline?'data:image/webp;base64,'+fs.readFileSync(path.join(root,relative)).toString('base64'):relative;
 }
 const resources={};
-for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',gameData.REGIONS.map(region=>region.id)],['weapons','weapons',Object.keys(gameData.WEAPONS||{})],['items','items',Object.keys(require('./expansion.js').ITEMS||{})]]){
+for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',[...gameData.REGIONS.map(region=>region.id),'hanyuan_home']],['weapons','weapons',Object.keys(gameData.WEAPONS||{})],['items','items',Object.keys(require('./expansion.js').ITEMS||{})]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
 resources.outfits=Object.fromEntries(Object.keys(gameData.OUTFITS||{}).flatMap(id=>['item','cat','sword','sword_fallen'].map(role=>[role+'-'+id,asset('outfits',role+'-'+id)])));

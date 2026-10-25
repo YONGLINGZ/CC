@@ -1,7 +1,7 @@
 {
   "version": "hehuan-v1",
   "passed": true,
-  "browserChecks": 10,
+  "browserChecks": 11,
   "regression": {
     "passed": 448,
     "failed": 0,
@@ -14,14 +14,19 @@
     "count": 20,
     "manifest": "dev/hehuan-art-manifest.json"
   },
+  "homeArt": {
+    "file": "assets/regions/hanyuan_home.webp",
+    "bytes": 379250,
+    "sha256": "df95f212e021d0461510e3baedee389ad20c2999474a88a4caffb9d61d348ef1"
+  },
   "artifacts": {
     "index.html": {
-      "bytes": 917106,
-      "sha256": "c3bde6cfc277c3fbb8151634f5f9d64d7636b4ef5315a6786189bdffcacc6727"
+      "bytes": 921238,
+      "sha256": "64a9d097b59afef05dbbfa26b214edd4f0b89d4827f1e7b2fdafcbd0e548f707"
     },
     "baiyao-standalone.html": {
-      "bytes": 92982153,
-      "sha256": "d847be701752b186d6d9bc8b9d603fa25ee0f9aea74844c6ed0579e2cfeb5520"
+      "bytes": 93491944,
+      "sha256": "3a0c1a3199eedf3493db0dc7f164142b8dbb5d07234fffff1beeb51b94ef55fd"
     }
   }
 }

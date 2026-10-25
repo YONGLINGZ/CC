@@ -3,13 +3,13 @@
   "inputs": {
     "dev/hehuan.js": "2c5dbec8cdfcf93f91b7de26c38cb52594d04cf4d13ec6e368404bb2c6f40a8b",
     "dev/engine.js": "b761ba4559ca710850030487c60cd8671dd438ab3e0c6f3f6c6b9f0bb7fd0e7a",
-    "dev/ui.js": "3fab8b035109b8638f9650b5fdc6bc22b322bf88752fa321c8cda13fb2a560eb",
-    "dev/shell.html": "4d33ef473e2d6daa3301fe8320a7a6955486eec6cabbf928c1c13261832da8de",
+    "dev/ui.js": "5a1f8155150166112910c5aa9a86a58fb5581c18066965e4efa8820aaeeadd33",
+    "dev/shell.html": "dfba0cd1d4b2f6c056db0f0c0d3f312c6c815fd7e5f70bba3fc84df76502b7b8",
     "dev/audio.js": "4574ceb71502a62d7e84ffa7196239e5f5846ca5a2dfc5b558f8b9c8606a3a4f",
-    "dev/build.cjs": "ceb32572f5010a82d8ac75666c489ffa6a7566366f6325ee554f0546a631d7e9",
-    "index.html": "c3bde6cfc277c3fbb8151634f5f9d64d7636b4ef5315a6786189bdffcacc6727",
-    "baiyao-standalone.html": "d847be701752b186d6d9bc8b9d603fa25ee0f9aea74844c6ed0579e2cfeb5520",
-    "dev/hehuan-browser.test.cjs": "8d5580646afd15783b41b4abdcca806ce8b63a7b20567fb4b1978b6c4b2c0cd0"
+    "dev/build.cjs": "bc1508ba0f1a9063bb192eb7763f0181bb8de189b6ce5a518058af2ba7ba98af",
+    "index.html": "64a9d097b59afef05dbbfa26b214edd4f0b89d4827f1e7b2fdafcbd0e548f707",
+    "baiyao-standalone.html": "3a0c1a3199eedf3493db0dc7f164142b8dbb5d07234fffff1beeb51b94ef55fd",
+    "dev/hehuan-browser.test.cjs": "18e7d55b59796a8a0d2d834a778805c6f39d57e5b1f39fc13c3750899629b8eb"
   },
   "results": [
     {
@@ -49,6 +49,10 @@
       "ok": true
     },
     {
+      "name": "world home replaces portraits; hidden role stays absent until CDKEY succeeds and persists without resetting the run",
+      "ok": true
+    },
+    {
       "name": "new card sounds render offline, standalone contains same character, and frozen inputs match",
       "ok": true
     }
@@ -63,8 +67,10 @@
     "/workspace/scratch/hehuan-fixed-combat.png",
     "/workspace/scratch/hehuan-fixed-dock.png",
     "/workspace/scratch/hehuan-fixed-injured-camp.png",
-    "/workspace/scratch/hehuan-all-faction-scenes-audit.png"
+    "/workspace/scratch/hehuan-all-faction-scenes-audit.png",
+    "/workspace/scratch/hehuan-world-home.png",
+    "/workspace/scratch/hehuan-world-home-mobile.png"
   ],
-  "passed": 10,
+  "passed": 11,
   "failed": 0
 }

@@ -1,0 +1,17 @@
+{
+  "title": "寒渊封域 · 入雾之前",
+  "method": "image_gen.imagegen; new environment painting, WebP format encoding only",
+  "width": 1586,
+  "height": 992,
+  "runtime": {
+    "file": "assets/regions/hanyuan_home.webp",
+    "bytes": 379250,
+    "sha256": "df95f212e021d0461510e3baedee389ad20c2999474a88a4caffb9d61d348ef1"
+  },
+  "original": {
+    "file": "recovery/hanyuan-home-original.png",
+    "bytes": 2754069,
+    "sha256": "0dcff9203aa8af2198b45a288d6818098397b8bb49f07d9e0a7fcd557d08c9a2"
+  },
+  "description": "玄烬教引灵仪反噬后的寒渊：破损山门、入雾石阶、断桥、淹没的旧城、远处仍发光的仪式核心。人物不占据首页主视觉。"
+}
