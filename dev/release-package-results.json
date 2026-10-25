@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "method": "CRC verified both byte-identical public ZIP aliases; extracted one actual payload into an isolated temporary directory and launched its HTML in Chromium; clicked both catalogue filters.",
+  "counts": {
+    "assassin": 36,
+    "sword": 36,
+    "hehuan": 36
+  },
+  "shown": {
+    "sword": 36,
+    "hehuan": 36
+  },
+  "version": "2026.10.25-r36.2",
+  "zipHashes": {
+    "recovery/baiyao-hehuan.zip": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e",
+    "recovery/baiyao-rebuilt.zip": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e"
+  },
+  "sourceHashes": {
+    "index.html": "021f4f9e94cd62428bb6cc7bb94faa233165be0b55f703755e22c18a762e3f1d",
+    "dev/ui.js": "8115ee5c59fcd553a93bf312ca7ae193f5342a8e16efdb09eac36c7a8d35454a",
+    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
+    "dev/release.json": "4355166da0f9ab3443748178fb89476e340b64f49d568737184f6010fa73e88f"
+  },
+  "errors": []
+}

@@ -2,14 +2,14 @@
   "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
   "inputs": {
     "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
-    "dev/engine.js": "f798a2e17094f2e0a2e0128eb94834bad72330b64390f9798d888736d82cdd0b",
-    "dev/ui.js": "f458db52841c28d51475cd5c6087356cf7ce30cc83755e08bc61a2dfcab75576",
-    "dev/shell.html": "dfba0cd1d4b2f6c056db0f0c0d3f312c6c815fd7e5f70bba3fc84df76502b7b8",
+    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "dev/ui.js": "8115ee5c59fcd553a93bf312ca7ae193f5342a8e16efdb09eac36c7a8d35454a",
+    "dev/shell.html": "66421f4b8757414dba7a381c047a3dd022636adf440db6b8cfcdb59c4168943f",
     "dev/audio.js": "4dd7271321454208c3ca8accd2fa421ab3dd3c9fd2b833526927e91658100c96",
-    "dev/build.cjs": "bc1508ba0f1a9063bb192eb7763f0181bb8de189b6ce5a518058af2ba7ba98af",
-    "index.html": "af3298762e356f2a317c5bfa31d4a077c896fa941b4598bab281b0bcc18def12",
-    "baiyao-standalone.html": "8e73b3edf1085b3f76a90fc3d7b05098cf3cc12cb75cb5e6d35406f83137082c",
-    "dev/hehuan-browser.test.cjs": "178d474e902ac28447ebca9e2732a6726e774caf69eae584a483b1af32bb64ab"
+    "dev/build.cjs": "428232a3b9a97dda93a4c43683548f4d89eeaf84b1538a1d443efe59a85427de",
+    "index.html": "021f4f9e94cd62428bb6cc7bb94faa233165be0b55f703755e22c18a762e3f1d",
+    "baiyao-standalone.html": "ab872825a148a0cc283f60db244131bffe9e232dbd03634e6e9628e671a5f976",
+    "dev/hehuan-browser.test.cjs": "a3a0354b9bc137416f50f515bd2e70a8a3a2d97532460b81eda11e9d9f4958e3"
   },
   "results": [
     {
@@ -57,6 +57,10 @@
       "ok": true
     },
     {
+      "name": "current version is visible, catalogue counts are live and demonic cards never inflate the 36 orthodox entries",
+      "ok": true
+    },
+    {
       "name": "new card sounds render offline, standalone contains same character, and frozen inputs match",
       "ok": true
     }
@@ -75,8 +79,9 @@
     "/workspace/scratch/hehuan-world-home.png",
     "/workspace/scratch/hehuan-world-home-mobile.png",
     "/workspace/scratch/hehuan-sword36.png",
-    "/workspace/scratch/hehuan-pink36.png"
+    "/workspace/scratch/hehuan-pink36.png",
+    "/workspace/scratch/hehuan-current-catalogue.png"
   ],
-  "passed": 12,
+  "passed": 13,
   "failed": 0
 }

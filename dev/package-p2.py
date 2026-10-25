@@ -3,6 +3,9 @@
 from pathlib import Path
 import json,re,zipfile,hashlib,subprocess
 root=Path(__file__).resolve().parents[1]
+if __name__ == '__main__':
+ import sys
+ raise SystemExit(subprocess.call([sys.executable,str(root/'dev/package-hehuan.py')],cwd=root))
 subprocess.run(['node','dev/p2-verify.cjs'],cwd=root,check=True,stdout=subprocess.DEVNULL)
 html=(root/'index.html').read_text()
 assets=json.loads(re.search(r'globalThis.NightAssets=(.*?);\n',html).group(1))

@@ -6,4 +6,4 @@
 
 路线仍从下向上推进，五边形节点的图标与短标签表示可走通路，连线接到边缘。药品、状态符号与洞府后备图包含在内联 SVG 中，文件缺失时仍能继续游戏。
 
-本版共 258 张运行 WebP，均已在成品 Chromium 中实际解码。本轮十二张独立人物图（九位 Boss、三位新精英）与十六张场景图（四境、十二奇遇）分别记录于 `dev/v11-art-manifest.json` 与 `dev/v11-scene-art-manifest.json`，包含原始生成文件、尺寸、字节数及哈希；三张原有 Boss 图已由新作替换。旧版表现记录保存在 `dev/v10-LIVE2D_STATUS.md`。
+当前声明497张运行WebP。晏绮罗使用粉衣、淡粉透明面纱、右手展扇掩唇的三态图、头像、36张技能画卡与3张事件图；剑修新增20张剑道画卡，记录于 `dev/cards36-art-manifest.json`。历史九位Boss、三位精英与七境场景继续保留，其生成记录见 `dev/v11-art-manifest.json`、`dev/v11-scene-art-manifest.json`。本次63张新增／替换图已在Chromium实际解码；其他画作此前版本的解码记录仍按各自报告日期保留。正式Live2D尚未制作。

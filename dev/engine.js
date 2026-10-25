@@ -439,6 +439,23 @@
         S15:'移除敌人全部霜寒，造成 6＋移除层数的伤害；若敌人仍存活，获得等量剑意。',
         S16:'消耗全部剑意，造成 8＋2×消耗层数的伤害；若敌人仍存活，使其获得 3 层霜寒。'
       };
+      Object.assign(altered,{
+        S17:'消耗全部剑意，连续攻击1＋消耗层数次，每次1伤害。只有第一段获得首段增幅。',
+        S18:'移除敌人全部护盾，再消耗剩余全部灵力，造成11＋2×额外消耗灵力的伤害。消耗。',
+        S19:'造成2伤害，御剑增加2层（上限6）。结束回合造成⌊御剑层数÷2⌋伤害，再减1层。',
+        S20:'本场剑阵增加3（上限6）；每个玩家回合开始获得⌊剑阵÷2⌋护盾。立即获得1护盾。消耗。',
+        S21:'消耗剩余全部灵力，获得4＋2×额外消耗灵力的护盾；下回合额外抽1张。',
+        S23:'清除敌人当前架势反击，再造成3伤害。不影响其以后重新架势。',
+        S24:'获得3护盾；若剑意至少2，消耗2层并恢复4生命。',
+        S25:'本回合北海护持增加1（上限3）；此后每抽到攻击牌获得⌊护持÷2⌋护盾。然后抽1张。消耗。',
+        S26:'依次造成1、2、3点伤害；敌人和自身仍存活时，获得2剑意。',
+        S27:'获得3护盾；敌人霜寒至少3时，移除3层，本轮护盾每次挡住攻击反击6伤害。到下回合清除。',
+        S31:'消耗手中费用最高的一张牌，同费取最左侧；若实际消耗，获得3剑意、2护盾。手牌已空则无收益。',
+        S33:'造成4伤害；若结算前自身护盾多于敌人，且双方仍存活，清空双方护盾，再造成6伤害。',
+        S34:'若是本回合第一张牌，获得3剑意并抽2张；否则获得4护盾、1剑意。',
+        S35:'移除敌人全部护盾，造成5伤害；敌人仍存活时，每移除6护盾抽1张，最多2张。',
+        S36:'消耗全部剑意与御剑，造成⌊（20＋3×消耗剑意＋4×消耗御剑）÷2⌋伤害。御剑不再自动攻击。消耗。'
+      });
       return {...card,...value,id,fallenPenalty,attackMultiplier:fallenPenalty?.5:1,blockMultiplier:fallenPenalty?.5:1,text:fallenPenalty&&altered[id]?altered[id]:card.text};
     }
     function getWeaponStatus() {
@@ -1006,9 +1023,9 @@
       }
       return liveBattle();
     }
-    function gainBlock(amount, reason) {
+    function gainBlock(amount, reason, orthodox = false) {
       const b = state.battle;
-      if(b.resolving?.[0]?.id.startsWith('S')&&state.player.path.fallen)amount=Math.floor(amount/2);
+      if((orthodox||b.resolving?.[0]?.id.startsWith('S'))&&state.player.path.fallen)amount=Math.floor(amount/2);
       if (amount > 0 && hasRelic('silk') && !b.silkUsed) {
         b.silkUsed = true; amount += 2;
         log('鲛绡带触发：首次护盾额外增加 2。');
@@ -1101,7 +1118,7 @@
           log(`手牌已达 10 张：溢出的「${CARDS[card.id].name}」进入弃牌堆。`);
           note('手牌上限 10 张，溢出的牌已弃置。');
           event('discard', { cardId: card.id, overflow: true });
-        } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 });if(b.drawWard&&CARDS[card.id]?.attack)gainBlock(b.drawWard,'朝游北海·抽到攻击'); }
+        } else { b.hand.push(card); event('draw', { drawnCardId: card.id, amount: 1 });if(b.drawWard&&CARDS[card.id]?.attack)gainBlock(b.drawWard,'朝游北海·抽到攻击',true); }
       }
     }
     function finishFactionEffects(b,ending){

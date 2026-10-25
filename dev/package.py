@@ -10,6 +10,10 @@ import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+if __name__ == '__main__':
+    # Compatibility entry: all releases now share one current packaging gate.
+    import sys
+    raise SystemExit(subprocess.call([sys.executable,str(ROOT/'dev/package-hehuan.py')],cwd=ROOT))
 EXPECTED_ART = {
     'faction-combat':18,'faction-items':42,'faction-scenes':14,'outfits':20, 'portraits': 68, 'cards': 76, 'events': 91, 'relics': 15,
     'puppet': 13, 'regions': 7, 'weapons': 4, 'items': 1,

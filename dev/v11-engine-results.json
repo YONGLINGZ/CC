@@ -1,12 +1,12 @@
 {
   "method": "Actual Node execution. Retained fixtures explicitly isolate legacy three-region/scaling-off contracts; new tests exercise default seven regions, scaling, weighted AI and campaign content. No checks removed.",
   "command": "node --test --test-reporter=tap dev/engine.test.cjs dev/rework.test.cjs dev/reward.test.cjs dev/v5-engine.test.cjs dev/v6-engine.test.cjs dev/v7-engine.test.cjs dev/v8-engine.test.cjs dev/v9-engine.test.cjs dev/v10-combat.test.cjs dev/v10-expedition.test.cjs dev/v10-integration.test.cjs dev/v11-balance.test.cjs dev/v11-campaign.test.cjs dev/automaton.test.cjs dev/batch-a-engine.test.cjs dev/tales-engine.test.cjs dev/boss-quests.test.cjs dev/wardrobe-blood.test.cjs dev/boss-chain-reachability.test.cjs dev/factions.test.cjs dev/frontier.test.cjs dev/frontier-scheduling.test.cjs dev/later-factions.test.cjs dev/factions-scheduling.test.cjs dev/p2-rework.test.cjs dev/hehuan.test.cjs dev/hehuan-story.test.cjs dev/cards36.test.cjs",
-  "passed": 527,
+  "passed": 529,
   "failed": 0,
-  "total": 527,
+  "total": 529,
   "skipped": 0,
   "legacy_checks": 219,
-  "new_checks": 308,
+  "new_checks": 310,
   "checks": [
     "housekeeping boss replaces healer in the same early pool and uses four actual domestic tools",
     "all four domestic actions execute in the displayed fixed order and loop without rerolls",
@@ -143,6 +143,8 @@
     "同心结 snapshots both slots; 红尘织梦 caps only extra bonus and only first segment",
     "藏月 resource tax cannot make energy negative and trigger ordering never heals a dead player",
     "百转归心 removes exact newest discard instances before refund and never alters permanent deck",
+    "new orthodox attack and block descriptions update after transformation without altering base catalogue data",
+    "north sea ward follows its orthodox source even when a demonic card draws the attacks",
     "数据完整：76 卡、25 敌人、15 遗物及隔离的三章三十步路线地图",
     "初始状态与独立牌实例正确；title 不允许跳入节点",
     "地图不能跳层或同时进入节点；未完成节点不计入历史",
@@ -537,7 +539,7 @@
     "every ward matches a real special move and actually prevents it exactly once"
   ],
   "inputs": {
-    "dev/engine.js": "f798a2e17094f2e0a2e0128eb94834bad72330b64390f9798d888736d82cdd0b",
+    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "fba183746427f01c7c68aabf1a6328c9eaafa86d1bd2161fd3536760d9d97fda",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
@@ -573,6 +575,6 @@
     "dev/p2-rework.test.cjs": "f3b34d70607e78ec47de03e536bf46ec313b655605aaade674d288934ee27d41",
     "dev/hehuan.test.cjs": "ca56d191d8ef5aba01eef6c586c1c460c37a13e2ba685d5846336fe90fe09109",
     "dev/hehuan-story.test.cjs": "911a72f5051776822f522f0d07112f9a2f898d832c6a177fa9989bb86c076d0b",
-    "dev/cards36.test.cjs": "85c4d084b4bddc8f32ddb695fd2b1978a47ac73bc60124169d6a8a41b93459fa"
+    "dev/cards36.test.cjs": "78699208bfcc9447218a6435f2ea73da78d3b1412ef3e66137e0f8d0f54c85ac"
   }
 }

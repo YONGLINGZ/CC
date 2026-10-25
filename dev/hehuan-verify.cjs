@@ -22,12 +22,12 @@ for(const entry of [homeArt.runtime,homeArt.original])assert.equal(sha(entry.fil
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
-assert.equal(browser.passed, 12, 'browser receipt must cover all twelve checks');
+assert.equal(browser.passed, 13, 'browser receipt must cover all thirteen checks');
 for (const [file, hash] of Object.entries(browser.inputs)) assert.equal(sha(file), hash, `stale browser input: ${file}`);
 
 const regression = readJson('dev/v11-regression-results.json');
 assert.equal(regression.engine.failed, 0, 'v11 engine regression failed');
-assert.ok(regression.engine.passed>=527, 'expanded suite must retain prior checks');
+assert.ok(regression.engine.passed>=529, 'expanded suite must retain prior checks');
 assert.equal(regression.data_contract.cards, 132);
 assert.equal(regression.data_contract.events, 161);
 assert.equal(regression.data_contract.regions, 7);
@@ -40,7 +40,7 @@ for (const file of ['index.html', 'baiyao-standalone.html']) {
 }
 
 const result = {
-  version: 'hehuan-v1',
+  version: readJson('dev/release.json').id,
   passed: true,
   browserChecks: browser.passed,
   regression: regression.engine,

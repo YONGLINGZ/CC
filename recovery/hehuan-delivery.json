@@ -1,11 +1,14 @@
 {
-  "version": "hehuan-v1",
+  "version": "2026.10.25-r36.2",
+  "aliases": [
+    "recovery/baiyao-rebuilt.zip"
+  ],
   "zip": {
     "file": "recovery/baiyao-hehuan.zip",
-    "bytes": 82005042,
-    "sha256": "75ed80372159ebe4659c58f9521e09e712c52bec02e540d8e7794c6edd0fb936"
+    "bytes": 82011606,
+    "sha256": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e"
   },
-  "files": 822,
+  "files": 824,
   "runtimeArt": 497,
   "verification": "dev/hehuan-verification-results.json",
   "humanPlaytest": false,

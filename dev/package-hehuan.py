@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Package the current verified build with 晏绮罗's source and artwork."""
 from pathlib import Path
-import hashlib, json, re, subprocess, zipfile
+import hashlib, json, re, subprocess, zipfile, shutil
 
 root = Path(__file__).resolve().parents[1]
 subprocess.run(['node', 'dev/hehuan-verify.cjs'], cwd=root, check=True)
@@ -29,7 +29,7 @@ for filename in ['index.html', 'README.md', 'GAME_README.md', 'TESTING.md', 'PER
         names.add(filename)
 for folder in ['dev', 'docs']:
     for item in (root / folder).rglob('*'):
-        if item.is_file() and item.suffix in {'.js', '.cjs', '.py', '.html', '.md', '.json', '.webp'}:
+        if item.is_file() and item.name!='release-package-results.json' and item.suffix in {'.js', '.cjs', '.py', '.html', '.md', '.json', '.webp'}:
             names.add(str(item.relative_to(root)))
 # Original paintings are published as a separate art archive, not duplicated
 # inside the runnable game package.
@@ -49,9 +49,18 @@ with zipfile.ZipFile(output) as archive:
         raise RuntimeError('package CRC check failed')
     if archive.read('baiyao-hehuan/index.html') != (root / 'index.html').read_bytes():
         raise RuntimeError('package index mismatch')
+    for name in sorted(names):
+        if archive.read('baiyao-hehuan/'+name)!=(root/name).read_bytes():
+            raise RuntimeError('package content mismatch: '+name)
+
+# Keep the original public download URL current as well.
+alias = root / 'recovery' / 'baiyao-rebuilt.zip'
+shutil.copyfile(output, alias)
+assert hashlib.sha256(output.read_bytes()).digest()==hashlib.sha256(alias.read_bytes()).digest()
 
 receipt = {
-    'version': 'hehuan-v1',
+    'version': json.loads((root/'dev/release.json').read_text())['id'],
+    'aliases': ['recovery/baiyao-rebuilt.zip'],
     'zip': {'file': str(output.relative_to(root)), 'bytes': output.stat().st_size, 'sha256': hashlib.sha256(output.read_bytes()).hexdigest()},
     'files': len(names),
     'runtimeArt': len(set(paths(assets))),
@@ -61,4 +70,5 @@ receipt = {
     'directFileBrowserTested': False,
 }
 (root / 'recovery' / 'hehuan-delivery.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+(root / 'recovery' / 'delivery.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(receipt, ensure_ascii=False))

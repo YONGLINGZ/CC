@@ -13,6 +13,7 @@ import hashlib
 import io
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -24,6 +25,7 @@ SOURCE_NAMES = (
     "dev/shell.html", "dev/art.js", "dev/audio.js", "dev/engine.js",
     "dev/ui.js", "dev/build.cjs", "dev/build.py",
     "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", "dev/boss-quests.js", "dev/enemy-factions.js",
+    "dev/hehuan.js", "dev/event-editorial.js", "dev/release.json",
 )
 ASSET_GROUPS = {
     "items": ("clearheart_jade",),
@@ -49,6 +51,16 @@ ASSET_GROUPS['faction-items']=tuple(factions['items'])
 ASSET_GROUPS['faction-scenes']=tuple(factions['scenes'])
 ASSET_GROUPS['outfits'] = tuple(role+'-'+outfit for outfit in ('mist','lotus','ember','moon','blood') for role in ('item','cat','sword','sword_fallen'))
 ASSET_NAMES = tuple(f"assets/{group}/{name}.webp" for group, names in ASSET_GROUPS.items() for name in names)
+# The built runtime manifest is authoritative for additions and replacements.
+# This includes new H/S cards, all portrait states and the home illustration.
+runtime_manifest=json.loads(re.search(r'globalThis.NightAssets=(.*?);\n',(ROOT/'index.html').read_text()).group(1))
+def runtime_paths(value):
+    if isinstance(value,dict):
+        for child in value.values():yield from runtime_paths(child)
+    elif isinstance(value,list):
+        for child in value:yield from runtime_paths(child)
+    elif isinstance(value,str) and value.startswith('assets/'):yield value
+ASSET_NAMES=tuple(sorted(set(runtime_paths(runtime_manifest))))
 
 
 def sha256(data: bytes) -> str:

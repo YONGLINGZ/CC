@@ -14,8 +14,8 @@
 
 ## 当前恢复内容
 
-- `recovery/restore.sh`：十三份构建源码及432张声明的本地图片，重建目录版与完整单文件。
-- `recovery/restore-source.sh`：同样十三份源码，不含图片；重建可玩的 SVG 后备版本。
+- `recovery/restore.sh`：16份构建输入及497张声明的本地图片，重建目录版与完整单文件。
+- `recovery/restore-source.sh`：同样16份构建输入，不含图片；重建可玩的 SVG 后备版本。
 
 源码包括 `dev/seven.js` 中的七境、九位镇境者，以及 `dev/tales.js` 中的十套连续剧情与 `dev/boss-quests.js` 中的十四条镇境旧事、`dev/hehuan.js` 中的晏绮罗角色与三段个人线，以及 `dev/expansion.js` 中的五套衣装与禁术链。素材名单根据游戏声明生成，不能通过遗漏文件悄悄缩减打包范围。合欢角色的卡图、事件图、照心镜和三档立绘也在运行资源名单中；完整输入数量以本次构建清单为准。
 
@@ -30,11 +30,11 @@ BAIYAO_RESTORE_ROOT=/绝对路径 sh restore.sh
 
 ## 当前验收范围
 
-恢复检查覆盖完整源码与432张声明图片、缺图源码后备、重复执行、冲突文件和符号链接保护，以及恢复后的角色首战和选牌。HTML导出另检查真实下载后独立打开。各项是否实际执行及结果，以当前 `TESTING.md` 和与成品哈希绑定的报告为准：`recovery/tests.json`、`recovery/source-tests.json`、`dev/v11-source-browser-results.json`、`dev/v11-export-results.json`、`dev/v11-results.json`。
+当前恢复检查覆盖16份构建输入与497张声明图片、缺图源码后备、重复执行、冲突文件和符号链接保护。实际结果以 `recovery/tests.json`、`recovery/source-tests.json` 的当前产物哈希为准。当前游戏包另由 `dev/release-package-check.cjs` 解压、启动并读取两个36牌图鉴，结果见 `dev/release-package-results.json`。旧 `dev/v11-source-browser-results.json`、`dev/v11-export-results.json` 和 `dev/v11-results.json` 为其各自版本的历史浏览器记录。
 
 衣装与新禁术的专项记录在 `dev/wardrobe-blood-browser-results.json`；图片来源与哈希见 `dev/wardrobe-art-manifest.json`、`dev/story-boss-art-manifest.json`。五套衣装各有物品、夜铃、沈霜白及异变沈霜白四张原画。运行版将这些素材纳入完整单文件，源码无图恢复则使用可玩的后备图。
 
-本文更新于2026-10-24（北京时间）。自动 Chromium 验证不等于真实手机或人工试玩；自动回归策略仍读取规则层内部意图，不能据此宣称隐藏预告后的难度已经平衡。
+本文更新于2026-10-25（北京时间）。右上角版本号应为2026.10.25-r36.2。两个游戏ZIP地址 `baiyao-rebuilt.zip` 与 `baiyao-hehuan.zip` 同步生成且哈希一致；旧打包命令也转到同一校验入口。自动 Chromium 验证不等于真实手机或人工试玩；自动回归策略仍读取规则层内部意图，不能据此宣称隐藏预告后的难度已经平衡。
 
 `--backup` 的同一实例副本不保证跨实例存在。本版未据此宣称已发布云环境、修改配置或完成全新云实例恢复。旧版文档见 `dev/v10-*.md`，历史云配置记录只对其注明版本有效。
 
