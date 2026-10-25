@@ -1,15 +1,15 @@
 {
   "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
   "inputs": {
-    "dev/hehuan.js": "69481e42f894c29b17c1418b2a7f9c89ea25739aacf89de97f1e8b15087d46e0",
-    "dev/engine.js": "7a9b0ea94f42257ca561cbab4c2b05d3cb2ab80ca9cf284f7010e0cb0a5f6ca8",
-    "dev/ui.js": "26e16734e0684927b99702d75d637a94316b2b945a03900c47539ef68141bcac",
-    "dev/shell.html": "05699d16643ffa2d54e6b7917eb02e776dce17861fa54a84de826338dc531f59",
-    "dev/audio.js": "95e656ad02caaa7b9f88b40b2135eb50dc359acea8c5703d61529d95fcf683ef",
+    "dev/hehuan.js": "2c5dbec8cdfcf93f91b7de26c38cb52594d04cf4d13ec6e368404bb2c6f40a8b",
+    "dev/engine.js": "b761ba4559ca710850030487c60cd8671dd438ab3e0c6f3f6c6b9f0bb7fd0e7a",
+    "dev/ui.js": "3fab8b035109b8638f9650b5fdc6bc22b322bf88752fa321c8cda13fb2a560eb",
+    "dev/shell.html": "4d33ef473e2d6daa3301fe8320a7a6955486eec6cabbf928c1c13261832da8de",
+    "dev/audio.js": "4574ceb71502a62d7e84ffa7196239e5f5846ca5a2dfc5b558f8b9c8606a3a4f",
     "dev/build.cjs": "ceb32572f5010a82d8ac75666c489ffa6a7566366f6325ee554f0546a631d7e9",
-    "index.html": "1ed7e803d10e4bc8128268b0af094965feb634e78677c18bdac3553ac6c4cda8",
-    "baiyao-standalone.html": "210e9938323b3c9f6a48b69f3e62509be39d4a906f11d76310429841b1e71cf9",
-    "dev/hehuan-browser.test.cjs": "ae617a1265ffe52aeca5b3b0749ace896940352ab8eee7c5128d427f18b0f70e"
+    "index.html": "c3bde6cfc277c3fbb8151634f5f9d64d7636b4ef5315a6786189bdffcacc6727",
+    "baiyao-standalone.html": "d847be701752b186d6d9bc8b9d603fa25ee0f9aea74844c6ed0579e2cfeb5520",
+    "dev/hehuan-browser.test.cjs": "8d5580646afd15783b41b4abdcca806ce8b63a7b20567fb4b1978b6c4b2c0cd0"
   },
   "results": [
     {
@@ -25,7 +25,7 @@
       "ok": true
     },
     {
-      "name": "H06 chooses an actual concealed instance and cancel/recall never refunds its original fee",
+      "name": "H06 copies a selected concealed instance and preserves both originals without refund",
       "ok": true
     },
     {
@@ -41,6 +41,14 @@
       "ok": true
     },
     {
+      "name": "bust crop, transparent fallback, equal card frames and separate dock NPC panel fix the reported visual bugs",
+      "ok": true
+    },
+    {
+      "name": "all 28 faction events use decoded landscapes with separate NPC panels at desktop and mobile sizes",
+      "ok": true
+    },
+    {
       "name": "new card sounds render offline, standalone contains same character, and frozen inputs match",
       "ok": true
     }
@@ -50,8 +58,13 @@
   "screenshots": [
     "/workspace/scratch/hehuan-map.png",
     "/workspace/scratch/hehuan-traps.png",
-    "/workspace/scratch/hehuan-mobile.png"
+    "/workspace/scratch/hehuan-mobile.png",
+    "/workspace/scratch/hehuan-fixed-selection.png",
+    "/workspace/scratch/hehuan-fixed-combat.png",
+    "/workspace/scratch/hehuan-fixed-dock.png",
+    "/workspace/scratch/hehuan-fixed-injured-camp.png",
+    "/workspace/scratch/hehuan-all-faction-scenes-audit.png"
   ],
-  "passed": 8,
+  "passed": 10,
   "failed": 0
 }

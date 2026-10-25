@@ -1517,7 +1517,7 @@
       const index=b.hand.findIndex(c=>c.uid===uid),card=b.hand[index],def=card&&CARDS[card.id];
       if(!def?.trap||def.character!=='hehuan')return false;
       b.traps=b.traps||[];
-      if(b.traps.length>=2){note('两处薄纱都已藏牌，不能覆盖；可用换席收回。');emit();return false;}
+      if(b.traps.length>=2){note('两处薄纱都已藏牌，请立即出手或等待敌方行动。幻席只复制，不腾出纱位。');emit();return false;}
       if(b.energy<def.cost){note(`灵力不足：「${def.name}」需要 ${def.cost} 点灵力。`);emit();return false;}
       if(b.enemy.hp<=0||state.player.hp<=0)return false;
       beginEvents();b.phase='resolving';b.energy-=def.cost;b.hand.splice(index,1);
@@ -1557,7 +1557,7 @@
       const b=state.battle;if(!b)return;
       const cards=b.traps||[],resolution=b.trapResolution||[];b.traps=[];
       for(const card of cards){const slot=resolution.find(x=>x.card.uid===card.uid),def=CARDS[card.id];if(!slot?.triggered){b.trapStats=b.trapStats||{set:0,triggered:0,expired:0};b.trapStats.expired++;const why=slot&&!slot.eligible?slot.reason:reason;log(`「${def.name}」藏招失效：${why}；已支付${card.paidEnergy??def.cost}灵力不返还。`);event('trapExpired',{cardId:card.id,uid:card.uid,name:def.name,reason:why,cost:card.paidEnergy??def.cost});}
-        (def.exhaust?b.exhaust:b.discard).push(card);
+        (def.exhaust||card.ephemeral?b.exhaust:b.discard).push(card);
       }
       delete b.trapResolution;delete b.activeTrap;
     }
@@ -1571,7 +1571,7 @@
       if(card.id.startsWith('D')&&(!state.player.path.learned||state.character!=='sword')){
         note('尚未习得魔修技能，无法使用这张牌。');emit();return false;
       }
-      if(card.id==='H06'){const recalled=(b.traps||[]).find(c=>c.uid===(recallUid||((b.traps||[]).length===1?b.traps[0].uid:null)));if(!recalled||b.hand.length>=10){note(!recalled?'先选择一张已藏的牌收回。':'手牌已满，无法收回藏招。');emit();return false;}recallUid=recalled.uid;}
+      if(card.id==='H06'){const candidates=(b.traps||[]).filter(c=>c.id!=='H06'),original=candidates.find(c=>c.uid===(recallUid||(candidates.length===1?candidates[0].uid:null)));if(!original){note('请选择一张已藏的其他技能复制，幻席不能复制自身。');emit();return false;}recallUid=original.uid;}
       if (def.target && target !== true && target !== b.enemy.id) {
         note('请先选择卡牌，再点击敌人。取消选择不消耗灵力。');
         emit();
@@ -1625,7 +1625,7 @@
         case 'H03': enemyHit(4+bonus);if(liveBattle())drawCards(1);break;
         case 'H04': enemyHit(4+bonus);if(liveBattle())gainBlock(4,def.name);break;
         case 'H05': drawCards(2);break;
-        case 'H06': {const i=b.traps.findIndex(c=>c.uid===recallUid);if(i>=0){const [returned]=b.traps.splice(i,1);b.hand.push(returned);event('trapRecall',{cardId:returned.id,uid:returned.uid,name:CARDS[returned.id].name});log(`换席：收回「${CARDS[returned.id].name}」，原先费用不返还。`);drawCards(1);}break;}
+        case 'H06': {const original=b.traps.find(c=>c.uid===recallUid);if(original){const copy={...makeCard(original.id),ephemeral:true};b.hand.push(copy);event('trapCopy',{cardId:original.id,uid:copy.uid,originalUid:original.uid,name:CARDS[original.id].name});log(`幻席：原藏招「${CARDS[original.id].name}」保留，复制一张到手中；复制牌仍需 ${CARDS[original.id].cost} 灵力，使用后消耗。`);drawCards(1);}break;}
         case 'H07': enemyHit(10+bonus);if(liveBattle())gainBlock(6,def.name);break;
         case 'H08': {gainBlock(6,def.name);const removed=Math.min(1,b.poison);b.poison-=removed;event('poison',{amount:-removed,total:b.poison});break;}
         case 'H09': {const removed=Math.min(6,b.enemy.block);b.enemy.block-=removed;event('block',{target:'enemy',amount:-removed,total:b.enemy.block});enemyHit(4+bonus);break;}
@@ -1773,7 +1773,7 @@
       if(card.id.startsWith('D')&&state.player.hp>0)useDemonicCard(card.id);
       // Keep the active card out of both draw/discard during all draw effects.
       b.resolving.splice(b.resolving.indexOf(card), 1);
-      (def.exhaust ? b.exhaust : b.discard).push(card);
+      (def.exhaust || card.ephemeral ? b.exhaust : b.discard).push(card);
       if (liveBattle()) {
         if(def.attack&&hasRelic('veil')&&!b.veilUsed){b.veilUsed=true;addSoul(1,'无相夜纱');event('relic',{relic:'veil',name:RELICS.veil.name,amount:1});}
         if (hasRelic('jade') && b.played === 3 && !b.jadeUsed) {

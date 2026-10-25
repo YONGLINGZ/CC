@@ -18,12 +18,12 @@ assert.equal(manifest.entries.length, 20, 'expected 20 new runtime art assets');
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
-assert.equal(browser.passed, 8, 'browser receipt must cover all eight checks');
+assert.equal(browser.passed, 10, 'browser receipt must cover all ten checks');
 for (const [file, hash] of Object.entries(browser.inputs)) assert.equal(sha(file), hash, `stale browser input: ${file}`);
 
 const regression = readJson('dev/v11-regression-results.json');
 assert.equal(regression.engine.failed, 0, 'v11 engine regression failed');
-assert.equal(regression.engine.passed, 447, 'unexpected v11 regression count');
+assert.equal(regression.engine.passed, 448, 'unexpected v11 regression count');
 assert.equal(regression.data_contract.cards, 88);
 assert.equal(regression.data_contract.events, 161);
 assert.equal(regression.data_contract.regions, 7);

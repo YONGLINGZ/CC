@@ -71,10 +71,15 @@ test('recollection and position schedule7 cards,3 shield and4 spirit only for th
  const g=battle(),b=g.state.battle;hide(g,'H05');const uid=hide(g,'H06');withIntent(g,{block:6},()=>{turn(g);A.equal(b.hand.length,7);A.equal(b.block,3);A.equal(b.energy,4);A.equal(b.exhaust.some(c=>c.uid===uid),true);turn(g);A.equal(b.hand.length,5);A.equal(b.block,0);A.equal(b.energy,3);});
 });
 
-test('H06 requires a real chosen trap and rejects a full ten-card hand before paying',()=>{
+test('H06 copies a selected trap without removing it, uses a new instance and handles a full hand',()=>{
  const g=battle(),b=g.state.battle;let [uid]=put(g,['H06'],3);A.equal(g.playCard(uid,false),false);A.equal(b.energy,3);A.equal(b.hand[0].uid,uid);const a=hide(g,'H01'),c=hide(g,'H02');[uid]=put(g,['H06'],3);A.equal(g.playCard(uid,false),false);A.equal(b.traps.length,2);A.equal(g.playCard(uid,false,'not-owned'),false);A.equal(b.energy,3);
- const ids=['H06',...Array(9).fill('H01')];[uid]=put(g,ids,3);const before=mechanics(g);A.equal(g.playCard(uid,false,a),false);A.equal(mechanics(g),before);A.equal(b.traps.length,2);
- [uid]=put(g,['H06',...Array(8).fill('H01')],3);A.equal(g.playCard(uid,false,c),true);A.equal(b.hand.length,10);A.equal(b.hand.some(x=>x.uid===c),true);A.equal(b.traps[0].uid,a);A.equal(b.energy,3);A.equal(b.exhaust.some(x=>x.uid===uid),true);A.equal(zoneCount(b,c),1);
+ const ids=['H06',...Array(9).fill('H01')];[uid]=put(g,ids,3);A.equal(g.playCard(uid,false,a),true);A.equal(b.traps.length,2);A.equal(b.hand.length,10);A.ok(b.events.some(e=>e.type==='discard'&&e.overflow));const copy=b.hand.find(x=>x.ephemeral);A.ok(copy);A.notEqual(copy.uid,a);A.equal(copy.id,'H01');A.equal(zoneCount(b,a),1);A.equal(b.energy,3);A.equal(g.playCard(copy.uid,true),true);A.equal(b.energy,2);A.ok(b.exhaust.some(x=>x.uid===copy.uid));A.equal(b.traps[0].uid,a);
+ [uid]=put(g,['H06',...Array(8).fill('H01')],3);A.equal(g.playCard(uid,false,c),true);A.equal(b.hand.length,10);A.equal(b.hand.some(x=>x.uid===c),false);A.equal(b.traps.length,2);A.equal(b.energy,3);A.equal(b.exhaust.some(x=>x.uid===uid),true);A.equal(zoneCount(b,c),1);
+ const h=battle(),self=hide(h,'H06'),[copySelf]=put(h,['H06'],3),unchanged=mechanics(h);A.equal(h.playCard(copySelf,false,self),false);A.equal(mechanics(h),unchanged);
+});
+
+test('a copied trap pays normally and exhausts after resolution without entering the permanent deck',()=>{
+ const g=battle(),b=g.state.battle,original=hide(g,'H03'),deck=g.state.player.deck.map(c=>c.uid);play(g,'H06',false);const copy=b.hand.find(c=>c.ephemeral);A.ok(copy);A.notEqual(copy.uid,original);const energy=b.energy;A.equal(g.setTrap(copy.uid),true);A.equal(b.energy,energy-1);A.equal(b.traps.length,2);turn(g);A.ok(b.exhaust.some(c=>c.uid===copy.uid));A.ok(b.discard.some(c=>c.uid===original)||b.draw.some(c=>c.uid===original)||b.hand.some(c=>c.uid===original));A.deepEqual(g.state.player.deck.map(c=>c.uid),deck);A.equal(b.enemy.hp,486);
 });
 
 test('H08 direct mode removes only1 existing ordinary poison and leaves journey poison untouched',()=>{
@@ -126,7 +131,7 @@ test('trap damage does not copy first-attack, next-attack or combo bonuses from 
 
 test('direct card preview remains pure and agrees with actual shield/removal/draw/death effects',()=>{
  for(const id of ['H01','H02','H03','H04','H05','H07','H08','H09','H10','H11','H12']){const g=battle(),b=g.state.battle,[uid]=put(g,[id]);b.enemy.block=3;b.poison=2;const before=JSON.stringify(g.state),v=g.previewCard(uid);A.equal(v.available,true,id);A.equal(JSON.stringify(g.state),before,id);A.equal(g.playCard(uid,N.CARDS[id].target),true,id);A.equal(b.enemy.hp,v.enemyHpAfter,id);A.equal(g.state.player.hp,v.playerHpAfter,id);}
- const g=battle(),b=g.state.battle;const trap=hide(g,'H01'),[uid]=put(g,['H06']);const before=JSON.stringify(g.state),v=g.previewCard(uid,trap);A.equal(v.available,true);A.equal(JSON.stringify(g.state),before);A.equal(g.playCard(uid,false,trap),true);A.equal(b.traps.length,0);
+ const g=battle(),b=g.state.battle;const trap=hide(g,'H01'),[uid]=put(g,['H06']);const before=JSON.stringify(g.state),v=g.previewCard(uid,trap);A.equal(v.available,true);A.equal(JSON.stringify(g.state),before);A.equal(g.playCard(uid,false,trap),true);A.equal(b.traps.length,1);
 });
 
 test('new battle restores exhausted cards, clears traps and queues; restarting clears observation and character state',()=>{

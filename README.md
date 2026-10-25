@@ -1,5 +1,7 @@
 # 百妖夜契 · 寒渊七境
 
+2026-10-25修正版：晏绮罗战斗改为半身构图，选角透明图不再叠加后备人物，卡框尺寸统一，渡棚人物移到独立肖像栏；H06「幻席」保留原藏招并复制到手中，复制牌仍付原费用、使用后消耗。请重新下载下方成品，替换旧版本。
+
 2026-10-24 事件白话改造：批次1—3已落地；批次4自动验证完成，真人理解度验收仍待实际玩家参与。158项事件含新旧对照，来源／洞府／Boss回应、调查议价、军营连续交锋及援助报告已接入。见[逐项执行状态](docs/EVENT_REWORK_STATUS.md)、[本轮验证](docs/P2_VERIFICATION.md)及[事件审阅包](https://raw.githubusercontent.com/YONGLINGZ/CC/main/recovery/events-md-export.zip)。
 
 本轮更新 **众生来意**：完成计划中全部37种关联敌人与十四组阵营遭遇，九位镇境者和五个特殊遭遇均已接入。P2、P3、P4本轮共新增91张独立选用画作，连同P1共111张；来源、凭证敌意、交涉／战斗互斥、一次援助和真实后续回应均有规则。详见[全量手册](docs/FACTIONS_COMPLETE.md)、[后四境画集](docs/previews/factions-p3.webp)、[特殊路线画集](docs/previews/factions-p4.webp)。

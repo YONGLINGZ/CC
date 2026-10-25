@@ -9,7 +9,7 @@
     H03:{name:'请君近前',cost:1,text:'造成 4 点伤害，抽 1 张牌。',target:true,attack:true,archetype:'lure',trap:trap('attack','敌人攻击前获得 4 点护盾；整招结束后造成 7 点伤害。',{block:4},{damage:7})},
     H04:{name:'偷香',cost:1,text:'造成 4 点伤害，获得 4 点护盾。',target:true,attack:true,archetype:'opening',trap:trap('nonattack','敌人不攻击的动作结束后，造成 10 点伤害。',{}, {damage:10})},
     H05:{name:'回眸',cost:1,text:'抽 2 张牌。',target:false,archetype:'weave',trap:trap('action','敌人整次行动后，下个玩家回合额外抽 2 张牌，并在回合开始时获得 3 点护盾。',{}, {drawNext:2,blockNext:3})},
-    H06:{name:'换席',cost:0,text:'选择收回 1 张已藏牌到手中，不退其费用；抽 1 张牌。须有可收回牌且手牌有空间。消耗。',target:false,exhaust:true,archetype:'weave',trap:trap('action','敌人整次行动后，下个玩家回合额外获得 1 点灵力。消耗。',{}, {energyNext:1})},
+    H06:{name:'幻席',cost:0,text:'选择 1 张已藏牌，保留原藏招并复制到手中，再抽 1 张牌。不能复制幻席。复制牌仍付原费用，使用后消耗，仅本场有效。消耗。',target:false,exhaust:true,archetype:'weave',trap:trap('action','敌人整次行动后，下个玩家回合额外获得 1 点灵力。消耗。',{}, {energyNext:1})},
     H07:{name:'借势',cost:2,text:'造成 10 点伤害，获得 6 点护盾。',target:true,attack:true,archetype:'lure',trap:trap('attack','敌人攻击前获得 6 点护盾；整招结束后造成 12 点伤害。',{block:6},{damage:12})},
     H08:{name:'乱息',cost:1,text:'获得 6 点护盾，移除自身 1 层普通战斗毒；不解除旅途异状。',target:false,archetype:'opening',trap:trap('action','敌人行动前获得 4 点护盾，并抵消本次动作将新增的 1 层毒或追索印：优先毒，无毒才抵消追索印。只一次，不清已有状态，已有信物的援助先抵消。',{block:4,cleanseIncoming:1})},
     H09:{name:'解带',cost:1,text:'先移除敌人 6 点护盾，再造成 4 点伤害。',target:true,attack:true,archetype:'opening',trap:trap('nonattack','敌人不攻击的动作结束后，先移除其 10 点护盾，再造成 6 点伤害。',{}, {removeBlock:10,damage:6})},

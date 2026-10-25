@@ -1,7 +1,7 @@
 {
   "method": "180 connected fast-clear fixtures (three characters, both stances, thirty seeds). Original map links, RNG and story schedules retained; HP and spirit stones explicitly refilled and combat reduced to one or two hits. Reachability, not difficulty or human play.",
   "inputs": {
-    "dev/engine.js": "7a9b0ea94f42257ca561cbab4c2b05d3cb2ab80ca9cf284f7010e0cb0a5f6ca8",
+    "dev/engine.js": "b761ba4559ca710850030487c60cd8671dd438ab3e0c6f3f6c6b9f0bb7fd0e7a",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
     "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9"
   },

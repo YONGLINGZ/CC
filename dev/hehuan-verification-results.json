@@ -1,14 +1,14 @@
 {
   "version": "hehuan-v1",
   "passed": true,
-  "browserChecks": 8,
+  "browserChecks": 10,
   "regression": {
-    "passed": 447,
+    "passed": 448,
     "failed": 0,
-    "total": 447,
+    "total": 448,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 228
+    "new_checks": 229
   },
   "art": {
     "count": 20,
@@ -16,12 +16,12 @@
   },
   "artifacts": {
     "index.html": {
-      "bytes": 914926,
-      "sha256": "1ed7e803d10e4bc8128268b0af094965feb634e78677c18bdac3553ac6c4cda8"
+      "bytes": 917106,
+      "sha256": "c3bde6cfc277c3fbb8151634f5f9d64d7636b4ef5315a6786189bdffcacc6727"
     },
     "baiyao-standalone.html": {
-      "bytes": 92979973,
-      "sha256": "210e9938323b3c9f6a48b69f3e62509be39d4a906f11d76310429841b1e71cf9"
+      "bytes": 92982153,
+      "sha256": "d847be701752b186d6d9bc8b9d603fa25ee0f9aea74844c6ed0579e2cfeb5520"
     }
   }
 }

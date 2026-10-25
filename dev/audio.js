@@ -13,7 +13,7 @@
     H03: {name:'请君近前',kind:'focus',pitch:789,tail:1937,length:0.279,body:125,weight:.15,notes:[381,551,809]},
     H04: {name:'偷香',kind:'soul',pitch:832,tail:2016,length:0.292,body:130,weight:.15,notes:[398,570,832]},
     H05: {name:'回眸',kind:'focus',pitch:875,tail:2095,length:0.305,body:135,weight:.15,notes:[415,589,855]},
-    H06: {name:'换席',kind:'focus',pitch:918,tail:2174,length:0.318,body:140,weight:.15,notes:[432,608,878]},
+    H06: {name:'幻席',kind:'focus',pitch:918,tail:2174,length:0.318,body:140,weight:.15,notes:[432,608,878]},
     H07: {name:'借势',kind:'moon',pitch:961,tail:2253,length:0.331,body:145,weight:.15,notes:[449,627,901]},
     H08: {name:'乱息',kind:'shield',pitch:1004,tail:2332,length:0.344,body:150,weight:.15,notes:[466,646,924]},
     H09: {name:'解带',kind:'sword',pitch:1047,tail:2411,length:0.357,body:155,weight:.15,notes:[483,665,947]},
