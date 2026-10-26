@@ -1,0 +1,774 @@
+{
+  "audioSha256": "d86a2f74d1d9bca87b7515e27de16e337e4eb7417c1f72faa4ccc2908367b7f1",
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "48 matching card names, 180 unique signatures, distinct mechanical categories and private copies",
+      "passed": true
+    },
+    {
+      "name": "actual OfflineAudioContext renders all 48 cards with different finite non-silent unclipped samples",
+      "passed": true,
+      "distinctRenders": 48,
+      "sourcesCreated": 528,
+      "minRMS": 0.0015313340794967014,
+      "maxPeak": 0.09785189479589462
+    },
+    {
+      "name": "32 actual rendered machine actions distinguish all three bodies and drive gain/spend",
+      "passed": true,
+      "distinctRenders": 32,
+      "sourcesCreated": 167,
+      "maxPeak": 0.05958111584186554
+    },
+    {
+      "name": "three personal scenes have separate offline encounter motifs",
+      "passed": true,
+      "distinctRenders": 3
+    },
+    {
+      "name": "all 48 live casts and impacts create connected sources without voice rejection",
+      "passed": true,
+      "createdSources": 737,
+      "events": 96
+    },
+    {
+      "name": "live squad routes use event.unitId and automatic attacks use executor, never claw fallback",
+      "passed": true,
+      "events": 35
+    },
+    {
+      "name": "muting cancels mechanical voices and blocks machine actions without another context",
+      "passed": true
+    },
+    {
+      "name": "no browser errors or runtime external network requests",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "cards": [
+    {
+      "id": "J01",
+      "peak": 0.01934340037405491,
+      "rms": 0.0017075432063139398,
+      "hash": 1475051456,
+      "finite": true
+    },
+    {
+      "id": "J02",
+      "peak": 0.056229379028081894,
+      "rms": 0.005380961201359668,
+      "hash": 1995355353,
+      "finite": true
+    },
+    {
+      "id": "J03",
+      "peak": 0.0736393928527832,
+      "rms": 0.006314794876896035,
+      "hash": 3960586274,
+      "finite": true
+    },
+    {
+      "id": "J04",
+      "peak": 0.03369515761733055,
+      "rms": 0.0016700512506044405,
+      "hash": 1652175365,
+      "finite": true
+    },
+    {
+      "id": "J05",
+      "peak": 0.026615044102072716,
+      "rms": 0.0015990081472631091,
+      "hash": 3586163907,
+      "finite": true
+    },
+    {
+      "id": "J06",
+      "peak": 0.04098616912961006,
+      "rms": 0.0030757298183570654,
+      "hash": 2004164998,
+      "finite": true
+    },
+    {
+      "id": "J07",
+      "peak": 0.061874959617853165,
+      "rms": 0.002190770514604103,
+      "hash": 932602606,
+      "finite": true
+    },
+    {
+      "id": "J08",
+      "peak": 0.03255069628357887,
+      "rms": 0.0019177428085937571,
+      "hash": 900571936,
+      "finite": true
+    },
+    {
+      "id": "J09",
+      "peak": 0.03123178333044052,
+      "rms": 0.0028802496713538138,
+      "hash": 1411171324,
+      "finite": true
+    },
+    {
+      "id": "J10",
+      "peak": 0.037690598517656326,
+      "rms": 0.002139063224573167,
+      "hash": 3776363179,
+      "finite": true
+    },
+    {
+      "id": "J11",
+      "peak": 0.050222426652908325,
+      "rms": 0.002481236870531387,
+      "hash": 2122919572,
+      "finite": true
+    },
+    {
+      "id": "J12",
+      "peak": 0.03187275677919388,
+      "rms": 0.0021829853001745325,
+      "hash": 1503090297,
+      "finite": true
+    },
+    {
+      "id": "J13",
+      "peak": 0.034598495811223984,
+      "rms": 0.002101349750442419,
+      "hash": 2774619088,
+      "finite": true
+    },
+    {
+      "id": "J14",
+      "peak": 0.09253650903701782,
+      "rms": 0.00623677293337461,
+      "hash": 2005314459,
+      "finite": true
+    },
+    {
+      "id": "J15",
+      "peak": 0.09780416637659073,
+      "rms": 0.006601028211066986,
+      "hash": 4260624380,
+      "finite": true
+    },
+    {
+      "id": "J16",
+      "peak": 0.04694434627890587,
+      "rms": 0.0031041773602838705,
+      "hash": 2227570533,
+      "finite": true
+    },
+    {
+      "id": "J17",
+      "peak": 0.02597804367542267,
+      "rms": 0.0030631691557437136,
+      "hash": 604184831,
+      "finite": true
+    },
+    {
+      "id": "J18",
+      "peak": 0.03121936321258545,
+      "rms": 0.0015313340794967014,
+      "hash": 2139055085,
+      "finite": true
+    },
+    {
+      "id": "J19",
+      "peak": 0.03846658393740654,
+      "rms": 0.002655270156244197,
+      "hash": 3502362368,
+      "finite": true
+    },
+    {
+      "id": "J20",
+      "peak": 0.09785189479589462,
+      "rms": 0.004041007739073179,
+      "hash": 303225004,
+      "finite": true
+    },
+    {
+      "id": "J21",
+      "peak": 0.032571159303188324,
+      "rms": 0.0022540883961616803,
+      "hash": 527438818,
+      "finite": true
+    },
+    {
+      "id": "J22",
+      "peak": 0.02674131654202938,
+      "rms": 0.003081172654675933,
+      "hash": 1125726951,
+      "finite": true
+    },
+    {
+      "id": "J23",
+      "peak": 0.03539029881358147,
+      "rms": 0.002023566033351252,
+      "hash": 400439947,
+      "finite": true
+    },
+    {
+      "id": "J24",
+      "peak": 0.03681744635105133,
+      "rms": 0.0031992094979094166,
+      "hash": 4094505028,
+      "finite": true
+    },
+    {
+      "id": "J25",
+      "peak": 0.06405240297317505,
+      "rms": 0.006114989809113906,
+      "hash": 201378006,
+      "finite": true
+    },
+    {
+      "id": "J26",
+      "peak": 0.06479892879724503,
+      "rms": 0.006557200924604906,
+      "hash": 3943979234,
+      "finite": true
+    },
+    {
+      "id": "J27",
+      "peak": 0.09473495930433273,
+      "rms": 0.010016487153446857,
+      "hash": 3698240251,
+      "finite": true
+    },
+    {
+      "id": "J28",
+      "peak": 0.04247020557522774,
+      "rms": 0.0024302949308588682,
+      "hash": 1586985969,
+      "finite": true
+    },
+    {
+      "id": "J29",
+      "peak": 0.027355926111340523,
+      "rms": 0.0017263941395582356,
+      "hash": 1406048130,
+      "finite": true
+    },
+    {
+      "id": "J30",
+      "peak": 0.08713433891534805,
+      "rms": 0.008683075879203387,
+      "hash": 3931042269,
+      "finite": true
+    },
+    {
+      "id": "J31",
+      "peak": 0.032000280916690826,
+      "rms": 0.0034634229240268093,
+      "hash": 1420787573,
+      "finite": true
+    },
+    {
+      "id": "J32",
+      "peak": 0.08465749025344849,
+      "rms": 0.00791607245731564,
+      "hash": 453551671,
+      "finite": true
+    },
+    {
+      "id": "J33",
+      "peak": 0.05562185123562813,
+      "rms": 0.002786271427840755,
+      "hash": 2558592449,
+      "finite": true
+    },
+    {
+      "id": "J34",
+      "peak": 0.07750584930181503,
+      "rms": 0.002878093742471319,
+      "hash": 3508484687,
+      "finite": true
+    },
+    {
+      "id": "J35",
+      "peak": 0.08465422689914703,
+      "rms": 0.0033607533589563167,
+      "hash": 3578448502,
+      "finite": true
+    },
+    {
+      "id": "J36",
+      "peak": 0.03738095238804817,
+      "rms": 0.0024212696399866602,
+      "hash": 1092599376,
+      "finite": true
+    },
+    {
+      "id": "J37",
+      "peak": 0.08893381804227829,
+      "rms": 0.007956710551409084,
+      "hash": 2386445071,
+      "finite": true
+    },
+    {
+      "id": "J38",
+      "peak": 0.0416182205080986,
+      "rms": 0.0030175733514680348,
+      "hash": 542560912,
+      "finite": true
+    },
+    {
+      "id": "J39",
+      "peak": 0.026205770671367645,
+      "rms": 0.0022162392636484716,
+      "hash": 131718930,
+      "finite": true
+    },
+    {
+      "id": "J40",
+      "peak": 0.0347345806658268,
+      "rms": 0.002102838083039047,
+      "hash": 2925357896,
+      "finite": true
+    },
+    {
+      "id": "J41",
+      "peak": 0.03271910920739174,
+      "rms": 0.003388164224492733,
+      "hash": 1720815768,
+      "finite": true
+    },
+    {
+      "id": "J42",
+      "peak": 0.026173057034611702,
+      "rms": 0.0029313141346249006,
+      "hash": 2535760778,
+      "finite": true
+    },
+    {
+      "id": "J43",
+      "peak": 0.03578564524650574,
+      "rms": 0.0042351500892703385,
+      "hash": 2949452025,
+      "finite": true
+    },
+    {
+      "id": "J44",
+      "peak": 0.026727737858891487,
+      "rms": 0.0019954548308294,
+      "hash": 566888582,
+      "finite": true
+    },
+    {
+      "id": "J45",
+      "peak": 0.06750624626874924,
+      "rms": 0.007708734712742919,
+      "hash": 1226506372,
+      "finite": true
+    },
+    {
+      "id": "J46",
+      "peak": 0.03693251684308052,
+      "rms": 0.004225312560972326,
+      "hash": 1188694977,
+      "finite": true
+    },
+    {
+      "id": "J47",
+      "peak": 0.03156472370028496,
+      "rms": 0.00201623037593761,
+      "hash": 1222763635,
+      "finite": true
+    },
+    {
+      "id": "J48",
+      "peak": 0.08484496921300888,
+      "rms": 0.009546471543605129,
+      "hash": 4148633446,
+      "finite": true
+    }
+  ],
+  "machineActions": [
+    {
+      "id": {
+        "type": "squadDeploy",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.023782234638929367,
+      "rms": 0.0022699028670752157,
+      "hash": 2777487744,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRecall",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.022311603650450706,
+      "rms": 0.0015522601780136125,
+      "hash": 1123199410,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRepair",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.035878345370292664,
+      "rms": 0.0024504198466344675,
+      "hash": 893114926,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBlock",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.0403347872197628,
+      "rms": 0.002869101179847465,
+      "hash": 245534309,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDamage",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.054327595978975296,
+      "rms": 0.0023853089074041965,
+      "hash": 1606776949,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBroken",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.028469594195485115,
+      "rms": 0.0023283343285980967,
+      "hash": 282879515,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadGuard",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.015660198405385017,
+      "rms": 0.0006607137408991107,
+      "hash": 712142578,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadPassive",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.010124264284968376,
+      "rms": 0.0007530879479160768,
+      "hash": 1554450443,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadCommand",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.010452169924974442,
+      "rms": 0.0007405389888659148,
+      "hash": 2266327463,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadOverload",
+        "unitId": "chengshan",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.019662437960505486,
+      "rms": 0.0011958193710165867,
+      "hash": 956959501,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDeploy",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.026650121435523033,
+      "rms": 0.0027131820709566344,
+      "hash": 1694778325,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRecall",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.027860701084136963,
+      "rms": 0.0016570370922074664,
+      "hash": 3366655249,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRepair",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.04998230189085007,
+      "rms": 0.0024850270653974794,
+      "hash": 3871879286,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBlock",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.05508147552609444,
+      "rms": 0.0028851471624959974,
+      "hash": 3500266361,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDamage",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.058626964688301086,
+      "rms": 0.0023718617448133307,
+      "hash": 1987867114,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBroken",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.042490482330322266,
+      "rms": 0.0026748463213709453,
+      "hash": 916831995,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadGuard",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.016320161521434784,
+      "rms": 0.0006394879919414459,
+      "hash": 2606241369,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadPassive",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.011933761648833752,
+      "rms": 0.0007371150814258976,
+      "hash": 458783377,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadCommand",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.0226785559207201,
+      "rms": 0.0008626853975509296,
+      "hash": 1754980254,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadOverload",
+        "unitId": "mingdi",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.021169688552618027,
+      "rms": 0.0013435713763523991,
+      "hash": 2871530011,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDeploy",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.027920279651880264,
+      "rms": 0.002659028120555646,
+      "hash": 616266686,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRecall",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.023327453061938286,
+      "rms": 0.0015880392239006544,
+      "hash": 3639965659,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadRepair",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.032591819763183594,
+      "rms": 0.002464657222397134,
+      "hash": 993198984,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBlock",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.05641018599271774,
+      "rms": 0.0029167234306983728,
+      "hash": 977333988,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDamage",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.05958111584186554,
+      "rms": 0.002418335381898899,
+      "hash": 2926450264,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadBroken",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.03859999030828476,
+      "rms": 0.002443374226412499,
+      "hash": 381456080,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadGuard",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.01583665795624256,
+      "rms": 0.0006453830408932931,
+      "hash": 117178044,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadPassive",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.012319154106080532,
+      "rms": 0.0007440637039167849,
+      "hash": 3996639563,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadCommand",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.019892621785402298,
+      "rms": 0.0008276097421431142,
+      "hash": 746679423,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadOverload",
+        "unitId": "shiying",
+        "amount": 4,
+        "damage": 3
+      },
+      "peak": 0.02038564532995224,
+      "rms": 0.0013151481941784848,
+      "hash": 1207959116,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDrive",
+        "amount": 2
+      },
+      "peak": 0.013977340422570705,
+      "rms": 0.0010052625702721006,
+      "hash": 1074790232,
+      "finite": true
+    },
+    {
+      "id": {
+        "type": "squadDrive",
+        "amount": -2
+      },
+      "peak": 0.011148456484079361,
+      "rms": 0.0007891048403991861,
+      "hash": 730290771,
+      "finite": true
+    }
+  ],
+  "preview": "/workspace/scratch/mechanist-audio-preview.wav",
+  "note": "Executed real Chromium AudioContext and OfflineAudioContext; no claim of human listening quality or balance."
+}

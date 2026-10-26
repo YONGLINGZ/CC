@@ -1,7 +1,11 @@
 /* Reviewed event presentation. All effects remain owned by the engine. No RNG here. */
 (function(root){
 'use strict';
-const REVISION=2;
+const REVISION=5;
+const V5=root.NightStoryV5||(typeof module!=='undefined'&&module.exports?require('./story-v5.js'):{});
+const F5=root.NightStoryFactionsV5||(typeof module!=='undefined'&&module.exports?require('./story-factions-v5.js'):{});
+const B5=root.NightStoryBossesV5||(typeof module!=='undefined'&&module.exports?require('./story-bosses-v5.js'):{});
+function finish(e,state,defs){for(const layer of [V5,F5,B5])if(layer.rewrite)layer.rewrite(e,state,defs);return e;}
 const SCENES={
 faction_lotus_boss_source:['缝门纸偶替伤者合拢衣口，夺谱探客在另一头敲着裂芯钉。门牌照出的红光挡住了两人的路。','纸偶说：“留给活人一碗水。”探客压低声音：“替我拿器谱，我给你拆她机关的工具。”'],faction_furnace_boss_source:['炉役把愿帖夹进火口，退契老人伸手去拿，指尖立刻被灼红。','“停火，靠它熬命的人怎么办？”炉役问。老人指向帖尾：“我只要拿回自己的，不替旁人退。”'],
 well:['井底浮起一只装着遗器的匣子，水面写出三种交换：灵石、血，或只喝一口井水。','井中传来你的声音：“取宝要付价，喝水可以养伤。先看清你要拿哪一样。”'],
@@ -93,7 +97,7 @@ function costs(c,state,defs){
 }
 function rewrite(e,state,defs){
  if(!e||e.editorialRevision===REVISION)return e;
- const id=e.id;e.editorialRevision=REVISION;if(e.choices?.[0]?.factionKey==='aftermath')return e;
+ const id=e.id;e.editorialRevision=REVISION;if(e.choices?.[0]?.factionKey==='aftermath')return finish(e,state,defs);
  if(SCENES[id]&&!(id==='demon_manual'&&e.choices?.some(c=>c.flags?.fallenPlunder))){e.story=SCENES[id].slice();e.description=e.story[0];}
  const tm=/^tale_(.+)_([123])$/.exec(id);
  if(tm&&TALE_DIALOGUE[tm[1]]){
@@ -116,7 +120,7 @@ function rewrite(e,state,defs){
  if(id==='ash_orchard'&&e.choices?.[0])e.choices[0].text='获得回气丹×1，收入包裹；服用时恢复24生命，此刻不直接治疗。';
  if(id==='mirror_guest'&&e.choices?.[1])e.choices[1].text='获得虎魄丹×1；战斗中服用，本场攻击伤害提高，效果见包裹。';
  if(id==='dreamshop'&&e.choices?.[1])e.choices[1].text=e.choices[1].riskSummary;
- return e;
+ return finish(e,state,defs);
 }
 function review(id){if(id.startsWith('hehuan_'))return {status:'新增角色事件',reason:'晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。'};return {status:RETAIN[id]?'保留并精修说明':'已改写',reason:RETAIN[id]||(id.startsWith('faction_')?'按组区分当事人、公开凭证风险、实际委托与洞府处置。':id.startsWith('boss_')?'改为当事人直接对白、对应物证与具体准备结果；保留原条件。':id.startsWith('tale_')?'保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。':'改写现场、直接请求与已知代价；保留原数值及历史前提。')};}
 const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};root.NightEditorial=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;

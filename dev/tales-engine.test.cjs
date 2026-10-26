@@ -10,13 +10,13 @@ function restTo(g,floor){while(g.state.floor<floor){if(g.state.screen==='arrival
 function finish(g){const b=g.state.battle;b.enemy.hp=1;b.enemy.block=0;b.energy=20;b.hand=[{id:'C01',uid:'tale-finisher'}];assert.equal(g.playCard('tale-finisher',true),true);}
 
 test('ten coherent three-part chains, thirty unique event IDs, two interruptions and distinct chain art references',()=>{
- assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,161);
+ assert.equal(Object.keys(T.CHAINS).length,10);assert.equal(Object.keys(T.META).length,30);assert.equal(T.EVENT_IDS.length,32);assert.equal(new Set(T.EVENT_IDS).size,32);assert.equal(new Set(Object.values(T.CHAINS).map(c=>c.artId)).size,10);assert.ok(N.EVENT_ART_IDS.includes('cave'));for(const id of T.EVENT_IDS)assert.ok(N.EVENT_IDS.includes(id));assert.equal(N.EVENT_IDS.length,161+(N.MECHANIST?.STORY_IDS?.length||0));
 });
 for(const chain of Object.keys(T.CHAINS))test('all 27 choice paths settle and preserve witnessed consequences: '+chain,()=>{
  for(let a=0;a<3;a++)for(let b=0;b<3;b++)for(let c=0;c<3;c++){
   const g=run(),s=g.state;record(g,chain);s.player.gold=1000;s.player.hp=s.player.maxHp=200;let prior='';
   for(const [i,index]of [a,b,c].entries()){
-   at(g,[6,26,46][i],'event',`tale_${chain}_${i+1}`);const e=s.event;assert.equal(e.id,`tale_${chain}_${i+1}`);assert.equal(e.connection,prior);assert.ok(e.story.length>=2);assert.equal(e.choices.length,3);const wanted=e.choices[index].key;resolve(g,index);prior=e.outcome;assert.equal(s.journey.tales.chains[chain].stage,i+1);assert.equal(s.journey.tales.chains[chain].choices[i+1].key,wanted);assert.equal(g.leaveEvent(),true);assert.ok(s.player.hp>0&&s.player.hp<=s.player.maxHp&&s.player.gold>=0);assert.equal(g.leaveEvent(),false);
+   at(g,[6,26,46][i],'event',`tale_${chain}_${i+1}`);const e=s.event;assert.equal(e.id,`tale_${chain}_${i+1}`);assert.equal(e.connection,prior);assert.ok(e.story.length>=1&&e.story.every(p=>p.trim()),'V5 keeps a concrete scene without filler paragraphs');assert.equal(e.choices.length,3);const expected=N.rewriteEvent(T.build(e.id,s),s);assert.deepEqual(e.story,expected.story);const wanted=e.choices[index].key,wantedOutcome=expected.choices[index].outcome;resolve(g,index);prior=e.outcome;assert.equal(prior,wantedOutcome,'settlement uses the currently shown V5 result');assert.equal(s.journey.tales.chains[chain].lastOutcome,prior);assert.equal(s.journey.tales.chains[chain].stage,i+1);assert.equal(s.journey.tales.chains[chain].choices[i+1].key,wanted);assert.equal(g.leaveEvent(),true);assert.ok(s.player.hp>0&&s.player.hp<=s.player.maxHp&&s.player.gold>=0);assert.equal(g.leaveEvent(),false);
   }
  }
 });

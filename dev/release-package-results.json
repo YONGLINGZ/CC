@@ -4,23 +4,25 @@
   "counts": {
     "assassin": 36,
     "sword": 36,
-    "hehuan": 36
+    "hehuan": 36,
+    "mechanist": 48
   },
   "shown": {
     "sword": 36,
-    "hehuan": 36
+    "hehuan": 36,
+    "mechanist": 48
   },
-  "version": "2026.10.25-r36.2",
+  "version": "2026.10.26-j48-v5.1",
   "zipHashes": {
-    "recovery/baiyao-hehuan.zip": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e",
-    "recovery/baiyao-rebuilt.zip": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e"
+    "recovery/baiyao-hehuan.zip": "c7f643a8a60d364b8ca7dc77c0ce7d31c285abb2e12570d420c7388079dd3cf9",
+    "recovery/baiyao-rebuilt.zip": "c7f643a8a60d364b8ca7dc77c0ce7d31c285abb2e12570d420c7388079dd3cf9"
   },
   "sourceHashes": {
-    "index.html": "021f4f9e94cd62428bb6cc7bb94faa233165be0b55f703755e22c18a762e3f1d",
-    "dev/ui.js": "8115ee5c59fcd553a93bf312ca7ae193f5342a8e16efdb09eac36c7a8d35454a",
-    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "index.html": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e",
+    "dev/ui.js": "76cfa2479f0bcd808661fea25734841c3f024e49c010d0d09ce647a90aa1057d",
+    "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
     "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
-    "dev/release.json": "4355166da0f9ab3443748178fb89476e340b64f49d568737184f6010fa73e88f"
+    "dev/release.json": "4885a09a0521b0004f258ba16b020521699252f6c85d9b6da5ffb27992e016e0"
   },
   "errors": []
 }

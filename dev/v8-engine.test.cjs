@@ -321,7 +321,7 @@ test('a public journey visits exactly thirty connected nodes and carries one NPC
 test('fallen-only manuscript plunder attacks an unhostile keeper and grants five pages once after real victory',()=>{
   const normal=run();eventAt(normal,'demon_manual',27);assert.ok(!normal.state.event.choices.some(c=>c.flags?.fallenPlunder));
   const game=run(),s=game.state,p=s.player;Object.assign(p.path,{fallen:true,corruption:6,learned:true,uses:6});
-  eventAt(game,'demon_manual',27);assert.ok(s.event.story.join('').includes('没有拔剑'));
+  eventAt(game,'demon_manual',27);assert.ok(s.event.story.join('').includes('经卷藏到背后'));
   const index=s.event.choices.findIndex(c=>c.flags?.fallenPlunder);assert.ok(index>=0);
   const held=p.deck.length,gold=p.gold;choose(game,index);assert.equal(p.deck.length,held);assert.equal(p.gold,gold);
   assert.equal(game.leaveEvent(),true);assert.equal(s.screen,'battle');assert.equal(s.battle.enemy.name,'守卷弟子');assert.equal(s.battle.enemy.hp,42);

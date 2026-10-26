@@ -2,14 +2,14 @@
   "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
   "inputs": {
     "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
-    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
-    "dev/ui.js": "8115ee5c59fcd553a93bf312ca7ae193f5342a8e16efdb09eac36c7a8d35454a",
-    "dev/shell.html": "66421f4b8757414dba7a381c047a3dd022636adf440db6b8cfcdb59c4168943f",
-    "dev/audio.js": "4dd7271321454208c3ca8accd2fa421ab3dd3c9fd2b833526927e91658100c96",
-    "dev/build.cjs": "428232a3b9a97dda93a4c43683548f4d89eeaf84b1538a1d443efe59a85427de",
-    "index.html": "021f4f9e94cd62428bb6cc7bb94faa233165be0b55f703755e22c18a762e3f1d",
-    "baiyao-standalone.html": "ab872825a148a0cc283f60db244131bffe9e232dbd03634e6e9628e671a5f976",
-    "dev/hehuan-browser.test.cjs": "a3a0354b9bc137416f50f515bd2e70a8a3a2d97532460b81eda11e9d9f4958e3"
+    "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
+    "dev/ui.js": "76cfa2479f0bcd808661fea25734841c3f024e49c010d0d09ce647a90aa1057d",
+    "dev/shell.html": "bfe1e61d9de0f0a019683fd7b66d3fa6430d1d07c71c7f303a9349a3cfa2893d",
+    "dev/audio.js": "d86a2f74d1d9bca87b7515e27de16e337e4eb7417c1f72faa4ccc2908367b7f1",
+    "dev/build.cjs": "8b5f77c6cfd97bc4bef894ded42292bd20b35b368853c74c97e680a21fb0b26b",
+    "index.html": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e",
+    "baiyao-standalone.html": "ca2ccd355b5ee5e837e5df4f774fa1c98c353a9452880a9ed9c4802a49827cf6",
+    "dev/hehuan-browser.test.cjs": "c53f911c1d71bdf28f37937812502dea67b990fb6c9947f6fd69e66508f77d41"
   },
   "results": [
     {

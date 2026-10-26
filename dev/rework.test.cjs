@@ -70,10 +70,12 @@ test('十八种独立剧情奇遇的每个选项都能结算，并停留在结�
       assert.equal(state.screen, 'event');
       assert.equal(state.event.id, target);
       assert.ok(state.event.choices.length>=3);
+      const shownOutcome = state.event.choices[index].outcome;
       assert.equal(game.chooseEvent(index), true);
       assert.equal(state.event.resolved, true);
       assert.equal(state.floor, 2, '选择后不应直接离开奇遇');
-      assert.ok(state.event.outcome.length > 12);
+      assert.ok(state.event.outcome.trim(), '精简叙事仍保留实际动作结果');
+      assert.equal(state.event.outcome, shownOutcome, '点击后使用选项实际的当前叙事，不能回退旧模板');
       assert.ok(state.event.received.length > 0);
       assert.equal(game.chooseEvent(index), false, '结局页不能重复领取');
       assert.equal(game.leaveEvent(), true);

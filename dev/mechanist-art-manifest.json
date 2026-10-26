@@ -1,0 +1,1145 @@
+{
+  "character": "mechanist",
+  "name": "陆听澜",
+  "age": 27,
+  "tool": "image_gen.imagegen",
+  "method": "14 approved generated originals: reference-consistent state edits plus 48 independently storyboarded illustrations on four contact sheets; crop/resize/WebP encoding only.",
+  "review": "Inspected all character and machine states composited on neutral gray, four card sheets and three full event compositions. Verified clean alpha borders; no backdrop rectangles. Scenes retain natural human/environment scale.",
+  "formalExports": 69,
+  "runtimeAlias": "assets/portraits/tinglan.webp",
+  "totalBytes": 4599776,
+  "entries": [
+    {
+      "file": "assets/puppet/tinglan-normal.webp",
+      "source": "exec-510e664f-93fe-4b13-9338-d68931e7b7d9.png",
+      "crop": null,
+      "width": 768,
+      "height": 1152,
+      "alpha": true,
+      "bytes": 249528,
+      "sha256": "7dd1a34f6e5109cb8c146e472fa289587293d074dcfe62ffbdfe8e56985c3024",
+      "category": "hero-state"
+    },
+    {
+      "file": "assets/puppet/tinglan-wounded.webp",
+      "source": "exec-f33b5ead-6d63-473f-b069-5994c28ab1b4.png",
+      "crop": null,
+      "width": 768,
+      "height": 1152,
+      "alpha": true,
+      "bytes": 283750,
+      "sha256": "dc50f8e4f756f283c76819ea870c86871859004c54e17c1b0adfeadd877c1609",
+      "category": "hero-state"
+    },
+    {
+      "file": "assets/puppet/tinglan-critical.webp",
+      "source": "exec-9ca8dba7-bde6-491d-8a6c-8c4b7b328032.png",
+      "crop": null,
+      "width": 768,
+      "height": 1152,
+      "alpha": true,
+      "bytes": 359886,
+      "sha256": "11ed9ec35a7b7da409c5cb79198bea0c31885941cd2630997524e3efbd9ed3db",
+      "category": "hero-state"
+    },
+    {
+      "file": "assets/portraits/tinglan-avatar.webp",
+      "source": "exec-510e664f-93fe-4b13-9338-d68931e7b7d9.png",
+      "crop": [
+        150,
+        0,
+        900,
+        1000
+      ],
+      "width": 480,
+      "height": 640,
+      "alpha": true,
+      "bytes": 132180,
+      "sha256": "14e643ce9f5a2317a5376fd52619cc72f5f2948f3fe8feb80987287c668a2f5a",
+      "category": "hero-avatar"
+    },
+    {
+      "file": "assets/machines/chengshan-normal.webp",
+      "source": "exec-07d32dc6-cdfd-417d-affb-5299ba53a828.png",
+      "crop": [
+        10,
+        0,
+        734,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 100172,
+      "sha256": "2028ce5887b0e0dca90e14a7f2b181d177ebf795d64153788288bdff177c827d",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/chengshan-worn.webp",
+      "source": "exec-07d32dc6-cdfd-417d-affb-5299ba53a828.png",
+      "crop": [
+        734,
+        0,
+        1458,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 103670,
+      "sha256": "c71a9f70cbee7c5b8c3648fe002fcdc42ab128e0821d40cea6aef1613189a88e",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/chengshan-broken.webp",
+      "source": "exec-07d32dc6-cdfd-417d-affb-5299ba53a828.png",
+      "crop": [
+        1458,
+        0,
+        2182,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 83694,
+      "sha256": "aa36b168f3debea90f703b77bf4f94da67b5ba39c54eb3ccf75d106fbbe43421",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/chengshan-icon.webp",
+      "source": "exec-07d32dc6-cdfd-417d-affb-5299ba53a828.png",
+      "crop": [
+        10,
+        0,
+        734,
+        724
+      ],
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "bytes": 18684,
+      "sha256": "28681b23d8a1b220bfb8f3aecf879553a5e947a8aeca5d7ecca62538f09ee86f",
+      "category": "machine-avatar"
+    },
+    {
+      "file": "assets/machines/mingdi-normal.webp",
+      "source": "exec-8b2a6d92-5d2a-4a22-8478-019707dd1110.png",
+      "crop": [
+        34,
+        0,
+        786,
+        752
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 94020,
+      "sha256": "9941f27291a7850f72cc9b362559b3053f083776862327c4e6105bdcab6a725c",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/mingdi-worn.webp",
+      "source": "exec-8b2a6d92-5d2a-4a22-8478-019707dd1110.png",
+      "crop": [
+        790,
+        0,
+        1542,
+        752
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 91822,
+      "sha256": "280cb8d8c2a88af7e3d20eabefbe5073da4e3bc2590736a0f42c960b783471d5",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/mingdi-broken.webp",
+      "source": "exec-8b2a6d92-5d2a-4a22-8478-019707dd1110.png",
+      "crop": [
+        1520,
+        0,
+        2272,
+        752
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 67870,
+      "sha256": "9b7f5e6d1aa2fdfdbfafe886c91ccd7814936eef6fbc882ed4100f2376f193c1",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/mingdi-icon.webp",
+      "source": "exec-8b2a6d92-5d2a-4a22-8478-019707dd1110.png",
+      "crop": [
+        34,
+        0,
+        786,
+        752
+      ],
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "bytes": 16460,
+      "sha256": "8ada9c8e035bdf3853c7500586b47e2784e23cca1a201834f014c90dd88ec2f4",
+      "category": "machine-avatar"
+    },
+    {
+      "file": "assets/machines/shiying-normal.webp",
+      "source": "exec-b018dcbb-1fc4-4ab0-bf70-bda52527dd83.png",
+      "crop": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 91600,
+      "sha256": "84d6d65664c388f92ea3f36600ee5f020c634648009d6ff7ea9f3933aa96ddc6",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/shiying-worn.webp",
+      "source": "exec-b018dcbb-1fc4-4ab0-bf70-bda52527dd83.png",
+      "crop": [
+        724,
+        0,
+        1448,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 93386,
+      "sha256": "23c790ca7ea24c7305d2476e84ccbe7bd1d8bef02841fea9d6251c41daab1dbd",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/shiying-broken.webp",
+      "source": "exec-b018dcbb-1fc4-4ab0-bf70-bda52527dd83.png",
+      "crop": [
+        1448,
+        0,
+        2172,
+        724
+      ],
+      "width": 576,
+      "height": 576,
+      "alpha": true,
+      "bytes": 83856,
+      "sha256": "39546fec66cc2aaa30b1537b4f771f4da8d7541f48dafe9321203ee924cb18eb",
+      "category": "machine-state"
+    },
+    {
+      "file": "assets/machines/shiying-icon.webp",
+      "source": "exec-b018dcbb-1fc4-4ab0-bf70-bda52527dd83.png",
+      "crop": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "width": 192,
+      "height": 192,
+      "alpha": true,
+      "bytes": 16048,
+      "sha256": "c704ea66a46dca5c265dca64d5abc21c3a23170f1722dabcf6eb7a260f8d79ca",
+      "category": "machine-avatar"
+    },
+    {
+      "file": "assets/cards/J01.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        3,
+        3,
+        359,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 35518,
+      "sha256": "d8db8c92fa6e318b20355ed186db90ca883ed3db3cf9b700f5b719e5cb9966e3",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J02.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        365,
+        3,
+        721,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 46104,
+      "sha256": "8eeef17c0c5378c2c6815b770c40108a08714a0e4ab14563157fc13addb6dd7d",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J03.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        727,
+        3,
+        1083,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 54788,
+      "sha256": "9bf5fc01234477fe19323f76c1467bb31f18c8853fab33ef7e310214c15fbacc",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J04.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        1089,
+        3,
+        1445,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 49706,
+      "sha256": "cce6f1d4ba7d0d59b93bb9ea294cd09b1eaea17708ffd35fb904e588e85279c9",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J05.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        3,
+        365,
+        359,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 36330,
+      "sha256": "1d5381e8dd9ff5c77f030ff6521e556b4cadb646b326d8bfbe8830a55c31b590",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J06.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        365,
+        365,
+        721,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 43562,
+      "sha256": "0b14cc5f39b41f1ce01602898e4a888f059f7ddd121b5f6dd933516e15cd35de",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J07.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        727,
+        365,
+        1083,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 37472,
+      "sha256": "c5482f9a6030d1f9cd9d4ab099736cee3eb7740967f5372102abea16f7842e1d",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J08.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        1089,
+        365,
+        1445,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 46548,
+      "sha256": "74c5f09f1746f3454fe6f5ee43266ac4005bfe7dabe8c9817a24cb7e5f7a8a11",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J09.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        3,
+        727,
+        359,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 54890,
+      "sha256": "0c7bf33cb843712744c2cf4662710d97d0a5448bd9a05321acdef38ad2f8443a",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J10.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        365,
+        727,
+        721,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 49216,
+      "sha256": "5242dc4209a7cbdac083d12a06e92bbad7d2cafedc6c02160e540aaec4b41524",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J11.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        727,
+        727,
+        1083,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47638,
+      "sha256": "c5beb84cddb08bd6faab277a8ee501c6f1176f131ef640effbe9008e8b47aa3f",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J12.webp",
+      "source": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "crop": [
+        1089,
+        727,
+        1445,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 33342,
+      "sha256": "8c979a79d597618526f6bbed9c0ad83de58ae6619fb823ed2178aa0a47e1b95d",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J13.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        3,
+        3,
+        359,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 39188,
+      "sha256": "37f80ba1bb4e8e6a399a58480f31373d529d8ed2e7b81b2fabfba9bd7b482896",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J14.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        365,
+        3,
+        721,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 51018,
+      "sha256": "79054898c7f981cc8bd5c0ede85235e444404983854941283b11850f7a09426a",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J15.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        727,
+        3,
+        1083,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47432,
+      "sha256": "375fc56d02874897a6e4ca3b0e1b47a4716d0c7fbfc984c460684a179f476bfb",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J16.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        1089,
+        3,
+        1445,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 51072,
+      "sha256": "d8b0858d745305ea707f4e9c806b1a07083f72406f18997e20a1cf90eddf1586",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J17.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        3,
+        365,
+        359,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 45576,
+      "sha256": "c0380da7369825996b64095128da80d498f3f4ead2c6ba8e9cf56aa63503b17c",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J18.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        365,
+        365,
+        721,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 39046,
+      "sha256": "1a8c062fe077d93d73e1cc04cd311c475fd5fd255984d8e491d341e5d796e6af",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J19.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        727,
+        365,
+        1083,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 45138,
+      "sha256": "579b69f8481aba9a7ee3ce83148c412185412e01d783cb6a7593e3fd4fcb892f",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J20.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        1089,
+        365,
+        1445,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 40818,
+      "sha256": "0e20d31d4b0c0073e0e95f35461927413ecaa2549f77c639bda64810a018bc68",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J21.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        3,
+        727,
+        359,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 38684,
+      "sha256": "c7f53b23b3c61ab6386ecfaf6d8aed16a715b0887000d20857ba0ca96749733b",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J22.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        365,
+        727,
+        721,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 37854,
+      "sha256": "a43e0f29e5a479d327cd7595999355d48527d57b54866c8edae0b735ef85986e",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J23.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        727,
+        727,
+        1083,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 42406,
+      "sha256": "3e88f9e58d1466d2ceacce2ce320165bad8537ecbf4a633263580d0723221c01",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J24.webp",
+      "source": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "crop": [
+        1089,
+        727,
+        1445,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 52352,
+      "sha256": "2711e0aedf6c086dd4df88218657d16cefb87d4ff3298288dbd36ebe93d8d990",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J25.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        3,
+        3,
+        359,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47186,
+      "sha256": "a967b10206c23333e2780c07ae2e951c6f777998bd1dbc7c8514d56212da1d13",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J26.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        365,
+        3,
+        721,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47446,
+      "sha256": "4f11bdc54d0c48793e3a27343f4b72de3efcca0ba801f8dafde9aebff24fdb12",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J27.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        727,
+        3,
+        1083,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 50198,
+      "sha256": "470097663b75fc12770ee87631a0602cb805c0b28e4d8582edefc6b21b657edf",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J28.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        1089,
+        3,
+        1445,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 33736,
+      "sha256": "fd7d111ab13b5d345fd75484c376d0602e9879995303170c0be7098958772f30",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J29.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        3,
+        365,
+        359,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 45478,
+      "sha256": "1d8c1e241aa29fd61b1853546f604e753b5ec6cfeec08deca5ed7e893286f948",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J30.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        365,
+        365,
+        721,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 45118,
+      "sha256": "c0103cbd5a778163d85197313aa65a0de1c6bda13979bec0dc36c33959e6e751",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J31.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        727,
+        365,
+        1083,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 44886,
+      "sha256": "782a28709d80ad568902d7bf249e9006784bca5bfcba1f3342d5181be105d5c7",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J32.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        1089,
+        365,
+        1445,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 43668,
+      "sha256": "f5e3881899bb7256520592ab3c7212ea1c2853b922c9e6e8a77159b96c7d8ebe",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J33.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        3,
+        727,
+        359,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 30122,
+      "sha256": "f8d54cf4afc28b56d2104b2c9aabef6c4ae511e65293d82364b65b7b7fd59ea1",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J34.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        365,
+        727,
+        721,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 34362,
+      "sha256": "0cdb262422c2842c58d33b367fd35b4f48af687d444a6775be6947a540e4bbf1",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J35.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        727,
+        727,
+        1083,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 42242,
+      "sha256": "3403d113635f07af846715bed7c0fc22c1708811900ef885acf717f69b56ae7d",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J36.webp",
+      "source": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "crop": [
+        1089,
+        727,
+        1445,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 48950,
+      "sha256": "0ef46445073feae3191207938016d1773095512b7d14af88498673359d36084a",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J37.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        3,
+        3,
+        359,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 37852,
+      "sha256": "d588594ed854f51d4728f9c668fe7b87aec3d7b045dcea0d267ff024218b5102",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J38.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        365,
+        3,
+        721,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 48526,
+      "sha256": "97fe4a2de7073fe61bded7817637771474d8130cb5df48623eb4989848e73268",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J39.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        727,
+        3,
+        1083,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 40316,
+      "sha256": "28a56b830779a0da4e6ec711264f6bcaa4290307ba28320ef77ee1a339e3bebf",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J40.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        1089,
+        3,
+        1445,
+        359
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 48692,
+      "sha256": "720dffaf1d463d5163c96b5d65f946ed7b385df868cd93612481047517e8895e",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J41.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        3,
+        365,
+        359,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 31072,
+      "sha256": "cfd215bba2fbb4981bbed2c6c94f8c3bf9c2226be9bb4677b3a607e0ba99c62f",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J42.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        365,
+        365,
+        721,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 42802,
+      "sha256": "0f6acd0787dcec6fa16a5b97bad50d026f792f4963559b1a2d8e99f90dfb9348",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J43.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        727,
+        365,
+        1083,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 33304,
+      "sha256": "4ce794ec7ee4aecd652c08f57ff34f34fa0b31b578d098250840786659fc1622",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J44.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        1089,
+        365,
+        1445,
+        721
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47820,
+      "sha256": "7f2460776627c183b5c8be02b3e2b7042499177c0225b76665397d6e4a654ca2",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J45.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        3,
+        727,
+        359,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 34566,
+      "sha256": "24853938d7827b82e2bbe68a4edcaa5d30b70e2d7b1ed9c0f9350504e3652b0c",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J46.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        365,
+        727,
+        721,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 45816,
+      "sha256": "8579123100c6d20afa5afde95f73945129d0a4c25f8dfdd33727b4224b6178b2",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J47.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        727,
+        727,
+        1083,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 49596,
+      "sha256": "ca57ef3a545d1df29528daff2cce92d85cee6311f01b20a8b1a910df208d33dd",
+      "category": "card"
+    },
+    {
+      "file": "assets/cards/J48.webp",
+      "source": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "crop": [
+        1089,
+        727,
+        1445,
+        1083
+      ],
+      "width": 420,
+      "height": 420,
+      "alpha": false,
+      "bytes": 47830,
+      "sha256": "85d38e3dc63f80f62e02dc5c9855b361fb76b95cad4e50e380ebc3fe16206bba",
+      "category": "card"
+    },
+    {
+      "file": "assets/events/tinglan_bridge.webp",
+      "source": "exec-f0e4dbfe-5be2-4c8c-a8b1-57a6c34d35ed.png",
+      "crop": null,
+      "width": 900,
+      "height": 600,
+      "alpha": false,
+      "bytes": 177454,
+      "sha256": "234caae2df913571b64ecdf21aa5f02c79ac5c26ee73566d5cf1ef09bc9d7f9c",
+      "category": "personal-event"
+    },
+    {
+      "file": "assets/events/tinglan_seal.webp",
+      "source": "exec-673eb5c5-8f35-4f79-941f-dd3d1971ed26.png",
+      "crop": null,
+      "width": 900,
+      "height": 600,
+      "alpha": false,
+      "bytes": 171746,
+      "sha256": "0d358e3cc0c968245484def1a905e78cfc5f7f84c49f27ea88bbc6232c2665ad",
+      "category": "personal-event"
+    },
+    {
+      "file": "assets/events/tinglan_record.webp",
+      "source": "exec-a651f073-8ffc-48db-8da4-333bddf9ed18.png",
+      "crop": null,
+      "width": 900,
+      "height": 600,
+      "alpha": false,
+      "bytes": 185132,
+      "sha256": "90e672a934d92ce31a3082ee695b677ad06062cc2d09b584fef318af32f36f0e",
+      "category": "personal-event"
+    },
+    {
+      "file": "assets/relics/concentric_spool.webp",
+      "source": "exec-266fa34a-3402-4678-92c9-fb68cad06411.png",
+      "crop": [
+        0,
+        0,
+        882,
+        886
+      ],
+      "width": 480,
+      "height": 480,
+      "alpha": false,
+      "bytes": 40850,
+      "sha256": "74410cdcea5b19c3c3e5b8cf0176a66f6bc20ffe1979a8ab50d78f1ec949e986",
+      "category": "relic"
+    },
+    {
+      "file": "assets/items/mech_case.webp",
+      "source": "exec-266fa34a-3402-4678-92c9-fb68cad06411.png",
+      "crop": [
+        892,
+        0,
+        1774,
+        886
+      ],
+      "width": 480,
+      "height": 480,
+      "alpha": false,
+      "bytes": 50686,
+      "sha256": "4e9b68c765b6bfc6acf7a301996f583690b7971d7c8e7b367836c909d5702437",
+      "category": "case"
+    }
+  ],
+  "sources": {
+    "normal": {
+      "file": "exec-510e664f-93fe-4b13-9338-d68931e7b7d9.png",
+      "sha256": "7a647f893eb0a347333c750c74af17c44084eebd0593bbe095f2644fb7e04eaa"
+    },
+    "wounded": {
+      "file": "exec-f33b5ead-6d63-473f-b069-5994c28ab1b4.png",
+      "sha256": "b37a0f5c7d02edeccc70758d03858149070dc91b9dc09745946d851b9ea345dc"
+    },
+    "critical": {
+      "file": "exec-9ca8dba7-bde6-491d-8a6c-8c4b7b328032.png",
+      "sha256": "07170ac8488e6cb10787bedd9e180fe094e5afe352d8c9c4f0a1afc58269e9e3"
+    },
+    "chengshan": {
+      "file": "exec-07d32dc6-cdfd-417d-affb-5299ba53a828.png",
+      "sha256": "0099168125e4e8b9972ea8baeb5a9de0dcb79df1e669d2177f270ad1b328abcb"
+    },
+    "mingdi": {
+      "file": "exec-8b2a6d92-5d2a-4a22-8478-019707dd1110.png",
+      "sha256": "df0de533671cd5261e2a95ac1b29d9e7f6d8c6464bda2a466c9caecdff14afac"
+    },
+    "shiying": {
+      "file": "exec-b018dcbb-1fc4-4ab0-bf70-bda52527dd83.png",
+      "sha256": "a6639c7f928c05be371859dc7637a2a0f1e025c1559e863ea5fa2364c42b1734"
+    },
+    "cards01": {
+      "file": "exec-2f6b3529-7cc5-466b-8e24-87f8a9f74fc4.png",
+      "sha256": "b1faad05bbe067148497dc7bf44f78739695eb404fb53c23299b7a37909e9249"
+    },
+    "cards13": {
+      "file": "exec-4c41f6d6-0fa1-4646-8113-8b1b48c68587.png",
+      "sha256": "e7c903b6b68d7ebeb8257b15a130e5e68fa1e6e27c1f0bd493fb3bbd6c410944"
+    },
+    "cards25": {
+      "file": "exec-05f59017-20e5-40a4-a4b0-ab60281fa1ed.png",
+      "sha256": "159d19790c19bd0257ec23688e648bc8564240812273dea890b55d8a25d566b3"
+    },
+    "cards37": {
+      "file": "exec-d6031e63-d908-439d-bfc9-d06dc04d6aad.png",
+      "sha256": "f814e60a38d26c4731864438d083246848078d58242f79d6760df6b2fa79a915"
+    },
+    "bridge": {
+      "file": "exec-f0e4dbfe-5be2-4c8c-a8b1-57a6c34d35ed.png",
+      "sha256": "170fc6b2b5ce282d087c38cba64d5e19d3894d598863c81798dbd37f849bf2d2"
+    },
+    "seal": {
+      "file": "exec-673eb5c5-8f35-4f79-941f-dd3d1971ed26.png",
+      "sha256": "bf825b6d30178cad5c06f415e0bbb36c9d630116ed6b7b8e2f84688b47b162d1"
+    },
+    "record": {
+      "file": "exec-a651f073-8ffc-48db-8da4-333bddf9ed18.png",
+      "sha256": "80c527d443a2af617b03d3c5122db53c36c836144c916a99b4ca1e537e23c92f"
+    },
+    "objects": {
+      "file": "exec-266fa34a-3402-4678-92c9-fb68cad06411.png",
+      "sha256": "dd4d4b1e2fa1b5eefd8ed6328b965cea50aa795353cead124988bd85cce1897f"
+    }
+  }
+}

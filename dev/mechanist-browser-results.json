@@ -1,0 +1,51 @@
+{
+  "method": "Real Chromium clicks through a loopback static server; explicit combat fixtures for focused edge cases. No real-phone or human balance claim.",
+  "entry": "/workspace/CC/index.html",
+  "results": [
+    {
+      "name": "new role starts with52 life,10 own cards; catalogue has48 unique machine cards",
+      "ok": true
+    },
+    {
+      "name": "friendly target preview can cancel without costs, then changes the actual guard after confirmation",
+      "ok": true
+    },
+    {
+      "name": "deploy, command and full-slot replacement are explicit; cancel preserves all resources",
+      "ok": true
+    },
+    {
+      "name": "drive shortage is explained before play and cannot charge partial fees",
+      "ok": true
+    },
+    {
+      "name": "overload and repair show real durability/cooldown; card draw does not restore re-deployment rights",
+      "ok": true
+    },
+    {
+      "name": "tail operation victory resolves before an enemy phase and pays the reward once",
+      "ok": true
+    },
+    {
+      "name": "battle-outside first-machine preset persists to next battle and has no sword equipment fallback",
+      "ok": true
+    },
+    {
+      "name": "360/390/430 CSS widths retain full card effect,44px controls and separate readable machine states",
+      "ok": true
+    },
+    {
+      "name": "portrait damage stages and machine normal/worn/broken states are selected independently",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "screenshots": [
+    "/workspace/scratch/mechanist-battle.png",
+    "/workspace/scratch/mechanist-mobile.png"
+  ],
+  "passed": 9,
+  "failed": 0,
+  "entrySha256": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e"
+}

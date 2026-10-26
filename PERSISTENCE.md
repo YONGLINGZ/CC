@@ -1,5 +1,7 @@
 # 离线备份与恢复 · 寒渊七境
 
+2026.10.26版本：恢复源新增mechanist.js、story-v5.js、story-factions-v5.js、story-bosses-v5.js。运行资源跟随构建清单，新角色69幅正式资源及兼容肖像同包；旧下载名baiyao-rebuilt.zip继续与当前目录ZIP一致。
+
 完整目录 `index.html`＋`assets/` 或完整单文件 `baiyao-standalone.html` 均可离线游玩，无需发布云环境。工作区路径不是聊天附件；远程备份以 GitHub `YONGLINGZ/CC` 的实际提交及下载核验为准。
 
 批次 A 已更新入口和资源显示；批次 B 的版本化单局存档尚未实现。下述“恢复”是恢复游戏文件，不是恢复正在进行的一局。

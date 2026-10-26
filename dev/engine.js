@@ -8,7 +8,9 @@
   const ENEMY_FACTIONS=root.NightEnemyFactions||(typeof module!=='undefined'&&module.exports?require('./enemy-factions.js'):{});
   const EDITORIAL=root.NightEditorial||(typeof module!=='undefined'&&module.exports?require('./event-editorial.js'):{});
   const HEHUAN=root.NightHehuan||(typeof module!=='undefined'&&module.exports?require('./hehuan.js'):{});
-  const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS,...HEHUAN.ITEMS};
+  const MECHANIST=root.NightMechanist||(typeof module!=='undefined'&&module.exports?require('./mechanist.js'):{});
+  const STORY_FACTIONS=root.NightStoryFactionsV5||(typeof module!=='undefined'&&module.exports?require('./story-factions-v5.js'):{});
+  const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS,...HEHUAN.ITEMS,...MECHANIST.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
@@ -97,7 +99,7 @@
     S35:{name:'剑开云海',cost:2,text:'移除敌人全部护盾，造成10伤害；若敌人仍存活，每实际移除6护盾抽1张，最多抽2张。',attack:true,target:true,category:'blade'},
     S36:{name:'天地一剑',cost:3,text:'消耗全部剑意与御剑层数，造成 20＋3×消耗剑意＋4×消耗御剑的伤害。御剑随后不再自动攻击。消耗。',attack:true,target:true,exhaust:true,rarity:'rare',category:'blade'}
   });
-  Object.assign(CARDS, EXPANSION.CARDS || {}, HEHUAN.CARDS || {});
+  Object.assign(CARDS, EXPANSION.CARDS || {}, HEHUAN.CARDS || {}, MECHANIST.CARDS || {});
   Object.values(CARDS).forEach(card => {
     card.attack = !!card.attack;
     card.exhaust = !!card.exhaust;
@@ -127,6 +129,7 @@
 
   Object.assign(STARTERS, EXPANSION.STARTERS || (EXPANSION.STARTER ? {sovereign: EXPANSION.STARTER} : {}));
   Object.assign(STARTERS, HEHUAN.STARTERS || {});
+  Object.assign(STARTERS, MECHANIST.STARTERS || {});
   for (const starter of Object.values(STARTERS)) starter.character = starter.character || 'assassin';
   const CHARACTERS = {
     assassin: { id: 'assassin', name: '夜铃', profession: '影契刺客', portrait: 'cat', adult: true,
@@ -138,6 +141,7 @@
   };
   Object.assign(CHARACTERS, EXPANSION.CHARACTERS || (EXPANSION.CHARACTER ? {sovereign: EXPANSION.CHARACTER} : {}));
   Object.assign(CHARACTERS, HEHUAN.CHARACTERS || {});
+  Object.assign(CHARACTERS, MECHANIST.CHARACTERS || {});
   const FACTIONS = {
     taiwei: { name: '太微剑宗', motive: '探明失踪同门与反噬边界，阻止灾变外溢。' },
     cult: { name: '玄烬残众', motive: '收回实验残页，掩盖归墟引灵仪失控的证据。' },
@@ -145,6 +149,7 @@
     wanderers: { name: '散修探客', motive: '有人救人，有人寻宝，也有人只等别人先死。' }
   };
   Object.assign(FACTIONS, HEHUAN.FACTION || {});
+  Object.assign(FACTIONS, MECHANIST.FACTION || {});
   const LEGACY_REGIONS = [
     { id: 'fog_gate', name: '雾锁山门', subtitle: '第一幕 · 雾外来客', stages: [1,10], description: '封域边缘尚留着旧山门。各宗弟子从这里入雾，报出的名字未必都是真的。穿过山门，才能抵达断桥诸营。', palette: { sky: '#15232b', ground: '#49626a', accent: '#abd9d1' } },
     { id: 'broken_camp', name: '断桥诸营', subtitle: '第二幕 · 灯下故人', stages: [11,20], description: '断桥两侧，药香、商灯和暗哨混在一起。先前遇过的人已经走到这里；一句承诺，也许比一袋灵石更重。', palette: { sky: '#252019', ground: '#6c5342', accent: '#e4b56e' } },
@@ -234,7 +239,7 @@
     def.weights = (INTENT_WEIGHTS[id] || def.intents.map(() => 1)).slice();
   }
 
-  Object.assign(RELICS, EXPANSION.RELICS || {}, HEHUAN.RELICS || {});
+  Object.assign(RELICS, EXPANSION.RELICS || {}, HEHUAN.RELICS || {}, MECHANIST.RELICS || {});
   const WEAPONS = EXPANSION.WEAPONS || {};
   const ENVIRONMENTS = EXPANSION.ENVIRONMENTS || {};
   Object.assign(ENVIRONMENTS, {
@@ -466,6 +471,7 @@
       return {...w,id,level:p.level,requiredLevel,controlled,omen,text:w.text||''};
     }
     function equipWeapon(id) {
+      if(state.character==='mechanist')return false;
       if(state.screen==='event'&&!state.event?.resolved)return false;
       if(!['map','arrival','rest','shop','event','threshold'].includes(state.screen)||!state.player.weaponInventory.includes(id)||!WEAPONS[id])return false;
       if(id!=='divine'&&state.player.level<(WEAPONS[id].requiredLevel||1)){note('灵识尚不足以驾驭这柄剑。');emit();return false;}
@@ -484,6 +490,7 @@
       item.bought=true;p.gold-=item.price;p.outfitInventory.push(id);note(`「${EXPANSION.OUTFITS[id].name}」已收入衣囊。可在装备中试穿。`);emit();return true;
     }
     function buyWeapon(index) {
+      if(state.character==='mechanist')return false;
       if(state.screen!=='shop'||!Number.isInteger(index))return false;
       const item=state.shop?.weapons?.[index],p=state.player;
       if(!item||item.bought||p.gold<item.price||p.weaponInventory.includes(item.id))return false;
@@ -886,9 +893,9 @@
       return {
         screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
-          hp: character==='hehuan'?56:60, maxHp:character==='hehuan'?56:60, gold:60, faction:character==='hehuan'?'hehuan':null, character, level:1, xp:0, power:0, weaponInventory:['training'], equippedWeapon:'training', outfitInventory:['assassin','sword'].includes(character)?['mist']:[], equippedOutfit:null, questItems:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
+          hp: CHARACTERS[character]?.initialHp||60, maxHp:CHARACTERS[character]?.initialHp||60, gold:60, faction:CHARACTERS[character]?.faction||null, character, level:1, xp:0, power:0, weaponInventory:character==='mechanist'?[]:['training'], equippedWeapon:character==='mechanist'?null:'training', firstMachine:'chengshan', outfitInventory:['assassin','sword'].includes(character)?['mist']:[], equippedOutfit:null, questItems:character==='mechanist'?['mech_case']:[], affliction:{active:false,revealed:false,ticks:0,suppressed:0,source:null}, path:{corruption:0,fallen:false,protected:false,learned:false,uses:0},
           deck: cards.map(makeCard),
-          relics: [character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : character==='hehuan'?'heartmirror':'bell']
+          relics: [CHARACTERS[character]?.initialRelic || (character === 'sword' ? 'frostseal' : character === 'sovereign' ? 'veil' : 'bell')]
         },
         floor: 1, history: [], seenEvents: [], battle: null, reward: null, shop: null, event: null, cave: null, interruption:null,
         journey: { regionIndex: 0, chain: null, step: 0, flags: {}, relationships: {}, journal: [],
@@ -901,7 +908,7 @@
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
-      return {orbit:b.orbit||0,swordFormation:b.swordFormation||0,clearSwordHeart:b.clearSwordHeart||0,silkGuard:b.silkGuard||0,trapPower:b.trapPower||0,drawWard:b.drawWard||0,traps:(b.traps||[]).map(c=>({...c})),breathRemaining:b.breathRemaining||0,breathUsedTurn:b.breathUsedTurn||0,breathRevealedTurn:b.breathRevealedTurn||0,energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
+      return {squad:b.squad?JSON.parse(JSON.stringify(b.squad)):null,orbit:b.orbit||0,swordFormation:b.swordFormation||0,clearSwordHeart:b.clearSwordHeart||0,silkGuard:b.silkGuard||0,trapPower:b.trapPower||0,drawWard:b.drawWard||0,traps:(b.traps||[]).map(c=>({...c})),breathRemaining:b.breathRemaining||0,breathUsedTurn:b.breathUsedTurn||0,breathRevealedTurn:b.breathRevealedTurn||0,energy:b.energy,swordIntent:b.swordIntent,soul:b.soul,played:b.played,nextAttack:b.nextAttack,nextEnergy:b.nextEnergy,nextDraw:b.nextDraw,bellUsed:b.bellUsed,jadeUsed:b.jadeUsed,playerMark:b.playerMark,mark:b.enemy.mark,chill:b.enemy.chill,chillProgress:b.enemy.chillProgress,bleed:b.enemy.bleed,enemyPoison:b.enemy.poison,enemyCounter:b.enemy.counter,enemyHeat:b.enemy.heat||0,enemyId:b.enemy.id,enemyShellUsed:!!b.enemy.shellUsed,enemyJarBroken:!!b.enemy.jarBroken,enemyPowder:!!b.enemy.thinPowder,enemyHesitation:b.enemy.hesitation||0,enemyFrenzyUses:b.enemy.frenzyUses||0,enemyArmorPenalty:!!b.enemy.armorPenalty,enemyRevenge:!!getIntent()?.revengeBonus};
     }
     function event(type, data = {}) {
       const b = state.battle;
@@ -951,6 +958,7 @@
       b.bloodPower = b.riposte = b.pillPower = b.nextEnergyPenalty = b.nextDrawPenalty = 0;
       b.bellUsed = b.jadeUsed = b.frostsealUsed = false;
       b.fangUsed = b.silkUsed = b.bloodstoneUsed = false;
+      if(b.squad){b.squad.drive=0;b.squad.nextDrive=0;b.squad.guardId='player';for(const m of Object.values(b.squad.roster))m.block=0;}
     }
     function defeat() {
       if (['defeat','victory'].includes(state.screen)) return;
@@ -1007,8 +1015,32 @@
         event('relic', { relic: 'bloodstone', name: RELICS.bloodstone.name, amount: 1 });
       }
     }
-    function playerHit(amount, hitIndex) {
+    // The roster is created once per battle. Moving a machine never recreates it.
+    const MACHINE_IDS=['chengshan','mingdi','shiying'];
+    function squad(){return state.battle?.squad||null;}
+    function fieldMachines(){const s=squad();return s?s.slots.map(id=>s.roster[id]).filter(m=>m&&m.hp>0&&m.place==='field'):[];}
+    function machineName(id){return id==='player'?CHARACTERS.mechanist.name:MECHANIST.MACHINES[id]?.name||id;}
+    function squadGuard(id){const s=squad();if(!s)return;const next=id!=='player'&&s.roster[id]?.place==='field'&&s.roster[id].hp>0?id:'player';if(s.guardId!==next){s.guardId=next;event('squadGuard',{unitId:next,name:machineName(next)});log(`护卫转移：由${machineName(next)}接招。`);}}
+    function gainDrive(amount,reason){const s=squad();if(!s||!liveBattle())return 0;const before=s.drive;s.drive=Math.max(0,Math.min(s.driveCap,s.drive+amount));const actual=s.drive-before;event('squadDrive',{amount:actual,requested:amount,total:s.drive,reason});log(`${reason}：驱动${actual>=0?'+':''}${actual}，现有${s.drive}${s.drive===s.driveCap?'（已满）':''}。`);return actual;}
+    function machineBlock(id,amount,reason){const m=squad()?.roster[id];if(!m||m.hp<=0||!liveBattle())return;m.block+=Math.max(0,amount);event('squadBlock',{unitId:id,amount,total:m.block,reason});log(`${machineName(id)}：${reason}，护盾+${amount}（共${m.block}）。`);}
+    function withdrawMachine(id,reason='收回',cooldown=false){const s=squad(),m=s?.roster[id];if(!m)return false;const slot=s.slots.indexOf(id);if(slot>=0)s.slots[slot]=null;m.place='reserve';m.slot=null;m.block=0;if(cooldown)m.readyAtTurn=Math.max(m.readyAtTurn,state.battle.turn+1);if(s.guardId===id)squadGuard('player');event('squadRecall',{unitId:id,name:machineName(id),reason,cooldown});return true;}
+    function deploymentReason(id,replaceId){const b=state.battle,s=squad(),m=s?.roster[id];if(!m)return '没有这具机体。';if(m.place==='field')return '机体已在场。';if(m.hp<=0)return '机体已损坏；检修后须等下一玩家回合。';if(m.readyAtTurn>b.turn)return `机体正在冷却，第${m.readyAtTurn}回合可部署。`;if(m.deployedTurn===b.turn)return '这具机体本回合已经部署过。';if(s.slots.every(Boolean)&&!s.slots.includes(replaceId))return '机位已满，请选择收回哪一具。';if(replaceId&&!s.slots.includes(replaceId))return '被替换机体不在场。';return '';}
+    function deployMachine(id,replaceId,reason='展开'){const why=deploymentReason(id,replaceId);if(why)return false;const b=state.battle,s=squad(),m=s.roster[id];let slot=replaceId?s.slots.indexOf(replaceId):s.slots.indexOf(null);if(replaceId)withdrawMachine(replaceId,'换机收回');s.slots[slot]=id;Object.assign(m,{place:'field',slot,deployedTurn:b.turn,block:0});event('squadDeploy',{unitId:id,name:machineName(id),slot,reason});log(`${reason}：${machineName(id)}进入机位${slot+1}，耐久${m.hp}/${m.maxHp}。`);return true;}
+    function repairMachine(id,amount,reason){const b=state.battle,m=squad()?.roster[id];if(!m||!liveBattle())return 0;const before=m.hp;m.hp=Math.min(m.maxHp,m.hp+amount);if(before===0&&m.hp>0)m.readyAtTurn=Math.max(m.readyAtTurn,b.turn+1);const actual=m.hp-before;event('squadRepair',{unitId:id,amount:actual,total:m.hp,readyAtTurn:m.readyAtTurn,reason});log(`${reason}：${machineName(id)}恢复${actual}耐久${before===0?'，下个玩家回合才能重新展开':''}。`);return actual;}
+    function breakMachine(id,reason,noFeedback=false){const m=squad()?.roster[id];if(!m)return;withdrawMachine(id,reason);event('squadBroken',{unitId:id,name:machineName(id),reason});log(`${machineName(id)}损坏，操控线反馈${noFeedback?'被隔断':'：本体失去3生命'}。`);if(!noFeedback&&liveBattle()){event('selfDamage',{source:id,target:'player',amount:3,damage:3,reason:'机体损坏反馈'});loseLife(3,'操控线损坏反馈（无视护盾）');}}
+    function machineSelfCost(id,amount,reason,noFeedback=false){const m=squad()?.roster[id];if(!m||m.hp<=0)return false;const before=m.hp;m.hp=Math.max(0,m.hp-amount);event('squadDamage',{unitId:id,amount:Math.min(before,amount),damage:Math.min(before,amount),total:m.hp,selfCost:true,reason});if(m.hp===0)breakMachine(id,reason,noFeedback);return liveBattle();}
+    function squadAttack(id,amount,kind='squad',bonus=0){if(!liveBattle())return 0;const b=state.battle,before=b.enemy.hp,previous=b.attackExecutor;b.attackExecutor=id;enemyHit(amount+bonus,0,0,kind);b.attackExecutor=previous;const lost=Math.max(0,before-b.enemy.hp);if(lost>0)b.enemy.hurtDuringPlayerTurn=true;return lost;}
+    function passiveMachine(id){const s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;const n=m.passiveBonus||0;event('squadPassive',{unitId:id,name:machineName(id)});state.battle.enemyCounterUsedForCard=false;if(id==='chengshan')machineBlock(id,4+n,'护城运转');if(id==='mingdi')squadAttack(id,3+n);if(id==='shiying')gainDrive(1+n,'拾萤运转');return true;}
+    function commandMachine(id,extra=false){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;if(!extra&&m.commandTurn===b.turn)return false;m.commandTurn=b.turn;event('squadCommand',{unitId:id,name:machineName(id),extra});b.enemyCounterUsedForCard=false;if(id==='chengshan'){machineBlock(id,8,'承山指令');gainBlock(4,'承山护主');}if(id==='mingdi')squadAttack(id,7);if(id==='shiying'){drawCards(1);if(liveBattle())b.nextEnergy++;}if(liveBattle())squadGuard(id);if(liveBattle()&&s.effects.wingAssist&&id!=='mingdi'&&s.effects.wingTurn!==b.turn&&s.roster.mingdi.place==='field'&&s.roster.mingdi.hp>0){s.effects.wingTurn=b.turn;b.enemyCounterUsedForCard=false;squadAttack('mingdi',4);}return true;}
+    function overloadMachine(id,cardId=null,bonus=0){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;event('squadOverload',{unitId:id,name:machineName(id),cardId});if(!machineSelfCost(id,4,'过载耐久代价'))return false;withdrawMachine(id,'过载退场',true);squadGuard('player');b.enemyCounterUsedForCard=false;if(id==='chengshan'){gainBlock(cardId==='J30'?24:18,'承山过载');if(cardId==='J30')b.nextDraw++;}if(id==='mingdi'){for(let i=0;i<(cardId==='J37'?4:3)&&liveBattle();i++)squadAttack(id,6,cardId?'card':'squad',i===0?bonus:0);}if(id==='shiying'){drawCards(cardId==='J45'?4:3);if(liveBattle())b.nextEnergy+=2;}return true;}
+    function setupSquad(){if(state.character!=='mechanist')return;const level=state.player.level||1,roster={};for(const id of MACHINE_IDS){const maxHp=(MECHANIST.MACHINES[id].hp||MECHANIST.MACHINES[id].maxHp)+level-1;roster[id]={id,hp:maxHp,maxHp,block:0,place:'reserve',slot:null,readyAtTurn:1,deployedTurn:0,commandTurn:0,passiveBonus:0};}state.battle.squad={drive:2,driveCap:6,guardId:'player',slots:[null,null],roster,nextDrive:state.journey.nextDriveAid||0,effects:{extraDrivePerTurn:0,drawWithTwo:0,wallEcho:false,wingAssist:false}};state.journey.nextDriveAid=0;const first=MACHINE_IDS.includes(state.player.firstMachine)?state.player.firstMachine:'chengshan';if(hasRelic('concentric_spool')){const m=roster[first];Object.assign(m,{place:'field',slot:0,deployedTurn:1});state.battle.squad.slots[0]=first;state.battle.squad.guardId=first;event('squadDeploy',{unitId:first,name:machineName(first),reason:'同心线轴免费首发'});}}
+    function setFirstMachine(id){if(state.character!=='mechanist'||!MACHINE_IDS.includes(id)||['battle','defeat','victory'].includes(state.screen))return false;state.player.firstMachine=id;note(`下场首发：${machineName(id)}。`);emit();return true;}
+    function squadDamage(id,amount,hitIndex,counter=false){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.hp<=0)return playerHit(amount,hitIndex,'player',counter);const absorbed=Math.min(m.block,amount);m.block-=absorbed;const remain=Math.max(0,amount-absorbed),damage=Math.min(m.hp,remain),overflow=Math.max(0,remain-m.hp);m.hp-=damage;event('squadDamage',{source:'enemy',target:id,unitId:id,amount,absorbed,damage,overflow,total:m.hp,hitIndex,counter});log(`${machineName(id)}承受${amount}：护盾抵挡${absorbed}，耐久损失${damage}${overflow?'，溢出'+overflow+'打向本体':''}。`);const broken=m.hp===0;if(broken){withdrawMachine(id,'损坏退回');}if(overflow&&!playerHit(overflow,hitIndex,'player',counter))return false;if(broken)breakMachine(id,'敌方攻击');if(!liveBattle())return false;if(damage>0&&!counter&&s.effects.wallEcho){if(s.effects.wallTurn!==b.turn){s.effects.wallTurn=b.turn;gainDrive(1,'城墙回响');}squadAttack(id,3,'machineCounter');}return liveBattle();}
+    function squadAction(action,id=null,replaceId=null){const b=state.battle,s=squad();if(state.screen!=='battle'||!s||b.phase!=='player')return false;const info=getSquadOptions(),entry=action==='charge'?info.charge:info.roster.find(m=>m.id===id)?.actions[action];if(!entry?.available){note(entry?.reason||'这项操作现在不可用。');emit();return false;}if(action==='deploy'&&deploymentReason(id,replaceId)){note(deploymentReason(id,replaceId));emit();return false;}beginEvents();b.phase='resolving';b.energy-=entry.cost||0;if(entry.driveCost)gainDrive(-entry.driveCost,'操作费用');if(action==='charge'){gainDrive(2,'基础充能');squadGuard('player');}if(action==='deploy'){deployMachine(id,replaceId);squadGuard('player');}if(action==='recall'){withdrawMachine(id);squadGuard('player');}if(action==='repair'){repairMachine(id,6,'基础检修');squadGuard('player');}if(action==='command')commandMachine(id);if(action==='overload')overloadMachine(id);if(liveBattle()){b.phase='player';event('resources',{reason:'机匣操作结算完成'});}emit();return true;}
+    function getSquadOptions(){const b=state.battle,s=squad();if(!s)return null;const player=state.screen==='battle'&&b.phase==='player',action=(cost,driveCost,why)=>({available:player&&!why&&b.energy>=cost&&s.drive>=driveCost,reason:!player?'现在不是可操作的玩家阶段。':why||(b.energy<cost?'灵力不足。':s.drive<driveCost?'驱动不足。':''),cost,driveCost});return {drive:s.drive,driveCap:s.driveCap,guardId:s.guardId,firstMachine:state.player.firstMachine,slots:s.slots.slice(),roster:MACHINE_IDS.map(id=>{const m=s.roster[id],field=m.place==='field'&&m.hp>0,base=deploymentReason(id,s.slots.find(Boolean));return {...m,name:machineName(id),passiveText:id==='chengshan'?`运转：自身获得${4+m.passiveBonus}护盾`:id==='mingdi'?`运转：造成${3+m.passiveBonus}伤害`:`运转：获得${1+m.passiveBonus}驱动`,actions:{deploy:action(1,0,base),recall:action(0,0,field?'':'机体未在场。'),repair:action(1,0,m.hp<m.maxHp?'':'耐久已经完整。'),command:action(0,2,!field?'机体未在场。':m.commandTurn===b.turn?'本回合已执行基础指令。':''),overload:action(0,3,field?'':'机体未在场。')}};}),charge:action(1,0,s.drive===s.driveCap?'驱动已满。':'')};}
+    function playerHit(amount, hitIndex, forcedId=null, counter=false) {
       const b = state.battle;
+      const s=squad(),target=forcedId||s?.guardId;if(s&&target&&target!=='player'&&s.roster[target]?.hp>0)return squadDamage(target,amount,hitIndex,counter);
       const absorbed = Math.min(b.block, amount);
       b.block -= absorbed;
       if(b.factionGuardRemaining){const used=Math.min(absorbed,b.factionGuardRemaining);b.factionGuardRemaining-=used;b.factionEffects.find(x=>x.kind==='support').absorbed+=used;}
@@ -1170,7 +1202,8 @@
         else if(rec.outcome==='talk')msg=({gate_boss:'战后，剪灯客隔河喊道：“你买过的那页证词，我仍认。船只接愿意上来的人。”老人仍站在亮处。',camp_boss:'药役把核过的数目念给伤卒听：“问过药去了哪儿，与已经把人救出去，是两回事。”',snake:'采鳞者合上药账：“证词你买走了，药还没卖给你。”病人在井外继续排队，药工仍等着核验新方。',bell_boss:'掘名人指着买去的拓名记录：“这一个名字核过了。可要不要留下，家里还没谈完。”'})[factionGroup.groupBoss]||'对方仍认可当时卖给你的证词，没有把付费听证说成你已替谁完成了委托。';
         else if(rec.outcome==='leave')msg=({gate_boss:'你绕过渡棚以后，剪灯客继续等愿意登船的人，老人留在灯下。没有人把这次渡人记在你的名下。',camp_boss:'你未介入伤卒营，药役自行分配余药，逃卒仍守着侧栅。伤者是否离营，没有确切回信。',snake:'你离开石窟时没有买药或接样。采鳞者继续谈价，药工没有因你路过就减少剂量。',bell_boss:'你没有替这一户停钟。家属与抬棺人仍在商量，掘名人将未核的那一行留白。'})[factionGroup.groupBoss]||'你当时离开了洞府；后来者仍自行处理那件事，未把处置写在你的名下。';
         else if(rec.outcome==='defeated')msg='你取得了「'+factionGroup.proof+'」。对方在关口后认出那份证据：“它是你动手夺走的，我也会把这一点写下。”没有人因此领到和平赠物。';
-        if(msg&&!rec.replyRecorded){if(rec.outcome==='aid'&&factionGroup.opposeOutcome)msg=factionGroup.opposeOutcome+' '+msg;b.factionAftermath=[b.factionAftermath,msg].filter(Boolean).join('\n');recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');rec.replyRecorded=true;}
+        const v5Reply=STORY_FACTIONS.aftermath?.(factionGroup.groupBoss,rec.outcome,state,{itemName:QUEST_ITEMS[factionGroup.aid]?.name,spent:!!f.spent[factionGroup.aid]});if(v5Reply)msg=v5Reply;
+        if(msg&&!rec.replyRecorded){if(!v5Reply&&rec.outcome==='aid'&&factionGroup.opposeOutcome)msg=factionGroup.opposeOutcome+' '+msg;b.factionAftermath=[b.factionAftermath,msg].filter(Boolean).join('\n');recordJourney(null,factionGroup.cave+' · 回声',msg,'neutral');rec.replyRecorded=true;}
       }}
       if (b.kind === 'hidden') {
         if(!profile.unlocks.includes('feiye')){profile.unlocks.push('feiye');if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
@@ -1192,7 +1225,7 @@
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil','heartmirror'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil','heartmirror','concentric_spool'].includes(id) && !hasRelic(id));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -1260,18 +1293,18 @@
       const saved=preventEnemyDeath(),actualLoss=Math.max(0,beforeHp-b.enemy.hp);if(saved)damage=actualLoss;
       if(actualLoss>0&&b.resolving?.length)b.enemy.hurtDuringPlayerTurn=true;
       log(`对${b.enemy.name}造成 ${amount} 点伤害：护盾抵挡 ${absorbed}，生命伤害 ${damage}。`);
-      event('attack', { source:kind==='trap'?'trap':'player',target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind });
+      event('attack', { source:kind==='trap'?'trap':'player',target: 'enemy', amount, absorbed, damage, hitIndex: b.hitIndex++, kind,executor:b.attackExecutor||'player' });
       if(lifeHeal&&actualLoss>0&&state.player.hp>0)heal(lifeHeal,'两清 · 伤及生命');
       if(drainCap&&actualLoss)heal(Math.min(drainCap,actualLoss),'夺生 · 实际生命汲取');
       if (alwaysHeal) heal(alwaysHeal, '血饮');
       if (b.enemy.hp <= 0) {
         if (killingHeal) heal(killingHeal, '噬魂击杀');
         winBattle();
-      } else if (['card','trap'].includes(kind) && damage > 0 && b.enemy.counter > 0 && !b.enemyCounterUsedForCard) {
+      } else if (['card','trap','squad'].includes(kind) && damage > 0 && b.enemy.counter > 0 && !b.enemyCounterUsedForCard) {
         b.enemyCounterUsedForCard = true;
         log(`${b.enemy.name}的架势反击：本张攻击牌首次伤及生命，反击 ${b.enemy.counter} 点。`);
         event('enemySkill', {source:'enemy',target:'player',kind:'counter',amount:b.enemy.counter,name:'架势反击'});
-        playerHit(b.enemy.counter, -1);
+        playerHit(b.enemy.counter, -1, squad()?(b.attackExecutor||'player'):null, true);
       }
     }
     function startPlayerTurn() {
@@ -1279,6 +1312,7 @@
       const b = state.battle;
       b.phase = 'resolving';
       b.turn++;b.enemy.hurtDuringPlayerTurn=false;
+      if(b.squad){for(const m of Object.values(b.squad.roster))m.block=0;const s=b.squad;const amount=(b.turn>1?1:0)+s.effects.extraDrivePerTurn+s.nextDrive;s.nextDrive=0;if(amount)gainDrive(amount,'回合驱动恢复');}
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
       b.block = 0; b.factionGuardRemaining=0;
       b.weaponUsed = false; b.veilUsed = false;b.coreStrikeUsed=false;
@@ -1310,6 +1344,7 @@
       }
       if(environmentEnabled && b.environment.energy && b.turn===1){turnEnergy=Math.max(0,turnEnergy-b.environment.energy);log(`${b.environment.name}：首回合灵力减少${b.environment.energy}。`);event('environment',{name:b.environment.name,amount:-b.environment.energy,kind:'energy'});}
       let draw = 5 + b.nextDraw;
+      if(b.squad&&fieldMachines().length===2)draw+=b.squad.effects.drawWithTwo;
       if (b.nextDrawPenalty) {
         draw = Math.max(0, draw - b.nextDrawPenalty);
         log(`扰心余势：本回合少抽 ${b.nextDrawPenalty} 张牌。`);
@@ -1405,6 +1440,7 @@
       state.player.pendingPillPower = 0;
       state.screen = 'battle';
       state.reward = null;
+      setupSquad();
       startPlayerTurn();
       if(!liveBattle())return;
       const preparation=state.journey.bossQuests?.records[id],quest=BOSS_QUESTS.QUESTS[id];
@@ -1448,6 +1484,7 @@
       activeNode = null;
     }
     function advance() {
+      if(resumeMechanistNode())return;
       if(resumeHehuanNode())return;
       completeNode();
       state.floor++;
@@ -1475,6 +1512,7 @@
       state = freshState('arrival', starter);
       expedition.resetRun();
       if(state.character==='hehuan'){hehuanJourney();recordJourney(null,'这趟，连账一起算',HEHUAN.INITIAL_STORY.join('\n'),'neutral');}
+      if(state.character==='mechanist'){mechanistJourney();recordJourney(null,'先把人找着',MECHANIST.INITIAL_STORY.join('\n'),'neutral');}
       if(talesEnabled)initializeTales();
       if(bossQuestsEnabled)initializeBossQuests();
       activeNode = null;
@@ -1509,6 +1547,13 @@
       state.journey.journal.push({ floor: state.floor, region: state.journey.regionIndex, npc: npc || null, title, text, tone });
     }
     function hehuanJourney(){return state.journey.hehuan||(state.journey.hehuan={stage:0,flags:{},lastOutcome:'',resume:null});}
+    function mechanistJourney(){return state.journey.mechanist||(state.journey.mechanist={stage:0,lastOutcome:'',resume:null});}
+    function beginMechanistStory(node){
+      if(state.character!=='mechanist'||MECHANIST.STORY_IDS?.includes(node.storyId))return false;
+      const j=mechanistJourney(),step=j.stage||0;if(j.resume||step>=3||state.floor<MECHANIST.PERSONAL_SLOTS[step])return false;
+      j.resume={nodeId:node.id,floor:state.floor};state.screen='event';state.event=MECHANIST.buildEvent(MECHANIST.STORY_IDS[step],state);state.event.choices=finishChoices(state.event.choices,state.player);note('先处理路旁的旧机，再继续原来的道路。');return true;
+    }
+    function resumeMechanistNode(){const j=state.journey.mechanist,frame=j?.resume;if(!frame)return false;j.resume=null;activeNode=null;state.screen='map';state.event=null;state.reward=null;state.battle=null;state.floor=frame.floor;enterNode(frame.nodeId);return true;}
     function beginHehuanStory(node){
       if(state.character!=='hehuan'||HEHUAN.STORY_IDS?.includes(node.storyId))return false;
       const j=hehuanJourney(),step=j.stage||0;if(j.resume||step>=3||state.floor<HEHUAN.PERSONAL_SLOTS[step])return false;
@@ -1523,6 +1568,7 @@
       const available = getAvailableNodes();
       const node = available.find(item => item.id === idOrType) || available.find(item => item.type === idOrType);
       if (!node || state.history.some(item => item.floor === state.floor)) return false;
+      if(beginMechanistStory(node)){emit();return true;}
       if(beginHehuanStory(node)){emit();return true;}
       const type = node.type;
       activeNode = node;
@@ -1535,7 +1581,7 @@
       else {
         state.screen = type;
         if (type === 'shop') {
-          state.shop = { outfits:!['assassin','sword'].includes(state.character)?[]:Object.values(EXPANSION.OUTFITS).filter(o=>!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: ['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
+          state.shop = { outfits:!['assassin','sword'].includes(state.character)?[]:Object.values(EXPANSION.OUTFITS).filter(o=>!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons: state.character==='mechanist'?[]:['rime','divine','spirit'].filter(id=>WEAPONS[id]&&!state.player.weaponInventory.includes(id)).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
           state.shop.items = expedition.makeShopStock();
         }
         if (type === 'event') state.event = makeEvent();
@@ -1618,6 +1664,79 @@
     function clearPursuit(amount,reason){const b=state.battle,removed=Math.min(b.playerMark||0,amount);b.playerMark-=removed;event('playerMark',{amount:-removed,total:b.playerMark});log(reason+'：移除追索印'+removed+'层。');return removed;}
     function spendRemainingEnergy(reason){const b=state.battle,n=b.energy;b.energy=0;event('energy',{amount:-n,total:0,reason});return n;}
     function clearOwnBlock(reason){const b=state.battle,n=b.block;b.block=0;event('blockClear',{amount:-n,total:0,reason});return n;}
+    function getSquadCardOptions(uid){
+      const b=state.battle,s=squad(),card=b?.hand.find(c=>c.uid===uid),def=card&&CARDS[card.id];
+      if(!s||!def||def.character!=='mechanist')return null;
+      const fields=fieldMachines(),choices=[],add=(unitId=null,replaceId=null,order=null)=>{const label=order?order.length?order.map(machineName).join(' → '):'本体收招':unitId?machineName(unitId)+(replaceId?'，换下'+machineName(replaceId):''):'本体执行，不选择额外机体';let guardId='player';if(['J02','J03','J06','J15','J20','J25','J26','J27','J31','J33','J34','J35','J38','J39','J41'].includes(card.id))guardId=card.id==='J27'||card.id==='J31'?'chengshan':card.id==='J35'||card.id==='J39'?'mingdi':card.id==='J38'?(fields.some(m=>m.id==='mingdi')?'mingdi':'player'):unitId||'player';if(card.id==='J48')guardId=fields.find(m=>m.id!==unitId)?.id||'player';choices.push({unitId,replaceId,order,label,guardId});};
+      const deploys=(id,required=false)=>{if(s.roster[id].place==='field'){if(required)add(id);return;}if(s.slots.every(Boolean)){for(const old of fields)if(!deploymentReason(id,old.id))add(id,old.id);}else if(!deploymentReason(id))add(id);};
+      if(card.id==='J09'){add();for(const id of MACHINE_IDS)deploys(id);}
+      else if(card.id==='J10'){for(const id of MACHINE_IDS)for(const old of fields)if(s.roster[id].place!=='field'&&!deploymentReason(id,old.id))add(id,old.id);}
+      else if(['J31','J39'].includes(card.id))deploys(card.id==='J31'?'chengshan':'mingdi',true);
+      else if(card.id==='J47'){if(fields.length===2){add(null,null,fields.map(m=>m.id));add(null,null,fields.slice().reverse().map(m=>m.id));}else add(null,null,fields.map(m=>m.id));}
+      else if(card.id==='J48'){if(fields.length===2)for(const m of fields)add(m.id);}
+      else if(['J01','J03','J04'].includes(card.id)){add();for(const m of fields)add(m.id);}
+      else if(card.id==='J02'){add('player');for(const m of fields)add(m.id);}
+      else if(['J11','J12'].includes(card.id))for(const id of MACHINE_IDS)add(id);
+      else if(['J27','J30','J35','J37','J45'].includes(card.id)){const id=['J27','J30'].includes(card.id)?'chengshan':['J35','J37'].includes(card.id)?'mingdi':'shiying';if(s.roster[id].place==='field'&&s.roster[id].hp>0&&(card.id!=='J35'||s.roster[id].hp>2))add(id);}
+      else if(['J06','J13','J14','J15','J20','J25','J26','J29','J33','J34','J41','J44'].includes(card.id)){for(const m of fields)add(m.id);}
+      else add();
+      const reason=b.phase!=='player'?'现在不是可操作的玩家阶段。':b.energy<def.cost?'灵力不足。':s.drive<(def.driveCost||0)?`驱动不足：需要${def.driveCost}，当前${s.drive}。`:card.id==='J17'&&s.drive===s.driveCap?'驱动已经充满。':!choices.length?'没有符合牌面条件的机体或机位。':'';
+      return {available:!reason,reason,choices,cost:def.cost,driveCost:def.driveCost||0};
+    }
+    function playMechanistCard(card,opts,bonus){
+      const b=state.battle,s=squad(),id=opts.unitId,m=s.roster[id],def=CARDS[card.id],hit=(source,n)=>squadAttack(source,n,'card',bonus),bodyBlock=n=>gainBlock(n,def.name);let guard='player';
+      switch(card.id){
+        case 'J01':hit('player',4);if(liveBattle()&&m)machineBlock(id,4,def.name);break;
+        case 'J02':if(id==='player')bodyBlock(6);else machineBlock(id,6,def.name);guard=id;break;
+        case 'J03':hit('player',6);if(liveBattle()&&m){squadAttack(id,3,'card');guard=id;}break;
+        case 'J04':bodyBlock(8);if(m)withdrawMachine(id,def.name);break;
+        case 'J05':gainDrive(1,def.name);drawCards(1);break;
+        case 'J06':hit(id,6);if(liveBattle())passiveMachine(id);guard=id;break;
+        case 'J07':hit('player',6);if(liveBattle())drawCards(1);break;
+        case 'J08':bodyBlock(3);drawCards(1);break;
+        case 'J09':bodyBlock(4);if(id)deployMachine(id,opts.replaceId,def.name);break;
+        case 'J10':deployMachine(id,opts.replaceId,def.name);break;
+        case 'J11':repairMachine(id,6,def.name);break;
+        case 'J12':gainDrive(2,def.name);if(repairMachine(id,3,def.name)>0)drawCards(1);break;
+        case 'J13':repairMachine(id,4,def.name);machineBlock(id,4,def.name);break;
+        case 'J14':{const n=Math.min(12,m.hp);machineSelfCost(id,m.hp,def.name,true);if(liveBattle())bodyBlock(n);break;}
+        case 'J15':{const loss=hit(id,8);if(liveBattle()&&loss>0&&m.hp>0)repairMachine(id,3,def.name);guard=id;break;}
+        case 'J16':for(const key of MACHINE_IDS)repairMachine(key,5,def.name);for(const u of fieldMachines())machineBlock(u.id,5,def.name);break;
+        case 'J17':gainDrive(3,def.name);break;
+        case 'J18':drawCards(2);break;
+        case 'J19':bodyBlock(4);gainDrive(2,def.name);break;
+        case 'J20':hit(id,12);if(liveBattle())machineBlock(id,6,def.name);guard=id;break;
+        case 'J21':b.energy++;event('energy',{amount:1,total:b.energy});break;
+        case 'J22':bodyBlock(4);s.nextDrive+=3;b.nextDraw++;break;
+        case 'J23':s.effects.extraDrivePerTurn++;break;
+        case 'J24':gainDrive(4,def.name);drawCards(2);break;
+        case 'J25':machineBlock(id,id==='chengshan'?10:8,def.name);guard=id;break;
+        case 'J26':bodyBlock(6);if(id==='chengshan')machineBlock(id,6,def.name);guard=id;break;
+        case 'J27':hit('chengshan',12);if(liveBattle())machineBlock('chengshan',8,def.name);guard='chengshan';break;
+        case 'J28':s.roster.chengshan.passiveBonus+=2;break;
+        case 'J29':{const n=Math.min(8,m.block);m.block-=n;event('squadBlock',{unitId:id,amount:-n,total:m.block,reason:def.name});bodyBlock(n+4);break;}
+        case 'J30':overloadMachine('chengshan',card.id,bonus);break;
+        case 'J31':if(m.place!=='field')deployMachine('chengshan',opts.replaceId,def.name);machineBlock('chengshan',6,def.name);guard='chengshan';break;
+        case 'J32':s.effects.wallEcho=true;break;
+        case 'J33':hit(id,id==='mingdi'?10:7);guard=id;break;
+        case 'J34':if(id==='mingdi')stripEnemyBlock(6,def.name);hit(id,6);guard=id;break;
+        case 'J35':if(machineSelfCost('mingdi',2,def.name))hit('mingdi',6);guard='mingdi';break;
+        case 'J36':s.roster.mingdi.passiveBonus+=2;break;
+        case 'J37':overloadMachine('mingdi',card.id,bonus);break;
+        case 'J38':hit('player',6);if(liveBattle()&&s.roster.mingdi.place==='field'&&s.roster.mingdi.hp>0){squadAttack('mingdi',4,'card');guard='mingdi';}break;
+        case 'J39':if(m.place!=='field')deployMachine('mingdi',opts.replaceId,def.name);passiveMachine('mingdi');guard='mingdi';break;
+        case 'J40':s.effects.wingAssist=true;break;
+        case 'J41':machineBlock(id,4,def.name);if(id==='shiying')gainDrive(2,def.name);guard=id;break;
+        case 'J42':s.roster.shiying.passiveBonus++;break;
+        case 'J43':if(loseLife(3,def.name,true))gainDrive(2,def.name);break;
+        case 'J44':withdrawMachine(id,def.name);gainDrive(2,def.name);drawCards(1);break;
+        case 'J45':overloadMachine('shiying',card.id,bonus);break;
+        case 'J46':s.effects.drawWithTwo++;break;
+        case 'J47':{let n=0;for(const key of opts.order||[])if(liveBattle()&&passiveMachine(key))n++;if(liveBattle()&&n===2)drawCards(1);break;}
+        case 'J48':{const other=fieldMachines().find(u=>u.id!==id)?.id;overloadMachine(id);if(liveBattle()&&other)commandMachine(other,true);if(liveBattle())bodyBlock(6);guard=other;break;}
+      }
+      if(liveBattle())squadGuard(guard||'player');
+    }
     function playCard(uid, target = false, recallUid = null) {
       const b = state.battle;
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
@@ -1625,6 +1744,13 @@
       if (index < 0) return false;
       const card = b.hand[index];
       const def = CARDS[card.id];
+      let mechOptions=null;
+      if(def.character==='mechanist'){
+        if(state.character!=='mechanist'||!squad())return false;
+        const legal=getSquadCardOptions(uid),given=recallUid&&typeof recallUid==='object'?recallUid:null;
+        const match=given?legal.choices.find(c=>c.unitId===(given.unitId||null)&&c.replaceId===(given.replaceId||null)&&JSON.stringify(c.order||null)===JSON.stringify(given.order||null)):legal.choices.length===1?legal.choices[0]:legal.choices.find(c=>!c.unitId&&!c.order)||null;
+        if(!legal.available||!match){note(legal.reason||'请选择本牌的机体、机位或运转顺序。');emit();return false;}mechOptions=match;
+      }
       if(card.id.startsWith('D')&&(!state.player.path.learned||state.character!=='sword')){
         note('尚未习得魔修技能，无法使用这张牌。');emit();return false;
       }
@@ -1644,6 +1770,7 @@
       state.notice = '';
       b.phase = 'resolving';
       b.energy -= def.cost;
+      if(mechOptions&&(def.driveCost||0))gainDrive(-def.driveCost,def.name+'费用');
       b.hand.splice(index, 1);
       b.resolving.push(card);
       b.chillCardUid = null;
@@ -1676,7 +1803,8 @@
         if (bonus) log(`首段增伤：第一段伤害增加 ${bonus}。`);
       }
       b.cardBonus=bonus;
-      switch (card.id) {
+      if(mechOptions)playMechanistCard(card,mechOptions,bonus);
+      else switch (card.id) {
         case 'H01': enemyHit(6+bonus);break;
         case 'H02': gainBlock(6,def.name);break;
         case 'H03': enemyHit(4+bonus);if(liveBattle())drawCards(1);break;
@@ -1893,16 +2021,17 @@
       const b = state.battle;
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
       beginEvents();
-      // Lock this action before enemy-start poison/bleed can cross a revenge threshold.
-      if(ENEMIES[b.enemy.id].revenge)b.revengeIntentBonus=getIntent().revengeBonus;
       b.phase = 'enemy';
-      if(b.enemy.id==='m34'&&!b.enemy.hurtDuringPlayerTurn){b.enemy.hesitation=1;observeFactionAbility('未决蓄势');log('未决蓄势：下次攻击首段+2，只储存一次。');event('enemySkill',{source:'enemy',target:'enemy',kind:'hesitation',name:'未决蓄势',amount:2});}
-      // Finalise the only freeze roll here. Reading intent or reopening a panel never rolls again.
-      b.enemy.frozen = (b.enemy.chill || 0) >= 10 ? rng() < .10 : false;
       b.nextAttack = 0;
       b.discard.push(...b.hand);
       b.hand = [];
       b.drawWard=0;
+      if(b.squad){const ids=b.squad.slots.slice();for(const id of ids){if(id&&liveBattle())passiveMachine(id);if(!liveBattle()){emit();return true;}}}
+      // Player-tail machinery resolves before the final enemy action is locked.
+      if(ENEMIES[b.enemy.id].revenge)b.revengeIntentBonus=getIntent().revengeBonus;
+      if(b.enemy.id==='m34'&&!b.enemy.hurtDuringPlayerTurn){b.enemy.hesitation=1;observeFactionAbility('未决蓄势');log('未决蓄势：下次攻击首段+2，只储存一次。');event('enemySkill',{source:'enemy',target:'enemy',kind:'hesitation',name:'未决蓄势',amount:2});}
+      // Finalise the only freeze roll here. Reading intent or reopening a panel never rolls again.
+      b.enemy.frozen = (b.enemy.chill || 0) >= 10 ? rng() < .10 : false;
       if(b.orbit){const amount=state.player.path.fallen?Math.floor(b.orbit/2):b.orbit;b.effectCardId='S19';log('御剑回旋：造成'+amount+'伤害，御剑减少1层。');b.orbit--;enemyHit(amount,0,0,'orbit');delete b.effectCardId;if(!liveBattle()){emit();return true;}}
       note('敌人正在行动……');
       log('结束回合：剩余手牌全部弃置，候机增伤清除。');
@@ -2133,7 +2262,7 @@
       if ((choice.goldCost || 0) > p.gold) return false;
       if ((choice.hpCost || 0) > 0 && p.hp <= choice.hpCost) return false;
       if ((choice.maxHpCost || 0) > 0 && p.maxHp - choice.maxHpCost < 5) return false;
-      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02','F01','F02','H01','H02'].includes(card.id)))) return false;
+      if (choice.removeBasic && (p.deck.length <= 5 || !p.deck.some(card => ['C01','C02','S01','S02','F01','F02','H01','H02','J01','J02'].includes(card.id)))) return false;
       return true;
     }
     function canChooseEvent(index){const e=state.event;if(state.screen!=='event'||!e||e.resolved||!Number.isInteger(index))return false;const c=e.choices[index];return !!c&&!c.locked&&choiceAvailable(c,state.player);}
@@ -2149,6 +2278,8 @@
     }
     function applyEventChoice(choice, p) {
       const received = [];
+      if(choice.nextDriveAid&&state.character==='mechanist'){state.journey.nextDriveAid=(state.journey.nextDriveAid||0)+choice.nextDriveAid;received.push('下场开战额外'+choice.nextDriveAid+'驱动，一次');}
+      if(choice.mechanistItemsRemove&&state.character==='mechanist')p.questItems=p.questItems.filter(id=>!choice.mechanistItemsRemove.includes(id));
       if(choice.hehuanFlags&&state.character==='hehuan')Object.assign(hehuanJourney().flags,choice.hehuanFlags);
       if(choice.hehuanItemsRemove)for(const item of choice.hehuanItemsRemove)p.questItems=p.questItems.filter(id=>id!==item);
       if(choice.returnFactionTools){state.player.questItems=state.player.questItems.filter(id=>!['split_nail','heat_tongs'].includes(id));factionState().invalid.split_nail=true;factionState().invalid.heat_tongs=true;received.push('已退还取谱器物');}
@@ -2167,7 +2298,7 @@
         received.push(`最大生命 −${choice.maxHpCost}`);
       }
       if (choice.removeBasic) {
-        const index = p.deck.findIndex(card => ['C01','C02','S01','S02','F01','F02','H01','H02'].includes(card.id));
+        const index = p.deck.findIndex(card => ['C01','C02','S01','S02','F01','F02','H01','H02','J01','J02'].includes(card.id));
         if (index >= 0) {
           const [card] = p.deck.splice(index, 1);
           received.push(`移除「${CARDS[card.id].name}」`);
@@ -2393,6 +2524,7 @@
     }
     function makeEvent() {
       if(state.character==='hehuan'&&HEHUAN.STORY_IDS?.includes(activeNode?.storyId)){const e=HEHUAN.buildEvent(activeNode.storyId,state);e.choices=finishChoices(e.choices,state.player);return e;}
+      if(state.character==='mechanist'&&MECHANIST.STORY_IDS?.includes(activeNode?.storyId)){const e=MECHANIST.buildEvent(activeNode.storyId,state);e.choices=finishChoices(e.choices,state.player);return e;}
 
       const p = state.player;
       if(!legacyCampaign&&options.factions!==false){const id=activeNode?.storyId;for(const boss of Object.keys(ENEMY_FACTIONS.GROUPS))for(const kind of ['source','cave'])if(id==='faction_'+boss+'_'+kind){factionState();const e=ENEMY_FACTIONS.build(boss,kind,state,activeNode.id);e.choices=finishChoices(e.choices,p);state.seenEvents.push(id);return e;}}
@@ -2666,6 +2798,7 @@
       if (choice.flags) Object.assign(state.journey.flags, choice.flags);
       if(EXPANSION.BLOOD_EVENTS?.[state.event.id])state.journey.flags.bloodChapter=(state.journey.flags.bloodChapter||0)+1;
       if(state.event.hehuanStory){const j=hehuanJourney();j.stage=Math.max(j.stage,state.event.hehuanStory.step);j.lastOutcome=choice.outcome;received.push('个人线索已写入手记');}
+      if(state.event.mechanistStory){const j=mechanistJourney();j.stage=Math.max(j.stage,state.event.mechanistStory.step);j.lastOutcome=choice.outcome;received.push('个人线索已写入手记');}
       if(state.event.bossQuest){
         const {boss,step}=state.event.bossQuest,record=state.journey.bossQuests.records[boss];
         record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;
@@ -2726,11 +2859,13 @@
       const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile()});
       Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
       const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
+      const squadBefore=b.squad?JSON.parse(JSON.stringify(b.squad)):null;
       const previewBattle=shadow.state.battle;
       if(!shadow.playCard(uid,true,recallUid))return {available:false,reason:shadow.state.notice||'此刻无法使用',cost:def.cost};
-      const after=previewBattle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&e.kind==='card').map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage}));
+      const after=previewBattle,events=after.events||[],hits=events.filter(e=>e.type==='attack'&&e.source==='player'&&e.target==='enemy'&&(e.kind==='card'||def.character==='mechanist')).map(e=>({amount:e.amount,absorbed:e.absorbed,damage:e.damage,...(def.character==='mechanist'?{executor:e.executor}:{})}));
       const spent=type=>events.filter(e=>e.type===type&&e.amount<0).reduce((n,e)=>n-e.amount,0);
       return {available:true,cardId:card.id,cost:def.cost,hits,firstHitBonus:def.attack?(after.cardBonus||0):0,firstHitBonusCap:BALANCE.firstHitBonusCap,
+        driveCost:def.driveCost||0,squad:squadBefore?{before:squadBefore,after:JSON.parse(JSON.stringify(after.squad))}:null,guardId:after.squad?.guardId,executor:def.executor,warning:events.some(e=>e.type==='squadBroken')?'本牌会使机体损坏；损坏反馈已计入本体生命预览。':null,
         resources:{before,after:{swordIntent:after.swordIntent||0,soul:after.soul||0,energy:after.energy},spent:{swordIntent:spent('swordIntent'),soul:spent('soul')}},
         enemyHpAfter:after.enemy.hp,enemyDefeated:after.enemy.hp<=0,playerHpAfter:shadow.state.player.hp,playerDefeated:shadow.state.screen==='defeat',
         blockGained:events.filter(e=>e.type==='block'&&e.target==='player').reduce((n,e)=>n+e.amount,0),drawCount:events.filter(e=>e.type==='draw').length,
@@ -2742,12 +2877,13 @@
     expedition.resetRun();
     return {
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
+      squadAction,getSquadOptions,getSquadCardOptions,setFirstMachine,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
       getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 
-  const api = { HEHUAN, EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[]),...(HEHUAN.STORY_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS:[...EVENT_IDS,...(HEHUAN.STORY_IDS||[])], LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { MECHANIST, HEHUAN, EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[]),...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS:[...EVENT_IDS,...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])], LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

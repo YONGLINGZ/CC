@@ -19,6 +19,11 @@ const expandedArt=readJson('dev/cards36-art-manifest.json');
 for(const entry of expandedArt.entries)assert.equal(sha(entry.file),entry.sha256,`stale expanded art: ${entry.file}`);
 const homeArt=readJson('dev/home-art-manifest.json');
 for(const entry of [homeArt.runtime,homeArt.original])assert.equal(sha(entry.file),entry.sha256,`stale home artwork: ${entry.file}`);
+const mechanistArt=readJson('dev/mechanist-art-manifest.json');
+assert.equal(mechanistArt.entries.length,69,'expected 69 new machine-role paintings');
+for(const entry of mechanistArt.entries)assert.equal(sha(entry.file),entry.sha256,`stale machine art: ${entry.file}`);
+const machineBrowser=readJson('dev/mechanist-browser-results.json');
+assert.equal(machineBrowser.failed,0);assert.ok(machineBrowser.passed>=9);
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
@@ -28,8 +33,8 @@ for (const [file, hash] of Object.entries(browser.inputs)) assert.equal(sha(file
 const regression = readJson('dev/v11-regression-results.json');
 assert.equal(regression.engine.failed, 0, 'v11 engine regression failed');
 assert.ok(regression.engine.passed>=529, 'expanded suite must retain prior checks');
-assert.equal(regression.data_contract.cards, 132);
-assert.equal(regression.data_contract.events, 161);
+assert.equal(regression.data_contract.cards, 180);
+assert.equal(regression.data_contract.events, 164);
 assert.equal(regression.data_contract.regions, 7);
 
 for (const file of ['index.html', 'baiyao-standalone.html']) {
@@ -45,6 +50,8 @@ const result = {
   browserChecks: browser.passed,
   regression: regression.engine,
   art: { count: manifest.entries.length, manifest: 'dev/hehuan-art-manifest.json' },
+  mechanistArt: {count:mechanistArt.entries.length,manifest:'dev/mechanist-art-manifest.json'},
+  mechanistBrowserChecks:machineBrowser.passed,
   homeArt: homeArt.runtime,
   artifacts: Object.fromEntries(['index.html', 'baiyao-standalone.html'].map(file => [file, { bytes: fs.statSync(path.join(root, file)).size, sha256: sha(file) }]))
 };

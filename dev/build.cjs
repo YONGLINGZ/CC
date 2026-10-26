@@ -14,7 +14,7 @@ if(outputIndex>=0 && (!args[outputIndex+1] || args[outputIndex+1].startsWith('--
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const script = text => text.replace(/^\s*<script[^>]*>/, '').replace(/<\/script>\s*$/, '').trimEnd();
 const gameData = require('./engine.js');
-const portraitIds = [...new Set(['cat','fox','hehuan','sword_fallen',...Object.keys(gameData.ENEMIES),...Object.keys(gameData.NPCS||{})])];
+const portraitIds = [...new Set(['cat','fox','hehuan','tinglan','sword_fallen',...Object.keys(gameData.ENEMIES),...Object.keys(gameData.NPCS||{})])];
 const cardIds = Object.keys(gameData.CARDS);
 const eventIds = [...new Set([...(gameData.EVENT_ART_IDS || gameData.EVENT_IDS || ['well','shrine','dreamshop','theatre','umbrella','pawnshop']),'fox','rest','shop'])];
 const relicIds = Object.keys(gameData.RELICS);
@@ -46,13 +46,17 @@ resources.factionCombat=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.D
 resources.factionItems=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.ITEMS).map(id=>[id,asset('faction-items',id)]));
 resources.factionScenes=Object.fromEntries(Object.keys(gameData.ENEMY_FACTIONS.GROUPS).map(id=>[id,asset('faction-scenes',id)]));
 resources.puppet.hehuan=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','hehuan-'+id)]));
+resources.puppet.tinglan=Object.fromEntries(['normal','wounded','critical'].map(id=>[id,asset('puppet','tinglan-'+id)]));
+resources.machines=Object.fromEntries(['chengshan','mingdi','shiying'].flatMap(id=>['normal','worn','broken'].map(mode=>[id+'-'+mode,asset('machines',id+'-'+mode)])));
+resources.machineAvatars=Object.fromEntries(['chengshan','mingdi','shiying'].map(id=>[id,asset('machines',id+'-icon')]));
+resources.mechanistItems={case:asset('items','mech_case'),avatar:asset('portraits','tinglan-avatar')};
 resources.puppetRig={};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if((all||args.includes('--strict'))&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
-const release={...JSON.parse(read('release.json')),cards:Object.fromEntries(['assassin','sword','hehuan','sovereign'].map(role=>[role,Object.values(gameData.CARDS).filter(c=>c.character===role&&!c.storyOnly).length])),totalCards:cardIds.length};
+const release={...JSON.parse(read('release.json')),cards:Object.fromEntries(Object.keys(gameData.CHARACTERS).map(role=>[role,Object.values(gameData.CARDS).filter(c=>c.character===role&&!c.storyOnly).length])),totalCards:cardIds.length};
 const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').replace('衣影血誓版',release.name+' '+release.id).trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),script(read('event-editorial.js')),script(read('engine.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('mechanist.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),...['story-v5.js','story-factions-v5.js','story-bosses-v5.js'].filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>script(read(n))),script(read('event-editorial.js')),script(read('engine.js')),ui];
 const html=shell+'\n<script>globalThis.NightRelease='+JSON.stringify(release)+';</script>\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');

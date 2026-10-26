@@ -14,6 +14,9 @@ test('all registered event exports have matching identities, current inputs and 
  assert.notEqual(path.dirname(get('boss_snake_1').file),path.dirname(get('boss_snake_ascended_1').file));
  assert.notEqual(path.dirname(get('boss_feiye_1').file),path.dirname(get('boss_feiye_echo_1').file));
  assert.equal(path.dirname(get('boss_lotus_awake').file),path.dirname(get('boss_lotus_boss_1').file));
+ for(const id of N.MECHANIST.STORY_IDS){const entry=get(id);assert.equal(path.dirname(entry.file),'08_天工院个人线');const variants=JSON.parse(fs.readFileSync(path.join(root,'recovery/events-md-export',entry.file.replace(/\.md$/,'.snapshots.json'))));assert.equal(variants.length,10);assert.ok(variants.every(x=>x.role==='mechanist'));}
+ const shared=get('well'),sharedRows=JSON.parse(fs.readFileSync(path.join(root,'recovery/events-md-export',shared.file.replace(/\.md$/,'.snapshots.json'))));assert.deepEqual([...new Set(sharedRows.map(x=>x.role))].sort(),Object.keys(N.CHARACTERS).sort());
+ for(const file of ['dev/mechanist.js','dev/story-v5.js','dev/story-factions-v5.js','dev/story-bosses-v5.js'])assert.ok(report.inputs[file]);
 });
 test('the automatic-hostility snapshots agree with actual engine transitions, including spent/invalid and dual credentials',()=>{
  const report=JSON.parse(fs.readFileSync(path.join(__dirname,'event-review-results.json')));

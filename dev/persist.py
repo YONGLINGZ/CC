@@ -25,7 +25,7 @@ SOURCE_NAMES = (
     "dev/shell.html", "dev/art.js", "dev/audio.js", "dev/engine.js",
     "dev/ui.js", "dev/build.cjs", "dev/build.py",
     "dev/expansion.js", "dev/expedition.js", "dev/seven.js", "dev/tales.js", "dev/boss-quests.js", "dev/enemy-factions.js",
-    "dev/hehuan.js", "dev/event-editorial.js", "dev/release.json",
+    "dev/hehuan.js", "dev/mechanist.js", "dev/event-editorial.js", "dev/story-v5.js", "dev/story-factions-v5.js", "dev/story-bosses-v5.js", "dev/release.json",
 )
 ASSET_GROUPS = {
     "items": ("clearheart_jade",),

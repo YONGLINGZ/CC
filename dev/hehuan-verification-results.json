@@ -1,19 +1,24 @@
 {
-  "version": "2026.10.25-r36.2",
+  "version": "2026.10.26-j48-v5.1",
   "passed": true,
   "browserChecks": 13,
   "regression": {
-    "passed": 529,
+    "passed": 580,
     "failed": 0,
-    "total": 529,
+    "total": 580,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 310
+    "new_checks": 361
   },
   "art": {
     "count": 44,
     "manifest": "dev/hehuan-art-manifest.json"
   },
+  "mechanistArt": {
+    "count": 69,
+    "manifest": "dev/mechanist-art-manifest.json"
+  },
+  "mechanistBrowserChecks": 9,
   "homeArt": {
     "file": "assets/regions/hanyuan_home.webp",
     "bytes": 379250,
@@ -21,12 +26,12 @@
   },
   "artifacts": {
     "index.html": {
-      "bytes": 954178,
-      "sha256": "021f4f9e94cd62428bb6cc7bb94faa233165be0b55f703755e22c18a762e3f1d"
+      "bytes": 1198775,
+      "sha256": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e"
     },
     "baiyao-standalone.html": {
-      "bytes": 97629788,
-      "sha256": "ab872825a148a0cc283f60db244131bffe9e232dbd03634e6e9628e671a5f976"
+      "bytes": 104183613,
+      "sha256": "ca2ccd355b5ee5e837e5df4f774fa1c98c353a9452880a9ed9c4802a49827cf6"
     }
   }
 }

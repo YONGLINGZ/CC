@@ -1,18 +1,22 @@
 {
-  "count": 161,
-  "snapshots": 1904,
+  "count": 164,
+  "snapshots": 3174,
   "allIdentitiesMatched": true,
   "inputs": {
-    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
     "dev/tales.js": "2be977ffb4db7e20961b5091683e179d781884a494ad4b1a4569f494cb0369af",
     "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
-    "dev/export-events-md.cjs": "746c908e094aa3d2ba3a94af7b2f671e39503a162d9c93449e0c1123a47131fd",
-    "dev/event-editorial.js": "4813035623c9ba82c2e3b8695b7c1cb53ab6fd08db5671fd1495410777b16f90",
+    "dev/export-events-md.cjs": "806f36f55fac9a2e46b3850eb16479e3d77ab4b4e6483eeb5b4f381bdbac8b0a",
+    "dev/event-editorial.js": "ef9e5e0ba2a7be4c4e74cb51319350db89e92ce9c140c86c6ea2d99387d12fb2",
     "dev/events-before-p2.json": "c8499bb6d3b58c74e99a343b6547e4d972da8c9bebf2c3bf1da3930fb4772b4a",
-    "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052"
+    "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
+    "dev/mechanist.js": "aaa552669d60b447812576e237f6899b6c301cd145f1dbfda96e4574c4e78977",
+    "dev/story-v5.js": "91744d02b7592dedff5553f094a64a13adb671b7584c2f69a950f69463f7af09",
+    "dev/story-factions-v5.js": "f97ec4973e3645437b61ea10c1d3ee542f2a7b15f009d667475a7ae4eb9be668",
+    "dev/story-bosses-v5.js": "632049dd568fbcc57ea62bad1eecb5c1e609f8ad80f6f72e216f798eab3f9eeb"
   },
   "events": [
     {
@@ -20,7 +24,7 @@
       "file": "00_基础与固定事件/well__倒映祈愿井.md",
       "name": "倒映祈愿井",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -29,7 +33,7 @@
       "file": "00_基础与固定事件/shrine__无面旧神龛.md",
       "name": "无面旧神龛",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -38,7 +42,7 @@
       "file": "00_基础与固定事件/dreamshop__卖梦人的摊位.md",
       "name": "卖梦人的摊位",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -47,7 +51,7 @@
       "file": "00_基础与固定事件/theatre__纸灯戏台.md",
       "name": "纸灯戏台",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -56,7 +60,7 @@
       "file": "00_基础与固定事件/umbrella__雨夜借伞.md",
       "name": "雨夜借伞",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -65,7 +69,7 @@
       "file": "00_基础与固定事件/pawnshop__蛇鳞当铺.md",
       "name": "蛇鳞当铺",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -74,7 +78,7 @@
       "file": "00_基础与固定事件/riftwatch__封域望哨.md",
       "name": "封域望哨",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -83,7 +87,7 @@
       "file": "00_基础与固定事件/supply__断桥灵商.md",
       "name": "断桥灵商",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -92,7 +96,7 @@
       "file": "00_基础与固定事件/cultlab__逆仪残室.md",
       "name": "逆仪残室",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -101,7 +105,7 @@
       "file": "00_基础与固定事件/swordgrave__寒碑剑冢.md",
       "name": "寒碑剑冢",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -110,7 +114,7 @@
       "file": "00_基础与固定事件/pilgrims__失序行营.md",
       "name": "失序行营",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -119,7 +123,7 @@
       "file": "00_基础与固定事件/prisoner__锁魂囚笼.md",
       "name": "锁魂囚笼",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -128,7 +132,7 @@
       "file": "00_基础与固定事件/echo__异声裂隙.md",
       "name": "异声裂隙",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -137,7 +141,7 @@
       "file": "00_基础与固定事件/broker__千灯密约.md",
       "name": "千灯密约",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -146,7 +150,7 @@
       "file": "00_基础与固定事件/liu_first__药箱旁的求援.md",
       "name": "药箱旁的求援",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -155,7 +159,7 @@
       "file": "00_基础与固定事件/liu_return__青绦再逢.md",
       "name": "青绦再逢",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留此前救人／付钱／指路的不同招呼与报价，补充代价摘要。"
     },
@@ -164,7 +168,7 @@
       "file": "00_基础与固定事件/liu_final__留给你的那盏灯.md",
       "name": "留给你的那盏灯",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留按真实帮助回报，避免新对白捏造相识。"
     },
@@ -173,7 +177,7 @@
       "file": "00_基础与固定事件/ji_first__断剑客的请求.md",
       "name": "断剑客的请求",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -182,7 +186,7 @@
       "file": "00_基础与固定事件/ji_return__灯下验宝.md",
       "name": "灯下验宝",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留展示／隐瞒宝物的真实分支，不预揭对方动机。"
     },
@@ -191,7 +195,7 @@
       "file": "00_基础与固定事件/ji_final__未出的那一剑.md",
       "name": "未出的那一剑",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留实际知情与隐藏动机决定的伏击／让路。"
     },
@@ -200,7 +204,7 @@
       "file": "00_基础与固定事件/wen_first__符锁下的人.md",
       "name": "符锁下的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -209,7 +213,7 @@
       "file": "00_基础与固定事件/wen_return__符息追来时.md",
       "name": "符息追来时",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留解锁与未解锁的追索分支，保留每笔药资。"
     },
@@ -218,7 +222,7 @@
       "file": "00_基础与固定事件/wen_final__留存之证.md",
       "name": "留存之证",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留带证／消印／取药互斥。"
     },
@@ -227,7 +231,7 @@
       "file": "00_基础与固定事件/sect_duel__玄照门的试剑帖.md",
       "name": "玄照门的试剑帖",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -236,7 +240,7 @@
       "file": "00_基础与固定事件/herb_caravan__百草庵的归程.md",
       "name": "百草庵的归程",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "苏芩已有现场动作和直接请求，保留语气及救药条件。"
     },
@@ -245,7 +249,7 @@
       "file": "00_基础与固定事件/relic_dispute__两宗一匣.md",
       "name": "两宗一匣",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -254,7 +258,7 @@
       "file": "00_基础与固定事件/night_watch__同一盏守夜灯.md",
       "name": "同一盏守夜灯",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -263,7 +267,7 @@
       "file": "01_扩展事件/moon_trace__沉钟与旧剑.md",
       "name": "沉钟与旧剑",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -272,7 +276,7 @@
       "file": "01_扩展事件/sealed_name__缺字的残页.md",
       "name": "缺字的残页",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -281,7 +285,7 @@
       "file": "01_扩展事件/moon_vow__无字之誓.md",
       "name": "无字之誓",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -290,7 +294,7 @@
       "file": "01_扩展事件/armory__封存剑匣.md",
       "name": "封存剑匣",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -299,7 +303,7 @@
       "file": "01_扩展事件/sovereign_wake__旧宫无名.md",
       "name": "旧宫无名",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -308,7 +312,7 @@
       "file": "01_扩展事件/sovereign_recall__旧席换主人.md",
       "name": "旧席换主人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -317,7 +321,7 @@
       "file": "01_扩展事件/sovereign_memory__心海未归.md",
       "name": "心海未归",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -326,7 +330,7 @@
       "file": "01_扩展事件/tainted_mercy__雾中求援.md",
       "name": "雾中求援",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -335,7 +339,7 @@
       "file": "05_剑修禁术与异变/demonic_offer__伤口里的低语.md",
       "name": "伤口里的低语",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -344,7 +348,7 @@
       "file": "05_剑修禁术与异变/demonic_warning__剑穗与清心玉.md",
       "name": "剑穗与清心玉",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -353,7 +357,7 @@
       "file": "01_扩展事件/mirror_trial__照心残镜.md",
       "name": "照心残镜",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -362,7 +366,7 @@
       "file": "01_扩展事件/demon_manual__井下残卷.md",
       "name": "井下残卷",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -371,7 +375,7 @@
       "file": "05_剑修禁术与异变/fallen_hunt__故药再逢.md",
       "name": "故药再逢",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -407,7 +411,7 @@
       "file": "01_七境事件/marsh_pharmacy__水上药庐.md",
       "name": "水上药庐",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "药铺报价清楚，保留具体份数并明示物品收入包裹。"
     },
@@ -416,7 +420,7 @@
       "file": "01_七境事件/reed_procession__苇间送行.md",
       "name": "苇间送行",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -425,7 +429,7 @@
       "file": "01_七境事件/drowned_archive__沉底书楼.md",
       "name": "沉底书楼",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "换页、修页、只读题字动作与效果一致，保留。"
     },
@@ -434,7 +438,7 @@
       "file": "01_七境事件/furnace_ledger__焚愿账房.md",
       "name": "焚愿账房",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -443,7 +447,7 @@
       "file": "01_七境事件/captive_smith__炉侧敲声.md",
       "name": "炉侧敲声",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -452,7 +456,7 @@
       "file": "01_七境事件/ash_orchard__灰烬果园.md",
       "name": "灰烬果园",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留可见药性，修正丹药收入包裹与即时治疗混淆。"
     },
@@ -461,7 +465,7 @@
       "file": "01_七境事件/mirror_guest__隔镜来客.md",
       "name": "隔镜来客",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留镜中交易及退出，补充丹药用途。"
     },
@@ -470,7 +474,7 @@
       "file": "01_七境事件/unfinished_portrait__未竟之像.md",
       "name": "未竟之像",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -479,7 +483,7 @@
       "file": "01_七境事件/glass_assembly__琉璃议席.md",
       "name": "琉璃议席",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -488,7 +492,7 @@
       "file": "01_七境事件/fate_tailor__补命针线.md",
       "name": "补命针线",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -497,7 +501,7 @@
       "file": "01_七境事件/silent_astrolabe__停转星盘.md",
       "name": "停转星盘",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     },
@@ -506,7 +510,7 @@
       "file": "01_七境事件/last_campfire__最后一盏营火.md",
       "name": "最后一盏营火",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "无人营火不虚构NPC；保留纸条，明确火符烫伤和奖励。"
     },
@@ -515,7 +519,7 @@
       "file": "02_十套人间故事/debt/tale_debt_1__雨棚下的铜碗.md",
       "name": "雨棚下的铜碗",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -524,7 +528,7 @@
       "file": "02_十套人间故事/debt/tale_debt_2__册页里的鞋印.md",
       "name": "册页里的鞋印",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -533,7 +537,7 @@
       "file": "02_十套人间故事/debt/tale_debt_3__灯下有人还灵石.md",
       "name": "灯下有人还灵石",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -542,7 +546,7 @@
       "file": "02_十套人间故事/medicine/tale_medicine_1__药棚只剩两碗.md",
       "name": "药棚只剩两碗",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -551,7 +555,7 @@
       "file": "02_十套人间故事/medicine/tale_medicine_2__被贴住的药单.md",
       "name": "被贴住的药单",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -560,7 +564,7 @@
       "file": "02_十套人间故事/medicine/tale_medicine_3__没人问出身的长凳.md",
       "name": "没人问出身的长凳",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -569,7 +573,7 @@
       "file": "02_十套人间故事/letter/tale_letter_1__火盆上的封口.md",
       "name": "火盆上的封口",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -578,7 +582,7 @@
       "file": "02_十套人间故事/letter/tale_letter_2__两份不同的抚恤单.md",
       "name": "两份不同的抚恤单",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -587,7 +591,7 @@
       "file": "02_十套人间故事/letter/tale_letter_3__碑上留白.md",
       "name": "碑上留白",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -596,7 +600,7 @@
       "file": "02_十套人间故事/name/tale_name_1__衣领里的玉牌.md",
       "name": "衣领里的玉牌",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -605,7 +609,7 @@
       "file": "02_十套人间故事/name/tale_name_2__同一块牌的两个人.md",
       "name": "同一块牌的两个人",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -614,7 +618,7 @@
       "file": "02_十套人间故事/name/tale_name_3__能够自报名姓.md",
       "name": "能够自报名姓",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -623,7 +627,7 @@
       "file": "02_十套人间故事/lanterns/tale_lanterns_1__灯在向上游.md",
       "name": "灯在向上游",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -632,7 +636,7 @@
       "file": "02_十套人间故事/lanterns/tale_lanterns_2__水里的人不是倒影.md",
       "name": "水里的人不是倒影",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -641,7 +645,7 @@
       "file": "02_十套人间故事/lanterns/tale_lanterns_3__顺流而下的一盏.md",
       "name": "顺流而下的一盏",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -650,7 +654,7 @@
       "file": "02_十套人间故事/grain/tale_grain_1__秤盘里的最后一升.md",
       "name": "秤盘里的最后一升",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -659,7 +663,7 @@
       "file": "02_十套人间故事/grain/tale_grain_2__被算进损耗的人.md",
       "name": "被算进损耗的人",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -668,7 +672,7 @@
       "file": "02_十套人间故事/grain/tale_grain_3__新秤第一次落下.md",
       "name": "新秤第一次落下",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -677,7 +681,7 @@
       "file": "02_十套人间故事/bridge/tale_bridge_1__还在修桥的人.md",
       "name": "还在修桥的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -686,7 +690,7 @@
       "file": "02_十套人间故事/bridge/tale_bridge_2__火把照向桥下.md",
       "name": "火把照向桥下",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -695,7 +699,7 @@
       "file": "02_十套人间故事/bridge/tale_bridge_3__桥有第二个工匠.md",
       "name": "桥有第二个工匠",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -704,7 +708,7 @@
       "file": "02_十套人间故事/forge/tale_forge_1__炉里有人的回声.md",
       "name": "炉里有人的回声",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -713,7 +717,7 @@
       "file": "02_十套人间故事/forge/tale_forge_2__剑胚与姓名.md",
       "name": "剑胚与姓名",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -722,7 +726,7 @@
       "file": "02_十套人间故事/forge/tale_forge_3__炉火照得到的地方.md",
       "name": "炉火照得到的地方",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -731,7 +735,7 @@
       "file": "02_十套人间故事/theatre/tale_theatre_1__没有客人的开场.md",
       "name": "没有客人的开场",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -740,7 +744,7 @@
       "file": "02_十套人间故事/theatre/tale_theatre_2__戏本上不能写的人.md",
       "name": "戏本上不能写的人",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -749,7 +753,7 @@
       "file": "02_十套人间故事/theatre/tale_theatre_3__谁来决定散场.md",
       "name": "谁来决定散场",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -758,7 +762,7 @@
       "file": "02_十套人间故事/well/tale_well_1__井绳磨出的伤.md",
       "name": "井绳磨出的伤",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -767,7 +771,7 @@
       "file": "02_十套人间故事/well/tale_well_2__玉印背面的名字.md",
       "name": "玉印背面的名字",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -776,7 +780,7 @@
       "file": "02_十套人间故事/well/tale_well_3__井边多出来的凳子.md",
       "name": "井边多出来的凳子",
       "identityMatched": true,
-      "snapshots": 27,
+      "snapshots": 45,
       "editorialStatus": "已改写",
       "reviewReason": "保留历史选择开场，加入本阶段当事人对白并核对劳动／交易前提。"
     },
@@ -794,7 +798,7 @@
       "file": "06_途中突发/road_aftermath__雾里忽来车声.md",
       "name": "雾里忽来车声",
       "identityMatched": true,
-      "snapshots": 9,
+      "snapshots": 15,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留首次／受助重遇差异、绕路与护车不同结算。"
     },
@@ -803,7 +807,7 @@
       "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_1__灰里的一把钥匙.md",
       "name": "灰里的一把钥匙",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -812,7 +816,7 @@
       "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_2__留声簧里缺掉的半句.md",
       "name": "留声簧里缺掉的半句",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -821,7 +825,7 @@
       "file": "03_Boss旧事/lotus_boss/boss_lotus_boss_3__门前仍有一双鞋.md",
       "name": "门前仍有一双鞋",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -830,7 +834,7 @@
       "file": "03_Boss旧事/gate_boss/boss_gate_boss_1__渡簿上的空白.md",
       "name": "渡簿上的空白",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -839,7 +843,7 @@
       "file": "03_Boss旧事/gate_boss/boss_gate_boss_2__最后一寸归灯芯.md",
       "name": "最后一寸归灯芯",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -848,7 +852,7 @@
       "file": "03_Boss旧事/gate_boss/boss_gate_boss_3__一盏不必再等的灯.md",
       "name": "一盏不必再等的灯",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -857,7 +861,7 @@
       "file": "03_Boss旧事/camp_boss/boss_camp_boss_1__营外的欠命簿.md",
       "name": "营外的欠命簿",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -866,7 +870,7 @@
       "file": "03_Boss旧事/camp_boss/boss_camp_boss_2__不再发号施令的印.md",
       "name": "不再发号施令的印",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -875,7 +879,7 @@
       "file": "03_Boss旧事/camp_boss/boss_camp_boss_3__誓言留给谁.md",
       "name": "誓言留给谁",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -884,7 +888,7 @@
       "file": "03_Boss旧事/snake/boss_snake_1__药摊后的试方簿.md",
       "name": "药摊后的试方簿",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -893,7 +897,7 @@
       "file": "03_Boss旧事/snake/boss_snake_2__不该拿去抵债的旧鳞.md",
       "name": "不该拿去抵债的旧鳞",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -902,7 +906,7 @@
       "file": "03_Boss旧事/snake/boss_snake_3__蛇息前的一缕药香.md",
       "name": "蛇息前的一缕药香",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -911,7 +915,7 @@
       "file": "03_Boss旧事/bell_boss/boss_bell_boss_1__没有写进丧帖的人.md",
       "name": "没有写进丧帖的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -920,7 +924,7 @@
       "file": "03_Boss旧事/bell_boss/boss_bell_boss_2__敲钟人的手还在发抖.md",
       "name": "敲钟人的手还在发抖",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -929,7 +933,7 @@
       "file": "03_Boss旧事/bell_boss/boss_bell_boss_3__钟停之前的一次呼吸.md",
       "name": "钟停之前的一次呼吸",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -938,7 +942,7 @@
       "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_1__刻错的水位.md",
       "name": "刻错的水位",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -947,7 +951,7 @@
       "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_2__只救一人的绳.md",
       "name": "只救一人的绳",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -956,7 +960,7 @@
       "file": "03_Boss旧事/marsh_boss/boss_marsh_boss_3__月珠里退不了的潮.md",
       "name": "月珠里退不了的潮",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -965,7 +969,7 @@
       "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_1__替母亲签下的年岁.md",
       "name": "替母亲签下的年岁",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -974,7 +978,7 @@
       "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_2__守炉人的私藏.md",
       "name": "守炉人的私藏",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -983,7 +987,7 @@
       "file": "03_Boss旧事/furnace_boss/boss_furnace_boss_3__有些愿望不能代许.md",
       "name": "有些愿望不能代许",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -992,7 +996,7 @@
       "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_1__被修掉的伤疤.md",
       "name": "被修掉的伤疤",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1001,7 +1005,7 @@
       "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_2__照不出人的镜背.md",
       "name": "照不出人的镜背",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1010,7 +1014,7 @@
       "file": "03_Boss旧事/mirror_boss/boss_mirror_boss_3__不必挑一张好看的脸.md",
       "name": "不必挑一张好看的脸",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1019,7 +1023,7 @@
       "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_1__账页外的孩子.md",
       "name": "账页外的孩子",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1028,7 +1032,7 @@
       "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_2__没有归属的空印.md",
       "name": "没有归属的空印",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1037,7 +1041,7 @@
       "file": "03_Boss旧事/abyss_boss/boss_abyss_boss_3__最后一笔不替谁签.md",
       "name": "最后一笔不替谁签",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1046,7 +1050,7 @@
       "file": "03_Boss旧事/feiye/boss_feiye_1__借出去的名字.md",
       "name": "借出去的名字",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1055,7 +1059,7 @@
       "file": "03_Boss旧事/feiye/boss_feiye_2__不肯熄灭的灯结.md",
       "name": "不肯熄灭的灯结",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1064,7 +1068,7 @@
       "file": "03_Boss旧事/feiye/boss_feiye_3__还给井外的人.md",
       "name": "还给井外的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1073,7 +1077,7 @@
       "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_1__同一封回信.md",
       "name": "同一封回信",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1082,7 +1086,7 @@
       "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_2__替身记得的人.md",
       "name": "替身记得的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1091,7 +1095,7 @@
       "file": "03_Boss旧事/feiye_echo/boss_feiye_echo_3__谁来履行剩下的话.md",
       "name": "谁来履行剩下的话",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1100,7 +1104,7 @@
       "file": "03_Boss旧事/retainer/boss_retainer_1__只许入不许出的门.md",
       "name": "只许入不许出的门",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1109,7 +1113,7 @@
       "file": "03_Boss旧事/retainer/boss_retainer_2__一枚可以退还的铜环.md",
       "name": "一枚可以退还的铜环",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1118,7 +1122,7 @@
       "file": "03_Boss旧事/retainer/boss_retainer_3__留下不必先被锁住.md",
       "name": "留下不必先被锁住",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1127,7 +1131,7 @@
       "file": "03_Boss旧事/heart/boss_heart_1__一张没有盖印的纸.md",
       "name": "一张没有盖印的纸",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1136,7 +1140,7 @@
       "file": "03_Boss旧事/heart/boss_heart_2__醒来后仍得记得.md",
       "name": "醒来后仍得记得",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1145,7 +1149,7 @@
       "file": "03_Boss旧事/heart/boss_heart_3__让犹豫有一个位置.md",
       "name": "让犹豫有一个位置",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1154,7 +1158,7 @@
       "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_1__两种字迹的药注.md",
       "name": "两种字迹的药注",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1163,7 +1167,7 @@
       "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_2__鳞片最里的一点白.md",
       "name": "鳞片最里的一点白",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1172,7 +1176,7 @@
       "file": "03_Boss旧事/snake_ascended/boss_snake_ascended_3__深井不是借口.md",
       "name": "深井不是借口",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "已改写",
       "reviewReason": "改为当事人直接对白、对应物证与具体准备结果；保留原条件。"
     },
@@ -1181,7 +1185,7 @@
       "file": "03_Boss旧事/lotus_boss/boss_lotus_awake__茶凉之前，请先救活着的人.md",
       "name": "茶凉之前，请先救活着的人",
       "identityMatched": true,
-      "snapshots": 3,
+      "snapshots": 5,
       "editorialStatus": "保留并精修说明",
       "reviewReason": "保留双物证且亲历旧事才唤醒的四种善后；不新增无条件劝退。"
     },
@@ -1190,7 +1194,7 @@
       "file": "04_阵营洞府/lotus_boss/faction_lotus_boss_source__朱漆门牌下.md",
       "name": "朱漆门牌下",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1199,7 +1203,7 @@
       "file": "04_阵营洞府/lotus_boss/faction_lotus_boss_cave__灰宅外的拆匣洞.md",
       "name": "灰宅外的拆匣洞",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1208,7 +1212,7 @@
       "file": "04_阵营洞府/furnace_boss/faction_furnace_boss_source__愿帖上的空位.md",
       "name": "愿帖上的空位",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1217,7 +1221,7 @@
       "file": "04_阵营洞府/furnace_boss/faction_furnace_boss_cave__熄炉洞中的拾灰人.md",
       "name": "熄炉洞中的拾灰人",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1226,7 +1230,7 @@
       "file": "04_阵营洞府/gate_boss/faction_gate_boss_source__灯链断处.md",
       "name": "灯链断处",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1235,7 +1239,7 @@
       "file": "04_阵营洞府/gate_boss/faction_gate_boss_cave__不点灯的渡棚.md",
       "name": "不点灯的渡棚",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1244,7 +1248,7 @@
       "file": "04_阵营洞府/camp_boss/faction_camp_boss_source__军令与药箱.md",
       "name": "军令与药箱",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1253,7 +1257,7 @@
       "file": "04_阵营洞府/camp_boss/faction_camp_boss_cave__堤下伤卒营.md",
       "name": "堤下伤卒营",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1262,7 +1266,7 @@
       "file": "04_阵营洞府/snake/faction_snake_source__井沿的两张方子.md",
       "name": "井沿的两张方子",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1271,7 +1275,7 @@
       "file": "04_阵营洞府/snake/faction_snake_cave__秤鳞石窟.md",
       "name": "秤鳞石窟",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1280,7 +1284,7 @@
       "file": "04_阵营洞府/bell_boss/faction_bell_boss_source__尚未系上的名字.md",
       "name": "尚未系上的名字",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1289,7 +1293,7 @@
       "file": "04_阵营洞府/bell_boss/faction_bell_boss_cave__无钟墓室.md",
       "name": "无钟墓室",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1298,7 +1302,7 @@
       "file": "04_阵营洞府/marsh_boss/faction_marsh_boss_source__潮尺停下的地方.md",
       "name": "潮尺停下的地方",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1307,7 +1311,7 @@
       "file": "04_阵营洞府/marsh_boss/faction_marsh_boss_cave__干堤底舱.md",
       "name": "干堤底舱",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1316,7 +1320,7 @@
       "file": "04_阵营洞府/mirror_boss/faction_mirror_boss_source__镜面上被擦掉的伤.md",
       "name": "镜面上被擦掉的伤",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1325,7 +1329,7 @@
       "file": "04_阵营洞府/mirror_boss/faction_mirror_boss_cave__剥银作坊.md",
       "name": "剥银作坊",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1334,7 +1338,7 @@
       "file": "04_阵营洞府/abyss_boss/faction_abyss_boss_source__命册旁的一栏空白.md",
       "name": "命册旁的一栏空白",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1343,7 +1347,7 @@
       "file": "04_阵营洞府/abyss_boss/faction_abyss_boss_cave__命册外的驿台.md",
       "name": "命册外的驿台",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1352,7 +1356,7 @@
       "file": "04_阵营洞府/feiye/faction_feiye_source__祠前待还的名帖.md",
       "name": "祠前待还的名帖",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1361,7 +1365,7 @@
       "file": "04_阵营洞府/feiye/faction_feiye_cave__无名祠堂.md",
       "name": "无名祠堂",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1370,7 +1374,7 @@
       "file": "04_阵营洞府/feiye_echo/faction_feiye_echo_source__两封同笔迹的信.md",
       "name": "两封同笔迹的信",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1379,7 +1383,7 @@
       "file": "04_阵营洞府/feiye_echo/faction_feiye_echo_cave__双信洞.md",
       "name": "双信洞",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1388,7 +1392,7 @@
       "file": "04_阵营洞府/retainer/faction_retainer_source__灯锁与门后的声音.md",
       "name": "灯锁与门后的声音",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1397,7 +1401,7 @@
       "file": "04_阵营洞府/retainer/faction_retainer_cave__只向内开的门.md",
       "name": "只向内开的门",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1406,7 +1410,7 @@
       "file": "04_阵营洞府/heart/faction_heart_source__仍未落下的印.md",
       "name": "仍未落下的印",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1415,7 +1419,7 @@
       "file": "04_阵营洞府/heart/faction_heart_cave__未落印的石室.md",
       "name": "未落印的石室",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1424,7 +1428,7 @@
       "file": "04_阵营洞府/snake_ascended/faction_snake_ascended_source__黑潮边的一片白鳞.md",
       "name": "黑潮边的一片白鳞",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1433,7 +1437,7 @@
       "file": "04_阵营洞府/snake_ascended/faction_snake_ascended_cave__井壁白鳞窟.md",
       "name": "井壁白鳞窟",
       "identityMatched": true,
-      "snapshots": 42,
+      "snapshots": 70,
       "editorialStatus": "已改写",
       "reviewReason": "按组区分当事人、公开凭证风险、实际委托与洞府处置。"
     },
@@ -1463,6 +1467,33 @@
       "snapshots": 5,
       "editorialStatus": "新增角色事件",
       "reviewReason": "晏绮罗个人剧情，按实际营救、证词与账册处置显示分支；不覆盖原地图节点。"
+    },
+    {
+      "id": "tinglan_bridge",
+      "file": "08_天工院个人线/tinglan_bridge__桥口的旧机.md",
+      "name": "桥口的旧机",
+      "identityMatched": true,
+      "snapshots": 10,
+      "editorialStatus": "已改写",
+      "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "tinglan_seal",
+      "file": "08_天工院个人线/tinglan_seal__院里的封存令.md",
+      "name": "院里的封存令",
+      "identityMatched": true,
+      "snapshots": 10,
+      "editorialStatus": "已改写",
+      "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
+    },
+    {
+      "id": "tinglan_record",
+      "file": "08_天工院个人线/tinglan_record__该留下什么记录.md",
+      "name": "该留下什么记录",
+      "identityMatched": true,
+      "snapshots": 10,
+      "editorialStatus": "已改写",
+      "reviewReason": "改写现场、直接请求与已知代价；保留原数值及历史前提。"
     }
   ]
 }

@@ -42,10 +42,10 @@ function atNode(type, floor) {
 }
 function battleCards(b) { return [...b.hand, ...b.draw, ...b.discard, ...b.exhaust, ...b.resolving]; }
 
-test('数据完整：76 卡、25 敌人、15 遗物及隔离的三章三十步路线地图', () => {
-  assert.equal(Object.keys(CARDS).length, 132);
+test('数据完整：180 卡、62 敌人、17 遗物及隔离的三章三十步路线地图', () => {
+  assert.equal(Object.keys(CARDS).length, 180);
   assert.equal(Object.keys(ENEMIES).length, 62);
-  assert.equal(Object.keys(RELICS).length, 16);
+  assert.equal(Object.keys(RELICS).length, 17);
   assert.equal(FLOORS.length, 30);
   assert.ok(FLOORS.flat().length>=120);assert.ok(FLOORS.every(row=>row.length>0));
   for (const definition of Object.values(CARDS)) {
@@ -275,7 +275,7 @@ test('精英给予 35 灵石及未持有遗物，重复领取不生效', () => {
 });
 
 test('精英遗物全部持有时额外 20 灵石，不重复给遗物', () => {
-  const game=atNode('elite',4); game.state.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal','veil','heartmirror'].includes(id)));
+  const game=atNode('elite',4); game.state.player.relics.push(...Object.keys(RELICS).filter(id=>!['bell','fox','frostseal','veil','heartmirror','concentric_spool'].includes(id)));
   forceWin(game); assert.equal(game.state.reward.gold,55); assert.equal(game.state.player.gold,115);
   assert.equal(game.state.reward.relic,null); assert.equal(game.state.reward.relicPending,false); assert.equal(game.state.player.relics.length,12);
 });
@@ -454,7 +454,7 @@ test('失败后重新开始彻底还原生命、牌组、遗物、地图与临�
 });
 
 test('四个职业流派开局各 10 个独立实例，首战真实使用所选职业牌组', () => {
-  for (const [id, starter] of Object.entries(STARTERS).filter(([id])=>!['sovereign','hehuan'].includes(id))) {
+  for (const [id, starter] of Object.entries(STARTERS).filter(([id])=>!['sovereign','hehuan','mechanist'].includes(id))) {
     const game = createGame({campaign:'legacy',scaling:false,environment:false,rng:seeded(9)}); assert.equal(game.newRun(id),true); game.enterRegion();
     const s = game.state;
     assert.equal(s.starter,id); assert.equal(s.player.deck.length,10);

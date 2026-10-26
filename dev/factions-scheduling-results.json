@@ -1,7 +1,7 @@
 {
   "method": "180 connected fast-clear fixtures (three characters, both stances, thirty seeds). Original map links, RNG and story schedules retained; HP and spirit stones explicitly refilled and combat reduced to one or two hits. Reachability, not difficulty or human play.",
   "inputs": {
-    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
     "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9"
   },
@@ -1083,7 +1083,7 @@
           "automatic": true
         },
         {
-          "id": "f54-2",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
@@ -1097,21 +1097,14 @@
           "automatic": true
         },
         {
-          "id": "f64-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "support",
-          "automatic": false
-        },
-        {
-          "id": "f68-2",
-          "boss": "abyss_boss",
+          "id": "f67-2",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "defeated",
-          "automatic": true
+          "outcome": "talk",
+          "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "mark",
@@ -1918,21 +1911,21 @@
           "automatic": true
         },
         {
-          "id": "f64-2",
-          "boss": "abyss_boss",
+          "id": "f66-3",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f68-2",
-          "boss": "abyss_boss",
+          "id": "f67-4",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "mark",
@@ -2569,14 +2562,14 @@
           "automatic": true
         },
         {
-          "id": "f24-1",
+          "id": "f24-2",
           "boss": "lotus_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f28-0",
+          "id": "f28-3",
           "boss": "lotus_boss",
           "kind": "cave",
           "outcome": "defeated",
@@ -2597,42 +2590,49 @@
           "automatic": true
         },
         {
-          "id": "f44-3",
+          "id": "f44-0",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f48-1",
+          "id": "f48-2",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f54-1",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "support",
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "defeated",
           "automatic": true
         },
         {
-          "id": "f67-4",
-          "boss": "feiye",
-          "kind": "cave",
-          "outcome": "talk",
+          "id": "f65-2",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "support",
           "automatic": false
+        },
+        {
+          "id": "f68-1",
+          "boss": "abyss_boss",
+          "kind": "cave",
+          "outcome": "defeated",
+          "automatic": true
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "mark",
@@ -5604,56 +5604,56 @@
           "automatic": false
         },
         {
-          "id": "f38-1",
+          "id": "f38-2",
           "boss": "marsh_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f44-1",
+          "id": "f44-2",
           "boss": "furnace_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-2",
+          "id": "f54-0",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f64-1",
-          "boss": "abyss_boss",
+          "id": "f66-1",
+          "boss": "feiye",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f68-1",
-          "boss": "abyss_boss",
+          "id": "f67-1",
+          "boss": "feiye",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "mark",
@@ -16417,21 +16417,28 @@
           "automatic": false
         },
         {
-          "id": "f58-2",
+          "id": "f58-0",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f67-4",
-          "boss": "feiye",
+          "id": "f64-0",
+          "boss": "abyss_boss",
+          "kind": "source",
+          "outcome": "oppose",
+          "automatic": false
+        },
+        {
+          "id": "f68-2",
+          "boss": "abyss_boss",
           "kind": "cave",
-          "outcome": "talk",
+          "outcome": "aid",
           "automatic": false
         }
       ],
-      "theme": "feiye"
+      "theme": "abyss_boss"
     },
     {
       "starter": "sovereign",
@@ -18050,42 +18057,35 @@
           "automatic": false
         },
         {
-          "id": "f48-2",
+          "id": "f48-1",
           "boss": "furnace_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f54-1",
+          "id": "f54-2",
           "boss": "mirror_boss",
           "kind": "source",
           "outcome": "oppose",
           "automatic": false
         },
         {
-          "id": "f58-1",
+          "id": "f58-2",
           "boss": "mirror_boss",
           "kind": "cave",
           "outcome": "aid",
           "automatic": false
         },
         {
-          "id": "f64-1",
-          "boss": "abyss_boss",
-          "kind": "source",
-          "outcome": "oppose",
-          "automatic": false
-        },
-        {
-          "id": "f68-0",
-          "boss": "abyss_boss",
+          "id": "f67-1",
+          "boss": "feiye",
           "kind": "cave",
-          "outcome": "aid",
+          "outcome": "talk",
           "automatic": false
         }
       ],
-      "theme": "abyss_boss"
+      "theme": "feiye"
     },
     {
       "starter": "sovereign",

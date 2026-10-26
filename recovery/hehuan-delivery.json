@@ -1,15 +1,15 @@
 {
-  "version": "2026.10.25-r36.2",
+  "version": "2026.10.26-j48-v5.1",
   "aliases": [
     "recovery/baiyao-rebuilt.zip"
   ],
   "zip": {
     "file": "recovery/baiyao-hehuan.zip",
-    "bytes": 82011606,
-    "sha256": "df772de20d1c2c085afdf6750e4f5cc78290b1aff1aacd9bdc2df3ad4e851d4e"
+    "bytes": 87818163,
+    "sha256": "c7f643a8a60d364b8ca7dc77c0ce7d31c285abb2e12570d420c7388079dd3cf9"
   },
-  "files": 824,
-  "runtimeArt": 497,
+  "files": 914,
+  "runtimeArt": 567,
   "verification": "dev/hehuan-verification-results.json",
   "humanPlaytest": false,
   "physicalPhoneTested": false,

@@ -8,6 +8,57 @@
   // Every card has its own timbre, gesture, pitch movement and small cast motif.
   // Damage sounds are played by each actual attack event, never by the cast event.
   const PROFILES = Object.freeze({
+    // Mechanical voices use distinct gestures (joint knocks, ratchets, bow
+    // releases, copper shields, lamp relays), as well as individual melodies.
+    // The pulse spacing is part of the design, not an ID-only pitch variant.
+    J01:{name:'牵丝',kind:'mechThread',pitch:680,tail:1220,length:.22,body:168,weight:.16,notes:[340,510,680],rhythm:[0,.047]},
+    J02:{name:'护阵',kind:'mechGuard',pitch:315,tail:740,length:.34,body:105,weight:.19,notes:[315,472,630],rhythm:[0,.066,.112]},
+    J03:{name:'并肩',kind:'mechStrike',pitch:410,tail:1520,length:.29,body:82,weight:.20,notes:[205,410,615],rhythm:[0,.092]},
+    J04:{name:'收线',kind:'mechRetract',pitch:1190,tail:280,length:.31,body:135,weight:.15,notes:[595,446,297],rhythm:[0,.052,.131]},
+    J05:{name:'探机',kind:'mechRelay',pitch:1120,tail:1940,length:.25,body:280,weight:.13,notes:[560,840,1260],rhythm:[0,.032,.107]},
+    J06:{name:'灵弦',kind:'mechThread',pitch:790,tail:2090,length:.37,body:197,weight:.17,notes:[395,592,790,1185],rhythm:[0,.031,.118]},
+    J07:{name:'袖弩',kind:'mechBolt',pitch:2520,tail:820,length:.16,body:210,weight:.15,notes:[420,840,1260],rhythm:[0,.071]},
+    J08:{name:'轻身避锋',kind:'mechThread',pitch:1560,tail:2460,length:.20,body:260,weight:.13,notes:[520,780,1040],rhythm:[0,.023,.075]},
+    J09:{name:'展匣',kind:'mechDeploy',pitch:390,tail:1180,length:.39,body:98,weight:.19,notes:[196,392,588,784],rhythm:[0,.043,.101,.17]},
+    J10:{name:'借位',kind:'mechRelay',pitch:1220,tail:2440,length:.28,body:203,weight:.15,notes:[610,915,457,1220],rhythm:[0,.067,.095,.161]},
+    J11:{name:'急修',kind:'mechRepair',pitch:760,tail:380,length:.26,body:190,weight:.17,notes:[380,570,950],rhythm:[0,.035,.073]},
+    J12:{name:'续榫',kind:'mechRepair',pitch:640,tail:1280,length:.35,body:160,weight:.15,notes:[320,480,640,960],rhythm:[0,.081,.145]},
+    J13:{name:'隔空换件',kind:'mechRepair',pitch:1410,tail:705,length:.30,body:235,weight:.14,notes:[470,705,940],rhythm:[0,.054,.126]},
+    J14:{name:'拆甲救急',kind:'mechGuard',pitch:255,tail:1020,length:.28,body:64,weight:.22,notes:[255,382,510],rhythm:[0,.041,.086,.125]},
+    J15:{name:'以战代修',kind:'mechStrike',pitch:470,tail:1640,length:.36,body:94,weight:.18,notes:[235,470,705,940],rhythm:[0,.058,.174]},
+    J16:{name:'整队',kind:'mechRepair',pitch:880,tail:1760,length:.49,body:220,weight:.17,notes:[440,554,660,880],rhythm:[0,.041,.089,.147,.218]},
+    J17:{name:'注灵',kind:'mechDrive',pitch:285,tail:1140,length:.42,body:95,weight:.17,notes:[285,427,570,855],rhythm:[0,.056,.12]},
+    J18:{name:'改线',kind:'mechRelay',pitch:1840,tail:920,length:.22,body:307,weight:.13,notes:[920,690,1380],rhythm:[0,.027,.089]},
+    J19:{name:'蓄电',kind:'mechDrive',pitch:330,tail:1320,length:.48,body:110,weight:.17,notes:[330,495,660],rhythm:[0,.094,.163]},
+    J20:{name:'释能',kind:'mechBolt',pitch:3240,tail:540,length:.33,body:135,weight:.23,notes:[270,540,1080],rhythm:[0,.034,.087]},
+    J21:{name:'分流',kind:'mechDrive',pitch:840,tail:420,length:.26,body:140,weight:.14,notes:[840,630,420],rhythm:[0,.047,.116]},
+    J22:{name:'超额预充',kind:'mechDrive',pitch:375,tail:2250,length:.44,body:125,weight:.16,notes:[375,562,750,1125],rhythm:[0,.032,.173]},
+    J23:{name:'备用电池',kind:'mechRelay',pitch:930,tail:1860,length:.51,body:155,weight:.15,notes:[310,465,620,930],rhythm:[0,.075,.15,.225]},
+    J24:{name:'同步供能',kind:'mechDrive',pitch:520,tail:2600,length:.53,body:130,weight:.18,notes:[260,520,780,1040],rhythm:[0,.041,.122,.203]},
+    J25:{name:'盾行',kind:'mechGuard',pitch:280,tail:1120,length:.38,body:70,weight:.21,notes:[280,420,560],rhythm:[0,.083]},
+    J26:{name:'护主',kind:'mechGuard',pitch:350,tail:700,length:.43,body:87,weight:.20,notes:[350,525,700],rhythm:[0,.052,.158]},
+    J27:{name:'撼地',kind:'mechStrike',pitch:240,tail:960,length:.47,body:48,weight:.25,notes:[120,240,480],rhythm:[0,.046,.104]},
+    J28:{name:'不动榫',kind:'mechRepair',pitch:450,tail:900,length:.37,body:112,weight:.17,notes:[225,450,675],rhythm:[0,.101,.147]},
+    J29:{name:'卸力',kind:'mechRetract',pitch:1430,tail:357,length:.41,body:179,weight:.16,notes:[715,536,357],rhythm:[0,.074,.13]},
+    J30:{name:'山门不倒',kind:'mechOverload',pitch:170,tail:1360,length:.69,body:42,weight:.25,notes:[170,255,510,1020],rhythm:[0,.043,.122,.214]},
+    J31:{name:'顶梁换柱',kind:'mechDeploy',pitch:320,tail:960,length:.45,body:80,weight:.22,notes:[160,320,480,640],rhythm:[0,.032,.116,.192]},
+    J32:{name:'城墙回响',kind:'mechGuard',pitch:220,tail:1540,length:.57,body:55,weight:.21,notes:[220,440,660,880],rhythm:[0,.077,.154,.231]},
+    J33:{name:'引雷',kind:'mechBolt',pitch:3860,tail:1130,length:.24,body:188,weight:.18,notes:[565,847,1130],rhythm:[0,.034,.068]},
+    J34:{name:'贯羽',kind:'mechBolt',pitch:4240,tail:1060,length:.19,body:177,weight:.19,notes:[530,795,1590],rhythm:[0,.046]},
+    J35:{name:'追电',kind:'mechBolt',pitch:4680,tail:1560,length:.29,body:195,weight:.20,notes:[780,1170,1560],rhythm:[0,.025,.102]},
+    J36:{name:'翼骨校准',kind:'mechRepair',pitch:1260,tail:2520,length:.42,body:210,weight:.15,notes:[420,630,840,1260],rhythm:[0,.063,.112,.185]},
+    J37:{name:'雷羽齐发',kind:'mechOverload',pitch:725,tail:4350,length:.63,body:121,weight:.24,notes:[362,725,1087,1450],rhythm:[0,.037,.074,.111]},
+    J38:{name:'放线追击',kind:'mechThread',pitch:1720,tail:3440,length:.32,body:215,weight:.18,notes:[430,860,1290],rhythm:[0,.092,.138]},
+    J39:{name:'抢先起飞',kind:'mechDeploy',pitch:1065,tail:3195,length:.27,body:178,weight:.17,notes:[355,710,1065],rhythm:[0,.027,.061]},
+    J40:{name:'双翼协作',kind:'mechRelay',pitch:1340,tail:2680,length:.46,body:223,weight:.16,notes:[335,670,1005,1340],rhythm:[0,.043,.137,.183]},
+    J41:{name:'提灯',kind:'mechLamp',pitch:620,tail:1240,length:.40,body:155,weight:.16,notes:[310,465,620,930],rhythm:[0,.071,.124]},
+    J42:{name:'灵芯校准',kind:'mechLamp',pitch:735,tail:2205,length:.45,body:184,weight:.14,notes:[367,551,735],rhythm:[0,.058,.147]},
+    J43:{name:'借火',kind:'mechBlood',pitch:210,tail:1260,length:.43,body:70,weight:.19,notes:[210,315,630],rhythm:[0,.16,.221]},
+    J44:{name:'回收工序',kind:'mechRetract',pitch:1610,tail:402,length:.38,body:201,weight:.16,notes:[805,603,402,201],rhythm:[0,.038,.097,.153]},
+    J45:{name:'万机归流',kind:'mechOverload',pitch:555,tail:3330,length:.72,body:111,weight:.23,notes:[277,555,832,1665],rhythm:[0,.066,.132,.198]},
+    J46:{name:'同心机匣',kind:'mechLamp',pitch:825,tail:1650,length:.55,body:165,weight:.17,notes:[330,495,660,990],rhythm:[0,.052,.104,.208]},
+    J47:{name:'顺序调度',kind:'mechRelay',pitch:1510,tail:2265,length:.36,body:252,weight:.15,notes:[503,755,1006,1510],rhythm:[0,.104,.142,.246]},
+    J48:{name:'天工合击',kind:'mechOverload',pitch:430,tail:3440,length:.78,body:54,weight:.26,notes:[215,430,860,1290],rhythm:[0,.049,.147,.245] },
     S17: {"name":"万剑归宗","kind":"swordstorm","pitch":427,"tail":1843,"length":0.24,"body":71,"weight":0.16,"notes":[271,413,641]},
     S18: {"name":"一剑开天门","kind":"swordstorm","pitch":456,"tail":1890,"length":0.263,"body":74,"weight":0.16,"notes":[284,430,660]},
     S19: {"name":"御剑出鞘","kind":"sword","pitch":485,"tail":1937,"length":0.286,"body":77,"weight":0.16,"notes":[297,447,679]},
@@ -142,6 +193,9 @@
     S16: { name:'万川归寂', kind:'swordstorm', pitch:1568, tail:4704, length:.72, body:98, weight:.25, notes:[392,784,1175,1568,2349] }
   });
   const ENCOUNTERS = Object.freeze({
+    tinglan_bridge:{name:'桥口的旧机',notes:[196,294,588,784],kind:'wood',air:710},
+    tinglan_seal:{name:'院里的封存令',notes:[220,330,415,660],kind:'chain',air:1360},
+    tinglan_record:{name:'该留下什么记录',notes:[262,393,524,786],kind:'steel',air:2010},
     hehuan_checkpoint:{name:'门前盘查',notes:[293,440,587],kind:'chain',air:1370},
     hehuan_qinheng:{name:'账册旁的活人',notes:[349,466,698],kind:'wood',air:1150},
     hehuan_ledger:{name:'账册交给谁',notes:[392,523,784],kind:'echo',air:1680},
@@ -304,8 +358,88 @@
       at,delay:i*.016,level:level/[1,3.5,7][i],end:freq*ratio*1.004,attack:.004
     }));
   }
+  // A wood/copper mechanism has a latch before its sustained action. Sparse
+  // ring-outs and dry ratchets stay distinct from sword, claw and blood voices.
+  function mechanicalSignature(bus,p,phase,hitIndex,t){
+    const s=1+clamp(hitIndex,0,6)*.035,w=p.weight*(phase==='cast'?.55:1),d=p.length*(phase==='cast'?.62:1),pitch=p.pitch*s;
+    const beats=(p.rhythm||[0,.06]).slice(0,phase==='cast'?2:5);
+    beats.forEach((delay,i)=>{tone(bus,p.body*(i%2?1.7:1),.025+i*.004,{at:t,delay,level:w*.33,wave:'triangle',end:p.body*.75});});
+    if(phase==='cast'){
+      const rising=['mechDrive','mechLamp','mechOverload'].includes(p.kind),falling=p.kind==='mechRetract';
+      tone(bus,pitch,.11,{at:t,level:w*.30,end:pitch*(rising?1.55:falling?.55:1.035),wave:['mechThread','mechLamp'].includes(p.kind)?'sine':'triangle',attack:rising?.015:.002});
+      tone(bus,p.notes.at(-1),.075,{at:t,delay:.04,level:w*.19,end:p.notes[0]});
+      if(['mechBolt','mechDeploy','mechRepair','mechStrike'].includes(p.kind))hiss(bus,pitch*2,.028,{at:t,delay:.015,level:w*.23,end:p.tail});
+      return;
+    }
+    switch(p.kind){
+      case 'mechThread':
+        tone(bus,pitch,d,{at:t,level:w*.34,end:p.tail,wave:'triangle',attack:.004});
+        hiss(bus,2900,d*.45,{at:t,delay:.025,level:w*.32,end:4900});
+        p.notes.forEach((n,i)=>tone(bus,n,.13,{at:t,delay:.035+i*.025,level:w*.14,end:n*.98}));break;
+      case 'mechGuard':
+        tone(bus,p.body,d*.6,{at:t,level:w*.58,end:p.body*.72,wave:'triangle'});
+        steel(bus,pitch,d,w*.36,t+.018);hiss(bus,800,.09,{at:t,level:w*.3,end:290});
+        bell(bus,p.tail,d*.7,w*.2,t+.055);break;
+      case 'mechStrike':
+        tone(bus,p.body,d*.7,{at:t,level:w*.75,end:38});hiss(bus,1250,.075,{at:t,level:w*.58,end:330});
+        steel(bus,pitch,.18,w*.3,t+.021);hiss(bus,p.tail,.065,{at:t,delay:.068,level:w*.24,end:510});break;
+      case 'mechRetract':
+        hiss(bus,pitch,d,{at:t,level:w*.43,end:p.tail,q:1.3,attack:.008});
+        p.notes.forEach((n,i)=>tone(bus,n,.085,{at:t,delay:i*.048,level:w*.2,end:n*.77,wave:'triangle'}));break;
+      case 'mechDeploy':
+        hiss(bus,650,d*.68,{at:t,level:w*.38,end:p.tail,attack:.02});
+        p.notes.forEach((n,i)=>{tone(bus,n,.08,{at:t,delay:(p.rhythm[i]||i*.04)+.015,level:w*.26,wave:'triangle',end:n*.94});});
+        steel(bus,pitch,.15,w*.2,t+d*.54);break;
+      case 'mechRepair':
+        beats.forEach((delay,i)=>{hiss(bus,2800+i*460,.026,{at:t,delay,level:w*.25,end:1300});tone(bus,p.notes[i%p.notes.length],.075,{at:t,delay,level:w*.28,end:p.tail,wave:'triangle'});});
+        bell(bus,p.notes.at(-1),.23,w*.22,t+d*.6);break;
+      case 'mechDrive':
+        tone(bus,pitch,d,{at:t,level:w*.3,end:p.tail,wave:'triangle',attack:.025});
+        tone(bus,pitch*1.018,d*.85,{at:t,delay:.018,level:w*.14,end:p.tail*1.018,attack:.03});
+        beats.forEach((delay,i)=>tone(bus,p.notes[i%p.notes.length],.07,{at:t,delay,level:w*.21,end:p.notes[i%p.notes.length]*1.1}));break;
+      case 'mechBolt':
+        hiss(bus,pitch,d*.6,{at:t,level:w*.65,end:p.tail,q:1.7});
+        tone(bus,p.body,.08,{at:t,level:w*.4,end:p.body*.55,wave:'triangle'});
+        tone(bus,p.notes[1],d*.7,{at:t,delay:.019,level:w*.24,end:p.notes[2]});break;
+      case 'mechRelay':
+        p.notes.forEach((n,i)=>tone(bus,n,.09,{at:t,delay:p.rhythm[i%p.rhythm.length],level:w*.29/(1+i*.16),wave:i%2?'sine':'triangle',end:n*1.025}));
+        hiss(bus,pitch,.043,{at:t,delay:d*.3,level:w*.18,end:p.tail});break;
+      case 'mechLamp':
+        p.notes.forEach((n,i)=>bell(bus,n,d*.8,w*.22/(1+i*.2),t+(p.rhythm[i%p.rhythm.length])));
+        tone(bus,p.body,d,{at:t,level:w*.18,end:p.body*1.5,attack:.025});break;
+      case 'mechBlood':
+        heartbeat(bus,p.body,w*.44,t);tone(bus,pitch,d,{at:t,level:w*.22,end:p.tail,wave:'triangle',attack:.027});
+        hiss(bus,2100,.055,{at:t,delay:.19,level:w*.3,end:4200});break;
+      case 'mechOverload':
+        tone(bus,p.body,d,{at:t,level:w*.46,end:p.body*2,wave:'triangle',attack:.024});
+        hiss(bus,810,d*.8,{at:t,level:w*.36,end:p.tail,attack:.025});
+        p.notes.forEach((n,i)=>steel(bus,n,d*.55,w*.21/(1+i*.15),t+(p.rhythm[i%p.rhythm.length])));
+        hiss(bus,5200,.067,{at:t,delay:d*.42,level:w*.38,end:1700});break;
+    }
+  }
+  const MACHINE_SOUND={chengshan:{pitch:245,body:65,notes:[245,367,490],air:980},mingdi:{pitch:985,body:197,notes:[493,985,1478],air:4100},shiying:{pitch:655,body:164,notes:[328,491,655],air:1980}};
+  function squadSound(bus,event,t){
+    const id=event.unitId||event.executor||'chengshan',m=MACHINE_SOUND[id]||MACHINE_SOUND.chengshan,type=event.type;
+    if(type==='squadDrive'&&event.amount===0)return false;
+    switch(type){
+      case 'squadDeploy':mechanicalSignature(bus,{...PROFILES.J09,pitch:m.pitch,body:m.body,notes:m.notes},'impact',0,t);break;
+      case 'squadRecall':mechanicalSignature(bus,{...PROFILES.J04,pitch:m.pitch*2,tail:m.pitch*.6,body:m.body,notes:[...m.notes].reverse()},'impact',0,t);break;
+      case 'squadRepair':mechanicalSignature(bus,{...PROFILES.J11,pitch:m.pitch*1.4,body:m.body,notes:m.notes},'impact',0,t);break;
+      case 'squadBlock':steel(bus,m.pitch,.20,.07,t);tone(bus,m.body,.08,{at:t,level:.045,end:m.body*.7});break;
+      case 'squadDamage':hiss(bus,m.air,.095,{at:t,level:.115,end:m.air*.37});tone(bus,m.body,.13,{at:t,level:.09,end:m.body*.6,wave:'triangle'});break;
+      case 'squadBroken':hiss(bus,m.air,.26,{at:t,level:.11,end:180});m.notes.slice().reverse().forEach((n,i)=>tone(bus,n,.18,{at:t,delay:i*.06,level:.04,end:n*.5,wave:'triangle'}));break;
+      case 'squadGuard':tone(bus,id==='player'?510:m.pitch,.07,{at:t,level:.035,end:id==='player'?420:m.pitch*1.25,wave:'triangle'});break;
+      case 'squadDrive':mechanicalSignature(bus,event.amount<0?{...PROFILES.J21,notes:[630,420,315]}:PROFILES.J17,'cast',0,t);break;
+      case 'squadPassive':tone(bus,m.body,.04,{at:t,level:.025,wave:'triangle'});tone(bus,m.pitch,.085,{at:t,delay:.024,level:.025,end:m.pitch*1.06});break;
+      case 'squadCommand':mechanicalSignature(bus,{...PROFILES.J10,pitch:m.pitch,body:m.body,notes:m.notes},'cast',0,t);break;
+      case 'squadOverload':mechanicalSignature(bus,{...PROFILES.J30,pitch:m.pitch,body:m.body,notes:m.notes},'cast',0,t);break;
+      default:return false;
+    }
+    return true;
+  }
   function playSignature(bus,p,phase='impact',hitIndex=0,at) {
     const t=finite(at,bus.ctx.currentTime),shift=1+clamp(hitIndex,0,6)*.052,pitch=p.pitch*shift,weight=p.weight;
+    if(p.kind.startsWith('mech'))return mechanicalSignature(bus,p,phase,hitIndex,t);
     if(phase==='cast'){
       if(/^(sword|ice|frost)/.test(p.kind)){
         hiss(bus,3800,.075,{at:t,level:.045,end:6700,attack:.009});
@@ -420,7 +554,7 @@
     }catch(error){state.lastError=String(error&&error.message||error).slice(0,160);state.unlocked=false;return false;}
   }
   function profile(id) {
-    const p=PROFILES[id];return p ? {...p,notes:[...p.notes],signature:[p.kind,p.pitch,p.tail,p.length,p.body,p.weight,...p.notes].join(':')} : null;
+    const p=PROFILES[id];return p ? {...p,notes:[...p.notes],...(p.rhythm?{rhythm:[...p.rhythm]}:{}),signature:[p.kind,p.pitch,p.tail,p.length,p.body,p.weight,...p.notes,...(p.rhythm||[])].join(':')} : null;
   }
   function playCard(id) {
     const p=PROFILES[id];if(!p)return false;
@@ -514,6 +648,7 @@
   function playEvent(event,context={}) {
     if(!event||typeof event!=='object')return false;
     const cardId=event.cardId||context.cardId,type=event.type,p=PROFILES[cardId],payload={...event,cardId};
+    if(type&&type.startsWith('squad'))return withSound(type+':'+(event.unitId||'team'),(bus,t)=>squadSound(bus,event,t));
     if(type==='card')return playCard(cardId);if(type==='trapSet'||type==='trapTrigger')return playCard(event.cardId||cardId);if(type==='breath')return playCue('focus',event);
     if(type==='attack'){
       if(event.source==='enemy'){
@@ -522,6 +657,7 @@
         if(enemy==='lotus_boss')return playCue(/奉茶/.test(intent)?'automatonKettle':/洒扫/.test(intent)?'automatonBroom':/缝衣/.test(intent)?'automatonShears':'automatonPan',payload);
         return playCue(enemy==='snake'?(/蛇息/.test(intent)?'snakeBreath':/绞缠/.test(intent)||event.hitIndex>0?'snakeCoil':'snakeBlade'):(normal[enemy]||'enemyHit'),payload);
       }
+      if(MACHINE_SOUND[event.executor]&&event.kind!=='card')return withSound('machineHit:'+event.executor,(bus,t)=>playSignature(bus,{...PROFILES[event.executor==='mingdi'?'J33':event.executor==='chengshan'?'J27':'J41'],body:MACHINE_SOUND[event.executor].body},'impact',finite(event.hitIndex,0),t));
       return withSound('hit:'+(cardId||event.kind||'claw'),(bus,t)=>{
         playSignature(bus,p||PROFILES.C01,'impact',finite(event.hitIndex,0),t);
         if(event.absorbed>0)bell(bus,1318,.15,.033,t+.015);
@@ -625,8 +761,16 @@
     const rendered=await ctx.startRendering();
     return {sampleRate:rendered.sampleRate,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
   }
+  async function renderSquadOffline(events){
+    const Constructor=root.OfflineAudioContext||root.webkitOfflineAudioContext;
+    if(!Constructor)throw new Error('OfflineAudioContext unavailable');
+    const slot=1.2,sampleRate=44100,ctx=new Constructor(1,Math.ceil(sampleRate*(Math.max(1,events.length)*slot+.6)),sampleRate),measure={peakScheduled:0,sourcesCreated:0,rejectedVoices:0},bus=makeBus(ctx,.30,measure);
+    events.forEach((e,i)=>{bus.sources.clear();if(!squadSound(bus,e,i*slot+.03))throw new Error('Unknown or silent squad event: '+e.type);});
+    const rendered=await ctx.startRendering();return {sampleRate:rendered.sampleRate,channels:[new Float32Array(rendered.getChannelData(0))],...measure};
+  }
   return {unlock,playCard,playEvent,playCue,playEncounter,setMuted,setVolume,getState,preview,profile,
     profiles:Object.freeze(Object.keys(PROFILES)),assassinProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('C'))),
     swordProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('S'))),sovereignProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('F'))),
-    encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline,renderCuesOffline};
+    mechanistProfiles:Object.freeze(Object.keys(PROFILES).filter(id=>id.startsWith('J'))),
+    encounters:Object.freeze(Object.keys(ENCOUNTERS)),renderOffline,renderEncountersOffline,renderCuesOffline,renderSquadOffline};
 });

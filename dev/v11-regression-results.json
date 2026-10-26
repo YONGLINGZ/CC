@@ -1,52 +1,52 @@
 {
   "version": "v11 seven maps, boss roster and audited additive scaling",
   "engine": {
-    "passed": 529,
+    "passed": 580,
     "failed": 0,
-    "total": 529,
+    "total": 580,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 310
+    "new_checks": 361
   },
   "data_contract": {
-    "cards": 132,
+    "cards": 180,
     "enemies": 62,
-    "events": 161,
-    "relics": 16,
+    "events": 164,
+    "relics": 17,
     "regions": 7,
     "totalFloors": 70
   },
   "public_api": {
     "method": "150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Oracle policy reads internal enemy intentions (hidden in the product UI); six new demonic cards use the rule preview. Policy fixed before this run; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.",
     "completed": 150,
-    "wins": 125,
-    "defeats": 25,
+    "wins": 122,
+    "defeats": 28,
     "byProfession": {
       "assassin": {
-        "runs": 50,
-        "wins": 49,
-        "defeats": 1,
-        "winRate": 0.98,
-        "hpMedian": 36,
-        "normalizedHpMedian": 37.09090909090909,
-        "maxHitMedian": 50
-      },
-      "sword": {
-        "runs": 50,
-        "wins": 29,
-        "defeats": 21,
-        "winRate": 0.58,
-        "hpMedian": 26,
-        "normalizedHpMedian": 23.28358208955224,
-        "maxHitMedian": 50
-      },
-      "sovereign": {
         "runs": 50,
         "wins": 47,
         "defeats": 3,
         "winRate": 0.94,
-        "hpMedian": 27,
-        "normalizedHpMedian": 25.573770491803277,
+        "hpMedian": 43,
+        "normalizedHpMedian": 41.81818181818182,
+        "maxHitMedian": 55
+      },
+      "sword": {
+        "runs": 50,
+        "wins": 32,
+        "defeats": 18,
+        "winRate": 0.64,
+        "hpMedian": 27.5,
+        "normalizedHpMedian": 24.31818181818182,
+        "maxHitMedian": 49
+      },
+      "sovereign": {
+        "runs": 50,
+        "wins": 43,
+        "defeats": 7,
+        "winRate": 0.86,
+        "hpMedian": 29,
+        "normalizedHpMedian": 29,
         "maxHitMedian": 49
       }
     },
@@ -56,32 +56,32 @@
   "hidden_api": {
     "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
     "completed": 24,
-    "wins": 17,
-    "defeats": 7,
-    "unlocks": 17,
-    "hidden_challenges": 17,
-    "hidden_wins": 17,
+    "wins": 16,
+    "defeats": 8,
+    "unlocks": 16,
+    "hidden_challenges": 16,
+    "hidden_wins": 16,
     "report": "dev/v11-hidden-playtest-report.json"
   },
   "calibration": {
     "numeric": {
       "overallWinRate": {
-        "actual": 0.8333333333333334,
+        "actual": 0.8133333333333334,
         "min": 0.4,
         "max": 0.6,
         "passed": false
       },
       "survivorHealthMedian": {
-        "actual": 29,
+        "actual": 34,
         "min": 15,
         "max": 25,
         "passed": false
       },
       "professionWinRates": {
         "actual": {
-          "assassin": 0.98,
-          "sword": 0.58,
-          "sovereign": 0.94
+          "assassin": 0.94,
+          "sword": 0.64,
+          "sovereign": 0.86
         },
         "min": 0.25,
         "max": 0.75,
@@ -107,7 +107,7 @@
         "passed": false
       },
       "defendingNetLifeLoss": {
-        "actual": 9,
+        "actual": 8,
         "maxExclusive": 20,
         "passed": true
       }
@@ -116,22 +116,26 @@
     "allProbeGates": false
   },
   "inputs": {
-    "dev/engine.js": "2608c9af1fc581eb18f816a730adb9d2319856628e4cc51f7815d22b139519b0",
+    "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "fba183746427f01c7c68aabf1a6328c9eaafa86d1bd2161fd3536760d9d97fda",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/tales.js": "2be977ffb4db7e20961b5091683e179d781884a494ad4b1a4569f494cb0369af",
     "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
-    "dev/event-editorial.js": "4813035623c9ba82c2e3b8695b7c1cb53ab6fd08db5671fd1495410777b16f90",
+    "dev/event-editorial.js": "ef9e5e0ba2a7be4c4e74cb51319350db89e92ce9c140c86c6ea2d99387d12fb2",
     "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
-    "dev/engine.test.cjs": "8c02f4ef6b506972149efa9280130a5c0bd8a9d6bd54e8f2810e790ba431ff01",
-    "dev/rework.test.cjs": "4217273ef41fc3f517235a8ba7d1ab1a7d40800b5fa2700529e35310abe6b54a",
+    "dev/mechanist.js": "aaa552669d60b447812576e237f6899b6c301cd145f1dbfda96e4574c4e78977",
+    "dev/story-v5.js": "91744d02b7592dedff5553f094a64a13adb671b7584c2f69a950f69463f7af09",
+    "dev/story-factions-v5.js": "f97ec4973e3645437b61ea10c1d3ee542f2a7b15f009d667475a7ae4eb9be668",
+    "dev/story-bosses-v5.js": "632049dd568fbcc57ea62bad1eecb5c1e609f8ad80f6f72e216f798eab3f9eeb",
+    "dev/engine.test.cjs": "a96fb84feb5bc6c8bc1f81f3532a464796b4207e94aba04a078b4d502d62edf4",
+    "dev/rework.test.cjs": "0a54f481a7395621374151c3e4b9d4475ba039a858ac829a24a60b46f41160c2",
     "dev/reward.test.cjs": "848c5034cdd1ca1febec62eaf1383c271e81f47fab78501490cf806cfeffcd1b",
-    "dev/v5-engine.test.cjs": "228576b65e2929462c3a8e48dffed464a9cbbe6ac79c7558a2bdd8169540249c",
+    "dev/v5-engine.test.cjs": "a21b924f792f6cf3002b108d93faec6dce7a05644ae543c9b34cb872c6622e64",
     "dev/v6-engine.test.cjs": "3e2efd711b7ba75eff73f1f25b6810a700f2fffdb1c47645773f9fc1e81967b0",
-    "dev/v7-engine.test.cjs": "3932526b01af745fdf2512adc913a4cdabbce54c7f23b207a140787ab03b9852",
-    "dev/v8-engine.test.cjs": "d2c424d62803b220ddcfd20a836b8401f3efdb6bfba8eeda70ffcc9b58a66bba",
+    "dev/v7-engine.test.cjs": "e773ccf4ee0c5fe1a899d44c62af72cc4206ef65713f7c7bd624773a455630e6",
+    "dev/v8-engine.test.cjs": "048a9d7b30f54c6c41cb34498c394d99ff751277f3e8a959b3a346c8e96aa6a9",
     "dev/v9-engine.test.cjs": "78f0a61a77cddcdf8a0327baf23166fd8b1096b29b809ee061474c9e54a5b91a",
     "dev/v10-combat.test.cjs": "aa792642a887f4ed721c28704828544393732fb7dfc0523c9df5b0dc633083f0",
     "dev/v10-expedition.test.cjs": "84385e15fd9679ff1b5cede0ebc20bcf0cb9a5fe305d107d963f14d57f83c19f",
@@ -140,28 +144,32 @@
     "dev/v11-campaign.test.cjs": "e2e662ddbb8fc30219532b10471feec00141b8af3cb599ecab00739c84b5a108",
     "dev/automaton.test.cjs": "772b8baad4e384c7d2103d8b783b6a2d540e81850877f35adc88e912ac5a2318",
     "dev/batch-a-engine.test.cjs": "7a9ed6c7ffaba7966fc9ab15681b51265d765de130762580d0f3032ee43f3dc6",
-    "dev/tales-engine.test.cjs": "aed6623ac89d10a3e27477e167898898acc2c0f6762fc4f6b494f893edb1510a",
-    "dev/boss-quests.test.cjs": "7e2b241114bffe9e1e6507fcbd38fa21bbc52bfffca2ac0bb7fc82b623398672",
+    "dev/tales-engine.test.cjs": "aa0036a596684860efa8cb73cd4ffc05e4397f02356e0544cca7b5d906eef8db",
+    "dev/boss-quests.test.cjs": "3a8248bdbcd8b4b74e1df6bd04f71c0f0c9865939d6512e0df86ef9aa64f0707",
     "dev/wardrobe-blood.test.cjs": "aee0a9b1b94e37fc9ce808fd219b636b3518c5e78f8a44943c0d209b5604fa2f",
     "dev/boss-chain-reachability.test.cjs": "9c24738f8eb2937693a608509cfbd972bbfec05b0e8ddf61a10d1137d4c1ac06",
     "dev/factions.test.cjs": "9b999b594d136ac42f1ff7d76a7db85f416d2b3c978c818b89187dd2e715bbb2",
     "dev/frontier.test.cjs": "3ba76ecdbd091988c2a1aea3fe94d3097b498b962a97dcfb8ba77b85b294860d",
     "dev/frontier-scheduling.test.cjs": "bcc1186d6a12c82d1bb3bba094f6b02139fa2aac1886ec794fea941230943ffe",
-    "dev/later-factions.test.cjs": "409daa70d6d440a29d1761b2bd4e3159c8c13dfff2ec3d0ee82613ebf068083d",
+    "dev/later-factions.test.cjs": "7191e6f278d1d6b436ffc06ba44b86f41e08e0382e6f67c600d8a48e48625b4e",
     "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9",
-    "dev/p2-rework.test.cjs": "f3b34d70607e78ec47de03e536bf46ec313b655605aaade674d288934ee27d41",
+    "dev/p2-rework.test.cjs": "19e1b330311921b3b8e447f1f65b2d96146173d39ddd5657dedb96899c253b91",
     "dev/hehuan.test.cjs": "ca56d191d8ef5aba01eef6c586c1c460c37a13e2ba685d5846336fe90fe09109",
     "dev/hehuan-story.test.cjs": "911a72f5051776822f522f0d07112f9a2f898d832c6a177fa9989bb86c076d0b",
     "dev/cards36.test.cjs": "78699208bfcc9447218a6435f2ea73da78d3b1412ef3e66137e0f8d0f54c85ac",
+    "dev/mechanist.test.cjs": "cb003fb4881cad2d0110aa388062f0648121bbaa4b76ad0ffb5a7627f8376257",
+    "dev/story-v5.test.cjs": "6aeb6120e22f6fb22007ba5fe427a38460ff99ce646305f4158cc63dcad04af0",
+    "dev/story-factions-v5.test.cjs": "cfed1b08c622e050b9adc3779b21231bd4cbbf3bb90cd560095fab7642326bc5",
+    "dev/story-bosses-v5.test.cjs": "ebd1665728c9e82c71b1d59109553f875ae1d999ca36a7f506484c51cda3700e",
     "dev/playtest.cjs": "383c53a7f0908fce84a4475cf7720e5536aaa9e544479e2460238932421bbd71",
     "dev/v11-hidden-playtest.cjs": "9e4149f7b110204daf625707f2c9474196fce6b61922af9e3c2bf41e8f76ce85",
-    "dev/v11-regression.cjs": "e1757cf4bd5b013d6854eeb0af1d22afaf846f4771950ca2fb28ed4fd2f0f8a4",
+    "dev/v11-regression.cjs": "2194f77c7796ea896fbbf7f4def2e48fffbcf53d17bb08de80f7e36de82d8d61",
     "dev/v11-simulate.cjs": "dbf7d406cac57d91860dcc43ddbac7e9ad75f91cedf395ca46b32c6657d6ceb1",
     "dev/elite-probe.cjs": "593dca97fda8d10573b4bb47c6497b186b5f7876a2cfa0bddc716d645f78d44d",
-    "dev/v11-engine-results.json": "5d197e4706b063c8b3c04681a959f3f950273ac7e118b535b30b8bec5bdd1666",
-    "dev/v11-playtest-report.json": "e62688acd44541dbdc8cd62dc13e2219b332fc652c2d96b098913184baca3455",
-    "dev/v11-hidden-playtest-report.json": "f07374f96121bbe6ab7ebb5b8ec033fdd66cfbf782bff4b5cf788445b63772b5",
-    "dev/v11-elite-probe-report.json": "98d73076f5a706618e681e808bf73e432618ea676aa856df46e00e113c7be1df"
+    "dev/v11-engine-results.json": "a7d16c1329d960dd9696ffc53e3f6698dc73f8c3a9433c54af27cfb75ef1939b",
+    "dev/v11-playtest-report.json": "92233ec7afa121ed7dca389476f8b791fd52105b6f35583bfe0eb971f6e7a920",
+    "dev/v11-hidden-playtest-report.json": "7f93e3398a9ede38f3a25bab2ab9fd82e1de7b079d319c3e7da7d3d9f5e5c8f9",
+    "dev/v11-elite-probe-report.json": "9b1de281797350a1bd18c22f80e8fd8477cffa6ac0562a43aee062008cabba88"
   },
   "note": "Engine correctness and calibration gates are reported separately. Failed target percentages are not relabelled as passed; no seeds/policy/resource edits to manufacture balance numbers. Human difficulty remains unevaluated."
 }
