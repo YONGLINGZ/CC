@@ -1,0 +1,45 @@
+{
+  "method": "Actual Chromium user clicks and live Web Audio graph. Background visibility uses an explicit browser fixture. PCM loop continuity is covered by Node render tests; no human listening or real-phone claim.",
+  "inputs": {
+    "dev/music.js": "972d4fbd634946c4464d747999aea55ac0b772720851f2045a3ff54cc35ea1d1",
+    "dev/audio.js": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
+    "dev/ui.js": "86a7e85c54af403ceab2012907f82c4699ff12866a389a6350373440c375aa01",
+    "dev/build.cjs": "97e975c6e2b66d9e829817bfc55107eb82db6113a5042373f1d5ec90e6e38818",
+    "index.html": "a45758d909d31b4da2f54749d89292ffb510d67913ba39167637d3526f837445",
+    "baiyao-standalone.html": "50355fee17e1043d2a1c2c08b611b3161fec46818228405164f3a43c16932e94"
+  },
+  "results": [
+    {
+      "name": "cold page has no AudioContext or autoplay",
+      "passed": true
+    },
+    {
+      "name": "first genuine gesture starts one80-second stereo loop on the shared effects context",
+      "passed": true
+    },
+    {
+      "name": "music volume is independent, and disabling music preserves real skill effects",
+      "passed": true
+    },
+    {
+      "name": "master mute and zero master volume silence music, restoring them starts only one source",
+      "passed": true
+    },
+    {
+      "name": "actual visibility listener pauses and resumes; rapid toggles never stack music or change game state",
+      "passed": true
+    },
+    {
+      "name": "mobile settings remain readable at360/390/430; route changes do not restart the loop",
+      "passed": true
+    },
+    {
+      "name": "standalone has the same music and plays with external network blocked",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "passed": 7,
+  "failed": 0
+}

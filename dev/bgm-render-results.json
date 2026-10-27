@@ -1,0 +1,25 @@
+{
+  "score": {
+    "id": "lantern-path",
+    "name": "灯下行",
+    "bpm": 72,
+    "bars": 24,
+    "beatsPerBar": 4,
+    "duration": 80,
+    "scale": "D宫五声",
+    "instruments": "仿古琴拨弦、轻箫与稀疏泛音",
+    "description": "雾中缓行，灯下调息。无鼓点、无强烈高潮的舒缓循环主题。"
+  },
+  "events": 89,
+  "method": "Original fixed score, rendered by the same PCM synthesizer used in the offline game. MP3 preview adds opening/ending fades; runtime uses a circular buffer and bus fade.",
+  "sampleRate": 22050,
+  "peak": 0.18110321462154388,
+  "rms": 0.045784146990646576,
+  "musicSourceHash": "972d4fbd634946c4464d747999aea55ac0b772720851f2045a3ff54cc35ea1d1",
+  "preview": {
+    "file": "docs/audio/hanyuan-lantern.mp3",
+    "bytes": 1121390,
+    "sha256": "60ec4410e2a0c53050e5730cb4cfcc0b65f32d997f160c1f1b769a621a69c18e"
+  },
+  "humanListeningReview": false
+}

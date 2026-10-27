@@ -24,6 +24,12 @@ assert.equal(mechanistArt.entries.length,69,'expected 69 new machine-role painti
 for(const entry of mechanistArt.entries)assert.equal(sha(entry.file),entry.sha256,`stale machine art: ${entry.file}`);
 const machineBrowser=readJson('dev/mechanist-browser-results.json');
 assert.equal(machineBrowser.failed,0);assert.ok(machineBrowser.passed>=9);
+const musicBrowser=readJson('dev/music-browser-results.json');
+assert.equal(musicBrowser.failed,0);assert.equal(musicBrowser.passed,7);
+for(const [file,hash]of Object.entries(musicBrowser.inputs))assert.equal(sha(file),hash,`stale music input: ${file}`);
+const musicRender=readJson('dev/bgm-render-results.json');
+assert.equal(musicRender.musicSourceHash,sha('dev/music.js'));
+assert.equal(musicRender.preview.sha256,sha(musicRender.preview.file));
 
 const browser = readJson('dev/hehuan-browser-results.json');
 assert.equal(browser.failed, 0, 'browser checks failed');
@@ -52,6 +58,7 @@ const result = {
   art: { count: manifest.entries.length, manifest: 'dev/hehuan-art-manifest.json' },
   mechanistArt: {count:mechanistArt.entries.length,manifest:'dev/mechanist-art-manifest.json'},
   mechanistBrowserChecks:machineBrowser.passed,
+  music: {name:musicRender.score.name,duration:musicRender.score.duration,browserChecks:musicBrowser.passed,preview:musicRender.preview},
   homeArt: homeArt.runtime,
   artifacts: Object.fromEntries(['index.html', 'baiyao-standalone.html'].map(file => [file, { bytes: fs.statSync(path.join(root, file)).size, sha256: sha(file) }]))
 };

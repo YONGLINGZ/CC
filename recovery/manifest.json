@@ -570,9 +570,9 @@
     "assets/weapons/spirit.webp": "a5f8e05b4eacf42dd705121ee7fd4c6e67fe6f9cbbe193f3172c200ca3d53036",
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945",
     "dev/art.js": "e344ea602fff91be6a530c99dcc6bea699f38c3e3f3e8d3e07913fda7002f453",
-    "dev/audio.js": "d86a2f74d1d9bca87b7515e27de16e337e4eb7417c1f72faa4ccc2908367b7f1",
+    "dev/audio.js": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
     "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
-    "dev/build.cjs": "8b5f77c6cfd97bc4bef894ded42292bd20b35b368853c74c97e680a21fb0b26b",
+    "dev/build.cjs": "97e975c6e2b66d9e829817bfc55107eb82db6113a5042373f1d5ec90e6e38818",
     "dev/build.py": "990f2dcfe2621deca06c1ca2dc2b95f0e01cdcf78843561aa6f603eac80d545a",
     "dev/enemy-factions.js": "f4884d15316c3e12b30da7f88af5fc37185350c488c262d6d3af3abad6bac156",
     "dev/engine.js": "922a79b8b114d0ae695ece179dd2794d0f209274fb79f3736eec0fb5f00ef54b",
@@ -581,22 +581,23 @@
     "dev/expedition.js": "fba183746427f01c7c68aabf1a6328c9eaafa86d1bd2161fd3536760d9d97fda",
     "dev/hehuan.js": "b1525d00e61bc3f15fa39d8001628f8d51aa07726b64b198c766a3dfe98f7052",
     "dev/mechanist.js": "aaa552669d60b447812576e237f6899b6c301cd145f1dbfda96e4574c4e78977",
-    "dev/release.json": "4885a09a0521b0004f258ba16b020521699252f6c85d9b6da5ffb27992e016e0",
+    "dev/music.js": "972d4fbd634946c4464d747999aea55ac0b772720851f2045a3ff54cc35ea1d1",
+    "dev/release.json": "914aed6af39fd4ce30bd967659f187aaf8d87ce6e9bfea55ebd91d2d1ffeee85",
     "dev/seven.js": "4af4f748ae99b6e7ce7702962d5ad5ab982039306dfcb853dfd53e228f204e1a",
     "dev/shell.html": "bfe1e61d9de0f0a019683fd7b66d3fa6430d1d07c71c7f303a9349a3cfa2893d",
     "dev/story-bosses-v5.js": "632049dd568fbcc57ea62bad1eecb5c1e609f8ad80f6f72e216f798eab3f9eeb",
     "dev/story-factions-v5.js": "f97ec4973e3645437b61ea10c1d3ee542f2a7b15f009d667475a7ae4eb9be668",
     "dev/story-v5.js": "91744d02b7592dedff5553f094a64a13adb671b7584c2f69a950f69463f7af09",
     "dev/tales.js": "2be977ffb4db7e20961b5091683e179d781884a494ad4b1a4569f494cb0369af",
-    "dev/ui.js": "76cfa2479f0bcd808661fea25734841c3f024e49c010d0d09ce647a90aa1057d"
+    "dev/ui.js": "86a7e85c54af403ceab2012907f82c4699ff12866a389a6350373440c375aa01"
   },
   "outputs": {
-    "index.html": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e",
-    "baiyao-standalone.html": "ca2ccd355b5ee5e837e5df4f774fa1c98c353a9452880a9ed9c4802a49827cf6"
+    "index.html": "a45758d909d31b4da2f54749d89292ffb510d67913ba39167637d3526f837445",
+    "baiyao-standalone.html": "50355fee17e1043d2a1c2c08b611b3161fec46818228405164f3a43c16932e94"
   },
   "release_outputs": {
-    "index.html": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e",
-    "baiyao-standalone.html": "ca2ccd355b5ee5e837e5df4f774fa1c98c353a9452880a9ed9c4802a49827cf6"
+    "index.html": "a45758d909d31b4da2f54749d89292ffb510d67913ba39167637d3526f837445",
+    "baiyao-standalone.html": "50355fee17e1043d2a1c2c08b611b3161fec46818228405164f3a43c16932e94"
   },
   "asset_sha256": {
     "assets/cards/C01.webp": "b44d5854ae8a656443293ada71fd088131e0ff262f0f76b16dbcadb99026ae60",
@@ -1168,10 +1169,10 @@
     "assets/weapons/training.webp": "390b968c94ed54384e9fa6e4cc9693619d795cd7b4cb628db965898f8b0df945"
   },
   "asset_count": 567,
-  "source_count": 20,
-  "archive_sha256": "8f0a945907b4e4600d9f00cbd2e42155b66101dc4e30f34176ec52b65a5b2de7",
-  "archive_bytes": 77518899,
-  "uncompressed_bytes": 78198828,
+  "source_count": 21,
+  "archive_sha256": "45f8292a25576d140df59735527f5f0ad1a5205a6aae5dea6300746c34f1ad87",
+  "archive_bytes": 77522681,
+  "uncompressed_bytes": 78208368,
   "requires_for_restore": [
     "POSIX shell",
     "Python 3",

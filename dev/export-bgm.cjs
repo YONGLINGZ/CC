@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=require('node:child_process'),crypto=require('node:crypto'),M=require('./music.js');
+const root=path.resolve(__dirname,'..'),pcm=M.renderPCM(),n=pcm.channels[0].length,wav=Buffer.alloc(44+n*4);
+wav.write('RIFF');wav.writeUInt32LE(wav.length-8,4);wav.write('WAVEfmt ',8);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(2,22);wav.writeUInt32LE(pcm.sampleRate,24);wav.writeUInt32LE(pcm.sampleRate*4,28);wav.writeUInt16LE(4,32);wav.writeUInt16LE(16,34);wav.write('data',36);wav.writeUInt32LE(n*4,40);
+let peak=0,squares=0;for(let i=0;i<n;i++)for(let c=0;c<2;c++){const s=pcm.channels[c][i];if(!Number.isFinite(s))throw Error('nonfinite BGM');peak=Math.max(peak,Math.abs(s));squares+=s*s;wav.writeInt16LE(Math.round(Math.max(-1,Math.min(1,s))*32767),44+i*4+c*2);}
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'baiyao-bgm-')),input=path.join(dir,'lantern.wav'),output=path.join(root,'docs/audio/hanyuan-lantern.mp3');fs.writeFileSync(input,wav);fs.mkdirSync(path.dirname(output),{recursive:true});
+cp.execFileSync('ffmpeg',['-v','error','-y','-i',input,'-af','afade=t=in:d=0.8,afade=t=out:st=78.5:d=1.5','-codec:a','libmp3lame','-b:a','112k','-metadata','title=灯下行','-metadata','artist=百妖夜契 · 原创程序配乐',output]);
+const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const report={score:M.score,events:pcm.events.length,method:'Original fixed score, rendered by the same PCM synthesizer used in the offline game. MP3 preview adds opening/ending fades; runtime uses a circular buffer and bus fade.',sampleRate:pcm.sampleRate,peak,rms:Math.sqrt(squares/(n*2)),musicSourceHash:hash(path.join(__dirname,'music.js')),preview:{file:'docs/audio/hanyuan-lantern.mp3',bytes:fs.statSync(output).size,sha256:hash(output)},humanListeningReview:false};
+fs.writeFileSync(path.join(__dirname,'bgm-render-results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

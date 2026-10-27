@@ -29,7 +29,7 @@ for filename in ['index.html', 'README.md', 'GAME_README.md', 'TESTING.md', 'PER
         names.add(filename)
 for folder in ['dev', 'docs']:
     for item in (root / folder).rglob('*'):
-        if item.is_file() and item.name!='release-package-results.json' and item.suffix in {'.js', '.cjs', '.py', '.html', '.md', '.json', '.webp'}:
+        if item.is_file() and item.name!='release-package-results.json' and item.suffix in {'.js', '.cjs', '.py', '.html', '.md', '.json', '.webp', '.mp3'}:
             names.add(str(item.relative_to(root)))
 # Original paintings are published as a separate art archive, not duplicated
 # inside the runnable game package.
@@ -40,7 +40,7 @@ for filename in ['recovery/events-md-export.zip']:
 output = root / 'recovery' / 'baiyao-hehuan.zip'
 with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
     for name in sorted(names):
-        info = zipfile.ZipInfo('baiyao-hehuan/' + name, date_time=(2026, 10, 25, 0, 0, 0))
+        info = zipfile.ZipInfo('baiyao-hehuan/' + name, date_time=(2026, 10, 27, 0, 0, 0))
         info.compress_type = zipfile.ZIP_DEFLATED
         info.external_attr = 0o644 << 16
         archive.writestr(info, (root / name).read_bytes())

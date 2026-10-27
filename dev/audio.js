@@ -1,4 +1,4 @@
-/* 百妖夜契 · 离线程序合成音效。无录音、配音、音乐或运行时网络请求。 */
+/* 百妖夜契 · 离线合成音效。NightMusic shares this audio context for background music. */
 (function (root, factory) {
   const api = factory(root);
   if (typeof module === 'object' && module.exports) module.exports = api;
@@ -550,7 +550,9 @@
         state.context=new Constructor({latencyHint:'interactive'});state.contextsCreated++;state.bus=makeBus(state.context,state.muted?0:state.volume);
       }
       if(state.context.state==='suspended')await state.context.resume();
-      state.unlocked=state.context.state==='running';return state.unlocked;
+      state.unlocked=state.context.state==='running';
+      if(state.unlocked&&root.NightMusic){root.NightMusic.setMaster(state.muted,state.volume);void root.NightMusic.attach(state.context);}
+      return state.unlocked;
     }catch(error){state.lastError=String(error&&error.message||error).slice(0,160);state.unlocked=false;return false;}
   }
   function profile(id) {
@@ -707,6 +709,7 @@
     state.bus.sources.clear();
   }
   function adjustMaster() {
+    root.NightMusic?.setMaster(state.muted,state.volume);
     if(!state.bus)return;
     const gain=state.bus.gain.gain,t=now();gain.cancelScheduledValues(t);
     if(typeof gain.cancelAndHoldAtTime==='function'){try{gain.cancelAndHoldAtTime(t);}catch(_){}}

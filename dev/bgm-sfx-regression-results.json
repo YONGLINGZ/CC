@@ -1,0 +1,69 @@
+{
+  "command": "node dev/audio.test.cjs",
+  "audioSha256": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
+  "musicLoaded": false,
+  "attempts": [
+    {
+      "passedGroups": 6,
+      "failedGroups": 1,
+      "checks": [
+        {
+          "name": "180 independent signatures across five roles; 156 encounter motifs",
+          "passed": true
+        },
+        {
+          "name": "unsupported Web Audio falls back silently without creating context",
+          "passed": true
+        },
+        {
+          "name": "permission rejection does not throw or require another context",
+          "passed": true
+        },
+        {
+          "name": "loading or requesting sound does not autoplay/create AudioContext",
+          "passed": true
+        },
+        {
+          "name": "genuine user click unlocks live audio graph",
+          "passed": true
+        },
+        {
+          "name": "all 180 casts/impacts create and start actual connected audio sources",
+          "passed": true,
+          "sourcesCreated": 2167,
+          "oscillators": 1843,
+          "noiseSources": 324
+        }
+      ],
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at /workspace/CC/dev/audio.test.cjs:93:209\n    at async check (/workspace/CC/dev/audio.test.cjs:13:49)\n    at async /workspace/CC/dev/audio.test.cjs:84:5"
+    },
+    {
+      "passedGroups": 5,
+      "failedGroups": 1,
+      "checks": [
+        {
+          "name": "180 independent signatures across five roles; 156 encounter motifs",
+          "passed": true
+        },
+        {
+          "name": "unsupported Web Audio falls back silently without creating context",
+          "passed": true
+        },
+        {
+          "name": "permission rejection does not throw or require another context",
+          "passed": true
+        },
+        {
+          "name": "loading or requesting sound does not autoplay/create AudioContext",
+          "passed": true
+        },
+        {
+          "name": "genuine user click unlocks live audio graph",
+          "passed": true
+        }
+      ],
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n3 !== 0\n\n    at /workspace/CC/dev/audio.test.cjs:81:14\n    at async check (/workspace/CC/dev/audio.test.cjs:13:49)\n    at async /workspace/CC/dev/audio.test.cjs:75:5"
+    }
+  ],
+  "note": "Existing dense effect stress test retained at56 voices; failures are not counted as passed. Product BGM and22 browser regression groups passed separately."
+}

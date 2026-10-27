@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.26-j48-v5.1",
+  "version": "2026.10.27-bgm.1",
   "passed": true,
   "browserChecks": 13,
   "regression": {
@@ -19,6 +19,16 @@
     "manifest": "dev/mechanist-art-manifest.json"
   },
   "mechanistBrowserChecks": 9,
+  "music": {
+    "name": "灯下行",
+    "duration": 80,
+    "browserChecks": 7,
+    "preview": {
+      "file": "docs/audio/hanyuan-lantern.mp3",
+      "bytes": 1121390,
+      "sha256": "60ec4410e2a0c53050e5730cb4cfcc0b65f32d997f160c1f1b769a621a69c18e"
+    }
+  },
   "homeArt": {
     "file": "assets/regions/hanyuan_home.webp",
     "bytes": 379250,
@@ -26,12 +36,12 @@
   },
   "artifacts": {
     "index.html": {
-      "bytes": 1198775,
-      "sha256": "5495fb458b732ad80fcb9ccb2698e51af17d8ccb7d2bc8697a5fefa26cc74b4e"
+      "bytes": 1208303,
+      "sha256": "a45758d909d31b4da2f54749d89292ffb510d67913ba39167637d3526f837445"
     },
     "baiyao-standalone.html": {
-      "bytes": 104183613,
-      "sha256": "ca2ccd355b5ee5e837e5df4f774fa1c98c353a9452880a9ed9c4802a49827cf6"
+      "bytes": 104193141,
+      "sha256": "50355fee17e1043d2a1c2c08b611b3161fec46818228405164f3a43c16932e94"
     }
   }
 }

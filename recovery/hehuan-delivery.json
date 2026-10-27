@@ -1,14 +1,14 @@
 {
-  "version": "2026.10.26-j48-v5.1",
+  "version": "2026.10.27-bgm.1",
   "aliases": [
     "recovery/baiyao-rebuilt.zip"
   ],
   "zip": {
     "file": "recovery/baiyao-hehuan.zip",
-    "bytes": 87818163,
-    "sha256": "c7f643a8a60d364b8ca7dc77c0ce7d31c285abb2e12570d420c7388079dd3cf9"
+    "bytes": 88933870,
+    "sha256": "21ae4d7837f111060ffba96dbcc90ec405d70ec2db48f361c5975605bb0038fd"
   },
-  "files": 914,
+  "files": 923,
   "runtimeArt": 567,
   "verification": "dev/hehuan-verification-results.json",
   "humanPlaytest": false,
