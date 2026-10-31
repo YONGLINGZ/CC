@@ -145,7 +145,7 @@
   const ELITES = {
     e_mist:{name:'雾中伥',rank:'elite',hp:56,weights:[3,2,3],intents:[{name:'牵魂',text:'攻击 10，施加 1 层追索印',hits:[10],playerMark:1},{name:'蔽目',text:'攻击 8，施加 2 层追索印',hits:[8],playerMark:2},{name:'雾遁',text:'获得护盾 12',block:12}]},
     e_lantern:{name:'断桥灯魁',rank:'elite',hp:76,weights:[3],intents:[{name:'引焰',text:'攻击 14',hits:[14]}]},
-    e_priest:{name:'逆仪祭司',rank:'elite',hp:92,weights:[3,2,3],intents:[{name:'祭仪',text:'获得护盾 10，施加 1 层追索印',block:10,playerMark:1},{name:'咒刃',text:'攻击 16',hits:[16]},{name:'逆祝',text:'恢复 8 点生命，获得护盾 8',heal:8,block:8}]}
+    e_priest:{name:'逆仪祭司',rank:'elite',hp:80,weights:[3,2,3],intents:[{name:'祭仪',text:'获得护盾 10，施加 1 层追索印',block:10,playerMark:1},{name:'咒刃',text:'攻击 16',hits:[16]},{name:'逆祝',text:'恢复 4 点生命，获得护盾 5',heal:4,block:5}]}
   };
   const EARLY_BOSSES=['gate_boss','camp_boss','snake','bell_boss','lotus_boss'];
   const MID_BOSSES=['marsh_boss','furnace_boss','mirror_boss'];

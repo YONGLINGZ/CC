@@ -194,10 +194,10 @@
     e_lantern: { name:'断桥灯魁', rank:'elite', hp:76, intents:[
       {name:'引焰',text:'攻击 14',hits:[14]}
     ]},
-    e_priest: { name:'逆仪祭司', rank:'elite', hp:92, intents:[
+    e_priest: { name:'逆仪祭司', rank:'elite', hp:80, intents:[
       {name:'祭仪',text:'获得护盾 10，然后施加 1 层追索印',block:10,playerMark:1},
       {name:'咒刃',text:'攻击 16',hits:[16]},
-      {name:'逆祝',text:'恢复 8 点生命，再获得护盾 8',heal:8,block:8}
+      {name:'逆祝',text:'恢复 4 点生命，再获得护盾 5',heal:4,block:5}
     ]},
     raider: { name: '来客', hp: 42, intents: [
       { name: '试探剑', text: '攻击 7', hits: [7] },
@@ -224,7 +224,7 @@
     bloodstone: { name: '朱砂心', text: '每个玩家回合首次因卡牌自损生命并存活后，获得 1 点灵力并抽 1 张牌。' },
     moonheart: { name: '月髓', text: '秘宝：每个玩家回合开始时额外获得 1 点灵力。' },
     mirror: { name: '照魂镜', text: '秘宝：每场战斗第一张攻击牌的第一段伤害增加 7。' },
-    dream: { name: '梦匣', text: '秘宝：每场战斗第一回合额外获得 1 点灵力，并额外抽 2 张牌。' },
+    dream: { name: '梦匣', text: '秘宝：每场战斗第一回合额外获得 1 点灵力，并额外抽 1 张牌。' },
     godblood: { name: '无面神血', text: '秘宝：获得时最大生命永久增加 12，并恢复 12 点生命。' },
     ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
   };
@@ -1184,7 +1184,7 @@
         recordJourney(null,'本源归身',`从${b.enemy.name}处取回熟悉的气息，出剑时旧日的回响愈发清晰。`,'good');
         event('powerReturn',{amount:state.player.power-before,total:state.player.power});
       }
-      if(b.storyEncounter?.lootCards){for(const id of b.storyEncounter.lootCards)if(CARDS[id]){state.player.deck.push(makeCard(id));if(id.startsWith('D'))state.player.path.learned=true;}recordJourney(null,'新得经页',b.storyEncounter.lootCards.map(id=>CARDS[id].name).join('、'),'warning');}
+      if(b.storyEncounter?.lootCards?.length){for(const id of b.storyEncounter.lootCards)if(CARDS[id]){state.player.deck.push(makeCard(id));if(id.startsWith('D'))state.player.path.learned=true;}recordJourney(null,'新得经页',b.storyEncounter.lootCards.map(id=>CARDS[id].name).join('、'),'warning');}
       log(`击败${b.enemy.name}！`);
       if (b.storyEncounter && !b.factionInstance && !b.hehuanEncounter) {
         const npc = b.storyEncounter.npc;
@@ -1366,9 +1366,9 @@
       }
       if (b.turn === 1 && hasRelic('dream')) {
         turnEnergy += 1;
-        draw += 2;
-        log('梦匣触发：首回合额外获得 1 灵力、抽 2 张牌。');
-        event('relic', { relic: 'dream', name: RELICS.dream.name, amount: 2 });
+        draw += 1;
+        log('梦匣触发：首回合额外获得 1 灵力、抽 1 张牌。');
+        event('relic', { relic: 'dream', name: RELICS.dream.name, amount: 1 });
       }
       if(b.nextTrapBlock){const amount=b.nextTrapBlock;b.nextTrapBlock=0;gainBlock(amount,'回眸藏招·下回合护盾');}
       if (b.nextEnergy || b.nextDraw) log(`蓄势触发：额外 ${b.nextEnergy} 灵力、${b.nextDraw} 张牌。`);
@@ -1446,13 +1446,14 @@
       const preparation=state.journey.bossQuests?.records[id],quest=BOSS_QUESTS.QUESTS[id];
       if(['boss','hidden','fight'].includes(kind)&&preparation&&preparation.region===state.journey.regionIndex){
         const owns=item=>state.player.questItems.includes(item);
-        const guard=(preparation.guard||0)+(quest&&preparation.stage>=2&&owns(quest.items[1])?8:0);
+        const guard=(quest&&preparation.stage>=2&&owns(quest.items[1])?8:0);
         if(guard)gainBlock(guard,'镇境旧事·事前准备');
         if(quest?.ward&&preparation.stage>=1&&owns(quest.items[0])){
           state.battle.bossWard={effect:quest.ward,item:quest.items[0],used:false};
           log(`${QUEST_ITEMS[quest.items[0]].name}已备好：本战抵消首次相关异术。`);
         }
       }
+      for(const [source,record] of Object.entries(state.journey.bossQuests?.records||{})){if(['boss','hidden','fight'].includes(kind)&&record.region===state.journey.regionIndex&&(record.guardTarget||source)===id&&record.guard)gainBlock(record.guard,'镇境旧事·护身符');}
       const contexts=factionContexts(id),ff=factionState(),fg=contexts.find(g=>state.player.questItems.includes(g.support)&&!ff.invalid[g.support]&&!ff.spent[g.support]&&!ff.forfeited?.[g.support]);if(fg){ff.spent[fg.support]=true;state.battle.factionGuardRemaining=8;state.battle.factionEffects.push({item:fg.support,kind:'support',status:'used',amount:8,absorbed:0});gainBlock(8,fg.variant==='palace_owner'?'旧宫暂护':'主动接受的立场护持');}
       for(const context of contexts){const aid=context.aid;if(state.player.questItems.includes(aid))state.battle.factionEffects.push({item:aid,kind:'aid',status:ff.spent[aid]?'spent':'carried',blockedByWard:false,frozen:false});}
       for(const context of contexts){
@@ -1590,17 +1591,23 @@
       emit();
       return true;
     }
+    function getEnemyClue() {
+      if(!liveBattle())return null;
+      const i=getIntent(),hits=i.hits||[],total=hits.reduce((a,b)=>a+b,0);
+      if(i.frozen)return {category:'sealed',label:'行动受封',danger:'暂无主动攻击'};
+      return {category:hits.length?'attack':'nonattack',label:hits.length?'攻势将至':'蓄势施术',danger:hits.length?(total>=20?'猛烈攻势':total>=10?'明显攻势':'轻缓攻势'):'留意护盾、回复或异术'};
+    }
     function getBreath() {
       const b=state.battle,enabled=state.character==='hehuan'&&hasRelic('heartmirror')&&liveBattle();
       if(!enabled)return {enabled:false,remaining:0,usedThisTurn:false,revealed:false,category:null,skipped:false};
       const revealed=b.breathRevealedTurn===b.turn,usedThisTurn=b.breathUsedTurn===b.turn,intent=revealed?getIntent():null;
-      return {enabled:true,remaining:Number.isInteger(b.breathRemaining)?b.breathRemaining:3,usedThisTurn,revealed,category:!revealed||intent.frozen?null:(intent.baseHits||intent.hits||[]).length?'attack':'nonattack',skipped:!!(revealed&&intent.frozen)};
+      return {enabled:true,remaining:Number.isInteger(b.breathRemaining)?b.breathRemaining:3,usedThisTurn,revealed,category:!revealed||intent.frozen?null:(intent.baseHits||intent.hits||[]).length?'attack':'nonattack',skipped:!!(revealed&&intent.frozen),detail:revealed?intent.text:null};
     }
     function revealBreath() {
       const b=state.battle,current=getBreath();
       if(!current.enabled||b.phase!=='player'||current.usedThisTurn||current.remaining<=0)return false;
       beginEvents();b.breathRemaining=current.remaining-1;b.breathUsedTurn=b.turn;b.breathRevealedTurn=b.turn;
-      const observation=getBreath();log(observation.skipped?'观息：这次行动已被完全封住。':observation.category==='attack'?'观息：对方正准备攻击，可能同时施术；具体伤害未知。':'观息：对方准备施术，没有主动攻击段；具体效果未知。');
+      const observation=getBreath();log('观息：'+observation.detail+'。数值随当前状态变化，藏招与一次援助将在行动时结算。');
       event('breath',{remaining:b.breathRemaining,category:observation.category,skipped:observation.skipped});emit();return true;
     }
     function setTrap(uid) {
@@ -2222,6 +2229,15 @@
       emit();
       return true;
     }
+    function refreshShop() {
+      const s=state.shop,p=state.player;
+      if(state.screen!=='shop'||!s||s.refreshed||p.gold<10)return false;
+      const slots=s.cards.filter(c=>!c.bought);if(!slots.length)return false;
+      const old=new Set(s.cards.map(c=>c.id)),pool=cardPool().filter(id=>!old.has(id));
+      if(pool.length<slots.length)return false;
+      const next=sample(pool,slots.length);p.gold-=10;s.refreshed=true;
+      slots.forEach((c,i)=>{c.id=next[i];});note('支付10灵石，更换未售出的技能；本次到访仅一次。');emit();return true;
+    }
     function leaveShop() {
       if (state.screen !== 'shop') return false;
       advance(); emit(); return true;
@@ -2229,10 +2245,12 @@
     function rest(shouldHeal) {
       if (state.screen !== 'rest') return false;
       if(shouldHeal==='cleanse'&&!state.player.affliction.active)return false;
-      const cleansing=shouldHeal==='cleanse',amount = cleansing?heal(6):shouldHeal ? heal(18) : 0;
+      if(![true,false,'cleanse','prepare'].includes(shouldHeal))return false;
+      const preparing=shouldHeal==='prepare',cleansing=shouldHeal==='cleanse',amount = preparing?0:cleansing?heal(6):shouldHeal ? heal(18) : 0;
+      if(preparing)state.journey.nextCombatBlock=(state.journey.nextCombatBlock||0)+8;
       if(cleansing)state.player.affliction.suppressed=Math.max(4,state.player.affliction.suppressed||0);
       advance();
-      note(cleansing?`静息恢复 ${amount} 生命，经脉中的寒意暂时平复。第 ${state.floor} 段已开放。`:shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 段已开放。` : `离开月庭。第 ${state.floor} 段已开放。`);
+      note(preparing?'整备护符：放弃治疗，下一战首回合护盾 +8。':cleansing?`静息恢复 ${amount} 生命，经脉中的寒意暂时平复。第 ${state.floor} 段已开放。`:shouldHeal ? `休息结束，恢复 ${amount} 点生命。第 ${state.floor} 段已开放。` : `离开月庭。第 ${state.floor} 段已开放。`);
       emit();
       return true;
     }
@@ -2802,7 +2820,7 @@
       if(state.event.bossQuest){
         const {boss,step}=state.event.bossQuest,record=state.journey.bossQuests.records[boss];
         record.stage=step;record.choices[step]={key:choice.key,floor:state.floor};record.lastOutcome=choice.outcome;
-        if(choice.bossGuard){record.guard=choice.bossGuard;received.push(`本境镇境之战首回合护盾 +${choice.bossGuard}`);}
+        if(choice.bossGuard){record.guard=choice.bossGuard;record.guardTarget=state.map[record.region*10+9]?.[0]?.encounter?.enemyId||boss;received.push(`本境镇境之战首回合护盾 +${choice.bossGuard}`);}
       }
       if(state.event.tale){
         const {chain,step}=state.event.tale,record=state.journey.tales?.chains[chain];
@@ -2879,7 +2897,7 @@
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
       squadAction,getSquadOptions,getSquadCardOptions,setFirstMachine,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
-      getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
+      getEnemyClue, refreshShop, getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 

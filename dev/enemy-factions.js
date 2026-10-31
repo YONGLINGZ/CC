@@ -360,7 +360,7 @@ function frontierEvent(base,g,rec,state,owns,witnessed){
  const unverifiedCamp=g.groupBoss==='camp_boss'&&!investigated&&!oppose?c('没有核账，仍劝双方停手','你没有对过药箱余量和担架名册；残卒把劝说当成替逃卒拖延，当场起冲突。玩家先手；胜利获得标准精英奖励。',{factionAction:'failedMediation'}):null;
  let first;
  if(unverifiedCamp)first=unverifiedCamp;
- else if(p2&&investigated&&!oppose){first=examinedChoice;if(g.requiresForfeit||g.requiresDecision){delete first.questItem;first.text='核对眼前记录，不签立场凭证，也不取得需要本人抉择才给的援助。';first.outcome=g.groupBoss==='abyss_boss'?'你查明一笔转签，来客要求本人撤签；你尚未放弃自己的护持，因此没有领取空栏签。':'你核清原稿与补写的次序；没有替纸上的人落印，也没有取得定心灰。';}}
+ else if(p2&&investigated&&!oppose){first=examinedChoice;if(g.requiresForfeit||g.requiresDecision){delete first.questItem;first.label='出示调查记录，核对尚未签署的约定';first.text='核对眼前记录，不签立场凭证，也不取得需要本人抉择才给的援助。';first.outcome=g.groupBoss==='abyss_boss'?'你查明一笔转签，来客要求本人撤签；你尚未放弃自己的护持，因此没有领取空栏签。':'你核清原稿与补写的次序；没有替纸上的人落印，也没有取得定心灰。';}}
  else if(oppose)first=c(g.opposeActionName||'交出委托凭证，交换一次援助',g.opposeAction||ITEMS[g.aid].text,{questItem:g.aid,factionKey:'aid',...(g.groupBoss==='snake'?{goldCost:12,itemGrants:[{id:'herb',count:1}]}:{}),...(g.opposeOutcome?{outcome:g.opposeOutcome}:{})});
  else first=c(g.groupBoss==='snake'?'付12灵石，听取药账证词':'付12灵石，听取证词',g.groupBoss==='snake'?'付款后才展示药账证词；不提供药物，也不代表病人已获救。':'付款后才展示证词；不代表你已完成现场行动。',{goldCost:12,factionKey:'talk',outcome:g.testimony});
  const investigationLine=investigated?`你出示来源处的调查记录：${g.investigation||'你只记录了当事人的说法与现场痕迹；这些内容不能证明尚未亲见的事。'}当事人只承认记录能够证明的部分。`:witnessed?'你记得沿途听过的旧事，可以就亲眼见过的部分追问。':'你还没见过这些人；眼前的话是当事人的说法。';

@@ -50,7 +50,7 @@ test('D06 firsthit reaches34 while existing full-resource finishers keep their d
  f.b.swordIntent=8;f.b.nextAttack=100;play(f,'S16');assert.equal(f.b.events.find(e=>e.type==='attack').amount,56);
 });
 test('new elites have complete data, properly sized weights and chapter-specific selection pools',()=>{
- for(const [id,hp,count]of [['e_mist',56,3],['e_lantern',76,1],['e_priest',92,3]]){assert.equal(N.ENEMIES[id].hp,hp);assert.equal(N.ENEMIES[id].intents.length,count);assert.equal(N.ENEMIES[id].weights.length,count);assert.equal(N.ENEMIES[id].rank,'elite');}
+ for(const [id,hp,count]of [['e_mist',56,3],['e_lantern',76,1],['e_priest',80,3]]){assert.equal(N.ENEMIES[id].hp,hp);assert.equal(N.ENEMIES[id].intents.length,count);assert.equal(N.ENEMIES[id].weights.length,count);assert.equal(N.ENEMIES[id].rank,'elite');}
  assert.deepEqual(N.ELITE_POOL.slice(0,3),[['yaksha','e_mist'],['e_lantern'],['e_priest']]);
 });
 test('weighted first intents are randomized, successive actions exclude previous and reading never rerolls',()=>{
@@ -67,7 +67,7 @@ test('mist mark applies after attack, boosts one later first hit and is consumed
  const f=fixture('e_mist',1,'elite',{scaling:false});keepAlive(f);f.b.enemy.intentIndex=0;turn(f);assert.equal(f.b.playerMark,1);f.b.enemy.intentIndex=1;assert.deepEqual(f.game.getIntent().hits,[9]);turn(f);assert.equal(f.b.playerMark,2);f.b.enemy.intentIndex=0;assert.deepEqual(f.game.getIntent().hits,[12]);turn(f);assert.equal(f.b.playerMark,1);
 });
 test('priest restoration is telegraphed, heals actual HP at most max, then grants unscaled shield',()=>{
- const f=fixture('e_priest',1,'elite',{scaling:false});f.b.enemy.hp=90;f.b.enemy.intentIndex=2;assert.match(f.game.getIntent().text,/恢复 8/);turn(f);assert.equal(f.b.enemy.hp,92);assert.equal(f.b.enemy.block,8);assert.equal(f.b.events.find(e=>e.type==='heal'&&e.target==='enemy').amount,2);
+ const f=fixture('e_priest',1,'elite',{scaling:false});f.b.enemy.hp=78;f.b.enemy.intentIndex=2;assert.match(f.game.getIntent().text,/恢复 4/);turn(f);assert.equal(f.b.enemy.hp,80);assert.equal(f.b.enemy.block,5);assert.equal(f.b.events.find(e=>e.type==='heal'&&e.target==='enemy').amount,2);
 });
 test('all exported weighted foes have positive weights matching actions while every authored boss has no weights',()=>{
  for(const [id,def]of Object.entries(N.ENEMIES)){

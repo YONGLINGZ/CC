@@ -45,7 +45,7 @@
   });
   for(const id of ['H13','H14','H15','H16','H18','H19','H20','H21','H22','H23','H24','H29','H31'])CARDS[id].rarity='common';
   for(const [id,c]of Object.entries(CARDS))Object.assign(c,{id,character:'hehuan',category:'hehuan',target:!!c.target,rarity:c.rarity||(['H10','H12'].includes(id)?'rare':['H06','H07','H08','H09','H11'].includes(id)||Number(id.slice(1))>12?'uncommon':'common'),attack:!!c.attack,exhaust:!!c.exhaust});
-  const STARTERS={hehuan:{character:'hehuan',name:'纱里藏招',description:'同一张牌可以立即出手，也可以藏进两个纱位，等敌人行动时兑现。每战三次观息只辨攻击与否，不预告招式。',cards:['H01','H01','H02','H02','H02','H03','H03','H04','H04','H05']}};
+  const STARTERS={hehuan:{character:'hehuan',name:'纱里藏招',description:'同一张牌可以立即出手，也可以藏进两个纱位，等敌人行动时兑现。每战三次观息察看当前攻击段数、伤害与异术；普通敌情仅示类别和强弱。',cards:['H01','H01','H02','H02','H02','H03','H03','H04','H04','H05']}};
   const CHARACTERS={hehuan:{id:'hehuan',name:'晏绮罗',profession:'合欢宗外堂执事',portrait:'hehuan',adult:true,age:28,locked:false,faction:'hehuan',initialHp:56,initialRelic:'heartmirror',description:'她擅长把杀招藏进薄纱，等敌人自己撞上来。此次入域，要找回被宗门卖掉的成年师妹秦蘅，取得长老交人给祭仪的账册。',quote:'看够了吗？看够了，就该看我的手了。',accent:'#b5965b',starters:['hehuan']}};
   const RELICS={heartmirror:{name:'照心镜',text:'每场战斗可观息 3 次，每个玩家回合最多一次，0 灵力。只看下一次动作是攻击还是不攻击，不显示招名、伤害、段数或附加状态；读的是已确定动作，不重抽。'}};
   const FACTION={hehuan:{id:'hehuan',name:'合欢宗',description:'魔门之一，以互惠修行为名，外堂也替宗内交涉与收账。有长老暗中将弟子交给玄烬教祭仪；晏绮罗的身份不等于她替此事担保。'}};

@@ -92,7 +92,7 @@ test('秘宝确实改变战斗节奏', () => {
   assert.equal(game.enterNode('f1-0'), true);
   const battle = state.battle;
   assert.equal(battle.energy, 5, '月髓 +1 与梦匣首回合 +1 应生效');
-  assert.equal(battle.hand.length, 7, '梦匣首回合应额外抽 2 张');
+  assert.equal(battle.hand.length, 6, '梦匣首回合应额外抽 1 张');
   battle.hand[0].id = 'C01';
   const before = battle.enemy.hp;
   assert.equal(game.playCard(battle.hand[0].uid, true), true);
