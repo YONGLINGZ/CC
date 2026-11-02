@@ -1,4 +1,6 @@
 'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
+
 const test=require('node:test'),A=require('node:assert/strict'),N=require('./engine.js');
 let serial=0;
 function game(){const g=N.createGame({rng:()=>.43,environment:false,scaling:false,tales:false,factions:false,bossQuests:false});A.equal(g.newRun('mechanist'),true);g.enterRegion();return g;}
@@ -53,7 +55,7 @@ test('low-durability overload still bursts after feedback if body survives; feed
  for(const hp of [20,3]){const g=battle(),b=g.state.battle;deploy(g,'mingdi');b.squad.roster.mingdi.hp=2;g.state.player.hp=hp;A.equal(g.squadAction('overload','mingdi'),true);A.equal(b.squad.roster.mingdi.hp,0);A.equal(b.enemy.hp,hp===3?1000:982);A.equal(g.state.screen,hp===3?'defeat':'battle');A.equal(g.state.player.hp,hp===3?0:17);}
 });
 test('fox rescues lethal broken-line feedback once and allows the queued overload to execute',()=>{
- const g=battle(),b=g.state.battle;deploy(g,'mingdi');b.squad.roster.mingdi.hp=2;g.state.player.hp=2;g.state.player.relics.push('fox');A.equal(g.squadAction('overload','mingdi'),true);A.equal(g.state.player.hp,12);A.equal(b.enemy.hp,982);A.equal(g.state.player.relics.includes('fox'),false);
+ const g=battle(),b=g.state.battle;deploy(g,'mingdi');b.squad.roster.mingdi.hp=2;g.state.player.hp=2;earnedLifeFixture(g.state,'fox');A.equal(g.squadAction('overload','mingdi'),true);A.equal(g.state.player.hp,12);A.equal(b.enemy.hp,982);A.equal(g.state.player.relics.includes('fox'),false);
 });
 test('counter targets actual machine attacker rather than current guard; broken source cannot swallow backlash',()=>{
  const g=battle(),b=g.state.battle;deploy(g,'mingdi');b.squad.guardId='chengshan';b.enemy.counter=4;play(g,'J33',{unitId:'mingdi'});A.equal(b.squad.roster.mingdi.hp,6);A.equal(b.squad.roster.chengshan.hp,18);A.equal(g.state.player.hp,500);

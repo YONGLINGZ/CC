@@ -1,7 +1,9 @@
+'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
 /* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* V8 chapter routes, persistent affliction and the sword's demonic path.
  * State mutations below arrange bounded rule fixtures; progression uses public actions. */
-'use strict';
+
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const N=require('./engine.js');
@@ -166,12 +168,12 @@ test('optional forty-gold treatment permanently cures poison independently of ta
 test('persistent poison can kill on entry or turn; fox and nine lives resolve the same lethal tick once',()=>{
   for(const protection of[null,'fox']){
     const game=run(),p=game.state.player;eventAt(game,'tainted_mercy');choose(game);game.leaveEvent();p.hp=1;
-    if(protection)p.relics.push(protection);enter(game,6,'rest');
+    if(protection)earnedLifeFixture(game.state,protection);enter(game,6,'rest');
     assert.equal(p.affliction.ticks,1);
     if(protection){assert.equal(game.state.screen,'rest');assert.equal(p.hp,12);assert.ok(!p.relics.includes('fox'));}
     else{assert.equal(game.state.screen,'defeat');assert.equal(p.hp,0);assert.equal(game.rest('cleanse'),false);}
   }
-  const game=run(),p=game.state.player,b=durableBattle(game);p.relics.push('ninelives');
+  const game=run(),p=game.state.player,b=durableBattle(game);earnedLifeFixture(game.state,'ninelives');
   p.affliction.active=true;p.affliction.revealed=true;p.hp=1;b.enemy.intentIndex=0;
   turn(game);assert.equal(p.hp,18);assert.equal(b.nineUsed,true);assert.equal(p.affliction.ticks,1);
   p.hp=1;b.enemy.intentIndex=0;turn(game);assert.equal(game.state.screen,'defeat');assert.equal(p.affliction.ticks,2);

@@ -164,7 +164,7 @@ function playRun(seed,starter,lane,options={}){
         break;
       }
       case 'rest':{const affliction=g.getAffliction(),cleanse=affliction.active&&!(affliction.suppressed>0)&&p.maxHp-p.hp<14;assert.equal(g.rest(cleanse?'cleanse':true),true);if(cleanse)poisonTreatments.push({floor:s.floor-1,method:'rest_suppression'});break;}
-      case 'fox':assert.equal(g.fox(p.maxHp>8&&!p.relics.includes('fox')),true);break;
+      case 'fox':assert.equal(g.fox(g.lifeQuestStatus?false:p.maxHp>8&&!p.relics.includes('fox')),true);break;
       case 'shop':{
         const supplies=(s.shop.items||[]).map((item,index)=>({...item,index})).filter(item=>!item.bought&&p.gold>=item.price&&(item.id==='antidote'&&p.affliction?.revealed&&p.affliction?.active||['herb','dewherb','healing_pill'].includes(item.id)&&p.hp<p.maxHp-8));
         if(supplies.length)assert.equal(g.buyItem(supplies[0].index),true);

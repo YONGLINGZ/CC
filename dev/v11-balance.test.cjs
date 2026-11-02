@@ -18,15 +18,15 @@ test('BALANCE exports exact audited coefficients, cap and whitelist without magi
 for(const [id,expected]of Object.entries({paper:[26,38,51,64],lantern:[28,41,55,69],ape:[32,46,62,78],bone:[30,44,59,74],yaksha:[62,90,121,152]}))test('HP scaling rounded table '+id,()=>{
  for(const [i,floor]of [1,10,20,30].entries()){const f=fixture(id,floor,id==='yaksha'?'elite':'fight');assert.equal(f.b.enemy.hp,expected[i]);assert.equal(f.b.enemy.maxHp,expected[i]);}
 });
-test('old bosses scale HP but preserve learned base attacks and shields',()=>{
- for(const [id,floor,hp]of [['gate_boss',10,94],['camp_boss',20,166],['snake',30,245]]){const f=fixture(id,floor,'boss');assert.equal(f.b.enemy.hp,hp);for(let index=0;index<N.ENEMIES[id].intents.length;index++){f.b.enemy.intentIndex=index;const intent=f.game.getIntent(),base=N.ENEMIES[id].intents[index];assert.deepEqual(intent.hits,base.hits||[]);assert.equal(intent.block,base.block);}}
+test('chapter bosses use a smooth HP budget and preserve early learned attacks and shields',()=>{
+ for(const [id,floor,hp]of [['gate_boss',10,95],['camp_boss',20,120],['snake',30,145]]){const f=fixture(id,floor,'boss');assert.equal(f.b.enemy.hp,hp);for(let index=0;index<N.ENEMIES[id].intents.length;index++){f.b.enemy.intentIndex=index;const intent=f.game.getIntent(),base=N.ENEMIES[id].intents[index];assert.deepEqual(intent.hits,base.hits||[]);assert.equal(intent.block,base.block);}}
 });
-test('scaling A/B switch preserves original HP and hits and late floors clamp to f30',()=>{
+test('scaling A/B switch preserves original HP and hits and late floors continue gradual HP growth',()=>{
  const old=fixture('lantern',30,'fight',{scaling:false});assert.equal(old.b.enemy.hp,28);old.b.enemy.intentIndex=1;assert.deepEqual(old.game.getIntent().hits,[9]);
- const late=fixture('paper',70);assert.equal(late.b.enemy.hp,64);assert.equal(late.b.scaling.attackBonus,4);
+ const late=fixture('paper',70);assert.equal(late.b.enemy.hp,76);assert.equal(late.b.scaling.attackBonus,4);
 });
-test('story encounters are excluded from both HP and attack scaling',()=>{
- for(const id of ['feiye_echo','retainer','heart','snake_ascended','feiye','apothecary']){const f=fixture(id,30,'fight');assert.equal(f.b.enemy.hp,N.ENEMIES[id].hp);f.b.enemy.intentIndex=0;assert.deepEqual(f.game.getIntent().hits,N.ENEMIES[id].intents[0].hits||[]);}
+test('story encounters scale HP with depth while early attack identities remain',()=>{
+ for(const id of ['feiye_echo','retainer','heart','snake_ascended','feiye','apothecary']){const f=fixture(id,30,'fight');assert.equal(f.b.enemy.hp,Math.round(N.ENEMIES[id].hp*1.725));f.b.enemy.intentIndex=0;assert.deepEqual(f.game.getIntent().hits,N.ENEMIES[id].intents[0].hits||[]);}
 });
 test('attack additive steps cap by rank and apply before five-stack frost',()=>{
  for(const [floor,expected]of [[1,9],[4,9],[5,10],[9,11],[13,12],[17,13],[30,13]]){const f=fixture('lantern',floor);f.b.enemy.intentIndex=1;assert.deepEqual(f.game.getIntent().hits,[expected]);f.b.enemy.chill=5;assert.deepEqual(f.game.getIntent().hits,[expected-1]);}

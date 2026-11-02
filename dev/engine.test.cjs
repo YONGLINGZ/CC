@@ -1,6 +1,8 @@
+'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
 /* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
-'use strict';
+
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { CARDS, ENEMIES, RELICS, LEGACY_FLOORS: FLOORS, LEGACY_REGIONS: REGIONS, STARTERS, LEGACY_EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, createGame } = require('./engine.js');
@@ -333,30 +335,21 @@ test('休息直接离开不改变生命', () => {
   game.rest(false); assert.equal(game.state.player.hp,31); assert.equal(game.state.screen,'map');
 });
 
-test('狐妖签约上限减 8、截断当前生命并给狐契；拒绝无数值变化', () => {
-  const game=atNode('fox',3); assert.equal(game.fox(true),true);
-  assert.equal(game.state.player.hp,52); assert.equal(game.state.player.maxHp,52);
-  assert.ok(game.state.player.relics.includes('fox')); assert.equal(game.fox(true),false);
-  const refused=atNode('fox',3); const before=JSON.stringify(refused.state.player);
-  refused.fox(false); assert.equal(JSON.stringify(refused.state.player),before);
+test('狐灯只立多段长约，不再直接发放复活；拒绝无数值变化',()=>{
+ const game=atNode('fox',3),p=game.state.player,gold=p.gold;assert.equal(game.fox(true),true);assert.equal(p.gold,gold-20);assert.equal(p.maxHp,60);assert.ok(!p.relics.includes('fox'));assert.equal(game.lifeQuestStatus().stage,'trial');assert.equal(game.fox(true),false);
+ const refused=atNode('fox',3),before=JSON.stringify(refused.state.player);refused.fox(false);assert.equal(JSON.stringify(refused.state.player),before);
 });
-
-test('狐契签约门槛：生命上限大于 8 且不能已有狐契', () => {
-  const game=atNode('fox',3); game.state.player.maxHp=8;
-  assert.equal(game.fox(true),false); assert.equal(game.state.screen,'fox');
-  game.state.player.maxHp=60; game.state.player.relics.push('fox');
-  assert.equal(game.fox(true),false); assert.equal(game.state.player.maxHp,60);
-});
+test('狐灯立约资金不足拒绝且不扣款',()=>{const game=atNode('fox',3);game.state.player.gold=19;const before=JSON.stringify(game.state);assert.equal(game.fox(true),false);assert.equal(JSON.stringify(game.state),before);});
 
 test('狐契自损免死后继续抽牌，触发后消失且不超过最大生命', () => {
   const game=setup(); const s=game.state,b=s.battle; s.player.hp=1; s.player.maxHp=7;
-  s.player.relics.push('fox'); b.draw=[card('C01'),card('C02')]; play(game,'C13');
+  earnedLifeFixture(s,'fox'); b.draw=[card('C01'),card('C02')]; play(game,'C13');
   assert.equal(s.screen,'battle'); assert.equal(s.player.hp,7); assert.equal(b.hand.length,2);
   assert.ok(!s.player.relics.includes('fox')); assert.ok(b.logs.some(l=>l.includes('狐契触发')));
 });
 
 test('狐契被多段攻击触发后，后续段仍正常结算', () => {
-  const game=setup(); const s=game.state,b=s.battle; s.player.hp=2; s.player.relics.push('fox');
+  const game=setup(); const s=game.state,b=s.battle; s.player.hp=2; earnedLifeFixture(s,'fox');
   b.enemy.id='snake'; b.enemy.name=ENEMIES.snake.name; b.enemy.intentIndex=3;
   nextTurn(game); assert.equal(s.player.hp,2); assert.equal(s.screen,'battle');
   assert.ok(!s.player.relics.includes('fox')); assert.equal(b.logs.filter(l=>l.includes('狐契触发')).length,1);
@@ -381,7 +374,7 @@ test('毒致死立即失败，不继续恢复灵力和抽牌', () => {
 
 test('毒可触发狐契，免死后正常减毒、恢复灵力和抽牌', () => {
   const game=setup(); const s=game.state,b=s.battle;
-  s.player.hp=2; s.player.relics.push('fox'); b.poison=3; b.enemy.id='lantern';
+  s.player.hp=2; earnedLifeFixture(s,'fox'); b.poison=3; b.enemy.id='lantern';
   b.draw=[card('C01')]; nextTurn(game);
   assert.equal(s.player.hp,12); assert.equal(b.poison,2); assert.equal(b.energy,3);
   assert.equal(b.hand.length,1); assert.ok(!s.player.relics.includes('fox'));
@@ -563,7 +556,7 @@ test('所有自损牌致死时停止剩余效果；狐契免死后才继续', ()
     const game=setup(),s=game.state,b=s.battle;s.player.hp=loss;b.draw=[card('C01')];
     play(game,id);assert.equal(s.screen,'defeat',id);assert.equal(b.enemy.hp,500,id);
     assert.equal(b.draw.length,1,id);assert.equal(b.energy,0,id);assert.equal(b.bloodPower,0,id);assert.equal(b.block,0,id);
-    const revived=setup(),r=revived.state,rb=r.battle;r.player.hp=loss;r.player.relics.push('fox');
+    const revived=setup(),r=revived.state,rb=r.battle;r.player.hp=loss;earnedLifeFixture(r,'fox');
     play(revived,id);assert.equal(r.screen,'battle',id);assert.equal(r.player.hp,12,id);assert.ok(!r.player.relics.includes('fox'),id);
     if(id==='C25')assert.equal(rb.energy,51);if(id==='C27')assert.equal(rb.bloodPower,2);if(id==='C29')assert.equal(rb.energy,52);if(id==='C31')assert.equal(rb.block,12);
   }
@@ -598,7 +591,7 @@ test('逆鳞击杀停止后续连段并只奖励一次；玩家先死时不反�
 
 test('逆鳞遇狐契免死可以继续反击，且后续伤害仍会结算', () => {
   const game=setup(),s=game.state,b=s.battle;play(game,'C33');b.enemy.id='snake';b.enemy.intentIndex=3;
-  b.block=1;s.player.hp=1;s.player.relics.push('fox');nextTurn(game);
+  b.block=1;s.player.hp=1;earnedLifeFixture(s,'fox');nextTurn(game);
   assert.equal(s.player.hp,2);assert.equal(b.enemy.hp,497);assert.ok(!s.player.relics.includes('fox'));
 });
 

@@ -1,0 +1,1339 @@
+{
+  "version": "2026.11.02-review.2",
+  "base": "d36665842f7caf523da0067f49e54b20067672fb",
+  "engine": {
+    "passed": 605,
+    "failed": 0,
+    "total": 605,
+    "skipped": 0,
+    "legacy_checks": 219,
+    "new_checks": 386
+  },
+  "public_api": {
+    "method": "150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Oracle policy reads internal enemy intentions (hidden in the product UI); six new demonic cards use the rule preview. Policy fixed before this run; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.",
+    "completed": 150,
+    "wins": 78,
+    "defeats": 72,
+    "byProfession": {
+      "assassin": {
+        "runs": 50,
+        "wins": 37,
+        "defeats": 13,
+        "winRate": 0.74,
+        "hpMedian": 44,
+        "normalizedHpMedian": 40,
+        "maxHitMedian": 52
+      },
+      "sword": {
+        "runs": 50,
+        "wins": 12,
+        "defeats": 38,
+        "winRate": 0.24,
+        "hpMedian": 35.5,
+        "normalizedHpMedian": 32.23880597014925,
+        "maxHitMedian": 48.5
+      },
+      "sovereign": {
+        "runs": 50,
+        "wins": 29,
+        "defeats": 21,
+        "winRate": 0.58,
+        "hpMedian": 29,
+        "normalizedHpMedian": 25,
+        "maxHitMedian": 48
+      }
+    },
+    "all_victories_completed_70_nodes": true,
+    "report": "dev/v11-playtest-report.json"
+  },
+  "hidden_api": {
+    "method": "Public API only; 24 active-environment 70-step attempts deliberately seek the three clue nodes and select their clue options when legal, then challenge the optional boss if available. No resource, pile, price, damage or profile edits. Not a human balance test.",
+    "completed": 24,
+    "wins": 5,
+    "defeats": 19,
+    "unlocks": 5,
+    "hidden_challenges": 9,
+    "hidden_wins": 5,
+    "report": "dev/v11-hidden-playtest-report.json"
+  },
+  "core_browser": {
+    "method": "Chromium button interactions with explicitly arranged role/card/combat fixtures; layout A/B uses identical fixtures, not natural player runs. 360/390/430 are emulated widths, not physical phones.",
+    "checks": [
+      {
+        "name": "assassin core actions and end turn",
+        "ok": true
+      },
+      {
+        "name": "sword core actions and end turn",
+        "ok": true
+      },
+      {
+        "name": "hehuan core actions and end turn",
+        "ok": true
+      },
+      {
+        "name": "mechanist core actions and end turn",
+        "ok": true
+      },
+      {
+        "name": "sovereign core actions and end turn",
+        "ok": true
+      },
+      {
+        "name": "rest and shop new choices settle through actual buttons",
+        "ok": true
+      }
+    ],
+    "layout": [
+      {
+        "role": "assassin",
+        "file": "baseline.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 713.15625,
+          "bottom": 1029.15625,
+          "height": 316
+        },
+        "end": {
+          "top": 631.359375,
+          "bottom": 681.15625,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "baseline.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "baseline.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "baseline.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "index.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 713.15625,
+          "bottom": 1029.15625,
+          "height": 316
+        },
+        "end": {
+          "top": 631.359375,
+          "bottom": 681.15625,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "index.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "index.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "assassin",
+        "file": "index.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "baseline.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 705.46875,
+          "bottom": 1021.46875,
+          "height": 316
+        },
+        "end": {
+          "top": 623.671875,
+          "bottom": 673.46875,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "sword",
+        "file": "baseline.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "baseline.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "baseline.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "index.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 705.46875,
+          "bottom": 1021.46875,
+          "height": 316
+        },
+        "end": {
+          "top": 623.671875,
+          "bottom": 673.46875,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "sword",
+        "file": "index.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "index.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sword",
+        "file": "index.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "baseline.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 872.75,
+          "bottom": 1254.734375,
+          "height": 381.984375
+        },
+        "end": {
+          "top": 790.953125,
+          "bottom": 840.75,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "baseline.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1253.375,
+          "bottom": 1633.359375,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1157,
+          "bottom": 1201,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "baseline.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 1177.984375,
+          "bottom": 1557.96875,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1081.609375,
+          "bottom": 1125.609375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "baseline.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 1177.984375,
+          "bottom": 1557.96875,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1081.609375,
+          "bottom": 1125.609375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "index.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 872.75,
+          "bottom": 1254.734375,
+          "height": 381.984375
+        },
+        "end": {
+          "top": 790.953125,
+          "bottom": 840.75,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "index.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1253.375,
+          "bottom": 1633.359375,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1157,
+          "bottom": 1201,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "index.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 1177.984375,
+          "bottom": 1557.96875,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1081.609375,
+          "bottom": 1125.609375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "hehuan",
+        "file": "index.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 1177.984375,
+          "bottom": 1557.96875,
+          "height": 379.984375
+        },
+        "end": {
+          "top": 1081.609375,
+          "bottom": 1125.609375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "baseline.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 916.859375,
+          "bottom": 1232.859375,
+          "height": 316
+        },
+        "end": {
+          "top": 835.0625,
+          "bottom": 884.859375,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 292.6875,
+          "bottom": 366.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 370.6875,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "baseline.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1420.96875,
+          "bottom": 1738.96875,
+          "height": 318
+        },
+        "end": {
+          "top": 1324.59375,
+          "bottom": 1368.59375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 589.0625,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "baseline.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 1345.578125,
+          "bottom": 1663.578125,
+          "height": 318
+        },
+        "end": {
+          "top": 1249.203125,
+          "bottom": 1293.203125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 513.671875,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "baseline.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 1306.5,
+          "bottom": 1624.5,
+          "height": 318
+        },
+        "end": {
+          "top": 1210.125,
+          "bottom": 1254.125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 418.59375,
+          "bottom": 479.28125,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 333.28125,
+          "bottom": 493.28125,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "index.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 916.859375,
+          "bottom": 1232.859375,
+          "height": 316
+        },
+        "end": {
+          "top": 835.0625,
+          "bottom": 884.859375,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 292.6875,
+          "bottom": 366.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 370.6875,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "index.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1420.96875,
+          "bottom": 1738.96875,
+          "height": 318
+        },
+        "end": {
+          "top": 1324.59375,
+          "bottom": 1368.59375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 589.0625,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "index.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 1345.578125,
+          "bottom": 1663.578125,
+          "height": 318
+        },
+        "end": {
+          "top": 1249.203125,
+          "bottom": 1293.203125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 513.671875,
+          "height": 160
+        }
+      },
+      {
+        "role": "mechanist",
+        "file": "index.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 1306.5,
+          "bottom": 1624.5,
+          "height": 318
+        },
+        "end": {
+          "top": 1210.125,
+          "bottom": 1254.125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 418.59375,
+          "bottom": 479.28125,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 333.28125,
+          "bottom": 493.28125,
+          "height": 160
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "baseline.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 705.46875,
+          "bottom": 1021.46875,
+          "height": 316
+        },
+        "end": {
+          "top": 623.671875,
+          "bottom": 673.46875,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "baseline.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "baseline.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "baseline.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "index.html",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "viewport": 1440,
+        "hand": {
+          "top": 705.46875,
+          "bottom": 1021.46875,
+          "height": 316
+        },
+        "end": {
+          "top": 623.671875,
+          "bottom": 673.46875,
+          "height": 49.796875
+        },
+        "enemy": {
+          "top": 352.6875,
+          "bottom": 426.6875,
+          "height": 74
+        },
+        "stage": {
+          "top": 210.6875,
+          "bottom": 430.6875,
+          "height": 220
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "index.html",
+        "width": 360,
+        "scrollWidth": 360,
+        "viewport": 360,
+        "hand": {
+          "top": 1016.203125,
+          "bottom": 1334.203125,
+          "height": 318
+        },
+        "end": {
+          "top": 919.828125,
+          "bottom": 963.828125,
+          "height": 44
+        },
+        "enemy": {
+          "top": 514.375,
+          "bottom": 575.0625,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 429.0625,
+          "bottom": 579.0625,
+          "height": 150
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "index.html",
+        "width": 390,
+        "scrollWidth": 390,
+        "viewport": 390,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      },
+      {
+        "role": "sovereign",
+        "file": "index.html",
+        "width": 430,
+        "scrollWidth": 430,
+        "viewport": 430,
+        "hand": {
+          "top": 940.8125,
+          "bottom": 1258.8125,
+          "height": 318
+        },
+        "end": {
+          "top": 844.4375,
+          "bottom": 888.4375,
+          "height": 44
+        },
+        "enemy": {
+          "top": 438.984375,
+          "bottom": 499.671875,
+          "height": 60.6875
+        },
+        "stage": {
+          "top": 353.671875,
+          "bottom": 503.671875,
+          "height": 150
+        }
+      }
+    ],
+    "errors": []
+  },
+  "quest_browser": {
+    "method": "Actual Chromium button checks with explicit map/combat fixtures; battle proofs settled through real rule API using 1HP enemies. Not natural runs or player win rates.",
+    "checks": [
+      {
+        "role": "mark",
+        "reward": "fox",
+        "ok": true
+      },
+      {
+        "role": "mark",
+        "reward": "ninelives",
+        "ok": true
+      },
+      {
+        "role": "sword",
+        "reward": "fox",
+        "ok": true
+      },
+      {
+        "role": "sword",
+        "reward": "ninelives",
+        "ok": true
+      },
+      {
+        "role": "hehuan",
+        "reward": "fox",
+        "ok": true
+      },
+      {
+        "role": "hehuan",
+        "reward": "ninelives",
+        "ok": true
+      },
+      {
+        "role": "mechanist",
+        "reward": "fox",
+        "ok": true
+      },
+      {
+        "role": "mechanist",
+        "reward": "ninelives",
+        "ok": true
+      },
+      {
+        "role": "sovereign",
+        "reward": "fox",
+        "ok": true
+      },
+      {
+        "role": "sovereign",
+        "reward": "ninelives",
+        "ok": true
+      }
+    ],
+    "errors": [],
+    "version": "2026.11.02-review.2"
+  },
+  "offline": {
+    "version": "2026.11.02-review.2",
+    "screen": "battle",
+    "requests": 1,
+    "errors": [],
+    "method": "Complete inline HTML served over loopback, all other HTTP(S) blocked; real start buttons, no resource fixture. Not a file:// double-click check."
+  },
+  "inputs": {
+    "dev/art.js": "e344ea602fff91be6a530c99dcc6bea699f38c3e3f3e8d3e07913fda7002f453",
+    "dev/audio.js": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
+    "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
+    "dev/enemy-factions.js": "3939e5cbb78d9a584071403fec77a38f39e263279a6a83d42d908de30e8e688f",
+    "dev/engine.js": "dd214aa374b5d7bc7824cab7124714023b2fe48e7a3f12e038140be91e277d75",
+    "dev/event-editorial.js": "457dcd005ee219c8011b725265c1542fd38e61996ac96b26daf180a63a7316b8",
+    "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
+    "dev/expedition.js": "8a1eac957c7358015581cf59f68e24a1f38e6874336c53d423c3fdd15ae6ec4a",
+    "dev/hehuan.js": "61f29e5554f595e4816e28034d0bb7b1e562b72b8371d87b4ccb6a47e25d391f",
+    "dev/mechanist.js": "aaa552669d60b447812576e237f6899b6c301cd145f1dbfda96e4574c4e78977",
+    "dev/music.js": "972d4fbd634946c4464d747999aea55ac0b772720851f2045a3ff54cc35ea1d1",
+    "dev/puppet.js": "e1ebb62a894e5b33ecec133dba5a9d30f09d7eb5f0bdb756f52722c818ae1dc3",
+    "dev/seven.js": "0f04ab03885dc26fbdb68220c9cc5ea679b460519b664210a5de74567cae3278",
+    "dev/story-bosses-v5.js": "632049dd568fbcc57ea62bad1eecb5c1e609f8ad80f6f72e216f798eab3f9eeb",
+    "dev/story-factions-v5.js": "f97ec4973e3645437b61ea10c1d3ee542f2a7b15f009d667475a7ae4eb9be668",
+    "dev/story-v5.js": "43cd7f4f12a08cd4fd1b7b71f21e725e32efad4d2fc1c5444a0425052e2dae0e",
+    "dev/tales.js": "a1267a09eb5a2850b3d119dea422e09da79714343f15251039e902448dc9f6a3",
+    "dev/ui.js": "4b6d1c38dbf495bdff66bcf0b48a22615cc3b2cc6b22951a8f19594aeb1e9a26",
+    "dev/audio.test.cjs": "7e6487e98bd789d779101653aedce42abeb2404c2e1b60d8c2056660b9b5f4cc",
+    "dev/automaton.test.cjs": "772b8baad4e384c7d2103d8b783b6a2d540e81850877f35adc88e912ac5a2318",
+    "dev/batch-a-browser.test.cjs": "a93f755dbbdc16ab85e06bbdf067b46d89757a1e62b9be15fb112fe66a83e547",
+    "dev/batch-a-engine.test.cjs": "7a9ed6c7ffaba7966fc9ab15681b51265d765de130762580d0f3032ee43f3dc6",
+    "dev/boss-chain-reachability.test.cjs": "9c24738f8eb2937693a608509cfbd972bbfec05b0e8ddf61a10d1137d4c1ac06",
+    "dev/boss-quests-browser.test.cjs": "d06bca18cb2779889216994cdaeac50c963fa19ffb0fb635b4d1b707919e8b19",
+    "dev/boss-quests.test.cjs": "3a8248bdbcd8b4b74e1df6bd04f71c0f0c9865939d6512e0df86ef9aa64f0707",
+    "dev/browser.test.cjs": "26a0d80076afff27c9bc6c7690ff634d91f9f348364e22917254ee2b980057e1",
+    "dev/cards36.test.cjs": "78699208bfcc9447218a6435f2ea73da78d3b1412ef3e66137e0f8d0f54c85ac",
+    "dev/engine.test.cjs": "3ddd71c819e9ef1dbc531eddfc4aedc11d9f4a5b8728c49967c9a8c75b4a30a9",
+    "dev/event-review.test.cjs": "ca6b2109fd69c276effc808061e241dcf1d80c34d80cab5116d396da33911153",
+    "dev/factions-browser.test.cjs": "0a854958b88877bc66986880eb9c6cd797c9f5764b8fe3e4a26669ba12b33d2b",
+    "dev/factions-scheduling.test.cjs": "c717e43247524915a26c0d926d72a76dbd030c690e5e9e3992ef758fa29bd0f9",
+    "dev/factions.test.cjs": "a58961214c5409939633ee7ef573bb83dc9bef999b05d411594b5a68b19d06d9",
+    "dev/frontier-browser.test.cjs": "4ad70f0e2b1446ad8fdba6be0d625b414bd450e86282043d86c4f5e62e2a3469",
+    "dev/frontier-scheduling.test.cjs": "bcc1186d6a12c82d1bb3bba094f6b02139fa2aac1886ec794fea941230943ffe",
+    "dev/frontier.test.cjs": "3ba76ecdbd091988c2a1aea3fe94d3097b498b962a97dcfb8ba77b85b294860d",
+    "dev/hehuan-browser.test.cjs": "bde486fac399fd8da2638f0144983af94187962b3d124c21b6e6550629bc4996",
+    "dev/hehuan-story.test.cjs": "911a72f5051776822f522f0d07112f9a2f898d832c6a177fa9989bb86c076d0b",
+    "dev/hehuan.test.cjs": "7203744bf3dc0bd3d02b0efa9f8607674f38ce79cbc3189440d826da54b3b25e",
+    "dev/later-factions-browser.test.cjs": "5ba54e74247058c48dbfa3b0b8fcaaf15cd2b94b0ef860d0b9111d0fd3c720b7",
+    "dev/later-factions.test.cjs": "7191e6f278d1d6b436ffc06ba44b86f41e08e0382e6f67c600d8a48e48625b4e",
+    "dev/mechanist-audio.test.cjs": "66e81da44a83f322d98a2b4fe4621c8e229d2e7c24f0b347eefce76fef5247f1",
+    "dev/mechanist-browser.test.cjs": "e6774ba006b6230108ca22436ce1132332a493de6cb0d19e5acff5c88d8a71c3",
+    "dev/mechanist.test.cjs": "409233b4db9b86674fc7376de980b1dd06fb10564bc556b078e46cc54b784b57",
+    "dev/music-browser.test.cjs": "511f703fa49b1e2160d20f3bf5993653c1b6bd3cc129c5e494936e06db42aced",
+    "dev/music.test.cjs": "877acb3c43c6d64203d8338fed7b9d39151b2a3cc80ff63452ba9903772422e6",
+    "dev/p2-browser.test.cjs": "8f99a6e8bf3af26058e51c570914e2b29c05c541465ce4fe862b54b6135d3a51",
+    "dev/p2-rework.test.cjs": "19e1b330311921b3b8e447f1f65b2d96146173d39ddd5657dedb96899c253b91",
+    "dev/puppet.test.cjs": "60c38202b3e60cce8f13b91af6ef3ee23fbb1f5eeda3d20df0aff1362908b13f",
+    "dev/reward.test.cjs": "848c5034cdd1ca1febec62eaf1383c271e81f47fab78501490cf806cfeffcd1b",
+    "dev/rework.test.cjs": "4adcc1bac494222cdb657104a8213a76d230a249091c96ddc27c50933fae73aa",
+    "dev/story-bosses-v5.test.cjs": "ebd1665728c9e82c71b1d59109553f875ae1d999ca36a7f506484c51cda3700e",
+    "dev/story-factions-v5.test.cjs": "cfed1b08c622e050b9adc3779b21231bd4cbbf3bb90cd560095fab7642326bc5",
+    "dev/story-v5.test.cjs": "6aeb6120e22f6fb22007ba5fe427a38460ff99ce646305f4158cc63dcad04af0",
+    "dev/tales-browser.test.cjs": "8311196f6e564c8df0f68f19e6794475263b00b65bad21f8b02f55499312e3fb",
+    "dev/tales-engine.test.cjs": "aa0036a596684860efa8cb73cd4ffc05e4397f02356e0544cca7b5d906eef8db",
+    "dev/upgrade-browser.test.cjs": "ed1fce61ffa0cd8e8be8bc80b22586b118220f08cd362944e72e236c5432b134",
+    "dev/v10-browser.test.cjs": "d9dd5b9e6d47a8c13e6aad3274eef64301a1fe561592934feb2b2ef2800b0fa9",
+    "dev/v10-combat.test.cjs": "b61a181bfd655794d30e7e6f192efb454aa4f33c7d57702b22e930d8d9778c55",
+    "dev/v10-expedition.test.cjs": "84385e15fd9679ff1b5cede0ebc20bcf0cb9a5fe305d107d963f14d57f83c19f",
+    "dev/v10-export.test.cjs": "2d9ba202379628016b621456953e30e42325c2d76cd04f88bddb7c0c2fb5cf7a",
+    "dev/v10-integration.test.cjs": "3313194acab4a84d49776b08cbc1a4d59dfff5d6af83cb7b2c7f2ea673c97663",
+    "dev/v10-source-browser.test.cjs": "a1d4de96ebe54e146a78b76aa69110fe5cd12e00231d150c343348fb1cb23723",
+    "dev/v11-balance.test.cjs": "8774a5f871991041994b121b95c385d1e75333ddd3a840b2f9545b851a190051",
+    "dev/v11-browser.test.cjs": "9824fd31135afe084daffe7531198d33126ceb11678abee6b82cd32fb2607e98",
+    "dev/v11-campaign.test.cjs": "e2e662ddbb8fc30219532b10471feec00141b8af3cb599ecab00739c84b5a108",
+    "dev/v11-export.test.cjs": "91804162a2a12be734e8cc5be9fae067ff52086e779f855a9507f37affec98fe",
+    "dev/v11-source-browser.test.cjs": "24b528224372acba3e9a9c7b151f010350e2adb97af118d72b6d4289db5fb9f4",
+    "dev/v4-browser.test.cjs": "b82bedff10df78eed3f84b98130979152ed68e0d9b856e8eb9e220413e92d204",
+    "dev/v5-audio.test.cjs": "a7513530e3ebc458d623b5452569c8de738bd189ae86127e0c27313aa8758f59",
+    "dev/v5-browser.test.cjs": "6911eb0a35f90535446969f378e63579435bda87ae25ac91b91ac2728c198ae6",
+    "dev/v5-engine.test.cjs": "6d3c807a05ff1a1c2b78779be9279cb5887ebbf548a2d55c3de9f9089a1b6dce",
+    "dev/v5-export.test.cjs": "c1964422f0ee6ae8999c2f94ba70658adf6194fed9c4dc6e55d878daa6660206",
+    "dev/v6-browser.test.cjs": "cdfbad5ded161dfb6619371fa88f4b11da875b094d72c65383cda05a460bebe6",
+    "dev/v6-engine.test.cjs": "3e2efd711b7ba75eff73f1f25b6810a700f2fffdb1c47645773f9fc1e81967b0",
+    "dev/v6-event-audio.test.cjs": "0ccedd35c3a135fdb1a00a47e9042b19b4a0a7e91dfd08d16d10cb8b274b3f4e",
+    "dev/v6-source-browser.test.cjs": "10c3a70a54b517dfbafb1473dc4df94d21224be8ba83cd57a3fb53bf542be7b7",
+    "dev/v7-audio.test.cjs": "a9cb5ce46500ab6e1c18c9a88df2a0df26d0023300bf18ce510099e8eb63c05a",
+    "dev/v7-browser.test.cjs": "0bc8c858c26cfd93f306b43a9addd4a60fb8fbc1cff5776a2335d6ad3db690a8",
+    "dev/v7-engine.test.cjs": "07fa7f3cedce1c965e14abbef40cb049f33b0ac16d54da46f7f8dbb946558d17",
+    "dev/v8-audio.test.cjs": "1bd29468480ee9e0cfb5ec66ed426eba5dbe99062f6948b380817101bf4b18b3",
+    "dev/v8-browser.test.cjs": "44506d6f2b724bc4c2829e995e1794f9b6a8bbac502be03546f64ed277ef290d",
+    "dev/v8-engine.test.cjs": "b337e09fb6eaf370502421935e87a4416b66c1ad2e7b188ca697c3e4f6b2093f",
+    "dev/v8-file-browser.test.cjs": "c296b8d50d5f6f498efda79e605430928c175ec5ebe52ace7309389e89e7e649",
+    "dev/v9-browser.test.cjs": "3523e7d662a9b4c92e7796345a9aba47e736a7f148d73244282d95a48b434b4f",
+    "dev/v9-engine.test.cjs": "78f0a61a77cddcdf8a0327baf23166fd8b1096b29b809ee061474c9e54a5b91a",
+    "dev/v9-export.test.cjs": "f23ac0dd986794d97f330315aa2bf348f542413f894ce8e3ba4ee254ee61a52b",
+    "dev/v9-source-browser.test.cjs": "974ae2d622f25fa8952a5ca55a7554f5176edd27228cc9ee02ca486c723aecf4",
+    "dev/wardrobe-blood-browser.test.cjs": "9456ec78c2eaa775ea7e02dd27e78aba98c1347a35c1187b80d85d7fcd3c5c27",
+    "dev/wardrobe-blood.test.cjs": "3bfd601f517d8194d2b3a28ff9d83136c74baa30c6da2d448bdaff4e2c741196",
+    "dev/player-review.test.cjs": "c5bd988ed3b7728322d86c9f8f86d893a25ca879a59fa29956f691bd36bfb58f",
+    "dev/player-review-browser.test.cjs": "8b9493ff4a459a7db8a0363f0d4d92bc9ac3bba84946a1f27b943a52122064a8",
+    "dev/difficulty-lifequest.test.cjs": "ca0291af9d6ddeb3230ab3d34a74b37338e624b0811fb2a97073f76d47e854ba",
+    "dev/player-review-long-browser.test.cjs": "37b7a2fc061f84c40138ab756231220646737a6b2163c0bfd4d808f865084fb7",
+    "dev/shell.html": "551fcb4a6dcf4915548ad10f9f24d9eede8ba3c8777d193885847abfebdc3706",
+    "dev/release.json": "c67cb9c2cceb91552476fab24d4e3b87a455731bccc28b933d774a35c32e4a4e",
+    "index.html": "3ea70ec8b748e918c8f2f8f949236da1cea33e2828a367fbbe9661b39209f3e5",
+    "baiyao-standalone.html": "5bb8038c918455000ff52f800fb697f073326659332abe3f52eea7fe72b7095d",
+    "dev/life-quest-fixture.cjs": "61951653ce18366a250b8eadfd5af195bdb58bd6be8f7dd30aa26a9a5a501604",
+    "dev/difficulty-lifequest-browser.cjs": "b6be329118c163f81fd348ef4276edeef821db3749672fe3f35aa13276a0b233",
+    "dev/difficulty-arena.cjs": "0daf039afb9d9e3ed65b3ac3f7eeff6baae26dcc06f72339f43bc324f37247df",
+    "dev/v11-regression.cjs": "b27161a6020f9a273bd679ac1cbf68458ddca7aaed5322a75e93ecfe5a2e8964"
+  },
+  "note": "Historical dev receipts restored after copying current results into text-evidence.zip. UI fixtures and oracle probes are not human runs."
+}

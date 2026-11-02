@@ -1,5 +1,7 @@
-/* Hehuan core contracts. Combat fixtures explicitly arrange hands, HP and intents. */
 'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
+/* Hehuan core contracts. Combat fixtures explicitly arrange hands, HP and intents. */
+
 const test=require('node:test'),A=require('node:assert/strict'),N=require('./engine.js');
 let serial=0;
 function game(starter='hehuan',extra={}){const g=N.createGame({rng:()=>.43,environment:false,scaling:false,tales:false,factions:false,bossQuests:false,profile:{version:1,unlocks:['feiye']},...extra});A.equal(g.newRun(starter),true);A.equal(g.enterRegion(),true);return g;}
@@ -112,8 +114,8 @@ test('H10 heals only when trap damage removes life, consumes in both modes, and 
 
 test('player death before after-effects prevents lethal trap damage, while fox rescue allows later resolution',()=>{
  const g=battle(),b=g.state.battle;g.state.player.hp=1;hide(g,'H12');withIntent(g,{hits:[6]},()=>turn(g));A.equal(g.state.screen,'defeat');A.equal(b.enemy.hp,500);A.equal(trapHits(b).length,0);A.equal(b.traps.length,0);
- const h=battle(),c=h.state.battle;h.state.player.hp=1;h.state.player.relics.push('fox');hide(h,'H12');withIntent(h,{hits:[6]},()=>turn(h));A.equal(h.state.screen,'battle');A.equal(h.state.player.hp,12);A.equal(c.enemy.hp,474);A.equal(h.state.player.relics.includes('fox'),false);
- const z=battle(),d=z.state.battle;z.state.player.hp=1;z.state.player.relics.push('fox');hide(z,'H12');withIntent(z,{hits:[20,20]},()=>turn(z));A.equal(z.state.screen,'defeat');A.equal(trapHits(d).length,0);A.equal(d.enemy.hp,500);
+ const h=battle(),c=h.state.battle;h.state.player.hp=1;earnedLifeFixture(h.state,'fox');hide(h,'H12');withIntent(h,{hits:[6]},()=>turn(h));A.equal(h.state.screen,'battle');A.equal(h.state.player.hp,12);A.equal(c.enemy.hp,474);A.equal(h.state.player.relics.includes('fox'),false);
+ const z=battle(),d=z.state.battle;z.state.player.hp=1;earnedLifeFixture(z.state,'fox');hide(z,'H12');withIntent(z,{hits:[20,20]},()=>turn(z));A.equal(z.state.screen,'defeat');A.equal(trapHits(d).length,0);A.equal(d.enemy.hp,500);
 });
 
 test('new enemy counter stances retaliate once per trap and stop remaining traps on player death',()=>{

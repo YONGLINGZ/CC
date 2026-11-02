@@ -1,6 +1,8 @@
+'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
 /* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
-'use strict';
+
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -100,7 +102,7 @@ test('秘宝确实改变战斗节奏', () => {
   assert.equal(battle.mirrorUsed, true);
 });
 
-test('无面神血增加最大生命，九命铃每场战斗挡一次致死', () => {
+test('无面神血增加最大生命，任务已完成的九命铃挡一次致死', () => {
   const eventGame = run(5, 'mark');
   const eventState = eventGame.state;
   eventState.screen = 'map';
@@ -120,7 +122,7 @@ test('无面神血增加最大生命，九命铃每场战斗挡一次致死', ()
 
   const battleGame = run(11, 'mark');
   const battleState = battleGame.state;
-  battleState.player.relics.push('ninelives');
+  earnedLifeFixture(battleState,'ninelives');
   battleGame.enterNode('f1-0');
   const battle = battleState.battle;
   battle.enemy.id = 'paper'; // isolate lethal guard from new poison/secondary skills

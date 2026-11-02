@@ -1,6 +1,8 @@
+'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
 /* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Legacy fixtures isolate card rules from regional debuffs; v7 tests cover enabled environments. */
-'use strict';
+
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { createGame, CARDS, CHARACTERS, STARTERS, LEGACY_EVENT_IDS: ALL_EVENT_IDS, CHAIN_EVENT_IDS, RELICS } = require('./engine.js');
@@ -22,7 +24,7 @@ test('两职业与四开局真实独立：牌组、初始遗物、成年角色�
   const g=createGame({campaign:'legacy',scaling:false,environment:false,rng:random()});g.newRun('sword'); g.enterRegion();let s=g.state;
   assert.equal(s.character,'sword');assert.equal(s.player.character,'sword');assert.deepEqual(s.player.relics,['frostseal']);
   assert.deepEqual(s.player.deck.map(c=>c.id),STARTERS.sword.cards);assert.equal(new Set(s.player.deck.map(c=>c.uid)).size,10);
-  s.player.hp=2;s.player.maxHp=40;s.player.gold=999;s.player.deck.pop();s.player.relics.push('fox');
+  s.player.hp=2;s.player.maxHp=40;s.player.gold=999;s.player.deck.pop();earnedLifeFixture(s,'fox');
   g.newRun('combo'); g.enterRegion();s=g.state;assert.equal(s.character,'assassin');assert.equal(s.player.hp,60);assert.equal(s.player.maxHp,60);assert.equal(s.player.gold,60);assert.deepEqual(s.player.relics,['bell']);assert.ok(s.player.deck.every(c=>c.id.startsWith('C')));
 });
 
@@ -96,7 +98,7 @@ test('回锋有明确门槛，藏剑可叠加，冰镜按霜寒条件抽牌',()=
 
 test('淬刃自损死亡停止抽牌剑意，狐契免死后才继续，剑鸣和霜天壁真实生效',()=>{
   const g=battle(),b=g.state.battle;g.state.player.hp=3;b.draw=[{id:'S01',uid:'unused'}];play(g,'S13');assert.equal(g.state.screen,'defeat');assert.equal(b.hand.length,0);assert.equal(b.swordIntent,0);
-  const f=battle(),fb=f.state.battle;f.state.player.hp=2;f.state.player.relics.push('fox');fb.draw=[{id:'S01',uid:'x'},{id:'S02',uid:'y'}];play(f,'S13');assert.equal(f.state.player.hp,12);assert.equal(fb.hand.length,2);assert.equal(fb.swordIntent,1);
+  const f=battle(),fb=f.state.battle;f.state.player.hp=2;earnedLifeFixture(f.state,'fox');fb.draw=[{id:'S01',uid:'x'},{id:'S02',uid:'y'}];play(f,'S13');assert.equal(f.state.player.hp,12);assert.equal(fb.hand.length,2);assert.equal(fb.swordIntent,1);
   play(f,'S14');assert.equal(fb.enemy.hp,495);assert.equal(fb.swordIntent,3);play(f,'S12');assert.equal(fb.block,14);assert.equal(fb.enemy.chill,2);assert.equal(fb.swordIntent,4);
 });
 

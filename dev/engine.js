@@ -16,6 +16,7 @@
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
   const BALANCE = Object.freeze({
     hpSlope: 0.05, hpMaxFloor: 30, atkStep: 1 / 4,
+    lateHpSlope: 0.012, latePressureStep: 15, bossHp: Object.freeze([95,120,145,175,205,235,270]),
     atkCapNormal: 4, atkCapElite: 6, atkCapBoss: 0, firstHitBonusCap: 8,
     playerMarkCap: 5,
     scalingWhitelist: Object.freeze(['paper','lantern','ape','bone','yaksha','e_mist','e_lantern','e_priest','gate_boss','camp_boss','snake'])
@@ -217,16 +218,16 @@
     bell: { name: '金铃', text: '每个玩家回合首次实际增加敌人猎印时，获得 3 点护盾。猎印上限 5。' },
     jade: { name: '磨爪玉', text: '每个玩家回合第 3 张牌结算后，获得 1 点灵力，每回合一次。' },
     moon: { name: '残月坠', text: '每场战斗第一个玩家回合额外抽 2 张牌。' },
-    fox: { name: '狐契', text: '本局下一次受到致命伤害时，免死并恢复至 12 点生命（不超过最大生命），随后消失。' },
+    fox: { name: '狐契', text: '完成续灯长约后领取。本局仅一次免死，恢复至12生命（不超过上限），随后消失；与九命铃只能选一件。' },
     fang: { name: '夜牙簪', text: '每个玩家回合第一张攻击牌的第一段伤害增加 2。' },
     silk: { name: '鲛绡带', text: '每个玩家回合首次获得护盾时，额外获得 2 点护盾。' },
-    vial: { name: '回春露', text: '每场战斗胜利时恢复 8 点生命。' },
+    vial: { name: '回春露', text: '战斗胜利后恢复至多8生命，且不超过本战入场以来的净失血。' },
     bloodstone: { name: '朱砂心', text: '每个玩家回合首次因卡牌自损生命并存活后，获得 1 点灵力并抽 1 张牌。' },
     moonheart: { name: '月髓', text: '秘宝：每个玩家回合开始时额外获得 1 点灵力。' },
     mirror: { name: '照魂镜', text: '秘宝：每场战斗第一张攻击牌的第一段伤害增加 7。' },
     dream: { name: '梦匣', text: '秘宝：每场战斗第一回合额外获得 1 点灵力，并额外抽 1 张牌。' },
     godblood: { name: '无面神血', text: '秘宝：获得时最大生命永久增加 12，并恢复 12 点生命。' },
-    ninelives: { name: '九命铃', text: '秘宝：每场战斗第一次受到致命伤害时，免死并恢复至 18 点生命；每场战斗触发一次。' }
+    ninelives: { name: '九命铃', text: '完成续灯长约后领取。本局仅一次免死，恢复至18生命（不超过上限），随后消失；与狐契只能选一件。' }
   };
   Object.assign(ENEMIES, EXPANSION.ENEMIES || {});
   Object.assign(ENEMIES, SEVEN.BOSSES || {});
@@ -253,14 +254,14 @@
   for(const id of Object.keys(EXPANSION.BLOOD_EVENTS||{}))EVENT_IDS.push(id);
   for (const id of [...Object.keys(SEVEN.EVENTS || {}),...(TALES.EVENT_IDS||[]),...(BOSS_QUESTS.EVENT_IDS||[])]) if (!EVENT_IDS.includes(id)) EVENT_IDS.push(id);
   EVENT_IDS.push(...ENEMY_FACTIONS.EVENTS);
-  const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood', 'ninelives'];
+  const TREASURE_RELICS = ['moonheart', 'mirror', 'dream', 'godblood'];
 
   const NODE_INFO = {
     fight: ['侵蚀遗径','普通战斗 · 20 灵石与本职业三选一卡'],
     elite: ['禁域镇守','高风险 · 35 灵石、稀有卡保底与珍藏二选一'],
-    rest: ['避瘴火塘','休息 · 恢复 18 点生命'],
+    rest: ['避瘴火塘','休息 · 治疗、整备或办理续灯长约'],
     shop: ['千灯补给站','商店 · 本职业卡牌 35 灵石；删牌 40'],
-    fox: ['狐影密约','最大生命减少 8 · 换一次免死'],
+    fox: ['狐影密约','续灯长约 · 查看进度或继续行程'],
     event: ['封域异闻','剧情奇遇 · 各方势力、明确代价与未知机缘'],
     cave: ['未知洞府','探宝 · 可能发现草药、丹药、遗宝，也可能惊动守藏者'],
     boss: ['镇境关口','固定招式 · 击败镇守者后可继续深入']
@@ -321,7 +322,7 @@
       const pendingHesitation=b.enemy.id==='m34'&&b.phase==='player'&&!b.enemy.hurtDuringPlayerTurn?1:0;
       const hesitation=Math.max(b.enemy.hesitation||0,pendingHesitation);
       const frenzy=b.enemy.id==='m01'&&b.enemy.hp<=b.enemy.maxHp/2&&b.enemy.frenzyUses<3?1:0;
-      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus+revengeBonus+frenzy+(index===0?(b.enemy.heat||0)*3+hesitation*2:0)-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
+      const hits=baseHits.map((amount,index)=>Math.max(0,amount+attackBonus+revengeBonus+frenzy+(index===0?(b.enemy.heat||0)*3+hesitation*2+(b.scaling?.pressure||0):0)-reduction)+(index===0?(b.playerMark||0):0)),parts=[];
       if(intent.powder)parts.push('敷上薄粉，下一张攻击牌首次生命伤害额外+2，不叠加');if(intent.removeBleed)parts.push(`移除自身流血${intent.removeBleed}`);
       if(intent.selfCost)parts.push(`自身失去${intent.selfCost}生命`);if(intent.selfPoison)parts.push(`自身获得毒${intent.selfPoison}`);if(intent.removeMark)parts.push(`移除自身猎印${intent.removeMark}`);
       if(intent.clearMark)parts.push('清除全部猎印');
@@ -930,7 +931,7 @@
     function hasRelic(id) { return state.player.relics.includes(id); }
     function addRelic(id) {
       const p = state.player;
-      if (!RELICS[id] || hasRelic(id)) return false;
+      if (!RELICS[id] || hasRelic(id) || ['fox','ninelives'].includes(id)) return false;
       p.relics.push(id);
       if (id === 'godblood') {
         p.maxHp += 12;
@@ -963,6 +964,7 @@
     function defeat() {
       if (['defeat','victory'].includes(state.screen)) return;
       const b = liveBattle()?state.battle:null;
+      const q=state.journey.lifeQuest;if(q&&!['spent','abandoned'].includes(q.stage)){q.stage='failed';recordJourney(null,'续灯长约 · 中断','此行止步，未完成的约定与未使用的灯火不带入下一局。','warning');}
       if(b)finishFactionEffects(b,'此行止步');
       if(b){b.phase = 'ended';clearCombatStatuses();}
       state.player.hp = 0;
@@ -982,17 +984,18 @@
         return true;
       }
       const b = state.battle;
-      if (liveBattle() && hasRelic('ninelives') && !b.nineUsed) {
-        b.nineUsed = true;
+      if (hasRelic('ninelives') && lifeProtection('ninelives')) {
+        if(b)b.nineUsed = true;
+        consumeLifeProtection('ninelives');
         p.hp = Math.min(18, p.maxHp);
-        log(`九命铃触发：免于死亡，生命设为 ${p.hp}。本场战斗不再触发。`);
+        log(`九命铃触发：免于死亡，生命设为 ${p.hp}。本局不再触发。`);
         note('九命铃替你挡下了这一夜。');
         event('relic', { relic: 'ninelives', amount: p.hp, name: RELICS.ninelives.name });
         if (selfDamage) bloodstone();
         return true;
       }
-      if (hasRelic('fox')) {
-        p.relics.splice(p.relics.indexOf('fox'), 1);
+      if (hasRelic('fox') && lifeProtection('fox')) {
+        consumeLifeProtection('fox');
         p.hp = Math.min(12, p.maxHp);
         log(`狐契触发：免于死亡，生命设为 ${p.hp}，狐契消失。`);
         note('狐契已替你付出一次死亡。');
@@ -1175,7 +1178,8 @@
         testimony.concluded=true;const count=oldStory.items.filter(id=>state.player.questItems.includes(id)).length;
         recordJourney(null,oldStory.title+' · 关口之后',`你亲历了 ${testimony.stage} 段旧事，带到交锋中的物证有 ${count} 件。${testimony.stage===3?'路上的声音没有因这一胜负消失；证词与代价都留在了手记里。':'尚未听完的部分仍是空白，这场胜利不能替它补写答案。'}`,'neutral');
       }
-      if (hasRelic('vial')) { heal(8, '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: 8 }); }
+      progressLifeQuest(b);
+      if (hasRelic('vial')) { const recovered=heal(Math.min(8,Math.max(0,b.openingHp-state.player.hp)), '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: recovered }); }
       clearCombatStatuses();
       state.stats.battles++;
       awardExperience(b.kind);
@@ -1225,7 +1229,7 @@
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox','frostseal','veil','heartmirror','concentric_spool'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','ninelives','frostseal','veil','heartmirror','concentric_spool'].includes(id) && !hasRelic(id));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -1390,8 +1394,15 @@
       const enabled = scalingEnabled && BALANCE.scalingWhitelist.includes(id);
       const rank = def.rank === 'boss' || kind === 'boss' || kind === 'hidden' ? 'boss' : def.rank === 'elite' || kind === 'elite' ? 'elite' : 'normal';
       const cap = rank === 'boss' ? BALANCE.atkCapBoss : rank === 'elite' ? BALANCE.atkCapElite : BALANCE.atkCapNormal;
-      return {enabled, baseHp:def.hp, clampedFloor,
-        hpMultiplier:enabled ? 1 + BALANCE.hpSlope * (clampedFloor - 1) : 1,
+      const depth=Math.max(1,Math.min(70,state.floor)),late=Math.max(0,depth-30);
+      let hpMultiplier=enabled?1+BALANCE.hpSlope*(clampedFloor-1)+BALANCE.lateHpSlope*late:1;
+      const chapterBoss=kind==='boss'||kind==='hidden';
+      if(scalingEnabled&&!legacyCampaign&&chapterBoss){
+        const position=(depth-10)/10,lo=Math.max(0,Math.min(6,Math.floor(position))),hi=Math.min(6,lo+1),mix=Math.max(0,position-lo);
+        hpMultiplier=(BALANCE.bossHp[lo]*(1-mix)+BALANCE.bossHp[hi]*mix)/def.hp;
+      }else if(scalingEnabled&&!legacyCampaign&&!enabled&&!ENEMY_FACTIONS.DEFS[id])hpMultiplier=1+.025*(depth-1);
+      return {enabled:scalingEnabled,baseHp:def.hp,clampedFloor,hpMultiplier,
+        pressure:scalingEnabled&&!legacyCampaign?Math.floor(late/BALANCE.latePressureStep):0,
         attackBonus:enabled ? Math.min(cap, Math.floor((clampedFloor - 1) * BALANCE.atkStep)) : 0};
     }
     function pickElite() {
@@ -2254,22 +2265,49 @@
       emit();
       return true;
     }
+    function lifeQuestStatus(){
+      const q=state.journey.lifeQuest||{stage:'unstarted',wins:0,hard:0};
+      const place=['rest','fox'].includes(state.screen),p=state.player;
+      const actions=[];
+      const add=(id,label,ok)=>actions.push({id,label,enabled:!!(place&&ok)});
+      if(q.stage==='unstarted')add('start','立约：20灵石；占用此处歇息',p.gold>=20&&state.floor<=49);
+      if(q.stage==='trial')add('temper','炼契：最大生命−6；须下一境、胜两战且含精英或镇境',q.wins>=2&&q.hard>=1&&state.journey.regionIndex>q.startedRegion&&p.maxHp>6);
+      if(q.stage==='tempered')add('fox','领取狐契：20灵石；炼契后胜镇境者且进入更后的一境',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.gold>=20);
+      if(q.stage==='tempered')add('ninelives','领取九命铃：最大生命−4；与狐契二选一',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.maxHp>4);
+      if(['trial','tempered'].includes(q.stage))add('abandon','放弃长约：代价不返还，本局不能重启',true);
+      const names={unstarted:'尚未立约（第49段前可开始）',trial:'护灯试炼',tempered:'炼契已成，待镇境证明',claimed:'已领灯火，仅余一次',spent:'灯火已用尽',abandoned:'已放弃',failed:'此行失败'};
+      return {...q,title:names[q.stage]||'旧记录无效',actions,text:`${names[q.stage]||'旧记录无效'}。立约后胜场 ${q.wins||0}/2，精英或镇境 ${q.hard||0}/1；炼契后镇境证明：${q.bossWon?'已取得':'未取得'}。每次办理占用当前节点，不兼得休息治疗。两种奖励共享本局唯一领取，触发后消失，后续伤害仍会致命。`};
+    }
+    function lifeQuestAction(action){
+      const available=lifeQuestStatus().actions.find(a=>a.id===action);
+      if(!available?.enabled)return false;
+      const p=state.player;let q=state.journey.lifeQuest;
+      if(action==='start'){p.gold-=20;q=state.journey.lifeQuest={stage:'trial',wins:0,hard:0,startedRegion:state.journey.regionIndex,startedFloor:state.floor,battles:[],bossWon:false,claimed:false,spent:false};}
+      else if(action==='temper'){p.maxHp-=6;p.hp=Math.min(p.hp,p.maxHp);q.stage='tempered';q.temperRegion=state.journey.regionIndex;q.temperFloor=state.floor;}
+      else if(action==='abandon')q.stage='abandoned';
+      else {if(q.claimed)return false;if(action==='fox')p.gold-=20;else{p.maxHp-=4;p.hp=Math.min(p.hp,p.maxHp);}q.stage='claimed';q.claimed=true;q.reward=action;q.claimFloor=state.floor;p.relics=p.relics.filter(id=>!['fox','ninelives'].includes(id));p.relics.push(action);}
+      const message=available.label+'。'+lifeQuestStatus().text;
+      recordJourney(null,'续灯长约 · '+({start:'立约',temper:'炼契',abandon:'放弃',fox:'领取狐契',ninelives:'领取九命铃'})[action],message,'neutral');
+      advance();note('续灯长约：'+lifeQuestStatus().title+'。条件与记录可在手记查看。');emit();return true;
+    }
+    function progressLifeQuest(b){
+      const q=state.journey.lifeQuest;if(!q||!['trial','tempered'].includes(q.stage))return;
+      const key=state.floor+':'+b.enemy.id;if((q.battles||[]).includes(key))return;
+      q.battles.push(key);
+      if(q.stage==='trial'){q.wins++;if(['elite','boss','hidden'].includes(b.kind))q.hard++;}
+      else if(b.kind==='boss'&&state.floor>q.temperFloor)q.bossWon=true;
+      recordJourney(null,'续灯长约 · 交锋证明',lifeQuestStatus().text,'neutral');
+    }
+    function lifeProtection(id){const q=state.journey.lifeQuest;return q?.stage==='claimed'&&q.claimed===true&&!q.spent&&q.reward===id&&q.wins>=2&&q.hard>=1&&q.bossWon===true&&q.temperRegion>q.startedRegion&&q.claimFloor>q.temperFloor;}
+    function consumeLifeProtection(id){const q=state.journey.lifeQuest;q.spent=true;q.stage='spent';state.player.relics=state.player.relics.filter(x=>!['fox','ninelives'].includes(x));recordJourney(null,'续灯长约 · 灯火用尽',RELICS[id].name+'已替你承受一次致命伤；本局不能再次领取。','warning');}
     function fox(sign) {
-      if (state.screen !== 'fox') return false;
-      if (sign && (state.player.maxHp <= 8 || hasRelic('fox'))) return false;
-      if (sign) {
-        state.player.maxHp -= 8;
-        state.player.hp = Math.min(state.player.hp, state.player.maxHp);
-        state.player.relics.push('fox');
-      }
-      advance();
-      note(sign ? '狐契已签：本局最大生命减少 8，获得一次免死。' : '你婉拒了交易，没有付出任何代价。');
-      emit();
-      return true;
+      if(state.screen!=='fox')return false;
+      if(sign)return lifeQuestAction('start');
+      advance();note('离开狐灯。长约进度保留，可在之后的休息或狐灯处继续。');emit();return true;
     }
 
     function chooseTreasure(preferred) {
-      if (preferred && !hasRelic(preferred)) return preferred;
+      if (preferred && TREASURE_RELICS.includes(preferred) && !hasRelic(preferred)) return preferred;
       const pool = TREASURE_RELICS.filter(id => !hasRelic(id));
       return pool.length ? pool[rand(pool.length)] : null;
     }
@@ -2618,7 +2656,7 @@
           };
         },
         theatre() {
-          const mirror = chooseTreasure('mirror'), nine = chooseTreasure('ninelives');
+          const mirror = chooseTreasure('mirror'), nine = chooseTreasure('moonheart');
           return {
             id: 'theatre', name: '纸灯戏台', glyph: '戏', kicker: 'A PLAY ABOUT YOUR DEATH / 今夜的死法',
             whisper: '台下没有观众，只有空椅在鼓掌。',
@@ -2630,7 +2668,7 @@
             choices: finishChoices([
               { label: `上台改戏 · 失去 8 生命，获得${mirror ? `秘宝「${RELICS[mirror].name}」` : '60 灵石'}`, text: mirror ? RELICS[mirror].text : '秘宝已集齐，获得 60 灵石。', hpCost: 8, relic: mirror, fallbackGold: 60,
                 outcome: '你走上纸台，把戏本里的死亡改成一次反击。纸偶看了你一眼，把一面小镜塞进你的袖口；镜里，蛇的倒影先流了血。' },
-              { label: `买下戏班的九命灯 · 付 45 灵石，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 灵石'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 灵石。', goldCost: 45, relic: nine, fallbackGold: 60,
+              { label: `买下戏班的月髓灯 · 付 45 灵石，获得${nine ? `秘宝「${RELICS[nine].name}」` : '60 灵石'}`, text: nine ? RELICS[nine].text : '秘宝已集齐：支付 45，得到 60，净赚 15 灵石。', goldCost: 45, relic: nine, fallbackGold: 60,
                 outcome: '你买下戏班最后一盏灯。灯芯里缠着九根猫须，熄灭时，台上那只纸偶朝你弓了弓背。' },
               { label: '撕掉戏本 · 恢复 6 生命，获得 20 灵石', text: '让今夜的死法留在纸里。', heal: 6, goldGain: 20,
                 outcome: '你撕掉戏本，纸人像雪一样落下。散场后，你在空椅下捡到几枚还没被掌声吞掉的灵石。' }
@@ -2638,7 +2676,7 @@
           };
         },
         umbrella() {
-          const cards = rareCards(), relic = chooseTreasure('ninelives');
+          const cards = rareCards(), relic = chooseTreasure('moonheart');
           return {
             id: 'umbrella', name: '雨夜借伞', glyph: '伞', kicker: 'A SHADOW FOR ONE NIGHT / 借影人',
             whisper: '她借的不是伞，是你还愿意相信的那一点黑。',
@@ -2651,7 +2689,7 @@
               { label: `借出影子 · 最大生命 −6，获得「${CARDS[cards[0]].name}」「${CARDS[cards[1]].name}」与 35 灵石`, text: '她拿走你的一小段黑，留下两段别人未走完的路。', maxHpCost: 6, cardIds: cards, goldGain: 35,
                 outcome: '她把你的影子折好，藏进伞骨。作为交换，你得到两段别人没走完的路，以及一袋在雨里也不会湿的灵石。' },
               { label: `陪她走到观测井 · 失去 10 生命，获得${relic ? `秘宝「${RELICS[relic].name}」` : '40 灵石'}`, text: relic ? RELICS[relic].text : '秘宝已集齐，获得 40 灵石。', hpCost: 10, relic, fallbackGold: 40,
-                outcome: '你替她撑伞走到遗径尽头。她没有回头，只把伞柄塞进你手里；伞下多了一盏铃，铃舌是一小截蛇骨。' },
+                outcome: '你替她撑伞走到遗径尽头。她没有回头，只把伞柄塞进你手里；伞下留着一件灵物，凝着雨夜的月光。' },
               { label: '把自己的伞留给她 · 恢复 10 生命', text: '不借影子，也不问她的名字。', heal: 10,
                 outcome: '你把伞留在檐下。雨声重新落下时，那半把伞已经不见了，手心却暖了很久。' }
             ], p)
@@ -2897,7 +2935,7 @@
       get state() { return state; }, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
       squadAction,getSquadOptions,getSquadCardOptions,setFirstMachine,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
-      getEnemyClue, refreshShop, getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
+      lifeQuestStatus, lifeQuestAction, getEnemyClue, refreshShop, getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 

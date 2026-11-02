@@ -1,6 +1,8 @@
+'use strict';
+const earnedLifeFixture=require('./life-quest-fixture.cjs');
 /* V11: legacy campaign/scaling-off fixtures isolate retained rule contracts; default seven-region behaviour has separate tests. */
 /* Explicit bounded combat fixtures: not natural play or balance measurements. */
-'use strict';
+
 const test=require('node:test'),assert=require('node:assert/strict'),N=require('./engine.js');
 let serial=0;
 function fixture(starter='sword',kind='fight',enemy='paper'){
@@ -52,7 +54,7 @@ test('enemy counter only triggers once per damaging card and fully blocked cards
 });
 test('counter lethal interrupts remaining segments and permits one-time fox survival',()=>{
  const f=fixture('mark');f.b.enemy.counter=10;f.g.state.player.hp=1;play(f,'C05');assert.equal(f.g.state.screen,'defeat');assert.equal(attacks(f).length,1);
- const r=fixture('mark');r.b.enemy.counter=10;r.g.state.player.hp=1;r.g.state.player.relics.push('fox');play(r,'C05');assert.equal(r.g.state.screen,'battle');assert.equal(r.g.state.player.hp,12);assert.equal(attacks(r).length,3);assert.ok(!r.g.state.player.relics.includes('fox'));
+ const r=fixture('mark');r.b.enemy.counter=10;r.g.state.player.hp=1;earnedLifeFixture(r.g.state,'fox');play(r,'C05');assert.equal(r.g.state.screen,'battle');assert.equal(r.g.state.player.hp,12);assert.equal(attacks(r).length,3);assert.ok(!r.g.state.player.relics.includes('fox'));
 });
 test('sealed energy and disrupted draw apply only to the next actual player turn',()=>{
  const f=fixture('sword','elite','yaksha');f.b.enemy.intentIndex=2;f.b.draw=Array.from({length:20},(_,i)=>({id:'S01',uid:'energy-'+i}));assert.match(f.g.getIntent().text,/灵力/);turn(f);assert.equal(f.b.energy,2);assert.equal(f.b.nextEnergyPenalty,0);turn(f);assert.equal(f.b.energy,3);
