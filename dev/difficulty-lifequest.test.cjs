@@ -53,3 +53,10 @@ test('100 seeded maps per role contain a connected quest route without random ev
   }A.ok(done,role+' seed '+seed);
  }
 });
+test('last start at49 can finish; late tempering is rejected before any irreversible cost',()=>{
+ const g=game();g.state.player.gold=100;at(g,49,'rest');A.equal(g.lifeQuestAction('start'),true);win(g,50,'boss','furnace_boss');win(g,51);at(g,52,'rest');A.equal(g.lifeQuestAction('temper'),true);win(g,60,'boss','mirror_boss');at(g,62,'rest');A.equal(g.lifeQuestAction('ninelives'),true);
+ const h=game();h.state.player.gold=100;at(h,49,'rest');h.lifeQuestAction('start');win(h,50,'boss','furnace_boss');win(h,51);at(h,61,'rest');const before=JSON.stringify(h.state);A.equal(h.lifeQuestStatus().deadlineMissed,true);A.equal(h.lifeQuestAction('temper'),false);A.equal(JSON.stringify(h.state),before);A.match(h.lifeQuestStatus().text,/不能再付费/);const late=game();earn(late);late.state.journey.lifeQuest.stage='tempered';late.state.journey.lifeQuest.claimed=false;at(late,70,'rest');A.equal(late.lifeQuestStatus().deadlineMissed,true);A.equal(late.lifeQuestAction('fox'),false);
+});
+test('expanded oracle recognizes newly added sword cards without changing the default policy',()=>{
+ const g=game('sword'),b=at(g,1,'fight','paper');b.hand=[{id:'S19',uid:'orbit-policy'}];b.energy=1;const {nextCard}=require('./playtest.cjs');A.equal(nextCard(g.state,g),null);A.equal(nextCard(g.state,g,true).id,'S19');
+});

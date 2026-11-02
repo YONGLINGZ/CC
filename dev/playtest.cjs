@@ -10,11 +10,12 @@ const value = {C01:2,C02:2,C03:6,C04:8,C05:7,C06:8,C07:7,C08:8,C09:7,C10:6,C11:5
 Object.assign(value,{S01:5,S02:7,S03:8,S04:9,S05:8,S06:8,S07:8,S08:9,S09:7,S10:8,S11:6,S12:8,S13:7,S14:9,S15:10,S16:10});
 Object.assign(value,{D01:11,D02:9,D03:11,D04:8,D05:10,D06:12,D07:10,D08:12,D09:8,D10:10,D11:13,D12:14});
 Object.assign(value,{F01:6,F02:7,F03:10,F04:10,F05:9,F06:10,F07:10,F08:8,F09:11,F10:10,F11:9,F12:11});
-function cardValue(id, starter) { return (value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
+const modernSwordValues={S17:9,S18:9,S19:10,S20:10,S21:7,S22:9,S23:8,S24:10,S25:9,S26:10,S27:8,S28:7,S29:8,S30:8,S31:6,S32:9,S33:8,S34:9,S35:8,S36:10};
+function cardValue(id, starter, modern=false) { return ((modern&&modernSwordValues[id])||value[id]||3) + (CARDS[id].category === starter ? 2 : 0); }
 // Oracle regression policy: reads internal intent for a stable mechanics baseline.
 // The product UI hides future actions; this is not a human-difficulty estimate.
 function observedIntent(s){ return describeEnemyIntent(s.battle); }
-function nextCard(s,game=null) {
+function nextCard(s,game=null,modern=false) {
   const b=s.battle,e=b.enemy,p=s.player,intent=game?.getIntent?.()||observedIntent(s);
   const incoming=(intent.hits||[]).reduce((a,n)=>a+n,0), need=Math.max(0,incoming-b.block), swordIntent=b.swordIntent||0,soul=b.soul||0;
   let best=null;
@@ -81,6 +82,23 @@ function nextCard(s,game=null) {
     if(id==='F11')score+=soul>=2&&b.hand.some(x=>x!==card&&CARDS[x.id].cost>0)?24:-60;
     const loss={C13:3,C15:1,C25:1,C27:4,C29:5,C31:2,S13:3}[id]||0;
     if(loss>=p.hp&&!p.relics.includes('fox')&&!(p.relics.includes('ninelives')&&!b.nineUsed))score=-1000;
+    // Optional expanded policy. Existing oracle remains unchanged for historical comparisons.
+    if(modern&&/^S(1[7-9]|[23][0-9])$/.test(id)&&game?.previewCard){
+      const v=game.previewCard(card.uid);if(!v.available||v.playerDefeated)continue;
+      const paid=Math.max(1,b.energy-v.resources.after.energy),heal=v.playerHpAfter-p.hp;
+      score=((e.hp-v.enemyHpAfter)+Math.min(need,v.blockGained)*(p.hp<25?2.15:1.45)+Math.min(0,heal)*4+Math.max(0,heal)*(p.hp<25?4:2))/paid;
+      score+=(v.drawCount||0)*(b.energy>c.cost?8:2)+Math.max(0,v.resources.after.swordIntent-swordIntent)*3;
+      if(v.enemyDefeated)score+=150;
+      if(id==='S19'&&b.orbit<5)score+=4;
+      if(id==='S20'&&b.swordFormation<6)score+=9;
+      if(id==='S32'&&b.clearSwordHeart<2)score+=9;
+      if(id==='S21')score+=3;
+      if(id==='S27'&&e.chill>=3)score+=(intent.hits||[]).length*4;
+      if(id==='S28')score+=b.energy>1?4:1;
+      if(id==='S30')score+=b.energy>1?4:0;
+      if(id==='S29'&&b.block>0)score-=Math.min(need,b.block)*2;
+      if(id==='S31')score-=5;
+    }
     if(!best||score>best.score)best={card,score};
   }
   return best&&best.score>0?best.card:null;
@@ -97,6 +115,13 @@ function nextItem(s){
   if(b&&bag.battle_pill&&b.enemy.hp>=35&&(b.pillPower||0)<4)return 'battle_pill';
   return null;
 }
+function questPlan(g){
+ const s=g.state,p=s.player,q=g.lifeQuestStatus?.();if(!q)return null;
+ if(q.stage==='unstarted'&&s.floor<=49&&p.gold>=20&&p.hp>=p.maxHp*.75)return 'start';
+ if(q.stage==='trial'&&q.wins>=2&&q.hard>=1&&s.journey.regionIndex>q.startedRegion&&p.maxHp>6&&p.hp>=p.maxHp*.55&&s.floor<=59)return 'temper';
+ if(q.stage==='tempered'&&q.bossWon&&s.journey.regionIndex>q.temperRegion&&p.maxHp>4&&s.floor<=69)return 'ninelives';
+ return null;
+}
 function playRun(seed,starter,lane,options={}){
   const g=createGame({rng:random(seed),...(options.campaign?{campaign:options.campaign}:{}),...(options.scaling===false?{scaling:false}:{}),...(starter==='sovereign'?{profile:{unlocks:['feiye']}}:{}),...(options.environment===false?{environment:false}:{})});assert.equal(g.newRun(starter),true);
   let actions=0,turns=0,hiddenBossStarted=false,observedBattle=null;const encounters=[],regions=[],storyEvents=[],eventChoices=[],poisonTreatments=[],itemUses=[],caves=[],battleMetrics=[],observedEvents=new Set();
@@ -111,6 +136,7 @@ function playRun(seed,starter,lane,options={}){
     const m=battleMetrics.at(-1);if(m.finalized)return;
     for(const e of b.events||[]){
       if(observedEvents.has(e.id))continue;observedEvents.add(e.id);
+      if(e.type==='relic'&&['fox','ninelives'].includes(e.relic))m.revives=(m.revives||0)+1;
       if(e.type==='victory')m.victorySeen=true;
       if(e.type==='attack'&&e.target==='enemy'&&e.kind==='card'&&e.cardId)m.cardHitMax[e.cardId]=Math.max(m.cardHitMax[e.cardId]||0,e.amount||0);
       if((e.target||'player')==='player'){
@@ -134,6 +160,7 @@ function playRun(seed,starter,lane,options={}){
     assert.ok(p.hp>=0&&p.hp<=p.maxHp&&p.gold>=0,'nonnegative bounded resources');
     assert.equal(new Set(p.deck.map(c=>c.uid)).size,p.deck.length,'unique card instances');
     const item=nextItem(s);if(item&&g.getItemUse(item).usable){const before=p.hp;assert.equal(g.useItem(item),true);itemUses.push({floor:s.floor,id:item,screen:s.screen,healed:p.hp-before});continue;}
+    if(options.lifeQuest&&['rest','fox'].includes(s.screen)){const planned=questPlan(g);if(planned){assert.equal(g.lifeQuestAction(planned),true);continue;}}
     switch(s.screen){
       case 'arrival':equipBest();regions.push(s.journey.regionIndex);assert.equal(g.enterRegion(),true);break;
       case 'map':{
@@ -141,16 +168,17 @@ function playRun(seed,starter,lane,options={}){
         assert.ok(nodes.length,'reachable next node');
         equipBest();
         const routeValue=n=>(n.type==='rest'?(p.affliction.active&&!(p.affliction.suppressed>0)?80:Math.min(18,p.maxHp-p.hp)*4):n.type==='shop'?(p.affliction.active&&!(p.affliction.suppressed>0)&&p.gold>=65?60:8):n.type==='event'?15:n.type==='cave'?12:n.type==='elite'?(options.preferElite?1000:-12):0)-Math.abs(n.lane-lane)*3;
-        nodes.sort((a,b)=>routeValue(b)-routeValue(a));
+        const questValue=n=>options.lifeQuest?(questPlan(g)&&['rest','fox'].includes(n.type)?100:g.lifeQuestStatus().stage==='trial'&&g.lifeQuestStatus().wins<2&&n.type==='fight'&&p.hp>p.maxHp*.5?40:0):0;
+        nodes.sort((a,b)=>(routeValue(b)+questValue(b))-(routeValue(a)+questValue(a)));
         const clue=options.hiddenChallenge?nodes.find(n=>['moon_trace','sealed_name','moon_vow'].includes(n.storyId)):null;
         const n=clue||nodes[0];encounters.push(n.type);assert.equal(g.enterNode(n.id),true);break;
       }
       case 'battle':{
         const b=s.battle;assert.ok(b.energy>=0&&b.block>=0&&b.enemy.block>=0&&b.enemy.mark<=5);
         if(b.phase==='enemy'){assert.equal(g.resolveEnemyTurn(),true);break;}
-        const c=nextCard(s,g);
+        const c=nextCard(s,g,options.modernSword);
         if(c)assert.equal(g.playCard(c.uid,CARDS[c.id].target),true);
-        else{turns++;assert.equal(g.endTurn(),true);assert.equal(g.resolveEnemyTurn(),true);}
+        else{turns++;assert.equal(g.endTurn(),true);if(g.state.screen==='battle')assert.equal(g.resolveEnemyTurn(),true);}
         break;
       }
       case 'cave':{if(!s.cave.explored){assert.equal(g.exploreCave(),true);caves.push({floor:s.floor,kind:s.cave.outcome.kind,status:s.cave.status});}else assert.equal(g.leaveCave(),true);break;}
@@ -160,7 +188,7 @@ function playRun(seed,starter,lane,options={}){
           const offered=[...s.reward.relicChoices].sort((a,b)=>preferences.indexOf(a)-preferences.indexOf(b));
           assert.ok(offered.length,'pending treasure must have offers');
           assert.equal(g.chooseRelic(offered[0]),true);
-        }else assert.equal(g.chooseReward([...s.reward.cards].sort((a,b)=>cardValue(b,starter)-cardValue(a,starter))[0]),true);
+        }else assert.equal(g.chooseReward([...s.reward.cards].sort((a,b)=>cardValue(b,starter,options.modernSword)-cardValue(a,starter,options.modernSword))[0]),true);
         break;
       }
       case 'rest':{const affliction=g.getAffliction(),cleanse=affliction.active&&!(affliction.suppressed>0)&&p.maxHp-p.hp<14;assert.equal(g.rest(cleanse?'cleanse':true),true);if(cleanse)poisonTreatments.push({floor:s.floor-1,method:'rest_suppression'});break;}
@@ -173,8 +201,8 @@ function playRun(seed,starter,lane,options={}){
         const weapons=s.shop.weapons.filter(w=>!w.bought&&p.gold>=w.price&&p.level>=(w.id==='divine'?4:2)).sort((a,b)=>['divine','rime','spirit'].indexOf(a.id)-['divine','rime','spirit'].indexOf(b.id));
         if(p.equippedWeapon==='training'&&weapons.length)assert.equal(g.buyWeapon(s.shop.weapons.indexOf(weapons[0])),true);
         equipBest();
-        const goods=s.shop.cards.map((c,i)=>({i,...c})).filter(c=>!c.bought).sort((a,b)=>cardValue(b.id,starter)-cardValue(a.id,starter));
-        if(p.gold>=35&&goods.length&&cardValue(goods[0].id,starter)>=7)assert.equal(g.buyCard(goods[0].i),true);
+        const goods=s.shop.cards.map((c,i)=>({i,...c})).filter(c=>!c.bought).sort((a,b)=>cardValue(b.id,starter,options.modernSword)-cardValue(a.id,starter,options.modernSword));
+        if(p.gold>=35&&goods.length&&cardValue(goods[0].id,starter,options.modernSword)>=7)assert.equal(g.buyCard(goods[0].i),true);
         if(p.gold>=40&&!s.shop.removed&&p.deck.length>5){const weak=p.deck.find(c=>c.id==='C01');if(weak)assert.equal(g.removeCard(weak.uid),true);}
         assert.equal(g.leaveShop(),true);break;
       }
@@ -207,7 +235,7 @@ function playRun(seed,starter,lane,options={}){
     }
   }
   trackBattle();
-  return {seed,starter,lane,battleMetrics,maxHp:g.state.player.maxHp,normalizedHp:g.state.player.hp/g.state.player.maxHp*60,totalFloors:g.state.totalFloors||g.state.map.length,campaign:g.state.campaign||'legacy',scaling:options.scaling!==false,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length,profile:g.getProfile?.(),environment:options.environment!==false,unlockedProfileAtStart:starter==='sovereign',hiddenChallenge:!!options.hiddenChallenge,hiddenBossStarted,hiddenWin:!!g.state.result?.hiddenWin,power:g.state.player.power,demonicPath,rescueStranger,eventChoices,poisonTreatments,itemUses,caves,inventory:{...g.state.player.inventory},affliction:g.getAffliction(),corruption:g.getCorruptionStatus(),chapterBosses:g.state.stats.chapterBosses,peacefulBosses:g.state.stats.peacefulBosses||0,completedNodes:g.state.history.length,demonicCards:g.state.player.deck.filter(c=>c.id.startsWith('D')).map(c=>c.id),demonicUses:g.state.stats.demonicUses,questItems:[...g.state.player.questItems],level:g.state.player.level,equippedWeapon:g.state.player.equippedWeapon};
+  return {seed,starter,lane,battleMetrics,lifeQuest:g.lifeQuestStatus?.(),revives:battleMetrics.reduce((n,b)=>n+(b.revives||0),0),finalDeck:g.state.player.deck.map(c=>c.id),finalRelics:[...g.state.player.relics],maxHp:g.state.player.maxHp,normalizedHp:g.state.player.hp/g.state.player.maxHp*60,totalFloors:g.state.totalFloors||g.state.map.length,campaign:g.state.campaign||'legacy',scaling:options.scaling!==false,result:g.state.screen,hp:g.state.player.hp,turns,actions,floor:g.state.floor,maxCombo:g.state.stats.maxCombo,maxHit:g.state.stats.maxHit,encounters,regions,storyEvents,chain:g.state.journey.chain,journalEntries:g.state.journey.journal.length,profile:g.getProfile?.(),environment:options.environment!==false,unlockedProfileAtStart:starter==='sovereign',hiddenChallenge:!!options.hiddenChallenge,hiddenBossStarted,hiddenWin:!!g.state.result?.hiddenWin,power:g.state.player.power,demonicPath,rescueStranger,eventChoices,poisonTreatments,itemUses,caves,inventory:{...g.state.player.inventory},affliction:g.getAffliction(),corruption:g.getCorruptionStatus(),chapterBosses:g.state.stats.chapterBosses,peacefulBosses:g.state.stats.peacefulBosses||0,completedNodes:g.state.history.length,demonicCards:g.state.player.deck.filter(c=>c.id.startsWith('D')).map(c=>c.id),demonicUses:g.state.stats.demonicUses,questItems:[...g.state.player.questItems],level:g.state.player.level,equippedWeapon:g.state.player.equippedWeapon};
 }
 function main(){
   const runs=[];
@@ -224,4 +252,4 @@ function main(){
   console.log(JSON.stringify({runs:report.runs,wins:report.wins,summary},null,2));
 }
 if(require.main===module)main();
-module.exports={nextCard,nextItem,playRun,random,observedIntent};
+module.exports={nextCard,nextItem,playRun,random,observedIntent,questPlan};

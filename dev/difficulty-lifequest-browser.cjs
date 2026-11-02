@@ -17,5 +17,8 @@ for(const role of ['mark','sword','hehuan','mechanist','sovereign'])for(const re
  await page.screenshot({path:out+'/quest-'+role+'-'+reward+'.png',fullPage:true});
  report.checks.push({role,reward,ok:true});console.log('PASS',role,reward);
 }
+await page.keyboard.press('Escape');await page.evaluate(()=>{game.newRun('sword');game.enterRegion();game.state.player.gold=100;reviewAt(49,'rest');});
+const maxBeforeDeadline=await page.evaluate(()=>game.state.player.maxHp);await click('life-quest','[data-choice="start"]');await page.evaluate(()=>{reviewWin(50,'boss','furnace_boss');reviewWin(51,'fight','paper');reviewAt(61,'rest');});
+A.ok(await page.locator('[data-choice="temper"]').isDisabled());A.match(await page.locator('.life-quest').innerText(),/已错过本局办理时限/);A.equal(await page.evaluate(()=>game.state.player.maxHp),maxBeforeDeadline);report.checks.push({name:'late tempering disabled before cost, cutoff displayed',ok:true});
 A.deepEqual(report.errors,[]);report.version=await page.evaluate(()=>NightRelease.id);await browser.close();server.close();fs.writeFileSync(out+'/quest-browser-results.json',JSON.stringify(report,null,2));
 })().catch(e=>{report.error=e.stack;fs.writeFileSync(out+'/quest-browser-results.json',JSON.stringify(report,null,2));console.error(e);process.exit(1)});

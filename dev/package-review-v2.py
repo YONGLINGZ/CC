@@ -15,7 +15,7 @@ def assets(v):
   for x in v:yield from assets(x)
  elif isinstance(v,str) and v.startswith('assets/'):yield v
 required=set(assets(asset_data))
-manifest={'version':'2026.11.02-review.2','base_commit':base,'required_existing_assets':{n:sha(root/n) for n in sorted(required)},'updated_files':{n:sha(root/n) for n in sorted(names)}}
+manifest={'version':'2026.11.02-review.2.1','base_commit':base,'required_existing_assets':{n:sha(root/n) for n in sorted(required)},'updated_files':{n:sha(root/n) for n in sorted(names)}}
 blob=json.dumps(manifest,ensure_ascii=False,indent=2).encode()
 file=out/'baiyao-review-v2-update.zip'
 with zipfile.ZipFile(file,'w',zipfile.ZIP_DEFLATED,6) as z:

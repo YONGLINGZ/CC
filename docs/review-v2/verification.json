@@ -1,13 +1,13 @@
 {
-  "version": "2026.11.02-review.2",
+  "version": "2026.11.02-review.2.1",
   "base": "d36665842f7caf523da0067f49e54b20067672fb",
   "engine": {
-    "passed": 605,
+    "passed": 607,
     "failed": 0,
-    "total": 605,
+    "total": 607,
     "skipped": 0,
     "legacy_checks": 219,
-    "new_checks": 386
+    "new_checks": 388
   },
   "public_api": {
     "method": "150 public-API runs, fixed seeds1000..1049 for each of three professions; assassin starters rotate mark/combo/blood. Oracle policy reads internal enemy intentions (hidden in the product UI); six new demonic cards use the rule preview. Policy fixed before this run; active environments and scaling default enabled, no resource/route/deck fixtures. Sovereign begins with an explicit pre-unlocked profile. Every attempt, including losses, is recorded. No human difficulty claim.",
@@ -1220,10 +1220,14 @@
         "role": "sovereign",
         "reward": "ninelives",
         "ok": true
+      },
+      {
+        "name": "late tempering disabled before cost, cutoff displayed",
+        "ok": true
       }
     ],
     "errors": [],
-    "version": "2026.11.02-review.2"
+    "version": "2026.11.02-review.2.1"
   },
   "offline": {
     "version": "2026.11.02-review.2",
@@ -1237,7 +1241,7 @@
     "dev/audio.js": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
     "dev/boss-quests.js": "244e2fa78efb94091d473ad5e42f41b0acf53eadb53c87b18203afd8c3266b9d",
     "dev/enemy-factions.js": "3939e5cbb78d9a584071403fec77a38f39e263279a6a83d42d908de30e8e688f",
-    "dev/engine.js": "dd214aa374b5d7bc7824cab7124714023b2fe48e7a3f12e038140be91e277d75",
+    "dev/engine.js": "f5c24687f20aaf9340584b6e4154c72189110c17f7d81ffbed9a144d558670e7",
     "dev/event-editorial.js": "457dcd005ee219c8011b725265c1542fd38e61996ac96b26daf180a63a7316b8",
     "dev/expansion.js": "e8abbba0f7d3d70e246d0fa446031f6b5df2d67196213b8c615241fc167e17bf",
     "dev/expedition.js": "8a1eac957c7358015581cf59f68e24a1f38e6874336c53d423c3fdd15ae6ec4a",
@@ -1250,7 +1254,7 @@
     "dev/story-factions-v5.js": "f97ec4973e3645437b61ea10c1d3ee542f2a7b15f009d667475a7ae4eb9be668",
     "dev/story-v5.js": "43cd7f4f12a08cd4fd1b7b71f21e725e32efad4d2fc1c5444a0425052e2dae0e",
     "dev/tales.js": "a1267a09eb5a2850b3d119dea422e09da79714343f15251039e902448dc9f6a3",
-    "dev/ui.js": "4b6d1c38dbf495bdff66bcf0b48a22615cc3b2cc6b22951a8f19594aeb1e9a26",
+    "dev/ui.js": "f52ffdbfecfc7c25cecdbe3834f61d81050704f9875a1c036a7e3c4b60a6f4e5",
     "dev/audio.test.cjs": "7e6487e98bd789d779101653aedce42abeb2404c2e1b60d8c2056660b9b5f4cc",
     "dev/automaton.test.cjs": "772b8baad4e384c7d2103d8b783b6a2d540e81850877f35adc88e912ac5a2318",
     "dev/batch-a-browser.test.cjs": "a93f755dbbdc16ab85e06bbdf067b46d89757a1e62b9be15fb112fe66a83e547",
@@ -1324,16 +1328,146 @@
     "dev/wardrobe-blood.test.cjs": "3bfd601f517d8194d2b3a28ff9d83136c74baa30c6da2d448bdaff4e2c741196",
     "dev/player-review.test.cjs": "c5bd988ed3b7728322d86c9f8f86d893a25ca879a59fa29956f691bd36bfb58f",
     "dev/player-review-browser.test.cjs": "8b9493ff4a459a7db8a0363f0d4d92bc9ac3bba84946a1f27b943a52122064a8",
-    "dev/difficulty-lifequest.test.cjs": "ca0291af9d6ddeb3230ab3d34a74b37338e624b0811fb2a97073f76d47e854ba",
+    "dev/difficulty-lifequest.test.cjs": "d8ba88fd58bd1c1d3141f1870e01a1d602dad1e0a6754548f3dfb52f505986ad",
     "dev/player-review-long-browser.test.cjs": "37b7a2fc061f84c40138ab756231220646737a6b2163c0bfd4d808f865084fb7",
     "dev/shell.html": "551fcb4a6dcf4915548ad10f9f24d9eede8ba3c8777d193885847abfebdc3706",
-    "dev/release.json": "c67cb9c2cceb91552476fab24d4e3b87a455731bccc28b933d774a35c32e4a4e",
-    "index.html": "3ea70ec8b748e918c8f2f8f949236da1cea33e2828a367fbbe9661b39209f3e5",
-    "baiyao-standalone.html": "5bb8038c918455000ff52f800fb697f073326659332abe3f52eea7fe72b7095d",
+    "dev/release.json": "e94904fe6697e90832796fa696bbfef303fe4a3c7320f1085a6a0d14063c9941",
+    "index.html": "87e06c3e1a725536d117c33bf9f8de9dc18568d32c38711b12e89a0c6a170353",
+    "baiyao-standalone.html": "f3ca31cfd7aa02ea76efc36357ee9031065e23104f0baf5b77e62e11803551b6",
     "dev/life-quest-fixture.cjs": "61951653ce18366a250b8eadfd5af195bdb58bd6be8f7dd30aa26a9a5a501604",
-    "dev/difficulty-lifequest-browser.cjs": "b6be329118c163f81fd348ef4276edeef821db3749672fe3f35aa13276a0b233",
+    "dev/difficulty-lifequest-browser.cjs": "62529cfb4466ccbab5e2c7c9d62f07882ef2041649422aa8cdc0d58e6cdf3aa8",
     "dev/difficulty-arena.cjs": "0daf039afb9d9e3ed65b3ac3f7eeff6baae26dcc06f72339f43bc324f37247df",
-    "dev/v11-regression.cjs": "b27161a6020f9a273bd679ac1cbf68458ddca7aaed5322a75e93ecfe5a2e8964"
+    "dev/v11-regression.cjs": "b27161a6020f9a273bd679ac1cbf68458ddca7aaed5322a75e93ecfe5a2e8964",
+    "dev/playtest.cjs": "9682d793229fc20efe51aaabfb1b36b093c2a788e970a4d050629befa0d9a059",
+    "dev/balance-followup.cjs": "8d70b437af53217202f440e53056db73912fd8cf3b63ef11ab31aecf451d9b15"
   },
-  "note": "Historical dev receipts restored after copying current results into text-evidence.zip. UI fixtures and oracle probes are not human runs."
+  "note": "Historical dev receipts restored after copying current results into text-evidence.zip. UI fixtures and oracle probes are not human runs.",
+  "calibration": {
+    "numeric": {
+      "overallWinRate": {
+        "actual": 0.52,
+        "min": 0.4,
+        "max": 0.6,
+        "passed": true
+      },
+      "survivorHealthMedian": {
+        "actual": 36,
+        "min": 15,
+        "max": 25,
+        "passed": false
+      },
+      "professionWinRates": {
+        "actual": {
+          "assassin": 0.74,
+          "sword": 0.24,
+          "sovereign": 0.58
+        },
+        "min": 0.25,
+        "max": 0.75,
+        "passed": false
+      },
+      "maxHitMedian": {
+        "actual": 49,
+        "max": 34,
+        "passed": false
+      }
+    },
+    "eliteProbe": {
+      "eliteTurns": {
+        "actual": 5,
+        "min": 5,
+        "max": 9,
+        "passed": true
+      },
+      "bossTurns": {
+        "actual": 6,
+        "min": 8,
+        "max": 14,
+        "passed": false
+      },
+      "defendingNetLifeLoss": {
+        "actual": 9,
+        "maxExclusive": 20,
+        "passed": true
+      }
+    },
+    "allNumericGates": false,
+    "allProbeGates": false
+  },
+  "policy_comparison": [
+    {
+      "modernSword": false,
+      "lifeQuest": false,
+      "wins": 12,
+      "claimed": 0,
+      "spent": 0,
+      "stages": {
+        "unstarted": 50
+      },
+      "deathRegions": {
+        "3": 2,
+        "4": 2,
+        "5": 14,
+        "6": 3,
+        "7": 17
+      }
+    },
+    {
+      "modernSword": false,
+      "lifeQuest": true,
+      "wins": 14,
+      "claimed": 49,
+      "spent": 42,
+      "stages": {
+        "spent": 42,
+        "claimed": 7,
+        "failed": 1
+      },
+      "deathRegions": {
+        "3": 2,
+        "4": 4,
+        "5": 8,
+        "7": 22
+      }
+    },
+    {
+      "modernSword": true,
+      "lifeQuest": false,
+      "wins": 13,
+      "claimed": 0,
+      "spent": 0,
+      "stages": {
+        "unstarted": 50
+      },
+      "deathRegions": {
+        "3": 4,
+        "4": 2,
+        "5": 10,
+        "6": 4,
+        "7": 17
+      }
+    },
+    {
+      "modernSword": true,
+      "lifeQuest": true,
+      "wins": 17,
+      "claimed": 48,
+      "spent": 41,
+      "stages": {
+        "spent": 41,
+        "claimed": 7,
+        "failed": 2
+      },
+      "deathRegions": {
+        "1": 1,
+        "3": 1,
+        "4": 2,
+        "5": 8,
+        "6": 3,
+        "7": 18
+      }
+    }
+  ],
+  "core_browser_validation_version": "2026.11.02-review.2 (not rerun for deadline-only UI change)",
+  "offline_validation_version": "2026.11.02-review.2 (inline boot unchanged; current strict build completed)"
 }

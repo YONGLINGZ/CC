@@ -2271,12 +2271,13 @@
       const actions=[];
       const add=(id,label,ok)=>actions.push({id,label,enabled:!!(place&&ok)});
       if(q.stage==='unstarted')add('start','立约：20灵石；占用此处歇息',p.gold>=20&&state.floor<=49);
-      if(q.stage==='trial')add('temper','炼契：最大生命−6；须下一境、胜两战且含精英或镇境',q.wins>=2&&q.hard>=1&&state.journey.regionIndex>q.startedRegion&&p.maxHp>6);
-      if(q.stage==='tempered')add('fox','领取狐契：20灵石；炼契后胜镇境者且进入更后的一境',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.gold>=20);
-      if(q.stage==='tempered')add('ninelives','领取九命铃：最大生命−4；与狐契二选一',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.maxHp>4);
+      if(q.stage==='trial')add('temper','炼契：最大生命−6；须下一境、胜两战且含精英或镇境',q.wins>=2&&q.hard>=1&&state.journey.regionIndex>q.startedRegion&&p.maxHp>6&&state.floor<=59);
+      if(q.stage==='tempered')add('fox','领取狐契：20灵石；炼契后胜镇境者且进入更后的一境',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.gold>=20&&state.floor<=69);
+      if(q.stage==='tempered')add('ninelives','领取九命铃：最大生命−4；与狐契二选一',q.bossWon&&state.journey.regionIndex>q.temperRegion&&p.maxHp>4&&state.floor<=69);
       if(['trial','tempered'].includes(q.stage))add('abandon','放弃长约：代价不返还，本局不能重启',true);
-      const names={unstarted:'尚未立约（第49段前可开始）',trial:'护灯试炼',tempered:'炼契已成，待镇境证明',claimed:'已领灯火，仅余一次',spent:'灯火已用尽',abandoned:'已放弃',failed:'此行失败'};
-      return {...q,title:names[q.stage]||'旧记录无效',actions,text:`${names[q.stage]||'旧记录无效'}。立约后胜场 ${q.wins||0}/2，精英或镇境 ${q.hard||0}/1；炼契后镇境证明：${q.bossWon?'已取得':'未取得'}。每次办理占用当前节点，不兼得休息治疗。两种奖励共享本局唯一领取，触发后消失，后续伤害仍会致命。`};
+      const names={unstarted:'尚未立约（最迟第49段的休息或狐灯）',trial:'护灯试炼',tempered:'炼契已成，待镇境证明',claimed:'已领灯火，仅余一次',spent:'灯火已用尽',abandoned:'已放弃',failed:'此行失败'};
+      const deadlineMissed=(q.stage==='unstarted'&&state.floor>49)||(q.stage==='trial'&&state.floor>59)||(q.stage==='tempered'&&(state.floor>69||(!q.bossWon&&state.floor>60)));
+      return {...q,deadlineMissed,title:deadlineMissed?'已错过本局办理时限':names[q.stage]||'旧记录无效',actions,text:`${deadlineMissed?'已错过本局办理时限，不能再付费推进。':names[q.stage]||'旧记录无效'}。立约后胜场 ${q.wins||0}/2，精英或镇境 ${q.hard||0}/1；炼契后镇境证明：${q.bossWon?'已取得':'未取得'}。最迟第49段立约、第59段炼契、第60段击败镇境者、第69段领取；须到达相连的休息或狐灯。每次办理占用当前节点，不兼得休息治疗。两种奖励共享本局唯一领取，触发后消失，后续伤害仍会致命。`};
     }
     function lifeQuestAction(action){
       const available=lifeQuestStatus().actions.find(a=>a.id===action);
