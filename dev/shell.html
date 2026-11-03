@@ -377,5 +377,23 @@ body[data-motion="reduced"] .hero-portrait[data-reaction]{filter:none!important}
  body[data-screen="battle"] .battle-stage .combatant-title h3{font-size:15px}
  body[data-screen="battle"] .battle-stage .battle-focus{display:none}
 }
+
+/* Comic-panel prologue: opaque captions outside artwork, no automatic advancing. */
+.prologue-overlay{position:fixed;inset:0;z-index:10000;overflow:auto;overscroll-behavior:contain;background:#0c171b;color:#f4ebd8;padding:24px;touch-action:pan-y}
+.prologue-book{max-width:1050px;margin:auto;border:1px solid #b8a578;background:#14282d;padding:24px;box-shadow:0 12px 60px #0008}
+.prologue-book header{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:20px}
+.prologue-kicker{font-size:12px;color:#dfc997;letter-spacing:.08em}.prologue-book h2{font-size:32px;margin-top:8px;line-height:1.5}
+.prologue-book button{min-height:46px;padding:10px 18px;font-size:15px;white-space:normal}.prologue-book button:disabled{opacity:1;color:#939e9c;background:#293538;border-style:dashed}
+.prologue-panels{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:stretch}
+.prologue-panels figure{margin:0;border:3px solid #b9a781;background:#0c1a20;display:flex;flex-direction:column;min-width:0}
+.prologue-image{height:330px;position:relative;background:radial-gradient(ellipse,#344951,#0d1d25);overflow:hidden;display:grid;place-items:center}
+.prologue-image img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
+.prologue-frame-number{position:absolute;left:8px;top:8px;background:#102326;color:#f2d69a;border:1px solid #d4bd88;font:20px var(--serif);padding:0 8px}
+.prologue-panels figcaption{padding:18px;font-size:17px;line-height:1.9;background:#e9ddc3;color:#17282c;flex:1;border-top:3px solid #b9a781}
+.prologue-panels .prologue-speech{background:#f4ecdc;border-radius:22px 22px 0 0;margin-top:0;font-family:var(--serif);font-size:21px}
+.prologue-credit{font-size:12px;color:#c5ccc5;margin:16px 0}
+.prologue-book footer{position:sticky;bottom:-24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;border-top:1px solid #b8a578;padding:14px 0;background:#14282d;z-index:2}
+.prologue-book footer span{font-size:14px;color:#f4ebd8}.prologue-skip{margin-left:auto;background:transparent;color:#eddbb4}
+@media(max-width:760px){.prologue-overlay{padding:10px}.prologue-book{padding:12px}.prologue-book header{gap:6px}.prologue-book header button{padding:8px 12px;flex-shrink:0}.prologue-book h2{font-size:25px;letter-spacing:.05em}.prologue-kicker{font-size:11px}.prologue-panels{grid-template-columns:1fr;gap:12px}.prologue-image{height:245px}.prologue-person{display:grid!important;grid-template-columns:100px minmax(0,1fr);align-items:stretch}.prologue-person .prologue-image{height:160px}.prologue-person .prologue-speech{border:0;border-left:3px solid #b9a781;border-radius:0;font-size:18px;display:flex;align-items:center;padding:12px}.prologue-panels figcaption{font-size:16px;padding:14px}.prologue-book footer{bottom:-10px;gap:8px;padding:10px 0}.prologue-book footer button{font-size:13px;padding:8px 11px}.prologue-skip{margin:0;width:100%}}
 </style></head><body>
 <div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">衣影血誓版</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>

@@ -1,0 +1,113 @@
+{
+  "version": "2026.11.03-review.4",
+  "base": "817631bfafe29d60d8a2ac6869761d5c2a9a9267",
+  "rules": {
+    "passed": 610,
+    "failed": 0
+  },
+  "page_layouts": 120,
+  "flows": [
+    {
+      "role": "assassin",
+      "completed": true,
+      "args": [
+        "mark",
+        "assassin"
+      ]
+    },
+    {
+      "role": "sword",
+      "completed": true,
+      "args": [
+        "sword",
+        "sword"
+      ]
+    },
+    {
+      "role": "hehuan",
+      "completed": true,
+      "args": [
+        "hehuan",
+        "hehuan"
+      ]
+    },
+    {
+      "role": "mechanist",
+      "completed": true,
+      "args": [
+        "mechanist",
+        "mechanist"
+      ]
+    },
+    {
+      "role": "sovereign",
+      "completed": true,
+      "args": [
+        "sovereign",
+        "sovereign"
+      ]
+    }
+  ],
+  "checks": [
+    "double click advances one page; invalid role rejected",
+    "keyboard focus stays inside dialog and cancel restores selection",
+    "externally replaced state cancels stale pending start",
+    "no timer and reduced motion supported",
+    "standalone offline image decode and skip"
+  ],
+  "edge": {
+    "seedPairs": [
+      {
+        "role": "assassin",
+        "identical": true
+      },
+      {
+        "role": "sword",
+        "identical": true
+      },
+      {
+        "role": "hehuan",
+        "identical": true
+      },
+      {
+        "role": "mechanist",
+        "identical": true
+      },
+      {
+        "role": "sovereign",
+        "identical": true
+      }
+    ],
+    "touch": [
+      "assassin",
+      "sword",
+      "hehuan",
+      "mechanist",
+      "sovereign"
+    ],
+    "replayLast": true,
+    "missingArt": true
+  },
+  "hehuan": {
+    "passed": 13,
+    "failed": 0
+  },
+  "mechanist": {
+    "passed": 9,
+    "failed": 0
+  },
+  "inputs": {
+    "dev/prologue.js": "1e41eca7955c1624349da228b9b4f47095f48e8ab8cef2645c5130b4ee2104b6",
+    "dev/ui.js": "6ab3d21cd86909a6bd1333d95b32947ac824d72e27af9eb8c4ddeec851a2aec6",
+    "dev/shell.html": "1547e8d43881371fdbe90385e59716888a7179a8432f671c56159285f8e39c8d",
+    "dev/build.cjs": "b5b9dfbad0458ab70bc6aac555fcb29e775f86c54f8efc95b3de3ee28a983a8b",
+    "dev/persist.py": "7b53b6efb513fb02e2cea05e207d8f57d7497e6938f00dc3947f133347f75b48",
+    "dev/release.json": "e97ad640d9ea38cd4c3b6bb78ad787192bef2db2d6415b453f97d33b2b60fe56",
+    "dev/prologue.test.cjs": "7cdd65b94575dea54f79cf787c716e19559847e17abd80340934da2e540b77d3",
+    "dev/prologue-browser.cjs": "aff3737ddffa5d811f2c1a1712cc3cf00259ce85e48e972b0a8731781b88de82",
+    "dev/prologue-edge.cjs": "21ea9d09ff59aa4163c25b6d6ae1350fd84b0170a7c5141778289b58ecc96b6a",
+    "index.html": "6cb8902be3dd3af25b043cd5a90916fe3575e7f347754a367ddd2f7736cd29ca",
+    "baiyao-standalone.html": "5f20885a794b40044d8ac247552aebce9b82e2aafd912224bf60fd1712b26fd0"
+  },
+  "method": "Explicit Chromium fixtures and real UI events, not human/physical-phone testing"
+}

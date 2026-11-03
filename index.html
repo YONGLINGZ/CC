@@ -377,9 +377,27 @@ body[data-motion="reduced"] .hero-portrait[data-reaction]{filter:none!important}
  body[data-screen="battle"] .battle-stage .combatant-title h3{font-size:15px}
  body[data-screen="battle"] .battle-stage .battle-focus{display:none}
 }
+
+/* Comic-panel prologue: opaque captions outside artwork, no automatic advancing. */
+.prologue-overlay{position:fixed;inset:0;z-index:10000;overflow:auto;overscroll-behavior:contain;background:#0c171b;color:#f4ebd8;padding:24px;touch-action:pan-y}
+.prologue-book{max-width:1050px;margin:auto;border:1px solid #b8a578;background:#14282d;padding:24px;box-shadow:0 12px 60px #0008}
+.prologue-book header{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:20px}
+.prologue-kicker{font-size:12px;color:#dfc997;letter-spacing:.08em}.prologue-book h2{font-size:32px;margin-top:8px;line-height:1.5}
+.prologue-book button{min-height:46px;padding:10px 18px;font-size:15px;white-space:normal}.prologue-book button:disabled{opacity:1;color:#939e9c;background:#293538;border-style:dashed}
+.prologue-panels{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:stretch}
+.prologue-panels figure{margin:0;border:3px solid #b9a781;background:#0c1a20;display:flex;flex-direction:column;min-width:0}
+.prologue-image{height:330px;position:relative;background:radial-gradient(ellipse,#344951,#0d1d25);overflow:hidden;display:grid;place-items:center}
+.prologue-image img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
+.prologue-frame-number{position:absolute;left:8px;top:8px;background:#102326;color:#f2d69a;border:1px solid #d4bd88;font:20px var(--serif);padding:0 8px}
+.prologue-panels figcaption{padding:18px;font-size:17px;line-height:1.9;background:#e9ddc3;color:#17282c;flex:1;border-top:3px solid #b9a781}
+.prologue-panels .prologue-speech{background:#f4ecdc;border-radius:22px 22px 0 0;margin-top:0;font-family:var(--serif);font-size:21px}
+.prologue-credit{font-size:12px;color:#c5ccc5;margin:16px 0}
+.prologue-book footer{position:sticky;bottom:-24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;border-top:1px solid #b8a578;padding:14px 0;background:#14282d;z-index:2}
+.prologue-book footer span{font-size:14px;color:#f4ebd8}.prologue-skip{margin-left:auto;background:transparent;color:#eddbb4}
+@media(max-width:760px){.prologue-overlay{padding:10px}.prologue-book{padding:12px}.prologue-book header{gap:6px}.prologue-book header button{padding:8px 12px;flex-shrink:0}.prologue-book h2{font-size:25px;letter-spacing:.05em}.prologue-kicker{font-size:11px}.prologue-panels{grid-template-columns:1fr;gap:12px}.prologue-image{height:245px}.prologue-person{display:grid!important;grid-template-columns:100px minmax(0,1fr);align-items:stretch}.prologue-person .prologue-image{height:160px}.prologue-person .prologue-speech{border:0;border-left:3px solid #b9a781;border-radius:0;font-size:18px;display:flex;align-items:center;padding:12px}.prologue-panels figcaption{font-size:16px;padding:14px}.prologue-book footer{bottom:-10px;gap:8px;padding:10px 0}.prologue-book footer button{font-size:13px;padding:8px 11px}.prologue-skip{margin:0;width:100%}}
 </style></head><body>
-<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">画影清明 2026.11.03-review.3</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
-<script>globalThis.NightRelease={"id":"2026.11.03-review.3","name":"画影清明","cards":{"assassin":36,"sword":36,"sovereign":12,"hehuan":36,"mechanist":48},"totalCards":180};</script>
+<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">来时之路 2026.11.03-review.4</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
+<script>globalThis.NightRelease={"id":"2026.11.03-review.4","name":"来时之路","cards":{"assassin":36,"sword":36,"sovereign":12,"hehuan":36,"mechanist":48},"totalCards":180};</script>
 <script>
 /* 内联 SVG 后备立绘；无需联网，亦作为图片缺失时的替代图。 */
 (function () {
@@ -6588,6 +6606,65 @@ const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};ro
 })(typeof globalThis === 'undefined' ? window : globalThis);
 </script>
 <script>
+/* Illustrated comic-panel introductions using existing paintings; no generated run state. */
+(function(global){
+'use strict';
+const STORIES={
+ assassin:[
+  {title:'铃声先入夜',art:['portraits','cat'],caption:'夜契盟的夜铃，靠看准破绽吃饭。她习惯把脚步藏起来，把铃声留给已经发现她的人。',line:'别急。要害总会露出来。'},
+  {title:'这一单，寻契器',art:['relics','bell'],caption:'这次的委托指向寒渊：寻找玄烬教遗失的契器。黑雾没有标价，雇主却已经把危险算进了报酬。',line:'东西我去找。价码，回来再谈。'},
+  {title:'等一个破绽',art:['cards','C04'],caption:'猎印记下破绽，连击把机会撕开。必要时，她也会用血契换取更狠的一击——代价由自己承受。',line:'先看清，再下手。'},
+  {title:'委托之外',art:['regions','fog_gate'],caption:'寻宝是明面上的来意。至于契器能否给自己的解契之路留一道缝，她要亲眼看过才肯作罢。',line:'我的契，可不只值这一单。'}
+ ],
+ sword:[
+  {title:'霜落剑鞘',art:['portraits','sword'],caption:'太微剑宗的沈霜白，寡言，出剑也不爱多余的声响。她把追问留到敌人收势之后。',line:'跟紧。别碰雾。'},
+  {title:'未归的同门',art:['events','swordgrave'],caption:'奉命进入寒渊，她要查明失踪同门的下落。没有见到人，任何传言都不能替他们写下结局。',line:'我来找人，不是来收一句传闻。'},
+  {title:'蓄势，而后破局',art:['cards','S01'],caption:'霜寒封住杀势，剑意在交锋间积蓄。守住的一息，可能正是下一剑需要的距离。',line:'剑不能乱出，人不能乱丢。'},
+  {title:'雾中寻迹',art:['regions','fog_gate'],caption:'山门之后，线索与危险走在同一条路上。她不会因为前方无人应答，就把剑宗的名字从寻人册上划掉。',line:'人未找全，便还没到回去的时候。'}
+ ],
+ hehuan:[
+  {title:'扇后的人',art:['portraits','hehuan'],caption:'合欢宗外堂执事晏绮罗，惯于隔着一把扇子听人说话。她看的是来人的手，也看话里没有说出的价钱。',line:'看够了吗？看够了，就该看我的手了。'},
+  {title:'扇下的纸页',art:['relics','heartmirror'],caption:'接应者将接收地点塞到扇下：长老只要账册；秦蘅若还活着，也别带她出封域。被卖进祭仪的，是她的成年师妹。',line:'她是我带进门的。'},
+  {title:'藏在薄纱里的回答',art:['cards','H01'],caption:'她可以当场出手，也能将杀招藏入薄纱，等敌人自己踏进条件。观息的机会有限，判断比笑意更要稳。',line:'你先动。我等的就是这一手。'},
+  {title:'连账一起算',art:['regions','fog_gate'],caption:'替秦蘅出头，外堂的药钱就可能断掉。她还是合上扇子：人要找，账册也要拿，宗门的吩咐不等于她的打算。',line:'行。那这趟我连账也一起算。'}
+ ],
+ mechanist:[
+  {title:'旧线轴',art:['portraits','tinglan'],caption:'天工院外勤机关师陆听澜，把旧线轴重新缠紧。承山、鸣镝与拾萤，都是她手中各有职责的伙伴。',line:'先查线，再开匣。'},
+  {title:'二十七天前',art:['mechanistItems','case'],caption:'最后一封急信说，救援三队已经接好断桥，第二天就能送伤员出域。如今，二十七天过去了。',line:'先把人找着。'},
+  {title:'三机同心',art:['cards','J48'],caption:'承山护阵，鸣镝击敌，拾萤供能。她用驱动安排次序；最后主动执行的单位要接下敌招，过载也会损耗机体。',line:'别盯着我，你该防的是后面那个。'},
+  {title:'护人的机关',art:['regions','broken_camp'],caption:'她检查承山胸前的红花，把机匣背稳。护民的机关为什么成了杀器？救援队在哪里？这些问题，要带着活人的回答回来。',line:'谁动过我们的图纸，回来再问。'}
+ ],
+ sovereign:[
+  {title:'井下归来',art:['portraits','feiye'],caption:'从井下归来的绯夜，仍以无相宫主之名行走。她不愿解释，为什么自己认得这里的每一盏灯。',line:'我的名字，你还记得么？'},
+  {title:'失落之物',art:['relics','veil'],caption:'本源散落，旧日的关系也没有随着封印沉寂。她再入寒渊，不为旁人的委托，只为取回属于自己的东西。',line:'我的东西，该还给我了。'},
+  {title:'万相归潮',art:['cards','F01'],caption:'魂息在掌心聚拢，夜幕护住身形。她要让失落的力量逐一归来，却不肯提前告诉谁会为此付账。',line:'让散落的，归来。'},
+  {title:'认得灯，不代表信得过人',art:['regions','mirror_heaven'],caption:'故地并不等于归处。旧影、誓言与镜后的声音仍在等她；她要亲自决定，哪些关系该留下，哪些该了结。',line:'这一次，由我来认路。'}
+ ]};
+const WORLD=[
+ {title:'这里是寒渊',art:['regions','hanyuan_home'],caption:'玄烬教的引灵仪反噬，黑雾封闭寒渊。寻人者、寻宝者与留守者走进同一片雾，却未必站在同一边。',line:'每一个入域的人，都带着自己的来意。'},
+ {title:'从山门，向七境深处',art:['regions','fog_gate'],caption:'旅程始于雾锁山门。断桥、旧仪与更深的异境相连，七境各有十段路。沿相连的遗径前行，在交锋、休整与抉择之间找到去路。',line:'你的第一步，还在雾外。'}
+];
+const ARRIVAL={assassin:'契器在雾里，自己的答案也可能在那里。',sword:'先走进山门，再找同门留下的痕迹。',hehuan:'秦蘅还在雾里。现在，该动身了。',mechanist:'把机匣背稳，去找救援队。',sovereign:'先过山门，再向旧日问路。'};
+function pages(role){if(!STORIES[role])return [];return [...STORIES[role],...WORLD.map((p,i)=>({...p,line:i===1?ARRIVAL[role]:p.line}))].map(p=>({...p,art:[...p.art]}));}
+const api={STORIES,WORLD,pages};if(typeof module!=='undefined'&&module.exports)module.exports=api;
+if(typeof document==='undefined')return;
+let active=null,serial=0;
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function close(complete){const a=active;if(!a)return;active=null;a.root.remove();for(const [el,inert]of a.inert)el.inert=inert;document.body.style.overflow=a.overflow;if(a.focus?.isConnected)a.focus.focus({preventScroll:true});if(complete)a.onComplete?.();else a.onCancel?.();}
+function heroImage(assets,kind){return kind==='cat'?assets.puppet?.normal||assets.portraits?.cat:assets.puppet?.[kind]?.normal||assets.portraits?.[kind];}
+function draw(){const a=active;if(!a)return;const p=a.pages[a.index],hero=global.NightPact.CHARACTERS[a.role],assets=global.NightAssets||{},src=p.art[0]==='portraits'?heroImage(assets,p.art[1]):assets[p.art[0]]?.[p.art[1]],portrait=heroImage(assets,hero.portrait),last=a.index===a.pages.length-1;
+ a.root.innerHTML=`<section class="prologue-book" role="document"><header><div><span class="prologue-kicker">${esc(hero.name)} · ${esc(hero.profession)} / ${a.index<4?'来时之路':'寒渊封域'}</span><h2 id="prologue-title" tabindex="-1">${esc(p.title)}</h2></div><button data-prologue="cancel">${a.replay?'关闭重看':'返回'}</button></header><div class="prologue-panels"><figure class="prologue-scene"><div class="prologue-image">${src?`<img src="${esc(src)}" alt="${esc(p.title)} · 原画分镜" onerror="this.hidden=true">`:''}<span class="prologue-frame-number" aria-hidden="true">${String(a.index+1).padStart(2,'0')}</span></div><figcaption>${esc(p.caption)}</figcaption></figure><figure class="prologue-person"><div class="prologue-image">${portrait?`<img src="${esc(portrait)}" alt="${esc(hero.name)}" onerror="this.hidden=true">`:''}</div><figcaption class="prologue-speech">“${esc(p.line)}”</figcaption></figure></div><p class="prologue-credit">既有原画分镜编排 · 手动翻页，无自动倒计时</p><footer><button data-prologue="prev" ${a.index===0?'disabled':''}>← 上一页</button><span role="status" aria-live="polite" aria-atomic="true">第 ${a.index+1} / ${a.pages.length} 页</span><button data-prologue="next" class="primary">${last?(a.replay?'结束重看':'开始旅程 →'):'下一页 →'}</button><button data-prologue="skip" class="prologue-skip">${a.replay?'关闭':'跳过故事，开始旅程'}</button></footer></section>`;
+ a.root.dataset.page=String(a.index+1);a.root.scrollTop=0;a.root.querySelector('#prologue-title').focus({preventScroll:true});
+}
+function navigate(action){if(!active)return;if(action==='cancel')return close(false);if(action==='skip')return close(true);if(action==='prev'){active.index=Math.max(0,active.index-1);draw();}if(action==='next'){if(active.index===active.pages.length-1)return close(true);active.index++;draw();}}
+api.open=function({role,replay=false,onComplete,onCancel}={}){if(active||!STORIES[role]||!global.NightPact?.CHARACTERS[role])return false;const root=document.createElement('div');root.className='prologue-overlay';root.id='character-prologue';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-labelledby','prologue-title');root.dataset.role=role;const inert=[...document.body.children].filter(e=>e.tagName!=='SCRIPT').map(e=>[e,e.inert]);active={id:++serial,role,replay,pages:pages(role),index:0,root,onComplete,onCancel,inert,focus:document.activeElement,overflow:document.body.style.overflow};inert.forEach(([e])=>e.inert=true);document.body.style.overflow='hidden';document.body.append(root);draw();return true;};
+api.isOpen=()=>!!active;
+document.addEventListener('click',e=>{if(!active)return;e.stopImmediatePropagation();const el=e.target.closest('[data-prologue]');if(el&&!el.disabled&&(e.detail<2||e.pointerType==='touch'))navigate(el.dataset.prologue);},true);
+document.addEventListener('keydown',e=>{if(!active)return;e.stopImmediatePropagation();if(e.repeat){e.preventDefault();return;}if(['ArrowLeft','ArrowRight','Escape'].includes(e.key)){e.preventDefault();navigate(e.key==='Escape'?'cancel':e.key==='ArrowLeft'?'prev':'next');}if(e.key==='Tab'){const buttons=[...active.root.querySelectorAll('button:not(:disabled)')],first=buttons[0],last=buttons.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement.id==='prologue-title')){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}},true);
+global.NightPrologue=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script>
+<script>
 (function () {
   'use strict';
   const {CARDS,ENEMIES,RELICS,STARTERS}=NightPact;
@@ -6888,7 +6965,7 @@ const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};ro
     if(modal.kind==='journal'){title='行旅手记 · 旧事有回声';hint='只记已经发生的选择与眼前的人，不预写任何人的结局。';body=lifeQuestMarkup()+relationsMarkup()+journalMarkup()+`<section class="faction-fieldnotes"><h3>亲见的来客</h3>${Object.entries(game.state.journey.factions?.seen||{}).map(([id,seen])=>`<article><h4>${esc(seen.name)}</h4><p>${esc(seen.intro||'当时未能看清来路。')}</p>${(seen.notes||[]).map(n=>`<blockquote><small>第${n.floor}段 · 当时留下的记录</small><p>${esc(n.text)}</p></blockquote>`).join('')}<p>亲眼见过：${seen.abilities.map(esc).join('、')||'尚未见其出手'}</p></article>`).join('')||'<p>尚无此类见闻。</p>'}</section>`;}
     if(modal.kind==='world'){title='寒渊封域 · 各怀所求';hint='禁术反噬之后，没有一方愿意空手离开。';body=worldLore();}
     if(modal.kind==='catalogue'){if(!catalogueEntries(catalogueFilter).length)catalogueFilter='all';const entries=catalogueEntries(catalogueFilter);title=`技能图鉴 · ${entries.length} 种`;hint='数量直接读取当前牌池；正道剑术与魔修功法分别列出。每张技能均可查看费用和完整效果。';body=`<div class="catalogue-filters">${[['all','全部技能'],['assassin','影契刺客'],['sword','霜华剑修'],['hehuan','合欢执事'],['mechanist','天工机关师'],...(game.state.player.path?.learned?[['demonic','魔修秘术']]:[]),...(isUnlocked('sovereign')?[["sovereign","归月之身"]]:[])].map(([id,name])=>btn('catalogue-filter',name+' · '+catalogueEntries(id).length,'btn small '+(catalogueFilter===id?'primary':'ghost'),`data-filter="${id}"`)).join('')}</div><div class="deck-grid catalogue">${entries.map(id=>cardMarkup(id)).join('')}</div>`;}
-    if(modal.kind==='settings'){title='声画与战斗表现';hint='调整声画表现，管理角色解锁与兑换信物。';body=`<div class="settings-options">${[['full','完整表现','刺客潜袭、剑修剑芒、逐段命中与受击姿态。'],['fast','快速表现','更短的动作与数字停留，适合重复试玩。'],['reduced','减少动态','取消位移、晃动和闪烁，保留数值与战损换装。']].map(([mode,name,text])=>btn('motion',`<b>${name}${motionMode===mode?' · 已选择':''}</b><small>${text}</small>`,'btn '+(motionMode===mode?'primary':'ghost'),`data-mode="${mode}"`)).join('')}</div><section class="portrait-settings"><h3>${esc(hero().name)} · 角色表现</h3><p>生命降至 50% 与 25% 时，衣装和神态显示不同战痕；恢复生命后回到对应状态。立绘按实际生命切换，五位角色具备轻缓待机、职业攻击与受击动作，按实际战斗事件触发。当前使用完整原画的二维动画，不是 Live2D Cubism 模型；减少动态会关闭位移。</p><div class="actions">${btn('portrait-gallery','展开三态画卷','btn ghost')}</div></section>${soundSettings()}${musicSettings()}${releaseInfo()}${profileSettings()}${redemptionSettings()}`;}
+    if(modal.kind==='settings'){title='声画与战斗表现';hint='调整声画表现，管理角色解锁与兑换信物。';body=`<div class="settings-options">${[['full','完整表现','刺客潜袭、剑修剑芒、逐段命中与受击姿态。'],['fast','快速表现','更短的动作与数字停留，适合重复试玩。'],['reduced','减少动态','取消位移、晃动和闪烁，保留数值与战损换装。']].map(([mode,name,text])=>btn('motion',`<b>${name}${motionMode===mode?' · 已选择':''}</b><small>${text}</small>`,'btn '+(motionMode===mode?'primary':'ghost'),`data-mode="${mode}"`)).join('')}</div><section class="portrait-settings"><h3>${esc(hero().name)} · 角色表现</h3><p>生命降至 50% 与 25% 时，衣装和神态显示不同战痕；恢复生命后回到对应状态。立绘按实际生命切换，五位角色具备轻缓待机、职业攻击与受击动作，按实际战斗事件触发。当前使用完整原画的二维动画，不是 Live2D Cubism 模型；减少动态会关闭位移。</p><div class="actions">${btn('portrait-gallery','展开三态画卷','btn ghost')}</div></section><section class="portrait-settings"><h3>来时之路</h3><p>重看当前角色的出场故事，不改变本局进度。每次新旅程都会展示，可随时跳过。</p>${btn('prologue-replay','重看出场故事','btn ghost')}</section>${soundSettings()}${musicSettings()}${releaseInfo()}${profileSettings()}${redemptionSettings()}`;}
     if(modal.kind==='portrait-gallery'){const sword=heroId()==='sword',sovereign=heroId()==='sovereign';title=hero().name+' · 三态画卷';hint='这里只预览立绘，不改变生命、战斗或本局进度。血量以当前最大生命的比例计算。';body=`<div class="damage-gallery">${[['normal',sword?'静心':'从容','生命高于 50%',heroId()==='hehuan'?'双纱绷出弧线，扇下藏着轻笑。':sovereign?'夜纱未乱，月光仍在指间。':sword?'白袍齐整，目光清寒。':'衣袍齐整，金瞳含笑。'],['wounded','战痕','生命不高于 50%',heroId()==='hehuan'?'纱缘擦损，笑意收起，目光更谨慎。':sovereign?'衣角染尘，指尖魂光仍稳。':sword?'衣角染尘，剑锋仍稳。':'外袍磨损，神色警觉。'],['critical','濒危','生命不高于 25%',heroId()==='hehuan'?'借扇稳住身形，垂纱仍指向对手。':sovereign?'夜纱残损，神色沉静而倦。':sword?'霜衣破损，握剑不退。':'衣袖破损，疲惫而不退。']].map(([stage,name,threshold,text])=>`<article class="damage-gallery-card" data-stage="${stage}">${portrait(heroKind(),{previewStage:stage})}<div><span>${threshold}</span><h3>${name}</h3><p>${text}</p></div></article>`).join('')}</div><div class="actions">${btn('settings','返回声画设置','btn ghost')}</div>`;}
     if(modal.kind==='squad-card'){title=CARDS[s.battle?.hand.find(c=>c.uid===modal.pile)?.id]?.name||'机关调度';hint='先选执行者，再确认施术。取消不扣费用；最终接招者以规则预览为准。';body=squadCardMarkup(modal.pile);}
     if(modal.kind==='squad-replace'){title='换入'+MACHINE_NAMES[modal.pile];hint='选择收回哪一具；耐久不会恢复。确认后才支付1灵力。';body='<div class="squad-replace-options">'+s.battle.squad.slots.filter(Boolean).map(id=>btn('squad-replace-confirm','收回'+MACHINE_NAMES[id]+'，换入'+MACHINE_NAMES[modal.pile],'btn ghost',`data-unit="${modal.pile}" data-replace="${id}"`)).join('')+'</div>';}
@@ -7105,7 +7182,13 @@ const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};ro
     }
     setBusy(true);const name=(game.getIntent?.()||ENEMIES[game.state.battle.enemy.id].intents[game.state.battle.enemy.intentIndex]).name;if(!act(()=>game.endTurn())){setBusy(false);render();return;}await delay(220);await battleAction(()=>game.resolveEnemyTurn(),name,true);
   }
-  function start(){if(window.uiBusy)return;if(!isUnlocked(chosenCharacter)||!(HEROES[chosenCharacter]?.starters||[]).includes(starter))return;resourceChanges.clear();selected=null;disposePortraits(modalRoot);modal=null;modalRoot.innerHTML='';fxRoot.innerHTML='';act(()=>game.newRun(starter,chosenCharacter));mapFocusKey='';mapScrollPosition=null;window.scrollTo(0,0);}
+  function start(){
+    if(window.uiBusy||globalThis.NightPrologue?.isOpen())return;
+    if(!isUnlocked(chosenCharacter)||!(HEROES[chosenCharacter]?.starters||[]).includes(starter))return;
+    const role=chosenCharacter,tactic=starter,source=game,sourceState=game.state;
+    const begin=()=>{if(game!==source||game.state!==sourceState||window.uiBusy)return;resourceChanges.clear();selected=null;disposePortraits(modalRoot);modal=null;modalRoot.innerHTML='';fxRoot.innerHTML='';act(()=>game.newRun(tactic,role));mapFocusKey='';mapScrollPosition=null;window.scrollTo(0,0);const heading=app.querySelector('h2');heading?.setAttribute('tabindex','-1');heading?.focus({preventScroll:true});};
+    if(!globalThis.NightPrologue?.open({role,onComplete:begin}))begin();
+  }
   function title(pick=true){if(window.uiBusy)return;openingScreen=pick?'characters':'home';tacticsExpanded=false;resourceChanges.clear();selected=null;disposePortraits(modalRoot);modal=null;modalRoot.innerHTML='';game=makeGame();window.game=game;render();window.scrollTo(0,0);}
   function exportHTML(){if(assets.mode==='folder'){const link=document.createElement('a');link.href='baiyao-standalone.html';link.download='百妖夜契-完整单文件.html';document.body.append(link);link.click();link.remove();toast('已请求保存同目录的完整单文件版；请保留压缩包中的 baiyao-standalone.html。');return;}const copy=document.documentElement.cloneNode(true);for(const id of ['app','hud','modal-root','toast-root','fx-root']){const el=copy.querySelector('#'+id);if(el)el.innerHTML='';}copy.querySelector('body').removeAttribute('data-ui-busy');copy.querySelector('#app').removeAttribute('aria-busy');const blob=new Blob(['<!doctype html>\n'+copy.outerHTML],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='百妖夜契-index.html';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('已请求浏览器保存完整 HTML；重新打开从新的一局开始。');}
   document.addEventListener('click',event=>{
@@ -7114,7 +7197,7 @@ const api={REVISION,SCENES,TALE_DIALOGUE,BOSS_DIALOGUE,RETAIN,rewrite,review};ro
     const el=event.target.closest('button[data-action]');if(!el||el.disabled)return;if(modal&&!el.closest('#modal-root'))return;const a=el.dataset.action;
     if(window.uiBusy)return;
     if(a==='new-journey'){openingScreen='characters';tacticsExpanded=false;render();app.querySelector('h1')?.scrollIntoView({block:'start'});return;}if(a==='home')return title(false);
-    if(a==='start')return start();if(a==='title')return title();if(a==='export')return exportHTML();if(['rules','world','journal','deck','restart','log','catalogue','settings','equipment','bag','profile','relics','portrait-gallery','bosses'].includes(a))return openModal(a);if(a==='boss-detail')return openModal('boss-detail',el.dataset.boss);if(a==='close')return closeModal();if(a==='pile')return openModal('pile',el.dataset.pile);if(a==='status')return openModal('status',el.dataset.status);
+    if(a==='prologue-replay')return globalThis.NightPrologue?.open({role:heroId(),replay:true});if(a==='start'){if(event.detail<2||event.pointerType==='touch')start();return;}if(a==='title')return title();if(a==='export')return exportHTML();if(['rules','world','journal','deck','restart','log','catalogue','settings','equipment','bag','profile','relics','portrait-gallery','bosses'].includes(a))return openModal(a);if(a==='boss-detail')return openModal('boss-detail',el.dataset.boss);if(a==='close')return closeModal();if(a==='pile')return openModal('pile',el.dataset.pile);if(a==='status')return openModal('status',el.dataset.status);
     if(a==='use-item'){const id=el.dataset.item;if(!game.getItemUse?.(id)?.usable)return;selected=null;if(game.state.screen==='battle'){closeModal();void battleAction(()=>game.useItem(id),ITEMS[id]?.name||'服药');}else if(act(()=>game.useItem(id))){audio()?.playCue?.('heal');}return;}
     if(a==='buy-item'){if(act(()=>game.buyItem(Number(el.dataset.index))))audio()?.playCue?.('rewardReveal');return;}
     if(a==='cave-explore'){selected=null;if(act(()=>game.exploreCave())){audio()?.playCue?.(game.state.screen==='battle'?'power':game.state.cave?.result?.rarity==='rare'?'treasure':'rewardReveal');scrollAfterAction();}return;}
