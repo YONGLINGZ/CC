@@ -1,0 +1,49 @@
+{
+  "base": "df7754996e98a9ae28a0facb63ff8055e5e923f6",
+  "version": "2026.11.03-review.3",
+  "rules": {
+    "pass": 607,
+    "fail": 0
+  },
+  "layouts": 180,
+  "events": 328,
+  "roles": 5,
+  "hp_states": 30,
+  "choice_states": 12,
+  "multiHitTracks": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "min_event_contrast": 7.218518826275802,
+  "inputs": {
+    "dev/shell.html": "4de6de68e1ca6a91a64a6d37f6cc5876ecb387e041a78b5f7ad6392d5efd2128",
+    "dev/ui.js": "4168bf2cf479a8cc0d331b25ee4ec598be554e2112b3b8f533d3f42aadbfa8e9",
+    "dev/release.json": "dcc1cb930a83fc0441c57d42176e764f209202556a7d7a0c7de2cb6994e8682b",
+    "index.html": "edd6c1702d159c18a1dafb04aaae12f0bb16b6859d241845c5c62638dcd36180",
+    "baiyao-standalone.html": "a15b93ccee835a7e8ce09fa655bd983e990ca7ff7a6ebd770db972ad6d089136",
+    "dev/visual-review-browser.cjs": "012fed2829e8bc6d9a88a1cafa91bcb3c119f5dfea49ce07598a2908c6b3bec4",
+    "dev/visual-review-edge.cjs": "549f9eed8413a7d7d4adb66ad64545300693b7e153799fd972d0f1081a19391f"
+  },
+  "assets_unchanged": true,
+  "limitations": [
+    "No Cubism or layered artwork available",
+    "Browser fixture checks, not human runs or physical phones",
+    "Source screenshot materialization download failed"
+  ]
+}
