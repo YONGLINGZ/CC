@@ -1,0 +1,88 @@
+{
+  "method": "Actual Chromium clicks via loopback static transport. Combat/HP/card arrangements are explicit fixtures; first start/choice/portrait/mobile use product controls. No human or physical-phone claim; cloud file:// blocked by administrator.",
+  "inputs": {
+    "dev/music.js": "972d4fbd634946c4464d747999aea55ac0b772720851f2045a3ff54cc35ea1d1",
+    "dev/hehuan.js": "61f29e5554f595e4816e28034d0bb7b1e562b72b8371d87b4ccb6a47e25d391f",
+    "dev/engine.js": "f5c24687f20aaf9340584b6e4154c72189110c17f7d81ffbed9a144d558670e7",
+    "dev/ui.js": "8c6441735a5b29c3c420e410d067ea05aeb525bdbad1ca1a3e48fc2c7ee1c2e2",
+    "dev/shell.html": "2fd9474d75dcbd4a70486a1cc1188e32a287dfaad2d31db6c6609a852c16399d",
+    "dev/audio.js": "84a9e238e29f70168fb6d358691c5432b42cc28db7f035d5c8127fc86f7aff67",
+    "dev/build.cjs": "546871e267f4a1aece0d7f0cc87b9ceebf2b123b9bc8bca788a7d999e927cd64",
+    "index.html": "b301b83ecf9fa80b205b29defebdf96733fef07c7ec3d79ea0270f0e74937ba2",
+    "baiyao-standalone.html": "9aa19075c686b573981a665679cfff7eb4a81917c7b959b12f5ef54f33dce22d",
+    "dev/hehuan-browser.test.cjs": "a3242af85ccc5c5da732ac4bf7e429ce6d91cde324b5f2f8ac18107958d03d7a"
+  },
+  "results": [
+    {
+      "name": "new character is directly selectable with56life, own art, objective and ten-card tactic",
+      "ok": true
+    },
+    {
+      "name": "both modes show full rules; target cancellation pays nothing; full slots reject a third placement",
+      "ok": true
+    },
+    {
+      "name": "observe reveals current details, is once per turn and cannot reroll or spend again",
+      "ok": true
+    },
+    {
+      "name": "H06 copies a selected concealed instance and preserves both originals without refund",
+      "ok": true
+    },
+    {
+      "name": "actual enemy phase resolves both traps once and changes life/damage with no intent preview",
+      "ok": true
+    },
+    {
+      "name": "guaranteed personal scene returns to the original P2 node and has its own painting",
+      "ok": true
+    },
+    {
+      "name": "three portrait states and44 generated images decode;360/390/430 controls remain touchable",
+      "ok": true
+    },
+    {
+      "name": "uncropped portrait, transparent fallback, equal card frames and separate dock NPC panel fix the reported visual bugs",
+      "ok": true
+    },
+    {
+      "name": "all 28 faction events use decoded landscapes with separate NPC panels at desktop and mobile sizes",
+      "ok": true
+    },
+    {
+      "name": "world home replaces portraits; hidden role stays absent until CDKEY succeeds and persists without resetting the run",
+      "ok": true
+    },
+    {
+      "name": "both 36-card catalogues, actual sword rain/orbit and trap refund/reordering work with the pink art",
+      "ok": true
+    },
+    {
+      "name": "current version is visible, catalogue counts are live and demonic cards never inflate the 36 orthodox entries",
+      "ok": true
+    },
+    {
+      "name": "new card sounds render offline, standalone contains same character, and frozen inputs match",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "screenshots": [
+    "/workspace/scratch/hehuan-map.png",
+    "/workspace/scratch/hehuan-traps.png",
+    "/workspace/scratch/hehuan-mobile.png",
+    "/workspace/scratch/hehuan-fixed-selection.png",
+    "/workspace/scratch/hehuan-fixed-combat.png",
+    "/workspace/scratch/hehuan-fixed-dock.png",
+    "/workspace/scratch/hehuan-fixed-injured-camp.png",
+    "/workspace/scratch/hehuan-all-faction-scenes-audit.png",
+    "/workspace/scratch/hehuan-world-home.png",
+    "/workspace/scratch/hehuan-world-home-mobile.png",
+    "/workspace/scratch/hehuan-sword36.png",
+    "/workspace/scratch/hehuan-pink36.png",
+    "/workspace/scratch/hehuan-current-catalogue.png"
+  ],
+  "passed": 13,
+  "failed": 0
+}

@@ -1,3 +1,7 @@
+# 侧幕交锋回归
+
+先 `node dev/build.cjs --all`，再运行 `node --test dev/stage.test.cjs`、`node dev/stage-browser.cjs`、`node dev/stage-edge.cjs`。后两项需要 Playwright 和 Chromium，默认截图/JSON写到 `/workspace/stage-evidence`（主浏览器脚本支持 STAGE_EVIDENCE）。使用显式夹具，非自然通关；STAGE_RESUME=1仅用于相同构建的断点测试，发布检查应完整重跑。详情见 docs/review-v5/CHANGELOG_ZH.md。
+
 # 2026-11-03 角色出场故事
 
 本地版本 **2026.11.03-review.4 · 来时之路**。五角色各4页专属故事＋2页寒渊介绍，支持跳过、返回和设置重看；仅完成或跳过后进入原开局。规则610/610、120组页面与五对固定种子对照。详见 [本轮说明](docs/review-v4/CHANGELOG_ZH.md) 和 [分镜全文](docs/review-v4/STORYBOARDS_ZH.md)。未推送或部署，下方为历史记录。

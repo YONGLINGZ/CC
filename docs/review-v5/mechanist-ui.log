@@ -1,0 +1,9 @@
+PASS new role starts with52 life,10 own cards; catalogue has48 unique machine cards
+PASS friendly target preview can cancel without costs, then changes the actual guard after confirmation
+PASS deploy, command and full-slot replacement are explicit; cancel preserves all resources
+PASS drive shortage is explained before play and cannot charge partial fees
+PASS overload and repair show real durability/cooldown; card draw does not restore re-deployment rights
+PASS tail operation victory resolves before an enemy phase and pays the reward once
+PASS battle-outside first-machine preset persists to next battle and has no sword equipment fallback
+PASS 360/390/430 CSS widths retain full card effect,44px controls and separate readable machine states
+PASS portrait damage stages and machine normal/worn/broken states are selected independently

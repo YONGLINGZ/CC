@@ -1,0 +1,7 @@
+PASS trap timing, rapid double-click, live animation off, bounded FX, standalone touch opening {
+  peak: 8,
+  remaining: 0,
+  stateUnchanged: true,
+  medianMs: 16.699999999953434,
+  p95Ms: 17.100000000093132
+}

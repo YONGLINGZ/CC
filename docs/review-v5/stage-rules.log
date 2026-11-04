@@ -1,0 +1,12 @@
+✔ 180 published cards have authored valid presentation; no id-derived/random animation fallback (3.000052ms)
+✔ five roles have distinct articulated silhouettes, enemies and bosses carry authored motifs (0.973104ms)
+✔ headless presentation is inert and does not access game or persisted state (1.049526ms)
+✔ reduced/off modes never start articulated movement (0.175115ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.367728
