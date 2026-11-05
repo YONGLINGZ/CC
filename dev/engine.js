@@ -977,7 +977,7 @@
     function loseLife(amount, reason, selfDamage = false) {
       const p = state.player;
       p.hp = Math.max(0, p.hp - Math.max(0, amount));
-      log(`${reason}：失去 ${amount} 点生命（剩余 ${p.hp}）。`);
+      log(`你因「${reason}」失去 ${amount} 点生命（剩余 ${p.hp}）。`);
       if (selfDamage) event('selfDamage', { amount, damage: amount, reason });
       if (p.hp > 0) {
         if (selfDamage) bloodstone();

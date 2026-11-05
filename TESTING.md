@@ -104,3 +104,12 @@ Chromium机匣与移动布局9组交互检查已实际运行；最终图像固�
 本轮重新运行原角色浏览器13/13、新角色浏览器9/9。规则引擎未修改，580/580为前一版本已运行结果，不冒称本轮重跑。MP3试听由游戏的同一PCM合成器导出；人耳听评、真实手机/音箱听感尚未验证。程序仿古琴/箫音色不称为真人演奏。具体渲染与浏览器记录见dev/bgm-render-results.json和dev/music-browser-results.json。
 
 额外重跑旧dev/audio.test.cjs两次：第一次通过180技能实际施放组，随后密集事件/提示组有1次音源限流；第二次在180技能组累计3次限流，均未达到“零限流”断言，不能记为11/11。该旧脚本单独加载audio.js，不加载配乐模块；既有56音源上限保留，未为通过测试放宽。正常产品控制的22组浏览器回归及新BGM的7组检查通过。这项压力回归失败记录单独保存于dev/bgm-sfx-regression-results.json；旧v8-audio-regression-results.json仍是上一版本的历史收据，其源码哈希不同。
+
+## review.6 战斗反馈回归
+
+- `node --test dev/feedback.test.cjs dev/stage.test.cjs`：受伤日志主体、费用保持、180 卡表现配置及减弱动态契约。
+- `node dev/feedback-browser.cjs`：20 组桌面／窄屏布局、10 次真实浏览器出牌、调度入口、连段计数、持续效果入口、动作连续性和敌方非攻击动作。`STAGE_EVIDENCE` 可指定输出目录。
+- `node dev/stage-browser.cjs`：180 组角色／敌人／视口与 180 张卡牌的 UI 夹具回归。
+- `node dev/stage-edge.cjs`：藏招双时机、双击防重、运行中关闭动画、特效上限、独立 HTML 触屏开局。
+
+浏览器脚本会设置测试血量、手牌和敌人状态，以覆盖特定分支；这些不是自然开局或完整真人试玩。截图仅作内部验证。最终证据和限制见 `docs/review-v6/REVIEW_ZH.txt`。

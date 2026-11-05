@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),A=require('node:assert/strict'),N=require('./engine.js');
+test('self damage names the player and retains the exact HP cost',()=>{const g=N.createGame({campaign:'legacy',scaling:false,environment:false,rng:()=>.2});g.newRun('classic');g.enterRegion();g.enterNode('fight');const before=g.state.player.hp;g.state.battle.hand=[{id:'C13',uid:'test'}];A.equal(g.playCard('test'),true);A.equal(g.state.player.hp,before-3);A.ok(g.state.battle.logs.some(x=>x.startsWith('你因「')&&x.includes('失去 3 点生命')));});
+test('enemy damage names the player rather than presenting the enemy as victim',()=>{const g=N.createGame({campaign:'legacy',scaling:false,environment:false,rng:()=>.2});g.newRun('classic');g.enterRegion();g.enterNode('fight');const b=g.state.battle;b.enemy.id='paper';b.enemy.name=N.ENEMIES.paper.name;b.enemy.intentIndex=0;b.block=0;g.endTurn();g.resolveEnemyTurn();A.ok(b.logs.some(x=>x.startsWith('你因「')&&x.includes('失去 ')));});

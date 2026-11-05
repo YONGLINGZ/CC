@@ -1,0 +1,99 @@
+{
+  "traps": {
+    "seen": [
+      {
+        "cardFx": "H02",
+        "phase": "trigger",
+        "receiver": "player",
+        "source": "player"
+      },
+      {
+        "cardFx": "H01",
+        "phase": "trigger",
+        "receiver": "player",
+        "source": "player"
+      },
+      {
+        "cardFx": "H01",
+        "phase": "impact",
+        "receiver": "enemy",
+        "source": "player"
+      }
+    ],
+    "events": [
+      {
+        "type": "blockClear",
+        "source": "enemy"
+      },
+      {
+        "type": "trapTrigger",
+        "cardId": "H02",
+        "source": "player",
+        "timing": "before"
+      },
+      {
+        "type": "block",
+        "source": "player"
+      },
+      {
+        "type": "attack",
+        "source": "enemy"
+      },
+      {
+        "type": "trapTrigger",
+        "cardId": "H01",
+        "source": "player",
+        "timing": "after"
+      },
+      {
+        "type": "attack",
+        "cardId": "H01",
+        "source": "trap"
+      },
+      {
+        "type": "blockClear",
+        "source": "player"
+      },
+      {
+        "type": "draw",
+        "source": "player"
+      },
+      {
+        "type": "draw",
+        "source": "player"
+      },
+      {
+        "type": "draw",
+        "source": "player"
+      },
+      {
+        "type": "draw",
+        "source": "player"
+      },
+      {
+        "type": "draw",
+        "source": "player"
+      },
+      {
+        "type": "resources",
+        "source": "player"
+      }
+    ]
+  },
+  "duplicate": {
+    "played": 1,
+    "left": [
+      "edge-1"
+    ]
+  },
+  "perf": {
+    "peak": 8,
+    "remaining": 0,
+    "stateUnchanged": true,
+    "medianMs": 16.599999999976717,
+    "p95Ms": 20.20000000006985
+  },
+  "standaloneTouchStart": true,
+  "sameIdentityEnemyIndependent": true,
+  "errors": []
+}
