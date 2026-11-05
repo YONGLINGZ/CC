@@ -1,0 +1,31 @@
+/* Per-intent boss choreography: distinct drawn rows and semantic vector effects. */
+(function(root){'use strict';
+const designs={
+ gate_boss:['#ffd489','lantern', ['M20 130Q95 20 184 103L150 151Q80 65 20 130','M100 12L160 45V130L100 185L40 130V45ZM60 70H140M100 30V165','M55 160Q5 90 65 24Q120 85 55 160ZM145 160Q90 90 155 24Q205 85 145 160Z','M30 170Q10 60 72 40Q105 35 85 80M90 180Q68 80 138 26Q180 10 158 70']],
+ camp_boss:['#eaaa88','chain',['M20 160L175 30M45 132l30 20 20-40-30-20ZM105 72l30 20 20-40-30-20Z','M100 10L170 45L150 140L100 185L50 140L30 45ZM55 60H145M100 30V155','M20 160L180 30M20 120L180 70M20 80L180 110','M65 95V55Q100 5 135 55V95M50 95H150V170H50ZM20 185L180 15']],
+ snake:['#9cdd9e','serpent',['M20 170Q65 25 180 28Q100 100 20 170','M20 105Q70 10 115 95T185 95M20 125Q70 40 110 120T185 120','M100 12L175 65L160 140L100 185L40 140L25 65ZM50 85L100 145L150 85','M30 145Q0 35 120 40Q205 45 155 125Q100 185 55 115Q30 65 140 75']],
+ bell_boss:['#f2d89c','bell',['M60 135Q70 110 72 65Q100 12 128 65Q130 110 140 135ZM50 145H150M88 155Q100 180 112 155','M40 120Q50 20 80 65V125ZM120 125Q125 25 155 70V130ZM15 35Q-5 85 15 135M180 35Q205 85 180 135','M60 130Q65 40 100 25Q135 40 140 130ZM45 145H155M20 165Q100 195 180 165M5 180Q100 215 195 180','M70 130Q70 40 100 35Q130 40 130 130ZM35 35L165 165M165 35L35 165']],
+ lotus_boss:['#e6bc80','household',['M90 65H155V130Q120 160 90 130ZM90 80L55 55L40 70L90 110M155 80Q190 65 180 110L155 120M40 100Q15 140 20 175','M145 15L90 125L130 145L185 35ZM90 125L25 170Q65 200 120 180L130 145M90 145L55 180','M75 140L145 15L130 105L65 155M125 140L55 15L70 105L135 155M45 175A25 25 0 1 0 46 174M155 175A25 25 0 1 0 156 174','M100 15A70 70 0 1 0 101 15M85 155V195H115V155M50 60L80 45M120 45L150 60']],
+ marsh_boss:['#92e3e6','tide',['M20 130Q60 70 100 130T180 130M30 155Q65 95 100 155T170 155M100 15V100M70 50H130','M130 12Q35 40 80 132Q15 95 40 35Q75 0 130 12ZM100 80L70 185M130 75L145 170','M30 150Q-5 50 100 35Q195 15 170 130L145 105M25 90Q70 175 160 155','M10 70Q55 10 95 70T190 70M10 110Q55 50 95 110T190 110M10 150Q55 90 95 150T190 150']],
+ furnace_boss:['#ffb46e','fire',['M100 15Q160 70 140 120Q180 90 170 140Q100 215 40 140Q20 90 70 65Q45 120 85 130Q65 75 100 15','M100 165L15 70Q100-10 185 70ZM100 165L45 40M100 165V20M100 165L155 40','M100 15L165 60L180 155L100 125L20 155L35 60ZM55 60Q100 105 145 60','M60 190L65 50L100 10L135 50L140 190M35 190L45 95L70 60M165 190L155 95L130 60']],
+ mirror_boss:['#bcd7ff','mirror',['M100 10L150 90L110 185L55 95ZM100 10L105 95L110 185M55 95H150','M40 20H130V150H40ZM70 50H160V180H70ZM65 45L115 125','M35 20L65 100L20 180L30 90ZM95 10L125 90L80 190L90 90ZM155 20L185 100L140 180L150 90Z','M50 40Q105 0 135 70Q125 150 70 160ZM70 50Q125 15 155 90Q145 170 90 180Z']],
+ abyss_boss:['#f39db8','fate',['M15 155L180 40M25 170L170 20M30 180L190 60M145 30V85M125 50H175','M20 170Q50 10 185 25Q95 75 20 170M35 185Q65 25 195 45','M100 15V185M65 50H135M65 150H135M20 20L180 180M180 20L20 180M20 100H180','M0 10L200 190M0 30L180 200M20 0L200 170M20 190L190 20M75 15L125 185']],
+ feiye:['#dda0f4','moon',['M160 15Q15 30 65 175Q5 100 45 40Q85 0 160 15','M25 170Q-5 30 100 20Q205 30 175 170L145 145Q100 65 55 145Z','M40 20L25 160M75 5L60 180M110 15L95 165M145 0L130 185M180 25L165 170','M100 10A90 90 0 1 0 101 10M100 45A55 55 0 1 0 101 45M10 100H190M100 10V190']],
+ feiye_echo:['#bd99ee','echo',['M45 15H155V185H45ZM65 40L135 160M135 40L65 160','M100 10L145 50L100 95L55 50ZM100 105L145 150L100 195L55 150Z','M30 30Q100 100 30 170M75 15Q145 100 75 185M120 5Q190 100 120 195']],
+ retainer:['#b9947c','oath',['M30 170L170 30L135 105ZM110 95L150 135','M30 30L170 170M170 30L30 170M100 20L165 60L145 150L100 185L55 150L35 60Z','M20 180L175 25M55 180L190 65M10 140L145 10M65 75L130 140']],
+ heart:['#b593ce','dream',['M25 160Q15 40 85 55L70 110M85 175Q70 55 145 45L130 110','M100 20Q190 20 180 100Q180 180 100 180Q20 180 20 100Q20 20 100 20ZM100 55Q145 80 100 145Q55 80 100 55','M10 100Q100 0 190 100Q100 200 10 100ZM100 55V115M100 140V150']],
+ snake_ascended:['#c9a1e6','blackscale',['M20 180Q20 25 180 20L100 95ZM55 125L115 60M85 145L145 80','M10 120Q50 0 100 70Q145 140 185 45M10 145Q60 25 105 100Q155 170 190 80','M100 15L175 60L160 145L100 185L40 145L25 60ZM40 60L100 105L160 60M40 100L100 145L160 100','M100 20A75 75 0 1 0 101 20M35 145Q-5 55 95 60Q195 65 150 135Q95 185 60 115']]
+};
+const profiles={};for(const [id,[color,motif,paths]]of Object.entries(designs)){const intents=root.NightPact?.ENEMIES?.[id]?.intents||[];profiles[id]=intents.map((it,row)=>({name:it.name,row,color,motif,path:paths[row],attack:!!it.hits?.length}));}
+function get(id,name){return profiles[id]?.find(p=>p.name===name)||null;}
+function effect(id,name,phase,target,mode='full'){
+ const p=get(id,name),stage=document.querySelector('.battle-stage');if(!p||!stage||mode==='off')return null;
+ const who=stage.querySelector(`[data-combatant="${target}"] .portrait, [data-combatant="${target}"] .machine-portrait`);if(!who)return null;const r=who.getBoundingClientRect(),s=stage.getBoundingClientRect(),el=document.createElement('div');
+ el.className='boss-move-effect';el.dataset.boss=id;el.dataset.move=name;el.dataset.phase=phase;el.style.left=(r.left+r.width/2-s.left)+'px';el.style.top=(r.top+r.height*.47-s.top)+'px';el.style.setProperty('--boss-color',p.color);el.setAttribute('aria-hidden','true');
+ el.innerHTML=`<svg viewBox="0 0 200 200"><path d="${p.path}" fill="none" stroke="${p.color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="${p.path}" fill="none" stroke="#fff6dd" stroke-width="1" opacity=".8"/></svg>`;
+ stage.append(el);const reduced=mode!=='full'||matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(!reduced)el.animate(phase==='prepare'?[{opacity:0,transform:'translate(-50%,-50%) scale(.45)'},{opacity:.8,transform:'translate(-50%,-50%) scale(.9)'}]:[{opacity:0,transform:'translate(-25%,-50%) scale(.65)'},{opacity:1,transform:'translate(-50%,-50%) scale(1)',offset:.35},{opacity:0,transform:'translate(-60%,-50%) scale(1.08)'}],{duration:phase==='prepare'?180:390});
+ setTimeout(()=>el.remove(),reduced?160:phase==='prepare'?190:420);return el;
+}
+root.NightBossMoves={profiles,get,effect};if(typeof module!=='undefined')module.exports={designs};
+})(typeof globalThis!=='undefined'?globalThis:this);

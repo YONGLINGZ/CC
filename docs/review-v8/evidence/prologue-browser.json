@@ -1,0 +1,4016 @@
+{
+  "method": "Chromium real character selection, start, page buttons and keyboard. Hidden character unlocked with explicit profile fixture. No human-run or physical-phone claim.",
+  "flows": [
+    {
+      "role": "assassin",
+      "completed": true,
+      "args": [
+        "mark",
+        "assassin"
+      ]
+    },
+    {
+      "role": "sword",
+      "completed": true,
+      "args": [
+        "sword",
+        "sword"
+      ]
+    },
+    {
+      "role": "hehuan",
+      "completed": true,
+      "args": [
+        "hehuan",
+        "hehuan"
+      ]
+    },
+    {
+      "role": "mechanist",
+      "completed": true,
+      "args": [
+        "mechanist",
+        "mechanist"
+      ]
+    },
+    {
+      "role": "sovereign",
+      "completed": true,
+      "args": [
+        "sovereign",
+        "sovereign"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 1440,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 360,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 390,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "assassin",
+      "width": 430,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 1440,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 360,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 390,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sword",
+      "width": 430,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 1440,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 360,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 390,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "hehuan",
+      "width": 430,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 1440,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 360,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 390,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "mechanist",
+      "width": 430,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 1,
+      "page": "1",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 2,
+      "page": "2",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 3,
+      "page": "3",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 4,
+      "page": "4",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "下一页 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 5,
+      "page": "5",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "下一页 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 1440,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 47.5,
+          "text": "返回"
+        },
+        {
+          "h": 47.5,
+          "text": "← 上一页"
+        },
+        {
+          "h": 47.5,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 47.5,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 360,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 390,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    },
+    {
+      "role": "sovereign",
+      "width": 430,
+      "index": 6,
+      "page": "6",
+      "overflow": false,
+      "buttons": [
+        {
+          "h": 46,
+          "text": "返回"
+        },
+        {
+          "h": 46,
+          "text": "← 上一页"
+        },
+        {
+          "h": 46,
+          "text": "开始旅程 →"
+        },
+        {
+          "h": 46,
+          "text": "跳过故事，开始旅程"
+        }
+      ],
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true
+        }
+      ],
+      "focus": true,
+      "inert": true
+    }
+  ],
+  "checks": [
+    "double click advances one page; invalid role rejected",
+    "keyboard focus stays inside dialog and cancel restores selection",
+    "externally replaced state cancels stale pending start",
+    "no timer and reduced motion supported",
+    "standalone offline image decode and skip"
+  ],
+  "errors": [],
+  "version": "2026.11.05-review.8"
+}

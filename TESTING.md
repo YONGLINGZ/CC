@@ -121,3 +121,10 @@ Chromium机匣与移动布局9组交互检查已实际运行；最终图像固�
 `node dev/actors-offline.cjs` 检查 file:// 直接运行；受管浏览器可能拒绝此协议，须明确报告。
 `node dev/actors-offline.cjs --http` 是本地服务器替代检查，只允许回环资源、阻断外网，不等同于 file:// 验收。
 同时沿用 stage-browser、stage-edge 和 feedback-browser 的交互回归。所有浏览器 fixture 均是可复现测试状态，不是自然通关。
+
+
+## review.8 — 敌人与机关帧动画、漫画开场
+
+详见 docs/review-v8/REVIEW_ZH.txt 及 evidence/。新增规则检查：`node --test dev/encounter-actors.test.cjs`；素材检查：`python3 dev/validate-encounter-art.py`（Pillow）；浏览器检查需要 Playwright 和 Chromium，逐一运行 `node dev/encounter-actors-browser.cjs`、`node dev/boss-moves-browser.cjs`、`node dev/machine-actors-browser.cjs`、`node dev/encounter-loading-browser.cjs`、`node dev/encounter-offline.cjs`，以及既有 stage/prologue/feedback/edge 浏览器脚本。
+
+这些浏览器检查使用确定性预置场景与真实UI按钮，不代表自然完整试玩。全规则627/627；最终Boss快速106次及完整24次追加回归。file://受环境管理员策略限制，离线采用仅本机HTTP并阻断外网测试，未绕过限制。

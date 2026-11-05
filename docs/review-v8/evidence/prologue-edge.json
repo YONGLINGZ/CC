@@ -1,0 +1,33 @@
+{
+  "seedPairs": [
+    {
+      "role": "assassin",
+      "identical": true
+    },
+    {
+      "role": "sword",
+      "identical": true
+    },
+    {
+      "role": "hehuan",
+      "identical": true
+    },
+    {
+      "role": "mechanist",
+      "identical": true
+    },
+    {
+      "role": "sovereign",
+      "identical": true
+    }
+  ],
+  "touch": [
+    "assassin",
+    "sword",
+    "hehuan",
+    "mechanist",
+    "sovereign"
+  ],
+  "replayLast": true,
+  "missingArt": true
+}

@@ -1,4 +1,4 @@
-/* Illustrated comic-panel introductions using existing paintings; no generated run state. */
+/* Original generated story scenes; presentation only, no run state mutation. */
 (function(global){
 'use strict';
 const STORIES={
@@ -15,7 +15,7 @@ const STORIES={
   {title:'雾中寻迹',art:['regions','fog_gate'],caption:'山门之后，线索与危险走在同一条路上。她不会因为前方无人应答，就把剑宗的名字从寻人册上划掉。',line:'人未找全，便还没到回去的时候。'}
  ],
  hehuan:[
-  {title:'扇后的人',art:['portraits','hehuan'],caption:'合欢宗外堂执事晏绮罗，惯于隔着一把扇子听人说话。她看的是来人的手，也看话里没有说出的价钱。',line:'看够了吗？看够了，就该看我的手了。'},
+  {title:'扇后的人',art:['portraits','hehuan'],caption:'合欢宗外堂执事曼绮罗，惯于隔着一把扇子听人说话。她看的是来人的手，也看话里没有说出的价钱。',line:'看够了吗？看够了，就该看我的手了。'},
   {title:'扇下的纸页',art:['relics','heartmirror'],caption:'接应者将接收地点塞到扇下：长老只要账册；秦蘅若还活着，也别带她出封域。被卖进祭仪的，是她的成年师妹。',line:'她是我带进门的。'},
   {title:'藏在薄纱里的回答',art:['cards','H01'],caption:'她可以当场出手，也能将杀招藏入薄纱，等敌人自己踏进条件。观息的机会有限，判断比笑意更要稳。',line:'你先动。我等的就是这一手。'},
   {title:'连账一起算',art:['regions','fog_gate'],caption:'替秦蘅出头，外堂的药钱就可能断掉。她还是合上扇子：人要找，账册也要拿，宗门的吩咐不等于她的打算。',line:'行。那这趟我连账也一起算。'}
@@ -37,17 +37,18 @@ const WORLD=[
  {title:'从山门，向七境深处',art:['regions','fog_gate'],caption:'旅程始于雾锁山门。断桥、旧仪与更深的异境相连，七境各有十段路。沿相连的遗径前行，在交锋、休整与抉择之间找到去路。',line:'你的第一步，还在雾外。'}
 ];
 const ARRIVAL={assassin:'契器在雾里，自己的答案也可能在那里。',sword:'先走进山门，再找同门留下的痕迹。',hehuan:'秦蘅还在雾里。现在，该动身了。',mechanist:'把机匣背稳，去找救援队。',sovereign:'先过山门，再向旧日问路。'};
-function pages(role){if(!STORIES[role])return [];return [...STORIES[role],...WORLD.map((p,i)=>({...p,line:i===1?ARRIVAL[role]:p.line}))].map(p=>({...p,art:[...p.art]}));}
+function pages(role){if(!STORIES[role])return [];return [...STORIES[role],...WORLD.map((p,i)=>({...p,line:i===1?ARRIVAL[role]:p.line}))].map((p,i)=>({...p,art:['comics',i<4?role+'-'+(i+1):'world-'+(i-3)],legacyArt:[...p.art]}));}
 const api={STORIES,WORLD,pages};if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof document==='undefined')return;
 let active=null,serial=0;
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function close(complete){const a=active;if(!a)return;active=null;a.root.remove();for(const [el,inert]of a.inert)el.inert=inert;document.body.style.overflow=a.overflow;if(a.focus?.isConnected)a.focus.focus({preventScroll:true});if(complete)a.onComplete?.();else a.onCancel?.();}
 function heroImage(assets,kind){return kind==='cat'?assets.puppet?.normal||assets.portraits?.cat:assets.puppet?.[kind]?.normal||assets.portraits?.[kind];}
-function draw(){const a=active;if(!a)return;const p=a.pages[a.index],hero=global.NightPact.CHARACTERS[a.role],assets=global.NightAssets||{},src=p.art[0]==='portraits'?heroImage(assets,p.art[1]):assets[p.art[0]]?.[p.art[1]],portrait=heroImage(assets,hero.portrait),last=a.index===a.pages.length-1;
- a.root.innerHTML=`<section class="prologue-book" role="document"><header><div><span class="prologue-kicker">${esc(hero.name)} · ${esc(hero.profession)} / ${a.index<4?'来时之路':'寒渊封域'}</span><h2 id="prologue-title" tabindex="-1">${esc(p.title)}</h2></div><button data-prologue="cancel">${a.replay?'关闭重看':'返回'}</button></header><div class="prologue-panels"><figure class="prologue-scene"><div class="prologue-image">${src?`<img src="${esc(src)}" alt="${esc(p.title)} · 原画分镜" onerror="this.hidden=true">`:''}<span class="prologue-frame-number" aria-hidden="true">${String(a.index+1).padStart(2,'0')}</span></div><figcaption>${esc(p.caption)}</figcaption></figure><figure class="prologue-person"><div class="prologue-image">${portrait?`<img src="${esc(portrait)}" alt="${esc(hero.name)}" onerror="this.hidden=true">`:''}</div><figcaption class="prologue-speech">“${esc(p.line)}”</figcaption></figure></div><p class="prologue-credit">既有原画分镜编排 · 手动翻页，无自动倒计时</p><footer><button data-prologue="prev" ${a.index===0?'disabled':''}>← 上一页</button><span role="status" aria-live="polite" aria-atomic="true">第 ${a.index+1} / ${a.pages.length} 页</span><button data-prologue="next" class="primary">${last?(a.replay?'结束重看':'开始旅程 →'):'下一页 →'}</button><button data-prologue="skip" class="prologue-skip">${a.replay?'关闭':'跳过故事，开始旅程'}</button></footer></section>`;
+function draw(){const a=active;if(!a)return;const p=a.pages[a.index],hero=global.NightPact.CHARACTERS[a.role],assets=global.NightAssets||{},src=assets.comics?.[p.art[1]],last=a.index===a.pages.length-1;
+ a.root.innerHTML=`<section class="prologue-book" role="document"><header><div><span class="prologue-kicker">${esc(hero.name)} · ${esc(hero.profession)} / ${a.index<4?'来时之路':'寒渊封域'}</span><h2 id="prologue-title" tabindex="-1">${esc(p.title)}</h2></div><button data-prologue="cancel">${a.replay?'关闭重看':'返回'}</button></header><div class="prologue-panels"><figure class="prologue-scene"><div class="prologue-image">${src?`<img src="${esc(src)}" alt="${esc(p.title)}，${esc(p.caption)}" onerror="this.hidden=true">`:''}<span class="prologue-frame-number" aria-hidden="true">${String(a.index+1).padStart(2,'0')}</span></div><figcaption><p>${esc(p.caption)}</p><blockquote class="prologue-speech">“${esc(p.line)}”</blockquote></figcaption></figure></div><p class="prologue-credit">原创 AI 绘制叙事分镜 · 手动翻页，无自动倒计时</p><footer><button data-prologue="prev" ${a.index===0?'disabled':''}>← 上一页</button><span role="status" aria-live="polite" aria-atomic="true">第 ${a.index+1} / ${a.pages.length} 页</span><button data-prologue="next" class="primary">${last?(a.replay?'结束重看':'开始旅程 →'):'下一页 →'}</button><button data-prologue="skip" class="prologue-skip">${a.replay?'关闭':'跳过故事，开始旅程'}</button></footer></section>`;
  a.root.dataset.page=String(a.index+1);a.root.scrollTop=0;a.root.querySelector('#prologue-title').focus({preventScroll:true});
 }
+
 function navigate(action){if(!active)return;if(action==='cancel')return close(false);if(action==='skip')return close(true);if(action==='prev'){active.index=Math.max(0,active.index-1);draw();}if(action==='next'){if(active.index===active.pages.length-1)return close(true);active.index++;draw();}}
 api.open=function({role,replay=false,onComplete,onCancel}={}){if(active||!STORIES[role]||!global.NightPact?.CHARACTERS[role])return false;const root=document.createElement('div');root.className='prologue-overlay';root.id='character-prologue';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-labelledby','prologue-title');root.dataset.role=role;const inert=[...document.body.children].filter(e=>e.tagName!=='SCRIPT').map(e=>[e,e.inert]);active={id:++serial,role,replay,pages:pages(role),index:0,root,onComplete,onCancel,inert,focus:document.activeElement,overflow:document.body.style.overflow};inert.forEach(([e])=>e.inert=true);document.body.style.overflow='hidden';document.body.append(root);draw();return true;};
 api.isOpen=()=>!!active;

@@ -1,0 +1,1447 @@
+{
+  "method": "Loopback HTTP with every external request blocked; browser policy prevents direct file://, so no claim of direct-file validation.",
+  "builds": [
+    {
+      "file": "index.html",
+      "decoded": [
+        {
+          "group": "enemyActors",
+          "id": "paper",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "lantern",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "ape",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "bone",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "yaksha",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_mist",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_lantern",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_priest",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "raider",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "snake",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "gate_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "camp_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "apothecary",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "feiye",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "feiye_echo",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "retainer",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "heart",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "snake_ascended",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "bell_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "lotus_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "marsh_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "furnace_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "mirror_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "abyss_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m01",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m02",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m03",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m19",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m20",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m21",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m04",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m05",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m06",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m07",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m08",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m09",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m10",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m11",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m12",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m13",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m14",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m15",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m16",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m17",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m18",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m22",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m23",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m24",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m25",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m26",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m27",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m28",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m29",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m30",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m31",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m32",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m33",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m34",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m35",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m36",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "m37",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "orthodox_patrol",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "enemyActors",
+          "id": "ji",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "machineActors",
+          "id": "chengshan",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "machineActors",
+          "id": "mingdi",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "machineActors",
+          "id": "shiying",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "gate_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "camp_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "snake",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "bell_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "lotus_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "marsh_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "furnace_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "mirror_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "abyss_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "feiye",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "feiye_echo",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "retainer",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "heart",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "bossActors",
+          "id": "snake_ascended",
+          "width": 1024,
+          "height": 1024,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "assassin-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "assassin-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "assassin-3",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "assassin-4",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sword-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sword-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sword-3",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sword-4",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-3",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-4",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-3",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-4",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-3",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-4",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "world-1",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        },
+        {
+          "group": "comics",
+          "id": "world-2",
+          "width": 619,
+          "height": 619,
+          "inline": false
+        }
+      ],
+      "errors": [],
+      "version": "2026.11.05-review.8"
+    },
+    {
+      "file": "baiyao-standalone.html",
+      "decoded": [
+        {
+          "group": "enemyActors",
+          "id": "paper",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "lantern",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "ape",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "bone",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "yaksha",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_mist",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_lantern",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "e_priest",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "raider",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "snake",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "gate_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "camp_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "apothecary",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "feiye",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "feiye_echo",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "retainer",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "heart",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "snake_ascended",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "bell_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "lotus_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "marsh_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "furnace_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "mirror_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "abyss_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m01",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m02",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m03",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m19",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m20",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m21",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m04",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m05",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m06",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m07",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m08",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m09",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m10",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m11",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m12",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m13",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m14",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m15",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m16",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m17",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m18",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m22",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m23",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m24",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m25",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m26",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m27",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m28",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m29",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m30",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m31",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m32",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m33",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m34",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m35",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m36",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "m37",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "orthodox_patrol",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "enemyActors",
+          "id": "ji",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "machineActors",
+          "id": "chengshan",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "machineActors",
+          "id": "mingdi",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "machineActors",
+          "id": "shiying",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "gate_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "camp_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "snake",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "bell_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "lotus_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "marsh_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "furnace_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "mirror_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "abyss_boss",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "feiye",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "feiye_echo",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "retainer",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "heart",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "bossActors",
+          "id": "snake_ascended",
+          "width": 1024,
+          "height": 1024,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "assassin-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "assassin-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "assassin-3",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "assassin-4",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sword-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sword-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sword-3",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sword-4",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-3",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "hehuan-4",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-3",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "mechanist-4",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-3",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "sovereign-4",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "world-1",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        },
+        {
+          "group": "comics",
+          "id": "world-2",
+          "width": 619,
+          "height": 619,
+          "inline": true
+        }
+      ],
+      "errors": [],
+      "version": "2026.11.05-review.8"
+    }
+  ]
+}

@@ -51,13 +51,17 @@ resources.machines=Object.fromEntries(['chengshan','mingdi','shiying'].flatMap(i
 resources.machineAvatars=Object.fromEntries(['chengshan','mingdi','shiying'].map(id=>[id,asset('machines',id+'-icon')]));
 resources.mechanistItems={case:asset('items','mech_case'),avatar:asset('portraits','tinglan-avatar')};
 resources.actors=Object.fromEntries(['cat','sword','hehuan','tinglan','feiye'].map(id=>[id,asset('actors',id)]));
+resources.enemyActors=Object.fromEntries([...Object.keys(gameData.ENEMIES),'ji'].map(id=>[id,asset('enemy-actors',id)]));
+resources.bossActors=Object.fromEntries(Object.keys(gameData.BOSS_LORE).map(id=>[id,asset('boss-actors',id)]));
+resources.machineActors=Object.fromEntries(['chengshan','mingdi','shiying'].map(id=>[id,asset('machine-actors',id)]));
+resources.comics=Object.fromEntries(['assassin','sword','hehuan','mechanist','sovereign','world'].flatMap(role=>Array.from({length:role==='world'?2:4},(_,i)=>role+'-'+(i+1))).map(id=>[id,asset('comics',id)]));
 resources.puppetRig={};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if((all||args.includes('--strict'))&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
 const release={...JSON.parse(read('release.json')),cards:Object.fromEntries(Object.keys(gameData.CHARACTERS).map(role=>[role,Object.values(gameData.CARDS).filter(c=>c.character===role&&!c.storyOnly).length])),totalCards:cardIds.length};
 const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').replace('衣影血誓版',release.name+' '+release.id).trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',script(read('music.js')),fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('mechanist.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),...['story-v5.js','story-factions-v5.js','story-bosses-v5.js'].filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>script(read(n))),script(read('event-editorial.js')),script(read('engine.js')),script(read('prologue.js')),script(read('actor-coverage.js')),script(read('actors.js')),script(read('stage.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',script(read('music.js')),fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('mechanist.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),...['story-v5.js','story-factions-v5.js','story-bosses-v5.js'].filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>script(read(n))),script(read('event-editorial.js')),script(read('engine.js')),script(read('prologue.js')),script(read('actor-coverage.js')),script(read('actors.js')),script(read('boss-moves.js')),script(read('encounter-actors.js')),script(read('stage.js')),ui];
 const html=shell+'\n<script>globalThis.NightRelease='+JSON.stringify(release)+';</script>\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');

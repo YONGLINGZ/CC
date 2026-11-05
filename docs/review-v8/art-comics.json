@@ -1,0 +1,26 @@
+{
+  "assassin": {
+    "path": "/workspace/generated_images/exec-240450a9-57af-4a9f-9ed4-52ad7c712872.png",
+    "prompt": "Four story panels in reading order: 1 distant wide rooftop night city silhouette, small black red clothed cat-eared woman perched upper LEFT listening to bells, looming fog gates; 2 extreme close-up of gloved hands, bell and sealed anonymous contract on table, amber eye reflected in bronze, NO writing; 3 dramatic diagonal foreshortened action the SAME woman lunging toward foreground with claw blade and red ribbons, huge perspective, controlled speedlines, paper silhouettes retreating; 4 distant rear-view small figure CENTER entering a colossal misty Chinese mountain gate, broken red contract thread trailing into foreground. She is a contract assassin seeking lost ritual artifact and her own release. Do not depict success or rescuing anyone yet."
+  },
+  "sword": {
+    "path": "/workspace/generated_images/exec-728e9d1e-ee77-497b-909b-dfce54d22f65.png",
+    "prompt": "Four story panels: 1 very wide cold mountain sect courtyard, missing disciples' abandoned travel packs and sheathed swords foreground, silver-haired white blue robed swordswoman tiny lower RIGHT walking out; 2 extreme close-up frost on her sword hilt and her determined eyes in reflection, empty broken disciple talisman nearby, NO text; 3 dramatic diagonal foreshortened sword parry toward camera shattering ice with her full body in action, white blue robes, conserve force then strike; 4 a long shot through enormous fogbound mountain gate, her small silver silhouette LEFT tracking a torn white cloth in the mist. She seeks missing fellow disciples and refuses to assume their deaths; no corpse or successful rescue."
+  },
+  "hehuan": {
+    "path": "/workspace/generated_images/exec-9c798acd-dfcf-4dc8-8870-02b029082723.png",
+    "prompt": "Four story panels: 1 wide dim lantern negotiation hall, pink silk veiled fan-wielding Chinese woman LEFT listening to shadowy messenger across table, ominous black fog seen through window; 2 close-up of her hand taking a folded unmarked paper secretly beneath a floral fan, another clenched hand and medicine pouch lower edge, NO written words; 3 explosive tilted perspective frontal fan technique, she spins through magenta gauze while her other hand sets a tiny concealed silver blade trap, face and fan clear, original manga speedlines; 4 rear three-quarter wide shot, she RIGHT snapping fan shut before immense fog gate, faint silhouette of ledger and woman prisoner only as evocative torn-paper memory in background. She defies elders to seek adult junior Qin Heng and ritual account ledger; do not portray rescued prisoner or outcome."
+  },
+  "mechanist": {
+    "path": "/workspace/generated_images/exec-fe7d3b0b-4d6c-4601-a25d-4eb00870ec93.png",
+    "prompt": "Four panels: 1 immense broken mountain bridge in storm, abandoned rescue ropes stretch toward vanishing silhouettes, young adult brown ponytailed teal white red outfitted engineer small lower LEFT surveying, NO modern tech; 2 extreme close-up hands tightening an old green spool beside a folded old rescue letter and a red flower painted on bronze shield, NO words; 3 sweeping low-angle foreshortened action engineer center-left commands bronze wooden guardian, mechanical white-winged crossbow bird and golden repair firefly with threads, machines LARGE different depths and her pose active; 4 quiet suspense wide shot engineer tiny CENTER carrying heavy machine case toward fog-shrouded ruined rescue camp, 27-day disappearance unresolved, no rescued team."
+  },
+  "sovereign": {
+    "path": "/workspace/generated_images/exec-25ca7567-dbec-4b01-94d0-90e5075f644c.png",
+    "prompt": "Four panels: 1 towering well seen from low inside angle, black ivory purple regal woman emerging to moonlit broken palace, long black hair and gold moon ornaments, small figure at far top; 2 extreme close-up palm receiving a violet shard reflecting her eye and broken palace lamps, no writing; 3 sweeping diagonal perspective she draws fragmented violet souls into her outstretched hand while long ivory purple sleeves twist in wind, self-possessed intimidating expression, original energy ink strokes; 4 vast shattered mirror hall reflected moon, woman small RIGHT facing multiple empty old silhouettes and crooked lamps, she seeks lost essence, unresolved alliances, not a victory."
+  },
+  "world": {
+    "path": "/workspace/generated_images/exec-f0f53033-5234-4ba2-a9ba-569d6571265a.png",
+    "prompt": "FOUR distinct cinematic scenery panels in 2x2 grid: upper LEFT enormous Chinese mountain gate drowning in black spiritual fog after a ritual backfire, tiny anonymous travelers enter; upper RIGHT ruined ritual complex over abyss, golden broken ritual rings and rising black fog engulfing bridges; lower LEFT monumental distant route across seven varied Chinese fantasy realms: mountain gate, broken bridge, ritual ruin, drowned marsh moon, red furnace palace, shattered mirror sky, abyss throne, suggest journey not an infographic; lower RIGHT close low-angle stone road through mist to mountain gate, footprints and travel lantern foreground. No recognizable protagonist, no text."
+  }
+}
