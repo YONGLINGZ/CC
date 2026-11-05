@@ -1,0 +1,10 @@
+page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/CC/index.html
+Call log:
+[2m  - navigating to "file:///workspace/CC/index.html", waiting until "load"[22m
+
+    at /workspace/CC/dev/actors-offline.cjs:2:467 {
+  log: [
+    '  - navigating to "file:///workspace/CC/index.html", waiting until "load"'
+  ],
+  name: 'Error'
+}

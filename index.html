@@ -558,9 +558,21 @@ body[data-screen=battle] .battle-top .temporary-resources{display:block;max-widt
 body[data-screen=battle] .battle-top .temporary-resources:empty{display:none}
 body[data-screen=battle] .combat-resource-panel .combo-resource>span{display:inline!important;font-size:11px}
 body[data-screen=battle] .combat-resource-panel .combo-resource #component-status{font-size:10px;overflow:hidden;text-overflow:ellipsis}
+/* Generated four-frame character atlases: real frame changes, no whole-image attack transforms. */
+body[data-screen=battle] .battle-stage .portrait .actor-sprite{display:block;position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;aspect-ratio:1;width:auto;max-width:none;background-size:400% 600%;background-repeat:no-repeat;image-rendering:auto;animation:actor-idle 2s steps(1,end) infinite;pointer-events:none}
+@keyframes actor-idle{0%,100%{background-position:0% 0%}25%{background-position:33.333333% 0%}50%{background-position:66.666667% 0%}75%{background-position:100% 0%}}
+body[data-screen=battle] .battle-stage .actor-sprite[data-acting],body:not([data-motion=full]) .actor-sprite{animation:none!important}
+body[data-screen=battle][data-character=mechanist] .player-combatant .actor-sprite{left:40%;height:85%}
+@media(max-width:760px){body[data-screen=battle] .battle-stage .portrait .actor-sprite{height:100%;max-width:100%;width:100%;background-size:400% 600%;aspect-ratio:1;height:auto}body[data-screen=battle][data-character=mechanist] .player-combatant .actor-sprite{left:40%;width:90%;height:auto}}
+@media(prefers-reduced-motion:reduce){.actor-sprite{animation:none!important}}
+body[data-screen=battle] .battle-stage .portrait:has(.actor-sprite){container-type:size}
+body[data-screen=battle] .battle-stage .portrait .actor-sprite{width:min(100cqw,100cqh)!important;height:min(100cqw,100cqh)!important;max-width:none!important}
+body[data-screen=battle][data-character=mechanist] .battle-stage .portrait .actor-sprite{width:min(85cqw,85cqh)!important;height:min(85cqw,85cqh)!important}
+body[data-screen=battle] .battle-stage .portrait.side-actor{container-type:size}
+body[data-screen=battle] .battle-stage .enemy-combatant .portrait.side-actor>svg.stage-rig{width:min(100cqw,85.714286cqh)!important;height:min(116.666667cqw,100cqh)!important;max-width:none!important}
 </style></head><body>
-<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">交锋明晰 2026.11.05-review.6</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
-<script>globalThis.NightRelease={"id":"2026.11.05-review.6","name":"交锋明晰","cards":{"assassin":36,"sword":36,"sovereign":12,"hehuan":36,"mechanist":48},"totalCards":180};</script>
+<div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">衣影逐帧 2026.11.05-review.7</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>
+<script>globalThis.NightRelease={"id":"2026.11.05-review.7","name":"衣影逐帧","cards":{"assassin":36,"sword":36,"sovereign":12,"hehuan":36,"mechanist":48},"totalCards":180};</script>
 <script>
 /* 内联 SVG 后备立绘；无需联网，亦作为图片缺失时的替代图。 */
 (function () {
@@ -783,7 +795,7 @@ const icon=p=>'<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke
 Object.assign(a.icons,{trapSlot:icon('<path d="M9 8Q40 16 10 39M36 8Q5 16 36 39M15 20l9-6 9 6-9 12Z"/>'),trapAttack:icon('<path d="m9 39 28-28 3-6-7 3L7 36M10 27l11 11"/>'),trapNonattack:icon('<path d="M24 5 39 13v13Q35 37 24 43 12 37 9 26V13Zm-7 19h14"/>'),trapAction:icon('<path d="M8 24q8-16 16-16 9 0 16 16-7 16-16 16T8 24Z"/><circle cx="24" cy="24" r="6"/>'),breath:icon('<path d="M5 24q19-25 38 0Q24 49 5 24Z"/><circle cx="24" cy="24" r="7"/><path d="M8 39q9-5 15 2t17-2"/>')});})();
 </script>
 <script>
-globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"assets/portraits/fox.webp","hehuan":"assets/portraits/hehuan.webp","tinglan":"assets/portraits/tinglan.webp","sword_fallen":"assets/portraits/sword_fallen.webp","paper":"assets/portraits/paper.webp","lantern":"assets/portraits/lantern.webp","ape":"assets/portraits/ape.webp","bone":"assets/portraits/bone.webp","yaksha":"assets/portraits/yaksha.webp","e_mist":"assets/portraits/e_mist.webp","e_lantern":"assets/portraits/e_lantern.webp","e_priest":"assets/portraits/e_priest.webp","raider":"assets/portraits/raider.webp","snake":"assets/portraits/snake.webp","gate_boss":"assets/portraits/gate_boss.webp","camp_boss":"assets/portraits/camp_boss.webp","apothecary":"assets/portraits/apothecary.webp","feiye":"assets/portraits/feiye.webp","feiye_echo":"assets/portraits/feiye_echo.webp","retainer":"assets/portraits/retainer.webp","heart":"assets/portraits/heart.webp","snake_ascended":"assets/portraits/snake_ascended.webp","bell_boss":"assets/portraits/bell_boss.webp","lotus_boss":"assets/portraits/lotus_boss.webp","marsh_boss":"assets/portraits/marsh_boss.webp","furnace_boss":"assets/portraits/furnace_boss.webp","mirror_boss":"assets/portraits/mirror_boss.webp","abyss_boss":"assets/portraits/abyss_boss.webp","m01":"assets/portraits/m01.webp","m02":"assets/portraits/m02.webp","m03":"assets/portraits/m03.webp","m19":"assets/portraits/m19.webp","m20":"assets/portraits/m20.webp","m21":"assets/portraits/m21.webp","m04":"assets/portraits/m04.webp","m05":"assets/portraits/m05.webp","m06":"assets/portraits/m06.webp","m07":"assets/portraits/m07.webp","m08":"assets/portraits/m08.webp","m09":"assets/portraits/m09.webp","m10":"assets/portraits/m10.webp","m11":"assets/portraits/m11.webp","m12":"assets/portraits/m12.webp","m13":"assets/portraits/m13.webp","m14":"assets/portraits/m14.webp","m15":"assets/portraits/m15.webp","m16":"assets/portraits/m16.webp","m17":"assets/portraits/m17.webp","m18":"assets/portraits/m18.webp","m22":"assets/portraits/m22.webp","m23":"assets/portraits/m23.webp","m24":"assets/portraits/m24.webp","m25":"assets/portraits/m25.webp","m26":"assets/portraits/m26.webp","m27":"assets/portraits/m27.webp","m28":"assets/portraits/m28.webp","m29":"assets/portraits/m29.webp","m30":"assets/portraits/m30.webp","m31":"assets/portraits/m31.webp","m32":"assets/portraits/m32.webp","m33":"assets/portraits/m33.webp","m34":"assets/portraits/m34.webp","m35":"assets/portraits/m35.webp","m36":"assets/portraits/m36.webp","m37":"assets/portraits/m37.webp","orthodox_patrol":"assets/portraits/orthodox_patrol.webp","liu":"assets/portraits/liu.webp","ji":"assets/portraits/ji.webp","wen":"assets/portraits/wen.webp","sword":"assets/puppet/sword-normal.webp"},"cards":{"C01":"assets/cards/C01.webp","C02":"assets/cards/C02.webp","C03":"assets/cards/C03.webp","C04":"assets/cards/C04.webp","C05":"assets/cards/C05.webp","C06":"assets/cards/C06.webp","C07":"assets/cards/C07.webp","C08":"assets/cards/C08.webp","C09":"assets/cards/C09.webp","C10":"assets/cards/C10.webp","C11":"assets/cards/C11.webp","C12":"assets/cards/C12.webp","C13":"assets/cards/C13.webp","C14":"assets/cards/C14.webp","C15":"assets/cards/C15.webp","C16":"assets/cards/C16.webp","C17":"assets/cards/C17.webp","C18":"assets/cards/C18.webp","C19":"assets/cards/C19.webp","C20":"assets/cards/C20.webp","C21":"assets/cards/C21.webp","C22":"assets/cards/C22.webp","C23":"assets/cards/C23.webp","C24":"assets/cards/C24.webp","C25":"assets/cards/C25.webp","C26":"assets/cards/C26.webp","C27":"assets/cards/C27.webp","C28":"assets/cards/C28.webp","C29":"assets/cards/C29.webp","C30":"assets/cards/C30.webp","C31":"assets/cards/C31.webp","C32":"assets/cards/C32.webp","C33":"assets/cards/C33.webp","C34":"assets/cards/C34.webp","C35":"assets/cards/C35.webp","C36":"assets/cards/C36.webp","S01":"assets/cards/S01.webp","S02":"assets/cards/S02.webp","S03":"assets/cards/S03.webp","S04":"assets/cards/S04.webp","S05":"assets/cards/S05.webp","S06":"assets/cards/S06.webp","S07":"assets/cards/S07.webp","S08":"assets/cards/S08.webp","S09":"assets/cards/S09.webp","S10":"assets/cards/S10.webp","S11":"assets/cards/S11.webp","S12":"assets/cards/S12.webp","S13":"assets/cards/S13.webp","S14":"assets/cards/S14.webp","S15":"assets/cards/S15.webp","S16":"assets/cards/S16.webp","S17":"assets/cards/S17.webp","S18":"assets/cards/S18.webp","S19":"assets/cards/S19.webp","S20":"assets/cards/S20.webp","S21":"assets/cards/S21.webp","S22":"assets/cards/S22.webp","S23":"assets/cards/S23.webp","S24":"assets/cards/S24.webp","S25":"assets/cards/S25.webp","S26":"assets/cards/S26.webp","S27":"assets/cards/S27.webp","S28":"assets/cards/S28.webp","S29":"assets/cards/S29.webp","S30":"assets/cards/S30.webp","S31":"assets/cards/S31.webp","S32":"assets/cards/S32.webp","S33":"assets/cards/S33.webp","S34":"assets/cards/S34.webp","S35":"assets/cards/S35.webp","S36":"assets/cards/S36.webp","F01":"assets/cards/F01.webp","F02":"assets/cards/F02.webp","F03":"assets/cards/F03.webp","F04":"assets/cards/F04.webp","F05":"assets/cards/F05.webp","F06":"assets/cards/F06.webp","F07":"assets/cards/F07.webp","F08":"assets/cards/F08.webp","F09":"assets/cards/F09.webp","F10":"assets/cards/F10.webp","F11":"assets/cards/F11.webp","F12":"assets/cards/F12.webp","D01":"assets/cards/D01.webp","D02":"assets/cards/D02.webp","D03":"assets/cards/D03.webp","D04":"assets/cards/D04.webp","D05":"assets/cards/D05.webp","D07":"assets/cards/D07.webp","D08":"assets/cards/D08.webp","D09":"assets/cards/D09.webp","D10":"assets/cards/D10.webp","D11":"assets/cards/D11.webp","D12":"assets/cards/D12.webp","D06":"assets/cards/D06.webp","H01":"assets/cards/H01.webp","H02":"assets/cards/H02.webp","H03":"assets/cards/H03.webp","H04":"assets/cards/H04.webp","H05":"assets/cards/H05.webp","H06":"assets/cards/H06.webp","H07":"assets/cards/H07.webp","H08":"assets/cards/H08.webp","H09":"assets/cards/H09.webp","H10":"assets/cards/H10.webp","H11":"assets/cards/H11.webp","H12":"assets/cards/H12.webp","H13":"assets/cards/H13.webp","H14":"assets/cards/H14.webp","H15":"assets/cards/H15.webp","H16":"assets/cards/H16.webp","H17":"assets/cards/H17.webp","H18":"assets/cards/H18.webp","H19":"assets/cards/H19.webp","H20":"assets/cards/H20.webp","H21":"assets/cards/H21.webp","H22":"assets/cards/H22.webp","H23":"assets/cards/H23.webp","H24":"assets/cards/H24.webp","H25":"assets/cards/H25.webp","H26":"assets/cards/H26.webp","H27":"assets/cards/H27.webp","H28":"assets/cards/H28.webp","H29":"assets/cards/H29.webp","H30":"assets/cards/H30.webp","H31":"assets/cards/H31.webp","H32":"assets/cards/H32.webp","H33":"assets/cards/H33.webp","H34":"assets/cards/H34.webp","H35":"assets/cards/H35.webp","H36":"assets/cards/H36.webp","J01":"assets/cards/J01.webp","J02":"assets/cards/J02.webp","J03":"assets/cards/J03.webp","J04":"assets/cards/J04.webp","J05":"assets/cards/J05.webp","J06":"assets/cards/J06.webp","J07":"assets/cards/J07.webp","J08":"assets/cards/J08.webp","J09":"assets/cards/J09.webp","J10":"assets/cards/J10.webp","J11":"assets/cards/J11.webp","J12":"assets/cards/J12.webp","J13":"assets/cards/J13.webp","J14":"assets/cards/J14.webp","J15":"assets/cards/J15.webp","J16":"assets/cards/J16.webp","J17":"assets/cards/J17.webp","J18":"assets/cards/J18.webp","J19":"assets/cards/J19.webp","J20":"assets/cards/J20.webp","J21":"assets/cards/J21.webp","J22":"assets/cards/J22.webp","J23":"assets/cards/J23.webp","J24":"assets/cards/J24.webp","J25":"assets/cards/J25.webp","J26":"assets/cards/J26.webp","J27":"assets/cards/J27.webp","J28":"assets/cards/J28.webp","J29":"assets/cards/J29.webp","J30":"assets/cards/J30.webp","J31":"assets/cards/J31.webp","J32":"assets/cards/J32.webp","J33":"assets/cards/J33.webp","J34":"assets/cards/J34.webp","J35":"assets/cards/J35.webp","J36":"assets/cards/J36.webp","J37":"assets/cards/J37.webp","J38":"assets/cards/J38.webp","J39":"assets/cards/J39.webp","J40":"assets/cards/J40.webp","J41":"assets/cards/J41.webp","J42":"assets/cards/J42.webp","J43":"assets/cards/J43.webp","J44":"assets/cards/J44.webp","J45":"assets/cards/J45.webp","J46":"assets/cards/J46.webp","J47":"assets/cards/J47.webp","J48":"assets/cards/J48.webp"},"events":{"well":"assets/events/well.webp","shrine":"assets/events/shrine.webp","dreamshop":"assets/events/dreamshop.webp","theatre":"assets/events/theatre.webp","umbrella":"assets/events/umbrella.webp","pawnshop":"assets/events/pawnshop.webp","riftwatch":"assets/events/riftwatch.webp","supply":"assets/events/supply.webp","cultlab":"assets/events/cultlab.webp","swordgrave":"assets/events/swordgrave.webp","pilgrims":"assets/events/pilgrims.webp","prisoner":"assets/events/prisoner.webp","echo":"assets/events/echo.webp","broker":"assets/events/broker.webp","liu_first":"assets/events/liu_first.webp","liu_return":"assets/events/liu_return.webp","liu_final":"assets/events/liu_final.webp","ji_first":"assets/events/ji_first.webp","ji_return":"assets/events/ji_return.webp","ji_final":"assets/events/ji_final.webp","wen_first":"assets/events/wen_first.webp","wen_return":"assets/events/wen_return.webp","wen_final":"assets/events/wen_final.webp","sect_duel":"assets/events/sect_duel.webp","herb_caravan":"assets/events/herb_caravan.webp","relic_dispute":"assets/events/relic_dispute.webp","night_watch":"assets/events/night_watch.webp","moon_trace":"assets/events/moon_trace.webp","sealed_name":"assets/events/sealed_name.webp","moon_vow":"assets/events/moon_vow.webp","armory":"assets/events/armory.webp","sovereign_wake":"assets/events/sovereign_wake.webp","sovereign_recall":"assets/events/sovereign_recall.webp","sovereign_memory":"assets/events/sovereign_memory.webp","tainted_mercy":"assets/events/tainted_mercy.webp","demonic_offer":"assets/events/demonic_offer.webp","demonic_warning":"assets/events/demonic_warning.webp","mirror_trial":"assets/events/mirror_trial.webp","demon_manual":"assets/events/demon_manual.webp","fallen_hunt":"assets/events/fallen_hunt.webp","blood_lesson":"assets/events/blood_lesson.webp","blood_debt":"assets/events/blood_debt.webp","blood_choice":"assets/events/blood_choice.webp","marsh_pharmacy":"assets/events/marsh_pharmacy.webp","reed_procession":"assets/events/reed_procession.webp","drowned_archive":"assets/events/drowned_archive.webp","furnace_ledger":"assets/events/furnace_ledger.webp","captive_smith":"assets/events/captive_smith.webp","ash_orchard":"assets/events/ash_orchard.webp","mirror_guest":"assets/events/mirror_guest.webp","unfinished_portrait":"assets/events/unfinished_portrait.webp","glass_assembly":"assets/events/glass_assembly.webp","fate_tailor":"assets/events/fate_tailor.webp","silent_astrolabe":"assets/events/silent_astrolabe.webp","last_campfire":"assets/events/last_campfire.webp","fox":"assets/events/fox.webp","rest":"assets/events/rest.webp","shop":"assets/events/shop.webp","tale_debt_1":"assets/events/tale_debt_1.webp","tale_debt_2":"assets/events/tale_debt_2.webp","tale_debt_3":"assets/events/tale_debt_3.webp","tale_medicine_1":"assets/events/tale_medicine_1.webp","tale_medicine_2":"assets/events/tale_medicine_2.webp","tale_medicine_3":"assets/events/tale_medicine_3.webp","tale_letter_1":"assets/events/tale_letter_1.webp","tale_letter_2":"assets/events/tale_letter_2.webp","tale_letter_3":"assets/events/tale_letter_3.webp","tale_name_1":"assets/events/tale_name_1.webp","tale_name_2":"assets/events/tale_name_2.webp","tale_name_3":"assets/events/tale_name_3.webp","tale_lanterns_1":"assets/events/tale_lanterns_1.webp","tale_lanterns_2":"assets/events/tale_lanterns_2.webp","tale_lanterns_3":"assets/events/tale_lanterns_3.webp","tale_grain_1":"assets/events/tale_grain_1.webp","tale_grain_2":"assets/events/tale_grain_2.webp","tale_grain_3":"assets/events/tale_grain_3.webp","tale_bridge_1":"assets/events/tale_bridge_1.webp","tale_bridge_2":"assets/events/tale_bridge_2.webp","tale_bridge_3":"assets/events/tale_bridge_3.webp","tale_forge_1":"assets/events/tale_forge_1.webp","tale_forge_2":"assets/events/tale_forge_2.webp","tale_forge_3":"assets/events/tale_forge_3.webp","tale_theatre_1":"assets/events/tale_theatre_1.webp","tale_theatre_2":"assets/events/tale_theatre_2.webp","tale_theatre_3":"assets/events/tale_theatre_3.webp","tale_well_1":"assets/events/tale_well_1.webp","tale_well_2":"assets/events/tale_well_2.webp","tale_well_3":"assets/events/tale_well_3.webp","ambush_campfire":"assets/events/ambush_campfire.webp","road_aftermath":"assets/events/road_aftermath.webp","cave":"assets/events/cave.webp","hehuan_checkpoint":"assets/events/hehuan_checkpoint.webp","hehuan_qinheng":"assets/events/hehuan_qinheng.webp","hehuan_ledger":"assets/events/hehuan_ledger.webp","tinglan_bridge":"assets/events/tinglan_bridge.webp","tinglan_seal":"assets/events/tinglan_seal.webp","tinglan_record":"assets/events/tinglan_record.webp"},"relics":{"frostseal":"assets/relics/frostseal.webp","bell":"assets/relics/bell.webp","jade":"assets/relics/jade.webp","moon":"assets/relics/moon.webp","fox":"assets/relics/fox.webp","fang":"assets/relics/fang.webp","silk":"assets/relics/silk.webp","vial":"assets/relics/vial.webp","bloodstone":"assets/relics/bloodstone.webp","moonheart":"assets/relics/moonheart.webp","mirror":"assets/relics/mirror.webp","dream":"assets/relics/dream.webp","godblood":"assets/relics/godblood.webp","ninelives":"assets/relics/ninelives.webp","veil":"assets/relics/veil.webp","heartmirror":"assets/relics/heartmirror.webp","concentric_spool":"assets/relics/concentric_spool.webp"},"regions":{"fog_gate":"assets/regions/fog_gate.webp","broken_camp":"assets/regions/broken_camp.webp","ritual_core":"assets/regions/ritual_core.webp","drowned_marsh":"assets/regions/drowned_marsh.webp","furnace_palace":"assets/regions/furnace_palace.webp","mirror_heaven":"assets/regions/mirror_heaven.webp","abyss_throne":"assets/regions/abyss_throne.webp","hanyuan_home":"assets/regions/hanyuan_home.webp"},"weapons":{"training":"assets/weapons/training.webp","rime":"assets/weapons/rime.webp","spirit":"assets/weapons/spirit.webp","divine":"assets/weapons/divine.webp"},"items":{"clearheart_jade":"assets/items/clearheart_jade.webp"},"outfits":{"item-mist":"assets/outfits/item-mist.webp","cat-mist":"assets/outfits/cat-mist.webp","sword-mist":"assets/outfits/sword-mist.webp","sword_fallen-mist":"assets/outfits/sword_fallen-mist.webp","item-lotus":"assets/outfits/item-lotus.webp","cat-lotus":"assets/outfits/cat-lotus.webp","sword-lotus":"assets/outfits/sword-lotus.webp","sword_fallen-lotus":"assets/outfits/sword_fallen-lotus.webp","item-ember":"assets/outfits/item-ember.webp","cat-ember":"assets/outfits/cat-ember.webp","sword-ember":"assets/outfits/sword-ember.webp","sword_fallen-ember":"assets/outfits/sword_fallen-ember.webp","item-moon":"assets/outfits/item-moon.webp","cat-moon":"assets/outfits/cat-moon.webp","sword-moon":"assets/outfits/sword-moon.webp","sword_fallen-moon":"assets/outfits/sword_fallen-moon.webp","item-blood":"assets/outfits/item-blood.webp","cat-blood":"assets/outfits/cat-blood.webp","sword-blood":"assets/outfits/sword-blood.webp","sword_fallen-blood":"assets/outfits/sword_fallen-blood.webp"},"eventsByCharacter":{"sword":{"well":"assets/events-sword/well.webp","shrine":"assets/events-sword/shrine.webp","dreamshop":"assets/events-sword/dreamshop.webp","theatre":"assets/events-sword/theatre.webp","umbrella":"assets/events-sword/umbrella.webp","pawnshop":"assets/events-sword/pawnshop.webp","riftwatch":"assets/events-sword/riftwatch.webp","supply":"assets/events-sword/supply.webp","cultlab":"assets/events-sword/cultlab.webp","swordgrave":"assets/events-sword/swordgrave.webp","pilgrims":"assets/events-sword/pilgrims.webp","prisoner":"assets/events-sword/prisoner.webp","echo":"assets/events-sword/echo.webp","broker":"assets/events-sword/broker.webp","fox":"assets/events-sword/fox.webp","rest":"assets/events-sword/rest.webp","shop":"assets/events-sword/shop.webp","moon_trace":"assets/events-sword/moon_trace.webp","sealed_name":"assets/events-sword/sealed_name.webp","moon_vow":"assets/events-sword/moon_vow.webp","armory":"assets/events-sword/armory.webp"},"sovereign":{"well":"assets/events-sovereign/well.webp","shrine":"assets/events-sovereign/shrine.webp","dreamshop":"assets/events-sovereign/dreamshop.webp","theatre":"assets/events-sovereign/theatre.webp","umbrella":"assets/events-sovereign/umbrella.webp","pawnshop":"assets/events-sovereign/pawnshop.webp","riftwatch":"assets/events-sovereign/riftwatch.webp","supply":"assets/events-sovereign/supply.webp","cultlab":"assets/events-sovereign/cultlab.webp","swordgrave":"assets/events-sovereign/swordgrave.webp","pilgrims":"assets/events-sovereign/pilgrims.webp","prisoner":"assets/events-sovereign/prisoner.webp","echo":"assets/events-sovereign/echo.webp","broker":"assets/events-sovereign/broker.webp","fox":"assets/events-sovereign/fox.webp","rest":"assets/events-sovereign/rest.webp","shop":"assets/events-sovereign/shop.webp","moon_trace":"assets/events-sovereign/moon_trace.webp","sealed_name":"assets/events-sovereign/sealed_name.webp","moon_vow":"assets/events-sovereign/moon_vow.webp","armory":"assets/events-sovereign/armory.webp"},"sword_fallen":{"well":"assets/events-sword_fallen/well.webp","shrine":"assets/events-sword_fallen/shrine.webp","dreamshop":"assets/events-sword_fallen/dreamshop.webp","theatre":"assets/events-sword_fallen/theatre.webp","umbrella":"assets/events-sword_fallen/umbrella.webp","pawnshop":"assets/events-sword_fallen/pawnshop.webp","riftwatch":"assets/events-sword_fallen/riftwatch.webp","supply":"assets/events-sword_fallen/supply.webp","cultlab":"assets/events-sword_fallen/cultlab.webp","swordgrave":"assets/events-sword_fallen/swordgrave.webp","pilgrims":"assets/events-sword_fallen/pilgrims.webp","prisoner":"assets/events-sword_fallen/prisoner.webp","echo":"assets/events-sword_fallen/echo.webp","broker":"assets/events-sword_fallen/broker.webp","fox":"assets/events-sword_fallen/fox.webp","rest":"assets/events-sword_fallen/rest.webp","shop":"assets/events-sword_fallen/shop.webp","moon_trace":"assets/events-sword_fallen/moon_trace.webp","sealed_name":"assets/events-sword_fallen/sealed_name.webp","moon_vow":"assets/events-sword_fallen/moon_vow.webp","armory":"assets/events-sword_fallen/armory.webp"}},"puppet":{"normal":"assets/puppet/cat-normal.webp","wounded":"assets/puppet/cat-wounded.webp","critical":"assets/puppet/cat-critical.webp","blink":"assets/puppet/cat-blink.webp","sword":{"normal":"assets/puppet/sword-normal.webp","wounded":"assets/puppet/sword-wounded.webp","critical":"assets/puppet/sword-critical.webp"},"feiye":{"normal":"assets/puppet/feiye-normal.webp","wounded":"assets/puppet/feiye-wounded.webp","critical":"assets/puppet/feiye-critical.webp"},"sword_fallen":{"normal":"assets/puppet/sword_fallen-normal.webp","wounded":"assets/puppet/sword_fallen-wounded.webp","critical":"assets/puppet/sword_fallen-critical.webp"},"hehuan":{"normal":"assets/puppet/hehuan-normal.webp","wounded":"assets/puppet/hehuan-wounded.webp","critical":"assets/puppet/hehuan-critical.webp"},"tinglan":{"normal":"assets/puppet/tinglan-normal.webp","wounded":"assets/puppet/tinglan-wounded.webp","critical":"assets/puppet/tinglan-critical.webp"}},"factionCombat":{"m01":"assets/faction-combat/m01.webp","m02":"assets/faction-combat/m02.webp","m03":"assets/faction-combat/m03.webp","m19":"assets/faction-combat/m19.webp","m20":"assets/faction-combat/m20.webp","m21":"assets/faction-combat/m21.webp","m06":"assets/faction-combat/m06.webp","m09":"assets/faction-combat/m09.webp","m12":"assets/faction-combat/m12.webp","m15":"assets/faction-combat/m15.webp","m18":"assets/faction-combat/m18.webp","m24":"assets/faction-combat/m24.webp","m27":"assets/faction-combat/m27.webp","m29":"assets/faction-combat/m29.webp","m31":"assets/faction-combat/m31.webp","m33":"assets/faction-combat/m33.webp","m35":"assets/faction-combat/m35.webp","m37":"assets/faction-combat/m37.webp"},"factionItems":{"house_order":"assets/faction-items/house_order.webp","split_nail":"assets/faction-items/split_nail.webp","furnace_pact":"assets/faction-items/furnace_pact.webp","charcoal_seal":"assets/faction-items/charcoal_seal.webp","heat_tongs":"assets/faction-items/heat_tongs.webp","cold_ash":"assets/faction-items/cold_ash.webp","lamp_knot":"assets/faction-items/lamp_knot.webp","lamp_cut":"assets/faction-items/lamp_cut.webp","lamp_cloth":"assets/faction-items/lamp_cloth.webp","pursuit_order":"assets/faction-items/pursuit_order.webp","pass_fold":"assets/faction-items/pass_fold.webp","loose_band":"assets/faction-items/loose_band.webp","well_oath":"assets/faction-items/well_oath.webp","well_chisel":"assets/faction-items/well_chisel.webp","clean_gauze":"assets/faction-items/clean_gauze.webp","bell_knot":"assets/faction-items/bell_knot.webp","bell_wedge":"assets/faction-items/bell_wedge.webp","echo_wedge":"assets/faction-items/echo_wedge.webp","tide_pact":"assets/faction-items/tide_pact.webp","breach_order":"assets/faction-items/breach_order.webp","raft_wedge":"assets/faction-items/raft_wedge.webp","mask_contract":"assets/faction-items/mask_contract.webp","glass_scraper":"assets/faction-items/glass_scraper.webp","silver_dust":"assets/faction-items/silver_dust.webp","life_slip":"assets/faction-items/life_slip.webp","blank_cut":"assets/faction-items/blank_cut.webp","empty_entry":"assets/faction-items/empty_entry.webp","palace_contract":"assets/faction-items/palace_contract.webp","name_return":"assets/faction-items/name_return.webp","nameless_pass":"assets/faction-items/nameless_pass.webp","reply_seal":"assets/faction-items/reply_seal.webp","true_split":"assets/faction-items/true_split.webp","open_reply":"assets/faction-items/open_reply.webp","lock_order":"assets/faction-items/lock_order.webp","exit_ring":"assets/faction-items/exit_ring.webp","loose_ring":"assets/faction-items/loose_ring.webp","sealed_answer":"assets/faction-items/sealed_answer.webp","final_mark":"assets/faction-items/final_mark.webp","calm_ash":"assets/faction-items/calm_ash.webp","corrupt_scale":"assets/faction-items/corrupt_scale.webp","tide_wedge":"assets/faction-items/tide_wedge.webp","white_wedge":"assets/faction-items/white_wedge.webp"},"factionScenes":{"lotus_boss":"assets/faction-scenes/lotus_boss.webp","furnace_boss":"assets/faction-scenes/furnace_boss.webp","gate_boss":"assets/faction-scenes/gate_boss.webp","camp_boss":"assets/faction-scenes/camp_boss.webp","snake":"assets/faction-scenes/snake.webp","bell_boss":"assets/faction-scenes/bell_boss.webp","marsh_boss":"assets/faction-scenes/marsh_boss.webp","mirror_boss":"assets/faction-scenes/mirror_boss.webp","abyss_boss":"assets/faction-scenes/abyss_boss.webp","feiye":"assets/faction-scenes/feiye.webp","feiye_echo":"assets/faction-scenes/feiye_echo.webp","retainer":"assets/faction-scenes/retainer.webp","heart":"assets/faction-scenes/heart.webp","snake_ascended":"assets/faction-scenes/snake_ascended.webp"},"machines":{"chengshan-normal":"assets/machines/chengshan-normal.webp","chengshan-worn":"assets/machines/chengshan-worn.webp","chengshan-broken":"assets/machines/chengshan-broken.webp","mingdi-normal":"assets/machines/mingdi-normal.webp","mingdi-worn":"assets/machines/mingdi-worn.webp","mingdi-broken":"assets/machines/mingdi-broken.webp","shiying-normal":"assets/machines/shiying-normal.webp","shiying-worn":"assets/machines/shiying-worn.webp","shiying-broken":"assets/machines/shiying-broken.webp"},"machineAvatars":{"chengshan":"assets/machines/chengshan-icon.webp","mingdi":"assets/machines/mingdi-icon.webp","shiying":"assets/machines/shiying-icon.webp"},"mechanistItems":{"case":"assets/items/mech_case.webp","avatar":"assets/portraits/tinglan-avatar.webp"},"puppetRig":{},"mode":"folder"};
+globalThis.NightAssets={"portraits":{"cat":"assets/portraits/cat.webp","fox":"assets/portraits/fox.webp","hehuan":"assets/portraits/hehuan.webp","tinglan":"assets/portraits/tinglan.webp","sword_fallen":"assets/portraits/sword_fallen.webp","paper":"assets/portraits/paper.webp","lantern":"assets/portraits/lantern.webp","ape":"assets/portraits/ape.webp","bone":"assets/portraits/bone.webp","yaksha":"assets/portraits/yaksha.webp","e_mist":"assets/portraits/e_mist.webp","e_lantern":"assets/portraits/e_lantern.webp","e_priest":"assets/portraits/e_priest.webp","raider":"assets/portraits/raider.webp","snake":"assets/portraits/snake.webp","gate_boss":"assets/portraits/gate_boss.webp","camp_boss":"assets/portraits/camp_boss.webp","apothecary":"assets/portraits/apothecary.webp","feiye":"assets/portraits/feiye.webp","feiye_echo":"assets/portraits/feiye_echo.webp","retainer":"assets/portraits/retainer.webp","heart":"assets/portraits/heart.webp","snake_ascended":"assets/portraits/snake_ascended.webp","bell_boss":"assets/portraits/bell_boss.webp","lotus_boss":"assets/portraits/lotus_boss.webp","marsh_boss":"assets/portraits/marsh_boss.webp","furnace_boss":"assets/portraits/furnace_boss.webp","mirror_boss":"assets/portraits/mirror_boss.webp","abyss_boss":"assets/portraits/abyss_boss.webp","m01":"assets/portraits/m01.webp","m02":"assets/portraits/m02.webp","m03":"assets/portraits/m03.webp","m19":"assets/portraits/m19.webp","m20":"assets/portraits/m20.webp","m21":"assets/portraits/m21.webp","m04":"assets/portraits/m04.webp","m05":"assets/portraits/m05.webp","m06":"assets/portraits/m06.webp","m07":"assets/portraits/m07.webp","m08":"assets/portraits/m08.webp","m09":"assets/portraits/m09.webp","m10":"assets/portraits/m10.webp","m11":"assets/portraits/m11.webp","m12":"assets/portraits/m12.webp","m13":"assets/portraits/m13.webp","m14":"assets/portraits/m14.webp","m15":"assets/portraits/m15.webp","m16":"assets/portraits/m16.webp","m17":"assets/portraits/m17.webp","m18":"assets/portraits/m18.webp","m22":"assets/portraits/m22.webp","m23":"assets/portraits/m23.webp","m24":"assets/portraits/m24.webp","m25":"assets/portraits/m25.webp","m26":"assets/portraits/m26.webp","m27":"assets/portraits/m27.webp","m28":"assets/portraits/m28.webp","m29":"assets/portraits/m29.webp","m30":"assets/portraits/m30.webp","m31":"assets/portraits/m31.webp","m32":"assets/portraits/m32.webp","m33":"assets/portraits/m33.webp","m34":"assets/portraits/m34.webp","m35":"assets/portraits/m35.webp","m36":"assets/portraits/m36.webp","m37":"assets/portraits/m37.webp","orthodox_patrol":"assets/portraits/orthodox_patrol.webp","liu":"assets/portraits/liu.webp","ji":"assets/portraits/ji.webp","wen":"assets/portraits/wen.webp","sword":"assets/puppet/sword-normal.webp"},"cards":{"C01":"assets/cards/C01.webp","C02":"assets/cards/C02.webp","C03":"assets/cards/C03.webp","C04":"assets/cards/C04.webp","C05":"assets/cards/C05.webp","C06":"assets/cards/C06.webp","C07":"assets/cards/C07.webp","C08":"assets/cards/C08.webp","C09":"assets/cards/C09.webp","C10":"assets/cards/C10.webp","C11":"assets/cards/C11.webp","C12":"assets/cards/C12.webp","C13":"assets/cards/C13.webp","C14":"assets/cards/C14.webp","C15":"assets/cards/C15.webp","C16":"assets/cards/C16.webp","C17":"assets/cards/C17.webp","C18":"assets/cards/C18.webp","C19":"assets/cards/C19.webp","C20":"assets/cards/C20.webp","C21":"assets/cards/C21.webp","C22":"assets/cards/C22.webp","C23":"assets/cards/C23.webp","C24":"assets/cards/C24.webp","C25":"assets/cards/C25.webp","C26":"assets/cards/C26.webp","C27":"assets/cards/C27.webp","C28":"assets/cards/C28.webp","C29":"assets/cards/C29.webp","C30":"assets/cards/C30.webp","C31":"assets/cards/C31.webp","C32":"assets/cards/C32.webp","C33":"assets/cards/C33.webp","C34":"assets/cards/C34.webp","C35":"assets/cards/C35.webp","C36":"assets/cards/C36.webp","S01":"assets/cards/S01.webp","S02":"assets/cards/S02.webp","S03":"assets/cards/S03.webp","S04":"assets/cards/S04.webp","S05":"assets/cards/S05.webp","S06":"assets/cards/S06.webp","S07":"assets/cards/S07.webp","S08":"assets/cards/S08.webp","S09":"assets/cards/S09.webp","S10":"assets/cards/S10.webp","S11":"assets/cards/S11.webp","S12":"assets/cards/S12.webp","S13":"assets/cards/S13.webp","S14":"assets/cards/S14.webp","S15":"assets/cards/S15.webp","S16":"assets/cards/S16.webp","S17":"assets/cards/S17.webp","S18":"assets/cards/S18.webp","S19":"assets/cards/S19.webp","S20":"assets/cards/S20.webp","S21":"assets/cards/S21.webp","S22":"assets/cards/S22.webp","S23":"assets/cards/S23.webp","S24":"assets/cards/S24.webp","S25":"assets/cards/S25.webp","S26":"assets/cards/S26.webp","S27":"assets/cards/S27.webp","S28":"assets/cards/S28.webp","S29":"assets/cards/S29.webp","S30":"assets/cards/S30.webp","S31":"assets/cards/S31.webp","S32":"assets/cards/S32.webp","S33":"assets/cards/S33.webp","S34":"assets/cards/S34.webp","S35":"assets/cards/S35.webp","S36":"assets/cards/S36.webp","F01":"assets/cards/F01.webp","F02":"assets/cards/F02.webp","F03":"assets/cards/F03.webp","F04":"assets/cards/F04.webp","F05":"assets/cards/F05.webp","F06":"assets/cards/F06.webp","F07":"assets/cards/F07.webp","F08":"assets/cards/F08.webp","F09":"assets/cards/F09.webp","F10":"assets/cards/F10.webp","F11":"assets/cards/F11.webp","F12":"assets/cards/F12.webp","D01":"assets/cards/D01.webp","D02":"assets/cards/D02.webp","D03":"assets/cards/D03.webp","D04":"assets/cards/D04.webp","D05":"assets/cards/D05.webp","D07":"assets/cards/D07.webp","D08":"assets/cards/D08.webp","D09":"assets/cards/D09.webp","D10":"assets/cards/D10.webp","D11":"assets/cards/D11.webp","D12":"assets/cards/D12.webp","D06":"assets/cards/D06.webp","H01":"assets/cards/H01.webp","H02":"assets/cards/H02.webp","H03":"assets/cards/H03.webp","H04":"assets/cards/H04.webp","H05":"assets/cards/H05.webp","H06":"assets/cards/H06.webp","H07":"assets/cards/H07.webp","H08":"assets/cards/H08.webp","H09":"assets/cards/H09.webp","H10":"assets/cards/H10.webp","H11":"assets/cards/H11.webp","H12":"assets/cards/H12.webp","H13":"assets/cards/H13.webp","H14":"assets/cards/H14.webp","H15":"assets/cards/H15.webp","H16":"assets/cards/H16.webp","H17":"assets/cards/H17.webp","H18":"assets/cards/H18.webp","H19":"assets/cards/H19.webp","H20":"assets/cards/H20.webp","H21":"assets/cards/H21.webp","H22":"assets/cards/H22.webp","H23":"assets/cards/H23.webp","H24":"assets/cards/H24.webp","H25":"assets/cards/H25.webp","H26":"assets/cards/H26.webp","H27":"assets/cards/H27.webp","H28":"assets/cards/H28.webp","H29":"assets/cards/H29.webp","H30":"assets/cards/H30.webp","H31":"assets/cards/H31.webp","H32":"assets/cards/H32.webp","H33":"assets/cards/H33.webp","H34":"assets/cards/H34.webp","H35":"assets/cards/H35.webp","H36":"assets/cards/H36.webp","J01":"assets/cards/J01.webp","J02":"assets/cards/J02.webp","J03":"assets/cards/J03.webp","J04":"assets/cards/J04.webp","J05":"assets/cards/J05.webp","J06":"assets/cards/J06.webp","J07":"assets/cards/J07.webp","J08":"assets/cards/J08.webp","J09":"assets/cards/J09.webp","J10":"assets/cards/J10.webp","J11":"assets/cards/J11.webp","J12":"assets/cards/J12.webp","J13":"assets/cards/J13.webp","J14":"assets/cards/J14.webp","J15":"assets/cards/J15.webp","J16":"assets/cards/J16.webp","J17":"assets/cards/J17.webp","J18":"assets/cards/J18.webp","J19":"assets/cards/J19.webp","J20":"assets/cards/J20.webp","J21":"assets/cards/J21.webp","J22":"assets/cards/J22.webp","J23":"assets/cards/J23.webp","J24":"assets/cards/J24.webp","J25":"assets/cards/J25.webp","J26":"assets/cards/J26.webp","J27":"assets/cards/J27.webp","J28":"assets/cards/J28.webp","J29":"assets/cards/J29.webp","J30":"assets/cards/J30.webp","J31":"assets/cards/J31.webp","J32":"assets/cards/J32.webp","J33":"assets/cards/J33.webp","J34":"assets/cards/J34.webp","J35":"assets/cards/J35.webp","J36":"assets/cards/J36.webp","J37":"assets/cards/J37.webp","J38":"assets/cards/J38.webp","J39":"assets/cards/J39.webp","J40":"assets/cards/J40.webp","J41":"assets/cards/J41.webp","J42":"assets/cards/J42.webp","J43":"assets/cards/J43.webp","J44":"assets/cards/J44.webp","J45":"assets/cards/J45.webp","J46":"assets/cards/J46.webp","J47":"assets/cards/J47.webp","J48":"assets/cards/J48.webp"},"events":{"well":"assets/events/well.webp","shrine":"assets/events/shrine.webp","dreamshop":"assets/events/dreamshop.webp","theatre":"assets/events/theatre.webp","umbrella":"assets/events/umbrella.webp","pawnshop":"assets/events/pawnshop.webp","riftwatch":"assets/events/riftwatch.webp","supply":"assets/events/supply.webp","cultlab":"assets/events/cultlab.webp","swordgrave":"assets/events/swordgrave.webp","pilgrims":"assets/events/pilgrims.webp","prisoner":"assets/events/prisoner.webp","echo":"assets/events/echo.webp","broker":"assets/events/broker.webp","liu_first":"assets/events/liu_first.webp","liu_return":"assets/events/liu_return.webp","liu_final":"assets/events/liu_final.webp","ji_first":"assets/events/ji_first.webp","ji_return":"assets/events/ji_return.webp","ji_final":"assets/events/ji_final.webp","wen_first":"assets/events/wen_first.webp","wen_return":"assets/events/wen_return.webp","wen_final":"assets/events/wen_final.webp","sect_duel":"assets/events/sect_duel.webp","herb_caravan":"assets/events/herb_caravan.webp","relic_dispute":"assets/events/relic_dispute.webp","night_watch":"assets/events/night_watch.webp","moon_trace":"assets/events/moon_trace.webp","sealed_name":"assets/events/sealed_name.webp","moon_vow":"assets/events/moon_vow.webp","armory":"assets/events/armory.webp","sovereign_wake":"assets/events/sovereign_wake.webp","sovereign_recall":"assets/events/sovereign_recall.webp","sovereign_memory":"assets/events/sovereign_memory.webp","tainted_mercy":"assets/events/tainted_mercy.webp","demonic_offer":"assets/events/demonic_offer.webp","demonic_warning":"assets/events/demonic_warning.webp","mirror_trial":"assets/events/mirror_trial.webp","demon_manual":"assets/events/demon_manual.webp","fallen_hunt":"assets/events/fallen_hunt.webp","blood_lesson":"assets/events/blood_lesson.webp","blood_debt":"assets/events/blood_debt.webp","blood_choice":"assets/events/blood_choice.webp","marsh_pharmacy":"assets/events/marsh_pharmacy.webp","reed_procession":"assets/events/reed_procession.webp","drowned_archive":"assets/events/drowned_archive.webp","furnace_ledger":"assets/events/furnace_ledger.webp","captive_smith":"assets/events/captive_smith.webp","ash_orchard":"assets/events/ash_orchard.webp","mirror_guest":"assets/events/mirror_guest.webp","unfinished_portrait":"assets/events/unfinished_portrait.webp","glass_assembly":"assets/events/glass_assembly.webp","fate_tailor":"assets/events/fate_tailor.webp","silent_astrolabe":"assets/events/silent_astrolabe.webp","last_campfire":"assets/events/last_campfire.webp","fox":"assets/events/fox.webp","rest":"assets/events/rest.webp","shop":"assets/events/shop.webp","tale_debt_1":"assets/events/tale_debt_1.webp","tale_debt_2":"assets/events/tale_debt_2.webp","tale_debt_3":"assets/events/tale_debt_3.webp","tale_medicine_1":"assets/events/tale_medicine_1.webp","tale_medicine_2":"assets/events/tale_medicine_2.webp","tale_medicine_3":"assets/events/tale_medicine_3.webp","tale_letter_1":"assets/events/tale_letter_1.webp","tale_letter_2":"assets/events/tale_letter_2.webp","tale_letter_3":"assets/events/tale_letter_3.webp","tale_name_1":"assets/events/tale_name_1.webp","tale_name_2":"assets/events/tale_name_2.webp","tale_name_3":"assets/events/tale_name_3.webp","tale_lanterns_1":"assets/events/tale_lanterns_1.webp","tale_lanterns_2":"assets/events/tale_lanterns_2.webp","tale_lanterns_3":"assets/events/tale_lanterns_3.webp","tale_grain_1":"assets/events/tale_grain_1.webp","tale_grain_2":"assets/events/tale_grain_2.webp","tale_grain_3":"assets/events/tale_grain_3.webp","tale_bridge_1":"assets/events/tale_bridge_1.webp","tale_bridge_2":"assets/events/tale_bridge_2.webp","tale_bridge_3":"assets/events/tale_bridge_3.webp","tale_forge_1":"assets/events/tale_forge_1.webp","tale_forge_2":"assets/events/tale_forge_2.webp","tale_forge_3":"assets/events/tale_forge_3.webp","tale_theatre_1":"assets/events/tale_theatre_1.webp","tale_theatre_2":"assets/events/tale_theatre_2.webp","tale_theatre_3":"assets/events/tale_theatre_3.webp","tale_well_1":"assets/events/tale_well_1.webp","tale_well_2":"assets/events/tale_well_2.webp","tale_well_3":"assets/events/tale_well_3.webp","ambush_campfire":"assets/events/ambush_campfire.webp","road_aftermath":"assets/events/road_aftermath.webp","cave":"assets/events/cave.webp","hehuan_checkpoint":"assets/events/hehuan_checkpoint.webp","hehuan_qinheng":"assets/events/hehuan_qinheng.webp","hehuan_ledger":"assets/events/hehuan_ledger.webp","tinglan_bridge":"assets/events/tinglan_bridge.webp","tinglan_seal":"assets/events/tinglan_seal.webp","tinglan_record":"assets/events/tinglan_record.webp"},"relics":{"frostseal":"assets/relics/frostseal.webp","bell":"assets/relics/bell.webp","jade":"assets/relics/jade.webp","moon":"assets/relics/moon.webp","fox":"assets/relics/fox.webp","fang":"assets/relics/fang.webp","silk":"assets/relics/silk.webp","vial":"assets/relics/vial.webp","bloodstone":"assets/relics/bloodstone.webp","moonheart":"assets/relics/moonheart.webp","mirror":"assets/relics/mirror.webp","dream":"assets/relics/dream.webp","godblood":"assets/relics/godblood.webp","ninelives":"assets/relics/ninelives.webp","veil":"assets/relics/veil.webp","heartmirror":"assets/relics/heartmirror.webp","concentric_spool":"assets/relics/concentric_spool.webp"},"regions":{"fog_gate":"assets/regions/fog_gate.webp","broken_camp":"assets/regions/broken_camp.webp","ritual_core":"assets/regions/ritual_core.webp","drowned_marsh":"assets/regions/drowned_marsh.webp","furnace_palace":"assets/regions/furnace_palace.webp","mirror_heaven":"assets/regions/mirror_heaven.webp","abyss_throne":"assets/regions/abyss_throne.webp","hanyuan_home":"assets/regions/hanyuan_home.webp"},"weapons":{"training":"assets/weapons/training.webp","rime":"assets/weapons/rime.webp","spirit":"assets/weapons/spirit.webp","divine":"assets/weapons/divine.webp"},"items":{"clearheart_jade":"assets/items/clearheart_jade.webp"},"outfits":{"item-mist":"assets/outfits/item-mist.webp","cat-mist":"assets/outfits/cat-mist.webp","sword-mist":"assets/outfits/sword-mist.webp","sword_fallen-mist":"assets/outfits/sword_fallen-mist.webp","item-lotus":"assets/outfits/item-lotus.webp","cat-lotus":"assets/outfits/cat-lotus.webp","sword-lotus":"assets/outfits/sword-lotus.webp","sword_fallen-lotus":"assets/outfits/sword_fallen-lotus.webp","item-ember":"assets/outfits/item-ember.webp","cat-ember":"assets/outfits/cat-ember.webp","sword-ember":"assets/outfits/sword-ember.webp","sword_fallen-ember":"assets/outfits/sword_fallen-ember.webp","item-moon":"assets/outfits/item-moon.webp","cat-moon":"assets/outfits/cat-moon.webp","sword-moon":"assets/outfits/sword-moon.webp","sword_fallen-moon":"assets/outfits/sword_fallen-moon.webp","item-blood":"assets/outfits/item-blood.webp","cat-blood":"assets/outfits/cat-blood.webp","sword-blood":"assets/outfits/sword-blood.webp","sword_fallen-blood":"assets/outfits/sword_fallen-blood.webp"},"eventsByCharacter":{"sword":{"well":"assets/events-sword/well.webp","shrine":"assets/events-sword/shrine.webp","dreamshop":"assets/events-sword/dreamshop.webp","theatre":"assets/events-sword/theatre.webp","umbrella":"assets/events-sword/umbrella.webp","pawnshop":"assets/events-sword/pawnshop.webp","riftwatch":"assets/events-sword/riftwatch.webp","supply":"assets/events-sword/supply.webp","cultlab":"assets/events-sword/cultlab.webp","swordgrave":"assets/events-sword/swordgrave.webp","pilgrims":"assets/events-sword/pilgrims.webp","prisoner":"assets/events-sword/prisoner.webp","echo":"assets/events-sword/echo.webp","broker":"assets/events-sword/broker.webp","fox":"assets/events-sword/fox.webp","rest":"assets/events-sword/rest.webp","shop":"assets/events-sword/shop.webp","moon_trace":"assets/events-sword/moon_trace.webp","sealed_name":"assets/events-sword/sealed_name.webp","moon_vow":"assets/events-sword/moon_vow.webp","armory":"assets/events-sword/armory.webp"},"sovereign":{"well":"assets/events-sovereign/well.webp","shrine":"assets/events-sovereign/shrine.webp","dreamshop":"assets/events-sovereign/dreamshop.webp","theatre":"assets/events-sovereign/theatre.webp","umbrella":"assets/events-sovereign/umbrella.webp","pawnshop":"assets/events-sovereign/pawnshop.webp","riftwatch":"assets/events-sovereign/riftwatch.webp","supply":"assets/events-sovereign/supply.webp","cultlab":"assets/events-sovereign/cultlab.webp","swordgrave":"assets/events-sovereign/swordgrave.webp","pilgrims":"assets/events-sovereign/pilgrims.webp","prisoner":"assets/events-sovereign/prisoner.webp","echo":"assets/events-sovereign/echo.webp","broker":"assets/events-sovereign/broker.webp","fox":"assets/events-sovereign/fox.webp","rest":"assets/events-sovereign/rest.webp","shop":"assets/events-sovereign/shop.webp","moon_trace":"assets/events-sovereign/moon_trace.webp","sealed_name":"assets/events-sovereign/sealed_name.webp","moon_vow":"assets/events-sovereign/moon_vow.webp","armory":"assets/events-sovereign/armory.webp"},"sword_fallen":{"well":"assets/events-sword_fallen/well.webp","shrine":"assets/events-sword_fallen/shrine.webp","dreamshop":"assets/events-sword_fallen/dreamshop.webp","theatre":"assets/events-sword_fallen/theatre.webp","umbrella":"assets/events-sword_fallen/umbrella.webp","pawnshop":"assets/events-sword_fallen/pawnshop.webp","riftwatch":"assets/events-sword_fallen/riftwatch.webp","supply":"assets/events-sword_fallen/supply.webp","cultlab":"assets/events-sword_fallen/cultlab.webp","swordgrave":"assets/events-sword_fallen/swordgrave.webp","pilgrims":"assets/events-sword_fallen/pilgrims.webp","prisoner":"assets/events-sword_fallen/prisoner.webp","echo":"assets/events-sword_fallen/echo.webp","broker":"assets/events-sword_fallen/broker.webp","fox":"assets/events-sword_fallen/fox.webp","rest":"assets/events-sword_fallen/rest.webp","shop":"assets/events-sword_fallen/shop.webp","moon_trace":"assets/events-sword_fallen/moon_trace.webp","sealed_name":"assets/events-sword_fallen/sealed_name.webp","moon_vow":"assets/events-sword_fallen/moon_vow.webp","armory":"assets/events-sword_fallen/armory.webp"}},"puppet":{"normal":"assets/puppet/cat-normal.webp","wounded":"assets/puppet/cat-wounded.webp","critical":"assets/puppet/cat-critical.webp","blink":"assets/puppet/cat-blink.webp","sword":{"normal":"assets/puppet/sword-normal.webp","wounded":"assets/puppet/sword-wounded.webp","critical":"assets/puppet/sword-critical.webp"},"feiye":{"normal":"assets/puppet/feiye-normal.webp","wounded":"assets/puppet/feiye-wounded.webp","critical":"assets/puppet/feiye-critical.webp"},"sword_fallen":{"normal":"assets/puppet/sword_fallen-normal.webp","wounded":"assets/puppet/sword_fallen-wounded.webp","critical":"assets/puppet/sword_fallen-critical.webp"},"hehuan":{"normal":"assets/puppet/hehuan-normal.webp","wounded":"assets/puppet/hehuan-wounded.webp","critical":"assets/puppet/hehuan-critical.webp"},"tinglan":{"normal":"assets/puppet/tinglan-normal.webp","wounded":"assets/puppet/tinglan-wounded.webp","critical":"assets/puppet/tinglan-critical.webp"}},"factionCombat":{"m01":"assets/faction-combat/m01.webp","m02":"assets/faction-combat/m02.webp","m03":"assets/faction-combat/m03.webp","m19":"assets/faction-combat/m19.webp","m20":"assets/faction-combat/m20.webp","m21":"assets/faction-combat/m21.webp","m06":"assets/faction-combat/m06.webp","m09":"assets/faction-combat/m09.webp","m12":"assets/faction-combat/m12.webp","m15":"assets/faction-combat/m15.webp","m18":"assets/faction-combat/m18.webp","m24":"assets/faction-combat/m24.webp","m27":"assets/faction-combat/m27.webp","m29":"assets/faction-combat/m29.webp","m31":"assets/faction-combat/m31.webp","m33":"assets/faction-combat/m33.webp","m35":"assets/faction-combat/m35.webp","m37":"assets/faction-combat/m37.webp"},"factionItems":{"house_order":"assets/faction-items/house_order.webp","split_nail":"assets/faction-items/split_nail.webp","furnace_pact":"assets/faction-items/furnace_pact.webp","charcoal_seal":"assets/faction-items/charcoal_seal.webp","heat_tongs":"assets/faction-items/heat_tongs.webp","cold_ash":"assets/faction-items/cold_ash.webp","lamp_knot":"assets/faction-items/lamp_knot.webp","lamp_cut":"assets/faction-items/lamp_cut.webp","lamp_cloth":"assets/faction-items/lamp_cloth.webp","pursuit_order":"assets/faction-items/pursuit_order.webp","pass_fold":"assets/faction-items/pass_fold.webp","loose_band":"assets/faction-items/loose_band.webp","well_oath":"assets/faction-items/well_oath.webp","well_chisel":"assets/faction-items/well_chisel.webp","clean_gauze":"assets/faction-items/clean_gauze.webp","bell_knot":"assets/faction-items/bell_knot.webp","bell_wedge":"assets/faction-items/bell_wedge.webp","echo_wedge":"assets/faction-items/echo_wedge.webp","tide_pact":"assets/faction-items/tide_pact.webp","breach_order":"assets/faction-items/breach_order.webp","raft_wedge":"assets/faction-items/raft_wedge.webp","mask_contract":"assets/faction-items/mask_contract.webp","glass_scraper":"assets/faction-items/glass_scraper.webp","silver_dust":"assets/faction-items/silver_dust.webp","life_slip":"assets/faction-items/life_slip.webp","blank_cut":"assets/faction-items/blank_cut.webp","empty_entry":"assets/faction-items/empty_entry.webp","palace_contract":"assets/faction-items/palace_contract.webp","name_return":"assets/faction-items/name_return.webp","nameless_pass":"assets/faction-items/nameless_pass.webp","reply_seal":"assets/faction-items/reply_seal.webp","true_split":"assets/faction-items/true_split.webp","open_reply":"assets/faction-items/open_reply.webp","lock_order":"assets/faction-items/lock_order.webp","exit_ring":"assets/faction-items/exit_ring.webp","loose_ring":"assets/faction-items/loose_ring.webp","sealed_answer":"assets/faction-items/sealed_answer.webp","final_mark":"assets/faction-items/final_mark.webp","calm_ash":"assets/faction-items/calm_ash.webp","corrupt_scale":"assets/faction-items/corrupt_scale.webp","tide_wedge":"assets/faction-items/tide_wedge.webp","white_wedge":"assets/faction-items/white_wedge.webp"},"factionScenes":{"lotus_boss":"assets/faction-scenes/lotus_boss.webp","furnace_boss":"assets/faction-scenes/furnace_boss.webp","gate_boss":"assets/faction-scenes/gate_boss.webp","camp_boss":"assets/faction-scenes/camp_boss.webp","snake":"assets/faction-scenes/snake.webp","bell_boss":"assets/faction-scenes/bell_boss.webp","marsh_boss":"assets/faction-scenes/marsh_boss.webp","mirror_boss":"assets/faction-scenes/mirror_boss.webp","abyss_boss":"assets/faction-scenes/abyss_boss.webp","feiye":"assets/faction-scenes/feiye.webp","feiye_echo":"assets/faction-scenes/feiye_echo.webp","retainer":"assets/faction-scenes/retainer.webp","heart":"assets/faction-scenes/heart.webp","snake_ascended":"assets/faction-scenes/snake_ascended.webp"},"machines":{"chengshan-normal":"assets/machines/chengshan-normal.webp","chengshan-worn":"assets/machines/chengshan-worn.webp","chengshan-broken":"assets/machines/chengshan-broken.webp","mingdi-normal":"assets/machines/mingdi-normal.webp","mingdi-worn":"assets/machines/mingdi-worn.webp","mingdi-broken":"assets/machines/mingdi-broken.webp","shiying-normal":"assets/machines/shiying-normal.webp","shiying-worn":"assets/machines/shiying-worn.webp","shiying-broken":"assets/machines/shiying-broken.webp"},"machineAvatars":{"chengshan":"assets/machines/chengshan-icon.webp","mingdi":"assets/machines/mingdi-icon.webp","shiying":"assets/machines/shiying-icon.webp"},"mechanistItems":{"case":"assets/items/mech_case.webp","avatar":"assets/portraits/tinglan-avatar.webp"},"actors":{"cat":"assets/actors/cat.webp","sword":"assets/actors/sword.webp","hehuan":"assets/actors/hehuan.webp","tinglan":"assets/actors/tinglan.webp","feiye":"assets/actors/feiye.webp"},"puppetRig":{},"mode":"folder"};
 </script>
 <script>
 /* Original offline score: 灯下行. All voices are synthesized here, no samples or requests. */
@@ -6828,6 +6840,2740 @@ global.NightPrologue=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 </script>
 <script>
+/* All 180 cards explicitly mapped; shared four-frame action families plus per-card effects. */
+globalThis.NightActorCoverage={
+  "C01": {
+    "name": "爪击",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C02": {
+    "name": "敛息",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C03": {
+    "name": "窥隙",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C04": {
+    "name": "扑杀",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C05": {
+    "name": "连爪",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C06": {
+    "name": "猫步",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C07": {
+    "name": "流影",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C08": {
+    "name": "戏鼠",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C09": {
+    "name": "夜猎",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C10": {
+    "name": "候机",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "seal",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C11": {
+    "name": "蓄爪",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C12": {
+    "name": "月下守",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C13": {
+    "name": "血契",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C14": {
+    "name": "噬魂",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C15": {
+    "name": "妖火符",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fire",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C16": {
+    "name": "残月",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C17": {
+    "name": "金瞳",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C18": {
+    "name": "追猎",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C19": {
+    "name": "缚影",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C20": {
+    "name": "铃音",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "bell",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C21": {
+    "name": "终夜",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C22": {
+    "name": "裂帛",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C23": {
+    "name": "逐影",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C24": {
+    "name": "狂爪",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "claw",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C25": {
+    "name": "灵巧",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C26": {
+    "name": "翻檐",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C27": {
+    "name": "歃血",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C28": {
+    "name": "血饮",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C29": {
+    "name": "献寿",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C30": {
+    "name": "残心",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C31": {
+    "name": "借命",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "shield",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C32": {
+    "name": "绕指柔",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C33": {
+    "name": "逆鳞",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thorn",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C34": {
+    "name": "护心",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "shield",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C35": {
+    "name": "盾返",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "shield",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "C36": {
+    "name": "归息",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#f6d68e",
+    "executor": "player",
+    "shared": true
+  },
+  "S01": {
+    "name": "霜锋",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S02": {
+    "name": "凝霜",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S03": {
+    "name": "听雪",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S04": {
+    "name": "断流",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S05": {
+    "name": "寒芒",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S06": {
+    "name": "踏雪",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "snow",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S07": {
+    "name": "冰镜",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "mirror",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S08": {
+    "name": "三叠泉",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S09": {
+    "name": "澄心",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ripple",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S10": {
+    "name": "回锋",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S11": {
+    "name": "藏剑",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "seal",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S12": {
+    "name": "霜天壁",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S13": {
+    "name": "以血淬刃",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S14": {
+    "name": "剑鸣",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "bell",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S15": {
+    "name": "碎霜",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S16": {
+    "name": "万川归寂",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S17": {
+    "name": "万剑归宗",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S18": {
+    "name": "一剑开天门",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gate",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S19": {
+    "name": "御剑出鞘",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "orbit",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S20": {
+    "name": "两仪剑阵",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "orbit",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S21": {
+    "name": "剑气长城",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wall",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S22": {
+    "name": "拔剑问心",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S23": {
+    "name": "破军",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S24": {
+    "name": "藏锋养神",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S25": {
+    "name": "朝游北海",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S26": {
+    "name": "剑履山河",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S27": {
+    "name": "寒江独钓",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "hook",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S28": {
+    "name": "霜封剑匣",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "frost",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S29": {
+    "name": "冰魄回澜",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ripple",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S30": {
+    "name": "乘风归鞘",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blade",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S31": {
+    "name": "斩断尘缘",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S32": {
+    "name": "剑心通明",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S33": {
+    "name": "万里横江",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S34": {
+    "name": "破晓长歌",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "dawn",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S35": {
+    "name": "剑开云海",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "cloud",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "S36": {
+    "name": "天地一剑",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gate",
+    "color": "#a2e7ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F01": {
+    "name": "摄魂",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F02": {
+    "name": "夜幕",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F03": {
+    "name": "回响",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ripple",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F04": {
+    "name": "归潮",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F05": {
+    "name": "影袭",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F06": {
+    "name": "移影",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F07": {
+    "name": "魂衣",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F08": {
+    "name": "引魂",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F09": {
+    "name": "噬念",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F10": {
+    "name": "裂界",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gate",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F11": {
+    "name": "摄念",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "seal",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "F12": {
+    "name": "万相归一",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "orbit",
+    "color": "#dab2ff",
+    "executor": "player",
+    "shared": true
+  },
+  "D01": {
+    "name": "借煞回生",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D02": {
+    "name": "饮魄",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D03": {
+    "name": "夺脉",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D04": {
+    "name": "魔躯",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thorn",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D05": {
+    "name": "狂念",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D07": {
+    "name": "焚血斩",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fire",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D08": {
+    "name": "夺生指",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "blood",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D09": {
+    "name": "血衣",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D10": {
+    "name": "逆脉",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D11": {
+    "name": "三劫噬心",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D12": {
+    "name": "血海归墟",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "D06": {
+    "name": "万煞归心",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "soul",
+    "color": "#ff9397",
+    "executor": "player",
+    "shared": true
+  },
+  "H01": {
+    "name": "撩弦",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H02": {
+    "name": "流纱",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H03": {
+    "name": "请君近前",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H04": {
+    "name": "偷香",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H05": {
+    "name": "回眸",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H06": {
+    "name": "幻席",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "mirror",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H07": {
+    "name": "借势",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H08": {
+    "name": "乱息",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H09": {
+    "name": "解带",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H10": {
+    "name": "两清",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fan",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H11": {
+    "name": "空席",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "veil",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H12": {
+    "name": "满堂红",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H13": {
+    "name": "欲擒故纵",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "hook",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H14": {
+    "name": "红绡借刃",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H15": {
+    "name": "隔帘听雨",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "rain",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H16": {
+    "name": "花信误",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H17": {
+    "name": "以柔缚刚",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H18": {
+    "name": "香销玉暖",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H19": {
+    "name": "留客盏",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "cup",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H20": {
+    "name": "偷梁换柱",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "mirror",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H21": {
+    "name": "同心结",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "knot",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H22": {
+    "name": "落花逐水",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "flower",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H23": {
+    "name": "藏月入袖",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H24": {
+    "name": "无声挑灯",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "lamp",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H25": {
+    "name": "笑里藏针",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thorn",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H26": {
+    "name": "春风照影",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H27": {
+    "name": "双生绡",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H28": {
+    "name": "燃香待客",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "incense",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H29": {
+    "name": "断线风筝",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H30": {
+    "name": "帘外惊鸿",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fan",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H31": {
+    "name": "余音绕梁",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "bell",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H32": {
+    "name": "捧心问月",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "moon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H33": {
+    "name": "红尘织梦",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "knot",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H34": {
+    "name": "千面一笑",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "mask",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H35": {
+    "name": "倾城一舞",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fan",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "H36": {
+    "name": "百转归心",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ribbon",
+    "color": "#ffc2dc",
+    "executor": "player",
+    "shared": true
+  },
+  "J01": {
+    "name": "牵丝",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J02": {
+    "name": "护阵",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wall",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J03": {
+    "name": "并肩",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gear",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J04": {
+    "name": "收线",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J05": {
+    "name": "探机",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "eye",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J06": {
+    "name": "灵弦",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "thread",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J07": {
+    "name": "袖弩",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "bolt",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J08": {
+    "name": "轻身避锋",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wind",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J09": {
+    "name": "展匣",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "box",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J10": {
+    "name": "借位",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gear",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J11": {
+    "name": "急修",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wrench",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J12": {
+    "name": "续榫",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "joint",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J13": {
+    "name": "隔空换件",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wrench",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J14": {
+    "name": "拆甲救急",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wall",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J15": {
+    "name": "以战代修",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wrench",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J16": {
+    "name": "整队",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "joint",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J17": {
+    "name": "注灵",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "spark",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J18": {
+    "name": "改线",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wire",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J19": {
+    "name": "蓄电",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "spark",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J20": {
+    "name": "释能",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "bolt",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J21": {
+    "name": "分流",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wire",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J22": {
+    "name": "超额预充",
+    "action": "guard",
+    "frameRow": 4,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "spark",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J23": {
+    "name": "备用电池",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "box",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J24": {
+    "name": "同步供能",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "spark",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J25": {
+    "name": "盾行",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wall",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J26": {
+    "name": "护主",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "knot",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J27": {
+    "name": "撼地",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "stone",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J28": {
+    "name": "不动榫",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "joint",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J29": {
+    "name": "卸力",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "shield",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J30": {
+    "name": "山门不倒",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wall",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J31": {
+    "name": "顶梁换柱",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gate",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J32": {
+    "name": "城墙回响",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "ripple",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J33": {
+    "name": "引雷",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "lightning",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J34": {
+    "name": "贯羽",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "feather",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J35": {
+    "name": "追电",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "lightning",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J36": {
+    "name": "翼骨校准",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "feather",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J37": {
+    "name": "雷羽齐发",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "feather",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J38": {
+    "name": "放线追击",
+    "action": "attack",
+    "frameRow": 1,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "wire",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J39": {
+    "name": "抢先起飞",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "feather",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J40": {
+    "name": "双翼协作",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "feather",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J41": {
+    "name": "提灯",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "lamp",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J42": {
+    "name": "灵芯校准",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "lamp",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J43": {
+    "name": "借火",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "fire",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J44": {
+    "name": "回收工序",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "box",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J45": {
+    "name": "万机归流",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "river",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J46": {
+    "name": "同心机匣",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "knot",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J47": {
+    "name": "顺序调度",
+    "action": "cast",
+    "frameRow": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gear",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  },
+  "J48": {
+    "name": "天工合击",
+    "action": "heavy",
+    "frameRow": 2,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "motif": "gear",
+    "color": "#97eadb",
+    "executor": "card-selected player/machine; damage animation follows actual executor",
+    "shared": true
+  }
+};
+</script>
+<script>
+/* Generated character animation atlases. Presentation only: no rules or storage writes. */
+(function(root){'use strict';
+const kinds=['cat','sword','hehuan','tinglan','feiye'];
+const rows={idle:0,attack:1,heavy:2,cast:3,guard:4,hurt:5};
+const poseActions={slash:'attack',thrust:'attack',flurry:'attack',counter:'attack',leap:'heavy',finisher:'heavy',step:'guard',guard:'guard',conceal:'cast',channel:'cast',chant:'cast',pull:'cast',bow:'cast',dance:'heavy',sacrifice:'cast',mend:'cast',hurt:'hurt'};
+function kind(id){return id==='sword_fallen'?'sword':id;}
+function markup(id){id=kind(id);const src=root.NightAssets?.actors?.[id];if(!src)return '';return `<span class="actor-sprite" data-actor-kind="${id}" data-actor-action="idle" data-actor-frame="0" style="background-image:url('${src}')" aria-hidden="true"></span>`;}
+function stop(el){if(!el)return;clearTimeout(el._spriteTimer);el._spriteAnimation?.cancel();el._spriteAnimation=null;delete el.dataset.acting;el.dataset.actorAction='idle';el.dataset.actorFrame='0';el.style.backgroundPosition='0% 0%';}
+function stopAll(){if(typeof document!=='undefined')document.querySelectorAll('.actor-sprite').forEach(stop);}
+function position(row,col){return `${col*100/3}% ${row*20}%`;}
+function play(actor,action,mode='full',phase='full'){
+ const el=actor?.querySelector('.actor-sprite');if(!el)return false;
+ action=rows[action]===undefined?(poseActions[action]||'cast'):action;
+ clearTimeout(el._spriteTimer);el._spriteAnimation?.cancel();
+ if(mode==='off'||mode==='reduced'||(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)){stop(el);return true;}
+ actor.dataset.stagePose=action;const row=rows[action];let frames=phase==='prepare'?[0,1]:phase==='impact'?[2,3]:action==='hurt'?[1,2,3]:[0,1,2,3];
+ const duration=phase==='prepare'?150:phase==='impact'?260:action==='idle'?1200:480;
+ el.dataset.acting='true';el.dataset.actorAction=action;el.dataset.actorPhase=phase;el.dataset.actorFrame=String(frames[0]);el.style.backgroundPosition=position(row,frames[0]);
+ if(mode==='fast'){el.style.backgroundPosition=position(row,2);el.dataset.actorFrame='2';el._spriteTimer=setTimeout(()=>stop(el),90);return true;}
+ const keys=frames.map((col,i)=>({backgroundPosition:position(row,col),offset:i/frames.length,easing:'steps(1,end)'}));keys.push({backgroundPosition:position(row,frames.at(-1)),offset:1});
+ el._spriteAnimation=el.animate(keys,{duration,fill:'forwards'});
+ el._spriteAnimation.onfinish=()=>{if(el.isConnected)stop(el);};
+ return true;
+}
+function forCard(id){return root.NightActorCoverage?.[id]?.action||'cast';}
+const api={kinds,rows,poseActions,markup,play,stopAll,forCard};if(typeof module!=='undefined')module.exports=api;root.NightActors=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script>
+<script>
 /* Original articulated ink actors and authored card presentation. No game-state writes. */
 (function(root){
 'use strict';
@@ -6857,7 +9603,7 @@ const crown=role==='cat'?'<path d="M-21-5-25-30-7-14M8-14 25-30 22-4" fill="#1b2
 return `<svg class="stage-rig" viewBox="0 0 240 280" aria-hidden="true" data-rig="${role}" data-boss="${boss}"><ellipse cx="120" cy="261" rx="65" ry="10" fill="#020608" opacity=".55"/><g class="rig-facing" transform="${enemy?'translate(240 0) scale(-1 1)':''}"><g transform="translate(112 155)"><g class="rig-body" fill="#202634" stroke="${color}" stroke-width="2.3" stroke-linejoin="round"><g class="rig-back-leg" transform="translate(-13 30)"><path d="M-9 0H9L1 59 13 70H-15L-16 60Z"/></g><g class="rig-front-leg" transform="translate(15 30)"><path d="M-9 0H9L14 60 30 70H-5L-10 58Z"/></g><path class="rig-cloth" d="M-27-30Q0-45 27-30L43 53Q0 80-43 53Z" fill="${role==='fan'?'#653451':role==='engineer'?'#304b48':'#293344'}"/><path d="M-28-23 5 25 25-25M-30 25H30" fill="none"/><g transform="translate(-25 -23)"><g class="rig-back-arm"><path d="M-8-6H8L12 47-10 48Z"/><circle cy="48" r="6" fill="#ad9d84"/></g></g><g transform="translate(25 -23)"><g class="rig-front-arm"><path d="M-8-6H8L12 43-10 46Z"/><circle cy="45" r="6" fill="#ad9d84"/>${weapon}</g></g><g transform="translate(0 -62)"><g class="rig-head"><path d="M-20 0Q-24-25 0-26Q25-24 23 0L15 23H-12Z" fill="#c4ad95"/><path d="M10-3H21" stroke="#2b2028" stroke-width="3"/>${crown}${role==='sword'||role==='fan'?'<path class="rig-hair" d="M-20-15Q-48 10-27 77L-15 34Z" fill="#171c29"/>':''}${beast?'<path d="M18 0 38 7 18 17M-18-15-38-35-32 0" fill="#293b39"/>':''}</g></g>${/snake|marsh/.test(kind)?'<path class="rig-tail" d="M-25 25Q-105 10-70 70Q-20 115 65 70Q95 55 70 15" fill="none" stroke="#709a91" stroke-width="16"/>':''}${role==='cat'?'<path class="rig-tail" d="M-27 28Q-100 65-66-10" fill="none" stroke-width="10"/>':''}${boss?'<path d="M-50-62Q0-120 50-62M-55-65-50-45-35-54M55-65 50-45 35-54" fill="none" opacity=".6"/>':''}</g></g></g></svg>`;
 }
 function pose(actor,name,mode='full',enemy=false,hitIndex=0){
-if(!actor)return;actor.dataset.stagePose=name;
+if(!actor)return;actor.dataset.stagePose=name;if(!enemy&&root.NightActors?.play(actor,name,mode))return;
 if(mode!=='full'||(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
 const base=poses[name]||poses.channel,alternate=name==='flurry'&&hitIndex%2?-1:1;
 const v=base.map((a,i)=>i<2?a*alternate:a),parts=['front-arm','back-arm','front-leg','back-leg','body'];
@@ -6920,7 +9666,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
   let idleWaiters=[];
   window.uiBusy=false;
   window.waitForUI=()=>window.uiBusy?new Promise(resolve=>idleWaiters.push(resolve)):Promise.resolve();
-  window.setMotionMode=mode=>{if(['full','fast','reduced','off'].includes(mode)){motionMode=mode;document.body.dataset.motion=mode;if(mode!=='full')document.querySelectorAll('.stage-rig,.stage-rig *').forEach(el=>el.getAnimations?.().forEach(a=>a.cancel()));if(mode==='off')document.querySelectorAll('.stage-card-effect').forEach(el=>el.remove());}return motionMode;};
+  window.setMotionMode=mode=>{if(['full','fast','reduced','off'].includes(mode)){motionMode=mode;document.body.dataset.motion=mode;if(mode!=='full')NightActors.stopAll();if(mode!=='full')document.querySelectorAll('.stage-rig,.stage-rig *').forEach(el=>el.getAnimations?.().forEach(a=>a.cancel()));if(mode==='off')document.querySelectorAll('.stage-card-effect').forEach(el=>el.remove());}return motionMode;};
   window.setMotionMode(motionMode);
   function setBusy(value){window.uiBusy=value;document.body.dataset.uiBusy=String(value);app.setAttribute('aria-busy',String(value));if(!value){idleWaiters.splice(0).forEach(resolve=>resolve());}}
   const stageNames={normal:'从容',wounded:'战痕',critical:'濒危'};
@@ -6938,7 +9684,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
   function heroRoots(scope){return [...(scope?.matches?.('.hero-portrait')?[scope]:[]),...(scope?.querySelectorAll?.('.hero-portrait')||[])];}
   function disposePortraits(scope){for(const root of heroRoots(scope)){clearTimeout(root._reactionTimer);clearTimeout(root._actionTimer);root.getAnimations?.().forEach(animation=>animation.cancel());}}
   function syncPlayerAppearance(player){for(const root of app.querySelectorAll('[data-combatant="player"] .hero-portrait')){const previous=root.dataset.damageStage,stage=damageStage(player.hp,player.maxHp),kind=root.dataset.portrait,src=heroSources(kind)[stage]||images[kind];root.dataset.hp=String(player.hp);root.dataset.maxHp=String(player.maxHp);root.dataset.damageStage=stage;for(const id of ['normal','wounded','critical'])root.classList.toggle('damage-'+id,id===stage);const image=root.querySelector(':scope > img');if(image&&src&&image.getAttribute('src')!==src){root.classList.remove('image-failed','portrait-image-ready');image.src=src;}if(image)image.alt=heroPortraitAlt(kind,stage);root.classList.toggle('fallen-portrait',kind==='sword'&&isFallen());const label=root.querySelector('.damage-stage-label');if(label){label.hidden=stage==='normal';label.textContent=stageNames[stage];}if(previous&&previous!==stage){root.dataset.stageChanged=stage;const mark=fx('damage-transition','player',`<span>${stage==='normal'?'重新稳住气息':stage==='wounded'?'衣染战痕':'命火未熄'}</span>`);setTimeout(()=>{mark.remove();delete root.dataset.stageChanged;},motionMode==='fast'?150:750);}}}
-  function portraitAct(type,options={}){const root=app.querySelector('[data-combatant="player"] .hero-portrait');if(!root)return;root.dataset.reaction=type;clearTimeout(root._reactionTimer);root._reactionTimer=setTimeout(()=>{if(root.isConnected)delete root.dataset.reaction;},motionMode==='fast'?100:type==='revive'?700:430);}
+  function portraitAct(type,options={}){const root=app.querySelector('[data-combatant="player"] .hero-portrait');if(!root)return;if(root.querySelector('.actor-sprite')){if(['hurt','guard','heal','revive','fall'].includes(type))NightActors.play(root,type==='hurt'||type==='fall'?'hurt':type==='guard'?'guard':'cast',motionMode);return;}root.dataset.reaction=type;clearTimeout(root._reactionTimer);root._reactionTimer=setTimeout(()=>{if(root.isConnected)delete root.dataset.reaction;},motionMode==='fast'?100:type==='revive'?700:430);}
   function regions(){return game?.state?.regions||REGIONS;}
   function totalFloors(){return game?.state?.totalFloors||regions().at(-1)?.stages?.[1]||70;}
   function regionIndex(){const supplied=game.state.journey?.regionIndex;if(Number.isInteger(supplied))return Math.max(0,Math.min(regions().length-1,supplied));const floor=game.state.floor||1,found=regions().findIndex(r=>floor>=r.stages[0]&&floor<=r.stages[1]);return found<0?regions().length-1:found;}
@@ -7125,7 +9871,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
   function enemyClueMarkup(){const c=game.getEnemyClue?.();return c?`<aside class="enemy-clue" aria-label="敌情线索"><b>${esc(c.label)}</b><span>${esc(c.danger)}</span><small>粗略态势 · 观息可察细节</small></aside>`:'';}
   function stagePortrait(kind,enemy=false,boss=false){
     const art=portrait(kind,{player:!enemy}).replace('class="portrait','class="portrait side-actor');
-    const end=art.lastIndexOf('</div>');return art.slice(0,end)+NightStage.rig(kind,enemy,boss)+art.slice(end);
+    const end=art.lastIndexOf('</div>');return art.slice(0,end)+(!enemy&&NightActors.markup(kind)||NightStage.rig(kind,enemy,boss))+art.slice(end);
   }
   function battleScreen(){
     const s=game.state,b=s.battle,e=b.enemy,active=b.phase==='player'&&!window.uiBusy,h=hero(),sword=heroId()==='sword';
@@ -7188,7 +9934,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
     if(modal.kind==='catalogue'){if(!catalogueEntries(catalogueFilter).length)catalogueFilter='all';const entries=catalogueEntries(catalogueFilter);title=`技能图鉴 · ${entries.length} 种`;hint='数量直接读取当前牌池；正道剑术与魔修功法分别列出。每张技能均可查看费用和完整效果。';body=`<div class="catalogue-filters">${[['all','全部技能'],['assassin','影契刺客'],['sword','霜华剑修'],['hehuan','合欢执事'],['mechanist','天工机关师'],...(game.state.player.path?.learned?[['demonic','魔修秘术']]:[]),...(isUnlocked('sovereign')?[["sovereign","归月之身"]]:[])].map(([id,name])=>btn('catalogue-filter',name+' · '+catalogueEntries(id).length,'btn small '+(catalogueFilter===id?'primary':'ghost'),`data-filter="${id}"`)).join('')}</div><div class="deck-grid catalogue">${entries.map(id=>cardMarkup(id)).join('')}</div>`;}
     if(modal.kind==='machines'){title='调度机匣';hint='选择操作后返回战斗舞台。';body=mechanistCombat(game.state.battle);}
     if(modal.kind==='battle-help'){title='战斗手札';hint='技能规则不变。';body='<p>'+battleHint()+'</p><h3>当前持续效果</h3><p>'+esc(temporaryResourceText(game.state.battle)||'无')+'</p>'; }
-    if(modal.kind==='settings'){title='声画与战斗表现';hint='调整声画表现，管理角色解锁与兑换信物。';body=`<div class="settings-options">${[['full','完整表现','刺客潜袭、剑修剑芒、逐段命中与受击姿态。'],['fast','快速表现','更短的动作与数字停留，适合重复试玩。'],['reduced','减少动态','取消位移、晃动和闪烁，保留数值与战损换装。'],['off','仅数值','关闭舞台动作与装饰特效，快速结算，保留伤害和资源反馈。']].map(([mode,name,text])=>btn('motion',`<b>${name}${motionMode===mode?' · 已选择':''}</b><small>${text}</small>`,'btn '+(motionMode===mode?'primary':'ghost'),`data-mode="${mode}"`)).join('')}</div><section class="portrait-settings"><h3>${esc(hero().name)} · 角色表现</h3><p>生命降至 50% 与 25% 时，衣装和神态显示不同战痕；恢复生命后回到对应状态。立绘按实际生命切换，五位角色具备轻缓待机、职业攻击与受击动作，按实际战斗事件触发。战斗使用原创关节式二维剪影，原画用于身份图标；不是 Live2D Cubism 模型。减少动态会关闭位移。</p><div class="actions">${btn('portrait-gallery','展开三态画卷','btn ghost')}</div></section><section class="portrait-settings"><h3>来时之路</h3><p>重看当前角色的出场故事，不改变本局进度。每次新旅程都会展示，可随时跳过。</p>${btn('prologue-replay','重看出场故事','btn ghost')}</section>${soundSettings()}${musicSettings()}${releaseInfo()}${profileSettings()}${redemptionSettings()}`;}
+    if(modal.kind==='settings'){title='声画与战斗表现';hint='调整声画表现，管理角色解锁与兑换信物。';body=`<div class="settings-options">${[['full','完整表现','刺客潜袭、剑修剑芒、逐段命中与受击姿态。'],['fast','快速表现','更短的动作与数字停留，适合重复试玩。'],['reduced','减少动态','取消位移、晃动和闪烁，保留数值与战损换装。'],['off','仅数值','关闭舞台动作与装饰特效，快速结算，保留伤害和资源反馈。']].map(([mode,name,text])=>btn('motion',`<b>${name}${motionMode===mode?' · 已选择':''}</b><small>${text}</small>`,'btn '+(motionMode===mode?'primary':'ghost'),`data-mode="${mode}"`)).join('')}</div><section class="portrait-settings"><h3>${esc(hero().name)} · 角色表现</h3><p>生命降至 50% 与 25% 时，衣装和神态显示不同战痕；恢复生命后回到对应状态。立绘按实际生命切换，五位角色具备轻缓待机、职业攻击与受击动作，按实际战斗事件触发。玩家战斗形象使用按原立绘生成的全身序列帧：每人六组四帧动作，多张卡共享动作并组合专属特效；敌人仍为关节剪影。不是 Live2D Cubism 模型。减少动态会关闭位移。</p><div class="actions">${btn('portrait-gallery','展开三态画卷','btn ghost')}</div></section><section class="portrait-settings"><h3>来时之路</h3><p>重看当前角色的出场故事，不改变本局进度。每次新旅程都会展示，可随时跳过。</p>${btn('prologue-replay','重看出场故事','btn ghost')}</section>${soundSettings()}${musicSettings()}${releaseInfo()}${profileSettings()}${redemptionSettings()}`;}
     if(modal.kind==='portrait-gallery'){const sword=heroId()==='sword',sovereign=heroId()==='sovereign';title=hero().name+' · 三态画卷';hint='这里只预览立绘，不改变生命、战斗或本局进度。血量以当前最大生命的比例计算。';body=`<div class="damage-gallery">${[['normal',sword?'静心':'从容','生命高于 50%',heroId()==='hehuan'?'双纱绷出弧线，扇下藏着轻笑。':sovereign?'夜纱未乱，月光仍在指间。':sword?'白袍齐整，目光清寒。':'衣袍齐整，金瞳含笑。'],['wounded','战痕','生命不高于 50%',heroId()==='hehuan'?'纱缘擦损，笑意收起，目光更谨慎。':sovereign?'衣角染尘，指尖魂光仍稳。':sword?'衣角染尘，剑锋仍稳。':'外袍磨损，神色警觉。'],['critical','濒危','生命不高于 25%',heroId()==='hehuan'?'借扇稳住身形，垂纱仍指向对手。':sovereign?'夜纱残损，神色沉静而倦。':sword?'霜衣破损，握剑不退。':'衣袖破损，疲惫而不退。']].map(([stage,name,threshold,text])=>`<article class="damage-gallery-card" data-stage="${stage}">${portrait(heroKind(),{previewStage:stage})}<div><span>${threshold}</span><h3>${name}</h3><p>${text}</p></div></article>`).join('')}</div><div class="actions">${btn('settings','返回声画设置','btn ghost')}</div>`;}
     if(modal.kind==='squad-card'){title=CARDS[s.battle?.hand.find(c=>c.uid===modal.pile)?.id]?.name||'机关调度';hint='先选执行者，再确认施术。取消不扣费用；最终接招者以规则预览为准。';body=squadCardMarkup(modal.pile);}
     if(modal.kind==='squad-replace'){title='换入'+MACHINE_NAMES[modal.pile];hint='选择收回哪一具；耐久不会恢复。确认后才支付1灵力。';body='<div class="squad-replace-options">'+s.battle.squad.slots.filter(Boolean).map(id=>btn('squad-replace-confirm','收回'+MACHINE_NAMES[id]+'，换入'+MACHINE_NAMES[modal.pile],'btn ghost',`data-unit="${modal.pile}" data-replace="${id}"`)).join('')+'</div>';}
@@ -7228,7 +9974,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
     actor._actionMotion=actor.animate(frames,{duration,easing:'cubic-bezier(.18,.75,.3,1)'});
   }
   function attackMotion(actor,enemy,heavy,cardId,hitIndex=0){
-    if(actor?.classList.contains('side-actor')){NightStage.pose(actor,enemy?'thrust':heavy?'finisher':NightStage.profiles[cardId]?.pose||'slash',motionMode,enemy,hitIndex);return;}
+    if(actor?.classList.contains('side-actor')){if(!enemy&&actor.querySelector('.actor-sprite')){NightActors.play(actor,NightActors.forCard(cardId),motionMode,'impact');return;}NightStage.pose(actor,enemy?'thrust':heavy?'finisher':NightStage.profiles[cardId]?.pose||'slash',motionMode,enemy,hitIndex);return;}
     if(!actor)return;
     const profile=enemy?[22,1.2,430]:({assassin:[38,1.6,430],sword:[24,.7,480],hehuan:[18,1.1,520],mechanist:[14,.6,450],sovereign:[20,.5,560]}[heroId()]||[22,1,450]);
     const distance=Math.min(profile[0]*(heavy?1.15:1),innerWidth*.045),sign=enemy?-1:1,angle=profile[1]*sign;
@@ -7309,7 +10055,7 @@ const api={profiles,paths,poses,rig,pose,effect,effectSVG};if(typeof module!=='u
     const type=event.type,target=event.target==='enemy'?'enemy':'player',temporary=[];
     const keep=el=>{temporary.push(el);return el;};
     applyResourceSnapshot(event.resources,visual);
-    if(type==='card'){context.cardId=event.cardId;audio()?.playCard?.(event.cardId);const actor=app.querySelector('[data-combatant="player"] .portrait');NightStage.pose(actor,event.mode==='trap'?'guard':String(event.cardId).startsWith('J')?'channel':NightStage.profiles[event.cardId]?.pose||'channel',motionMode);NightStage.effect(event.cardId,'player',motionMode,'cast');if(CARDS[event.cardId]?.attack)await delay(['C04','S04','F04'].includes(event.cardId)?160:70);}
+    if(type==='card'){context.cardId=event.cardId;audio()?.playCard?.(event.cardId);const actor=app.querySelector('[data-combatant="player"] .portrait');if(actor?.querySelector('.actor-sprite'))NightActors.play(actor,event.mode==='trap'?'cast':NightActors.forCard(event.cardId),motionMode,CARDS[event.cardId]?.attack&&event.mode!=='trap'&&(!String(event.cardId).startsWith('J')||['J01','J03','J07','J38'].includes(event.cardId))?'prepare':'full');else NightStage.pose(actor,event.mode==='trap'?'guard':String(event.cardId).startsWith('J')?'channel':NightStage.profiles[event.cardId]?.pose||'channel',motionMode);NightStage.effect(event.cardId,'player',motionMode,'cast');if(CARDS[event.cardId]?.attack)await delay(NightActors.forCard(event.cardId)==='heavy'?180:150);}
     if(type==='trapTrigger'){NightStage.pose(app.querySelector('[data-combatant=player] .portrait'),'counter',motionMode);context.cardId=event.cardId||context.cardId;NightStage.effect(context.cardId,'player',motionMode,'trigger');}
     if(type==='trapSet'){NightStage.pose(app.querySelector('[data-combatant=player] .portrait'),'conceal',motionMode);NightStage.effect(event.cardId,'player',motionMode,'conceal');}
     if(type!=='attack'&&type!=='card')audio()?.playEvent?.(event,{cardId:event.cardId||context.cardId,enemyId:game.state.battle?.enemy.id,intentName:context.intentName});

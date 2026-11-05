@@ -1,0 +1,70 @@
+[
+  {
+    "transport": "local HTTP, external network blocked",
+    "name": "index.html",
+    "dimensions": [
+      {
+        "role": "cat",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "sword",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "hehuan",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "tinglan",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "feiye",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "requests": [],
+    "errors": [],
+    "normalUIStart": true
+  },
+  {
+    "transport": "local HTTP, external network blocked",
+    "name": "baiyao-standalone.html",
+    "dimensions": [
+      {
+        "role": "cat",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "sword",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "hehuan",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "tinglan",
+        "width": 1024,
+        "height": 1536
+      },
+      {
+        "role": "feiye",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "requests": [],
+    "errors": [],
+    "normalUIStart": true
+  }
+]

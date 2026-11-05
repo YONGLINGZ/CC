@@ -1,0 +1,17 @@
+✔ every published card has an explicit valid sprite action and effect mapping (2.741021ms)
+✔ five actor atlases exist; actor layer does not access rules or persistence (0.489016ms)
+✔ reduced and off cancel current animation and keep idle frame (0.406734ms)
+✔ self damage names the player and retains the exact HP cost (10.925363ms)
+✔ enemy damage names the player rather than presenting the enemy as victim (7.55821ms)
+✔ 180 published cards have authored valid presentation; no id-derived/random animation fallback (3.258019ms)
+✔ five roles have distinct articulated silhouettes, enemies and bosses carry authored motifs (1.487518ms)
+✔ headless presentation is inert and does not access game or persisted state (1.187311ms)
+✔ reduced/off modes never start articulated movement (0.195442ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.294742

@@ -113,3 +113,11 @@ Chromium机匣与移动布局9组交互检查已实际运行；最终图像固�
 - `node dev/stage-edge.cjs`：藏招双时机、双击防重、运行中关闭动画、特效上限、独立 HTML 触屏开局。
 
 浏览器脚本会设置测试血量、手牌和敌人状态，以覆盖特定分支；这些不是自然开局或完整真人试玩。截图仅作内部验证。最终证据和限制见 `docs/review-v6/REVIEW_ZH.txt`。
+
+## review.7 全身序列帧
+
+`node --test dev/actors.test.cjs` 检查 180 张牌动作映射、资源及减弱动态契约。
+`node dev/actors-browser.cjs` 检查五人两视口下 50 组动作的实际背景帧变化、正方形尺寸和边界。
+`node dev/actors-offline.cjs` 检查 file:// 直接运行；受管浏览器可能拒绝此协议，须明确报告。
+`node dev/actors-offline.cjs --http` 是本地服务器替代检查，只允许回环资源、阻断外网，不等同于 file:// 验收。
+同时沿用 stage-browser、stage-edge 和 feedback-browser 的交互回归。所有浏览器 fixture 均是可复现测试状态，不是自然通关。

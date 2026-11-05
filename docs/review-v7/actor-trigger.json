@@ -1,0 +1,144 @@
+{
+  "results": [
+    {
+      "id": "J07",
+      "sequences": [
+        {
+          "action": "attack",
+          "phase": "prepare"
+        },
+        {
+          "action": "attack",
+          "phase": "prepare"
+        },
+        {
+          "action": "attack",
+          "phase": "prepare"
+        },
+        {
+          "action": "attack",
+          "phase": "prepare"
+        },
+        {
+          "action": "attack",
+          "phase": "prepare"
+        },
+        {
+          "action": "attack",
+          "phase": "impact"
+        },
+        {
+          "action": "attack",
+          "phase": "impact"
+        },
+        {
+          "action": "attack",
+          "phase": "impact"
+        },
+        {
+          "action": "attack",
+          "phase": "impact"
+        },
+        {
+          "action": "attack",
+          "phase": "impact"
+        },
+        {
+          "action": "idle",
+          "phase": "impact"
+        },
+        {
+          "action": "idle",
+          "phase": "impact"
+        },
+        {
+          "action": "idle",
+          "phase": "impact"
+        },
+        {
+          "action": "idle",
+          "phase": "impact"
+        }
+      ]
+    },
+    {
+      "id": "J33",
+      "sequences": [
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "heavy",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        },
+        {
+          "action": "idle",
+          "phase": "full"
+        }
+      ]
+    }
+  ],
+  "machineHitDoesNotHurtPlayer": true,
+  "errors": []
+}
