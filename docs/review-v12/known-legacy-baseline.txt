@@ -1,0 +1,161 @@
+原引擎失败输出（仅移除行尾空白；断言与结果未改）：
+✔ seven realms export70 decisions,20 independent layouts and legacy30 mode explicitly (6.273082ms)
+✔ all20 templates and all professions have connected seven-realm maps with forty-plus nodes each (134.076971ms)
+✔ five early bosses form nonrepeating draw pools while three middle guardians and final ruler remain reachable (133.756046ms)
+✔ nine named bosses each carry independent background, dialogue and supported fixed special attacks (0.498503ms)
+✖ fixture: mark reaches all seven arrivals, final70 and exactly seven boss victories (5.577552ms)
+✔ fixture: sword reaches all seven arrivals, final70 and exactly seven boss victories (14.189265ms)
+✖ fixture: sovereign reaches all seven arrivals, final70 and exactly seven boss victories (2.625615ms)
+✖ hidden route opens after final70 and never after early snake or third chapter30 (2.467125ms)
+✖ original NPC final encounter is scheduled once, then stops rewriting later realm events (2.273833ms)
+✔ twelve independent event definitions respect floor/region gates in scheduled maps and random event pools (64.777614ms)
+✖ each new event resolves actual choices once, keeping coins, items and own-class skill rewards real (1.534297ms)
+✖ seven-region restart restores original resources and selected campaign without residual progress (0.997586ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 6
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 382.004231
+
+✖ failing tests:
+
+test at dev/v11-campaign.test.cjs:35:50
+✖ fixture: mark reaches all seven arrivals, final70 and exactly seven boss victories (5.577552ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:40:342)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dev/v11-campaign.test.cjs:35:50
+✖ fixture: sovereign reaches all seven arrivals, final70 and exactly seven boss victories (2.625615ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:40:342)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dev/v11-campaign.test.cjs:45:1
+✖ hidden route opens after final70 and never after early snake or third chapter30 (2.467125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at restTo (/workspace/CC-replay/dev/v11-campaign.test.cjs:9:386)
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:46:103)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dev/v11-campaign.test.cjs:49:1
+✖ original NPC final encounter is scheduled once, then stops rewriting later realm events (2.273833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at restTo (/workspace/CC-replay/dev/v11-campaign.test.cjs:9:386)
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:50:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dev/v11-campaign.test.cjs:60:1
+✖ each new event resolves actual choices once, keeping coins, items and own-class skill rewards real (1.534297ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'personal_assassin_1'
+  - 'marsh_pharmacy'
+
+      at eventFixture (/workspace/CC-replay/dev/v11-campaign.test.cjs:10:417)
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:62:75)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'personal_assassin_1',
+    expected: 'marsh_pharmacy',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at dev/v11-campaign.test.cjs:66:1
+✖ seven-region restart restores original resources and selected campaign without residual progress (0.997586ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at restTo (/workspace/CC-replay/dev/v11-campaign.test.cjs:9:386)
+      at TestContext.<anonymous> (/workspace/CC-replay/dev/v11-campaign.test.cjs:67:146)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

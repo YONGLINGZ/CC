@@ -1,0 +1,2362 @@
+{
+  "format": "baiyao-review12-composite-acceptance-v1",
+  "generatedAt": "2026-11-06T22:19:09.638Z",
+  "method": "Combined evidence from 15 passing strengthened scenarios plus a targeted responsive rerun on identical built runtime. This is not represented as one clean 16/16 invocation.",
+  "baseCommit": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "buildSHA256": "3992632b324c047f4164bbf9e2c35e75f9b23a5c4e37983044d42f26c58916a0",
+  "currentRunnerSHA256": "c17c9be487fb5a1aeffc8f443ccaf106f1fa78262cd60830702294b12100315b",
+  "sourceHashes": {
+    "dev/engine.js": "8ae9a31c4977dbd3f907cd0185f6e57b5a1fa8ff10fd0b56eb3fd70b1ff6701f",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-rules.js": "46a352eb2ce08cdb0bfbac51b8185dd024bedb6f8609c976eb5ead4ff2be417a",
+    "dev/sprite-frames.js": "4d2026bb25d44dd9e9164d1add9b52cd2e11958f83cd5a468220831233044da1",
+    "dev/sprite-motion.js": "412f3d52c9645f5419e7f4549a379a6a04d1073a27c023732653b7d7136196e9",
+    "dev/ui.js": "27316ff7be8260e5b53feb721b394b9856abdfd7e1f5046f273dd81aed6f9b53"
+  },
+  "sourceReports": [
+    {
+      "path": "docs/review-v12/qa-strength-full.json",
+      "sha256": "8161ac72c800ba0219711b5557ae4bb05a3c76b6c1c142fa491696c1e61a34ec",
+      "runnerSHA256": "b9e9bacb3733dee52d4661a904bcbdc129c50f148e4b439ad9b711bf28651673",
+      "filter": null,
+      "startedAt": "2026-11-06T22:14:55.596Z",
+      "finishedAt": "2026-11-06T22:16:40.709Z",
+      "passed": 15,
+      "failed": 1,
+      "notRun": 0
+    },
+    {
+      "path": "docs/review-v12/qa-responsive-final/qa-browser.json",
+      "sha256": "bc23a9f523e96a48ad10d294f6016dad9fef92ddf40acf85c47937a2fd13f275",
+      "runnerSHA256": "c17c9be487fb5a1aeffc8f443ccaf106f1fa78262cd60830702294b12100315b",
+      "filter": "responsive",
+      "startedAt": "2026-11-06T22:17:38.097Z",
+      "finishedAt": "2026-11-06T22:17:52.459Z",
+      "passed": 1,
+      "failed": 0,
+      "notRun": 15
+    }
+  ],
+  "harnessCorrection": {
+    "scenario": "responsive",
+    "reason": "The records tab was legitimately empty. The strengthened geometry assertion now requires .replay-empty for that tab, not a collection item card. No product code changed.",
+    "originalFailureReport": "docs/review-v12/qa-strength-full.json"
+  },
+  "results": [
+    {
+      "id": "fresh-profile",
+      "name": "Fresh browser creates a usable v2 profile without phantom rewards",
+      "method": "DOM, fresh storage",
+      "status": "pass",
+      "durationMs": 1523,
+      "evidence": {
+        "profile": {
+          "version": 2,
+          "unlocks": [],
+          "collections": {
+            "weapons": [],
+            "relics": [],
+            "cosmetics": []
+          },
+          "cooldowns": {},
+          "runSerial": 0,
+          "records": [],
+          "readStories": [],
+          "mastery": {}
+        },
+        "layout": {
+          "width": 390,
+          "scrollWidth": 390,
+          "matches": {
+            "#app": {
+              "count": 1,
+              "visible": 1
+            },
+            "#hud": {
+              "count": 1,
+              "visible": 0
+            },
+            "[role=\"dialog\"]": {
+              "count": 0,
+              "visible": 0
+            }
+          },
+          "boxes": [
+            {
+              "selector": "#app",
+              "left": 16,
+              "right": 374,
+              "width": 358,
+              "height": 3114.828125
+            }
+          ]
+        }
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "legacy-migration",
+      "name": "Legacy v1 unlock migrates once and survives refresh",
+      "method": "Legacy localStorage fixture, DOM refresh",
+      "status": "pass",
+      "durationMs": 1467,
+      "evidence": {
+        "oldVersion": 1,
+        "migratedVersion": 2,
+        "unlocks": [
+          "feiye"
+        ],
+        "recordCount": 0
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "run-setup",
+      "name": "Mode, seed, contract and challenge selections enter the actual run",
+      "method": "DOM selections and engine-state assertions",
+      "status": "pass",
+      "durationMs": 8057,
+      "evidence": {
+        "runs": [
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 2359331868
+          },
+          {
+            "mode": "long",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 70,
+            "mapSHA256": "6e028fda2dc68b1146cf5afd76bc4ebb1baa80b404bb98f5ca9782669a9fa032",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 1014737319
+          },
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 2359331868
+          }
+        ],
+        "repeatedSeedIdentical": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "resume-battle",
+      "name": "First battle is playable and a stable checkpoint resumes after refresh",
+      "method": "Natural opening and DOM battle, no resource injection",
+      "status": "pass",
+      "durationMs": 7926,
+      "evidence": {
+        "battle": {
+          "screen": "reward",
+          "actions": 6,
+          "hp": 59,
+          "battles": 1
+        },
+        "runId": 1,
+        "initialRNG": 2446671395,
+        "rewardRNG": 1303306149,
+        "battleCheckpointHash": "71424714ad11d206acbd8aaeee27f5f3137d2fad568fb3c5a64fb53790a53f9e",
+        "mapCheckpointHash": "445a12490b1721c2a10529c9cb179314b51e8a03907095e1fbc831b1c0fc45dd"
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "backup-validation",
+      "name": "Full backups restore normal fields and reject damaged data transactionally",
+      "method": "Real backup controls; deliberately corrupted backup fixture",
+      "status": "pass",
+      "durationMs": 4617,
+      "evidence": {
+        "backupFields": [
+          "version",
+          "profile",
+          "run"
+        ],
+        "rejectedCorruption": "negative hp with otherwise-valid changed profile",
+        "restoredInFreshBrowserContext": true,
+        "validRoundTrip": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "resume-enemy-phase",
+      "name": "Refreshing after end-turn resolves the saved enemy phase exactly once",
+      "method": "Real end-turn click interrupted by navigation; deterministic engine oracle",
+      "status": "pass",
+      "durationMs": 5010,
+      "evidence": {
+        "phaseBefore": "enemy",
+        "persistedPhaseBeforeResume": "enemy",
+        "phaseAfter": "player",
+        "turnBefore": 1,
+        "turnAfter": 2,
+        "expectedHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7",
+        "actualHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7"
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "storage-denied",
+      "name": "Rejected localStorage writes show an actionable warning while manual backup remains usable",
+      "method": "Storage.setItem quota-error fixture; real start/battle/settings clicks",
+      "status": "pass",
+      "durationMs": 2783,
+      "evidence": {
+        "warning": "自动保存失败：浏览器空间不足或禁止了本地存储。离开前请导出收藏与旅程备份。打开备份",
+        "exportVersion": 2,
+        "snapshotAvailable": true,
+        "simulatedQuotaFailure": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "corrupt-storage",
+      "name": "Malformed local run JSON is reported without silently overwriting the original",
+      "method": "Corrupted localStorage fixture",
+      "status": "pass",
+      "durationMs": 1267,
+      "evidence": {
+        "originalPreserved": true,
+        "resumeOffered": false,
+        "backupReachable": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "vault-echo",
+      "name": "Only one vault echo is selected; the first three battles consume it once",
+      "method": "Declared earned-item and one-hit encounter fixtures; real DOM selection/attacks",
+      "status": "pass",
+      "durationMs": 12114,
+      "evidence": {
+        "battles": [
+          {
+            "number": 1,
+            "before": 3,
+            "after": 2,
+            "carried": true
+          },
+          {
+            "number": 2,
+            "before": 2,
+            "after": 1,
+            "carried": true
+          },
+          {
+            "number": 3,
+            "before": 1,
+            "after": 0,
+            "carried": true
+          },
+          {
+            "number": 4,
+            "before": 0,
+            "after": 0,
+            "carried": false
+          }
+        ],
+        "cooldown": 1,
+        "permanentCollectionRetained": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "echo-nurture",
+      "name": "Passing another run’s first region restores older echoes, but never the echo carried in this run",
+      "method": "Prior-cooldown and first-boss fixtures; real finishing attack",
+      "status": "pass",
+      "durationMs": 4853,
+      "evidence": {
+        "before": {
+          "weapon:rime": 1,
+          "relic:jade": 2
+        },
+        "after": {
+          "relic:jade": 2
+        },
+        "currentRunEchoStillCooling": true,
+        "checkpointRestored": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "prebattle-acquisition",
+      "name": "A real matching weapon or relic acquired before the first battle survives all three echo victories",
+      "method": "Published shop-stock / event-choice fixtures; real buy/choice clicks and winning attacks",
+      "status": "pass",
+      "durationMs": 18189,
+      "evidence": {
+        "results": [
+          {
+            "kind": "weapon",
+            "id": "rime",
+            "beforeClaimed": false,
+            "acquiredBeforeBattle": true,
+            "victories": 3,
+            "remaining": 0,
+            "stillOwned": true
+          },
+          {
+            "kind": "relic",
+            "id": "jade",
+            "beforeClaimed": false,
+            "acquiredBeforeBattle": true,
+            "victories": 3,
+            "remaining": 0,
+            "stillOwned": true
+          }
+        ]
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "abandon-guard",
+      "name": "Abandoning cannot refresh echo readiness or award settlement repeatedly",
+      "method": "DOM abandon confirmation and fresh-run sequence",
+      "status": "pass",
+      "durationMs": 5087,
+      "evidence": {
+        "sequence": [
+          {
+            "old": 1,
+            "next": 2,
+            "cooldown": 1,
+            "records": 0
+          },
+          {
+            "old": 2,
+            "next": 3,
+            "cooldown": 1,
+            "records": 0
+          }
+        ],
+        "stillCoolingAfterRefresh": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "share-result",
+      "name": "Settlement summary reflects the run and its configuration can be copied for sharing",
+      "method": "Final-boss one-hit fixture; real final attack and sharing controls",
+      "status": "pass",
+      "durationMs": 3782,
+      "evidence": {
+        "record": {
+          "id": 1,
+          "character": "sword",
+          "starter": "sword",
+          "mode": "short",
+          "seed": "review12-result-seed",
+          "challenge": 1,
+          "oath": null,
+          "won": true,
+          "floor": 30,
+          "battles": 1,
+          "cardsPlayed": 1,
+          "maxHit": 6,
+          "finale": "fate",
+          "echo": null,
+          "newCollections": [
+            {
+              "kind": "weapon",
+              "id": "training"
+            },
+            {
+              "kind": "relic",
+              "id": "frostseal"
+            },
+            {
+              "kind": "cosmetic",
+              "id": "mist"
+            }
+          ],
+          "endedAt": "2026-11-06T22:16:11.499Z"
+        },
+        "sharedFields": [
+          "version",
+          "game",
+          "character",
+          "starter",
+          "config"
+        ],
+        "clipboardAPI": "stubbed success and denial; actual UI action",
+        "fallbackTextIdentical": true,
+        "settlementNotDuplicated": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "shared-config-import",
+      "name": "Pasted configuration changes preparation while preserving the active checkpoint and explains unavailable echoes",
+      "method": "Real share-import controls with a valid unowned-echo configuration",
+      "status": "pass",
+      "durationMs": 3452,
+      "evidence": {
+        "imported": {
+          "mode": "long",
+          "seed": "review12-imported-plan",
+          "challenge": 3,
+          "oath": "sword_edge",
+          "echo": {
+            "kind": "weapon",
+            "id": "divine"
+          },
+          "cosmetic": null,
+          "finale": "abyss"
+        },
+        "unavailableEchoCleared": true,
+        "message": "已载入种子与配置，确认出发前不会替换当前旅程。 未携带 照夜：先在旅途中获得此物，才能留下回响。",
+        "activeCheckpointByteIdentical": true,
+        "malformedPasteRejected": true
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "equipment-visuals",
+      "name": "Full, reduced and off equipment visuals preserve identical combat rules",
+      "method": "Legal level/owned-weapon fixture; actual equip, mode and attack clicks",
+      "status": "pass",
+      "durationMs": 22456,
+      "evidence": {
+        "identicalRuleState": true,
+        "modes": [
+          {
+            "mode": "full",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.520002365112305,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.519989013671875,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.520002365112305,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          },
+          {
+            "mode": "reduced",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          },
+          {
+            "mode": "off",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          }
+        ]
+      },
+      "sourceReport": "docs/review-v12/qa-strength-full.json"
+    },
+    {
+      "id": "responsive",
+      "name": "Replay setup, vault, battle and results fit 320, 390 and 1440 widths",
+      "method": "Viewport emulation; fixture only for final-boss shortcut",
+      "status": "pass",
+      "durationMs": 14133,
+      "evidence": {
+        "layouts": [
+          {
+            "width": 320,
+            "screen": "preparation",
+            "scrollWidth": 320,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-preparation": {
+                "count": 1,
+                "visible": 1
+              },
+              "#replay-seed": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-choice": {
+                "count": 18,
+                "visible": 18
+              },
+              ".replay-preparation [data-action=\"start\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 16,
+                "right": 304,
+                "width": 288,
+                "height": 4099.125
+              },
+              {
+                "selector": ".replay-preparation",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 2858.3125
+              },
+              {
+                "selector": "#replay-seed",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 47
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 155,
+                "width": 125,
+                "height": 157.953125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 165,
+                "right": 290,
+                "width": 125,
+                "height": 157.953125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 155,
+                "width": 125,
+                "height": 157.953125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 165,
+                "right": 290,
+                "width": 125,
+                "height": 157.953125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 76.390625
+              },
+              {
+                "selector": ".replay-preparation [data-action=\"start\"]",
+                "left": 30,
+                "right": 290,
+                "width": 260,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "collection-weapons",
+            "scrollWidth": 320,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 308,
+                "width": 296,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 420.53125
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 420.53125
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "collection-relics",
+            "scrollWidth": 320,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 308,
+                "width": 296,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 461.3125
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 461.3125
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "collection-cosmetics",
+            "scrollWidth": 320,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 308,
+                "width": 296,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 400.140625
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "collection-records",
+            "scrollWidth": 320,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-empty": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 308,
+                "width": 296,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-empty",
+                "left": 33,
+                "right": 287,
+                "width": 254,
+                "height": 111.1875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 157,
+                "width": 124,
+                "height": 45.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 163,
+                "right": 287,
+                "width": 124,
+                "height": 45.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "battle",
+            "scrollWidth": 320,
+            "matches": {
+              ".battle-stage": {
+                "count": 1,
+                "visible": 1
+              },
+              ".battle-stage [data-sprite-group]": {
+                "count": 2,
+                "visible": 2
+              },
+              ".enemy-target": {
+                "count": 1,
+                "visible": 1
+              },
+              "[data-action=\"end-turn\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": ".battle-stage",
+                "left": 12,
+                "right": 308,
+                "width": 296,
+                "height": 300.6875
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 19,
+                "right": 156,
+                "width": 137,
+                "height": 137
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 165,
+                "right": 300,
+                "width": 135,
+                "height": 135
+              },
+              {
+                "selector": ".enemy-target",
+                "left": 164,
+                "right": 301,
+                "width": 137,
+                "height": 262.6875
+              },
+              {
+                "selector": "[data-action=\"end-turn\"]",
+                "left": 87.6875,
+                "right": 300,
+                "width": 212.3125,
+                "height": 41.796875
+              }
+            ]
+          },
+          {
+            "width": 320,
+            "screen": "result",
+            "scrollWidth": 320,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".ending": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-summary": {
+                "count": 2,
+                "visible": 2
+              },
+              ".ending [data-action=\"replay-share\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 16,
+                "right": 304,
+                "width": 288,
+                "height": 2736.1875
+              },
+              {
+                "selector": ".ending",
+                "left": 16,
+                "right": 304,
+                "width": 288,
+                "height": 2736.1875
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 16,
+                "right": 304,
+                "width": 288,
+                "height": 1037.28125
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 32,
+                "right": 288,
+                "width": 256,
+                "height": 456.609375
+              },
+              {
+                "selector": ".ending [data-action=\"replay-share\"]",
+                "left": 32,
+                "right": 288,
+                "width": 256,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "preparation",
+            "scrollWidth": 390,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-preparation": {
+                "count": 1,
+                "visible": 1
+              },
+              "#replay-seed": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-choice": {
+                "count": 18,
+                "visible": 18
+              },
+              ".replay-preparation [data-action=\"start\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 16,
+                "right": 374,
+                "width": 358,
+                "height": 3512.75
+              },
+              {
+                "selector": ".replay-preparation",
+                "left": 34,
+                "right": 356,
+                "width": 322,
+                "height": 2321.734375
+              },
+              {
+                "selector": "#replay-seed",
+                "left": 34,
+                "right": 356,
+                "width": 322,
+                "height": 47
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 137.5625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 198.734375
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 198.734375
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 157.953125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 117.171875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 34,
+                "right": 190,
+                "width": 156,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 200,
+                "right": 356,
+                "width": 156,
+                "height": 96.78125
+              },
+              {
+                "selector": ".replay-preparation [data-action=\"start\"]",
+                "left": 34,
+                "right": 356,
+                "width": 322,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "collection-weapons",
+            "scrollWidth": 390,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 378,
+                "width": 366,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 189,
+                "width": 156,
+                "height": 534.484375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 201,
+                "right": 357,
+                "width": 156,
+                "height": 534.484375
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "collection-relics",
+            "scrollWidth": 390,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 378,
+                "width": 366,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 189,
+                "width": 156,
+                "height": 591.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 201,
+                "right": 357,
+                "width": 156,
+                "height": 591.359375
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "collection-cosmetics",
+            "scrollWidth": 390,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 378,
+                "width": 366,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 33,
+                "right": 189,
+                "width": 156,
+                "height": 473.3125
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "collection-records",
+            "scrollWidth": 390,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-empty": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 12,
+                "right": 378,
+                "width": 366,
+                "height": 793.359375
+              },
+              {
+                "selector": ".replay-empty",
+                "left": 33,
+                "right": 357,
+                "width": 324,
+                "height": 111.1875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 33,
+                "right": 191,
+                "width": 158,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 199,
+                "right": 357,
+                "width": 158,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "battle",
+            "scrollWidth": 390,
+            "matches": {
+              ".battle-stage": {
+                "count": 1,
+                "visible": 1
+              },
+              ".battle-stage [data-sprite-group]": {
+                "count": 2,
+                "visible": 2
+              },
+              ".enemy-target": {
+                "count": 1,
+                "visible": 1
+              },
+              "[data-action=\"end-turn\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": ".battle-stage",
+                "left": 12,
+                "right": 378,
+                "width": 366,
+                "height": 300.6875
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 19,
+                "right": 191,
+                "width": 172,
+                "height": 172
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 200,
+                "right": 370,
+                "width": 170,
+                "height": 170
+              },
+              {
+                "selector": ".enemy-target",
+                "left": 199,
+                "right": 371,
+                "width": 172,
+                "height": 262.6875
+              },
+              {
+                "selector": "[data-action=\"end-turn\"]",
+                "left": 87.6875,
+                "right": 370,
+                "width": 282.3125,
+                "height": 41.796875
+              }
+            ]
+          },
+          {
+            "width": 390,
+            "screen": "result",
+            "scrollWidth": 390,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".ending": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-summary": {
+                "count": 2,
+                "visible": 2
+              },
+              ".ending [data-action=\"replay-share\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 16,
+                "right": 374,
+                "width": 358,
+                "height": 2433.03125
+              },
+              {
+                "selector": ".ending",
+                "left": 16,
+                "right": 374,
+                "width": 358,
+                "height": 2433.03125
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 16,
+                "right": 374,
+                "width": 358,
+                "height": 938
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 32,
+                "right": 358,
+                "width": 326,
+                "height": 406.703125
+              },
+              {
+                "selector": ".ending [data-action=\"replay-share\"]",
+                "left": 32,
+                "right": 358,
+                "width": 326,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "preparation",
+            "scrollWidth": 1440,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-preparation": {
+                "count": 1,
+                "visible": 1
+              },
+              "#replay-seed": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-choice": {
+                "count": 18,
+                "visible": 18
+              },
+              ".replay-preparation [data-action=\"start\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 40,
+                "right": 1400,
+                "width": 1360,
+                "height": 2393.671875
+              },
+              {
+                "selector": ".replay-preparation",
+                "left": 67,
+                "right": 1373,
+                "width": 1306,
+                "height": 1495.421875
+              },
+              {
+                "selector": "#replay-seed",
+                "left": 67,
+                "right": 1093.75,
+                "width": 1026.75,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 386,
+                "width": 319,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 396,
+                "right": 715,
+                "width": 319,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1044,
+                "width": 319,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 1054,
+                "right": 1373,
+                "width": 319,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 100.78125
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 67,
+                "right": 715,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-choice",
+                "left": 725,
+                "right": 1373,
+                "width": 648,
+                "height": 80.390625
+              },
+              {
+                "selector": ".replay-preparation [data-action=\"start\"]",
+                "left": 67,
+                "right": 225.375,
+                "width": 158.375,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "collection-weapons",
+            "scrollWidth": 1440,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 220,
+                "right": 1220,
+                "width": 1000,
+                "height": 900
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 249,
+                "right": 555,
+                "width": 306,
+                "height": 420.53125
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 567,
+                "right": 873,
+                "width": 306,
+                "height": 420.53125
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 249,
+                "right": 478.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 486.5,
+                "right": 716,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 724,
+                "right": 953.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 961.5,
+                "right": 1191,
+                "width": 229.5,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "collection-relics",
+            "scrollWidth": 1440,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 2,
+                "visible": 2
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 220,
+                "right": 1220,
+                "width": 1000,
+                "height": 900
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 249,
+                "right": 555,
+                "width": 306,
+                "height": 461.3125
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 567,
+                "right": 873,
+                "width": 306,
+                "height": 461.3125
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 249,
+                "right": 478.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 486.5,
+                "right": 716,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 724,
+                "right": 953.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 961.5,
+                "right": 1191,
+                "width": 229.5,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "collection-cosmetics",
+            "scrollWidth": 1440,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-collection-card": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 220,
+                "right": 1220,
+                "width": 1000,
+                "height": 900
+              },
+              {
+                "selector": ".replay-collection-card",
+                "left": 249,
+                "right": 555,
+                "width": 306,
+                "height": 400.140625
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 249,
+                "right": 478.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 486.5,
+                "right": 716,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 724,
+                "right": 953.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 961.5,
+                "right": 1191,
+                "width": 229.5,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "collection-records",
+            "scrollWidth": 1440,
+            "matches": {
+              "[role=\"dialog\"]": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-empty": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-tabs button": {
+                "count": 4,
+                "visible": 4
+              }
+            },
+            "boxes": [
+              {
+                "selector": "[role=\"dialog\"]",
+                "left": 220,
+                "right": 1220,
+                "width": 1000,
+                "height": 755.125
+              },
+              {
+                "selector": ".replay-empty",
+                "left": 249,
+                "right": 1191,
+                "width": 942,
+                "height": 84.59375
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 249,
+                "right": 478.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 486.5,
+                "right": 716,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 724,
+                "right": 953.5,
+                "width": 229.5,
+                "height": 49.796875
+              },
+              {
+                "selector": ".replay-tabs button",
+                "left": 961.5,
+                "right": 1191,
+                "width": 229.5,
+                "height": 49.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "battle",
+            "scrollWidth": 1440,
+            "matches": {
+              ".battle-stage": {
+                "count": 1,
+                "visible": 1
+              },
+              ".battle-stage [data-sprite-group]": {
+                "count": 2,
+                "visible": 2
+              },
+              ".enemy-target": {
+                "count": 1,
+                "visible": 1
+              },
+              "[data-action=\"end-turn\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": ".battle-stage",
+                "left": 24,
+                "right": 1416,
+                "width": 1392,
+                "height": 396.890625
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 246.5,
+                "right": 506.5,
+                "width": 260,
+                "height": 260
+              },
+              {
+                "selector": ".battle-stage [data-sprite-group]",
+                "left": 933.5,
+                "right": 1193.5,
+                "width": 260,
+                "height": 260
+              },
+              {
+                "selector": ".enemy-target",
+                "left": 843.5,
+                "right": 1283.5,
+                "width": 440,
+                "height": 352.890625
+              },
+              {
+                "selector": "[data-action=\"end-turn\"]",
+                "left": 1299.3125,
+                "right": 1408,
+                "width": 108.6875,
+                "height": 41.796875
+              }
+            ]
+          },
+          {
+            "width": 1440,
+            "screen": "result",
+            "scrollWidth": 1440,
+            "matches": {
+              "#app": {
+                "count": 1,
+                "visible": 1
+              },
+              ".ending": {
+                "count": 1,
+                "visible": 1
+              },
+              ".replay-summary": {
+                "count": 2,
+                "visible": 2
+              },
+              ".ending [data-action=\"replay-share\"]": {
+                "count": 1,
+                "visible": 1
+              }
+            },
+            "boxes": [
+              {
+                "selector": "#app",
+                "left": 40,
+                "right": 1400,
+                "width": 1360,
+                "height": 1717.796875
+              },
+              {
+                "selector": ".ending",
+                "left": 40,
+                "right": 1400,
+                "width": 1360,
+                "height": 1717.796875
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 40,
+                "right": 692.5,
+                "width": 652.5,
+                "height": 715.765625
+              },
+              {
+                "selector": ".replay-summary",
+                "left": 61,
+                "right": 671.5,
+                "width": 610.5,
+                "height": 322.75
+              },
+              {
+                "selector": ".ending [data-action=\"replay-share\"]",
+                "left": 256.5625,
+                "right": 440.125,
+                "width": 183.5625,
+                "height": 49.796875
+              }
+            ]
+          }
+        ],
+        "viewports": [
+          320,
+          390,
+          1440
+        ],
+        "physicalDevices": false
+      },
+      "sourceReport": "docs/review-v12/qa-responsive-final/qa-browser.json"
+    }
+  ],
+  "passed": 16,
+  "failed": 0,
+  "complete": true,
+  "success": true,
+  "allRuntimeInputsIdentical": true,
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "screenshots": [
+    "docs/review-v12/qa/qa-fresh-vault-390.png",
+    "docs/review-v12/qa/qa-legacy-migration.png",
+    "docs/review-v12/qa/qa-configured-departure.png",
+    "docs/review-v12/qa/qa-resumed-map-390.png",
+    "docs/review-v12/qa/qa-backup-roundtrip.png",
+    "docs/review-v12/qa/qa-enemy-phase-resumed-once.png",
+    "docs/review-v12/qa/qa-storage-denied-manual-backup.png",
+    "docs/review-v12/qa/qa-corrupt-save-warning.png",
+    "docs/review-v12/qa/qa-echo-after-four-battles.png",
+    "docs/review-v12/qa/qa-echo-warmed-after-first-boss.png",
+    "docs/review-v12/qa/qa-prebattle-real-weapon-retained.png",
+    "docs/review-v12/qa/qa-prebattle-real-relic-retained.png",
+    "docs/review-v12/qa/qa-abandon-does-not-warm.png",
+    "docs/review-v12/qa/qa-share-fallback.png",
+    "docs/review-v12/qa/qa-shared-config-preserves-resume.png",
+    "docs/review-v12/qa/qa-equipment-full.png",
+    "docs/review-v12/qa/qa-equipment-reduced.png",
+    "docs/review-v12/qa/qa-equipment-off.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-320-preparation.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-320-collection.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-320-battle.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-320-result.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-390-preparation.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-390-collection.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-390-battle.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-390-result.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-1440-preparation.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-1440-collection.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-1440-battle.png",
+    "docs/review-v12/qa-responsive-final/qa-layout-1440-result.png"
+  ],
+  "untested": [
+    "Physical phones",
+    "Human usability sessions",
+    "Complete natural seven-region campaigns",
+    "Operating-system termination while writing localStorage",
+    "Native OS clipboard permission: clipboard success/denial are API fixtures",
+    "Every equipment proc in live combat: the three visual modes are sampled with rime"
+  ]
+}

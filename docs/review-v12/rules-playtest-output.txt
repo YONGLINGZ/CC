@@ -1,0 +1,159 @@
+{
+  "runs": 60,
+  "completed": 60,
+  "wins": 36,
+  "defeats": 24,
+  "errors": 0,
+  "summary": [
+    {
+      "role": "assassin",
+      "mode": "short",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 4,
+      "defeats": 0,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "assassin",
+      "mode": "short",
+      "challenge": 3,
+      "runs": 4,
+      "wins": 4,
+      "defeats": 0,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "assassin",
+      "mode": "long",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 2,
+      "defeats": 2,
+      "errors": 0,
+      "maxFloor": 70
+    },
+    {
+      "role": "sword",
+      "mode": "short",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 2,
+      "defeats": 2,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "sword",
+      "mode": "short",
+      "challenge": 3,
+      "runs": 4,
+      "wins": 2,
+      "defeats": 2,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "sword",
+      "mode": "long",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 0,
+      "defeats": 4,
+      "errors": 0,
+      "maxFloor": 46
+    },
+    {
+      "role": "hehuan",
+      "mode": "short",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 3,
+      "defeats": 1,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "hehuan",
+      "mode": "short",
+      "challenge": 3,
+      "runs": 4,
+      "wins": 3,
+      "defeats": 1,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "hehuan",
+      "mode": "long",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 1,
+      "defeats": 3,
+      "errors": 0,
+      "maxFloor": 70
+    },
+    {
+      "role": "mechanist",
+      "mode": "short",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 3,
+      "defeats": 1,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "mechanist",
+      "mode": "short",
+      "challenge": 3,
+      "runs": 4,
+      "wins": 2,
+      "defeats": 2,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "mechanist",
+      "mode": "long",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 1,
+      "defeats": 3,
+      "errors": 0,
+      "maxFloor": 70
+    },
+    {
+      "role": "sovereign",
+      "mode": "short",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 4,
+      "defeats": 0,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "sovereign",
+      "mode": "short",
+      "challenge": 3,
+      "runs": 4,
+      "wins": 4,
+      "defeats": 0,
+      "errors": 0,
+      "maxFloor": 30
+    },
+    {
+      "role": "sovereign",
+      "mode": "long",
+      "challenge": 0,
+      "runs": 4,
+      "wins": 1,
+      "defeats": 3,
+      "errors": 0,
+      "maxFloor": 70
+    }
+  ]
+}

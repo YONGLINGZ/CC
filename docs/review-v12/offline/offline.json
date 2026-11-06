@@ -1,0 +1,84 @@
+{
+  "transport": "local HTTP, external requests blocked; file:// not tested",
+  "cases": [
+    {
+      "file": "index.html",
+      "sha256": "705c9016b37d7bf23b9f594dd4d7dcc3e9d70ab15c0a4bc76d7b0bdaf96202ba",
+      "repaired": [
+        {
+          "key": "m15",
+          "ready": "true",
+          "diagnostics": {
+            "transferredPixels": 0,
+            "removedMattePixels": 493772,
+            "ambiguousComponents": [],
+            "scale": 1,
+            "sourceWidth": 1024,
+            "sourceHeight": 1024,
+            "preparedWidth": 1024,
+            "preparedHeight": 1024
+          },
+          "inline": false
+        },
+        {
+          "key": "shiying",
+          "ready": "true",
+          "diagnostics": {
+            "transferredPixels": 0,
+            "removedMattePixels": 529475,
+            "ambiguousComponents": [],
+            "scale": 1,
+            "sourceWidth": 1024,
+            "sourceHeight": 1024,
+            "preparedWidth": 1024,
+            "preparedHeight": 1024
+          },
+          "inline": false
+        }
+      ],
+      "errors": [],
+      "external": [],
+      "localRequests": 16
+    },
+    {
+      "file": "baiyao-standalone.html",
+      "sha256": "6cb571a55542e64be2994447bb008496e0150ca398a6c0f9e57a35a1cb4e88c8",
+      "repaired": [
+        {
+          "key": "m15",
+          "ready": "true",
+          "diagnostics": {
+            "transferredPixels": 0,
+            "removedMattePixels": 493772,
+            "ambiguousComponents": [],
+            "scale": 1,
+            "sourceWidth": 1024,
+            "sourceHeight": 1024,
+            "preparedWidth": 1024,
+            "preparedHeight": 1024
+          },
+          "inline": true
+        },
+        {
+          "key": "shiying",
+          "ready": "true",
+          "diagnostics": {
+            "transferredPixels": 0,
+            "removedMattePixels": 529475,
+            "ambiguousComponents": [],
+            "scale": 1,
+            "sourceWidth": 1024,
+            "sourceHeight": 1024,
+            "preparedWidth": 1024,
+            "preparedHeight": 1024
+          },
+          "inline": true
+        }
+      ],
+      "errors": [],
+      "external": [],
+      "localRequests": 1
+    }
+  ],
+  "success": true
+}

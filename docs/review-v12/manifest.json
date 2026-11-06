@@ -1,0 +1,31 @@
+{
+  "baseCommit": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "release": {
+    "id": "2026.11.06-review.12",
+    "name": "藏珍再行"
+  },
+  "builds": {
+    "index.html": "3992632b324c047f4164bbf9e2c35e75f9b23a5c4e37983044d42f26c58916a0",
+    "baiyao-standalone.html": "9914a20ba1b19a7ffb2622bc994d66c88fcf8d4e76ad0f2caa48214833e2debd"
+  },
+  "runtime": {
+    "dev/engine.js": "8ae9a31c4977dbd3f907cd0185f6e57b5a1fa8ff10fd0b56eb3fd70b1ff6701f",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-rules.js": "46a352eb2ce08cdb0bfbac51b8185dd024bedb6f8609c976eb5ead4ff2be417a",
+    "dev/sprite-frames.js": "4d2026bb25d44dd9e9164d1add9b52cd2e11958f83cd5a468220831233044da1",
+    "dev/sprite-motion.js": "412f3d52c9645f5419e7f4549a379a6a04d1073a27c023732653b7d7136196e9",
+    "dev/ui.js": "27316ff7be8260e5b53feb721b394b9856abdfd7e1f5046f273dd81aed6f9b53"
+  },
+  "unitTests": {
+    "passed": 287,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 16,
+    "combinedRuns": true,
+    "allRuntimeInputsIdentical": true
+  },
+  "naturalIndependentRuns": 68,
+  "physicalDevicesTested": false,
+  "humanRetentionMeasured": false
+}

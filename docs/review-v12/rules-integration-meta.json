@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-11-06T22:10:04.361Z",
+  "gitHead": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "command": "node --test dev/replay-integration.test.cjs",
+  "tests": 48,
+  "pass": 48,
+  "fail": 0,
+  "sourceHashes": {
+    "dev/engine.js": "8ae9a31c4977dbd3f907cd0185f6e57b5a1fa8ff10fd0b56eb3fd70b1ff6701f",
+    "dev/replay-rules.js": "46a352eb2ce08cdb0bfbac51b8185dd024bedb6f8609c976eb5ead4ff2be417a",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-integration.test.cjs": "9f41afa5c2dcc6eac2cd8b56cec32bee7f6534fd04e5ef45512f7b3cf4d0c5c2"
+  },
+  "method": "Actual engine API actions with explicit encounter/card/resource/progression fixtures to isolate contracts, weapons, echo, saving and RNG. This is not natural gameplay, player balance or browser visual coverage."
+}
