@@ -6,7 +6,7 @@ const poseActions={slash:'attack',thrust:'attack',flurry:'attack',counter:'attac
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;');
 function source(id,appearance=''){
  const key=appearance||id,raw=root.NightAssets?.actorAppearances?.[key];
- if(raw)return {group:'actorAppearances',key,columns:8,rows:6,...(typeof raw==='string'?{src:raw}:raw)};
+ if(raw&&(typeof raw==='string'||raw.src))return {group:'actorAppearances',key,columns:8,rows:6,...(typeof raw==='string'?{src:raw}:raw)};
  // An unavailable costume never silently shows the default clothing.
  if(appearance)return null;
  const base=root.NightAssets?.actors?.[id];return base?{group:'actors',key:id,columns:4,rows:6,...(typeof base==='string'?{src:base}:base)}:null;

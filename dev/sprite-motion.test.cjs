@@ -44,9 +44,9 @@ test('player appearance lookup honors atlas metadata and refuses a different out
  A.equal(actors.source('sword_fallen').src,'fallen.png');A.equal(actors.markup('sword','missing-outfit'),'');A.equal(actors.source('sword').columns,4);
  global.NightAssets=previous;
 });
-function runtime(){
+function runtime({tainted=false}={}){
  let id=0;const frames=[],timers=[];const rgba=drawing().data;
- function context(){return {drawImage(){},clearRect(){},save(){},restore(){},beginPath(){},moveTo(){},lineTo(){},closePath(){},clip(){},transform(){},getImageData(){return {data:rgba,width:72,height:72};}};}
+ function context(){return {drawImage(){},clearRect(){},save(){},restore(){},beginPath(){},moveTo(){},lineTo(){},closePath(){},clip(){},transform(){},getImageData(){if(tainted)throw new Error('Canvas is not origin-clean');return {data:rgba,width:72,height:72};}};}
  const document={hidden:false,readyState:'complete',body:{dataset:{motion:'full'}},createElement(){return {width:0,height:0,className:'',setAttribute(){},addEventListener(){},getContext(type){return type==='2d'?context():null;},remove(){this.removed=true;}};},addEventListener(){}};
  class Image{constructor(){this.naturalWidth=2048;this.naturalHeight=1536;this.complete=false;}set src(value){this.value=value;this.complete=true;if(value==='missing'){this.naturalWidth=0;this.onerror?.();}else this.onload?.();}}
  const root={document,Image,performance:{now:()=>0},setTimeout:fn=>{timers.push(fn);return ++id;},clearTimeout(){},requestAnimationFrame:fn=>{frames.push(fn);return ++id;},cancelAnimationFrame(){},matchMedia:()=>({matches:false}),NightAssets:{actorAppearances:{new:{src:'new.png',columns:8,rows:6},bad:{src:'missing',columns:8,rows:6}},actors:{old:'old.webp'}}};root.globalThis=root;
@@ -68,4 +68,36 @@ test('runtime pauses reduced/hidden figures, keeps phase continuity and releases
 test('failed appearance resource falls back without switching its identity',async()=>{
  const r=runtime(),el=r.element('bad'),M=r.root.NightSpriteMotion;M.mount(el);await Promise.resolve();await Promise.resolve();
  A.equal(el.dataset.spriteStatus,'failed');A.equal(el.dataset.spriteReady,undefined);A.equal(el.dataset.spriteKey,'bad');A.equal(M.stats().instances,0);A.equal(el.children[0].removed,true);
+});
+
+test('rapid action changes bound unfinished fields and detached actors cancel queued analysis',async()=>{
+ const r=runtime(),M=r.root.NightSpriteMotion;
+ r.root.NightAssets.actorAppearances.new.columns=48;
+ const el=r.element(),instance=M.mount(el);await Promise.resolve();await Promise.resolve();
+ for(let row=1;row<6;row++)M.play(el,{src:'new.png',columns:48,rows:6},{row,action:'attack'});
+ A.ok(M.stats().pending>0);A.ok(M.stats().pending<=180,JSON.stringify(M.stats()));A.ok(M.stats().pairs<=180);
+ instance.dispose();A.equal(M.stats().pending,0);A.equal(M.stats().instances,0);A.equal(M.stats().pairs,0);
+ const replacement=M.mount(el);await Promise.resolve();await Promise.resolve();
+ A.equal(el.dataset.spriteReady,'true');A.ok(M.stats().pending>0);replacement.dispose();A.equal(M.stats().pending,0);
+});
+test('origin-restricted canvas analysis fails safely and preload resolves false',async()=>{
+ const r=runtime({tainted:true}),el=r.element(),M=r.root.NightSpriteMotion;
+ M.mount(el);await Promise.resolve();await Promise.resolve();
+ A.equal(el.dataset.spriteStatus,'failed');A.equal(el.dataset.spriteReady,undefined);A.equal(M.stats().instances,0);A.equal(M.stats().pending,0);
+ A.equal(await M.warm({src:'restricted.png',columns:8,rows:6}),false);
+});
+
+test('cold or cross-row motion keeps a single silhouette and solved neighbours only briefly blend',()=>{
+ for(const t of [.1,.25,.49,.5,.51,.75,.9]){
+  A.ok([0,1].includes(M.blendWeight(t,false)), 'cold flow must not dissolve two faces');
+  A.ok([0,1].includes(M.blendWeight(t,true,false)), 'recovery must not dissolve unrelated rows');
+ }
+ A.equal(M.blendWeight(0,true),0);A.equal(M.blendWeight(1,true),1);
+ A.equal(M.blendWeight(.4,true),0);A.equal(M.blendWeight(.6,true),1);
+ A.ok(Math.abs(M.blendWeight(.5,true)-.5)<1e-12);
+ const mixed=Array.from({length:101},(_,i)=>M.blendWeight(i/100,true)).filter(w=>w>0&&w<1);
+ A.ok(mixed.length<=12,'only the short pose handoff may contain both silhouettes');
+ // Displacement itself still advances between those crisp samples.
+ const field=M.constantField(.1,0);
+ A.ok(M.warpPoint(field,.2,.3,.4)[0]>M.warpPoint(field,.2,.3,.3)[0]);
 });

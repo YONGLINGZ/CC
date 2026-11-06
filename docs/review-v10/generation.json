@@ -1,0 +1,386 @@
+{
+  "tool": "image_gen",
+  "newAtlases": 19,
+  "entries": [
+    {
+      "key": "cat-blood",
+      "reference": "assets/outfits/cat-blood.webp",
+      "output": "assets/actor-keyframes/cat-blood.png",
+      "sha256": "4039b00c336cff46bf0084787931abcd99abf1ca38e777a49ef3270b0971e1c7",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "cat-moon",
+      "reference": "assets/outfits/cat-moon.webp",
+      "output": "assets/actor-keyframes/cat-moon.png",
+      "sha256": "55719b9214088ffdd1d3658f013564efc7ca0ed40eb4606168b4bccd759eb189",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "feiye-moonveil",
+      "reference": "assets/outfits/feiye-moonveil.png",
+      "output": "assets/actor-keyframes/feiye-moonveil.png",
+      "sha256": "52d17d3b67cd47421c1788bc70894358d662a1f36798cc5e5c2a358309aaba23",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "feiye-night_crown",
+      "reference": "assets/outfits/feiye-night_crown.png",
+      "output": "assets/actor-keyframes/feiye-night_crown.png",
+      "sha256": "cc34723c0a58ec7085043583f6c9c6abbf7ec05e154d69165731eb0a681b6e27",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "hehuan-crimson_oath",
+      "reference": "assets/outfits/hehuan-crimson_oath.png",
+      "output": "assets/actor-keyframes/hehuan-crimson_oath.png",
+      "sha256": "2fe29b8dcdff2e0fc7cc25126257f8197ab182c2c2ebbcfaf9166dad60a8b09f",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "hehuan-dusk_silk",
+      "reference": "assets/outfits/hehuan-dusk_silk.png",
+      "output": "assets/actor-keyframes/hehuan-dusk_silk.png",
+      "sha256": "3373643759dc0488490d58b861bf21032958477c2cbc5da499ce46753346aeb2",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword-blood",
+      "reference": "assets/outfits/sword-blood.webp",
+      "output": "assets/actor-keyframes/sword-blood.png",
+      "sha256": "3e58066475ce7b53f932afa63449aa312e2fccad8452febe8a17d83a9cae7ec9",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword-ember",
+      "reference": "assets/outfits/sword-ember.webp",
+      "output": "assets/actor-keyframes/sword-ember.png",
+      "sha256": "06381381f93e876b59a521254cd354ec7924365a86d4ba24fb4424037ed47c35",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword-lotus",
+      "reference": "assets/outfits/sword-lotus.webp",
+      "output": "assets/actor-keyframes/sword-lotus.png",
+      "sha256": "2fdac43be216b8999e59b3e445acf21f761b7bf863bc20927c156628b0ef8e10",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword-mist",
+      "reference": "assets/outfits/sword-mist.webp",
+      "output": "assets/actor-keyframes/sword-mist.png",
+      "sha256": "7cf7ed6e726b2a0f54e861a60f5ed743fd1b073ff431e4298474dee01a60335f",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword-moon",
+      "reference": "assets/outfits/sword-moon.webp",
+      "output": "assets/actor-keyframes/sword-moon.png",
+      "sha256": "769999e9099eab9e519d5799c0b7da388de0b6673cdb422dda4d038db2d87c96",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen-blood",
+      "reference": "assets/outfits/sword_fallen-blood.webp",
+      "output": "assets/actor-keyframes/sword_fallen-blood.png",
+      "sha256": "8d41fa8db6882e3aecc5b1030c461d15eb07b4102a12e726cde48f40b198cc32",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen-ember",
+      "reference": "assets/outfits/sword_fallen-ember.webp",
+      "output": "assets/actor-keyframes/sword_fallen-ember.png",
+      "sha256": "279e1a6358d8d5228f4adc3a511396c4ad85a877b08f4b985b2d515202f160bf",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen-lotus",
+      "reference": "assets/outfits/sword_fallen-lotus.webp",
+      "output": "assets/actor-keyframes/sword_fallen-lotus.png",
+      "sha256": "4a9568982aaee71070f0d2c40ca62881b9552151fe52b816921d3c8ec000bcd7",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen-mist",
+      "reference": "assets/outfits/sword_fallen-mist.webp",
+      "output": "assets/actor-keyframes/sword_fallen-mist.png",
+      "sha256": "36a87c52bc50bf2c3fc4a0418d6dac0d76e567913b20cfe54d6fc67eacc8109b",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen-moon",
+      "reference": "assets/outfits/sword_fallen-moon.webp",
+      "output": "assets/actor-keyframes/sword_fallen-moon.png",
+      "sha256": "5b0dd9495a984b4408b50600c9dd69ea83f6583ca948de53d7803496bf09b60f",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "sword_fallen",
+      "reference": "assets/puppet/sword_fallen-normal.webp",
+      "output": "assets/actor-keyframes/sword_fallen.png",
+      "sha256": "2a45cc78e24b9f0ce308aaf38582f93607c50a02f5cae8d00a63a7bbdf7859ab",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "tinglan-brass_guard",
+      "reference": "assets/outfits/tinglan-brass_guard.png",
+      "output": "assets/actor-keyframes/tinglan-brass_guard.png",
+      "sha256": "783fc5176d779ee887ed0c7665d614563606cb4696c4c0420c5030b5c781d7e1",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    },
+    {
+      "key": "tinglan-workshop",
+      "reference": "assets/outfits/tinglan-workshop.png",
+      "output": "assets/actor-keyframes/tinglan-workshop.png",
+      "sha256": "a9a56774937ccd572937340de88721a72996a8d4c23734669b72bca7dd08ae68",
+      "size": [
+        1448,
+        1086
+      ],
+      "columns": 8,
+      "rows": [
+        "idle",
+        "attack",
+        "heavy",
+        "cast",
+        "guard",
+        "hurt"
+      ],
+      "method": "Built-in image_gen with corresponding local outfit reference, transparent full-body consecutive poses; sword sheets repaired to contain compact diagonal blades within cells."
+    }
+  ]
+}

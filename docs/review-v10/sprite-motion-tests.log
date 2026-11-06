@@ -1,0 +1,18 @@
+✔ motion samples genuinely move a translated silhouette and recover inverse motion (121.326259ms)
+✔ local movement field distinguishes a hand displacement from the torso (96.91164ms)
+✔ transparent RGB is removed before motion matching and never pollutes color estimates (3.613363ms)
+✔ four/eight-column actions have a continuous prepare-impact boundary and 30 distinct display samples (1.845919ms)
+✔ player appearance lookup honors atlas metadata and refuses a different outfit fallback (2.125523ms)
+✔ runtime pauses reduced/hidden figures, keeps phase continuity and releases removed actors (122.858289ms)
+✔ failed appearance resource falls back without switching its identity (2.644314ms)
+✔ rapid action changes bound unfinished fields and detached actors cancel queued analysis (449.837059ms)
+✔ origin-restricted canvas analysis fails safely and preload resolves false (6.12019ms)
+✔ cold or cross-row motion keeps a single silhouette and solved neighbours only briefly blend (1.148887ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 826.354479

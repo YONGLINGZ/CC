@@ -123,11 +123,22 @@ function runJobs(){
  }
  if(jobs.length)jobTimer=setTimeout(runJobs,0);
 }
-function enqueue(iterator,priority=0){return new Promise((resolve,reject)=>{const job={iterator,priority,resolve,reject};let i=jobs.findIndex(j=>j.priority<priority);if(i<0)i=jobs.length;jobs.splice(i,0,job);if(!jobTimer)jobTimer=setTimeout(runJobs,0);});}
+function enqueue(iterator,priority=0){
+ let job;const promise=new Promise((resolve,reject)=>{job={iterator,priority,resolve,reject};});
+ function insert(){let i=jobs.findIndex(j=>j.priority<job.priority);if(i<0)i=jobs.length;jobs.splice(i,0,job);}
+ insert();if(!jobTimer)jobTimer=setTimeout(runJobs,0);
+ promise.cancel=()=>{const i=jobs.indexOf(job);if(i<0)return;jobs.splice(i,1);iterator.return?.();job.resolve(null);if(!jobs.length&&jobTimer){clearTimeout(jobTimer);jobTimer=null;}};
+ promise.promote=value=>{const i=jobs.indexOf(job);if(i<0||value<=job.priority)return;jobs.splice(i,1);job.priority=value;insert();};
+ return promise;
+}
+function discardPair(key,p){pairs.delete(key);p.work?.cancel();}
+function cancelUnusedJobs(){for(const [key,p]of pairs)if(!p.ready&&p.assets.every(a=>a.refs===0))discardPair(key,p);}
 function touch(map,key,value){map.delete(key);map.set(key,value);}
 function prune(){
- if(assets.size>MAX_ASSETS)for(const [key,a]of assets){if(a.refs===0&&a.status!=='pending'){assets.delete(key);a.frames.clear();if(assets.size<=MAX_ASSETS)break;}}
- while(pairs.size>MAX_PAIRS){const [key,value]=pairs.entries().next().value;if(!value.ready){touch(pairs,key,value);break;}pairs.delete(key);}
+ if(assets.size>MAX_ASSETS)for(const [key,a]of assets){if(a.refs===0&&a.status!=='pending'){assets.delete(key);a.frames.clear();for(const [pairKey,p]of pairs)if(p.assets.includes(a))discardPair(pairKey,p);if(assets.size<=MAX_ASSETS)break;}}
+ // Pending work must obey the same bound as completed fields. Otherwise rapidly
+ // changing encounters queues unbounded analyses of figures already removed.
+ while(pairs.size>MAX_PAIRS){const [key,p]=pairs.entries().next().value;discardPair(key,p);}
 }
 function load(d){
  if(!d||typeof Image==='undefined')return null;
@@ -141,6 +152,7 @@ function load(d){
   a.image.onerror=()=>finish(false);a.image.src=d.src;
   if(a.image.complete)finish(a.image.naturalWidth>0);
  });
+ a.promise.then(()=>Promise.resolve().then(prune));
  prune();return a;
 }
 function ref(asset,row,col){return {asset,row:clamp(row,0,asset.d.rows-1),col:clamp(col,0,asset.d.columns-1)};}
@@ -153,10 +165,11 @@ function frame(ref){
 }
 function pair(a,b,priority=0){
  const key=a.asset.id+':'+a.row+':'+a.col+'>'+b.asset.id+':'+b.row+':'+b.col;
- if(pairs.has(key)){const p=pairs.get(key);touch(pairs,key,p);return p;}
- const fa=frame(a),fb=frame(b),p={...cheapPair(fa,fb),ready:false};pairs.set(key,p);
- p.promise=enqueue(solvePair(fa,fb),priority).then(result=>{Object.assign(p,result,{ready:true});prune();return p;},()=>{p.failed=true;return p;});
- return p;
+ if(pairs.has(key)){const p=pairs.get(key);touch(pairs,key,p);p.work?.promote(priority);return p;}
+ const fa=frame(a),fb=frame(b),p={...cheapPair(fa,fb),ready:false,assets:[a.asset,b.asset]};pairs.set(key,p);
+ p.work=enqueue(solvePair(fa,fb),priority);
+ p.promise=p.work.then(result=>{if(result)Object.assign(p,result,{ready:true});return p;},()=>{p.failed=true;return p;});
+ prune();return p;
 }
 function warmRow(asset,row,priority=0){
  if(!asset||asset.status!=='ready')return;
@@ -165,6 +178,14 @@ function warmRow(asset,row,priority=0){
 
 // The two warped images are combined in premultiplied-alpha space. Ordinary
 // source-over blending would darken transparent fabric and produce double edges.
+// Preserve one opaque drawing through most of a transition. A broad dissolve
+// produces two faces/weapons whenever local correspondence is imperfect. Only
+// solved, same-row neighbours get a short handoff; cold and cross-row poses
+// stay crisp while their displacement continues to be sampled every frame.
+function blendWeight(t,ready,sameTrack=true){
+ t=clamp(t,0,1);
+ return ready&&sameTrack?smooth(clamp((t-.44)/.12,0,1)):(t<.5?0:1);
+}
 function makeGL(canvas){
  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:false,depth:false,stencil:false,preserveDrawingBuffer:false});
  if(!gl)return null;
@@ -194,11 +215,12 @@ function makeGL(canvas){
  const zero=constantField();
  return {kind:'webgl',draw(a,b,t,flow){
   gl.viewport(0,0,canvas.width,canvas.height);gl.disable(gl.BLEND);
-  drawWarp(targets[0],a,flow?.forward||zero,t);drawWarp(targets[1],b,flow?.backward||zero,1-t);
+  const mix=blendWeight(t,flow?.ready,a.asset===b.asset&&a.row===b.row);
+  if(mix<1)drawWarp(targets[0],a,flow?.forward||zero,t);if(mix>0)drawWarp(targets[1],b,flow?.backward||zero,1-t);
   gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(merge);attribute(merge,'point',quad);
   gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,targets[0].texture);gl.uniform1i(gl.getUniformLocation(merge,'first'),0);
   gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,targets[1].texture);gl.uniform1i(gl.getUniformLocation(merge,'second'),1);
-  gl.uniform1f(gl.getUniformLocation(merge,'mixAmount'),smooth(t));gl.drawArrays(gl.TRIANGLES,0,6);
+  gl.uniform1f(gl.getUniformLocation(merge,'mixAmount'),mix);gl.drawArrays(gl.TRIANGLES,0,6);
  },dispose(){for(const t of textures.values())gl.deleteTexture(t);targets.forEach(t=>{gl.deleteTexture(t.texture);gl.deleteFramebuffer(t.fbo);});[points,moves,elements,quad].forEach(b=>gl.deleteBuffer(b));gl.deleteProgram(warp);gl.deleteProgram(merge);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
 function affine(ctx,p,q){
@@ -216,7 +238,7 @@ function make2D(canvas){
    for(const ids of [[0,1,2],[1,3,2]]){ctx.save();ctx.globalAlpha=opacity;ctx.globalCompositeOperation='lighter';ctx.beginPath();ids.forEach((i,k)=>k?ctx.lineTo(...q[i]):ctx.moveTo(...q[i]));ctx.closePath();ctx.clip();if(affine(ctx,ids.map(i=>s[i]),ids.map(i=>q[i])))ctx.drawImage(a.image,r.col*w,r.row*h,w,h,0,0,size,size);ctx.restore();}
   }
  }
- return {kind:'canvas2d',draw(a,b,t,flow){ctx.clearRect(0,0,size,size);const z=constantField(),mix=smooth(t);draw(a,flow?.forward||z,t,1-mix);if(t>0)draw(b,flow?.backward||z,1-t,mix);},dispose(){ctx.clearRect(0,0,size,size);}};
+ return {kind:'canvas2d',draw(a,b,t,flow){ctx.clearRect(0,0,size,size);const z=constantField(),mix=blendWeight(t,flow?.ready,a.asset===b.asset&&a.row===b.row);if(mix<1)draw(a,flow?.forward||z,t,1-mix);if(mix>0)draw(b,flow?.backward||z,1-t,mix);},dispose(){ctx.clearRect(0,0,size,size);}};
 }
 function effectiveMode(){if(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)return 'reduced';return document.body?.dataset.motion||'full';}
 function beginRAF(){if(!raf&&typeof requestAnimationFrame==='function'&&!document.hidden){lastTick=0;raf=requestAnimationFrame(tick);}}
@@ -238,7 +260,7 @@ class Animator{
   if(!this.renderer){this.fail(new Error('Canvas unavailable'));return;}
   this.el.appendChild(this.canvas);this.el.dataset.spriteRenderer=this.renderer.kind;
   this.canvas.addEventListener?.('webglcontextlost',event=>{if(!this.disposed){event.preventDefault();this.fail(new Error('Sprite graphics context lost'));}});
-  this.base.promise.then(asset=>{if(this.disposed)return;if(!asset){this.fail(new Error('Atlas failed'));return;}this.el.dataset.spriteStatus='ready';this.el.dataset.spriteColumns=String(d.columns);this.el.dataset.spriteRows=String(d.rows);warmRow(asset,0,1);warmRow(asset,1,0);this.draw(ref(asset,0,0),ref(asset,0,0),0);beginRAF();});
+  this.base.promise.then(asset=>{if(this.disposed)return;if(!asset){this.fail(new Error('Atlas failed'));return;}this.el.dataset.spriteStatus='ready';this.el.dataset.spriteColumns=String(d.columns);this.el.dataset.spriteRows=String(d.rows);try{warmRow(asset,0,1);warmRow(asset,1,0);this.draw(ref(asset,0,0),ref(asset,0,0),0);beginRAF();}catch(error){this.fail(error);}});
   instances.add(this);visibilityObserver?.observe(el);
  }
  play(d,options){
@@ -250,7 +272,7 @@ class Animator{
    const old=this.state,r=phaseRange(next.d.columns,options.phase);
    let start=r[0];if(options.phase==='impact'&&old&&old.row===options.row&&old.asset===next&&(old.phase==='prepare'||old.kind==='hold'))start=old.position??r[0];
    this.state={kind:'action',asset:next,row:options.row,start,end:r[1],position:start,elapsed:0,duration:options.duration||480,phase:options.phase||'full',action:options.action,onfinish:options.onfinish};
-   this.clock=0;warmRow(next,options.row,2);this.el.dataset.spritePhase=this.state.phase;this.el.dataset.spriteAction=options.action||'attack';beginRAF();
+   try{this.clock=0;warmRow(next,options.row,2);this.el.dataset.spritePhase=this.state.phase;this.el.dataset.spriteAction=options.action||'attack';beginRAF();}catch(error){this.fail(error);}
   };
   if(next.status==='ready')apply();else next.promise.then(apply);
  }
@@ -288,7 +310,7 @@ class Animator{
  }
  recover(s){this.state={kind:'recovery',from:ref(s.asset,s.row,Math.round(s.position??s.end)),elapsed:0,duration:effectiveMode()==='fast'?45:140,onfinish:s.onfinish};this.el.dataset.spritePhase='recovery';}
  fail(error){this.el.dataset.spriteStatus='failed';this.el.dataset.spriteFailure=String(error?.message||error).slice(0,80);delete this.el.dataset.spriteReady;this.canvas?.remove();this.dispose();}
- dispose(){if(this.disposed)return;this.disposed=true;instances.delete(this);visibilityObserver?.unobserve(this.el);this.base.refs--;if(this.asset!==this.base)this.asset.refs--;this.renderer?.dispose();delete this.el._spriteMotion;prune();}
+ dispose(){if(this.disposed)return;this.disposed=true;instances.delete(this);visibilityObserver?.unobserve(this.el);this.base.refs--;if(this.asset!==this.base)this.asset.refs--;this.renderer?.dispose();delete this.el._spriteMotion;cancelUnusedJobs();prune();}
 }
 function mount(el){
  if(!el||typeof document==='undefined'||!el.appendChild)return null;
@@ -307,9 +329,9 @@ function observe(){
  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastTick=0;if(jobTimer)clearTimeout(jobTimer);jobTimer=null;}else{if(jobs.length&&!jobTimer)jobTimer=setTimeout(runJobs,0);beginRAF();}});
  const preference=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;preference?.addEventListener?.('change',beginRAF);
 }
-function warm(d,row=0){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;warmRow(a,row,1);return true;});}
+function warm(d,row=0){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;try{warmRow(a,row,1);return true;}catch{return false;}});}
 function stats(){return {instances:instances.size,assets:assets.size,pairs:pairs.size,pending:jobs.length,renderedSamples:[...instances].reduce((n,i)=>n+i.samples,0),renderer:[...new Set([...instances].map(i=>i.renderer?.kind))],targetSamplesPerSecond:60,interpolation:'bidirectional motion field, premultiplied-alpha mesh warp'};}
-const api={descriptor,resolve,phaseRange,phaseSample,features,fieldSample,constantField,warpPoint,estimatePair,mount,play,idle,warm,observe,stats};
+const api={blendWeight,descriptor,resolve,phaseRange,phaseSample,features,fieldSample,constantField,warpPoint,estimatePair,mount,play,idle,warm,observe,stats};
 if(typeof module!=='undefined')module.exports=api;root.NightSpriteMotion=api;
 if(typeof document!=='undefined'){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observe,{once:true});else observe();}
 })(typeof globalThis!=='undefined'?globalThis:this);

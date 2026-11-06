@@ -1,3 +1,5 @@
+本轮 review.10：运行 `python3 dev/audit-animation-assets.py`、`node dev/build.cjs --strict`、`node dev/animation-completion-browser.cjs`。最终清晰度回归运行 `node dev/animation-final-browser.cjs`。新浏览器测试直接检查最终入口内的外观、连续帧、Boss专招、机关、真实出牌特效和减少动态模式。证据见 `docs/review-v10/`；下方旧背景帧位置断言适用于历史CSS播放器，不能用来验收Canvas插帧。
+
 # 侧幕交锋回归
 
 先 `node dev/build.cjs --all`，再运行 `node --test dev/stage.test.cjs`、`node dev/stage-browser.cjs`、`node dev/stage-edge.cjs`。后两项需要 Playwright 和 Chromium，默认截图/JSON写到 `/workspace/stage-evidence`（主浏览器脚本支持 STAGE_EVIDENCE）。使用显式夹具，非自然通关；STAGE_RESUME=1仅用于相同构建的断点测试，发布检查应完整重跑。详情见 docs/review-v5/CHANGELOG_ZH.md。

@@ -1,0 +1,11 @@
+✔ all 62 enemies plus story appearance and three machines have separate frame assets (3.265312ms)
+✔ all 14 boss identities and every actual intent has a distinct named gesture and effect (2.872756ms)
+✔ enemy frame logic has no rule or persistence writes; modes cancel animation (1.090966ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.015806

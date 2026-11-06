@@ -1,0 +1,43 @@
+✔ mechanist registers48 distinct designs, exact starting deck,52HP, unique relic and46 reward cards (94.639582ms)
+✔ preselected first machine persists between battles; each new battle restores durability/calibration (7.180421ms)
+✔ base operations spend real spirit/drive and do not count as cards (6.119317ms)
+✔ full slots require an explicit replacement and rejected actions never pay (11.775616ms)
+✔ recall does not repair; same-turn re-deployment and command refresh exploits fail (12.012612ms)
+✔ drive first turn2, natural recovery starts second, overflow reports actual gain (6.037431ms)
+✔ final active executor controls guard, automatic passives preserve it (7.792904ms)
+✔ documented multi-hit example: own shield, machine durability, overflow and feedback each settle once (5.707153ms)
+✔ after a machine breaks, later segments attack the body and life drain counts only body loss (6.894079ms)
+✔ poison, mark and resource restrictions still affect the body behind a healthy guard (4.553272ms)
+✔ broken machines can be repaired but wait until the next player turn; repeated repair cannot bypass it (7.85194ms)
+✔ base overload pays3drive+4durability, retreats, forbids same-turn return and does not take attack bonuses (5.771958ms)
+✔ low-durability overload still bursts after feedback if body survives; feedback lethal stops all effects (8.495969ms)
+✔ fox rescues lethal broken-line feedback once and allows the queued overload to execute (3.792366ms)
+✔ counter targets actual machine attacker rather than current guard; broken source cannot swallow backlash (7.791135ms)
+✔ auto-fire counter can break its source, feedback lethal cannot turn into a posthumous victory (3.107866ms)
+✔ wall echo responds to direct durability loss only and its retaliation never recursively counters (8.849663ms)
+✔ insufficient drive, invalid targets and cancellation preserve spirit/cards/resources (3.354632ms)
+✔ card overload replacement cost is not double-charged; only its first hit gets capped card bonus (3.455641ms)
+✔ J03 shares one first-hit bonus across body and machine sources (4.69284ms)
+✔ calibration changes only matching passive, not command or overload; reserve retains it (3.701846ms)
+✔ body shield relic never enhances machine shield; medicine never changes guard (3.467235ms)
+✔ J48 grants one free extra command after overload even when that model already commanded (4.002156ms)
+✔ J14 controlled disassembly is the only zero-feedback destruction and grants actual remaining shield (8.593614ms)
+✔ ability engines queue next-turn resources, shield reset and two-machine draw at real turn boundary (1.547791ms)
+✔ wing assistance triggers once per player turn, only from another real command, without moving guard (5.269689ms)
+✔ every one of48 card branches is playable and preview matches actual public rule results without RNG use (414.701899ms)
+✔ all three two-machine combinations can win a real ordinary encounter using guard decisions (7.386794ms)
+✔ personal scenes intercept without consuming a route, preserve evidence and return to selected node (4.092761ms)
+✔ mechanist can buy sword stock for collection while only equipping profession tools (1.546564ms)
+✔ old four characters do not get squad fields or an extra random call from machinery reads (6.961116ms)
+✔ reading targets, previews and status panels never advances the live random stream (43.524351ms)
+✔ overload killing blow still pays durability and retreat first; duplicate clicks cannot repeat rewards (1.940457ms)
+✔ counter damage killing the controller stops the remaining overloaded hit queue (2.216629ms)
+✔ later personal evidence options stay locked until their real item exists and one-use drive aid is consumed once (2.426419ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 762.451567

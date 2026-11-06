@@ -1,0 +1,10 @@
+✔ self damage names the player and retains the exact HP cost (17.362068ms)
+✔ enemy damage names the player rather than presenting the enemy as victim (5.74809ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.266843
