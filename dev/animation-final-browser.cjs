@@ -2,7 +2,7 @@
 // Real browser fixtures exercise the built entry point, not isolated source mocks.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),A=require('node:assert/strict');
 const {chromium}=require('playwright'),N=require('./engine.js');
-const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/review-v10');fs.mkdirSync(out,{recursive:true});
+const root=path.resolve(__dirname,'..'),out=process.env.ANIMATION_EVIDENCE||path.join(root,'docs/review-v10');fs.mkdirSync(out,{recursive:true});
 const report={buildSHA256:require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'index.html'))).digest('hex'),method:'Local Chromium, explicit combat fixtures, desktop and mobile viewport emulation; not a natural playthrough or physical device test.',appearances:[],enemies:[],bossMoves:[],machines:[],effects:[],errors:[]};
 (async()=>{
  const server=http.createServer((q,r)=>{try{r.end(fs.readFileSync(path.join(root,decodeURIComponent(q.url==='/'?'index.html':q.url.split('?')[0]))))}catch{r.statusCode=404;r.end()}}).listen(0,'127.0.0.1');

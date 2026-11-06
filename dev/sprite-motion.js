@@ -10,7 +10,7 @@ function descriptor(raw,columns=4,rows=6){
  if(!raw)return null;
  const d=typeof raw==='string'?{src:raw}:raw;
  if(!d.src)return null;
- return {src:d.src,columns:Math.max(1,Math.floor(d.columns||columns)),rows:Math.max(1,Math.floor(d.rows||rows)),idleDuration:d.idleDuration||1800};
+ return {src:d.src,columns:Math.max(1,Math.floor(d.columns||columns)),rows:Math.max(1,Math.floor(d.rows||rows)),idleDuration:d.idleDuration||1800,repair:d.repair||null};
 }
 function resolve(group,key){return descriptor(root.NightAssets?.[group]?.[key],group==='actorAppearances'?8:4,group==='actors'||group==='actorAppearances'?6:4);}
 function phaseRange(columns,phase='full'){
@@ -142,15 +142,23 @@ function prune(){
 }
 function load(d){
  if(!d||typeof Image==='undefined')return null;
- const key=d.src+'|'+d.columns+'|'+d.rows;
+ const key=d.src+'|'+d.columns+'|'+d.rows+'|'+JSON.stringify(d.repair||null);
  if(assets.has(key)){const a=assets.get(key);touch(assets,key,a);return a;}
  const a={id:++assetId,key,d,refs:0,status:'pending',frames:new Map(),image:new Image()};
  assets.set(key,a);
  a.promise=new Promise(resolve=>{
   let done=false;const finish=ok=>{if(done)return;done=true;a.status=ok?'ready':'failed';resolve(ok?a:null);};
-  a.image.onload=()=>finish(a.image.naturalWidth>=d.columns&&a.image.naturalHeight>=d.rows);
+  a.image.onload=()=>{
+   if(done)return;
+   if(a.image.naturalWidth<d.columns||a.image.naturalHeight<d.rows){finish(false);return;}
+   try{
+    a.bitmap=d.repair&&root.NightSpriteFrames?root.NightSpriteFrames.prepare(a.image,d):a.image;
+    a.width=a.bitmap.naturalWidth||a.bitmap.width;a.height=a.bitmap.naturalHeight||a.bitmap.height;
+    finish(true);
+   }catch(error){a.error=error;finish(false);}
+  };
   a.image.onerror=()=>finish(false);a.image.src=d.src;
-  if(a.image.complete)finish(a.image.naturalWidth>0);
+  if(a.image.complete){if(a.image.naturalWidth>0)a.image.onload();else finish(false);}
  });
  a.promise.then(()=>Promise.resolve().then(prune));
  prune();return a;
@@ -159,8 +167,8 @@ function ref(asset,row,col){return {asset,row:clamp(row,0,asset.d.rows-1),col:cl
 function frame(ref){
  const a=ref.asset,key=ref.row+':'+ref.col;if(a.frames.has(key))return a.frames.get(key);
  const canvas=document.createElement('canvas');canvas.width=canvas.height=ANALYSIS_SIZE;
- const ctx=canvas.getContext('2d',{willReadFrequently:true});const w=a.image.naturalWidth/a.d.columns,h=a.image.naturalHeight/a.d.rows;
- ctx.drawImage(a.image,ref.col*w,ref.row*h,w,h,0,0,ANALYSIS_SIZE,ANALYSIS_SIZE);
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});const w=a.width/a.d.columns,h=a.height/a.d.rows;
+ ctx.drawImage(a.bitmap,ref.col*w,ref.row*h,w,h,0,0,ANALYSIS_SIZE,ANALYSIS_SIZE);
  const out=ctx.getImageData(0,0,ANALYSIS_SIZE,ANALYSIS_SIZE);a.frames.set(key,out);return out;
 }
 function pair(a,b,priority=0){
@@ -176,16 +184,13 @@ function warmRow(asset,row,priority=0){
  for(let i=0;i<asset.d.columns;i++)pair(ref(asset,row,i),ref(asset,row,(i+1)%asset.d.columns),priority);
 }
 
-// The two warped images are combined in premultiplied-alpha space. Ordinary
-// source-over blending would darken transparent fabric and produce double edges.
-// Preserve one opaque drawing through most of a transition. A broad dissolve
-// produces two faces/weapons whenever local correspondence is imperfect. Only
-// solved, same-row neighbours get a short handoff; cold and cross-row poses
-// stay crisp while their displacement continues to be sampled every frame.
-function blendWeight(t,ready,sameTrack=true){
- t=clamp(t,0,1);
- return ready&&sameTrack?smooth(clamp((t-.44)/.12,0,1)):(t<.5?0:1);
-}
+// A solved flow is an approximate correspondence, not proof that both authored
+// silhouettes coincide. Even a brief dissolve creates two faces/arms when they
+// do not. Select exactly one pose at every sample: forward-warp the first half,
+// then backward-warp the second. This preserves displacement sampling and true
+// endpoints without compositing two bodies. Inexact art/flow can still produce
+// a small pose handoff; it must not be disguised with translucent duplicates.
+function blendWeight(t){return clamp(t,0,1)<.5?0:1;}
 function makeGL(canvas){
  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:false,depth:false,stencil:false,preserveDrawingBuffer:false});
  if(!gl)return null;
@@ -193,35 +198,26 @@ function makeGL(canvas){
  function program(v,f){const p=gl.createProgram(),vs=shader(gl.VERTEX_SHADER,v),fs=shader(gl.FRAGMENT_SHADER,f);gl.attachShader(p,vs);gl.attachShader(p,fs);gl.linkProgram(p);gl.deleteShader(vs);gl.deleteShader(fs);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(p));return p;}
  const warp=program('attribute vec2 point;attribute vec2 motion;uniform float amount;uniform vec4 cell;varying vec2 uv;void main(){vec2 p=point+motion*amount;gl_Position=vec4(p.x*2.0-1.0,1.0-p.y*2.0,0,1);uv=cell.xy+point*cell.zw;}',
  'precision mediump float;uniform sampler2D image;varying vec2 uv;void main(){gl_FragColor=texture2D(image,uv);}');
- const merge=program('attribute vec2 point;varying vec2 uv;void main(){gl_Position=vec4(point*2.0-1.0,0,1);uv=point;}',
- 'precision mediump float;uniform sampler2D first;uniform sampler2D second;uniform float mixAmount;varying vec2 uv;void main(){vec4 a=texture2D(first,uv);vec4 b=texture2D(second,uv);gl_FragColor=mix(a,b,mixAmount);}');
  const vertices=new Float32Array((GRID+1)**2*2),indices=[];
  for(let y=0;y<=GRID;y++)for(let x=0;x<=GRID;x++){let i=(y*(GRID+1)+x)*2;vertices[i]=x/GRID;vertices[i+1]=y/GRID;if(x<GRID&&y<GRID){const p=y*(GRID+1)+x;indices.push(p,p+1,p+GRID+1,p+1,p+GRID+2,p+GRID+1);}}
  const points=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,points);gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
  const moves=gl.createBuffer();const elements=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,elements);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices),gl.STATIC_DRAW);
- const quad=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,quad);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([0,0,1,0,0,1,0,1,1,0,1,1]),gl.STATIC_DRAW);
  const textures=new Map();
  function tex(){const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);return t;}
- function imageTexture(asset){if(textures.has(asset.id))return textures.get(asset.id);const t=tex();gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,asset.image);textures.set(asset.id,t);if(textures.size>3){const [id,old]=textures.entries().next().value;gl.deleteTexture(old);textures.delete(id);}return t;}
- const targets=[0,1].map(()=>{const texture=tex();gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,canvas.width,canvas.height,0,gl.RGBA,gl.UNSIGNED_BYTE,null);const fbo=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,texture,0);if(gl.checkFramebufferStatus(gl.FRAMEBUFFER)!==gl.FRAMEBUFFER_COMPLETE)throw new Error('Sprite framebuffer unavailable');return {texture,fbo};});
+ function imageTexture(asset){if(textures.has(asset.id))return textures.get(asset.id);const t=tex();gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,asset.bitmap);textures.set(asset.id,t);if(textures.size>3){const [id,old]=textures.entries().next().value;gl.deleteTexture(old);textures.delete(id);}return t;}
  function attribute(p,name,buffer){const loc=gl.getAttribLocation(p,name);gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);}
- function drawWarp(target,r,field,t){
-  gl.bindFramebuffer(gl.FRAMEBUFFER,target.fbo);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(warp);
+ function drawWarp(r,field,t){
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(warp);
   attribute(warp,'point',points);gl.bindBuffer(gl.ARRAY_BUFFER,moves);gl.bufferData(gl.ARRAY_BUFFER,field.data,gl.DYNAMIC_DRAW);attribute(warp,'motion',moves);
-  gl.uniform1f(gl.getUniformLocation(warp,'amount'),t);const a=r.asset,px=.5/a.image.naturalWidth,py=.5/a.image.naturalHeight;
+  gl.uniform1f(gl.getUniformLocation(warp,'amount'),t);const a=r.asset,px=.5/a.width,py=.5/a.height;
   gl.uniform4f(gl.getUniformLocation(warp,'cell'),r.col/a.d.columns+px,r.row/a.d.rows+py,1/a.d.columns-2*px,1/a.d.rows-2*py);
   gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,imageTexture(a));gl.uniform1i(gl.getUniformLocation(warp,'image'),0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,elements);gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
  }
  const zero=constantField();
  return {kind:'webgl',draw(a,b,t,flow){
   gl.viewport(0,0,canvas.width,canvas.height);gl.disable(gl.BLEND);
-  const mix=blendWeight(t,flow?.ready,a.asset===b.asset&&a.row===b.row);
-  if(mix<1)drawWarp(targets[0],a,flow?.forward||zero,t);if(mix>0)drawWarp(targets[1],b,flow?.backward||zero,1-t);
-  gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(merge);attribute(merge,'point',quad);
-  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,targets[0].texture);gl.uniform1i(gl.getUniformLocation(merge,'first'),0);
-  gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,targets[1].texture);gl.uniform1i(gl.getUniformLocation(merge,'second'),1);
-  gl.uniform1f(gl.getUniformLocation(merge,'mixAmount'),mix);gl.drawArrays(gl.TRIANGLES,0,6);
- },dispose(){for(const t of textures.values())gl.deleteTexture(t);targets.forEach(t=>{gl.deleteTexture(t.texture);gl.deleteFramebuffer(t.fbo);});[points,moves,elements,quad].forEach(b=>gl.deleteBuffer(b));gl.deleteProgram(warp);gl.deleteProgram(merge);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+  if(blendWeight(t)===0)drawWarp(a,flow?.forward||zero,t);else drawWarp(b,flow?.backward||zero,1-t);
+ },dispose(){for(const t of textures.values())gl.deleteTexture(t);[points,moves,elements].forEach(b=>gl.deleteBuffer(b));gl.deleteProgram(warp);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
 function affine(ctx,p,q){
  const [a,b,c]=p,[u,v,w]=q,det=a[0]*(b[1]-c[1])+b[0]*(c[1]-a[1])+c[0]*(a[1]-b[1]);if(Math.abs(det)<1e-8)return false;
@@ -231,14 +227,14 @@ function affine(ctx,p,q){
 function make2D(canvas){
  const ctx=canvas.getContext('2d');if(!ctx)return null;const size=canvas.width,n=8;
  function draw(r,field,t,opacity){
-  const a=r.asset,w=a.image.naturalWidth/a.d.columns,h=a.image.naturalHeight/a.d.rows;
+  const a=r.asset,w=a.width/a.d.columns,h=a.height/a.d.rows;
   for(let y=0;y<n;y++)for(let x=0;x<n;x++){
    const p=[[x/n,y/n],[(x+1)/n,y/n],[x/n,(y+1)/n],[(x+1)/n,(y+1)/n]];
    const q=p.map(([u,v])=>warpPoint(field,u,v,t).map(z=>z*size)),s=p.map(v=>v.map(z=>z*size));
-   for(const ids of [[0,1,2],[1,3,2]]){ctx.save();ctx.globalAlpha=opacity;ctx.globalCompositeOperation='lighter';ctx.beginPath();ids.forEach((i,k)=>k?ctx.lineTo(...q[i]):ctx.moveTo(...q[i]));ctx.closePath();ctx.clip();if(affine(ctx,ids.map(i=>s[i]),ids.map(i=>q[i])))ctx.drawImage(a.image,r.col*w,r.row*h,w,h,0,0,size,size);ctx.restore();}
+   for(const ids of [[0,1,2],[1,3,2]]){ctx.save();ctx.globalAlpha=opacity;ctx.globalCompositeOperation='lighter';ctx.beginPath();ids.forEach((i,k)=>k?ctx.lineTo(...q[i]):ctx.moveTo(...q[i]));ctx.closePath();ctx.clip();if(affine(ctx,ids.map(i=>s[i]),ids.map(i=>q[i])))ctx.drawImage(a.bitmap,r.col*w,r.row*h,w,h,0,0,size,size);ctx.restore();}
   }
  }
- return {kind:'canvas2d',draw(a,b,t,flow){ctx.clearRect(0,0,size,size);const z=constantField(),mix=blendWeight(t,flow?.ready,a.asset===b.asset&&a.row===b.row);if(mix<1)draw(a,flow?.forward||z,t,1-mix);if(mix>0)draw(b,flow?.backward||z,1-t,mix);},dispose(){ctx.clearRect(0,0,size,size);}};
+ return {kind:'canvas2d',draw(a,b,t,flow){ctx.clearRect(0,0,size,size);const z=constantField();if(blendWeight(t)===0)draw(a,flow?.forward||z,t,1);else draw(b,flow?.backward||z,1-t,1);},dispose(){ctx.clearRect(0,0,size,size);}};
 }
 function effectiveMode(){if(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)return 'reduced';return document.body?.dataset.motion||'full';}
 function beginRAF(){if(!raf&&typeof requestAnimationFrame==='function'&&!document.hidden){lastTick=0;raf=requestAnimationFrame(tick);}}

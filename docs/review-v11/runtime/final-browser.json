@@ -1,0 +1,745 @@
+{
+  "buildSHA256": "b7dcaae10b959d5ba9e461da48bb050ae86aea10175198361d73e665f5ef13dc",
+  "method": "Local Chromium, explicit combat fixtures, desktop and mobile viewport emulation; not a natural playthrough or physical device test.",
+  "appearances": [
+    {
+      "role": "assassin",
+      "outfit": "mist",
+      "fallen": false,
+      "width": 390,
+      "key": "cat-mist",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 47,
+      "distinct": 20,
+      "values": [
+        "0:0.298",
+        "0:0.652",
+        "1:0.346",
+        "2:0.196",
+        "3:0.177",
+        "4:0.183",
+        "4:0.830",
+        "6:0.174",
+        "6:0.574",
+        "6:0.932",
+        "7:0.343",
+        "7:0.686",
+        "0:0.000",
+        "0:0.074",
+        "0:0.500",
+        "1:0.010",
+        "1:0.223",
+        "1:0.724",
+        "2:0.151",
+        "2:0.364"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/cat-mist.png",
+        "bossMove": ""
+      }
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": false,
+      "width": 390,
+      "key": "sword-mist",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 75,
+      "distinct": 20,
+      "values": [
+        "0:0.021",
+        "0:0.481",
+        "0:0.899",
+        "1:0.144",
+        "1:0.996",
+        "3:0.298",
+        "3:0.969",
+        "4:0.627",
+        "6:0.229",
+        "6:0.878",
+        "6:0.996",
+        "7:0.000",
+        "7:0.357",
+        "7:0.596",
+        "7:0.939",
+        "0:0.000",
+        "0:0.427",
+        "0:0.640",
+        "0:0.853",
+        "1:0.215"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/sword-mist.png",
+        "bossMove": ""
+      }
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": true,
+      "width": 390,
+      "key": "sword_fallen-mist",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 117,
+      "distinct": 20,
+      "values": [
+        "0:0.316",
+        "0:0.871",
+        "1:0.627",
+        "2:0.845",
+        "3:0.516",
+        "4:0.474",
+        "5:0.103",
+        "6:0.365",
+        "6:0.934",
+        "7:0.000",
+        "7:0.581",
+        "0:0.000",
+        "0:0.287",
+        "0:0.584",
+        "1:0.010",
+        "1:0.437",
+        "1:0.864",
+        "2:0.077",
+        "2:0.504",
+        "2:0.652"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/sword_fallen-mist.png",
+        "bossMove": ""
+      }
+    },
+    {
+      "role": "hehuan",
+      "outfit": "dusk_silk",
+      "fallen": false,
+      "width": 390,
+      "key": "hehuan-dusk_silk",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 139,
+      "distinct": 20,
+      "values": [
+        "0:0.168",
+        "0:0.628",
+        "2:0.158",
+        "4:0.063",
+        "5:0.577",
+        "6:0.314",
+        "6:0.678",
+        "6:0.971",
+        "7:0.343",
+        "7:0.924",
+        "0:0.213",
+        "0:0.362",
+        "0:0.723",
+        "0:0.936",
+        "1:0.363",
+        "1:0.576",
+        "1:0.790",
+        "2:0.152",
+        "2:0.365",
+        "2:0.513"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/hehuan-dusk_silk.png",
+        "bossMove": ""
+      }
+    },
+    {
+      "role": "mechanist",
+      "outfit": "workshop",
+      "fallen": false,
+      "width": 390,
+      "key": "tinglan-workshop",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 164,
+      "distinct": 20,
+      "values": [
+        "0:0.083",
+        "0:0.652",
+        "0:0.871",
+        "1:0.378",
+        "2:0.234",
+        "4:0.143",
+        "5:0.876",
+        "6:0.511",
+        "7:0.000",
+        "7:0.581",
+        "0:0.000",
+        "0:0.213",
+        "0:0.427",
+        "0:0.640",
+        "0:0.853",
+        "1:0.280",
+        "1:0.707",
+        "2:0.133",
+        "2:0.560",
+        "2:0.773"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/tinglan-workshop.png",
+        "bossMove": ""
+      }
+    },
+    {
+      "role": "sovereign",
+      "outfit": "moonveil",
+      "fallen": false,
+      "width": 390,
+      "key": "feiye-moonveil",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 227,
+      "distinct": 20,
+      "values": [
+        "0:0.298",
+        "1:0.344",
+        "2:0.841",
+        "3:0.510",
+        "4:0.787",
+        "5:0.640",
+        "6:0.694",
+        "7:0.000",
+        "7:0.581",
+        "7:0.939",
+        "0:0.148",
+        "0:0.362",
+        "0:0.788",
+        "1:0.215",
+        "1:0.503",
+        "1:0.790",
+        "2:0.087",
+        "2:0.235",
+        "2:0.383",
+        "2:0.596"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/actor-keyframes/feiye-moonveil.png",
+        "bossMove": ""
+      }
+    }
+  ],
+  "enemies": [
+    {
+      "key": "paper",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 47,
+      "distinct": 20,
+      "values": [
+        "0:0.011",
+        "0:0.229",
+        "0:0.431",
+        "0:0.551",
+        "0:0.962",
+        "1:0.264",
+        "1:0.731",
+        "2:0.033",
+        "2:0.444",
+        "2:0.672",
+        "2:0.849",
+        "2:0.991",
+        "3:0.238",
+        "3:0.356",
+        "3:0.594",
+        "3:0.714",
+        "3:0.833",
+        "0:0.000",
+        "0:0.111",
+        "0:0.222"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/enemy-actors/paper.webp",
+        "bossMove": ""
+      }
+    },
+    {
+      "key": "m30",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 99,
+      "distinct": 20,
+      "values": [
+        "0:0.239",
+        "0:0.444",
+        "0:0.695",
+        "1:0.128",
+        "1:0.593",
+        "1:0.902",
+        "2:0.194",
+        "2:0.458",
+        "2:0.577",
+        "2:0.683",
+        "2:0.991",
+        "3:0.119",
+        "3:0.581",
+        "3:0.819",
+        "0:0.000",
+        "0:0.111",
+        "0:0.185",
+        "0:0.296",
+        "0:0.407",
+        "0:0.555"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/enemy-actors/m30.webp",
+        "bossMove": ""
+      }
+    },
+    {
+      "key": "gate_boss",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 144,
+      "distinct": 20,
+      "values": [
+        "0:0.091",
+        "0:0.336",
+        "0:0.695",
+        "1:0.281",
+        "1:0.902",
+        "2:0.330",
+        "2:0.577",
+        "2:0.778",
+        "2:0.857",
+        "2:0.966",
+        "3:0.000",
+        "3:0.358",
+        "3:0.714",
+        "0:0.000",
+        "0:0.037",
+        "0:0.148",
+        "0:0.222",
+        "0:0.370",
+        "0:0.519",
+        "0:0.630"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/enemy-actors/gate_boss.webp",
+        "bossMove": ""
+      }
+    },
+    {
+      "key": "ji",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 161,
+      "distinct": 20,
+      "values": [
+        "0:0.091",
+        "0:0.445",
+        "1:0.110",
+        "1:0.711",
+        "2:0.414",
+        "2:0.647",
+        "2:0.892",
+        "3:0.000",
+        "3:0.358",
+        "3:0.476",
+        "0:0.000",
+        "0:0.107",
+        "0:0.320",
+        "0:0.468",
+        "0:0.542",
+        "0:0.649",
+        "0:0.862",
+        "0:0.973",
+        "1:0.080",
+        "1:0.265"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/enemy-actors/ji.webp",
+        "bossMove": ""
+      }
+    }
+  ],
+  "bossMoves": [
+    {
+      "id": "gate_boss",
+      "name": "横灯",
+      "row": 0,
+      "color": "#ffd489",
+      "motif": "lantern",
+      "path": "M20 130Q95 20 184 103L150 151Q80 65 20 130",
+      "attack": true,
+      "key": "gate_boss",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 162,
+      "distinct": 20,
+      "values": [
+        "1:0.051",
+        "1:0.274",
+        "1:0.617",
+        "2:0.419",
+        "2:0.853",
+        "3:0.000",
+        "3:0.343",
+        "3:0.581",
+        "0:0.000",
+        "0:0.148",
+        "0:0.296",
+        "0:0.403",
+        "0:0.616",
+        "0:0.830",
+        "0:0.936",
+        "1:0.043",
+        "1:0.256",
+        "1:0.363",
+        "1:0.437",
+        "1:0.544"
+      ],
+      "active": {
+        "row": 0,
+        "src": "assets/boss-actors/gate_boss.webp",
+        "bossMove": "横灯"
+      }
+    },
+    {
+      "id": "lotus_boss",
+      "name": "奉茶·沸盏",
+      "row": 0,
+      "color": "#e6bc80",
+      "motif": "household",
+      "path": "M90 65H155V130Q120 160 90 130ZM90 80L55 55L40 70L90 110M155 80Q190 65 180 110L155 120M40 100Q15 140 20 175",
+      "attack": true,
+      "key": "lotus_boss",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 214,
+      "distinct": 20,
+      "values": [
+        "1:0.274",
+        "2:0.021",
+        "2:0.663",
+        "2:0.916",
+        "3:0.343",
+        "3:0.686",
+        "0:0.074",
+        "0:0.185",
+        "0:0.329",
+        "0:0.542",
+        "0:0.756",
+        "0:0.937",
+        "0:0.974",
+        "1:0.154",
+        "1:0.228",
+        "1:0.335",
+        "1:0.548",
+        "1:0.655",
+        "1:0.762",
+        "1:0.868"
+      ],
+      "active": {
+        "row": 0,
+        "src": "assets/boss-actors/lotus_boss.webp",
+        "bossMove": "奉茶·沸盏"
+      }
+    },
+    {
+      "id": "abyss_boss",
+      "name": "赤线·问名",
+      "row": 0,
+      "color": "#f39db8",
+      "motif": "fate",
+      "path": "M15 155L180 40M25 170L170 20M30 180L190 60M145 30V85M125 50H175",
+      "attack": true,
+      "key": "abyss_boss",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 274,
+      "distinct": 20,
+      "values": [
+        "1:0.369",
+        "2:0.021",
+        "2:0.437",
+        "2:0.778",
+        "2:0.930",
+        "3:0.000",
+        "3:0.239",
+        "3:0.701",
+        "0:0.107",
+        "0:0.250",
+        "0:0.357",
+        "0:0.570",
+        "0:0.645",
+        "0:0.825",
+        "1:0.006",
+        "1:0.187",
+        "1:0.335",
+        "1:0.446",
+        "1:0.660",
+        "1:0.873"
+      ],
+      "active": {
+        "row": 0,
+        "src": "assets/boss-actors/abyss_boss.webp",
+        "bossMove": "赤线·问名"
+      }
+    }
+  ],
+  "machines": [
+    {
+      "key": "chengshan",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 294,
+      "distinct": 20,
+      "values": [
+        "0:0.084",
+        "0:0.312",
+        "1:0.056",
+        "1:0.944",
+        "2:0.352",
+        "2:0.916",
+        "3:0.343",
+        "0:0.000",
+        "0:0.213",
+        "0:0.320",
+        "0:0.533",
+        "0:0.747",
+        "0:0.960",
+        "1:0.173",
+        "1:0.387",
+        "1:0.493",
+        "1:0.707",
+        "1:0.813",
+        "2:0.027",
+        "2:0.240"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/machine-actors/chengshan.webp",
+        "bossMove": ""
+      }
+    },
+    {
+      "key": "mingdi",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 318,
+      "distinct": 20,
+      "values": [
+        "0:0.312",
+        "0:0.648",
+        "1:0.056",
+        "1:0.500",
+        "1:0.944",
+        "2:0.688",
+        "3:0.000",
+        "3:0.686",
+        "0:0.107",
+        "0:0.320",
+        "0:0.427",
+        "0:0.533",
+        "0:0.747",
+        "0:0.960",
+        "1:0.173",
+        "1:0.387",
+        "1:0.600",
+        "1:0.813",
+        "2:0.027",
+        "2:0.133"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/machine-actors/mingdi.webp",
+        "bossMove": ""
+      }
+    },
+    {
+      "key": "shiying",
+      "status": "ready",
+      "renderer": "webgl",
+      "samples": 393,
+      "distinct": 20,
+      "values": [
+        "0:0.084",
+        "0:0.312",
+        "1:0.056",
+        "1:0.944",
+        "2:0.234",
+        "2:0.860",
+        "3:0.000",
+        "3:0.581",
+        "0:0.000",
+        "0:0.213",
+        "0:0.427",
+        "0:0.607",
+        "0:0.788",
+        "0:0.969",
+        "1:0.117",
+        "1:0.265",
+        "1:0.479",
+        "1:0.659",
+        "1:0.873",
+        "2:0.021"
+      ],
+      "active": {
+        "row": 1,
+        "src": "assets/machine-actors/shiying.webp",
+        "bossMove": ""
+      }
+    }
+  ],
+  "effects": [
+    {
+      "role": "sword",
+      "fallen": false,
+      "id": "S01",
+      "theme": "frost",
+      "events": [
+        {
+          "skillFx": "S01",
+          "phase": "cast",
+          "theme": "frost",
+          "shape": "sword",
+          "receiver": "player",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g transform=\"scale(1.1)\"><path class=\"skill-ribbon\" d=\"M-48 38 48-38 12 6Z\"></path><path class=\"skill-edge\" d=\"M-48 38 48-38 12 6Z\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g></g><g class=\"skill-snow\"><path d=\"M0-106V-76M-13-99L13-83M-13-83L13-99M84 40V70M71 47L97 63M71 63L97 47\"></path></g></svg>"
+        },
+        {
+          "skillFx": "S01",
+          "phase": "flight",
+          "theme": "frost",
+          "shape": "sword",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<svg viewBox=\"0 0 160 56\" preserveAspectRatio=\"none\" aria-hidden=\"true\" data-flight-shape=\"sword\"><path class=\"skill-flight-wake\" d=\"M3 28Q49 17 122 28Q49 39 3 28Z\"></path><path class=\"skill-blade\" d=\"M25 28L118 21 145 28 118 35Z\"></path><path class=\"skill-edge\" d=\"M43 19V37M15 28H43\"></path></svg>"
+        },
+        {
+          "skillFx": "S01",
+          "phase": "impact",
+          "theme": "frost",
+          "shape": "sword",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g class=\"skill-frost-wisps\"><path d=\"M-113 41Q-48 12 3 34T113 24\"></path><path d=\"M-91 62Q-28 39 25 54T108 43\"></path></g><g class=\"skill-slashes\" transform=\"rotate(-32)\"><path class=\"skill-blade\" d=\"M-120 23Q-5-54 121-14Q7-32-120 23Z\"></path><path class=\"skill-edge\" d=\"M-105 34Q5-25 98-8\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"frost\"><path d=\"M0-12L4 0 0 12-4 0Z\"></path></g></g><g class=\"skill-snow\"><path d=\"M0-106V-76M-13-99L13-83M-13-83L13-99M84 40V70M71 47L97 63M71 63L97 47\"></path></g></svg>"
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "fallen": true,
+      "id": "S01",
+      "theme": "crimson",
+      "events": [
+        {
+          "skillFx": "S01",
+          "phase": "cast",
+          "theme": "crimson",
+          "shape": "sword",
+          "receiver": "player",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g transform=\"scale(1.1)\"><path class=\"skill-ribbon\" d=\"M-48 38 48-38 12 6Z\"></path><path class=\"skill-edge\" d=\"M-48 38 48-38 12 6Z\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g></g></svg>"
+        },
+        {
+          "skillFx": "S01",
+          "phase": "flight",
+          "theme": "crimson",
+          "shape": "sword",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<svg viewBox=\"0 0 160 56\" preserveAspectRatio=\"none\" aria-hidden=\"true\" data-flight-shape=\"sword\"><path class=\"skill-flight-wake\" d=\"M3 28Q49 17 122 28Q49 39 3 28Z\"></path><path class=\"skill-blade\" d=\"M25 28L118 21 145 28 118 35Z\"></path><path class=\"skill-edge\" d=\"M43 19V37M15 28H43\"></path></svg>"
+        },
+        {
+          "skillFx": "S01",
+          "phase": "impact",
+          "theme": "crimson",
+          "shape": "sword",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g class=\"skill-slashes\" transform=\"rotate(-32)\"><path class=\"skill-blade\" d=\"M-120 23Q-5-54 121-14Q7-32-120 23Z\"></path><path class=\"skill-edge\" d=\"M-105 34Q5-25 98-8\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"crimson\"><path d=\"M0-14L3 2-2 11-4 0Z\"></path></g></g></svg>"
+        }
+      ]
+    },
+    {
+      "role": "hehuan",
+      "fallen": false,
+      "id": "H01",
+      "theme": "charm",
+      "events": [
+        {
+          "skillFx": "H01",
+          "phase": "cast",
+          "theme": "charm",
+          "shape": "silk",
+          "receiver": "player",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g transform=\"scale(1.1)\"><path class=\"skill-ribbon\" d=\"M-50 35Q50 35 25-30T-25-15\"></path><path class=\"skill-edge\" d=\"M-50 35Q50 35 25-30T-25-15\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g></g></svg>"
+        },
+        {
+          "skillFx": "H01",
+          "phase": "flight",
+          "theme": "charm",
+          "shape": "silk",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<svg viewBox=\"0 0 160 56\" preserveAspectRatio=\"none\" aria-hidden=\"true\" data-flight-shape=\"silk\"><path class=\"skill-flight-wake\" d=\"M3 28Q49 17 122 28Q49 39 3 28Z\"></path><path class=\"skill-ribbon\" d=\"M4 34Q33 5 62 26T126 25\"></path><path class=\"skill-edge\" d=\"M10 37Q40 12 65 31T128 28\"></path><g transform=\"translate(132 27) rotate(-90) scale(.55)\"><path class=\"skill-heart\" d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\"></path></g></svg>"
+        },
+        {
+          "skillFx": "H01",
+          "phase": "impact",
+          "theme": "charm",
+          "shape": "silk",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g class=\"skill-silk\"><path class=\"skill-ribbon\" d=\"M-122 51C-18-116 124-72 77 8S-97 67-41-21S95-50 124-4\"></path><path class=\"skill-edge\" d=\"M-118 54C-20-105 119-67 74 8S-89 62-37-20\"></path></g><g class=\"skill-heart-seal\" transform=\"translate(0 -28)\"><path class=\"skill-heart\" d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\"></path><circle class=\"skill-heart-orbit\" r=\"34\"></circle></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"charm\"><path d=\"M0 21C-9 13-26 1-24-12C-21-27-5-28 0-16C5-28 21-27 24-12C26 1 9 13 0 21Z\" transform=\"scale(.42)\"></path></g></g></svg>"
+        }
+      ]
+    },
+    {
+      "role": "assassin",
+      "fallen": false,
+      "id": "C01",
+      "theme": "claw",
+      "events": [
+        {
+          "skillFx": "C01",
+          "phase": "cast",
+          "theme": "claw",
+          "shape": "claw",
+          "receiver": "player",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g transform=\"scale(1.1)\"><path class=\"skill-ribbon\" d=\"M-35-40Q0 0 30 40M-15-45Q20 0 45 30M-50-25Q-15 15 10 50\"></path><path class=\"skill-edge\" d=\"M-35-40Q0 0 30 40M-15-45Q20 0 45 30M-50-25Q-15 15 10 50\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g></g></svg>"
+        },
+        {
+          "skillFx": "C01",
+          "phase": "flight",
+          "theme": "claw",
+          "shape": "claw",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<svg viewBox=\"0 0 160 56\" preserveAspectRatio=\"none\" aria-hidden=\"true\" data-flight-shape=\"claw\"><path class=\"skill-flight-wake\" d=\"M3 28Q49 17 122 28Q49 39 3 28Z\"></path><g class=\"skill-flight-claws\"><path class=\"skill-blade\" d=\"M28 16Q86 0 144 12Q98 8 28 16Z\"></path><path class=\"skill-blade\" d=\"M28 28Q86 12 144 24Q98 20 28 28Z\"></path><path class=\"skill-blade\" d=\"M28 40Q86 24 144 36Q98 32 28 40Z\"></path></g></svg>"
+        },
+        {
+          "skillFx": "C01",
+          "phase": "impact",
+          "theme": "claw",
+          "shape": "claw",
+          "receiver": "enemy",
+          "source": "player",
+          "html": "<span class=\"skill-aura\"></span><svg viewBox=\"-150 -150 300 300\" aria-hidden=\"true\"><g class=\"skill-halo\"><ellipse rx=\"106\" ry=\"71\" fill=\"currentColor\" opacity=\".08\"></ellipse><ellipse class=\"skill-ring\" rx=\"91\" ry=\"57\"></ellipse></g><g class=\"skill-slashes skill-claw-rake\" transform=\"rotate(12)\"><path class=\"skill-blade skill-claw-stroke\" d=\"M-99 75Q-5-55 103-69Q15-26-99 75Z\" style=\"--stroke-order:0\"></path><path class=\"skill-blade skill-claw-stroke\" d=\"M-78 99Q-13-12 113-54Q25-2-78 99Z\" style=\"--stroke-order:1\"></path><path class=\"skill-blade skill-claw-stroke\" d=\"M-113 45Q-12-70 77-97Q-5-36-113 45Z\" style=\"--stroke-order:2\"></path></g><g class=\"skill-particles\"><g class=\"skill-particle\" style=\"--px:52.60px;--py:16.08px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:33.80px;--py:63.57px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-26.02px;--py:85.11px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-48.56px;--py:25.82px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-68.85px;--py:-21.05px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:-41.78px;--py:-78.58px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:16.08px;--py:-52.60px;--particle-scale:1.2\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g><g class=\"skill-particle\" style=\"--px:63.57px;--py:-33.80px;--particle-scale:0.82\" data-particle=\"claw\"><path d=\"M0-7L2-2 7 0 2 2 0 7-2 2-7 0-2-2Z\"></path></g></g></svg>"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "success": true
+}

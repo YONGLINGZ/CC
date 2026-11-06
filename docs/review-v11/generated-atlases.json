@@ -1,0 +1,1128 @@
+{
+  "version": 1,
+  "reviewedDateUTC": "2026-11-06",
+  "method": "Image generation edits, followed by read-only PIL dimension/hash/frame analysis and Chromium dark/light background screenshots. Selected image files copied verbatim into game assets. No programmatic pixel editing of the selected PNGs.",
+  "entries": [
+    {
+      "key": "blood",
+      "source": "exec-7ae6c405-6f98-4081-87e6-eded668971b5.png",
+      "sha256": "3b403aab0b877c87cfd1990fbc68072052cf060cf651deed6015499fc62ddd61",
+      "rows": [
+        {
+          "row": 0,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              66,
+              59,
+              156,
+              172
+            ],
+            [
+              63,
+              60,
+              153,
+              172
+            ],
+            [
+              56,
+              59,
+              147,
+              172
+            ],
+            [
+              50,
+              59,
+              142,
+              172
+            ],
+            [
+              45,
+              59,
+              138,
+              171
+            ],
+            [
+              35,
+              59,
+              132,
+              172
+            ],
+            [
+              32,
+              58,
+              125,
+              172
+            ],
+            [
+              29,
+              58,
+              119,
+              172
+            ]
+          ],
+          "action": "idle"
+        },
+        {
+          "row": 1,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              66,
+              57,
+              155,
+              164
+            ],
+            [
+              59,
+              61,
+              155,
+              165
+            ],
+            [
+              52,
+              61,
+              147,
+              165
+            ],
+            [
+              46,
+              60,
+              147,
+              165
+            ],
+            [
+              33,
+              61,
+              148,
+              166
+            ],
+            [
+              31,
+              61,
+              139,
+              165
+            ],
+            [
+              31,
+              62,
+              126,
+              164
+            ],
+            [
+              32,
+              59,
+              118,
+              165
+            ]
+          ],
+          "action": "attack"
+        },
+        {
+          "row": 2,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              68,
+              54,
+              158,
+              159
+            ],
+            [
+              62,
+              66,
+              154,
+              157
+            ],
+            [
+              52,
+              65,
+              148,
+              159
+            ],
+            [
+              42,
+              69,
+              144,
+              158
+            ],
+            [
+              33,
+              70,
+              157,
+              155
+            ],
+            [
+              35,
+              78,
+              140,
+              156
+            ],
+            [
+              32,
+              65,
+              127,
+              158
+            ],
+            [
+              32,
+              54,
+              121,
+              159
+            ]
+          ],
+          "action": "heavy"
+        },
+        {
+          "row": 3,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              69,
+              45,
+              154,
+              151
+            ],
+            [
+              61,
+              45,
+              154,
+              151
+            ],
+            [
+              54,
+              46,
+              153,
+              151
+            ],
+            [
+              48,
+              46,
+              151,
+              151
+            ],
+            [
+              42,
+              42,
+              150,
+              151
+            ],
+            [
+              35,
+              45,
+              141,
+              151
+            ],
+            [
+              33,
+              48,
+              124,
+              151
+            ],
+            [
+              32,
+              46,
+              121,
+              151
+            ]
+          ],
+          "action": "cast"
+        },
+        {
+          "row": 4,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              66,
+              40,
+              155,
+              143
+            ],
+            [
+              61,
+              41,
+              155,
+              143
+            ],
+            [
+              56,
+              40,
+              147,
+              142
+            ],
+            [
+              49,
+              40,
+              140,
+              143
+            ],
+            [
+              42,
+              40,
+              133,
+              143
+            ],
+            [
+              35,
+              40,
+              128,
+              143
+            ],
+            [
+              36,
+              40,
+              125,
+              143
+            ],
+            [
+              32,
+              39,
+              119,
+              143
+            ]
+          ],
+          "action": "guard"
+        },
+        {
+          "row": 5,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              66,
+              35,
+              158,
+              140
+            ],
+            [
+              62,
+              38,
+              156,
+              140
+            ],
+            [
+              51,
+              39,
+              150,
+              140
+            ],
+            [
+              40,
+              41,
+              142,
+              140
+            ],
+            [
+              39,
+              36,
+              132,
+              140
+            ],
+            [
+              35,
+              35,
+              133,
+              140
+            ],
+            [
+              33,
+              36,
+              125,
+              140
+            ],
+            [
+              31,
+              35,
+              119,
+              140
+            ]
+          ],
+          "action": "hurt"
+        }
+      ],
+      "resource": "assets/actor-keyframes/cat-blood.png",
+      "outfit": "血誓绛绡",
+      "character": "夜铃（猫耳、单尾、长深棕发）",
+      "columns": 8,
+      "rowCount": 6,
+      "frameCount": 48,
+      "rawSourceDimensions": [
+        1448,
+        1086
+      ],
+      "generator": "image_gen.imagegen, editing the existing costume atlas",
+      "pixelEditsAfterGeneration": false,
+      "visualReview": {
+        "sixRowsInExpectedOrder": true,
+        "identityAndCostumePreserved": true,
+        "heavyFiguresSeparated": true,
+        "darkAndLightBrowserCompositeReviewed": true,
+        "generatedPreviewWarning": "Transparent preview showed red/magenta/white RGB speckle. Actual Chromium compositing on #202830 and #eeeeee did not show that colored noise or a rectangular matte. This does not claim every gutter alpha value is exactly zero.",
+        "previewEvidence": [
+          "cat-blood-dark.png",
+          "cat-blood-light.png"
+        ],
+        "remainingNormalization": "Completed in sprite-frames.js: fixed column foot anchors, fixed row baselines, one common scale with 134px idle height cap; verified by integrated WebGL and Canvas fixtures in visual-browser.json and canvas/visual-browser.json.",
+        "previewEvidenceScope": "Raw dark/light analysis screenshots were inspected in the working environment; committed evidence is the integrated cat-blood-heavy-*.png series."
+      },
+      "uniqueFramesAcrossAtlas": 48
+    },
+    {
+      "key": "moon",
+      "source": "exec-83135e30-7633-4518-816a-02ddc8462192.png",
+      "sha256": "4eb95b977712d0566fb83c851582453b7890bf91c84c143e306f266602bb7962",
+      "rows": [
+        {
+          "row": 0,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              63,
+              67,
+              151,
+              175
+            ],
+            [
+              59,
+              67,
+              145,
+              175
+            ],
+            [
+              53,
+              67,
+              143,
+              175
+            ],
+            [
+              47,
+              66,
+              142,
+              176
+            ],
+            [
+              42,
+              67,
+              133,
+              176
+            ],
+            [
+              37,
+              68,
+              131,
+              176
+            ],
+            [
+              36,
+              68,
+              124,
+              176
+            ],
+            [
+              29,
+              69,
+              120,
+              176
+            ]
+          ],
+          "action": "idle"
+        },
+        {
+          "row": 1,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              70,
+              150,
+              176
+            ],
+            [
+              54,
+              72,
+              146,
+              176
+            ],
+            [
+              49,
+              74,
+              139,
+              175
+            ],
+            [
+              40,
+              70,
+              142,
+              175
+            ],
+            [
+              33,
+              73,
+              149,
+              176
+            ],
+            [
+              30,
+              76,
+              136,
+              176
+            ],
+            [
+              27,
+              74,
+              126,
+              176
+            ],
+            [
+              30,
+              71,
+              119,
+              176
+            ]
+          ],
+          "action": "attack"
+        },
+        {
+          "row": 2,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              64,
+              66,
+              151,
+              169
+            ],
+            [
+              53,
+              81,
+              144,
+              169
+            ],
+            [
+              46,
+              83,
+              145,
+              169
+            ],
+            [
+              37,
+              80,
+              141,
+              169
+            ],
+            [
+              29,
+              79,
+              144,
+              166
+            ],
+            [
+              29,
+              86,
+              139,
+              167
+            ],
+            [
+              31,
+              80,
+              126,
+              169
+            ],
+            [
+              33,
+              68,
+              121,
+              170
+            ]
+          ],
+          "action": "heavy"
+        },
+        {
+          "row": 3,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              64,
+              57,
+              150,
+              158
+            ],
+            [
+              58,
+              56,
+              145,
+              159
+            ],
+            [
+              52,
+              58,
+              142,
+              158
+            ],
+            [
+              50,
+              58,
+              144,
+              159
+            ],
+            [
+              40,
+              57,
+              142,
+              159
+            ],
+            [
+              33,
+              59,
+              130,
+              159
+            ],
+            [
+              30,
+              58,
+              121,
+              159
+            ],
+            [
+              32,
+              57,
+              120,
+              159
+            ]
+          ],
+          "action": "cast"
+        },
+        {
+          "row": 4,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              40,
+              151,
+              142
+            ],
+            [
+              51,
+              41,
+              145,
+              141
+            ],
+            [
+              47,
+              41,
+              146,
+              141
+            ],
+            [
+              41,
+              41,
+              141,
+              142
+            ],
+            [
+              38,
+              42,
+              131,
+              141
+            ],
+            [
+              31,
+              42,
+              126,
+              141
+            ],
+            [
+              31,
+              41,
+              125,
+              142
+            ],
+            [
+              31,
+              41,
+              121,
+              142
+            ]
+          ],
+          "action": "guard"
+        },
+        {
+          "row": 5,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              32,
+              152,
+              134
+            ],
+            [
+              58,
+              34,
+              145,
+              134
+            ],
+            [
+              50,
+              36,
+              145,
+              133
+            ],
+            [
+              43,
+              36,
+              140,
+              134
+            ],
+            [
+              41,
+              36,
+              133,
+              134
+            ],
+            [
+              34,
+              33,
+              127,
+              134
+            ],
+            [
+              35,
+              33,
+              125,
+              134
+            ],
+            [
+              34,
+              33,
+              123,
+              134
+            ]
+          ],
+          "action": "hurt"
+        }
+      ],
+      "resource": "assets/actor-keyframes/cat-moon.png",
+      "outfit": "月隐流纱",
+      "character": "夜铃（猫耳、单尾、长深棕发）",
+      "columns": 8,
+      "rowCount": 6,
+      "frameCount": 48,
+      "rawSourceDimensions": [
+        1448,
+        1086
+      ],
+      "generator": "image_gen.imagegen, editing the existing costume atlas",
+      "pixelEditsAfterGeneration": false,
+      "visualReview": {
+        "sixRowsInExpectedOrder": true,
+        "identityAndCostumePreserved": true,
+        "heavyFiguresSeparated": true,
+        "darkAndLightBrowserCompositeReviewed": true,
+        "generatedPreviewWarning": "Transparent preview showed red/magenta/white RGB speckle. Actual Chromium compositing on #202830 and #eeeeee did not show that colored noise or a rectangular matte. This does not claim every gutter alpha value is exactly zero.",
+        "previewEvidence": [
+          "cat-moon-dark.png",
+          "cat-moon-light.png"
+        ],
+        "remainingNormalization": "Completed in sprite-frames.js: fixed column foot anchors, fixed row baselines, one common scale with 134px idle height cap; verified by integrated WebGL and Canvas fixtures in visual-browser.json and canvas/visual-browser.json.",
+        "previewEvidenceScope": "Raw dark/light analysis screenshots were inspected in the working environment; committed evidence is the integrated cat-moon-heavy-*.png series."
+      },
+      "uniqueFramesAcrossAtlas": 48
+    },
+    {
+      "key": "ember",
+      "source": "exec-41505ac4-baf8-4c4e-a93c-c37576c70c43.png",
+      "sha256": "76f9f9cff42121b278eea5db6bb5fa7cf77a5c3ec4cc2f3d595a537664c560bb",
+      "dimensionException": "ImageGen output 1447x1087. A subsequent imagegen dimension-only retry changed both dimensions and image content and was rejected. This selected PNG is copied without pixel edits; runtime decoder must normalize it to 1448x1086 before equal-cell extraction.",
+      "rows": [
+        {
+          "row": 0,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              62,
+              63,
+              155,
+              178
+            ],
+            [
+              57,
+              63,
+              154,
+              178
+            ],
+            [
+              49,
+              63,
+              148,
+              178
+            ],
+            [
+              43,
+              63,
+              140,
+              178
+            ],
+            [
+              40,
+              62,
+              134,
+              178
+            ],
+            [
+              32,
+              63,
+              128,
+              178
+            ],
+            [
+              27,
+              62,
+              123,
+              178
+            ],
+            [
+              24,
+              63,
+              115,
+              178
+            ]
+          ],
+          "action": "idle"
+        },
+        {
+          "row": 1,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              64,
+              64,
+              155,
+              174
+            ],
+            [
+              53,
+              66,
+              150,
+              174
+            ],
+            [
+              46,
+              67,
+              145,
+              174
+            ],
+            [
+              38,
+              65,
+              146,
+              174
+            ],
+            [
+              30,
+              66,
+              148,
+              175
+            ],
+            [
+              26,
+              69,
+              133,
+              174
+            ],
+            [
+              24,
+              66,
+              124,
+              174
+            ],
+            [
+              25,
+              65,
+              117,
+              174
+            ]
+          ],
+          "action": "attack"
+        },
+        {
+          "row": 2,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              66,
+              56,
+              154,
+              161
+            ],
+            [
+              53,
+              67,
+              149,
+              160
+            ],
+            [
+              46,
+              71,
+              149,
+              159
+            ],
+            [
+              34,
+              68,
+              145,
+              161
+            ],
+            [
+              32,
+              67,
+              154,
+              154
+            ],
+            [
+              35,
+              78,
+              138,
+              155
+            ],
+            [
+              27,
+              65,
+              124,
+              159
+            ],
+            [
+              24,
+              55,
+              115,
+              161
+            ]
+          ],
+          "action": "heavy"
+        },
+        {
+          "row": 3,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              41,
+              154,
+              146
+            ],
+            [
+              59,
+              40,
+              150,
+              146
+            ],
+            [
+              54,
+              40,
+              152,
+              146
+            ],
+            [
+              48,
+              42,
+              148,
+              146
+            ],
+            [
+              38,
+              42,
+              145,
+              146
+            ],
+            [
+              30,
+              41,
+              126,
+              146
+            ],
+            [
+              32,
+              41,
+              120,
+              146
+            ],
+            [
+              27,
+              41,
+              115,
+              146
+            ]
+          ],
+          "action": "cast"
+        },
+        {
+          "row": 4,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              28,
+              154,
+              136
+            ],
+            [
+              58,
+              30,
+              149,
+              136
+            ],
+            [
+              51,
+              31,
+              147,
+              137
+            ],
+            [
+              47,
+              30,
+              141,
+              137
+            ],
+            [
+              38,
+              30,
+              130,
+              137
+            ],
+            [
+              31,
+              31,
+              127,
+              137
+            ],
+            [
+              31,
+              30,
+              121,
+              137
+            ],
+            [
+              26,
+              30,
+              115,
+              137
+            ]
+          ],
+          "action": "guard"
+        },
+        {
+          "row": 5,
+          "uniqueFrames": 8,
+          "boundsAlpha64": [
+            [
+              65,
+              24,
+              155,
+              133
+            ],
+            [
+              54,
+              28,
+              149,
+              133
+            ],
+            [
+              55,
+              31,
+              147,
+              133
+            ],
+            [
+              46,
+              32,
+              141,
+              133
+            ],
+            [
+              38,
+              30,
+              133,
+              134
+            ],
+            [
+              33,
+              28,
+              126,
+              134
+            ],
+            [
+              32,
+              27,
+              122,
+              134
+            ],
+            [
+              25,
+              27,
+              115,
+              134
+            ]
+          ],
+          "action": "hurt"
+        }
+      ],
+      "resource": "assets/actor-keyframes/cat-ember.png",
+      "outfit": "烬霞战衣",
+      "character": "夜铃（猫耳、单尾、长深棕发）",
+      "columns": 8,
+      "rowCount": 6,
+      "frameCount": 48,
+      "rawSourceDimensions": [
+        1447,
+        1087
+      ],
+      "generator": "image_gen.imagegen, editing the existing costume atlas",
+      "pixelEditsAfterGeneration": false,
+      "visualReview": {
+        "sixRowsInExpectedOrder": true,
+        "identityAndCostumePreserved": true,
+        "heavyFiguresSeparated": true,
+        "darkAndLightBrowserCompositeReviewed": true,
+        "generatedPreviewWarning": "Transparent preview showed red/magenta/white RGB speckle. Actual Chromium compositing on #202830 and #eeeeee did not show that colored noise or a rectangular matte. This does not claim every gutter alpha value is exactly zero.",
+        "previewEvidence": [
+          "cat-ember-dark.png",
+          "cat-ember-light.png"
+        ],
+        "remainingNormalization": "Completed in sprite-frames.js: fixed column foot anchors, fixed row baselines, one common scale with 134px idle height cap; verified by integrated WebGL and Canvas fixtures in visual-browser.json and canvas/visual-browser.json.",
+        "previewEvidenceScope": "Raw dark/light analysis screenshots were inspected in the working environment; committed evidence is the integrated cat-ember-heavy-*.png series."
+      },
+      "requiredPreparedDimensions": [
+        1448,
+        1086
+      ],
+      "uniqueFramesAcrossAtlas": 48
+    }
+  ],
+  "rejectedDrafts": [
+    {
+      "source": "exec-4867324c-8818-446a-8ee6-93d3e3d29f30.png",
+      "outfit": "blood",
+      "reason": "First edit retained two touching/overlapping heavy cells. Not used."
+    },
+    {
+      "source": "exec-5f83bc1d-d921-484e-a2a3-c83915e9aaaf.png",
+      "outfit": "ember",
+      "reason": "First edit retained seven touching cells including heavy overlap. Not used."
+    },
+    {
+      "source": "exec-737f3d5f-b965-4f04-9eae-f42a144b8253.png",
+      "outfit": "moon",
+      "reason": "First edit retained three touching heavy cells. Not used."
+    },
+    {
+      "source": "exec-0ea14145-bcc4-4cfb-9b45-4c654870c30d.png",
+      "outfit": "ember",
+      "dimensions": [
+        1491,
+        1055
+      ],
+      "reason": "Dimension-only edit changed both dimensions and artwork instead of preserving selected content. Not used."
+    }
+  ],
+  "scope": "The 48 distinct-cell hashes establish different image data. They do not establish 48 entirely redrawn artworks, guaranteed motion quality or stable device FPS. All six action rows were visually inspected in the raw generated sheets."
+}

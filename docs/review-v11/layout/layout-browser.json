@@ -1,0 +1,1812 @@
+{
+  "buildSHA256": "b7dcaae10b959d5ba9e461da48bb050ae86aea10175198361d73e665f5ef13dc",
+  "method": "Chromium viewport emulation; explicit legal battle/wardrobe fixtures; no physical-device claim.",
+  "cases": [
+    {
+      "role": "assassin",
+      "outfit": "mist",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "cat-mist",
+          "x": 19,
+          "y": 368.390625,
+          "width": 137,
+          "height": 137,
+          "top": 368.390625,
+          "right": 156,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 944.34375,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 944.34375,
+          "right": 300,
+          "bottom": 986.140625,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "sword-mist",
+          "x": 19,
+          "y": 368.390625,
+          "width": 137,
+          "height": 137,
+          "top": 368.390625,
+          "right": 156,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 932.9375,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 932.9375,
+          "right": 300,
+          "bottom": 974.734375,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": true,
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "sword_fallen-mist",
+          "x": 19,
+          "y": 368.390625,
+          "width": 137,
+          "height": 137,
+          "top": 368.390625,
+          "right": 156,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 932.9375,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 932.9375,
+          "right": 300,
+          "bottom": 974.734375,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "hehuan",
+      "outfit": "dusk_silk",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "hehuan-dusk_silk",
+          "x": 19,
+          "y": 368.390625,
+          "width": 137,
+          "height": 137,
+          "top": 368.390625,
+          "right": 156,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 1251.015625,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 1251.015625,
+          "right": 300,
+          "bottom": 1292.8125,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "mechanist",
+      "outfit": "workshop",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "tinglan-workshop",
+          "x": 15.578125,
+          "y": 388.953125,
+          "width": 116.4375,
+          "height": 116.4375,
+          "top": 388.953125,
+          "right": 132.015625,
+          "bottom": 505.390625,
+          "left": 15.578125
+        },
+        {
+          "key": "chengshan",
+          "x": 68.859375,
+          "y": 431.390625,
+          "width": 64,
+          "height": 64,
+          "top": 431.390625,
+          "right": 132.859375,
+          "bottom": 495.390625,
+          "left": 68.859375
+        },
+        {
+          "key": "mingdi",
+          "x": 134.859375,
+          "y": 431.390625,
+          "width": 64,
+          "height": 64,
+          "top": 431.390625,
+          "right": 198.859375,
+          "bottom": 495.390625,
+          "left": 134.859375
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [
+        {
+          "key": "chengshan",
+          "x": 68.859375,
+          "y": 419.390625,
+          "width": 64,
+          "height": 92,
+          "top": 419.390625,
+          "right": 132.859375,
+          "bottom": 511.390625,
+          "left": 68.859375
+        },
+        {
+          "key": "mingdi",
+          "x": 134.859375,
+          "y": 419.390625,
+          "width": 64,
+          "height": 92,
+          "top": 419.390625,
+          "right": 198.859375,
+          "bottom": 511.390625,
+          "left": 134.859375
+        }
+      ],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 1746.703125,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 1746.703125,
+          "right": 300,
+          "bottom": 1788.5,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sovereign",
+      "outfit": "moonveil",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 296,
+        "height": 328.375,
+        "top": 312.390625,
+        "right": 308,
+        "bottom": 640.765625,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "feiye-moonveil",
+          "x": 19,
+          "y": 368.390625,
+          "width": 137,
+          "height": 137,
+          "top": 368.390625,
+          "right": 156,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 165,
+          "y": 371.390625,
+          "width": 135,
+          "height": 135,
+          "top": 371.390625,
+          "right": 300,
+          "bottom": 506.390625,
+          "left": 165
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 164,
+          "y": 325.390625,
+          "width": 137,
+          "height": 290.375,
+          "top": 325.390625,
+          "right": 301,
+          "bottom": 615.765625,
+          "left": 164
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 932.9375,
+          "width": 212.3125,
+          "height": 41.796875,
+          "top": 932.9375,
+          "right": 300,
+          "bottom": 974.734375,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "assassin",
+      "outfit": "mist",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "cat-mist",
+          "x": 19,
+          "y": 333.390625,
+          "width": 172,
+          "height": 172,
+          "top": 333.390625,
+          "right": 191,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 916.65625,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 916.65625,
+          "right": 370,
+          "bottom": 958.453125,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "sword-mist",
+          "x": 19,
+          "y": 333.390625,
+          "width": 172,
+          "height": 172,
+          "top": 333.390625,
+          "right": 191,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 905.25,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 905.25,
+          "right": 370,
+          "bottom": 947.046875,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": true,
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "sword_fallen-mist",
+          "x": 19,
+          "y": 333.390625,
+          "width": 172,
+          "height": 172,
+          "top": 333.390625,
+          "right": 191,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 905.25,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 905.25,
+          "right": 370,
+          "bottom": 947.046875,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "hehuan",
+      "outfit": "dusk_silk",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "hehuan-dusk_silk",
+          "x": 19,
+          "y": 333.390625,
+          "width": 172,
+          "height": 172,
+          "top": 333.390625,
+          "right": 191,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 1167.4375,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 1167.4375,
+          "right": 370,
+          "bottom": 1209.234375,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "mechanist",
+      "outfit": "workshop",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "tinglan-workshop",
+          "x": 14.703125,
+          "y": 359.203125,
+          "width": 146.1875,
+          "height": 146.1875,
+          "top": 359.203125,
+          "right": 160.890625,
+          "bottom": 505.390625,
+          "left": 14.703125
+        },
+        {
+          "key": "chengshan",
+          "x": 82.15625,
+          "y": 431.390625,
+          "width": 64,
+          "height": 64,
+          "top": 431.390625,
+          "right": 146.15625,
+          "bottom": 495.390625,
+          "left": 82.15625
+        },
+        {
+          "key": "mingdi",
+          "x": 148.15625,
+          "y": 431.390625,
+          "width": 64,
+          "height": 64,
+          "top": 431.390625,
+          "right": 212.15625,
+          "bottom": 495.390625,
+          "left": 148.15625
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [
+        {
+          "key": "chengshan",
+          "x": 82.15625,
+          "y": 419.390625,
+          "width": 64,
+          "height": 92,
+          "top": 419.390625,
+          "right": 146.15625,
+          "bottom": 511.390625,
+          "left": 82.15625
+        },
+        {
+          "key": "mingdi",
+          "x": 148.15625,
+          "y": 419.390625,
+          "width": 64,
+          "height": 92,
+          "top": 419.390625,
+          "right": 212.15625,
+          "bottom": 511.390625,
+          "left": 148.15625
+        }
+      ],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 1702.515625,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 1702.515625,
+          "right": 370,
+          "bottom": 1744.3125,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "sovereign",
+      "outfit": "moonveil",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 12,
+        "y": 312.390625,
+        "width": 366,
+        "height": 300.6875,
+        "top": 312.390625,
+        "right": 378,
+        "bottom": 613.078125,
+        "left": 12
+      },
+      "actors": [
+        {
+          "key": "feiye-moonveil",
+          "x": 19,
+          "y": 333.390625,
+          "width": 172,
+          "height": 172,
+          "top": 333.390625,
+          "right": 191,
+          "bottom": 505.390625,
+          "left": 19
+        },
+        {
+          "key": "gate_boss",
+          "x": 200,
+          "y": 336.390625,
+          "width": 170,
+          "height": 170,
+          "top": 336.390625,
+          "right": 370,
+          "bottom": 506.390625,
+          "left": 200
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 199,
+          "y": 325.390625,
+          "width": 172,
+          "height": 262.6875,
+          "top": 325.390625,
+          "right": 371,
+          "bottom": 588.078125,
+          "left": 199
+        },
+        {
+          "key": "end-turn",
+          "x": 87.6875,
+          "y": 905.25,
+          "width": 282.3125,
+          "height": 41.796875,
+          "top": 905.25,
+          "right": 370,
+          "bottom": 947.046875,
+          "left": 87.6875
+        }
+      ]
+    },
+    {
+      "role": "assassin",
+      "outfit": "mist",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "cat-mist",
+          "x": 113.5,
+          "y": 235.890625,
+          "width": 190,
+          "height": 190,
+          "top": 235.890625,
+          "right": 303.5,
+          "bottom": 425.890625,
+          "left": 113.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 719.765625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 719.765625,
+          "right": 736,
+          "bottom": 761.5625,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "sword-mist",
+          "x": 113.5,
+          "y": 235.890625,
+          "width": 190,
+          "height": 190,
+          "top": 235.890625,
+          "right": 303.5,
+          "bottom": 425.890625,
+          "left": 113.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 713.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 713.5625,
+          "right": 736,
+          "bottom": 755.359375,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": true,
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "sword_fallen-mist",
+          "x": 113.5,
+          "y": 235.890625,
+          "width": 190,
+          "height": 190,
+          "top": 235.890625,
+          "right": 303.5,
+          "bottom": 425.890625,
+          "left": 113.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 713.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 713.5625,
+          "right": 736,
+          "bottom": 755.359375,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "hehuan",
+      "outfit": "dusk_silk",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "hehuan-dusk_silk",
+          "x": 113.5,
+          "y": 235.890625,
+          "width": 190,
+          "height": 190,
+          "top": 235.890625,
+          "right": 303.5,
+          "bottom": 425.890625,
+          "left": 113.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 892.75,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 892.75,
+          "right": 736,
+          "bottom": 934.546875,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "mechanist",
+      "outfit": "workshop",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "tinglan-workshop",
+          "x": 94.25,
+          "y": 264.390625,
+          "width": 161.5,
+          "height": 161.5,
+          "top": 264.390625,
+          "right": 255.75,
+          "bottom": 425.890625,
+          "left": 94.25
+        },
+        {
+          "key": "chengshan",
+          "x": 190.125,
+          "y": 367.890625,
+          "width": 100,
+          "height": 100,
+          "top": 367.890625,
+          "right": 290.125,
+          "bottom": 467.890625,
+          "left": 190.125
+        },
+        {
+          "key": "mingdi",
+          "x": 294.125,
+          "y": 367.890625,
+          "width": 100,
+          "height": 100,
+          "top": 367.890625,
+          "right": 394.125,
+          "bottom": 467.890625,
+          "left": 294.125
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [
+        {
+          "key": "chengshan",
+          "x": 190.125,
+          "y": 357.890625,
+          "width": 100,
+          "height": 133.796875,
+          "top": 357.890625,
+          "right": 290.125,
+          "bottom": 491.6875,
+          "left": 190.125
+        },
+        {
+          "key": "mingdi",
+          "x": 294.125,
+          "y": 357.890625,
+          "width": 100,
+          "height": 133.796875,
+          "top": 357.890625,
+          "right": 394.125,
+          "bottom": 491.6875,
+          "left": 294.125
+        }
+      ],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 1009.421875,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 1009.421875,
+          "right": 736,
+          "bottom": 1051.21875,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "sovereign",
+      "outfit": "moonveil",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 216.890625,
+        "width": 720,
+        "height": 326.890625,
+        "top": 216.890625,
+        "right": 744,
+        "bottom": 543.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "feiye-moonveil",
+          "x": 113.5,
+          "y": 235.890625,
+          "width": 190,
+          "height": 190,
+          "top": 235.890625,
+          "right": 303.5,
+          "bottom": 425.890625,
+          "left": 113.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 464.5,
+          "y": 236.890625,
+          "width": 190,
+          "height": 190,
+          "top": 236.890625,
+          "right": 654.5,
+          "bottom": 426.890625,
+          "left": 464.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 392,
+          "y": 235.890625,
+          "width": 335,
+          "height": 282.890625,
+          "top": 235.890625,
+          "right": 727,
+          "bottom": 518.78125,
+          "left": 392
+        },
+        {
+          "key": "end-turn",
+          "x": 627.3125,
+          "y": 713.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 713.5625,
+          "right": 736,
+          "bottom": 755.359375,
+          "left": 627.3125
+        }
+      ]
+    },
+    {
+      "role": "assassin",
+      "outfit": "mist",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "cat-mist",
+          "x": 246.5,
+          "y": 195.890625,
+          "width": 260,
+          "height": 260,
+          "top": 195.890625,
+          "right": 506.5,
+          "bottom": 455.890625,
+          "left": 246.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 749.765625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 749.765625,
+          "right": 1408,
+          "bottom": 791.5625,
+          "left": 1299.3125
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "sword-mist",
+          "x": 246.5,
+          "y": 195.890625,
+          "width": 260,
+          "height": 260,
+          "top": 195.890625,
+          "right": 506.5,
+          "bottom": 455.890625,
+          "left": 246.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 743.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 743.5625,
+          "right": 1408,
+          "bottom": 785.359375,
+          "left": 1299.3125
+        }
+      ]
+    },
+    {
+      "role": "sword",
+      "outfit": "mist",
+      "fallen": true,
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "sword_fallen-mist",
+          "x": 246.5,
+          "y": 195.890625,
+          "width": 260,
+          "height": 260,
+          "top": 195.890625,
+          "right": 506.5,
+          "bottom": 455.890625,
+          "left": 246.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 743.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 743.5625,
+          "right": 1408,
+          "bottom": 785.359375,
+          "left": 1299.3125
+        }
+      ]
+    },
+    {
+      "role": "hehuan",
+      "outfit": "dusk_silk",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "hehuan-dusk_silk",
+          "x": 246.5,
+          "y": 195.890625,
+          "width": 260,
+          "height": 260,
+          "top": 195.890625,
+          "right": 506.5,
+          "bottom": 455.890625,
+          "left": 246.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 922.75,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 922.75,
+          "right": 1408,
+          "bottom": 964.546875,
+          "left": 1299.3125
+        }
+      ]
+    },
+    {
+      "role": "mechanist",
+      "outfit": "workshop",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "tinglan-workshop",
+          "x": 230,
+          "y": 234.890625,
+          "width": 221,
+          "height": 221,
+          "top": 234.890625,
+          "right": 451,
+          "bottom": 455.890625,
+          "left": 230
+        },
+        {
+          "key": "chengshan",
+          "x": 344.6875,
+          "y": 327.890625,
+          "width": 100,
+          "height": 100,
+          "top": 327.890625,
+          "right": 444.6875,
+          "bottom": 427.890625,
+          "left": 344.6875
+        },
+        {
+          "key": "mingdi",
+          "x": 448.6875,
+          "y": 327.890625,
+          "width": 100,
+          "height": 100,
+          "top": 327.890625,
+          "right": 548.6875,
+          "bottom": 427.890625,
+          "left": 448.6875
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [
+        {
+          "key": "chengshan",
+          "x": 344.6875,
+          "y": 317.890625,
+          "width": 100,
+          "height": 133.796875,
+          "top": 317.890625,
+          "right": 444.6875,
+          "bottom": 451.6875,
+          "left": 344.6875
+        },
+        {
+          "key": "mingdi",
+          "x": 448.6875,
+          "y": 317.890625,
+          "width": 100,
+          "height": 133.796875,
+          "top": 317.890625,
+          "right": 548.6875,
+          "bottom": 451.6875,
+          "left": 448.6875
+        }
+      ],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 1039.421875,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 1039.421875,
+          "right": 1408,
+          "bottom": 1081.21875,
+          "left": 1299.3125
+        }
+      ]
+    },
+    {
+      "role": "sovereign",
+      "outfit": "moonveil",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "stage": {
+        "key": "battle-stage boss-battle",
+        "x": 24,
+        "y": 176.890625,
+        "width": 1392,
+        "height": 396.890625,
+        "top": 176.890625,
+        "right": 1416,
+        "bottom": 573.78125,
+        "left": 24
+      },
+      "actors": [
+        {
+          "key": "feiye-moonveil",
+          "x": 246.5,
+          "y": 195.890625,
+          "width": 260,
+          "height": 260,
+          "top": 195.890625,
+          "right": 506.5,
+          "bottom": 455.890625,
+          "left": 246.5
+        },
+        {
+          "key": "gate_boss",
+          "x": 933.5,
+          "y": 196.890625,
+          "width": 260,
+          "height": 260,
+          "top": 196.890625,
+          "right": 1193.5,
+          "bottom": 456.890625,
+          "left": 933.5
+        }
+      ],
+      "machines": [],
+      "controls": [
+        {
+          "key": "target",
+          "x": 843.5,
+          "y": 195.890625,
+          "width": 440,
+          "height": 352.890625,
+          "top": 195.890625,
+          "right": 1283.5,
+          "bottom": 548.78125,
+          "left": 843.5
+        },
+        {
+          "key": "end-turn",
+          "x": 1299.3125,
+          "y": 743.5625,
+          "width": 108.6875,
+          "height": 41.796875,
+          "top": 743.5625,
+          "right": 1408,
+          "bottom": 785.359375,
+          "left": 1299.3125
+        }
+      ]
+    }
+  ],
+  "machineCommands": [
+    {
+      "width": 320,
+      "before": 10000,
+      "after": 9993
+    },
+    {
+      "width": 390,
+      "before": 10000,
+      "after": 9993
+    }
+  ],
+  "errors": [],
+  "success": true
+}

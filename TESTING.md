@@ -1,3 +1,5 @@
+本轮 review.11：先运行 `node dev/build.cjs --all --strict`。新增 `dev/sprite-frames.test.cjs` 覆盖图集解码修复；`dev/visual-repair-browser.cjs` 检查修复图集和实际战斗画面；`dev/visual-compositor-browser.cjs` 检查 WebGL / Canvas 交接像素；`dev/visual-layout-browser.cjs` 检查六种组合与四种宽度；`dev/visual-offline-browser.cjs` 检查目录和内嵌入口的修复加载。证据默认写入 `docs/review-v11/`，完整命令、覆盖范围与限制见该目录 `REVIEW_ZH.txt`。以下为历史记录。
+
 本轮 review.10：运行 `python3 dev/audit-animation-assets.py`、`node dev/build.cjs --strict`、`node dev/animation-completion-browser.cjs`。最终清晰度回归运行 `node dev/animation-final-browser.cjs`。新浏览器测试直接检查最终入口内的外观、连续帧、Boss专招、机关、真实出牌特效和减少动态模式。证据见 `docs/review-v10/`；下方旧背景帧位置断言适用于历史CSS播放器，不能用来验收Canvas插帧。
 
 # 侧幕交锋回归
