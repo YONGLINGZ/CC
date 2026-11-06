@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hehuan-dusk_silk",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/hehuan-normal.webp",
+    "output": "assets/outfits/hehuan-dusk_silk.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Travel outfit: layered ivory and smoky rose silk jacket and ankle-length flowing skirt, practical covered shoulders, golden plum embroidery, matching pale rose face veil, ornate folding fan in right hand near lips. Distinct from pink original. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  },
+  {
+    "id": "hehuan-crimson_oath",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/hehuan-normal.webp",
+    "output": "assets/outfits/hehuan-crimson_oath.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Formal battle outfit: dark wine red and black silk robes, gold peony embroidery, deep red veil, fitted bodice with layered long skirt, gold and dark red folding fan in right hand near lips. Elegant and dignified. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  },
+  {
+    "id": "tinglan-workshop",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/tinglan-normal.webp",
+    "output": "assets/outfits/tinglan-workshop.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Field engineer outfit: indigo and teal cross-collar tunic, cream fitted sleeves, brown leather tool belt and sturdy trousers tucked into brown boots, brass measuring ruler and red puppet control threads. Practical fully clothed engineering travel wear. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  },
+  {
+    "id": "tinglan-brass_guard",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/tinglan-normal.webp",
+    "output": "assets/outfits/tinglan-brass_guard.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Rescue captain outfit: jade green long coat with copper shoulder and forearm armor over charcoal fitted trousers, sturdy boots, many brass tools at belt, golden control spool and red puppet threads, decorative ancient Chinese mechanical motifs. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  },
+  {
+    "id": "feiye-moonveil",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/feiye-normal.webp",
+    "output": "assets/outfits/feiye-moonveil.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Moonlit traveling outfit: silvery ivory and pale lavender layered floor-length robes, translucent outer sleeves, crescent silver hairpiece, slim purple waist sash, mystical purple flame hovering above her palm, original solemn adult face. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  },
+  {
+    "id": "feiye-night_crown",
+    "tool": "built-in image_gen",
+    "reference": "assets/puppet/feiye-normal.webp",
+    "output": "assets/outfits/feiye-night_crown.png",
+    "prompt": "Use case: identity-preserve. Transparent full-body portrait. Preserve adult identity, face, hairstyle and Chinese fantasy painterly style from reference. Reclaimed palace regalia: midnight navy and deep violet floor-length robes with intricate silver moon and star embroidery, dignified crescent crown, long sleeves, purple ceremonial jade seal held at waist, subtle purple spirit flame above palm. Head to toe, genuine transparent background, no text, no scenery, no duplicate figures."
+  }
+]

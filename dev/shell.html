@@ -245,20 +245,24 @@ body[data-motion="reduced"] .fx-boss-spell{animation:none}@media(prefers-reduced
 
 .role-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hehuan-combat{background:linear-gradient(110deg,#173f3b8a,#251f25);padding:18px;border:1px solid #b5965b66;margin:16px 0}.breath-row{display:flex;justify-content:space-between;gap:16px;align-items:center}.breath-row h3{color:#e8ddd5;font-size:20px}.breath-row p,.breath-reading{font-size:12px;color:#c6d4ce}.breath-reading{padding:10px 0;color:#edd5ab}.trap-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.trap-slot{display:flex;gap:12px;border:1px dashed #b5965b88;padding:14px;min-height:110px;background:#102a2866}.trap-slot.occupied{border-style:solid;background:#21433c}.trap-slot h4{font:17px var(--serif);color:#f5d9bb}.trap-slot p,.trap-slot small{font-size:12px;line-height:1.8}.silk-knot{width:28px;height:36px;border:1px solid #a63b4a;color:#f1c6c8;flex-shrink:0;text-align:center}.hehuan-card{height:auto!important;min-height:380px}.hehuan-card p{font-size:12px;line-height:1.65;min-height:0!important;margin-bottom:8px}.hehuan-card .trap-card-rule{color:#dfc6ae;border-top:1px solid #b5965b44;padding-top:8px}.dual-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.dual-card-actions button{min-height:44px;padding:6px;font-size:12px}.hehuan-portrait img{object-fit:contain!important;object-position:center bottom!important}.hehuan-ending{margin:18px 0;padding:18px;border-left:2px solid #b5965b;text-align:left;white-space:pre-line}.hehuan-silk{color:#e8ddd5;filter:drop-shadow(0 0 12px #b5965b);font:32px var(--serif)}.recall-options{display:grid;gap:12px}.recall-options small{display:block}.role-portrait [data-portrait=hehuan]{background:radial-gradient(ellipse at center,#3c5555aa,transparent 75%)}
 @media(max-width:1000px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.breath-row{display:block}.breath-row button{margin-top:12px}.trap-slots{grid-template-columns:1fr}.hehuan-combat{padding:12px}.hehuan-card{min-width:210px}.dual-card-actions{gap:4px}.hehuan-card .card-art{height:120px}.hehuan-card{scroll-snap-align:start}}
-/* A loaded painting fully replaces its transparent SVG fallback. */
-.portrait.portrait-image-ready:not(.image-failed)>svg{visibility:hidden}
+/* Keep the SVG fallback hidden while a painting loads; reveal it only on failure. */
+.portrait:has(>img):not(.image-failed)>svg{visibility:hidden}
 
 /* NPCs have a separate portrait panel, outside the landscape perspective. */
 .encounter-column .faction-npc{position:relative;top:auto;right:auto;margin:16px 0 0;width:100%;height:220px;border:1px solid var(--line);background:linear-gradient(135deg,#1c3438,#101f24);overflow:hidden}
 .encounter-column .faction-npc .portrait{max-width:260px;margin:auto}
 .encounter-column .faction-npc .portrait>img{object-fit:cover;object-position:center top}
-/* Equal frames keep long rules readable without changing card size. */
-.hand .card,.reward-cards .card,.shop-item .card,.starter-deck-grid .card,.deck-grid .card{height:490px!important;min-height:490px!important;max-height:490px;display:grid;grid-template-rows:34px 22px 110px minmax(0,1fr) 24px;gap:7px;align-content:stretch}
-.reward-cards .hehuan-card,.shop-item .hehuan-card,.starter-deck-grid .hehuan-card,.deck-grid .hehuan-card{grid-template-rows:34px 22px 110px minmax(0,1fr) minmax(0,1fr) 24px}
-.hand .hehuan-card{grid-template-rows:34px 22px 110px minmax(0,1fr) minmax(0,1fr) 44px 24px}
+/* Card rules determine card height in every collection, including dual-mode cards. */
+.hand .card,.reward-cards .card,.shop-item .card,.starter-deck-grid .card,.deck-grid .card{height:auto!important;min-height:360px!important;max-height:none;min-width:0;display:flex;flex-direction:column;gap:8px}
+.deck-grid,.starter-deck-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.deck-grid .card,.starter-deck-grid .card{width:100%;max-width:none}
+.deck-grid .card .card-art,.starter-deck-grid .card .card-art{max-width:100%;margin-left:0;margin-right:0}
+.card>*{flex-shrink:0;min-width:0}
+.card .card-top{height:auto;min-height:34px}
+.card .card-top h4{white-space:normal;overflow-wrap:anywhere}
 .card .card-art{height:110px!important;min-height:110px!important;max-height:110px}
-.card p{overflow:auto;min-height:0!important;margin:0!important;line-height:1.65!important;font-size:12px!important}
-.card .card-foot{align-self:end}.card .dual-card-actions{margin:0}.card .card-traits{align-self:center}
+.card p{overflow:visible;flex:none;min-height:0!important;margin:0!important;line-height:1.75!important;font-size:14px!important;overflow-wrap:anywhere}
+.card .card-foot{align-self:stretch;margin-top:auto}.card .dual-card-actions{margin:0}.card .card-traits{align-self:stretch}
 .hand .card{flex:0 0 220px;width:220px;min-width:220px;max-width:220px}
 @media(max-width:760px){.encounter-column .faction-npc{height:180px}}
 .journey-home{position:relative;display:block;min-height:720px;margin-top:26px;overflow:hidden;border:1px solid var(--line);background:#0b1a21}
@@ -426,138 +430,124 @@ body[data-screen="battle"] .battle-stage .combatant-title{min-height:82px;paddin
 body[data-screen="battle"] .battle-stage .mechanist-field{left:31%;top:140px}body[data-screen="battle"] .battle-stage .field-machine{width:37px}body[data-screen="battle"] .battle-stage .field-machine>.machine-portrait{width:37px;height:60px}body[data-screen="battle"] .battle-stage .field-machine>span{font-size:8px;max-width:37px;line-height:1.3}.stage-card-effect{width:110px;height:110px}
 }
 
-/* Review 6: the stage and controls share one viewport; details scroll independently. */
-body[data-screen=battle]{height:100dvh;overflow:hidden}
-body[data-screen=battle] .wrap{height:100%;max-width:none;padding:6px 12px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box}
-body[data-screen=battle] .topbar{margin:0;padding:0;min-height:28px;height:28px;flex-shrink:0;border:0}
-body[data-screen=battle] .brand{display:none}body[data-screen=battle] .topbar nav{display:flex;gap:5px;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}
-body[data-screen=battle] .topbar nav button{font-size:12px;padding:3px 6px;min-height:26px}body[data-screen=battle] .topbar .tag{display:none}
-body[data-screen=battle] #hud{flex-shrink:0;margin:0;height:40px;overflow:hidden}
-body[data-screen=battle] #hud .hud{padding:3px 6px;margin:0;min-height:0;gap:12px;display:flex;align-items:center}
-body[data-screen=battle] #hud .hud>*{margin:0}body[data-screen=battle] #hud .hud small{font-size:10px}body[data-screen=battle] #hud .hud b{font-size:18px}
+/* Battle layout follows content height, including long card rules and wrapped status rows. */
+body[data-screen=battle]{height:auto;min-height:100dvh;overflow:visible}
+body[data-screen=battle] .wrap{height:auto;max-width:1480px;padding:12px 24px;display:block;box-sizing:border-box}
+body[data-screen=battle] .topbar{height:auto;min-height:44px;margin:0;padding:0 0 8px;border-bottom:1px solid var(--line)}
+body[data-screen=battle] .brand,body[data-screen=battle] .topbar .tag{display:none}
+body[data-screen=battle] .topbar nav{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:4px 8px;overflow:visible;white-space:normal}
+body[data-screen=battle] .topbar nav button{min-height:36px;padding:6px 8px;font-size:12px}
+body[data-screen=battle] #hud{height:auto;margin:0;overflow:visible}
+body[data-screen=battle] #hud .hud{height:auto;min-height:0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:12px 0;overflow:visible}
+body[data-screen=battle] #hud .hud>div{min-width:0;margin:0}
+body[data-screen=battle] #hud .hud-label{font-size:11px;line-height:1.5}
+body[data-screen=battle] #hud .hud-value{font-size:22px;line-height:1.5}
+body[data-screen=battle] #hud .hud-value small{font-size:12px}
+body[data-screen=battle] #hud .status-icon{width:36px;height:36px;min-width:36px;min-height:36px;flex-basis:36px;padding:6px}
 body[data-screen=battle] .footer{display:none}
-body[data-screen=battle] #app{flex:1;min-height:0;display:grid;gap:5px;grid-template-columns:minmax(0,1fr) 330px;grid-template-rows:24px minmax(180px,1fr) 32px 48px 250px;grid-template-areas:'top top' 'stage kit' 'clue kit' 'resources tools' 'hand hand'}
-body[data-screen=battle] .battle-top{grid-area:top;position:relative;margin:0;font-size:12px;min-height:0;padding:0;overflow:hidden}
-body[data-screen=battle] .battle-top>.muted{max-width:55%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
-body[data-screen=battle] .battle-stage{grid-area:stage;min-height:0!important;height:100%;box-sizing:border-box;padding:32px 10px 4px;grid-template-columns:1fr 50px 1fr;margin:0;gap:4px}
-body[data-screen=battle] .battle-stage .portrait.side-actor{height:calc(100% - 62px);min-height:105px}
-body[data-screen=battle] .battle-stage .combatant{height:100%;min-height:0;display:flex;flex-direction:column}
-body[data-screen=battle] .battle-stage .enemy-target{height:100%;display:flex;flex-direction:column;align-items:stretch}
-body[data-screen=battle] .battle-stage .portrait.side-actor>svg.stage-rig,body[data-screen=battle] .battle-stage.boss-battle .enemy-combatant .portrait.side-actor>svg.stage-rig{height:100%;width:auto;max-width:100%}
-body[data-screen=battle] .battle-stage .combatant-title{height:62px;min-height:62px;padding:4px;font-size:12px;overflow:hidden;flex-shrink:0}
-body[data-screen=battle] .battle-stage .combatant-title h3{font-size:14px;line-height:18px;margin:0}body[data-screen=battle] .battle-stage .combatant-title h3 small{font-size:10px}
-body[data-screen=battle] .battle-stage .portrait.side-actor>img{width:32px;height:38px;top:0}
-body[data-screen=battle] .battle-stage .side-actor .damage-stage-label{top:40px;font-size:9px}
-body[data-screen=battle] .stage-floor{top:auto;bottom:62px;height:40px}
-body[data-screen=battle] .battle-stage .battle-focus{display:none}
-body[data-screen=battle] .enemy-clue{grid-area:clue;margin:0;padding:3px 8px;min-height:0;font-size:12px;overflow:auto}
-body[data-screen=battle] .hehuan-combat,body[data-screen=battle] .mechanist-combat{grid-area:kit;margin:0;padding:8px;overflow:auto;min-height:0;box-sizing:border-box}
-body[data-screen=battle] .machine-lineup{display:flex;flex-direction:column;gap:6px}
-body[data-screen=battle] .machine-unit{padding:6px;grid-template-columns:60px 1fr}
-body[data-screen=battle] .machine-visual .machine-portrait{width:60px;height:64px}
-body[data-screen=battle] .machine-passive,body[data-screen=battle] .squad-safety,body[data-screen=battle] .squad-guard>span{display:none}
-body[data-screen=battle] .mechanist-combat h3,body[data-screen=battle] .hehuan-combat h3{font-size:14px}
-body[data-screen=battle] .combat-resource-panel{grid-area:resources;position:static;margin:0;padding:3px 6px;min-height:0;gap:8px;overflow:auto;font-size:12px}
-body[data-screen=battle] .combat-resource-panel .resource-steps{display:none}
-body[data-screen=battle] .battle-tools{grid-area:tools;margin:0;display:flex;gap:4px;min-width:0;padding:0;align-items:center}
-body[data-screen=battle] .pile-buttons{display:flex;gap:3px;overflow:auto;min-width:0;flex:1}
-body[data-screen=battle] .pile-buttons button{font-size:11px;padding:5px;white-space:nowrap}
-body[data-screen=battle] .battle-tools>.btn{padding:6px 10px;white-space:nowrap;font-size:13px}
-body[data-screen=battle] .hand{grid-area:hand;display:flex;flex-wrap:nowrap;overflow:auto hidden;gap:10px;min-height:0;height:100%;margin:0;padding:4px 4px 8px;box-sizing:border-box;scrollbar-width:thin;scroll-snap-type:x proximity}
-body[data-screen=battle] .hand .card{flex:0 0 205px;width:205px;min-width:205px;height:100%;max-height:none;overflow:auto;padding:8px;scroll-snap-align:start;transform:none!important;text-align:left}
-body[data-screen=battle] .hand .card-art{height:44px;min-height:44px;margin:3px 0}
-body[data-screen=battle] .hand .card-art img{height:44px;object-fit:cover}
-body[data-screen=battle] .hand .card p{font-size:13px;line-height:1.45;margin:5px 0}
-body[data-screen=battle] .hand .card-top h4{font-size:16px}body[data-screen=battle] .hand .cost{font-size:18px;width:27px;height:27px}
-body[data-screen=battle] .hand .card-traits{font-size:10px}.hand .dual-card-actions{position:sticky;bottom:0;background:#183332;padding:4px 0;z-index:2}
-body[data-screen=battle] .hand .card-foot{font-size:10px;margin-top:4px}body[data-screen=battle] .hand .machine-executor{font-size:11px}
-body[data-screen=battle] .hand-caption,body[data-screen=battle] .build-hint,body[data-screen=battle] .battle-background-notes,body[data-screen=battle] .log-row{display:none}
-body[data-screen=battle]:not([data-character=mechanist]):not([data-character=hehuan]) #app{grid-template-areas:'top top' 'stage stage' 'clue clue' 'resources tools'}
-body[data-screen=battle]:not([data-character=mechanist]):not([data-character=hehuan]) .hand{grid-row:5;grid-column:1/-1}
-body[data-screen=battle] .skill-banner{position:absolute;inset:0;background:#183332;border:0;padding:0 8px;display:flex;gap:10px;align-items:center;justify-content:center;transform:none;animation:none;min-width:0;width:100%;height:24px;box-sizing:border-box}
-body[data-screen=battle] .skill-banner b{font-size:15px}body[data-screen=battle] .skill-banner small{font-size:11px}
-body[data-screen=battle] .fx-number{width:160px;max-width:42vw;transform:translateX(-50%);animation:none!important;text-align:center;z-index:120}
-body[data-screen=battle] .fx-number b{font-size:24px;line-height:26px}body[data-screen=battle] .fx-number small{font-size:10px;line-height:12px;background:#11252cee;padding:1px 3px}
-body[data-screen=battle] .fx-harvest span,body[data-screen=battle] .fx-shield span,body[data-screen=battle] .fx-hurt-impact span,body[data-screen=battle] .fx-hehuan-silk span{display:none}
-body[data-screen=battle] .fx-combo{display:none}
-body[data-screen=battle] .battle-stage .mechanist-field{left:23%;top:auto;bottom:65px;gap:4px}
-body[data-screen=battle] .battle-stage .field-machine{width:82px}body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:82px;height:100px}
-body[data-screen=battle] .battle-stage .field-machine>span{font-size:11px;max-width:82px;background:#10262eee}
-body[data-screen=battle] .battle-stage .machine-portrait>img{display:none}
-body[data-screen=battle] .battle-stage .machine-portrait>svg{display:block!important;opacity:1!important;visibility:visible!important}
-body[data-screen=battle][data-character=mechanist] .player-combatant .stage-rig{left:40%!important;max-width:65%!important}
-.squad-menu{display:none}
-@media(max-width:760px){
-body[data-screen=battle] .wrap{padding:3px 6px;gap:2px}body[data-screen=battle] .topbar{height:26px;min-height:26px}
-body[data-screen=battle] #hud{height:34px}body[data-screen=battle] #hud .hud{gap:8px;font-size:10px}
-body[data-screen=battle] #app{grid-template-columns:minmax(0,1fr);gap:3px;grid-template-rows:20px 250px 28px 112px 34px 36px minmax(160px,1fr);grid-template-areas:'top' 'stage' 'clue' 'kit' 'resources' 'tools' 'hand'}
-body[data-screen=battle]:not([data-character=mechanist]):not([data-character=hehuan]) #app{grid-template-rows:20px minmax(200px,1fr) 28px 34px 36px 238px;grid-template-areas:'top' 'stage' 'clue' 'resources' 'tools' 'hand'}
-body[data-screen=battle]:not([data-character=mechanist]):not([data-character=hehuan]) .hand{grid-area:hand}
-body[data-screen=battle] .battle-top{font-size:10px}body[data-screen=battle] .battle-top>.muted{display:none}
-body[data-screen=battle] .battle-stage{grid-template-columns:1fr 1fr;padding:30px 3px 2px;gap:2px}
-body[data-screen=battle] .battle-stage .combatant-title{height:54px;min-height:54px;padding:2px}
-body[data-screen=battle] .battle-stage .combatant-title h3{font-size:12px;line-height:15px}.battle-stage .combatant-title h3 small{display:none!important}
-body[data-screen=battle] .battle-stage .portrait.side-actor{height:calc(100% - 54px);min-height:95px}
-body[data-screen=battle] .stage-floor{bottom:54px}body[data-screen=battle] .battle-stage .portrait.side-actor>img{width:23px;height:27px}
-body[data-screen=battle] .hand .card{flex-basis:180px;width:180px;min-width:180px;padding:6px}
-body[data-screen=battle] .hand .card-art{display:none}body[data-screen=battle] .hand .card p{font-size:13px;line-height:1.5}
-body[data-screen=battle] .hand .card-traits{margin:2px 0}.dual-card-actions .btn{padding:8px 4px;font-size:12px;min-height:36px}
-body[data-screen=battle] .hehuan-combat{padding:3px 6px;display:grid;grid-template-columns:1fr auto;grid-template-rows:32px 1fr;gap:3px}
-body[data-screen=battle] .hehuan-combat .breath-row{grid-column:2;grid-row:1;margin:0;padding:0}.hehuan-combat .breath-row>div{display:none}
-body[data-screen=battle] .hehuan-combat .breath-row button{padding:3px 6px;font-size:12px}
-body[data-screen=battle] .hehuan-combat .breath-reading{grid-column:1;grid-row:1;font-size:10px;margin:0;overflow:auto}
-body[data-screen=battle] .hehuan-combat .trap-slots{grid-column:1/-1;grid-row:2;gap:4px;min-height:0}
-body[data-screen=battle] .trap-slot{padding:3px;min-height:0;overflow:auto;display:block}.trap-slot .silk-knot{display:none}body[data-screen=battle] .trap-slot h4{font-size:12px;margin:0}body[data-screen=battle] .trap-slot p{font-size:11px;line-height:1.4;margin:1px 0}body[data-screen=battle] .trap-slot small{display:none}
-body[data-screen=battle] #app>.mechanist-combat .machine-lineup{display:none}body[data-screen=battle] .squad-menu{display:inline-flex}
-body[data-screen=battle] #app>.mechanist-combat header{display:flex;flex-wrap:wrap;gap:5px}body[data-screen=battle] #app>.mechanist-combat h3{display:none}
-body[data-screen=battle] .battle-stage .mechanist-field{left:19%;bottom:56px;gap:2px}
-body[data-screen=battle] .battle-stage .field-machine{width:48px}body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:48px;height:68px}body[data-screen=battle] .battle-stage .field-machine>span{font-size:9px;max-width:48px;line-height:12px}
-body[data-screen=battle][data-character=mechanist] .player-combatant .stage-rig{left:32%!important;max-width:65%!important}
-body[data-screen=battle] .fx-number b{font-size:20px}.stage-card-effect{width:80px;height:80px}
-body[data-screen=battle] .skill-banner{height:20px}.skill-banner small{display:none!important}
-#modal-root .squad-menu{display:none}
-}
-@media(max-height:740px){body[data-screen=battle] #app{grid-template-rows:20px minmax(150px,1fr) 26px 38px 210px}body[data-screen=battle] .hand .card-art{display:none}}
-@media(max-width:760px) and (max-height:740px){body[data-screen=battle] #app{grid-template-rows:20px 204px 26px 85px 30px 34px minmax(150px,1fr)}body[data-screen=battle]:not([data-character=mechanist]):not([data-character=hehuan]) #app{grid-template-rows:20px minmax(170px,1fr) 26px 30px 34px 210px}}
-
-/* Explicit grid placement avoids leaving the hidden centre column occupied. */
-body[data-screen=battle] .battle-stage{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-body[data-screen=battle] .battle-stage .player-combatant{grid-column:1;grid-row:1}body[data-screen=battle] .battle-stage .enemy-combatant{grid-column:2;grid-row:1}
-body[data-screen=battle] #hud .hud{height:100%;box-sizing:border-box;padding:0 4px;align-items:start;overflow:hidden;grid-template-columns:none}
-body[data-screen=battle] #hud .hud-label{font-size:9px;line-height:12px;margin:0}body[data-screen=battle] #hud .hud-value{font-size:18px;line-height:22px;margin:0}body[data-screen=battle] #hud .hpbar{display:none}
-body[data-screen=battle] .pile-buttons{flex-wrap:nowrap;height:100%;align-items:center;overflow-x:auto;overflow-y:hidden}
-body[data-screen=battle] .battle-tools{height:100%;overflow:hidden;flex-wrap:nowrap}
-body[data-screen=battle] .machine-unit{display:block}.machine-unit .machine-readings{min-width:0;width:100%}body[data-screen=battle] #app .machine-unit .machine-visual{display:none}
-body[data-screen=battle] .machine-readings p,body[data-screen=battle] .machine-readings small{display:block;width:auto;margin:2px 0;font-size:12px}
-body[data-screen=battle] .machine-controls{margin:3px 0}body[data-screen=battle] .machine-controls>div{display:flex;flex-wrap:wrap;gap:4px}
-body[data-screen=battle] .machine-controls .btn{font-size:12px;padding:6px}
-body[data-screen=battle] .hand .card p{min-height:0;flex:none}.hand .dual-card-actions{flex:none}
-body[data-screen=battle] .combat-resource-panel .class-resource{padding:2px 6px;min-height:0;line-height:20px}
-body[data-screen=battle] .combat-resource-panel .class-resource b{font-size:15px}body[data-screen=battle] .combat-resource-panel .class-resource span{font-size:11px}
-body[data-screen=battle] .combat-resource-panel .resource-value{font-size:20px}
-body[data-screen=battle] .combat-resource-panel .resource-main{min-height:0}
-@media(max-width:760px){body[data-screen=battle] #hud .hud>div:nth-child(n+4){display:none}body[data-screen=battle] .combat-resource-panel{overflow:hidden;padding:1px 4px}body[data-screen=battle] .combat-resource-panel .class-resource>span{display:none}body[data-screen=battle] .combat-resource-panel .resource-value{font-size:18px}body[data-screen=battle] .hand .card{display:flex;flex-direction:column;gap:0}body[data-screen=battle] .hand .card .card-foot{margin-top:auto}body[data-screen=battle] .hehuan-combat .breath-row{position:static;align-items:center}body[data-screen=battle] .hehuan-combat .breath-row button{height:30px;min-height:30px}}
-
-
-body[data-screen=battle] .combat-resource-panel .resource-main{flex-direction:row;align-items:center;gap:6px;height:100%;}
-body[data-screen=battle] .combat-resource-panel .class-resource{height:28px;box-sizing:border-box;min-width:0;flex-wrap:nowrap;gap:4px;white-space:nowrap;overflow:hidden;flex:1}
-body[data-screen=battle] .combat-resource-panel .class-resource .symbol-mark{width:18px;height:18px;flex-basis:18px}
-body[data-screen=battle] .combat-resource-panel .resource-vitals{gap:8px;font-size:12px;flex-direction:row}
-body[data-screen=battle] .combat-resource-panel .resource-vitals b{font-size:18px;margin-left:2px}
-body[data-screen=battle] .combat-resource-panel .resource-reading{display:inline!important;font-size:13px!important}
-body[data-screen=battle] .combat-resource-panel .temporary-resources{display:none}
-body[data-screen=battle] .battle-tools>.btn{min-height:30px;height:32px;padding:3px 8px}
-body[data-screen=battle] .stage-card-effect{max-width:110px;max-height:110px}
-@media(max-width:760px){
-body[data-screen=battle] #app>.mechanist-combat header{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-body[data-screen=battle] #app>.mechanist-combat header>div{grid-column:1/-1}
-body[data-screen=battle] #app>.mechanist-combat header>.btn{width:auto;min-height:32px;height:32px;margin:0;padding:3px;font-size:11px}
-body[data-screen=battle] #app>.mechanist-combat .squad-guard{margin:0;font-size:12px}
-}
-body[data-screen=battle] .battle-top .temporary-resources{display:block;max-width:55%;min-width:0;overflow:auto;white-space:nowrap;font-size:11px;line-height:18px;padding:0 4px;margin:0;min-height:0;height:20px;border:0;background:#183332;color:#f5dda5}
+body[data-screen=battle] #app{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:'top' 'stage' 'clue' 'kit' 'resources' 'tools' 'preview' 'caption' 'hand';gap:10px;min-height:0}
+body[data-screen=battle] #app>*{min-width:0}
+body[data-screen=battle] .battle-top{grid-area:top;position:relative;display:flex;flex-wrap:wrap;gap:8px 16px;min-height:26px;margin:0;padding:4px 0;font-size:12px;overflow:visible}
+body[data-screen=battle] .battle-top>.muted{max-width:none;white-space:normal}
+body[data-screen=battle] .battle-top .temporary-resources{max-width:100%;height:auto;margin:0;padding:0 6px;white-space:normal;text-align:left;font-size:12px;line-height:1.7}
 body[data-screen=battle] .battle-top .temporary-resources:empty{display:none}
-body[data-screen=battle] .combat-resource-panel .combo-resource>span{display:inline!important;font-size:11px}
-body[data-screen=battle] .combat-resource-panel .combo-resource #component-status{font-size:10px;overflow:hidden;text-overflow:ellipsis}
+body[data-screen=battle] .battle-stage{grid-area:stage;position:relative;height:auto;min-height:0!important;padding:18px 16px 12px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px}
+body[data-screen=battle] .battle-stage .combatant{height:auto;min-height:0;max-width:440px;min-width:0;width:100%;display:flex;flex-direction:column}
+body[data-screen=battle] .battle-stage .player-combatant{grid-column:1;grid-row:1}
+body[data-screen=battle] .battle-stage .enemy-combatant{grid-column:2;grid-row:1}
+body[data-screen=battle] .battle-stage .enemy-target{height:auto;width:100%;display:flex;flex-direction:column;align-items:stretch;padding:0;margin:0;border-radius:8px}
+body[data-screen=battle] .battle-stage .enemy-target:disabled{opacity:1}
+body[data-screen=battle] .battle-stage .portrait.side-actor{height:clamp(190px,24vw,260px);min-height:0;max-width:360px;width:100%;margin:0 auto;flex:none}
+body[data-screen=battle] .battle-stage .combatant-title{position:relative!important;inset:auto!important;height:auto;min-height:72px;flex:none;margin:0;padding:10px 8px;overflow:visible;width:100%}
+body[data-screen=battle] .battle-stage .combatant-title h3{font-size:17px;line-height:1.5;margin:0 0 5px;overflow-wrap:anywhere}
+body[data-screen=battle] .battle-stage .combatant-title h3 small{font-size:11px}
+body[data-screen=battle] .battle-stage .stats{font-size:12px;flex-wrap:wrap;gap:5px}
+body[data-screen=battle] .battle-stage .enemy-status-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;height:auto;margin:8px 0 0;padding:2px}
+body[data-screen=battle] .battle-stage .portrait.side-actor>img{width:36px;height:44px;top:0;left:0}
+body[data-screen=battle] .battle-stage .enemy-combatant .portrait.side-actor>img{left:auto;right:0}
+body[data-screen=battle] .battle-stage .side-actor .damage-stage-label{top:48px;left:0;font-size:10px}
+body[data-screen=battle] .battle-stage .battle-focus{display:none}
+body[data-screen=battle] .stage-floor{top:auto;bottom:82px;height:40px}
+body[data-screen=battle] .target-tip{position:static;min-height:24px;font-size:12px;margin-top:4px}
+body[data-screen=battle] .enemy-clue{grid-area:clue;height:auto;min-height:0;margin:0;padding:8px 12px;gap:6px 14px;overflow:visible;font-size:12px}
+body[data-screen=battle] .hehuan-combat,body[data-screen=battle] .mechanist-combat{grid-area:kit;height:auto;margin:0;padding:12px;overflow:visible;min-height:0}
+body[data-screen=battle] .breath-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+body[data-screen=battle] .breath-row button{margin:0;min-height:40px}
+body[data-screen=battle] .trap-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+body[data-screen=battle] .trap-slot{height:auto;min-height:72px;padding:10px;overflow:visible}
+body[data-screen=battle] .trap-slot p{font-size:13px;line-height:1.7}
+body[data-screen=battle] .machine-lineup{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;overflow:visible}
+body[data-screen=battle] .machine-unit{display:block;padding:10px;min-width:0}
+body[data-screen=battle] .machine-readings{display:block;min-width:0}
+body[data-screen=battle] .machine-readings p,body[data-screen=battle] .machine-readings small{font-size:12px!important;line-height:1.7!important;margin:4px 0!important}
+body[data-screen=battle] .machine-visual{display:none}
+body[data-screen=battle] .machine-controls>div{display:flex;flex-wrap:wrap;gap:6px}
+body[data-screen=battle] .machine-controls .btn{width:auto;min-height:40px;font-size:12px;padding:6px 8px}
+body[data-screen=battle] .squad-menu{display:none}
+body[data-screen=battle] .combat-resource-panel{grid-area:resources;position:static;height:auto;min-height:0;margin:0;padding:10px 12px;overflow:visible}
+body[data-screen=battle] .combat-resource-panel .resource-main{display:flex;flex-wrap:wrap;height:auto;align-items:center;gap:12px}
+body[data-screen=battle] .combat-resource-panel .class-resource{height:auto;min-height:44px;min-width:0;flex:1 1 220px;padding:8px 10px;line-height:1.6;white-space:normal;overflow:visible}
+body[data-screen=battle] .combat-resource-panel .class-resource .resource-reading{font-size:14px}
+body[data-screen=battle] .combat-resource-panel .class-resource b{font-size:22px}
+body[data-screen=battle] .combat-resource-panel .resource-vitals{display:flex;flex-wrap:wrap;flex-direction:row;gap:10px 22px;align-items:center;font-size:14px}
+body[data-screen=battle] .combat-resource-panel .resource-vitals b{font-size:22px}
+body[data-screen=battle] .battle-tools{grid-area:tools;position:static;display:flex;flex-wrap:wrap;gap:8px;height:auto;margin:0;padding:8px;overflow:visible;align-items:center}
+body[data-screen=battle] .pile-buttons{display:flex;flex:1 1 300px;flex-wrap:wrap;gap:6px;min-width:0;height:auto;overflow:visible}
+body[data-screen=battle] .pile-buttons button{min-height:36px;padding:6px 9px;font-size:12px;white-space:normal}
+body[data-screen=battle] .battle-tools>.btn{min-height:40px;height:auto;padding:8px 14px;font-size:14px;white-space:normal}
+body[data-screen=battle] .selection-preview{grid-area:preview;margin:0}
+body[data-screen=battle] .hand-caption{grid-area:caption;display:flex;flex-wrap:wrap;gap:8px;font-size:12px;margin:0}
+body[data-screen=battle] .hand{grid-area:hand;display:flex;flex-wrap:nowrap;align-items:stretch;gap:12px;min-height:0;height:auto;margin:0;padding:4px 2px 14px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scroll-snap-type:x proximity}
+body[data-screen=battle] .hand>.card{display:flex;flex-direction:column;flex:0 0 220px;width:220px;min-width:220px;max-width:220px;height:auto!important;min-height:0!important;max-height:none;gap:8px;padding:12px;overflow:visible;scroll-snap-align:start;transform:none!important;text-align:left}
+body[data-screen=battle] .hand>.card>*{flex-shrink:0;min-width:0}
+body[data-screen=battle] .hand>.card:disabled{opacity:1;filter:none;border-style:dashed;cursor:not-allowed}
+body[data-screen=battle] .hand .card-top{min-height:32px;align-items:center;gap:8px}
+body[data-screen=battle] .hand .card-top h4{font-size:18px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+body[data-screen=battle] .hand .cost{font-size:20px;width:32px;height:auto;min-height:32px;flex:0 0 32px}
+body[data-screen=battle] .hand .card-traits{align-self:stretch;display:flex;flex-wrap:wrap;gap:5px;font-size:11px}
+body[data-screen=battle] .hand .card-art{display:block;height:70px!important;min-height:70px!important;max-height:70px;margin:0}
+body[data-screen=battle] .hand .card-art img{height:100%;object-fit:cover}
+body[data-screen=battle] .hand .card p{height:auto;max-height:none;min-height:0!important;flex:none;font-size:14px!important;line-height:1.75!important;margin:0!important;overflow:visible;overflow-wrap:anywhere}
+body[data-screen=battle] .hand .machine-executor{font-size:12px;line-height:1.7;white-space:normal}
+body[data-screen=battle] .hand .dual-card-actions{position:static;display:grid;grid-template-columns:1fr 1fr;flex:none;gap:6px;margin:0;padding:0;background:transparent}
+body[data-screen=battle] .hand .dual-card-actions .btn{min-height:40px;padding:8px 4px;font-size:12px;white-space:normal}
+body[data-screen=battle] .hand .card-foot{display:flex;flex-wrap:wrap;align-self:stretch;gap:4px 10px;min-height:24px;font-size:11px;line-height:1.6;margin-top:auto;padding-top:4px}
+body[data-screen=battle] .build-hint,body[data-screen=battle] .battle-background-notes,body[data-screen=battle] .log-row{display:none}
+body[data-screen=battle] .skill-banner{position:absolute;inset:0;min-width:0;max-width:100%;padding:4px 8px;transform:none;animation:none;display:flex;justify-content:center;gap:10px;align-items:center;background:#183332}
+body[data-screen=battle] .skill-banner b{font-size:15px}.skill-banner small{font-size:11px}
+body[data-screen=battle] .battle-stage .mechanist-field{left:23%;top:140px;bottom:auto;gap:4px}
+body[data-screen=battle] .battle-stage .field-machine{width:82px}
+body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:82px;height:100px}
+body[data-screen=battle] .battle-stage .field-machine>span{font-size:11px;max-width:82px;background:#10262eee}
+body[data-screen=battle][data-character=mechanist] .player-combatant .stage-rig{left:40%!important;max-width:65%!important}
+@media(max-width:760px){
+ body[data-screen=battle] .wrap{padding:8px 12px}
+ body[data-screen=battle] #hud .hud{gap:10px 18px}
+ body[data-screen=battle] #hud .hud>div:nth-child(n+4){display:block}
+ body[data-screen=battle] #hud .hud-value{font-size:20px}
+ body[data-screen=battle] #app{gap:8px}
+ body[data-screen=battle] .battle-top>.muted{display:none}
+ body[data-screen=battle] .battle-stage{gap:8px;padding:12px 6px}
+ body[data-screen=battle] .battle-stage .portrait.side-actor{height:180px}
+ body[data-screen=battle] .battle-stage .combatant-title{min-height:76px;padding:8px 4px}
+ body[data-screen=battle] .battle-stage .combatant-title h3{font-size:14px}
+ body[data-screen=battle] .battle-stage .combatant-title h3 small{display:block}
+ body[data-screen=battle] .battle-stage .stats{font-size:11px;gap:4px}
+ body[data-screen=battle] .battle-stage .portrait.side-actor>img{width:28px;height:34px}
+ body[data-screen=battle] .enemy-clue small{width:auto}
+ body[data-screen=battle] .hehuan-combat,body[data-screen=battle] .mechanist-combat{padding:10px}
+ body[data-screen=battle] .trap-slots{grid-template-columns:1fr}
+ body[data-screen=battle] .machine-lineup{grid-template-columns:1fr}
+ body[data-screen=battle] .resource-main{gap:8px}
+ body[data-screen=battle] .combat-resource-panel .resource-vitals{width:100%;justify-content:space-between}
+ body[data-screen=battle] .battle-tools>.primary{flex:1}
+ body[data-screen=battle] .hand>.card{flex-basis:210px;width:210px;min-width:210px;max-width:210px;padding:10px}
+ body[data-screen=battle] .battle-stage .mechanist-field{left:19%;top:106px;gap:2px}
+ body[data-screen=battle] .battle-stage .field-machine{width:48px}
+ body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:48px;height:68px}
+ body[data-screen=battle] .battle-stage .field-machine>span{font-size:10px;max-width:48px;line-height:1.4}
+ body[data-screen=battle][data-character=mechanist] .player-combatant .stage-rig{left:32%!important;max-width:65%!important}
+}
 /* Generated four-frame character atlases: real frame changes, no whole-image attack transforms. */
 body[data-screen=battle] .battle-stage .portrait .actor-sprite{display:block;position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;aspect-ratio:1;width:auto;max-width:none;background-size:400% 600%;background-repeat:no-repeat;image-rendering:auto;animation:actor-idle 2s steps(1,end) infinite;pointer-events:none}
 @keyframes actor-idle{0%,100%{background-position:0% 0%}25%{background-position:33.333333% 0%}50%{background-position:66.666667% 0%}75%{background-position:100% 0%}}
@@ -588,5 +578,19 @@ body[data-screen=battle] .battle-stage .portrait .encounter-sprite{width:min(100
 body[data-screen=battle] .battle-stage .machine-portrait:has(.encounter-sprite)>svg,body[data-screen=battle] .battle-stage .machine-portrait:has(.encounter-sprite)>img{display:none!important;visibility:hidden!important}
 body[data-screen=battle] .battle-stage .field-machine{width:100px}body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:100px;height:110px}
 @media(max-width:760px){body[data-screen=battle] .battle-stage .field-machine{width:64px}body[data-screen=battle] .battle-stage .field-machine>.machine-portrait{width:64px;height:76px}}
+
+/* Equipped costume art stays full-size instead of being covered by the original atlas. */
+body[data-screen=battle] .battle-stage .portrait.appearance-portrait>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center bottom!important;background:transparent!important;border:0!important;visibility:visible!important}
+body[data-screen=battle] .battle-stage .portrait.appearance-portrait:not(.image-failed)>svg{visibility:hidden!important}
+body[data-screen=battle] .battle-stage .portrait.appearance-portrait.image-failed>svg{visibility:visible!important}
+.profession-weapons{margin-top:24px}.profession-weapons h3{font-size:23px}.foreign-equipment{margin-top:24px;border-top:1px solid var(--line)}.foreign-equipment summary{padding:14px 0;min-height:44px;cursor:pointer;color:var(--gold)}
+.weapon-card .weapon-warning{font-size:13px;line-height:1.8;color:#f0cf9a;padding:8px;border-left:2px solid #c8ae72;background:#182d30}
+.weapon-card.weapon-incompatible{border-style:dashed}.weapon-card .btn:disabled{opacity:.75}
+.personal-progress{padding:18px 20px;margin:16px 0 24px;border:1px solid #bcaa7466;border-left:3px solid #d0ba81;background:linear-gradient(115deg,#1e3837,#13252a);min-width:0}
+.personal-progress h3{font-size:23px;color:#efdcad}.personal-progress h3 small{font:13px var(--sans);margin-left:10px;color:#b8d1c2}
+.personal-progress p{font-size:13px;line-height:1.9;margin-top:8px}.personal-progress ol{padding:0;margin:14px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;list-style:none}
+.personal-progress li{font-size:12px;padding:7px 9px;border:1px solid #a9ac8a33;color:#a8b9b2;overflow-wrap:anywhere}.personal-progress li.complete{color:#acd7bd;border-color:#94c0a955}.personal-progress li.current{color:#efdcad;background:#9a8a4322;border-color:#d0ba8188}
+.personal-next{color:#e0c991}.personal-ending{margin:20px 0;padding:16px;border-left:2px solid #c4b078;background:#172b2d}.personal-ending p{font-size:14px;line-height:1.9;margin-top:9px}
+@media(max-width:760px){.personal-progress{padding:13px;margin:12px 0 18px}.personal-progress ol{grid-template-columns:repeat(2,minmax(0,1fr))}.personal-progress h3{font-size:20px}}
 </style></head><body>
 <div class="wrap"><header class="topbar"><div class="brand"><span class="seal">契</span><div><div class="brand-name">百妖夜契</div><small>CHRONICLES OF THE SEALED ABYSS</small></div></div><nav aria-label="游戏菜单"><button data-action="rules">玩法手札</button><button data-action="bosses">镇境人物志</button><button data-action="catalogue">卡牌图鉴</button><button data-action="settings">声画设置</button><button data-action="audio-toggle" id="audio-nav" aria-pressed="false">声音：开</button><button data-action="journal" id="journal-nav">行旅手记</button><button data-action="equipment" id="equipment-nav">随身装备</button><button data-action="bag" id="bag-nav">包裹</button><button data-action="deck" id="deck-nav">本局牌组</button><button data-action="restart" id="restart-nav">重新开始</button><button data-action="export">导出 HTML</button><span class="tag">衣影血誓版</span></nav></header><div id="hud"></div><main id="app"><p class="note">黑雾封山，寒渊待探……</p></main><footer class="footer"><span>寒渊封域 · 七境七十段 · 归墟初启</span><span>离线试玩 / 解锁单独留存</span></footer></div><div id="fx-root" class="fx-root" aria-hidden="true"></div><div id="modal-root"></div><div id="toast-root" role="status" aria-live="polite"></div>

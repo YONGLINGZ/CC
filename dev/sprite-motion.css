@@ -1,0 +1,9 @@
+/* Animation is sampled continuously by NightSpriteMotion, not four CSS steps. */
+.actor-sprite[data-sprite-group],.encounter-sprite[data-sprite-group]{animation:none!important;background-size:calc(var(--sprite-columns,4)*100%) calc(var(--sprite-rows,6)*100%);isolation:isolate}
+.sprite-motion-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none;opacity:0}
+[data-sprite-ready=true]>.sprite-motion-canvas{opacity:1}
+.actor-sprite[data-sprite-ready=true],.encounter-sprite[data-sprite-ready=true]{background-image:none!important}
+body[data-screen=battle] .battle-stage .appearance-portrait:has(.actor-sprite)>.actor-sprite{display:block;z-index:1}
+body[data-screen=battle] .battle-stage .appearance-portrait:has(.actor-sprite[data-sprite-ready=true])>img{visibility:hidden!important}
+body[data-screen=battle] .battle-stage .appearance-portrait .actor-sprite:not([data-sprite-ready=true]){opacity:0}
+body[data-screen=battle] .battle-stage .appearance-portrait:has(.actor-sprite[data-sprite-status=failed])>img{visibility:visible!important}

@@ -1,0 +1,38 @@
+/* Skill-local, original vector effects; never cover card text or intercept input. */
+.skill-vfx{position:absolute;z-index:8;pointer-events:none;isolation:isolate;color:var(--skill-color);width:clamp(135px,25vw,275px);aspect-ratio:1;transform:translate(-50%,-50%);filter:drop-shadow(0 0 7px var(--skill-shade));contain:layout style;will-change:transform,opacity}
+.skill-vfx>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.skill-vfx-heavy{width:clamp(170px,29vw,325px)}
+.skill-vfx-cast{width:clamp(100px,18vw,185px);z-index:6}
+.skill-aura{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(ellipse,color-mix(in srgb,var(--skill-color) 28%,transparent),transparent 69%);filter:blur(7px)}
+.skill-theme-frost .skill-aura{inset:12% 3%;background:radial-gradient(ellipse,#cdefff35,transparent 65%);filter:blur(8px);animation:skill-mist 470ms ease-out both}
+.skill-theme-crimson .skill-aura{background:radial-gradient(ellipse,#f1204944,transparent 68%)}
+.skill-blade{fill:var(--skill-core);stroke:var(--skill-color);stroke-width:2;stroke-linejoin:round;paint-order:stroke fill;filter:drop-shadow(0 0 4px var(--skill-color))}
+.skill-edge{fill:none;stroke:var(--skill-core);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.skill-sword{fill:var(--skill-core);stroke:var(--skill-color);stroke-width:1.5;opacity:.88}
+.skill-ribbon{fill:none;stroke:var(--skill-color);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.skill-fan{fill:color-mix(in srgb,var(--skill-color) 20%,transparent);stroke:var(--skill-core);stroke-width:3}
+.skill-soul{fill:var(--skill-color);stroke:var(--skill-core);stroke-width:2;opacity:.8}
+.skill-flame-core{fill:var(--skill-core)}
+.skill-gear{fill:color-mix(in srgb,var(--skill-color) 16%,transparent);stroke:var(--skill-color);stroke-width:4;stroke-linejoin:round}
+.skill-ring{fill:none;stroke:var(--skill-color);stroke-width:1.5;stroke-dasharray:38 12 4 12;opacity:.55}
+.skill-guard{fill:#ace5eb12;stroke:#c6eef6;stroke-width:2;opacity:.8}
+.skill-heart{fill:var(--skill-color);stroke:var(--skill-core);stroke-width:2;filter:drop-shadow(0 0 7px var(--skill-color))}
+.skill-heart-seal{animation:skill-heart-beat 470ms cubic-bezier(.2,.8,.3,1) both;transform-origin:center;transform-box:fill-box}
+.skill-particle{fill:var(--skill-color);stroke:var(--skill-core);stroke-width:.8;animation:skill-scatter 470ms cubic-bezier(.18,.7,.25,1) both}
+.skill-snow{fill:none;stroke:var(--skill-core);stroke-width:2;opacity:.7}
+.skill-slashes{animation:skill-cut 230ms cubic-bezier(.12,.78,.28,1) both;transform-origin:center;transform-box:fill-box}
+.skill-orbit{animation:skill-orbit-turn 470ms ease-out both;transform-origin:center}
+.skill-vfx-flight{height:28px;aspect-ratio:auto;transform-origin:90% 50%;filter:drop-shadow(0 0 5px var(--skill-color));z-index:7}
+.skill-comet,.skill-comet-core{position:absolute;left:0;right:0;top:8px;height:11px;border-radius:0 70% 70% 0;background:linear-gradient(90deg,transparent,var(--skill-color) 70%,var(--skill-core));clip-path:polygon(0 50%,75% 0,100% 50%,75% 100%)}
+.skill-comet-core{top:12px;height:3px;background:linear-gradient(90deg,transparent,var(--skill-core) 80%);filter:blur(.5px)}
+.skill-theme-charm.skill-vfx-flight .skill-comet{height:17px;top:5px;clip-path:none;border-radius:50%;opacity:.7}
+.skill-theme-machine.skill-vfx-flight .skill-comet{clip-path:polygon(0 35%,80% 35%,80% 0,100% 50%,80% 100%,80% 65%,0 65%)}
+.skill-still,.skill-still *{animation:none!important;will-change:auto}
+.skill-still .skill-particle{transform:translate(var(--px),var(--py)) scale(.7);opacity:.65}
+@keyframes skill-scatter{0%{opacity:0;transform:translate(0,0) scale(.1)}22%{opacity:1}70%{opacity:.85}100%{opacity:0;transform:translate(var(--px),var(--py)) scale(var(--particle-scale))}}
+@keyframes skill-heart-beat{0%{opacity:0;scale:.35;translate:0 5px}28%{opacity:1;scale:1.22}60%{opacity:.9;scale:1}100%{opacity:0;scale:1.1;translate:0 -24px}}
+@keyframes skill-mist{from{opacity:0;scale:.45}30%{opacity:1}to{opacity:0;scale:1.7;translate:0 -9px}}
+@keyframes skill-cut{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(-10% -10% -10% -10%)}}
+@keyframes skill-orbit-turn{from{rotate:-16deg}to{rotate:18deg}}
+body[data-motion=off] .skill-vfx{display:none!important}
+@media(prefers-reduced-motion:reduce){.skill-vfx,.skill-vfx *{animation:none!important;will-change:auto}.skill-vfx-flight{display:none!important}}

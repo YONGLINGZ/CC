@@ -1,0 +1,324 @@
+{
+  "costumes": [
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "mist",
+      "role": "assassin",
+      "source": "assets/outfits/cat-mist.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "mist",
+      "role": "assassin",
+      "source": "assets/outfits/cat-mist.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "lotus",
+      "role": "assassin",
+      "source": "assets/outfits/cat-lotus.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "lotus",
+      "role": "assassin",
+      "source": "assets/outfits/cat-lotus.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "ember",
+      "role": "assassin",
+      "source": "assets/outfits/cat-ember.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "ember",
+      "role": "assassin",
+      "source": "assets/outfits/cat-ember.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moon",
+      "role": "assassin",
+      "source": "assets/outfits/cat-moon.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moon",
+      "role": "assassin",
+      "source": "assets/outfits/cat-moon.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "blood",
+      "role": "assassin",
+      "source": "assets/outfits/cat-blood.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "blood",
+      "role": "assassin",
+      "source": "assets/outfits/cat-blood.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "mist",
+      "role": "sword",
+      "source": "assets/outfits/sword-mist.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "mist",
+      "role": "sword",
+      "source": "assets/outfits/sword-mist.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "lotus",
+      "role": "sword",
+      "source": "assets/outfits/sword-lotus.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "lotus",
+      "role": "sword",
+      "source": "assets/outfits/sword-lotus.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "ember",
+      "role": "sword",
+      "source": "assets/outfits/sword-ember.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "ember",
+      "role": "sword",
+      "source": "assets/outfits/sword-ember.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moon",
+      "role": "sword",
+      "source": "assets/outfits/sword-moon.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moon",
+      "role": "sword",
+      "source": "assets/outfits/sword-moon.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "blood",
+      "role": "sword",
+      "source": "assets/outfits/sword-blood.webp",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "blood",
+      "role": "sword",
+      "source": "assets/outfits/sword-blood.webp",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "dusk_silk",
+      "role": "hehuan",
+      "source": "assets/outfits/hehuan-dusk_silk.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "dusk_silk",
+      "role": "hehuan",
+      "source": "assets/outfits/hehuan-dusk_silk.png",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "crimson_oath",
+      "role": "hehuan",
+      "source": "assets/outfits/hehuan-crimson_oath.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "crimson_oath",
+      "role": "hehuan",
+      "source": "assets/outfits/hehuan-crimson_oath.png",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "workshop",
+      "role": "mechanist",
+      "source": "assets/outfits/tinglan-workshop.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "workshop",
+      "role": "mechanist",
+      "source": "assets/outfits/tinglan-workshop.png",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "brass_guard",
+      "role": "mechanist",
+      "source": "assets/outfits/tinglan-brass_guard.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "brass_guard",
+      "role": "mechanist",
+      "source": "assets/outfits/tinglan-brass_guard.png",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moonveil",
+      "role": "sovereign",
+      "source": "assets/outfits/feiye-moonveil.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "moonveil",
+      "role": "sovereign",
+      "source": "assets/outfits/feiye-moonveil.png",
+      "stage": "critical"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "night_crown",
+      "role": "sovereign",
+      "source": "assets/outfits/feiye-night_crown.png",
+      "stage": "normal"
+    },
+    {
+      "fullSize": true,
+      "loaded": true,
+      "oldSprite": 0,
+      "outfit": "night_crown",
+      "role": "sovereign",
+      "source": "assets/outfits/feiye-night_crown.png",
+      "stage": "critical"
+    }
+  ],
+  "stories": [
+    {
+      "choicesRecorded": 1,
+      "pageOverflow": false,
+      "title": "铃契无主 1/6章",
+      "visibleProgress": true
+    },
+    {
+      "choicesRecorded": 2,
+      "pageOverflow": false,
+      "title": "扇底有名 1/6章",
+      "visibleProgress": true
+    },
+    {
+      "choicesRecorded": 2,
+      "pageOverflow": false,
+      "title": "百工归队 1/6章",
+      "visibleProgress": true
+    },
+    {
+      "choicesRecorded": 1,
+      "pageOverflow": false,
+      "title": "旧宫问名 1/6章",
+      "visibleProgress": true
+    }
+  ],
+  "weaponUi": {
+    "role": "hehuan",
+    "purchased": "training",
+    "equipDisabled": true
+  },
+  "method": "Explicit local browser fixtures; 32 costume/state checks plus actual UI equipment/purchase/chapter actions. Not a full natural playthrough of all chapters."
+}

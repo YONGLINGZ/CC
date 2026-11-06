@@ -42,6 +42,16 @@
     moon:{id:'moon',name:'月隐流纱',price:45,text:'每场战斗首回合额外获得 1 灵力。月纱只能在开战时聚灵。',energy:1},
     blood:{id:'blood',name:'血誓绛绡',price:55,text:'每回合首次因卡牌自损且存活后，获得 4 护盾。不会阻止致命自损。',selfBlock:4}
   };
+  for(const outfit of Object.values(OUTFITS))outfit.characters=['assassin','sword'];
+  Object.assign(OUTFITS,{
+    dusk_silk:{id:'dusk_silk',name:'烟霞行纱',characters:['hehuan'],portrait:'hehuan',price:30,draw:1,text:'合欢专属。每场首回合额外抽1张。收束长袖的行旅纱衣，扇骨与面纱仍随身。'},
+    crimson_oath:{id:'crimson_oath',name:'绛誓礼衣',characters:['hehuan'],portrait:'hehuan',price:55,block:2,text:'合欢专属。每个玩家回合开始获得2护盾。深绛礼衣以金线缝合断裂的宗门纹章。'},
+    workshop:{id:'workshop',name:'青靛工装',characters:['mechanist'],portrait:'tinglan',price:30,draw:1,text:'机关师专属。每场首回合额外抽1张。束袖、工具带与长靴，方便检修与牵丝。'},
+    brass_guard:{id:'brass_guard',name:'铜卫救援服',characters:['mechanist'],portrait:'tinglan',price:55,block:2,text:'机关师专属。每个玩家回合开始本体获得2护盾。铜制护臂保护操线的双手，不替机体挡伤。'},
+    moonveil:{id:'moonveil',name:'霁月游衣',characters:['sovereign'],portrait:'feiye',price:30,draw:1,text:'宫主专属。每场首回合额外抽1张。银白月纹与淡紫外纱，是离宫远行时的衣装。'},
+    night_crown:{id:'night_crown',name:'玄宸月冕',characters:['sovereign'],portrait:'feiye',price:55,energy:1,text:'宫主专属。每场首回合额外获得1灵力。深紫宫服与银月冠重新成套，不强取任何人的名字。'}
+  });
+  const INITIAL_OUTFITS={assassin:'mist',sword:'mist',hehuan:'dusk_silk',mechanist:'workshop',sovereign:'moonveil'};
   const BLOOD_EVENTS={
     blood_lesson:{name:'血盏中不肯散的光',story:['药阁的旧修将一缕血气压进剑锋：“命不能白取，自己的也一样。”她曾用禁术救回师妹，后来却开始把所有求医者当成试招的材料。','她愿意留下两种相反的手法：付出自己的生命换取爆发，或强行取走对手的生机。你也可以把经页封回匣中。'],choices:[
       {label:'以身为价，学焚血之术',text:'获得「焚血斩」「血衣」。使用禁术会扰动心神；清心玉可护灵台。',cardIds:['D07','D09'],learnDemonic:true,flags:{bloodMethod:'sacrifice'},outcome:'你记下先付代价再落剑的次序，没有把损失写到别人的账上。但这并不能使禁术没有危险。'},
@@ -66,11 +76,25 @@
   const STARTERS={sovereign:{character:'sovereign',name:'万相归潮',description:'聚拢魂息，以夜幕守身。寻回散落的本源，让封印前的力量逐一归来。',cards:['F01','F01','F01','F01','F02','F02','F02','F02','F03','F04']}};
   const CHARACTERS={sovereign:{id:'sovereign',name:'绯夜',profession:'无相宫主',portrait:'feiye',adult:true,locked:true,description:'从井下归来的成年女修。她不愿解释自己为何认识这里的每一盏灯，只说，有些东西该取回来了。',quote:'“我的名字，你还记得么？”',accent:'#d4b0e3',starters:['sovereign']}};
   const RELICS={veil:{name:'无相夜纱',text:'每个玩家回合首张攻击牌结算后，获得 1 魂息。魂息上限 6，跨回合保留。'}};
+  const WEAPON_TYPES={claw:'爪刃',sword:'剑',fan:'折扇',spool:'机关操具',seal:'魂印'};
+  const INITIAL_WEAPONS={assassin:'cat_claws',sword:'training',hehuan:'silk_fan',mechanist:'work_spool',sovereign:'moon_seal'};
   const WEAPONS={
-    training:{name:'行旅佩刃',requiredLevel:1,bonus:0,price:0,text:'普通随身佩刃，没有额外效果，也不会干扰出招。'},
-    rime:{name:'听雪',requiredLevel:2,bonus:2,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +2。剑锋寒意凛冽。'},
-    spirit:{name:'回灯',requiredLevel:2,bonus:1,price:45,text:'每个玩家回合首张攻击牌的第一段伤害 +1；每场战斗首回合获得 3 护盾。剑穗间有暖光流动。',block:3},
-    divine:{name:'照夜',requiredLevel:4,bonus:4,price:70,text:'神剑：每回合首张攻击牌的第一段伤害 +4。剑中灵性强盛，握持时隐有抗拒；可先收入剑匣。',sentient:true}
+    training:{name:'行旅练习剑',type:'sword',characters:['sword'],requiredLevel:1,bonus:0,price:10,text:'剑修专用的随身练习剑，没有额外效果。'},
+    rime:{name:'听雪',type:'sword',characters:['sword'],requiredLevel:2,bonus:2,price:45,text:'剑修专用。每回合首张攻击牌第一段伤害+2。'},
+    spirit:{name:'回灯',type:'sword',characters:['sword'],requiredLevel:2,bonus:1,block:3,price:45,text:'剑修专用。每回合首张攻击第一段伤害+1；每场开战获得3护盾。'},
+    divine:{name:'照夜',type:'sword',characters:['sword'],requiredLevel:4,bonus:4,price:70,sentient:true,text:'剑修专用神剑。每回合首张攻击第一段伤害+4。灵识不足仍可佩带，但依回合产生反噬。'},
+    cat_claws:{name:'铃纹爪刃',type:'claw',characters:['assassin'],requiredLevel:1,price:10,art:'vector',text:'夜铃专用。贴合猫妖指节的短爪，不妨碍连段；无额外效果。'},
+    shadow_fang:{name:'潜影双牙',type:'claw',characters:['assassin'],requiredLevel:2,bonus:2,price:45,art:'vector',text:'夜铃专用。每回合首张攻击第一段伤害+2，适合猎印后的突袭。'},
+    bell_reaper:{name:'解契金铃爪',type:'claw',characters:['assassin'],requiredLevel:4,bonus:3,openingDraw:1,price:75,art:'vector',text:'夜铃专用。每回合首张攻击第一段伤害+3；开战额外抽1张。'},
+    silk_fan:{name:'绡骨行扇',type:'fan',characters:['hehuan'],requiredLevel:1,price:10,art:'vector',text:'合欢专用。藏入薄纱的轻扇，原有藏招规则不变；无额外效果。'},
+    listening_fan:{name:'听雨折扇',type:'fan',characters:['hehuan'],requiredLevel:2,block:5,price:45,art:'vector',text:'合欢专用。每场开战获得5护盾，为观息和藏招争取时间。'},
+    oath_fan:{name:'断账绯扇',type:'fan',characters:['hehuan'],requiredLevel:4,bonus:2,block:6,price:75,art:'vector',text:'合欢专用。每场开战获得6护盾；每回合首张攻击第一段伤害+2。'},
+    work_spool:{name:'百工线轴',type:'spool',characters:['mechanist'],requiredLevel:1,price:10,art:'vector',text:'机关师专用的基础操线器，不替换承山、鸣镝或拾萤；无额外效果。'},
+    copper_caliper:{name:'同心铜尺',type:'spool',characters:['mechanist'],requiredLevel:2,openingDrive:1,price:45,art:'vector',text:'机关师专用。开战额外获得1驱动，上限仍为6，不影响接招规则。'},
+    rescue_hub:{name:'归队枢轮',type:'spool',characters:['mechanist'],requiredLevel:4,openingDrive:2,block:4,price:75,art:'vector',text:'机关师专用。开战额外获得2驱动，本体获得4护盾；驱动上限仍为6。'},
+    moon_seal:{name:'缺月魂印',type:'seal',characters:['sovereign'],requiredLevel:1,price:10,art:'vector',text:'无相宫主专用的随身魂印，不自动取回散落本源；无额外效果。'},
+    echo_jade:{name:'归声玉契',type:'seal',characters:['sovereign'],requiredLevel:2,openingSoul:1,block:3,price:45,art:'vector',text:'宫主专用。开战获得1魂息、3护盾；魂息上限仍为6。'},
+    sovereign_sigil:{name:'无相月玺',type:'seal',characters:['sovereign'],requiredLevel:4,openingSoul:2,bonus:2,price:75,art:'vector',text:'宫主专用。开战获得2魂息；每回合首张攻击第一段伤害+2。'}
   };
   const ENVIRONMENTS={
     fog_gate:{id:'miasma',name:'迷路雾',text:'本章每场战斗首个玩家回合少抽 1 张牌；之后恢复正常。',firstTurnDrawPenalty:1},
@@ -88,6 +112,6 @@
     snake_ascended:{rank:'boss',name:'绛鳞',hp:120,intents:[{name:'黑鳞刃',text:'攻击 12',hits:[12]},{name:'蚀灵息',text:'先攻击 7，再施加 3 层毒',hits:[7],poison:3},{name:'逆仪蜕鳞',text:'清除全部猎印、霜寒与流血，获得护盾 12，然后攻击 5',clearMark:true,clearChill:true,clearBleed:true,block:12,hits:[5]},{name:'囚月',text:'连续攻击 3 次，每次 6',hits:[6,6,6]}]}
   };
   const EVENT_IDS=['moon_trace','sealed_name','moon_vow','armory','sovereign_wake','sovereign_recall','sovereign_memory','tainted_mercy','demonic_offer','demonic_warning','mirror_trial','demon_manual','fallen_hunt'];
-  const api={OUTFITS,BLOOD_EVENTS,CARDS,STARTERS,CHARACTERS,RELICS,WEAPONS,ENVIRONMENTS,ENEMIES,EVENT_IDS,ITEMS,CORRUPTION};
+  const api={INITIAL_OUTFITS,INITIAL_WEAPONS,WEAPON_TYPES,OUTFITS,BLOOD_EVENTS,CARDS,STARTERS,CHARACTERS,RELICS,WEAPONS,ENVIRONMENTS,ENEMIES,EVENT_IDS,ITEMS,CORRUPTION};
   root.NightExpansion=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis==='object'?globalThis:window);

@@ -22,15 +22,21 @@ function build(inline,output){
 const missing=[];
 function asset(folder,id){
   if(slim)return '';
-  const relative='assets/'+folder+'/'+id+'.webp';
-  if(!fs.existsSync(path.join(root,relative))){missing.push(relative);return '';}
-  return inline?'data:image/webp;base64,'+fs.readFileSync(path.join(root,relative)).toString('base64'):relative;
+  if(folder==='weapons'&&gameData.WEAPONS[id]?.art==='vector')return '';
+  const webp='assets/'+folder+'/'+id+'.webp',png='assets/'+folder+'/'+id+'.png';
+  const relative=fs.existsSync(path.join(root,webp))?webp:png;
+  if(!fs.existsSync(path.join(root,relative))){missing.push(webp);return '';}
+
+  return inline?'data:image/'+(relative.endsWith('.png')?'png':'webp')+';base64,'+fs.readFileSync(path.join(root,relative)).toString('base64'):relative;
 }
 const resources={};
 for(const [key,folder,ids] of [['portraits','portraits',portraitIds],['cards','cards',cardIds],['events','events',eventIds],['relics','relics',relicIds],['regions','regions',[...gameData.REGIONS.map(region=>region.id),'hanyuan_home']],['weapons','weapons',Object.keys(gameData.WEAPONS||{})],['items','items',Object.keys(require('./expansion.js').ITEMS||{})]]){
   resources[key]=Object.fromEntries(ids.map(id=>[id,asset(folder,id)]));
 }
-resources.outfits=Object.fromEntries(Object.keys(gameData.OUTFITS||{}).flatMap(id=>['item','cat','sword','sword_fallen'].map(role=>[role+'-'+id,asset('outfits',role+'-'+id)])));
+const outfitPortraits={cat:'assassin',sword:'sword',sword_fallen:'sword',hehuan:'hehuan',tinglan:'mechanist',feiye:'sovereign'};
+resources.outfits=Object.fromEntries(Object.values(gameData.OUTFITS||{}).flatMap(o=>[
+ ['item-'+o.id,asset('outfits',o.portrait?o.portrait+'-'+o.id:'item-'+o.id)],
+ ...Object.entries(outfitPortraits).filter(([,role])=>o.characters.includes(role)).map(([kind])=>[kind+'-'+o.id,asset('outfits',kind+'-'+o.id)])]));
 const roleEventIds=['well','shrine','dreamshop','theatre','umbrella','pawnshop','riftwatch','supply','cultlab','swordgrave','pilgrims','prisoner','echo','broker','fox','rest','shop','moon_trace','sealed_name','moon_vow','armory'];
 resources.eventsByCharacter=Object.fromEntries(['sword','sovereign','sword_fallen'].map(character=>[character,Object.fromEntries(roleEventIds.map(id=>[id,asset('events-'+character,id)]))]));
 resources.puppet=Object.fromEntries(['normal','wounded','critical','blink'].map(id=>[id,asset('puppet','cat-'+id)]));
@@ -55,13 +61,14 @@ resources.enemyActors=Object.fromEntries([...Object.keys(gameData.ENEMIES),'ji']
 resources.bossActors=Object.fromEntries(Object.keys(gameData.BOSS_LORE).map(id=>[id,asset('boss-actors',id)]));
 resources.machineActors=Object.fromEntries(['chengshan','mingdi','shiying'].map(id=>[id,asset('machine-actors',id)]));
 resources.comics=Object.fromEntries(['assassin','sword','hehuan','mechanist','sovereign','world'].flatMap(role=>Array.from({length:role==='world'?2:4},(_,i)=>role+'-'+(i+1))).map(id=>[id,asset('comics',id)]));
+for(const [id,m]of Object.entries(gameData.ROLE_STORIES.META))resources.events[id]=resources.comics[m.role+'-'+((m.step-1)%4+1)];
 resources.puppetRig={};
 resources.mode=slim?'slim':inline?'inline':'folder';
 if((all||args.includes('--strict'))&&missing.length)throw new Error('Missing release art: '+missing.join(', '));
 const release={...JSON.parse(read('release.json')),cards:Object.fromEntries(Object.keys(gameData.CHARACTERS).map(role=>[role,Object.values(gameData.CARDS).filter(c=>c.character===role&&!c.storyOnly).length])),totalCards:cardIds.length};
-const shell=read('shell.html').replace(/<\/body>\s*<\/html>\s*$/,'').replace('衣影血誓版',release.name+' '+release.id).trimEnd();
+const shell=read('shell.html').replace(/<title>[^<]*<\/title>/,'<title>百妖夜契 · '+release.name+'</title>').replace(/<\/body>\s*<\/html>\s*$/,'').replace('衣影血誓版',release.name+' '+release.id).trimEnd();
 const ui=script(read('ui.js')).replace('  /*__IMAGES__*/','  const images=NightAssets.portraits;');
-const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',script(read('music.js')),fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('mechanist.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),...['story-v5.js','story-factions-v5.js','story-bosses-v5.js'].filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>script(read(n))),script(read('event-editorial.js')),script(read('engine.js')),script(read('prologue.js')),script(read('actor-coverage.js')),script(read('actors.js')),script(read('boss-moves.js')),script(read('encounter-actors.js')),script(read('stage.js')),ui];
+const sources=[script(read('art.js')),'globalThis.NightAssets='+JSON.stringify(resources)+';',script(read('music.js')),fs.existsSync(path.join(__dirname,'audio.js'))?script(read('audio.js')):'',script(read('expansion.js')),script(read('hehuan.js')),script(read('mechanist.js')),script(read('expedition.js')),script(read('seven.js')),script(read('tales.js')),script(read('boss-quests.js')),script(read('enemy-factions.js')),...['story-v5.js','story-factions-v5.js','story-bosses-v5.js'].filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>script(read(n))),script(read('event-editorial.js')),script(read('role-stories.js')),script(read('engine.js')),script(read('prologue.js')),script(read('actor-coverage.js')),script(read('actors.js')),script(read('boss-moves.js')),script(read('encounter-actors.js')),script(read('stage.js')),ui];
 const html=shell+'\n<script>globalThis.NightRelease='+JSON.stringify(release)+';</script>\n'+sources.filter(Boolean).map(s=>'<script>\n'+s+'\n</script>').join('\n')+'\n</body></html>\n';
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,html,'utf8');
