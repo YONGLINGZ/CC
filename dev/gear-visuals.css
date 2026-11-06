@@ -1,0 +1,23 @@
+/* Insignia have no continuous animation; colors denote the mechanism, never a universal rarity glow. */
+[data-gear-theme="frost"]{--gear-color:#bcecff;--gear-core:#f5fdff}
+[data-gear-theme="crimson"]{--gear-color:#ed647a;--gear-core:#ffe0e6}
+[data-gear-theme="claw"]{--gear-color:#dec196;--gear-core:#fff1d5}
+[data-gear-theme="moon"]{--gear-color:#c7b4ef;--gear-core:#f4eaff}
+[data-gear-theme="charm"]{--gear-color:#eaa8cf;--gear-core:#fff0fa}
+[data-gear-theme="machine"]{--gear-color:#8dd7cc;--gear-core:#e3fff6}
+[data-gear-theme="jade"]{--gear-color:#9bcfb5;--gear-core:#edfff3}
+.gear-badge{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:30px;height:30px;max-width:100%;box-sizing:border-box;color:var(--gear-color,#c5c0b3);vertical-align:middle;pointer-events:none}
+.gear-badge svg,.gear-proc svg{display:block;width:100%;height:100%;overflow:visible}
+.gear-fill{fill:currentColor;fill-opacity:.15}
+.gear-card-insignia{display:flex;align-items:center;justify-content:center;float:right;width:32px;height:32px;margin:0 0 5px 7px;border:1px solid var(--gear-color,#c5c0b3);border-radius:8px;background:#11161dd9;color:var(--gear-color,#c5c0b3);pointer-events:none}
+.weapon-card[data-gear-tier="rare"],.relic-card[data-gear-tier="rare"],.replay-collection-card[data-gear-tier="rare"]{border-inline-start:2px solid var(--gear-color,#c5c0b3)}
+.weapon-card[data-gear-tier="legendary"],.relic-card[data-gear-tier="legendary"],.replay-collection-card[data-gear-tier="legendary"]{border-inline-start:3px double var(--gear-color,#c5c0b3);background-image:linear-gradient(110deg,#ffffff05,transparent 40%)}
+.relic-card[data-gear-tier="treasure"],.replay-collection-card[data-gear-tier="treasure"]{border-inline-start:3px double var(--gear-color,#c5c0b3);border-block-end:1px solid var(--gear-color,#c5c0b3)}
+.gear-portrait-insignia{position:absolute;inset:auto auto 4px 3px;width:21px;height:21px;border:1px solid #dbe8f34d;border-radius:50%;box-sizing:border-box;background:#10151ee8;pointer-events:none;z-index:7;contain:layout style}
+.gear-portrait-insignia .gear-badge{width:19px;height:19px;padding:1px}
+.gear-proc{position:absolute;width:32px;height:32px;max-width:calc(100% - 4px);max-height:calc(100% - 4px);box-sizing:border-box;transform:translate(-50%,-50%);border:1px solid currentColor;border-radius:9px;padding:3px;background:#10151ef2;color:var(--gear-color,#c5c0b3);pointer-events:none;z-index:12;contain:layout style}
+.gear-proc[data-gear-event="echoStart"],.gear-proc[data-gear-event="treasureEcho"]{border-style:double;border-width:3px}
+.gear-proc[data-gear-event="echoEnd"]{border-style:dashed;opacity:.72}
+.gear-proc[data-motion="still"]{animation:none!important;transition:none!important}
+@media(max-width:360px){.gear-card-insignia{width:28px;height:28px;margin-left:5px}.gear-card-insignia .gear-badge{width:26px;height:26px}.gear-portrait-insignia{width:19px;height:19px;left:2px;bottom:2px}.gear-portrait-insignia .gear-badge{width:17px;height:17px}}
+@media(prefers-reduced-motion:reduce){.gear-proc,.gear-badge,.gear-portrait-insignia{animation:none!important;transition:none!important}}

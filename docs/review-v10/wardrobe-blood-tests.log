@@ -1,0 +1,19 @@
+✔ five clothes are run-local, exclusive, cost once, reject battle/reward and support both heroines (27.815058ms)
+✔ outfit opening draw/energy, repeating guard, first attack cap and self-cost guard really work (23.847387ms)
+✔ drain uses actual HP removed, excludes shield and overkill, heals before victory (7.424454ms)
+✔ sacrifice occurs first; lethal cost stops damage; fox can rescue only once (9.034285ms)
+✔ three drains resolve separately and terminate at kill, healing capped to actual losses (2.408404ms)
+✔ self-cost draw cannot redraw itself and consume zone resets next battle (3.552693ms)
+✔ rule preview and actual drain/burst agree without modifying original HP, RNG or piles (47.378791ms)
+✔ three linked blood events offer four real choices and never repeat rewards (40.712153ms)
+✔ all nine regional and five special foes own full distinct evidence chains and lore (0.510617ms)
+✔ all seven realms schedule their own boss records; sovereign encounter chains coexist (5.330213ms)
+✔ every ward matches a real special move and actually prevents it exactly once (41.474685ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 237.960997

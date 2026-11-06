@@ -1,0 +1,17 @@
+✔ every real card has valid skill art and non-attack cast preserves its own motif (13.105287ms)
+✔ travel silhouettes carry the skill and frost atmosphere never leaks into fallen attacks (0.651534ms)
+✔ all original sword cards use ice white, then crimson when fallen; demonic arts always crimson (1.911445ms)
+✔ charm marks land on the target while claw, fire and moon remain distinct abilities (1.464269ms)
+✔ machine executors and sovereign spells retain distinct visual identities (0.308419ms)
+✔ named lightning attacks keep their spell shape for each real machine executor (37.2871ms)
+✔ all 53 authored boss intentions retain their own geometry and ignore player clothing/path (2.505912ms)
+✔ real concealed-card events resolve as player charm without altering the combat result (11.825143ms)
+✔ receiver anchoring, machine origin, motion modes, cleanup and bounded particles work without state access (8.349911ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 564.949239

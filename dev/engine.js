@@ -14,6 +14,9 @@
   const QUEST_ITEMS = {...EXPANSION.ITEMS,...BOSS_QUESTS.ITEMS,...ENEMY_FACTIONS.ITEMS,...HEHUAN.ITEMS,...MECHANIST.ITEMS};
   const SEVEN = root.NightSeven || (typeof module !== 'undefined' && module.exports ? require('./seven.js') : {});
 
+  const REPLAY = root.NightReplayRules || (typeof module !== 'undefined' && module.exports ? require('./replay-rules.js') : {});
+  const RP = root.NightReplayProfile || (typeof module !== 'undefined' && module.exports ? require('./replay-profile.js') : {});
+
   // Audited defaults are shared by runtime, probes and A/B rule fixtures.
   const BALANCE = Object.freeze({
     hpSlope: 0.05, hpMaxFloor: 30, atkStep: 1 / 4,
@@ -349,7 +352,8 @@
     }
 
   function createGame(options = {}) {
-    const rng = typeof options.rng === 'function' ? options.rng : Math.random;
+    const externalRng = typeof options.rng === 'function';
+    let rng = externalRng ? options.rng : Math.random, runConfig = null;
     const onChange = typeof options.onChange === 'function' ? options.onChange : () => {};
     let serial = 0;
     let eventSerial = 0;
@@ -358,17 +362,125 @@
     const environmentEnabled = options.environment !== false;
     const scalingEnabled = options.scaling !== false;
     const legacyCampaign = options.campaign === 'legacy';
-    const talesEnabled = !legacyCampaign && options.tales !== false;
+    let talesEnabled = !legacyCampaign && options.tales !== false;
     const bossQuestsEnabled = !legacyCampaign && options.bossQuests !== false;
-    const regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
-    const totalFloors = regions.length * 10;
-    let profile = normalProfile(options.profile);
+    let regions = legacyCampaign ? LEGACY_REGIONS : REGIONS;
+    let totalFloors = regions.length * 10;
+    const catalog = {WEAPONS,RELICS,OUTFITS:EXPANSION.OUTFITS,CARDS,ENEMIES,STARTERS};
+    const clone = value => JSON.parse(JSON.stringify(value));
+    let profile = options.profile?.version===2 ? RP.normalize(options.profile,catalog) : normalProfile(options.profile);
     function normalProfile(value) { return { version: 1, unlocks: value && Array.isArray(value.unlocks) && value.unlocks.includes('feiye') ? ['feiye'] : [] }; }
-    function getProfile() { return {version:1,unlocks:profile.unlocks.slice()}; }
+    function getProfile() { return clone(profile); }
     function importProfile(value) {
       try { if (typeof value === 'string') value=JSON.parse(value); } catch (_) { return false; }
-      if (!value || value.version !== 1 || !Array.isArray(value.unlocks) || value.unlocks.some(id=>id!=='feiye')) return false;
-      profile=normalProfile(value); if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile()); emit(); return true;
+      if (!value || !RP.valid(value,catalog)) return false;
+      // Active runs keep their discovery ledger and cooldowns; importing is a title operation.
+      if(state?.replay?.enabled && !['title','victory','defeat'].includes(state.screen))return false;
+      profile=value.version===2||profile.version===2?RP.normalize(value,catalog):normalProfile(value); if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile()); emit(); return true;
+    }
+
+    function markStoryRead(id){if(profile.version!==2||typeof id!=='string'||!/^[a-zA-Z0-9_:.\-]{1,120}$/.test(id))return false;if(profile.readStories.includes(id))return true;profile.readStories.push(id);profile.readStories=profile.readStories.slice(-1024);if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());emit();return true;}
+    function unlockCharacter(id){if(id!=='feiye')return false;if(!profile.unlocks.includes(id)){profile.unlocks.push(id);if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());emit();}return true;}
+    function replayOn(){return !!state?.replay?.enabled;}
+    function shortRun(){return runConfig?.mode==='short';}
+    function configureRun(config){
+      runConfig=config;regions=config?.mode==='short'?[REGIONS[0],REGIONS[3],REGIONS[6]].map((r,i)=>({...r,stages:[i*10+1,i*10+10],subtitle:['第一境 · 雾外来客','第二境 · 水中无月','第三境 · 万线归零'][i]})):legacyCampaign?LEGACY_REGIONS:REGIONS;
+      totalFloors=regions.length*10;talesEnabled=!legacyCampaign&&options.tales!==false&&config?.mode!=='short';
+    }
+    function weaponDefinition(id=state.player.equippedWeapon){
+      const base=WEAPONS[id]||{};return replayOn()?{...base,...(REPLAY.weaponSignature?.(id)||{})}:base;
+    }
+    function activeEchoWeapon(id){const e=state?.replay?.echo;return !!(e&&e.kind==='weapon'&&e.id===id&&e.claimed&&e.remaining>0);}
+    function loaned(kind,id){const e=state?.replay?.echo;return !!(e&&e.kind===kind&&e.id===id&&e.claimed&&e.remaining>0&&!e.acquired);}
+    function acquireWeapon(id){
+      if(!WEAPONS[id])return false;const e=state.replay?.echo,matching=e?.kind==='weapon'&&e.id===id,owned=state.player.weaponInventory.includes(id);
+      if(owned&&(!matching||e.acquired))return false;
+      if(matching)e.acquired=true;if(!owned)state.player.weaponInventory.push(id);return true;
+    }
+    function setCosmetic(id){
+      if(!replayOn()||!['arrival','map','shop','rest','event','threshold'].includes(state.screen)||(state.screen==='event'&&!state.event?.resolved))return false;
+      if(id!==null&&(!EXPANSION.OUTFITS[id]?.characters.includes(state.character)||!profile.collections.cosmetics.includes(id)))return false;
+      state.replay.cosmetic=id;emit();return true;
+    }
+    function replaySources(){
+      if(!replayOn())return [];const w=weaponDefinition(),o=REPLAY.oath?.(state.replay.oath,state.character);
+      return [...(o?[{kind:'oath',id:o.id,name:o.name,effects:o.effects||o}]:[]),{kind:'weapon',id:state.player.equippedWeapon,name:w.name,effects:w.effects||w}];
+    }
+    function proc(source,trigger,amount,target='player'){
+      event(source.kind==='oath'?'oathProc':'gearProc',source.kind==='oath'?{oathId:source.id,name:source.name,trigger,amount,target}:{gearId:source.id,gearKind:source.kind,name:source.name,trigger,amount,target});
+      const labels={firstAttackBonus:'首击增伤',firstAttackMark:'首击猎印',firstAttackChill:'首击霜寒',firstAttackSoul:'首击魂息',firstAttackSelfLoss:'首击自损',firstGuardBonus:'初护增幅',thirdCardDraw:'三式抽牌',thirdCardBlock:'三式护盾',firstTrapBlock:'落纱护盾',firstCommandBonus:'指令增伤',firstOverloadDraw:'过载抽牌',firstOverloadRepair:'过载修复',firstSoulSpendDraw:'魂息抽牌'};
+      log(`${source.name}：${labels[trigger]||'装备生效'} ${amount>0?'+':''}${amount}。`);
+    }
+    function replayEffect(key,target='player'){
+      const b=state.battle;if(!replayOn()||!b)return 0;b.replayUsed=b.replayUsed||{};let total=0;
+      for(const source of replaySources()){const n=source.effects[key]||0,token=source.kind+':'+source.id+':'+key;if(n&&!b.replayUsed[token]){b.replayUsed[token]=true;total+=n;proc(source,key,n,target);}}
+      return total;
+    }
+    function afterReplayCard(){
+      if(!replayOn()||!liveBattle())return;const b=state.battle;
+      if(b.played===3){const draws=replayEffect('thirdCardDraw'),block=replayEffect('thirdCardBlock');if(block)gainBlock(block,'第三牌契约');if(draws)drawCards(draws);}
+      const rules=REPLAY.challengeRules?.(state.replay.challenge)||{};
+      if(rules.thirdCardEnemyBlock&&b.played>0&&b.played===3){b.enemy.block+=rules.thirdCardEnemyBlock;event('challenge',{target:'enemy',trigger:'thirdCardEnemyBlock',amount:rules.thirdCardEnemyBlock});log(`三连戒律：敌人获得${rules.thirdCardEnemyBlock}护盾。`);}
+    }
+    function claimEcho(){
+      const e=state.replay?.echo;if(!replayOn()||!e||e.claimed)return false;
+      const p=state.player;if((e.kind==='weapon'?p.weaponInventory:p.relics).includes(e.id))e.acquired=true;
+      RP.commitEcho(profile,state.replay);
+      if(e.kind==='weapon'){e.previousWeapon=p.equippedWeapon;if(!p.weaponInventory.includes(e.id))p.weaponInventory.push(e.id);p.equippedWeapon=e.id;}
+      else if(!p.relics.includes(e.id)){p.relics.push(e.id);}
+      if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());return true;
+    }
+    function completeEchoBattle(){
+      const e=state.replay?.echo;if(!replayOn()||!e?.claimed||e.remaining<=0)return;
+      e.remaining--;if(e.remaining>0)return;
+      if(!e.acquired){const p=state.player;if(e.kind==='weapon'){p.weaponInventory=p.weaponInventory.filter(id=>id!==e.id);if(p.equippedWeapon===e.id)p.equippedWeapon=p.weaponInventory.includes(e.previousWeapon)?e.previousWeapon:EXPANSION.INITIAL_WEAPONS[state.character];}
+        else{p.relics=p.relics.filter(id=>id!==e.id);if(e.maxHpLoan){p.maxHp=Math.max(1,p.maxHp-e.maxHpLoan);p.hp=Math.min(p.hp,p.maxHp);}}}
+      if(e.acquired&&e.kind==='weapon'&&e.id!=='divine'&&state.player.equippedWeapon===e.id&&state.player.level<(WEAPONS[e.id].requiredLevel||1)){state.player.equippedWeapon=state.player.weaponInventory.includes(e.previousWeapon)?e.previousWeapon:EXPANSION.INITIAL_WEAPONS[state.character];recordJourney(null,'真品仍待驾驭','回响已尽；真品保留在行囊，达到灵识要求后可再次装备。','neutral');}
+      event('echoEnd',{gearId:e.id,gearKind:e.kind,target:'player',remaining:0,acquired:!!e.acquired});
+      recordJourney(null,'回响归藏',e.acquired?'三场已过，旅途中取得的真品仍留在行囊。':'三场已过，暂借的宝物归藏；永久收藏仍在，温养后可再次借用。','neutral');
+    }
+    function replayMilestone(){if(replayOn()&&(state.stats.chapterBosses+state.stats.peacefulBosses)>0&&RP.milestone(profile,state.replay)&&typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
+    function abandonRun(){
+      if(!replayOn()||['title','victory','defeat'].includes(state.screen))return false;
+      RP.observe(profile,state,catalog);state.replay.abandoned=true;state.screen='title';activeNode=null;
+      if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());onChange(state);return true;
+    }
+    function exportRun(){
+      if(!replayOn()||externalRng||typeof rng.state!=='function'||state.screen==='title'||(state.screen==='battle'&&!['player','enemy'].includes(state.battle?.phase)))return null;
+      return clone({version:2,engine:'review12',state,serial,eventSerial,activeNodeId:activeNode?.id||null,rngState:rng.state(),seed:state.replay.seed});
+    }
+    function importRun(value){
+      try{
+        if(externalRng)return false;if(typeof value==='string')value=JSON.parse(value);if(!RP.validateRun(value,catalog))return false;
+        const v=clone(value),s=v.state,expected=s.replay.mode==='short'?[REGIONS[0],REGIONS[3],REGIONS[6]]:REGIONS;
+        if(s.regions.some((r,i)=>r.id!==expected[i].id)||!Number.isInteger(s.journey.regionIndex)||s.journey.regionIndex<0||s.journey.regionIndex>=expected.length)return false;
+        if((s.replay.oath!==null&&!REPLAY.oath?.(s.replay.oath,s.character))||!['fate','abyss'].includes(s.replay.finale))return false;
+        if(s.replay.cosmetic!==null&&s.replay.cosmetic!==undefined&&!EXPANSION.OUTFITS[s.replay.cosmetic]?.characters.includes(s.character))return false;
+        const nodes=s.map.flat(),byId=new Map(nodes.map(n=>[n.id,n]));
+        if(s.map.some((row,i)=>row.some((n,j)=>n.floor!==i+1||n.regionIndex!==Math.floor(i/10)||n.lane!==j||!NODE_INFO[n.type]||n.next.some(id=>byId.get(id)?.floor!==n.floor+1))))return false;
+        if(s.availableNodes.some(id=>byId.get(id).floor!==s.floor)||s.history.some(n=>!byId.has(n.id)||byId.get(n.id).floor!==n.floor)||new Set(s.history.map(n=>n.floor)).size!==s.history.length)return false;
+        if(v.activeNodeId&&byId.get(v.activeNodeId).floor!==s.floor)return false;
+        if(s.screen==='battle'&&!v.activeNodeId&&!s.journey.personal?.resume&&!s.journey.hehuan?.resume&&!s.journey.mechanist?.resume&&s.battle.kind!=='hidden')return false;
+        const cards=[...s.player.deck,...(s.battle?['hand','draw','discard','exhaust','resolving','traps'].flatMap(k=>s.battle[k]||[]):[])];
+        if(cards.some(c=>!/^card-\d+$/.test(c.uid)||Number(c.uid.slice(5))>v.serial))return false;
+        if(s.battle?.events.some(e=>!Number.isSafeInteger(e.id)||e.id>v.eventSerial))return false;
+        if(s.player.character!==s.character||(STARTERS[s.starter]?.character||'assassin')!==s.character||!WEAPONS[s.player.equippedWeapon]?.characters.includes(s.character))return false;
+        if(!Array.isArray(s.journey.journal)||!s.journey.flags||!s.journey.relationships||!s.journey.hidden||!Array.isArray(s.chapterTemplates)||s.chapterTemplates.length!==expected.length)return false;
+        if(nodes.some(n=>n.encounter&&!ENEMIES[n.encounter.enemyId]))return false;
+        if(s.currentNode!==null&&!byId.has(s.currentNode))return false;
+        for(const key of ['personal','hehuan','mechanist']){const frame=s.journey[key]?.resume;if(frame&&(!byId.has(frame.nodeId)||byId.get(frame.nodeId).floor!==frame.floor||frame.floor!==s.floor))return false;}
+        if(new Set(s.player.deck.map(c=>c.uid)).size!==s.player.deck.length)return false;
+        if(s.battle){const battleCards=['hand','draw','discard','exhaust','resolving','traps'].flatMap(k=>s.battle[k]||[]);if(new Set(battleCards.map(c=>c.uid)).size!==battleCards.length||(s.battle.resolving||[]).length||!Array.isArray(s.battle.traps))return false;if(s.screen==='battle'&&(s.player.hp<=0||s.battle.enemy.hp<=0))return false;}
+        if(s.reward&&(!Array.isArray(s.reward.cards)||s.reward.cards.some(id=>!CARDS[id])||(s.reward.relicChoices||[]).some(id=>!RELICS[id])||(s.reward.weaponChoices||[]).some(id=>!WEAPONS[id])))return false;
+        if(s.shop&&(!Array.isArray(s.shop.cards)||s.shop.cards.some(c=>!CARDS[c.id])||!Array.isArray(s.shop.weapons)||s.shop.weapons.some(w=>!WEAPONS[w.id]||!Number.isSafeInteger(w.price)||w.price<0)))return false;
+        if(s.event&&(!Array.isArray(s.event.choices)||!Array.isArray(s.event.story)))return false;
+        if(s.replay.echo&&!s.replay.echo.claimed&&profile.version===2&&profile.cooldowns[s.replay.echo.kind+':'+s.replay.echo.id])return false;
+        const nextRng=RP.prng(v.seed);if(!nextRng.restore(v.rngState))return false;
+        configureRun(s.replay);rng=nextRng;state=s;serial=v.serial;eventSerial=v.eventSerial;activeNode=v.activeNodeId?byId.get(v.activeNodeId):null;
+        profile=RP.normalize(profile,catalog);profile.runSerial=Math.max(profile.runSerial,s.replay.id);
+        if(s.replay.echo?.claimed)profile.cooldowns[s.replay.echo.kind+':'+s.replay.echo.id]=Math.max(profile.cooldowns[s.replay.echo.kind+':'+s.replay.echo.id]||0,s.replay.id);
+        emit();return true;
+      }catch(_){return false;}
     }
 
     function configureSovereignMap(map) {
@@ -466,7 +578,7 @@
       return {...card,...value,id,fallenPenalty,attackMultiplier:fallenPenalty?.5:1,blockMultiplier:fallenPenalty?.5:1,text:fallenPenalty&&altered[id]?altered[id]:card.text};
     }
     function getWeaponStatus(id=state.player.equippedWeapon) {
-      const p=state.player,w=WEAPONS[id]||{},requiredLevel=w.requiredLevel||w.level||1;
+      const p=state.player,w=weaponDefinition(id),requiredLevel=activeEchoWeapon(id)&&id!=='divine'?1:w.requiredLevel||w.level||1;
       const compatible=!!WEAPONS[id]&&!!w.characters?.includes(state.character),controlled=compatible&&p.level>=requiredLevel;
       const profession=(w.characters||[]).map(role=>CHARACTERS[role]?.profession||role).join('、');
       const reason=!compatible?'仅'+profession+'可装备':!controlled&&id!=='divine'?'需要灵识等级'+requiredLevel:'';
@@ -478,7 +590,7 @@
       if(!getWeaponStatus(id).canEquip){note(getWeaponStatus(id).reason);emit();return false;}
       if(state.screen==='event'&&!state.event?.resolved)return false;
       if(!['map','arrival','rest','shop','event','threshold'].includes(state.screen)||!state.player.weaponInventory.includes(id)||!WEAPONS[id])return false;
-      if(id!=='divine'&&state.player.level<(WEAPONS[id].requiredLevel||1)){note('灵识尚不足以驾驭这件兵器。');emit();return false;}
+      if(id!=='divine'&&!activeEchoWeapon(id)&&state.player.level<(WEAPONS[id].requiredLevel||1)){note('灵识尚不足以驾驭这件兵器。');emit();return false;}
       state.player.equippedWeapon=id;note(`已装备「${WEAPONS[id].name}」。`);emit();return true;
     }
     function equipOutfit(id) {
@@ -496,11 +608,12 @@
     function buyWeapon(index) {
       if(state.screen!=='shop'||!Number.isInteger(index))return false;
       const item=state.shop?.weapons?.[index],p=state.player;
-      if(!item||item.bought||p.gold<item.price||p.weaponInventory.includes(item.id))return false;
-      item.bought=true;p.gold-=item.price;p.weaponInventory.push(item.id);note(`购得「${WEAPONS[item.id].name}」，已收入行囊。${getWeaponStatus(item.id).compatible?'可在安全处装备。':'此武器仅限'+getWeaponStatus(item.id).profession+'装备。'}`);emit();return true;
+      if(!item||item.bought||p.gold<item.price||(p.weaponInventory.includes(item.id)&&!loaned('weapon',item.id)))return false;
+      item.bought=true;p.gold-=item.price;acquireWeapon(item.id);note(`购得「${WEAPONS[item.id].name}」，已收入行囊。${getWeaponStatus(item.id).compatible?'可在安全处装备。':'此武器仅限'+getWeaponStatus(item.id).profession+'装备。'}`);emit();return true;
     }
     function addSoul(amount,reason='魂息') {
       if(!liveBattle())return 0;const b=state.battle,before=b.soul||0;b.soul=Math.max(0,Math.min(6,before+amount));
+      if(amount<0&&b.soul<before){const n=replayEffect('firstSoulSpendDraw');if(n)drawCards(n);}
       if(b.soul!==before){log(`${reason}：魂息 ${b.soul-before>0?'+':''}${b.soul-before}，当前${b.soul}息。`);event('soul',{amount:b.soul-before,total:b.soul,reason});}
       return b.soul-before;
     }
@@ -656,6 +769,7 @@
     }
     function sevenEventAvailable(def, floor=state?.floor||1, regionIndex=state?.journey?.regionIndex||0) {
       if (legacyCampaign || !def) return false;
+      if(shortRun()){const original=[0,3,6][regionIndex];floor=original*10+(floor-1)%10+1;regionIndex=original;}
       if (Number.isInteger(def.minFloor) && floor < def.minFloor) return false;
       if (Number.isInteger(def.maxFloor) && floor > def.maxFloor) return false;
       if (Number.isInteger(def.regionIndex) && regionIndex !== def.regionIndex) return false;
@@ -802,7 +916,7 @@
         if(BOSS_QUESTS.QUESTS[boss])records[boss]={region,stage:0,choices:{},guard:0,lastOutcome:'',awakened:false};
       }
       if(state.character==='sovereign')records.heart={region:2,stage:0,choices:{},guard:0,lastOutcome:'',floors:[21,24,25]};
-      else records.feiye={region:6,stage:0,choices:{},guard:0,lastOutcome:'',floors:[64,65,68]};
+      else if(!shortRun())records.feiye={region:6,stage:0,choices:{},guard:0,lastOutcome:'',floors:[64,65,68]};
       state.journey.bossQuests={records,scheduled:[],resolutions:[]};
     }
     function prepareBossOpportunity(){
@@ -884,7 +998,7 @@
       for(const [floor,id]of [[5,'tainted_mercy'],[7,'demonic_offer'],[17,'demonic_warning'],[22,'mirror_trial']])setStoryNode(map,floor,id,{all:true,name:'路边余声'});
       setStoryNode(map,24,'fallen_hunt',{name:'一卷未合的书'});setStoryNode(map,27,'demon_manual',{all:true,name:'未竟的旧约'});
     }
-    function cardPool() { return REWARD_POOL.filter(id => CARDS[id].character === state.character && !CARDS[id].locked); }
+    function cardPool() { return REWARD_POOL.filter(id => CARDS[id].character === state.character && (!CARDS[id].locked||(replayOn()&&state.character==='sword'&&state.player.path.fallen&&id.startsWith('D')))); }
     function freshState(screen, starter = 'mark') {
       serial = 0;
       eventSerial = 0;
@@ -893,6 +1007,7 @@
       const character = STARTERS[starter]?.character || (starter === 'sword' ? 'sword' : 'assassin');
       if (character === 'sovereign') configureSovereignMap(map);
       if (character === 'sword') configureSwordMap(map);
+      if(runConfig){const node=map[totalFloors-1][0],enemyId=runConfig.finale==='abyss'?'snake_ascended':SEVEN.FINAL_BOSS;node.type='boss';delete node.storyId;node.encounter={enemyId,kind:'boss'};node.name=ENEMIES[enemyId].name;node.description=runConfig.finale==='abyss'?'逆仪终点：承受变招与鳞潮。':'王座终点：揭开归途的最终关口。';}
       return {
         screen, starter, character, campaign:legacyCampaign?'legacy':'seven', regions:regions.map(region=>({...region,stages:region.stages.slice()})), totalFloors, map, chapterTemplates:map.chapterTemplates, mapTemplateId:map.templateId, mapTemplateName:map.templateName, availableNodes: [map[0][0].id], currentNode: null,
         player: {
@@ -907,7 +1022,7 @@
         stats: { battles: 0, cardsPlayed: 0, eliteBattles: 0, maxCombo: 0, maxHit: 0, chapterBosses:0, peacefulBosses:0, demonicUses:0 }
       };
     }
-    function emit() { if(state?.screen==='event'&&state.event&&state.character==='hehuan'&&!state.event.hehuanIdentityShown){const reply=HEHUAN.identityReply(state.event,state);if(reply){state.event.story=[...(state.event.story||[]),reply];state.event.hehuanIdentityShown=true;}} if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);onChange(state); }
+    function emit() { if(state?.screen==='event'&&state.event&&state.character==='hehuan'&&!state.event.hehuanIdentityShown){const reply=HEHUAN.identityReply(state.event,state);if(reply){state.event.story=[...(state.event.story||[]),reply];state.event.hehuanIdentityShown=true;}} if(state?.screen==='battle'&&state.battle?.sequencePending){const pending=state.battle.sequencePending;delete state.battle.sequencePending;startBattle('elite',pending);state.battle.sequenceLoss=pending.sequenceLoss;log('第二战：断誓逃卒赶到。生命承接第一战，战斗状态重置；两战结束只结算一份精英总战利。');event('sequence',{name:'第二战 · 断誓逃卒'});} if(state?.screen==='event'&&state.event)EDITORIAL.rewrite(state.event,state,api); if(state?.screen==='event'&&state.event&&!state.event.resolved)for(const choice of state.event.choices||[])choice.disabled=!!choice.locked||!choiceAvailable(choice,state.player);if(replayOn()){const discovered=RP.observe(profile,state,catalog),finished=RP.finish(profile,state);if((discovered||finished)&&typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}onChange(state); }
     // Only public combat resources, captured at this event rather than from the final queue state.
     function combatResources() {
       const b=state.battle;if(!b)return null;
@@ -921,6 +1036,7 @@
       if(b.activeTrap){if(!entry.cardId)entry.cardId=b.activeTrap.id;if(!entry.trapUid)entry.trapUid=b.activeTrap.uid;}
       if(b.effectCardId&&!entry.cardId)entry.cardId=b.effectCardId;
       b.events.push(entry);
+      if(replayOn()&&(type==='relic'||type==='weapon')){b.events.push({...entry,id:++eventSerial,type:'gearProc',gearId:type==='relic'?data.relic:state.player.equippedWeapon,gearKind:type==='relic'?'relic':'weapon',trigger:data.trigger||data.kind||type,resources:combatResources()});}
       return entry;
     }
     function beginEvents() { if (state.battle) { state.battle.events = []; state.battle.hitIndex = 0; } }
@@ -933,7 +1049,13 @@
     function hasRelic(id) { return state.player.relics.includes(id); }
     function addRelic(id) {
       const p = state.player;
-      if (!RELICS[id] || hasRelic(id) || ['fox','ninelives'].includes(id)) return false;
+      if(!RELICS[id]||['fox','ninelives'].includes(id))return false;
+      const e=state.replay?.echo,matching=e?.kind==='relic'&&e.id===id;
+      if(hasRelic(id)){
+        if(!matching||e.acquired)return false;
+        e.acquired=true;if(id==='godblood'&&e.claimed){p.maxHp+=12;p.hp=Math.min(p.maxHp,p.hp+12);}return true;
+      }
+      if(matching)e.acquired=true;
       p.relics.push(id);
       if (id === 'godblood') {
         p.maxHp += 12;
@@ -1036,8 +1158,8 @@
     function machineSelfCost(id,amount,reason,noFeedback=false){const m=squad()?.roster[id];if(!m||m.hp<=0)return false;const before=m.hp;m.hp=Math.max(0,m.hp-amount);event('squadDamage',{unitId:id,amount:Math.min(before,amount),damage:Math.min(before,amount),total:m.hp,selfCost:true,reason});if(m.hp===0)breakMachine(id,reason,noFeedback);return liveBattle();}
     function squadAttack(id,amount,kind='squad',bonus=0){if(!liveBattle())return 0;const b=state.battle,before=b.enemy.hp,previous=b.attackExecutor;b.attackExecutor=id;enemyHit(amount+bonus,0,0,kind);b.attackExecutor=previous;const lost=Math.max(0,before-b.enemy.hp);if(lost>0)b.enemy.hurtDuringPlayerTurn=true;return lost;}
     function passiveMachine(id){const s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;const n=m.passiveBonus||0;event('squadPassive',{unitId:id,name:machineName(id)});state.battle.enemyCounterUsedForCard=false;if(id==='chengshan')machineBlock(id,4+n,'护城运转');if(id==='mingdi')squadAttack(id,3+n);if(id==='shiying')gainDrive(1+n,'拾萤运转');return true;}
-    function commandMachine(id,extra=false){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;if(!extra&&m.commandTurn===b.turn)return false;m.commandTurn=b.turn;event('squadCommand',{unitId:id,name:machineName(id),extra});b.enemyCounterUsedForCard=false;if(id==='chengshan'){machineBlock(id,8,'承山指令');gainBlock(4,'承山护主');}if(id==='mingdi')squadAttack(id,7);if(id==='shiying'){drawCards(1);if(liveBattle())b.nextEnergy++;}if(liveBattle())squadGuard(id);if(liveBattle()&&s.effects.wingAssist&&id!=='mingdi'&&s.effects.wingTurn!==b.turn&&s.roster.mingdi.place==='field'&&s.roster.mingdi.hp>0){s.effects.wingTurn=b.turn;b.enemyCounterUsedForCard=false;squadAttack('mingdi',4);}return true;}
-    function overloadMachine(id,cardId=null,bonus=0){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;event('squadOverload',{unitId:id,name:machineName(id),cardId});if(!machineSelfCost(id,4,'过载耐久代价'))return false;withdrawMachine(id,'过载退场',true);squadGuard('player');b.enemyCounterUsedForCard=false;if(id==='chengshan'){gainBlock(cardId==='J30'?24:18,'承山过载');if(cardId==='J30')b.nextDraw++;}if(id==='mingdi'){for(let i=0;i<(cardId==='J37'?4:3)&&liveBattle();i++)squadAttack(id,6,cardId?'card':'squad',i===0?bonus:0);}if(id==='shiying'){drawCards(cardId==='J45'?4:3);if(liveBattle())b.nextEnergy+=2;}return true;}
+    function commandMachine(id,extra=false){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;if(!extra&&m.commandTurn===b.turn)return false;m.commandTurn=b.turn;event('squadCommand',{unitId:id,name:machineName(id),extra});b.enemyCounterUsedForCard=false;if(id==='chengshan'){machineBlock(id,8,'承山指令');gainBlock(4,'承山护主');}if(id==='mingdi')squadAttack(id,7,'squad',replayEffect('firstCommandBonus','enemy'));if(id==='shiying'){drawCards(1);if(liveBattle())b.nextEnergy++;}if(liveBattle())squadGuard(id);if(liveBattle()&&s.effects.wingAssist&&id!=='mingdi'&&s.effects.wingTurn!==b.turn&&s.roster.mingdi.place==='field'&&s.roster.mingdi.hp>0){s.effects.wingTurn=b.turn;b.enemyCounterUsedForCard=false;squadAttack('mingdi',4);}return true;}
+    function overloadMachine(id,cardId=null,bonus=0){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.place!=='field'||m.hp<=0||!liveBattle())return false;event('squadOverload',{unitId:id,name:machineName(id),cardId});if(!machineSelfCost(id,4,'过载耐久代价'))return false;withdrawMachine(id,'过载退场',true);squadGuard('player');b.enemyCounterUsedForCard=false;if(id==='chengshan'){gainBlock(cardId==='J30'?24:18,'承山过载');if(cardId==='J30')b.nextDraw++;}if(id==='mingdi'){for(let i=0;i<(cardId==='J37'?4:3)&&liveBattle();i++)squadAttack(id,6,cardId?'card':'squad',i===0?bonus:0);}if(id==='shiying'){drawCards(cardId==='J45'?4:3);if(liveBattle())b.nextEnergy+=2;}if(liveBattle()){const n=replayEffect('firstOverloadDraw'),repair=replayEffect('firstOverloadRepair',id);if(repair)repairMachine(id,repair,'过载回收');if(n)drawCards(n);}return true;}
     function setupSquad(){if(state.character!=='mechanist')return;const level=state.player.level||1,roster={};for(const id of MACHINE_IDS){const maxHp=(MECHANIST.MACHINES[id].hp||MECHANIST.MACHINES[id].maxHp)+level-1;roster[id]={id,hp:maxHp,maxHp,block:0,place:'reserve',slot:null,readyAtTurn:1,deployedTurn:0,commandTurn:0,passiveBonus:0};}state.battle.squad={drive:2,driveCap:6,guardId:'player',slots:[null,null],roster,nextDrive:state.journey.nextDriveAid||0,effects:{extraDrivePerTurn:0,drawWithTwo:0,wallEcho:false,wingAssist:false}};state.journey.nextDriveAid=0;const first=MACHINE_IDS.includes(state.player.firstMachine)?state.player.firstMachine:'chengshan';if(hasRelic('concentric_spool')){const m=roster[first];Object.assign(m,{place:'field',slot:0,deployedTurn:1});state.battle.squad.slots[0]=first;state.battle.squad.guardId=first;event('squadDeploy',{unitId:first,name:machineName(first),reason:'同心线轴免费首发'});}}
     function setFirstMachine(id){if(state.character!=='mechanist'||!MACHINE_IDS.includes(id)||['battle','defeat','victory'].includes(state.screen))return false;state.player.firstMachine=id;note(`下场首发：${machineName(id)}。`);emit();return true;}
     function squadDamage(id,amount,hitIndex,counter=false){const b=state.battle,s=squad(),m=s?.roster[id];if(!m||m.hp<=0)return playerHit(amount,hitIndex,'player',counter);const absorbed=Math.min(m.block,amount);m.block-=absorbed;const remain=Math.max(0,amount-absorbed),damage=Math.min(m.hp,remain),overflow=Math.max(0,remain-m.hp);m.hp-=damage;event('squadDamage',{source:'enemy',target:id,unitId:id,amount,absorbed,damage,overflow,total:m.hp,hitIndex,counter});log(`${machineName(id)}承受${amount}：护盾抵挡${absorbed}，耐久损失${damage}${overflow?'，溢出'+overflow+'打向本体':''}。`);const broken=m.hp===0;if(broken){withdrawMachine(id,'损坏退回');}if(overflow&&!playerHit(overflow,hitIndex,'player',counter))return false;if(broken)breakMachine(id,'敌方攻击');if(!liveBattle())return false;if(damage>0&&!counter&&s.effects.wallEcho){if(s.effects.wallTurn!==b.turn){s.effects.wallTurn=b.turn;gainDrive(1,'城墙回响');}squadAttack(id,3,'machineCounter');}return liveBattle();}
@@ -1063,6 +1185,7 @@
     function gainBlock(amount, reason, orthodox = false) {
       const b = state.battle;
       if((orthodox||b.resolving?.[0]?.id.startsWith('S'))&&state.player.path.fallen)amount=Math.floor(amount/2);
+      if(amount>0)amount+=replayEffect('firstGuardBonus');
       if (amount > 0 && hasRelic('silk') && !b.silkUsed) {
         b.silkUsed = true; amount += 2;
         log('鲛绡带触发：首次护盾额外增加 2。');
@@ -1184,6 +1307,7 @@
       if (hasRelic('vial')) { const recovered=heal(Math.min(8,Math.max(0,b.openingHp-state.player.hp)), '回春露触发'); event('relic', { relic: 'vial', name: RELICS.vial.name, amount: recovered }); }
       clearCombatStatuses();
       state.stats.battles++;
+      completeEchoBattle();
       awardExperience(b.kind);
       if (state.character==='sovereign' && ['feiye_echo','retainer','heart'].includes(b.enemy.id)) {
         const before=state.player.power;state.player.power=Math.min(3,before+1);
@@ -1216,22 +1340,23 @@
         state.screen='victory';state.availableNodes=[];state.result={won:true,floor:state.floor,enemy:b.enemy.name,hiddenWin:true,unlocked:'feiye'};note('井下的约定已解。绯夜可以作为新的行旅者出发。');return;
       }
       if (b.kind === 'boss') {state.stats.chapterBosses++;const f=factionState();if(b.enemy.id==='lotus_boss'&&!f.promiseReplyRecorded&&f.behaviors.some(x=>x.npc==='m03'&&x.kind==='promise')){recordJourney(null,'尚未带走的器谱','缄红一战结束，取谱承诺还未完成。探客想要的完整器谱没有出现在你的行囊里。','neutral');f.promiseReplyRecorded=true;}}
+      if(b.kind==='boss')replayMilestone();
       if (b.kind === 'boss' && state.floor < totalFloors) {
         heal(18,'关口之后的补给');
-        state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
+        state.player.gold+=35;state.reward={cards:rewardCards('elite'),gold:35,relic:null,relicChoices:[],relicPending:false,rerolled:false,chapterBoss:true};if(replayOn()){const pool=Object.keys(WEAPONS).filter(id=>WEAPONS[id].characters.includes(state.character)&&(!state.player.weaponInventory.includes(id)||loaned('weapon',id)));if(pool.length){state.reward.weaponChoices=sample(pool,Math.min(2,pool.length));state.reward.weaponPending=true;}}state.screen='reward';note('关口已过。选牌后可进入下一章。');return;
       }
       if (b.kind === 'boss') {
         completeNode();
         state.screen = canMeetHidden() ? 'threshold' : 'victory';
         state.availableNodes = [];
         state.result = { won: true, floor: state.map.length, enemy: b.enemy.name, character:state.character, power:state.player.power };
-        note(legacyCampaign?'绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。':'无名王座终于沉寂。你带着七境中收回的证据，走向重新出现的归路。');
+        note(shortRun()?(state.replay.finale==='abyss'?'逆仪的鳞潮平息。你走完三境，携本程亲见的记录回到雾外。':'命枢的织线止息。你走完三境，携本程亲见的记录回到雾外。'):legacyCampaign?'绛鳞退入井底。你带着归墟引灵仪的残页走出寒渊封域，雾后的真相仍未揭开。':'无名王座终于沉寂。你带着七境中收回的证据，走向重新出现的归路。');
         return;
       }
       let gold = b.kind === 'elite' ? 35 : 20;
       let relicChoices = [];
       if (b.kind === 'elite') {
-        const available = Object.keys(RELICS).filter(id => !['bell','fox','ninelives','frostseal','veil','heartmirror','concentric_spool'].includes(id) && !hasRelic(id));
+        const available = Object.keys(RELICS).filter(id => !['bell','fox','ninelives','frostseal','veil','heartmirror','concentric_spool'].includes(id) && (!hasRelic(id)||loaned('relic',id)));
         if (available.length) {
           const treasures = available.filter(id => TREASURE_RELICS.includes(id));
           if (state.stats.eliteBattles === 0 && treasures.length) {
@@ -1255,7 +1380,7 @@
     }
     function rewardCards(kind, previous = []) {
       const pool = cardPool();
-      const required = kind === 'elite'
+      const required = replayOn()&&state.character==='sword'&&state.player.path.fallen ? pool.filter(id=>id.startsWith('D')) : kind === 'elite'
         ? pool.filter(id => CARDS[id].rarity === 'rare')
         : state.character === 'sword' ? pool.filter(id => CARDS[id].category === (state.stats.battles % 2 ? 'blade' : 'ice'))
         : pool.filter(id => CARDS[id].category === state.starter);
@@ -1321,6 +1446,7 @@
       if(b.squad){for(const m of Object.values(b.squad.roster))m.block=0;const s=b.squad;const amount=(b.turn>1?1:0)+s.effects.extraDrivePerTurn+s.nextDrive;s.nextDrive=0;if(amount)gainDrive(amount,'回合驱动恢复');}
       event('blockClear', { target: 'player', amount: -b.block, total: 0 });
       b.block = 0; b.factionGuardRemaining=0;
+      if(replayOn())b.replayUsed={};
       b.weaponUsed = false; b.veilUsed = false;b.coreStrikeUsed=false;
       b.outfitBloodUsed=false;
       b.played = 0;
@@ -1343,6 +1469,7 @@
       if(b.swordFormation)gainBlock(state.player.path.fallen?Math.floor(b.swordFormation/2):b.swordFormation,'两仪剑阵');
       if(b.clearSwordHeart)addSwordIntent(b.clearSwordHeart,'剑心通明');
       let turnEnergy = 3 + b.nextEnergy;
+      if(replayOn()){if(b.turn===1)turnEnergy=Math.max(0,turnEnergy-replaySources().reduce((n,x)=>n+(x.effects.startEnergyPenalty||0),0));const n=REPLAY.challengeRules?.(state.replay.challenge)?.turnStartEnemyBlock||0;if(n){b.enemy.block+=n;event('challenge',{target:'enemy',trigger:'turnStartEnemyBlock',amount:n});}}
       if (b.nextEnergyPenalty) {
         turnEnergy = Math.max(0, turnEnergy - b.nextEnergyPenalty);
         log(`封脉余势：本回合灵力减少 ${b.nextEnergyPenalty}。`);
@@ -1360,10 +1487,11 @@
       if (hasRelic('moonheart')) {
         turnEnergy += 1;
         log('月髓触发：本回合额外获得 1 点灵力。');
+        if(replayOn())event('relic',{relic:'moonheart',name:RELICS.moonheart.name,amount:1,trigger:'turnEnergy'});
       }
       const clothing=EXPANSION.OUTFITS[state.player.equippedOutfit];
       const openingWeapon=getWeaponStatus();
-      if(b.turn===1&&openingWeapon.compatible){if(openingWeapon.openingDraw)draw+=openingWeapon.openingDraw;if(openingWeapon.openingDrive)gainDrive(openingWeapon.openingDrive,openingWeapon.name);if(openingWeapon.openingSoul)addSoul(openingWeapon.openingSoul,openingWeapon.name);}
+      if(b.turn===1&&openingWeapon.compatible){if(openingWeapon.openingDraw){draw+=openingWeapon.openingDraw;if(replayOn())event('gearProc',{gearId:openingWeapon.id,gearKind:'weapon',trigger:'openingDraw',amount:openingWeapon.openingDraw});}if(openingWeapon.openingDrive){gainDrive(openingWeapon.openingDrive,openingWeapon.name);if(replayOn())event('gearProc',{gearId:openingWeapon.id,gearKind:'weapon',trigger:'openingDrive',amount:openingWeapon.openingDrive});}if(openingWeapon.openingSoul){addSoul(openingWeapon.openingSoul,openingWeapon.name);if(replayOn())event('gearProc',{gearId:openingWeapon.id,gearKind:'weapon',trigger:'openingSoul',amount:openingWeapon.openingSoul});}}
       if(clothing?.block)gainBlock(clothing.block,clothing.name);
       if(b.turn===1&&clothing?.draw)draw+=clothing.draw;
       if(b.turn===1&&clothing?.energy){turnEnergy+=clothing.energy;log(`${clothing.name}：灵力 +${clothing.energy}。`);event('energy',{amount:clothing.energy,total:turnEnergy});}
@@ -1455,9 +1583,12 @@
       state.player.pendingPillPower = 0;
       state.screen = 'battle';
       state.reward = null;
+      const echoStarted=claimEcho();
+      if(echoStarted)event('echoStart',{gearId:state.replay.echo.id,gearKind:state.replay.echo.kind,target:'player',remaining:3});
       setupSquad();
       startPlayerTurn();
       if(!liveBattle())return;
+      if(loaned('relic','godblood')){gainBlock(4,'无面神血回响');event('gearProc',{gearId:'godblood',gearKind:'relic',trigger:'openingBlock',target:'player',amount:4});}
       const preparation=state.journey.bossQuests?.records[id],quest=BOSS_QUESTS.QUESTS[id];
       if(['boss','hidden','fight'].includes(kind)&&preparation&&preparation.region===state.journey.regionIndex){
         const owns=item=>state.player.questItems.includes(item);
@@ -1480,7 +1611,7 @@
         if(speech){log(`${ENEMIES[id].name}的质问：${speech}`);recordJourney(null,context.cave+' · 镇境者回话',speech,'neutral');}
       }
       if(id==='m02'&&state.player.questItems.includes('split_nail')&&!ff.invalid.split_nail)log('纸偶听见裂芯钉鸣响：“你拿着这枚拆芯钉，要去谁家？”这一次仍须交锋。');
-      const equipped=WEAPONS[state.player.equippedWeapon];if(equipped?.block)gainBlock(equipped.block,equipped.name);
+      const equipped=weaponDefinition();if(equipped?.block){gainBlock(equipped.block,equipped.name);if(replayOn())event('gearProc',{gearId:state.player.equippedWeapon,gearKind:'weapon',trigger:'openingBlock',amount:equipped.block});}
       if (state.journey.nextCombatBlock > 0) {
         const amount = state.journey.nextCombatBlock;
         state.journey.nextCombatBlock = 0;
@@ -1504,6 +1635,7 @@
       if(resumeMechanistNode())return;
       if(resumeHehuanNode())return;
       completeNode();
+      replayMilestone();
       state.floor++;
       const regionIndex = Math.min(regions.length - 1, Math.floor((state.floor - 1) / 10));
       const crossed = regionIndex !== state.journey.regionIndex;
@@ -1523,17 +1655,29 @@
       note(`第 ${state.floor} 段已开放。沿已连接的道路继续前行。`);
     }
 
-    function newRun(starter = 'mark', character = null) {
+    function newRun(starter = 'mark', character = null, config = null) {
       if(character!==null&&(!CHARACTERS[character]||(STARTERS[starter]?.character||'assassin')!==character))return false;
       if ((!STARTERS[starter] && starter !== 'classic') || (starter === 'sovereign' && !profile.unlocks.includes('feiye'))) return false;
-      state = freshState('arrival', starter);
+      let settings=null;
+      if(config!==null){
+        if(!config||typeof config!=='object'||Array.isArray(config)||legacyCampaign)return false;
+        const role=STARTERS[starter]?.character||'assassin',mode=config.mode||'short',challenge=config.challenge??0,oath=config.oath||null;
+        if(!['short','long'].includes(mode)||!Number.isInteger(challenge)||challenge<0||challenge>3||(oath!==null&&!REPLAY.oath?.(oath,role)))return false;
+        const normalized=RP.normalize(profile,catalog);if(!RP.echoStatus(normalized,config.echo,role,catalog).available)return false;
+        const cosmetic=config.cosmetic||null;if(cosmetic&&(!normalized.collections.cosmetics.includes(cosmetic)||!EXPANSION.OUTFITS[cosmetic]?.characters.includes(role)))return false;
+        const seed=String(config.seed??Date.now()).slice(0,80);settings={mode,seed,challenge,oath,echo:config.echo||null,cosmetic,finale:config.finale==='abyss'?'abyss':'fate'};
+        profile=normalized;if(!externalRng)rng=RP.prng(seed);
+      }else rng=externalRng?options.rng:Math.random;
+      configureRun(settings);state = freshState('arrival', starter);
+      if(settings){state.replay=RP.begin(profile,settings,catalog,state.character);const o=REPLAY.oath(settings.oath,state.character),loss=(o?.effects||o||{}).initialMaxHpPenalty||0;state.player.deck=REPLAY.applyStarterSwap(state.player.deck,settings.oath,state.character);state.player.maxHp=Math.max(1,state.player.maxHp-loss);state.player.hp=state.player.maxHp;if(typeof options.onProfileChange==='function')options.onProfileChange(getProfile());}
+
       expedition.resetRun();
-      if(state.character==='hehuan'){hehuanJourney();recordJourney(null,'这趟，连账一起算',HEHUAN.INITIAL_STORY.join('\n'),'neutral');}
-      if(state.character==='mechanist'){mechanistJourney();recordJourney(null,'先把人找着',MECHANIST.INITIAL_STORY.join('\n'),'neutral');}
+      if(!shortRun()&&state.character==='hehuan'){hehuanJourney();recordJourney(null,'这趟，连账一起算',HEHUAN.INITIAL_STORY.join('\n'),'neutral');}
+      if(!shortRun()&&state.character==='mechanist'){mechanistJourney();recordJourney(null,'先把人找着',MECHANIST.INITIAL_STORY.join('\n'),'neutral');}
       if(talesEnabled)initializeTales();
       if(bossQuestsEnabled)initializeBossQuests();
       activeNode = null;
-      note(`${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
+      note(`${shortRun()?'三境试炼：30段独立路线，六篇个人章已重排；七境长支线不在本程展开。':''}${CHARACTERS[state.character].name}进入寒渊封域。选择第一段遗径，向黑雾深处前行。`);
       emit();
       return true;
     }
@@ -1566,13 +1710,13 @@
     function hehuanJourney(){return state.journey.hehuan||(state.journey.hehuan={stage:0,flags:{},lastOutcome:'',resume:null});}
     function mechanistJourney(){return state.journey.mechanist||(state.journey.mechanist={stage:0,lastOutcome:'',resume:null});}
     function beginMechanistStory(node){
-      if(state.character!=='mechanist'||MECHANIST.STORY_IDS?.includes(node.storyId))return false;
+      if(shortRun()||state.character!=='mechanist'||MECHANIST.STORY_IDS?.includes(node.storyId))return false;
       const j=mechanistJourney(),step=j.stage||0;if(j.resume||step>=3||state.floor<MECHANIST.PERSONAL_SLOTS[step])return false;
       j.resume={nodeId:node.id,floor:state.floor};state.screen='event';state.event=MECHANIST.buildEvent(MECHANIST.STORY_IDS[step],state);state.event.choices=finishChoices(state.event.choices,state.player);note('先处理路旁的旧机，再继续原来的道路。');return true;
     }
     function resumeMechanistNode(){const j=state.journey.mechanist,frame=j?.resume;if(!frame)return false;j.resume=null;activeNode=null;state.screen='map';state.event=null;state.reward=null;state.battle=null;state.floor=frame.floor;enterNode(frame.nodeId);return true;}
     function beginHehuanStory(node){
-      if(state.character!=='hehuan'||HEHUAN.STORY_IDS?.includes(node.storyId))return false;
+      if(shortRun()||state.character!=='hehuan'||HEHUAN.STORY_IDS?.includes(node.storyId))return false;
       const j=hehuanJourney(),step=j.stage||0;if(j.resume||step>=3||state.floor<HEHUAN.PERSONAL_SLOTS[step])return false;
       j.resume={nodeId:node.id,floor:state.floor};state.screen='event';state.event=HEHUAN.buildEvent(HEHUAN.STORY_IDS[step],state);state.event.choices=finishChoices(state.event.choices,state.player);note('原路未动。先处理眼前的人，再回到你选择的地标。');return true;
     }
@@ -1583,9 +1727,21 @@
     function beginPersonalStory(node){
       if(legacyCampaign||options.roleStories===false||options.tales===false||!ROLE_STORIES.ARCS[state.character])return false;
       const j=state.journey.personal||(state.journey.personal={stage:0,choices:[],lastOutcome:'',resume:null});
-      if(j.resume||j.stage>=6||state.floor<ROLE_STORIES.SLOTS[j.stage])return false;
+      if(j.resume||j.stage>=6||state.floor<(shortRun()?ROLE_STORIES.SHORT_SLOTS:ROLE_STORIES.SLOTS)[j.stage])return false;
       j.resume={nodeId:node.id,floor:state.floor};state.screen='event';
       state.event=ROLE_STORIES.build('personal_'+state.character+'_'+(j.stage+1),state);
+      if(replayOn()){
+        const step=j.stage+1;state.event.choices=state.event.choices.map((c,i)=>{
+          if(i!==1)return c;
+          const next={...c};
+          if(step===2){if(next.goldGain){next.goldGain=24;next.text='本次不领取专属兵器。';}else{next.heal=8;next.guard=8;next.text='恢复8生命，下一战首回合获得8护盾；本次不领取专属兵器。';}}
+          else if(step===4){next.removeBasic=true;next.text='移除第一张基础牌，精简牌组；本次不领取衣装。';}
+          else if(step===3){next.guard=10;next.text='下一战首回合获得10护盾；本次不领取技能。';}
+          else{next.heal=8;next.text='恢复8生命；本次不领取下一战护盾。';}
+          next.text=(next.goldCost?'支付'+next.goldCost+'灵石；':'')+(next.goldGain?'获得'+next.goldGain+'灵石；':'')+next.text;
+          return next;
+        });
+      }
       state.event.choices=finishChoices(state.event.choices,state.player);
       note('个人章节：'+state.event.name+'。完成后返回刚才选择的地标。');return true;
     }
@@ -1610,6 +1766,11 @@
         state.screen = type;
         if (type === 'shop') {
           state.shop = { outfits:Object.values(EXPANSION.OUTFITS).filter(o=>o.characters.includes(state.character)&&!state.player.outfitInventory.includes(o.id)).map(o=>({id:o.id,price:o.price,bought:false})), cards: sample(cardPool(), 3).map(id => ({ id, bought: false })), removed: false, antidoteBought:false, weapons:Object.keys(WEAPONS).filter(id=>!state.player.weaponInventory.includes(id)).sort((a,b)=>Number(WEAPONS[b].characters.includes(state.character))-Number(WEAPONS[a].characters.includes(state.character))).map(id=>({id,price:WEAPONS[id].price||50,bought:false})) };
+          if(replayOn()){
+            const pool=Object.keys(WEAPONS).filter(id=>WEAPONS[id].characters.includes(state.character)&&(!state.player.weaponInventory.includes(id)||loaned('weapon',id)));
+            state.shop.weapons=sample(pool,Math.min(2,pool.length)).map(id=>({id,price:WEAPONS[id].price||50,bought:false}));
+            state.shop.outfits=sample(state.shop.outfits,Math.min(2,state.shop.outfits.length));
+          }
           state.shop.items = expedition.makeShopStock();
         }
         if (type === 'event') state.event = makeEvent();
@@ -1654,6 +1815,7 @@
       event('card',{cardId:card.id,name:def.name,cost:def.cost,mode:'trap'});
       event('trapSet',{cardId:card.id,uid:card.uid,name:def.name,cost:def.cost,slot:b.traps.length-1});
       if(hasRelic('jade')&&b.played===3&&!b.jadeUsed){b.jadeUsed=true;b.energy++;log('磨爪玉触发：第3张牌结算后，获得1灵力。');event('relic',{relic:'jade',name:RELICS.jade.name,amount:1});}
+      const guard=replayEffect('firstTrapBlock');if(guard)gainBlock(guard,'藏招契约');afterReplayCard();
       b.phase='player';event('resources',{reason:'藏招已放置'});emit();return true;
     }
     function primeTraps(intent) {
@@ -1818,7 +1980,10 @@
       let bonus = 0;
       if (def.attack) {
         bonus = b.nextAttack + b.bloodPower + state.player.power + (b.pillPower || 0);
-        if(!b.weaponUsed){bonus+=EXPANSION.OUTFITS[state.player.equippedOutfit]?.bonus||0;const w=WEAPONS[state.player.equippedWeapon];b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
+        if(!b.weaponUsed){bonus+=EXPANSION.OUTFITS[state.player.equippedOutfit]?.bonus||0;const w=weaponDefinition();b.weaponUsed=true;if(w?.bonus){bonus+=w.bonus;log(`「${w.name}」：首张攻击第一段伤害 +${w.bonus}。`);event('weapon',{name:w.name,amount:w.bonus,kind:'attack'});}}
+        bonus+=replayEffect('firstAttackBonus','enemy');
+        const loss=replayEffect('firstAttackSelfLoss');
+        if(loss&&!loseLife(loss,'契约自损',true)){b.resolving.splice(b.resolving.indexOf(card),1);b.discard.push(card);emit();return true;}
         b.nextAttack = 0;
         if (hasRelic('mirror') && !b.mirrorUsed) {
           b.mirrorUsed = true;
@@ -2038,6 +2203,7 @@
       b.resolving.splice(b.resolving.indexOf(card), 1);
       (def.exhaust || card.ephemeral ? b.exhaust : b.discard).push(card);
       if (liveBattle()) {
+        if(def.attack){const mark=replayEffect('firstAttackMark','enemy'),chill=replayEffect('firstAttackChill','enemy'),soul=replayEffect('firstAttackSoul');if(mark)addMark(mark);if(chill)addChill(chill,'契约寒意');if(soul)addSoul(soul,'契约魂息');}
         if(def.attack&&hasRelic('veil')&&!b.veilUsed){b.veilUsed=true;addSoul(1,'无相夜纱');event('relic',{relic:'veil',name:RELICS.veil.name,amount:1});}
         if (hasRelic('jade') && b.played === 3 && !b.jadeUsed) {
           b.jadeUsed = true;
@@ -2045,6 +2211,7 @@
           log('磨爪玉触发：第 3 张牌结算后，获得 1 点灵力。');
           event('relic', { relic: 'jade', name: RELICS.jade.name, amount: 1 });
         }
+        afterReplayCard();
         b.phase = 'player';
         event('resources',{reason:'卡牌结算完成'});
       }
@@ -2056,6 +2223,7 @@
       if (state.screen !== 'battle' || !b || b.phase !== 'player') return false;
       beginEvents();
       b.phase = 'enemy';
+      if(replayOn()){const rules=REPLAY.challengeRules?.(state.replay.challenge)||{},n=Math.min(rules.unusedEnergyEnemyBlockCap||6,(rules.unusedEnergyEnemyBlock||0)*b.energy);if(n){b.replayCarryBlock=n;log(`余息戒律：敌方清除旧盾后获得${n}护盾。`);}}
       b.nextAttack = 0;
       b.discard.push(...b.hand);
       b.hand = [];
@@ -2080,6 +2248,7 @@
       const enemy = b.enemy;
       event('blockClear', { source: 'enemy', target: 'enemy', amount: -enemy.block, total: 0 });
       enemy.block = 0;
+      if(replayOn()&&b.replayCarryBlock){enemy.block+=b.replayCarryBlock;event('challenge',{target:'enemy',trigger:'unusedEnergyEnemyBlock',amount:b.replayCarryBlock});b.replayCarryBlock=0;}
       enemy.counter = 0;
       if (enemy.poison > 0) {
         const rawDamage = enemy.poison,beforeHp=enemy.hp;let damage=rawDamage;
@@ -2206,6 +2375,7 @@
     }
     function chooseReward(idOrNull) {
       if (state.screen !== 'reward' || !state.reward) return false;
+      if(state.reward.weaponPending){note('请先选择或跳过关口兵器。');return false;}
       if (state.reward.relicPending) { note('请先选择一件精英珍藏。'); return false; }
       if (idOrNull !== null && !state.reward.cards.includes(idOrNull)) return false;
       if (idOrNull !== null) state.player.deck.push(makeCard(idOrNull));
@@ -2213,6 +2383,7 @@
       emit();
       return true;
     }
+    function chooseWeaponReward(id){const r=state.reward;if(state.screen!=='reward'||!r?.weaponPending||(id!==null&&!r.weaponChoices.includes(id)))return false;if(id!==null&&!acquireWeapon(id))return false;r.weaponPending=false;r.weapon=id;emit();return true;}
     function chooseRelic(id) {
       const reward = state.reward;
       if (state.screen !== 'reward' || !reward || !reward.relicPending || !reward.relicChoices.includes(id)) return false;
@@ -2282,6 +2453,7 @@
       return true;
     }
     function lifeQuestStatus(){
+      if(shortRun())return {stage:'unavailable',wins:0,hard:0,actions:[],title:'七境长旅专属',text:'续灯长约跨越多境，三境短征不接此约。可在七境长旅中追寻狐契与九命铃。'};
       const q=state.journey.lifeQuest||{stage:'unstarted',wins:0,hard:0};
       const place=['rest','fox'].includes(state.screen),p=state.player;
       const actions=[];
@@ -2324,8 +2496,8 @@
     }
 
     function chooseTreasure(preferred) {
-      if (preferred && TREASURE_RELICS.includes(preferred) && !hasRelic(preferred)) return preferred;
-      const pool = TREASURE_RELICS.filter(id => !hasRelic(id));
+      if (preferred && TREASURE_RELICS.includes(preferred) && (!hasRelic(preferred)||loaned('relic',preferred))) return preferred;
+      const pool = TREASURE_RELICS.filter(id => !hasRelic(id)||loaned('relic',id));
       return pool.length ? pool[rand(pool.length)] : null;
     }
     function choiceAvailable(choice, p) {
@@ -2402,7 +2574,7 @@
         const count=grant.count||grant.amount||1;
         if (expedition.grantItem(grant.id,count)) received.push(`${EXPEDITION.ITEMS[grant.id].name} ×${count}`);
       }
-      if(choice.weapon && WEAPONS[choice.weapon]) { if(!p.weaponInventory.includes(choice.weapon)){p.weaponInventory.push(choice.weapon);received.push(`兵器「${WEAPONS[choice.weapon].name}」`);}else if(choice.duplicateWeaponGold){p.gold+=choice.duplicateWeaponGold;received.push(`已有剑器，改得${choice.duplicateWeaponGold}灵石`);} }
+      if(choice.weapon && WEAPONS[choice.weapon]) { if(acquireWeapon(choice.weapon)){received.push(`兵器「${WEAPONS[choice.weapon].name}」`);}else if(choice.duplicateWeaponGold){p.gold+=choice.duplicateWeaponGold;received.push(`已有剑器，改得${choice.duplicateWeaponGold}灵石`);} }
       if(choice.outfit&&EXPANSION.OUTFITS[choice.outfit]?.characters.includes(state.character)){if(!p.outfitInventory.includes(choice.outfit)){p.outfitInventory.push(choice.outfit);received.push('衣装「'+EXPANSION.OUTFITS[choice.outfit].name+'」');}else{p.gold+=15;received.push('衣装已持有，改得15灵石');}}
       if(choice.powerGain) {const before=p.power;p.power=Math.min(3,p.power+choice.powerGain);received.push(`本源 +${p.power-before}`);}
       if(choice.afflict){p.affliction={active:true,revealed:false,ticks:0,suppressed:0,source:'tainted_mercy'};}
@@ -2931,7 +3103,7 @@
       const b=state.battle,card=b?.hand.find(c=>c.uid===uid),def=card&&CARDS[card.id];
       if(state.screen!=='battle'||!b||b.phase!=='player'||!def)return null;
       if(def.cost>b.energy)return {available:false,reason:'灵力不足',cost:def.cost};
-      const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile()});
+      const shadow=createGame({rng:()=>0.5,environment:environmentEnabled,scaling:scalingEnabled,campaign:legacyCampaign?'legacy':undefined,profile:getProfile(),replayConfig:state.replay?clone(state.replay):null});
       Object.assign(shadow.state,JSON.parse(JSON.stringify(state)));
       const before={swordIntent:b.swordIntent||0,soul:b.soul||0,energy:b.energy,hp:state.player.hp};
       const squadBefore=b.squad?JSON.parse(JSON.stringify(b.squad)):null;
@@ -2947,18 +3119,19 @@
         drawNotice:events.some(e=>e.type==='draw'||e.type==='shuffle')?'抽牌按牌堆与重洗结算，预览不公开将抽到的牌。':null};
     }
 
+    configureRun(options.replayConfig||null);
     state = freshState('title');
-    const expedition = EXPEDITION.create({getState:()=>state,rng,heal,note,emit,event,log,beginEvents,cureAffliction,startBattle,advance,addRelic,relics:RELICS});
+    const expedition = EXPEDITION.create({getState:()=>state,rng:()=>rng(),heal,note,emit,event,log,beginEvents,cureAffliction,startBattle,advance,addRelic,relics:RELICS});
     expedition.resetRun();
     return {
-      get state() { return state; }, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
+      get state() { return state; }, markStoryRead, unlockCharacter, exportRun, importRun, abandonRun, setCosmetic, chooseWeaponReward, newRun, enterRegion, enterNode, playCard, setTrap, revealBreath, getBreath, endTurn, resolveEnemyTurn,
       squadAction,getSquadOptions,getSquadCardOptions,setFirstMachine,
       getInventory:expedition.getInventory, getItemUse:expedition.getItemUse, useItem:expedition.useItem, buyItem:expedition.buyItem, exploreCave:expedition.exploreCave, leaveCave:expedition.leaveCave,
       lifeQuestStatus, lifeQuestAction, getEnemyClue, refreshShop, getProfile, importProfile, getAffliction, getCorruptionStatus, getEffectiveCard, buyAntidote, getEnvironment, getWeaponStatus, equipWeapon, buyWeapon, equipOutfit, buyOutfit, startHiddenBoss, leaveThreshold, chooseReward, chooseRelic, rerollReward, buyCard, removeCard, leaveShop, rest, fox, canChooseEvent, chooseEvent, leaveEvent, getAvailableNodes, getIntent, previewCard
     };
   }
 
-  const api = { ROLE_STORIES, INITIAL_OUTFITS:EXPANSION.INITIAL_OUTFITS, INITIAL_WEAPONS:EXPANSION.INITIAL_WEAPONS, WEAPON_TYPES:EXPANSION.WEAPON_TYPES, MECHANIST, HEHUAN, EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[]),...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS:[...EVENT_IDS,...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])], LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
+  const api = { REPLAY, REPLAY_PROFILE:RP, ROLE_STORIES, INITIAL_OUTFITS:EXPANSION.INITIAL_OUTFITS, INITIAL_WEAPONS:EXPANSION.INITIAL_WEAPONS, WEAPON_TYPES:EXPANSION.WEAPON_TYPES, MECHANIST, HEHUAN, EDITORIAL, rewriteEvent:(e,s)=>EDITORIAL.rewrite(e,s,api), describeEnemyIntent, ENEMY_FACTIONS, OUTFITS:EXPANSION.OUTFITS, BOSS_LORE:BOSS_QUESTS.EXTRA_LORE, BOSS_QUESTS:BOSS_QUESTS.QUESTS, BOSS_QUEST_META:BOSS_QUESTS.META, BOSS_WEIGHTS:BOSS_QUESTS.WEIGHTS, QUEST_ITEMS, bossQuestArt:BOSS_QUESTS.artBoss, TALES:TALES.CHAINS, TALE_META:TALES.META, EVENT_ART_IDS: [...new Set([...LEGACY_EVENT_IDS,...Object.keys(EXPANSION.BLOOD_EVENTS||{}),...Object.keys(SEVEN.EVENTS||{}),'fox','rest','shop',...(TALES.ART_IDS||[]),...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])])], eventArtId:TALES.artId, BALANCE, ELITE_POOL, ITEMS: EXPEDITION.ITEMS, ROUTE_TEMPLATES, WEAPONS, ENVIRONMENTS, CARDS, ENEMIES, RELICS, TREASURE_RELICS, FLOORS, LEGACY_FLOORS, STARTERS, CHARACTERS, FACTIONS, REGIONS, LEGACY_REGIONS, NPCS, CHAIN_EVENT_IDS, EVENT_IDS:[...EVENT_IDS,...(HEHUAN.STORY_IDS||[]),...(MECHANIST.STORY_IDS||[])], LEGACY_EVENT_IDS, BOSS_POOLS:{early:SEVEN.EARLY_BOSSES||[],mid:SEVEN.MID_BOSSES||[],final:SEVEN.FINAL_BOSS}, CARD_GROUPS, createGame };
   root.NightPact = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis === 'undefined' ? window : globalThis);

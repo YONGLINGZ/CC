@@ -1,0 +1,17 @@
+✔ five roles start with their own compatible weapon and a wearable costume (31.194755ms)
+✔ all 80 weapon/role combinations can be purchased, but only the actual owner can equip (19.483874ms)
+✔ level restrictions, sentient sword exception and battle lock are enforced in rules (17.619069ms)
+✔ all clothing is role-gated, buy-once, exclusive and reset on new run (23.109824ms)
+✔ profession opening weapon effects really change the corresponding resource once (41.665897ms)
+✔ every role-specific outfit applies its actual opening benefits (29.291518ms)
+✔ new personal arcs contain 24 unique chapters and 72 distinct decisions (11.929496ms)
+✔ each new chapter resumes the chosen original node exactly once, preserves old arcs and records real branches (68.812777ms)
+✔ later narration preserves earlier choices and never declares unplayed chapters complete (3.505698ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 268.394271

@@ -1,0 +1,191 @@
+{
+  "format": "baiyao-review12-independent-browser-v1",
+  "method": "Chromium over loopback HTTP. DOM actions are real UI interactions; explicitly marked fixtures are not natural full-run playthroughs. Automated card policy reads engine state. Viewports are emulated, not physical phones.",
+  "startedAt": "2026-11-06T22:02:57.944Z",
+  "entry": "/workspace/CC-replay/index.html",
+  "filter": "fresh-profile|legacy-migration|run-setup|resume-battle|backup-validation",
+  "results": [
+    {
+      "id": "fresh-profile",
+      "name": "Fresh browser creates a usable v2 profile without phantom rewards",
+      "method": "DOM, fresh storage",
+      "status": "pass",
+      "durationMs": 1568,
+      "evidence": {
+        "profile": {
+          "version": 2,
+          "unlocks": [],
+          "collections": {
+            "weapons": [],
+            "relics": [],
+            "cosmetics": []
+          },
+          "cooldowns": {},
+          "runSerial": 0,
+          "records": [],
+          "readStories": [],
+          "mastery": {}
+        },
+        "layout": {
+          "width": 390,
+          "scrollWidth": 390,
+          "boxes": [
+            {
+              "selector": "#app",
+              "left": 16,
+              "right": 374,
+              "width": 358,
+              "height": 3304.34375
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-migration",
+      "name": "Legacy v1 unlock migrates once and survives refresh",
+      "method": "Legacy localStorage fixture, DOM refresh",
+      "status": "fail",
+      "durationMs": 406,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 2\n\n    at Object.run (/workspace/CC-replay/dev/replay-browser.test.cjs:178:44)\n    at async main (/workspace/CC-replay/dev/replay-browser.test.cjs:262:26)"
+    },
+    {
+      "id": "run-setup",
+      "name": "Mode, seed, contract and challenge selections enter the actual run",
+      "method": "DOM selections and engine-state assertions",
+      "status": "pass",
+      "durationMs": 8486,
+      "evidence": {
+        "runs": [
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "5e4616a7c846129c191496981bdf025c4256313fe1c5de76ec6d33689f6774bd",
+            "rngState": 2359331868
+          },
+          {
+            "mode": "long",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 70,
+            "mapSHA256": "6e028fda2dc68b1146cf5afd76bc4ebb1baa80b404bb98f5ca9782669a9fa032",
+            "deckSHA256": "5e4616a7c846129c191496981bdf025c4256313fe1c5de76ec6d33689f6774bd",
+            "rngState": 1014737319
+          },
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "5e4616a7c846129c191496981bdf025c4256313fe1c5de76ec6d33689f6774bd",
+            "rngState": 2359331868
+          }
+        ],
+        "repeatedSeedIdentical": true
+      }
+    },
+    {
+      "id": "resume-battle",
+      "name": "First battle is playable and a stable checkpoint resumes after refresh",
+      "method": "Natural opening and DOM battle, no resource injection",
+      "status": "pass",
+      "durationMs": 10261,
+      "evidence": {
+        "battle": {
+          "screen": "reward",
+          "actions": 6,
+          "hp": 60,
+          "battles": 1
+        },
+        "runId": 1,
+        "initialRNG": 2446671395,
+        "rewardRNG": 1303306149,
+        "battleCheckpointHash": "a907f3f89cab3ec9b193268d754a164602ee041b010fc04cac1b55d6d1fb4c91",
+        "mapCheckpointHash": "ef0cb1dfb4fefddc8638649d99394b92a0579c78911472b575c03997413ccbf3"
+      }
+    },
+    {
+      "id": "backup-validation",
+      "name": "Full backups restore normal fields and reject damaged data transactionally",
+      "method": "Real backup controls; deliberately corrupted backup fixture",
+      "status": "fail",
+      "durationMs": 32380,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"profile\"]:not(:disabled)').first()\u001b[22m\n\n    at click (/workspace/CC-replay/dev/replay-browser.test.cjs:43:17)\n    at async Object.run (/workspace/CC-replay/dev/replay-browser.test.cjs:217:3)\n    at async main (/workspace/CC-replay/dev/replay-browser.test.cjs:262:26)"
+    },
+    {
+      "id": "vault-echo",
+      "name": "Only one vault echo is selected; the first three battles consume it once",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "echo-nurture",
+      "name": "Passing another run’s first region restores older echoes, but never the echo carried in this run",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "abandon-guard",
+      "name": "Abandoning cannot refresh echo readiness or award settlement repeatedly",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "share-result",
+      "name": "Settlement summary reflects the run and can be copied for sharing",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "equipment-visuals",
+      "name": "Full, reduced and off equipment visuals preserve identical combat rules",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "responsive",
+      "name": "Replay setup, vault, battle and results fit 320, 390 and 1440 widths",
+      "status": "not-run",
+      "reason": "Filtered out"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "dialogs": [],
+  "screenshots": [
+    "docs/review-v12/qa-initial/qa-fresh-vault-390.png",
+    "docs/review-v12/qa-initial/qa-failure-legacy-migration.png",
+    "docs/review-v12/qa-initial/qa-configured-departure.png",
+    "docs/review-v12/qa-initial/qa-resumed-map-390.png",
+    "docs/review-v12/qa-initial/qa-failure-backup-validation.png"
+  ],
+  "untested": [
+    "Physical phones",
+    "Human usability sessions",
+    "Complete natural seven-region campaigns",
+    "Operating-system termination while writing localStorage"
+  ],
+  "baseCommit": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "buildSHA256": "ea3242c5774a28f260ccddc4e3e240b2f857481973a0dfe5c945e96dc359ae16",
+  "sourceHashes": {
+    "dev/engine.js": "5fac7995c2b9731ab2e025953da41e4e11fd7905767f89c611cc410b61048c5b",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-rules.js": "08b83cb92313f8f8f5f7312cc3feb8a04afa8c8eadaee8ea0292c6a0304cf5a0",
+    "dev/sprite-frames.js": "4d2026bb25d44dd9e9164d1add9b52cd2e11958f83cd5a468220831233044da1",
+    "dev/sprite-motion.js": "412f3d52c9645f5419e7f4549a379a6a04d1073a27c023732653b7d7136196e9",
+    "dev/ui.js": "8b02d320c6c52daf663a0445224a04aa0b86e6d70303fd70c5856713744ba68f"
+  },
+  "sourceHashesUnchanged": true,
+  "buildUnchanged": false,
+  "complete": false,
+  "success": false,
+  "finishedAt": "2026-11-06T22:03:51.636Z"
+}

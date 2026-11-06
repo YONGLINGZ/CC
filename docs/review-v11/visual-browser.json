@@ -1,0 +1,346 @@
+{
+  "buildSHA256": "b7dcaae10b959d5ba9e461da48bb050ae86aea10175198361d73e665f5ef13dc",
+  "method": "Local Chromium; explicit frozen combat fixtures and decoded atlas checks, not a natural playthrough or physical device test.",
+  "errors": [],
+  "repairs": [
+    {
+      "key": "cat-mist",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 1353,
+      "diagnostics": {
+        "transferredPixels": 3873,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.76,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "cat-lotus",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 1002,
+      "diagnostics": {
+        "transferredPixels": 1003,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.8260869565217391,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "cat-ember",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 1118,
+      "diagnostics": {
+        "transferredPixels": 281,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 1.1551724137931034,
+        "idleHeight": 116,
+        "anchorColumns": [
+          107.75854438662266,
+          104.01014364036384,
+          98.4088745580616,
+          92.02371056755467,
+          87.99898000174657,
+          80.07509377445557,
+          72.28653272615135,
+          68.71076116435889
+        ],
+        "anchorRows": [
+          178,
+          174,
+          161,
+          146,
+          137,
+          133
+        ],
+        "sourceWidth": 1447,
+        "sourceHeight": 1087,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "cat-moon",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 1106,
+      "diagnostics": {
+        "transferredPixels": 4,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 1.2181818181818183,
+        "idleHeight": 110,
+        "anchorColumns": [
+          107.18487008584871,
+          101.79032945852131,
+          98.08164186924593,
+          93.74030877276357,
+          88.02669886928634,
+          84.78200838476883,
+          80.90320893386469,
+          76.23233838457752
+        ],
+        "anchorRows": [
+          175,
+          176,
+          169,
+          158,
+          142,
+          134
+        ],
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "cat-blood",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 702,
+      "diagnostics": {
+        "transferredPixels": 0,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 1.1654044212249337,
+        "idleHeight": 114,
+        "anchorColumns": [
+          111.0230879534235,
+          107.4440599375547,
+          101.79941750435277,
+          95.41309671712403,
+          91.6349102141447,
+          84.73304641061269,
+          80.79069104183897,
+          75.51222255765963
+        ],
+        "anchorRows": [
+          172,
+          164,
+          159,
+          151,
+          143,
+          140
+        ],
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "hehuan-dusk_silk",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 583,
+      "diagnostics": {
+        "transferredPixels": 4160,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.8028169014084507,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "hehuan-crimson_oath",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 555,
+      "diagnostics": {
+        "transferredPixels": 1710,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.868020304568528,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "tinglan-workshop",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 540,
+      "diagnostics": {
+        "transferredPixels": 2615,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.8860103626943006,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "feiye-moonveil",
+      "group": "actorAppearances",
+      "nonempty": 48,
+      "edge": 0,
+      "expected": 48,
+      "width": 1448,
+      "height": 1086,
+      "prepareMs": 783,
+      "diagnostics": {
+        "transferredPixels": 2435,
+        "removedMattePixels": 706141,
+        "ambiguousComponents": [],
+        "scale": 0.8181818181818182,
+        "sourceWidth": 1448,
+        "sourceHeight": 1086,
+        "preparedWidth": 1448,
+        "preparedHeight": 1086
+      }
+    },
+    {
+      "key": "feiye",
+      "group": "enemyActors",
+      "nonempty": 16,
+      "edge": 0,
+      "expected": 16,
+      "width": 1024,
+      "height": 1024,
+      "prepareMs": 731,
+      "diagnostics": {
+        "transferredPixels": 1169,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.968,
+        "sourceWidth": 1024,
+        "sourceHeight": 1024,
+        "preparedWidth": 1024,
+        "preparedHeight": 1024
+      }
+    },
+    {
+      "key": "m03",
+      "group": "enemyActors",
+      "nonempty": 16,
+      "edge": 0,
+      "expected": 16,
+      "width": 1024,
+      "height": 1024,
+      "prepareMs": 618,
+      "diagnostics": {
+        "transferredPixels": 2730,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.8402777777777778,
+        "sourceWidth": 1024,
+        "sourceHeight": 1024,
+        "preparedWidth": 1024,
+        "preparedHeight": 1024
+      }
+    },
+    {
+      "key": "m21",
+      "group": "enemyActors",
+      "nonempty": 16,
+      "edge": 0,
+      "expected": 16,
+      "width": 1024,
+      "height": 1024,
+      "prepareMs": 382,
+      "diagnostics": {
+        "transferredPixels": 888,
+        "removedMattePixels": 0,
+        "ambiguousComponents": [],
+        "scale": 0.952755905511811,
+        "sourceWidth": 1024,
+        "sourceHeight": 1024,
+        "preparedWidth": 1024,
+        "preparedHeight": 1024
+      }
+    },
+    {
+      "key": "m15",
+      "group": "enemyActors",
+      "nonempty": 16,
+      "edge": 0,
+      "expected": 16,
+      "width": 1024,
+      "height": 1024,
+      "prepareMs": 267,
+      "diagnostics": {
+        "transferredPixels": 0,
+        "removedMattePixels": 493772,
+        "ambiguousComponents": [],
+        "scale": 1,
+        "sourceWidth": 1024,
+        "sourceHeight": 1024,
+        "preparedWidth": 1024,
+        "preparedHeight": 1024
+      }
+    },
+    {
+      "key": "shiying",
+      "group": "machineActors",
+      "nonempty": 16,
+      "edge": 0,
+      "expected": 16,
+      "width": 1024,
+      "height": 1024,
+      "prepareMs": 260,
+      "diagnostics": {
+        "transferredPixels": 0,
+        "removedMattePixels": 529475,
+        "ambiguousComponents": [],
+        "scale": 1,
+        "sourceWidth": 1024,
+        "sourceHeight": 1024,
+        "preparedWidth": 1024,
+        "preparedHeight": 1024
+      }
+    }
+  ],
+  "renderer": "webgl",
+  "success": true
+}

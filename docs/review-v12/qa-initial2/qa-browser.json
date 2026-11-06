@@ -1,0 +1,147 @@
+{
+  "format": "baiyao-review12-independent-browser-v1",
+  "method": "Chromium over loopback HTTP. DOM actions are real UI interactions; explicitly marked fixtures are not natural full-run playthroughs. Automated card policy reads engine state. Viewports are emulated, not physical phones.",
+  "startedAt": "2026-11-06T22:06:12.039Z",
+  "entry": "/workspace/CC-replay/index.html",
+  "filter": "vault-echo|echo-nurture|resume-enemy-phase|backup-validation",
+  "results": [
+    {
+      "id": "fresh-profile",
+      "name": "Fresh browser creates a usable v2 profile without phantom rewards",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "legacy-migration",
+      "name": "Legacy v1 unlock migrates once and survives refresh",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "run-setup",
+      "name": "Mode, seed, contract and challenge selections enter the actual run",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "resume-battle",
+      "name": "First battle is playable and a stable checkpoint resumes after refresh",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "backup-validation",
+      "name": "Full backups restore normal fields and reject damaged data transactionally",
+      "method": "Real backup controls; deliberately corrupted backup fixture",
+      "status": "pass",
+      "durationMs": 3627,
+      "evidence": {
+        "backupFields": [
+          "version",
+          "profile",
+          "run"
+        ],
+        "rejectedCorruption": "negative hp with otherwise-valid changed profile",
+        "validRoundTrip": true
+      }
+    },
+    {
+      "id": "resume-enemy-phase",
+      "name": "Refreshing after end-turn resolves the saved enemy phase exactly once",
+      "method": "Real end-turn click interrupted by navigation; deterministic engine oracle",
+      "status": "pass",
+      "durationMs": 5209,
+      "evidence": {
+        "phaseBefore": "enemy",
+        "phaseAfter": "player",
+        "turnBefore": 1,
+        "turnAfter": 2,
+        "expectedHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7",
+        "actualHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7"
+      }
+    },
+    {
+      "id": "storage-denied",
+      "name": "Rejected localStorage writes show an actionable warning while manual backup remains usable",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "corrupt-storage",
+      "name": "Malformed local run JSON is reported without silently overwriting the original",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "vault-echo",
+      "name": "Only one vault echo is selected; the first three battles consume it once",
+      "method": "Declared earned-item and one-hit encounter fixtures; real DOM selection/attacks",
+      "status": "fail",
+      "durationMs": 22057,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"collection\"]:not(:disabled)').first()\u001b[22m\n\n    at click (/workspace/CC-replay/dev/replay-browser.test.cjs:43:17)\n    at async Object.run (/workspace/CC-replay/dev/replay-browser.test.cjs:308:3)\n    at async main (/workspace/CC-replay/dev/replay-browser.test.cjs:420:26)"
+    },
+    {
+      "id": "echo-nurture",
+      "name": "Passing another run’s first region restores older echoes, but never the echo carried in this run",
+      "method": "Prior-cooldown and first-boss fixtures; real finishing attack",
+      "status": "fail",
+      "durationMs": 14090,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action=\"collection\"]:not(:disabled)').first()\u001b[22m\n\n    at click (/workspace/CC-replay/dev/replay-browser.test.cjs:43:17)\n    at async Object.run (/workspace/CC-replay/dev/replay-browser.test.cjs:320:3)\n    at async main (/workspace/CC-replay/dev/replay-browser.test.cjs:420:26)"
+    },
+    {
+      "id": "abandon-guard",
+      "name": "Abandoning cannot refresh echo readiness or award settlement repeatedly",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "share-result",
+      "name": "Settlement summary reflects the run and its configuration can be copied for sharing",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "equipment-visuals",
+      "name": "Full, reduced and off equipment visuals preserve identical combat rules",
+      "status": "not-run",
+      "reason": "Filtered out"
+    },
+    {
+      "id": "responsive",
+      "name": "Replay setup, vault, battle and results fit 320, 390 and 1440 widths",
+      "status": "not-run",
+      "reason": "Filtered out"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "dialogs": [],
+  "screenshots": [
+    "docs/review-v12/qa-initial2/qa-backup-roundtrip.png",
+    "docs/review-v12/qa-initial2/qa-enemy-phase-resumed-once.png",
+    "docs/review-v12/qa-initial2/qa-failure-vault-echo.png",
+    "docs/review-v12/qa-initial2/qa-failure-echo-nurture.png"
+  ],
+  "untested": [
+    "Physical phones",
+    "Human usability sessions",
+    "Complete natural seven-region campaigns",
+    "Operating-system termination while writing localStorage"
+  ],
+  "baseCommit": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "buildSHA256": "12c765975ffa359cfc9c023938ad380b16a5e4d1884b337448fef32d66a631c0",
+  "sourceHashes": {
+    "dev/engine.js": "3888e04295d7847dd2b09e850ce7e16efa9b1f552e129033a8b9e21d0b18ace4",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-rules.js": "08b83cb92313f8f8f5f7312cc3feb8a04afa8c8eadaee8ea0292c6a0304cf5a0",
+    "dev/sprite-frames.js": "4d2026bb25d44dd9e9164d1add9b52cd2e11958f83cd5a468220831233044da1",
+    "dev/sprite-motion.js": "412f3d52c9645f5419e7f4549a379a6a04d1073a27c023732653b7d7136196e9",
+    "dev/ui.js": "31c7fea83a4cc2b00bb2d3c7205f64bfc302e45c0ecd767013030da9f392b5f8"
+  },
+  "sourceHashesUnchanged": false,
+  "buildUnchanged": true,
+  "complete": false,
+  "success": false,
+  "finishedAt": "2026-11-06T22:06:57.757Z"
+}

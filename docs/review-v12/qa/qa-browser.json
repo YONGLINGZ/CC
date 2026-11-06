@@ -1,0 +1,594 @@
+{
+  "format": "baiyao-review12-independent-browser-v1",
+  "method": "Chromium over loopback HTTP. DOM actions are real UI interactions; explicitly marked fixtures are not natural full-run playthroughs. Automated card policy reads engine state. Viewports are emulated, not physical phones.",
+  "startedAt": "2026-11-06T22:14:55.596Z",
+  "entry": "/workspace/CC-replay/index.html",
+  "filter": null,
+  "results": [
+    {
+      "id": "fresh-profile",
+      "name": "Fresh browser creates a usable v2 profile without phantom rewards",
+      "method": "DOM, fresh storage",
+      "status": "pass",
+      "durationMs": 1523,
+      "evidence": {
+        "profile": {
+          "version": 2,
+          "unlocks": [],
+          "collections": {
+            "weapons": [],
+            "relics": [],
+            "cosmetics": []
+          },
+          "cooldowns": {},
+          "runSerial": 0,
+          "records": [],
+          "readStories": [],
+          "mastery": {}
+        },
+        "layout": {
+          "width": 390,
+          "scrollWidth": 390,
+          "matches": {
+            "#app": {
+              "count": 1,
+              "visible": 1
+            },
+            "#hud": {
+              "count": 1,
+              "visible": 0
+            },
+            "[role=\"dialog\"]": {
+              "count": 0,
+              "visible": 0
+            }
+          },
+          "boxes": [
+            {
+              "selector": "#app",
+              "left": 16,
+              "right": 374,
+              "width": 358,
+              "height": 3114.828125
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-migration",
+      "name": "Legacy v1 unlock migrates once and survives refresh",
+      "method": "Legacy localStorage fixture, DOM refresh",
+      "status": "pass",
+      "durationMs": 1467,
+      "evidence": {
+        "oldVersion": 1,
+        "migratedVersion": 2,
+        "unlocks": [
+          "feiye"
+        ],
+        "recordCount": 0
+      }
+    },
+    {
+      "id": "run-setup",
+      "name": "Mode, seed, contract and challenge selections enter the actual run",
+      "method": "DOM selections and engine-state assertions",
+      "status": "pass",
+      "durationMs": 8057,
+      "evidence": {
+        "runs": [
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 2359331868
+          },
+          {
+            "mode": "long",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 70,
+            "mapSHA256": "6e028fda2dc68b1146cf5afd76bc4ebb1baa80b404bb98f5ca9782669a9fa032",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 1014737319
+          },
+          {
+            "mode": "short",
+            "oath": "sword_frost",
+            "seed": "review12-repeatable-地图",
+            "challenge": 1,
+            "totalFloors": 30,
+            "mapSHA256": "4a1904b22be3145ec45717e1626c193788c52b104ef63cbd4e4db8667cd377e1",
+            "deckSHA256": "07755f2118e956b75f2e8892bb2785d2137ddffcfc20b67a8c8fecdef33683ba",
+            "rngState": 2359331868
+          }
+        ],
+        "repeatedSeedIdentical": true
+      }
+    },
+    {
+      "id": "resume-battle",
+      "name": "First battle is playable and a stable checkpoint resumes after refresh",
+      "method": "Natural opening and DOM battle, no resource injection",
+      "status": "pass",
+      "durationMs": 7926,
+      "evidence": {
+        "battle": {
+          "screen": "reward",
+          "actions": 6,
+          "hp": 59,
+          "battles": 1
+        },
+        "runId": 1,
+        "initialRNG": 2446671395,
+        "rewardRNG": 1303306149,
+        "battleCheckpointHash": "71424714ad11d206acbd8aaeee27f5f3137d2fad568fb3c5a64fb53790a53f9e",
+        "mapCheckpointHash": "445a12490b1721c2a10529c9cb179314b51e8a03907095e1fbc831b1c0fc45dd"
+      }
+    },
+    {
+      "id": "backup-validation",
+      "name": "Full backups restore normal fields and reject damaged data transactionally",
+      "method": "Real backup controls; deliberately corrupted backup fixture",
+      "status": "pass",
+      "durationMs": 4617,
+      "evidence": {
+        "backupFields": [
+          "version",
+          "profile",
+          "run"
+        ],
+        "rejectedCorruption": "negative hp with otherwise-valid changed profile",
+        "restoredInFreshBrowserContext": true,
+        "validRoundTrip": true
+      }
+    },
+    {
+      "id": "resume-enemy-phase",
+      "name": "Refreshing after end-turn resolves the saved enemy phase exactly once",
+      "method": "Real end-turn click interrupted by navigation; deterministic engine oracle",
+      "status": "pass",
+      "durationMs": 5010,
+      "evidence": {
+        "phaseBefore": "enemy",
+        "persistedPhaseBeforeResume": "enemy",
+        "phaseAfter": "player",
+        "turnBefore": 1,
+        "turnAfter": 2,
+        "expectedHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7",
+        "actualHash": "788afdcbb05cac9de41c1e5f3bcdc2150bf0367ba64d2170d37f422e3253dcb7"
+      }
+    },
+    {
+      "id": "storage-denied",
+      "name": "Rejected localStorage writes show an actionable warning while manual backup remains usable",
+      "method": "Storage.setItem quota-error fixture; real start/battle/settings clicks",
+      "status": "pass",
+      "durationMs": 2783,
+      "evidence": {
+        "warning": "自动保存失败：浏览器空间不足或禁止了本地存储。离开前请导出收藏与旅程备份。打开备份",
+        "exportVersion": 2,
+        "snapshotAvailable": true,
+        "simulatedQuotaFailure": true
+      }
+    },
+    {
+      "id": "corrupt-storage",
+      "name": "Malformed local run JSON is reported without silently overwriting the original",
+      "method": "Corrupted localStorage fixture",
+      "status": "pass",
+      "durationMs": 1267,
+      "evidence": {
+        "originalPreserved": true,
+        "resumeOffered": false,
+        "backupReachable": true
+      }
+    },
+    {
+      "id": "vault-echo",
+      "name": "Only one vault echo is selected; the first three battles consume it once",
+      "method": "Declared earned-item and one-hit encounter fixtures; real DOM selection/attacks",
+      "status": "pass",
+      "durationMs": 12114,
+      "evidence": {
+        "battles": [
+          {
+            "number": 1,
+            "before": 3,
+            "after": 2,
+            "carried": true
+          },
+          {
+            "number": 2,
+            "before": 2,
+            "after": 1,
+            "carried": true
+          },
+          {
+            "number": 3,
+            "before": 1,
+            "after": 0,
+            "carried": true
+          },
+          {
+            "number": 4,
+            "before": 0,
+            "after": 0,
+            "carried": false
+          }
+        ],
+        "cooldown": 1,
+        "permanentCollectionRetained": true
+      }
+    },
+    {
+      "id": "echo-nurture",
+      "name": "Passing another run’s first region restores older echoes, but never the echo carried in this run",
+      "method": "Prior-cooldown and first-boss fixtures; real finishing attack",
+      "status": "pass",
+      "durationMs": 4853,
+      "evidence": {
+        "before": {
+          "weapon:rime": 1,
+          "relic:jade": 2
+        },
+        "after": {
+          "relic:jade": 2
+        },
+        "currentRunEchoStillCooling": true,
+        "checkpointRestored": true
+      }
+    },
+    {
+      "id": "prebattle-acquisition",
+      "name": "A real matching weapon or relic acquired before the first battle survives all three echo victories",
+      "method": "Published shop-stock / event-choice fixtures; real buy/choice clicks and winning attacks",
+      "status": "pass",
+      "durationMs": 18189,
+      "evidence": {
+        "results": [
+          {
+            "kind": "weapon",
+            "id": "rime",
+            "beforeClaimed": false,
+            "acquiredBeforeBattle": true,
+            "victories": 3,
+            "remaining": 0,
+            "stillOwned": true
+          },
+          {
+            "kind": "relic",
+            "id": "jade",
+            "beforeClaimed": false,
+            "acquiredBeforeBattle": true,
+            "victories": 3,
+            "remaining": 0,
+            "stillOwned": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "abandon-guard",
+      "name": "Abandoning cannot refresh echo readiness or award settlement repeatedly",
+      "method": "DOM abandon confirmation and fresh-run sequence",
+      "status": "pass",
+      "durationMs": 5087,
+      "evidence": {
+        "sequence": [
+          {
+            "old": 1,
+            "next": 2,
+            "cooldown": 1,
+            "records": 0
+          },
+          {
+            "old": 2,
+            "next": 3,
+            "cooldown": 1,
+            "records": 0
+          }
+        ],
+        "stillCoolingAfterRefresh": true
+      }
+    },
+    {
+      "id": "share-result",
+      "name": "Settlement summary reflects the run and its configuration can be copied for sharing",
+      "method": "Final-boss one-hit fixture; real final attack and sharing controls",
+      "status": "pass",
+      "durationMs": 3782,
+      "evidence": {
+        "record": {
+          "id": 1,
+          "character": "sword",
+          "starter": "sword",
+          "mode": "short",
+          "seed": "review12-result-seed",
+          "challenge": 1,
+          "oath": null,
+          "won": true,
+          "floor": 30,
+          "battles": 1,
+          "cardsPlayed": 1,
+          "maxHit": 6,
+          "finale": "fate",
+          "echo": null,
+          "newCollections": [
+            {
+              "kind": "weapon",
+              "id": "training"
+            },
+            {
+              "kind": "relic",
+              "id": "frostseal"
+            },
+            {
+              "kind": "cosmetic",
+              "id": "mist"
+            }
+          ],
+          "endedAt": "2026-11-06T22:16:11.499Z"
+        },
+        "sharedFields": [
+          "version",
+          "game",
+          "character",
+          "starter",
+          "config"
+        ],
+        "clipboardAPI": "stubbed success and denial; actual UI action",
+        "fallbackTextIdentical": true,
+        "settlementNotDuplicated": true
+      }
+    },
+    {
+      "id": "shared-config-import",
+      "name": "Pasted configuration changes preparation while preserving the active checkpoint and explains unavailable echoes",
+      "method": "Real share-import controls with a valid unowned-echo configuration",
+      "status": "pass",
+      "durationMs": 3452,
+      "evidence": {
+        "imported": {
+          "mode": "long",
+          "seed": "review12-imported-plan",
+          "challenge": 3,
+          "oath": "sword_edge",
+          "echo": {
+            "kind": "weapon",
+            "id": "divine"
+          },
+          "cosmetic": null,
+          "finale": "abyss"
+        },
+        "unavailableEchoCleared": true,
+        "message": "已载入种子与配置，确认出发前不会替换当前旅程。 未携带 照夜：先在旅途中获得此物，才能留下回响。",
+        "activeCheckpointByteIdentical": true,
+        "malformedPasteRejected": true
+      }
+    },
+    {
+      "id": "equipment-visuals",
+      "name": "Full, reduced and off equipment visuals preserve identical combat rules",
+      "method": "Legal level/owned-weapon fixture; actual equip, mode and attack clicks",
+      "status": "pass",
+      "durationMs": 22456,
+      "evidence": {
+        "identicalRuleState": true,
+        "modes": [
+          {
+            "mode": "full",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.520002365112305,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.519989013671875,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "full",
+                "gearEvent": "gearProc",
+                "animations": 1,
+                "width": 27.520002365112305,
+                "height": 27.519989013671875,
+                "opacity": 0.25,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          },
+          {
+            "mode": "reduced",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          },
+          {
+            "mode": "off",
+            "events": [
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "rime",
+                "receiver": "enemy",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              },
+              {
+                "gearTheme": "frost",
+                "gearTier": "rare",
+                "gearMotif": "frost",
+                "gearProc": "frostseal",
+                "receiver": "player",
+                "motion": "still",
+                "gearEvent": "gearProc",
+                "animations": 0,
+                "width": 32,
+                "height": 32,
+                "opacity": 1,
+                "visibility": "visible"
+              }
+            ],
+            "beforeHash": "7a79e759a63a7b634f384fb4d3b7904b0e75e16c9488cf4e884352fea1f0f327",
+            "afterHash": "efa7f6f53e379b1993912ecec74cf490dedbb46dde7a8224de90251d7472c70e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "responsive",
+      "name": "Replay setup, vault, battle and results fit 320, 390 and 1440 widths",
+      "method": "Viewport emulation; fixture only for final-boss shortcut",
+      "status": "fail",
+      "durationMs": 2110,
+      "error": "AssertionError [ERR_ASSERTION]: collection 320: missing or zero-sized .replay-collection-card\n    at assertLayout (/workspace/CC-replay/dev/replay-browser.test.cjs:200:112)\n    at async Object.run (/workspace/CC-replay/dev/replay-browser.test.cjs:443:208)\n    at async main (/workspace/CC-replay/dev/replay-browser.test.cjs:482:26)"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "dialogs": [],
+  "screenshots": [
+    "docs/review-v12/qa/qa-fresh-vault-390.png",
+    "docs/review-v12/qa/qa-legacy-migration.png",
+    "docs/review-v12/qa/qa-configured-departure.png",
+    "docs/review-v12/qa/qa-resumed-map-390.png",
+    "docs/review-v12/qa/qa-backup-roundtrip.png",
+    "docs/review-v12/qa/qa-enemy-phase-resumed-once.png",
+    "docs/review-v12/qa/qa-storage-denied-manual-backup.png",
+    "docs/review-v12/qa/qa-corrupt-save-warning.png",
+    "docs/review-v12/qa/qa-echo-after-four-battles.png",
+    "docs/review-v12/qa/qa-echo-warmed-after-first-boss.png",
+    "docs/review-v12/qa/qa-prebattle-real-weapon-retained.png",
+    "docs/review-v12/qa/qa-prebattle-real-relic-retained.png",
+    "docs/review-v12/qa/qa-abandon-does-not-warm.png",
+    "docs/review-v12/qa/qa-share-fallback.png",
+    "docs/review-v12/qa/qa-shared-config-preserves-resume.png",
+    "docs/review-v12/qa/qa-equipment-full.png",
+    "docs/review-v12/qa/qa-equipment-reduced.png",
+    "docs/review-v12/qa/qa-equipment-off.png",
+    "docs/review-v12/qa/qa-layout-320-preparation.png",
+    "docs/review-v12/qa/qa-failure-responsive.png"
+  ],
+  "untested": [
+    "Physical phones",
+    "Human usability sessions",
+    "Complete natural seven-region campaigns",
+    "Operating-system termination while writing localStorage",
+    "Native OS clipboard permission: clipboard success/denial are API fixtures",
+    "Every equipment proc in live combat: the three visual modes are sampled with rime"
+  ],
+  "baseCommit": "fc5d25e80e2b3410d9286b795f7f837b8604c9ff",
+  "runnerSHA256": "b9e9bacb3733dee52d4661a904bcbdc129c50f148e4b439ad9b711bf28651673",
+  "buildSHA256": "3992632b324c047f4164bbf9e2c35e75f9b23a5c4e37983044d42f26c58916a0",
+  "sourceHashes": {
+    "dev/engine.js": "8ae9a31c4977dbd3f907cd0185f6e57b5a1fa8ff10fd0b56eb3fd70b1ff6701f",
+    "dev/replay-profile.js": "49be209aeee20831e75bb9646b74768e4c526a3708b9023b4b003a8ecdb09ab9",
+    "dev/replay-rules.js": "46a352eb2ce08cdb0bfbac51b8185dd024bedb6f8609c976eb5ead4ff2be417a",
+    "dev/sprite-frames.js": "4d2026bb25d44dd9e9164d1add9b52cd2e11958f83cd5a468220831233044da1",
+    "dev/sprite-motion.js": "412f3d52c9645f5419e7f4549a379a6a04d1073a27c023732653b7d7136196e9",
+    "dev/ui.js": "27316ff7be8260e5b53feb721b394b9856abdfd7e1f5046f273dd81aed6f9b53"
+  },
+  "sourceHashesUnchanged": true,
+  "buildUnchanged": true,
+  "complete": false,
+  "success": false,
+  "finishedAt": "2026-11-06T22:16:40.709Z"
+}

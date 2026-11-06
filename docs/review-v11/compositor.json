@@ -1,0 +1,75 @@
+{
+  "success": true,
+  "report": [
+    {
+      "renderer": "webgl",
+      "t": 0.44,
+      "red": 16630,
+      "green": 0,
+      "mixed": 0
+    },
+    {
+      "renderer": "webgl",
+      "t": 0.49,
+      "red": 16630,
+      "green": 0,
+      "mixed": 0
+    },
+    {
+      "renderer": "webgl",
+      "t": 0.5,
+      "red": 0,
+      "green": 16630,
+      "mixed": 0
+    },
+    {
+      "renderer": "webgl",
+      "t": 0.51,
+      "red": 0,
+      "green": 16630,
+      "mixed": 0
+    },
+    {
+      "renderer": "webgl",
+      "t": 0.56,
+      "red": 0,
+      "green": 16630,
+      "mixed": 0
+    },
+    {
+      "renderer": "canvas2d",
+      "t": 0.44,
+      "red": 16464,
+      "green": 0,
+      "mixed": 0
+    },
+    {
+      "renderer": "canvas2d",
+      "t": 0.49,
+      "red": 16464,
+      "green": 0,
+      "mixed": 0
+    },
+    {
+      "renderer": "canvas2d",
+      "t": 0.5,
+      "red": 0,
+      "green": 16464,
+      "mixed": 0
+    },
+    {
+      "renderer": "canvas2d",
+      "t": 0.51,
+      "red": 0,
+      "green": 16464,
+      "mixed": 0
+    },
+    {
+      "renderer": "canvas2d",
+      "t": 0.56,
+      "red": 0,
+      "green": 16464,
+      "mixed": 0
+    }
+  ]
+}

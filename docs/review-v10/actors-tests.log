@@ -1,0 +1,11 @@
+✔ every published card has an explicit valid sprite action and effect mapping (5.52296ms)
+✔ five actor atlases exist; actor layer does not access rules or persistence (1.107853ms)
+✔ reduced and off cancel current animation and keep idle frame (0.770334ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17.047453

@@ -1,0 +1,64 @@
+百妖夜契 · review.11 画面修复与复验
+日期：2026-11-06 UTC
+起点：PR #1 的 523cec31f25cb97581beee9a1bec83faaa07d5e5；没有用 main 代替复测版本。
+
+四类问题及修复
+
+1. 灰色矩形背景
+断钟掘名人 m15 和拾萤 shiying 的格内背景并非完全透明：残留背景 alpha 分别达到 61、43。只给这两张图设置有依据的透明度校正（64、48），保留不透明人物和高亮技能。另发现绯夜 moonveil 空白角落 alpha 最大8，单独清除该微弱底色。没有全局清掉所有图集的半透明光效。
+
+2. 跨格碎片、边缘截断
+m03、feiye、m21 的旧 WebP 每格已有16px编码留边，原始溢出武器被隔到相邻格；再加一层边框无法恢复它。新解码模块先撤销编码留边，在整张图二维识别身体/武器组件，将有来源证据的独立特效碎片归回所属帧，再按整套统一尺度保留透明边缘。合欢扇子和绯夜手部跨行的情形也一并处理。覆盖9套外观、4敌人、1机关，共14张目标图集。
+
+cat-blood、cat-ember、cat-moon 原强攻行有两个身体实际粘连，无法可靠地切开。使用 image_gen 重绘这三张图，弃用仍粘连或尺寸/内容错误的草稿。最终三图保留六行动作、每行8格；在暗/浅底实际合成检查身份、单一身体和爪击。源文件与生成记录见 generated-atlases.json。
+
+新稿的格距略有漂移，因此仅对这三图用待机脚部计算固定列锚、用每行首帧计算固定行基线，再给全部48格使用一个缩放值。不是逐帧按包围盒缩放。待机身高约131–135px，与原雾衣130–131px接近；列脚锚漂移约1px。ember 原始生成稿为1447×1087，原样保存，在声明的解码步骤归一成1448×1086；只容许这一像素级误差，其他尺寸异常仍拒绝。
+
+3. 插帧交接双影
+旧实现即使已估算运动场，也会在 t=0.44–0.56 混合两幅不同姿态，轮廓未完全对应时产生双脸、双手和双武器。现在前半段只前向变形第一幅，后半段只反向变形第二幅；每次仅画一个完整不透明姿态，仍保留贴图本身透明度。WebGL与Canvas均修改，取消双姿态混合。缓存键包含修复计划，避免旧预热图跳过新处理。
+
+4. 320px窄屏裁切
+全局 body 的 min-width:360px 强制战斗页超出320px视口。战斗页单独覆盖为 min-width:0，现有响应式布局即可正常收拢。六种配置的敌方、机关和操作控件均检查了实际边界。
+
+最终构建与已执行验证
+
+index.html：1448592字节
+SHA256 b7dcaae10b959d5ba9e461da48bb050ae86aea10175198361d73e665f5ef13dc
+baiyao-standalone.html：287687377字节（本地构建产物，按仓库既有规则不纳入Git）
+SHA256 0549ec6512657e37c5d08eda5e3ea07b3d63ea3372b864e453273cc40937d705
+
+- 严格目录/内嵌构建通过，缺失资源0。
+- 171项规则/单元测试通过：此前159项，加单姿态绘制、缓存计划隔离和10项图集修复回归。见 unit-tests.txt。
+- 107张图集检查通过，2456个非空格，格内图像哈希在各图集中不同；不是对2456段动画逐段人工认可。ember尺寸例外已在 asset-audit.json 明列。
+- 14张修复图集在WebGL与Canvas入口各检查512格，非空、边缘透明、未解决粘连组件数0。见 visual-browser.json、canvas/visual-browser.json。
+- 10项实际像素合成检查通过：两种渲染器各在0.44/0.49/0.50/0.51/0.56取样，没有同时画出两种测试身体。见 compositor.json。
+- 426项动作路由通过：27种角色外观×6行、63敌方外观×4行、3机关×4行。逐项核对身份、动作行、ready状态及发生绘制；不是426次完整战斗或逐动作全时序人工检验。见 coverage/all-actions.json。
+- 24项布局通过：六配置×320/390/768/1440，六张320截图已目视。320和390实际点击鸣镝指令，敌方生命10000→9993。见 layout/layout-browser.json。
+- 20项代表战斗UI通过：6外观、4敌人、3 Boss招式、3机关、4次实际卡牌反馈；包含正常剑修冰白、入魔猩红、合欢目标爱心、猫娘爪痕，以及关闭/减少动态。不是20局完整通关。见 runtime/final-browser.json。
+- 目录/内嵌入口均在阻断外网的本机HTTP下实际加载m15和拾萤修复图；内嵌版只请求入口本身。见 offline.json。
+- 上述浏览器报告均无页面脚本错误；所有绑定入口的报告均指向上述同一最终SHA256。
+
+目视证据与复现
+
+启动：python3 -m http.server 8000，然后打开 http://127.0.0.1:8000/。
+以下脚本自动建立明确战斗夹具，避免依赖随机遭遇；需要Playwright与Chromium（脚本默认/usr/bin/chromium）。行列编号从0开始。
+
+node dev/visual-repair-browser.cjs
+会冻结m15待机、m03/feiye攻击第1与第2格、m21攻击第1格、拾萤技能第2格；还冻结剑修/入魔/合欢/猫娘重击3→4交接，以及三张重绘猫娘重击第3–6格。图片为本目录 enemy-*.png、machine-shiying.png、handoff-*.png、cat-*-heavy-*.png。
+
+VISUAL_RENDERER=canvas2d VISUAL_EVIDENCE=docs/review-v11/canvas node dev/visual-repair-browser.cjs
+node dev/visual-compositor-browser.cjs
+node dev/visual-coverage-browser.cjs
+node dev/visual-layout-browser.cjs
+ANIMATION_EVIDENCE=docs/review-v11/runtime node dev/animation-final-browser.cjs
+node dev/visual-offline-browser.cjs
+ANIMATION_EVIDENCE=docs/review-v11 python3 dev/audit-animation-assets.py
+
+规则命令：
+node --test dev/engine.test.cjs dev/mechanist.test.cjs dev/wardrobe-blood.test.cjs dev/profession-gear-story.test.cjs dev/sprite-motion.test.cjs dev/sprite-frames.test.cjs dev/combat-effects.test.cjs dev/actors.test.cjs dev/encounter-actors.test.cjs dev/stage.test.cjs dev/feedback.test.cjs
+
+范围与表现边界
+
+以上都是本地Chromium、显式战斗夹具和视口模拟；没有真实手机、Safari/Firefox、自然通关、全53个Boss招式最终逐招目视或稳定FPS测量。file:// 未测，没有绕过环境策略。
+原始4帧和8帧关键图数量未变；中间显示样本由运动场估算，不能计作新增原画，也不等于每台设备稳定60fps。职业心形、爪痕等仍包含程序特效。不同原画/运动场不完全对应时，单姿态交接可能有轻微姿态跳变；本次消除的是双身体混合。低分辨率原画放大仍会偏软。
+修复在首次解码时处理并缓存，当前并发测试有额外解码开销；未作真机性能结论。如果浏览器禁止Canvas像素读取，保留既有降级路径，可能重新显示原图缺陷，不能把该受限环境称为已验收。

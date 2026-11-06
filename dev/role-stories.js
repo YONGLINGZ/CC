@@ -1,6 +1,7 @@
 /* Authored personal chapters. Scheduling and rewards remain engine responsibilities. */
 (function(root){'use strict';
 const SLOTS=[3,15,27,39,51,63];
+const SHORT_SLOTS=[3,7,12,17,22,27];
 const ARCS={
  assassin:{title:'铃契无主',goal:'找到夜契盟的原契，决定自己的名字是否仍值一个价码。',weapon:'shadow_fang',card:'C17',outfit:'moon',quote:'我的铃，不必替别人催命。',chapters:[
  ['铃舌上的旧字','渡棚掌柜听见夜铃的铃，先把找零的手收了回去。他取出一张过期催命帖，帖上没有画像，只有铃舌内侧那道极细的缺口。','“不是买你的人，是替你收账的人。”掌柜把帖翻过来，背面的印记还在缓缓渗墨。夜铃用指甲抵住那条线，没有立刻接纸。','让掌柜抄下接帖人的名字','夜铃把铃倒扣在桌上，等掌柜写完。她第一次留下自己的去向，请他有消息便往雾口传。','只问原契的价钱','掌柜说原契被转手了三次。夜铃记下最后一次交易的价码，没问那人替谁卖命。'],
@@ -36,11 +37,11 @@ const ARCS={
  ]}
 };
 const META=Object.fromEntries(Object.entries(ARCS).flatMap(([role,arc])=>arc.chapters.map((_,i)=>['personal_'+role+'_'+(i+1),{role,step:i+1}])));
-function progress(state){const arc=ARCS[state.character];if(!arc)return null;const j=state.journey?.personal||{stage:0,choices:[],lastOutcome:''};return {...j,title:arc.title,goal:arc.goal,total:arc.chapters.length,nextFloor:SLOTS[j.stage]||null,nextTitle:arc.chapters[j.stage]?.[0]||'本人的下一程',chapterNames:arc.chapters.map(c=>c[0])};}
+function progress(state){const arc=ARCS[state.character];if(!arc)return null;const j=state.journey?.personal||{stage:0,choices:[],lastOutcome:''},slots=state.replay?.enabled&&state.replay.mode==='short'?SHORT_SLOTS:SLOTS;return {...j,title:arc.title,goal:arc.goal,total:arc.chapters.length,nextFloor:slots[j.stage]||null,nextTitle:arc.chapters[j.stage]?.[0]||'本人的下一程',chapterNames:arc.chapters.map(c=>c[0])};}
 function build(id,state){const m=META[id];if(!m||m.role!==state.character)return null;const arc=ARCS[m.role],c=arc.chapters[m.step-1],j=state.journey.personal||{stage:0,choices:[]};const rewards=m.step===2?{weapon:arc.weapon,goldCost:12}:m.step===4?{outfit:arc.outfit}:m.step===3?{cardIds:[arc.card]}:{guard:4};const effect=m.step===2?'支付12灵石，获得专属兵器（仍需满足灵识等级才可装备）。':m.step===4?'获得本人的衣装；已持有则改得15灵石。':m.step===3?'获得本职业技能1张。':'下一场开战获得4护盾。';
 const tradeCost=/付|雇足|结清|补偿|结一笔|回收价|旧药账/.test(c[5]),tradeGain=c[5].includes('拿补贴');
 const branch=m.role==='hehuan'&&m.step>=5?(state.journey.hehuan?.flags?.rescuedQinHeng?'秦蘅已按此前的选择获救；这次核验不会替她重新决定去处。':'此前的营救尚未确认成功；这次核验不会把她写成已经获救。'):m.role==='mechanist'&&m.step>=5?'此前救援队与改令的结果仍按原有记录保留，这次只补查新的证据。':'';
 return {id,name:c[0],glyph:{assassin:'铃',hehuan:'扇',mechanist:'机',sovereign:'月'}[m.role],kicker:arc.title+' · 个人章节 '+m.step+'/6',description:c[1],personalStory:m,story:[c[1],c[2],...(j.lastOutcome?['上次留下的事：'+j.lastOutcome]:[]),...(branch?[branch]:[])],choices:[{key:'witness',label:c[3],text:effect,...rewards,outcome:c[4]},{key:'bargain',label:c[5],text:(tradeCost?'支付12灵石；':tradeGain?'获得12灵石；':'无即时资源变化；')+'采用此处明确的结算与处理，不领取另一条选择的奖励。',...(tradeCost?{goldCost:12}:tradeGain?{goldGain:12}:{}),outcome:c[6]},{key:'leave',label:'只记下现场，暂不接下约定',text:'不付费、不领取装备或资源；保留亲见记录，继续原来的道路。',outcome:'她将「'+c[0]+'」里亲见的事记进手记，没有替任何人答应下一步。未接的约定仍是未接，不会自动记作已经完成。'}]};}
 function ending(state){const p=progress(state);if(!p)return null;const arc=ARCS[state.character],count=(p.choices||[]).filter(c=>c.key==='witness').length,complete=p.stage===6;return {title:arc.title+' · '+(complete?'此程有答':'旧事待续'),text:complete?(count>=4?arc.quote+' 她保留了这一路亲自核验的证据，也承担自己实际作出的选择。':'她走完了这六次相逢，却没有把未接下的约定写成履行。收下的价款与留下的空白，一起进入下一程。'):'已经亲历'+p.stage+'/6章。'+(state.result?.won?'封域的战事结束，个人的追查仍未全部完成。':'行程在此中断，尚未发生的章节不会被写成已经完成。'),lastOutcome:p.lastOutcome||'尚未留下个人章节的选择。'};}
-const api={SLOTS,ARCS,META,progress,build,ending};root.NightRoleStories=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+const api={SLOTS,SHORT_SLOTS,ARCS,META,progress,build,ending};root.NightRoleStories=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis==='object'?globalThis:window);

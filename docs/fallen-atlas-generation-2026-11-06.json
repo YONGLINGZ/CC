@@ -1,0 +1,135 @@
+{
+  "tool": "image_gen",
+  "columns": 8,
+  "rows": 6,
+  "cellSize": 181,
+  "note": "Each first output was reviewed and regenerated with compact contained sword poses to avoid adjacent-cell contamination. Final images preserve their respective reference costumes. Generated at 1448x1086 despite requested 2048x1536; 48 genuine keypose cells per sheet. Alpha has low nonzero values in some background pixels; alphaUnder16 records near-transparent fraction.",
+  "results": [
+    {
+      "key": "sword_fallen",
+      "source": "exec-a01ccf2d-b06d-4c6f-9261-22f96c67746d.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.6814,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "2a45cc78e24b9f0ce308aaf38582f93607c50a02f5cae8d00a63a7bbdf7859ab"
+    },
+    {
+      "key": "sword_fallen-moon",
+      "source": "exec-a73200c2-3082-42bb-927e-53a7fcda81c7.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen-moon.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.6164,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "5b0dd9495a984b4408b50600c9dd69ea83f6583ca948de53d7803496bf09b60f"
+    },
+    {
+      "key": "sword_fallen-mist",
+      "source": "exec-fc9a3a14-b1b9-49b3-9899-de19ee66f19f.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen-mist.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.6511,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "36a87c52bc50bf2c3fc4a0418d6dac0d76e567913b20cfe54d6fc67eacc8109b"
+    },
+    {
+      "key": "sword_fallen-lotus",
+      "source": "exec-aebaf1c4-eee2-4985-ae03-6ccf96de3b1f.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen-lotus.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.6699,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "4a9568982aaee71070f0d2c40ca62881b9552151fe52b816921d3c8ec000bcd7"
+    },
+    {
+      "key": "sword_fallen-ember",
+      "source": "exec-2b1f0f59-1875-4aa8-ba01-2fc3df561dbf.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen-ember.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.5616,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "279e1a6358d8d5228f4adc3a511396c4ad85a877b08f4b985b2d515202f160bf"
+    },
+    {
+      "key": "sword_fallen-blood",
+      "source": "exec-8fa11e59-8da5-4339-a4bb-7945958534e4.png",
+      "path": "/workspace/CC/assets/actor-keyframes/sword_fallen-blood.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alphaUnder16": 0.678,
+      "nonemptyCells": 48,
+      "distinctPerRow": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "8d41fa8db6882e3aecc5b1030c461d15eb07b4102a12e726cde48f40b198cc32"
+    }
+  ]
+}

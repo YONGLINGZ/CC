@@ -1,3 +1,11 @@
+本轮 review.12：`node dev/build.cjs --all --strict` 构建目录与内嵌入口。实际通过287项规则/单元检查（含48项新引擎集成）、68个正常结束的自然API样本；自动策略不代表真人平衡。浏览器执行 `node dev/replay-browser.test.cjs`，逐项真实DOM与夹具范围、输入哈希、截图、失败历史及最终结果见 `docs/review-v12/`，以最终 `qa/qa-acceptance.json`（15项加强轮＋1项同构建定向复测，保留原始失败） 为准。
+
+新专项：`node --test dev/replay-profile.test.cjs dev/replay-rules.test.cjs dev/gear-visuals.test.cjs dev/replay-integration.test.cjs`；自然流程：`node dev/replay-playtest.cjs`。旧v11-campaign存在6项在原引擎同样失败的过时夹具，未计入通过数，详情见本轮报告。以下为历史验证记录。
+
+本轮 review.11：先运行 `node dev/build.cjs --all --strict`。新增 `dev/sprite-frames.test.cjs` 覆盖图集解码修复；`dev/visual-repair-browser.cjs` 检查修复图集和实际战斗画面；`dev/visual-compositor-browser.cjs` 检查 WebGL / Canvas 交接像素；`dev/visual-layout-browser.cjs` 检查六种组合与四种宽度；`dev/visual-offline-browser.cjs` 检查目录和内嵌入口的修复加载。证据默认写入 `docs/review-v11/`，完整命令、覆盖范围与限制见该目录 `REVIEW_ZH.txt`。以下为历史记录。
+
+本轮 review.10：运行 `python3 dev/audit-animation-assets.py`、`node dev/build.cjs --strict`、`node dev/animation-completion-browser.cjs`。最终清晰度回归运行 `node dev/animation-final-browser.cjs`。新浏览器测试直接检查最终入口内的外观、连续帧、Boss专招、机关、真实出牌特效和减少动态模式。证据见 `docs/review-v10/`；下方旧背景帧位置断言适用于历史CSS播放器，不能用来验收Canvas插帧。
+
 # 侧幕交锋回归
 
 先 `node dev/build.cjs --all`，再运行 `node --test dev/stage.test.cjs`、`node dev/stage-browser.cjs`、`node dev/stage-edge.cjs`。后两项需要 Playwright 和 Chromium，默认截图/JSON写到 `/workspace/stage-evidence`（主浏览器脚本支持 STAGE_EVIDENCE）。使用显式夹具，非自然通关；STAGE_RESUME=1仅用于相同构建的断点测试，发布检查应完整重跑。详情见 docs/review-v5/CHANGELOG_ZH.md。
