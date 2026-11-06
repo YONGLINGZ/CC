@@ -10118,7 +10118,10 @@ class Animator{
   const next=load(d);if(!next)return;
   const token=(this.token||0)+1;this.token=token;
   const apply=()=>{
-   if(this.disposed||token!==this.token||next.status!=='ready')return;
+   if(this.disposed||token!==this.token)return;
+   // A failed secondary (e.g. boss-move) atlas must not leave the caller's
+   // acting flags latched. Keep the ready base appearance and finish cleanly.
+   if(next.status!=='ready'){this.idle();options.onfinish?.();return;}
    if(this.asset!==next){if(this.asset!==this.base)this.asset.refs--;this.asset=next;if(next!==this.base)next.refs++;}
    const old=this.state,r=phaseRange(next.d.columns,options.phase);
    let start=r[0];if(options.phase==='impact'&&old&&old.row===options.row&&old.asset===next&&(old.phase==='prepare'||old.kind==='hold'))start=old.position??r[0];
@@ -10180,7 +10183,7 @@ function observe(){
  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastTick=0;if(jobTimer)clearTimeout(jobTimer);jobTimer=null;}else{if(jobs.length&&!jobTimer)jobTimer=setTimeout(runJobs,0);beginRAF();}});
  const preference=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;preference?.addEventListener?.('change',beginRAF);
 }
-function warm(d,row=0){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;try{warmRow(a,row,1);return true;}catch{return false;}});}
+function warm(d,row=0,isCurrent=()=>true){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;try{if(!isCurrent())return false;warmRow(a,row,1);return true;}catch{return false;}});}
 function stats(){return {instances:instances.size,assets:assets.size,pairs:pairs.size,pending:jobs.length,renderedSamples:[...instances].reduce((n,i)=>n+i.samples,0),renderer:[...new Set([...instances].map(i=>i.renderer?.kind))],targetSamplesPerSecond:60,interpolation:'bidirectional motion field, premultiplied-alpha mesh warp'};}
 const api={blendWeight,descriptor,resolve,phaseRange,phaseSample,features,fieldSample,constantField,warpPoint,estimatePair,mount,play,idle,warm,observe,stats};
 if(typeof module!=='undefined')module.exports=api;root.NightSpriteMotion=api;
@@ -10276,7 +10279,9 @@ const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g
 function descriptor(raw){return raw?{columns:4,rows:4,...(typeof raw==='string'?{src:raw}:raw)}:null;}
 function readyBoss(id){
  const d=descriptor(root.NightAssets?.bossActors?.[id]);if(!d?.src||typeof Image==='undefined')return Promise.resolve(false);
- if(root.NightSpriteMotion)return root.NightSpriteMotion.warm(d,0);
+ // A preload may finish after a fast encounter switch. Only analyse the atlas
+ // while that enemy is still represented in the current document.
+ if(root.NightSpriteMotion)return root.NightSpriteMotion.warm(d,0,()=>typeof document!=='undefined'&&!!document.querySelector(`.encounter-sprite[data-encounter-type="enemy"][data-encounter-id="${esc(id)}"]`));
  if(!warmed.has(d.src)){const image=new Image(),entry={status:'pending'};image.src=d.src;entry.promise=image.decode().then(()=>{entry.status='ready';return true},()=>{entry.status='failed';return false});warmed.set(d.src,entry);}return warmed.get(d.src).promise;
 }
 const attacks=new Set(['attack','slash','thrust','flurry','finisher','counter','leap']);
@@ -10461,6 +10466,7 @@ function findActor(stage,id){
  return stage.querySelector(`[data-combatant="${safe}"] .portrait, [data-combatant="${safe}"] .machine-portrait`);
 }
 function point(stage,id){const actor=findActor(stage,id);if(!actor)return null;const a=actor.getBoundingClientRect(),s=stage.getBoundingClientRect();return {x:a.left-s.left+a.width*.5,y:a.top-s.top+a.height*.46,w:a.width,h:a.height};}
+function captureSource(id){const stage=typeof document!=='undefined'&&document.querySelector('.battle-stage'),p=stage&&point(stage,id);return p?{...p,stage,id}:null;}
 function base(stage,p,phase,target,source){
  const el=document.createElement('div');el.className=`skill-vfx skill-vfx-${phase} skill-theme-${p.theme}`;el.dataset.skillFx=p.id;el.dataset.phase=phase;el.dataset.theme=p.theme;el.dataset.shape=p.shape;el.dataset.receiver=target;el.dataset.source=source;el.setAttribute('aria-hidden','true');
  el.style.setProperty('--skill-color',p.color);el.style.setProperty('--skill-core',p.core);el.style.setProperty('--skill-shade',p.shade);if(p.heavy)el.classList.add('skill-vfx-heavy');stage.append(el);
@@ -10477,13 +10483,15 @@ function card(id,target,mode='full',phase='cast',source='player',info={}){
 }
 function launch(info={},target='enemy',mode='full',source='player'){
  const stage=typeof document!=='undefined'&&document.querySelector('.battle-stage');if(!stage||mode==='off'||reduced(mode))return null;
- const from=point(stage,source),to=point(stage,target);if(!from||!to)return null;const p=resolve(info),el=base(stage,p,'flight',target,source),dx=to.x-from.x,dy=to.y-from.y,angle=Math.atan2(dy,dx)*180/Math.PI,length=Math.min(150,Math.max(60,Math.hypot(dx,dy)*.32));
+ // Overload settles its withdrawal before the queued burst. Retain only that
+ // action's source point, scoped to its stage and identity; never use the hero.
+ const saved=info.sourceOrigin,from=point(stage,source)||(saved?.stage===stage&&saved.id===source?saved:null),to=point(stage,target);if(!from||!to)return null;const p=resolve(info),el=base(stage,p,'flight',target,source),dx=to.x-from.x,dy=to.y-from.y,angle=Math.atan2(dy,dx)*180/Math.PI,length=Math.min(150,Math.max(60,Math.hypot(dx,dy)*.32));
  el.style.left=from.x+'px';el.style.top=from.y+'px';el.style.width=length+'px';el.innerHTML=flightSVG(p);
  el.animate?.([{opacity:0,transform:`translate(-90%,-50%) rotate(${angle}deg) scaleX(.25)`},{opacity:1,transform:`translate(calc(-90% + ${dx*.2}px),calc(-50% + ${dy*.2}px)) rotate(${angle}deg) scaleX(.75)`,offset:.25},{opacity:1,transform:`translate(calc(-90% + ${dx}px),calc(-50% + ${dy}px)) rotate(${angle}deg) scaleX(1)`}],{duration:125,easing:'cubic-bezier(.52,.04,.81,.51)',fill:'forwards'});
  return expire(el,145);
 }
 function clear(){if(typeof document!=='undefined')document.querySelectorAll('.skill-vfx').forEach(el=>{clearTimeout(el._skillTimer);el.getAnimations?.().forEach(a=>a.cancel());el.remove();});}
-const api={PALETTES,resolve,impactSVG,flightSVG,card,launch,clear,flightDuration:125};if(typeof module!=='undefined')module.exports=api;root.NightCombatEffects=api;
+const api={PALETTES,resolve,impactSVG,flightSVG,captureSource,card,launch,clear,flightDuration:125};if(typeof module!=='undefined')module.exports=api;root.NightCombatEffects=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 </script>
 <script>
@@ -10923,6 +10931,7 @@ const api={PALETTES,resolve,impactSVG,flightSVG,card,launch,clear,flightDuration
   async function showEvent(event,visual,context){
     const type=event.type,target=event.target==='enemy'?'enemy':'player',temporary=[];
     const keep=el=>{if(el)temporary.push(el);return el;};
+    if(type==='squadOverload'){const id=event.unitId;(context.departedOrigins??={})[id]=globalThis.NightCombatEffects?.captureSource(id);}
     const deferSquad=type==='squadDamage'||type==='squadBroken';if(!deferSquad)applyResourceSnapshot(event.resources,visual);
     if(context.enemyTurn){const a=app.querySelector('[data-combatant=enemy] .portrait'),id=game.state.battle?.enemy.id;if(a&&NightBossMoves.get(id,context.intentName)){a.dataset.bossIntent=context.intentName;if(!context.bossPrepared){context.bossPrepared=true;await Promise.race([NightEncounterActors.readyBoss(id),new Promise(r=>setTimeout(r,800))]);NightEncounterActors.play(a,'skill',motionMode,'prepare');NightBossMoves.effect(id,context.intentName,'prepare','enemy',motionMode);await delay(160);}}}
     if(type==='card'){context.cardId=event.cardId;audio()?.playCard?.(event.cardId);const actor=app.querySelector('[data-combatant="player"] .portrait');if(actor?.querySelector('.actor-sprite'))NightActors.play(actor,event.mode==='trap'?'cast':NightActors.forCard(event.cardId),motionMode,CARDS[event.cardId]?.attack&&event.mode!=='trap'&&(!String(event.cardId).startsWith('J')||['J01','J03','J07','J38'].includes(event.cardId))?'prepare':'full');else NightStage.pose(actor,event.mode==='trap'?'guard':String(event.cardId).startsWith('J')?'channel':NightStage.profiles[event.cardId]?.pose||'channel',motionMode);cardVisual(event.cardId,'player','cast','player',skillVisualInfo(event,context));if(CARDS[event.cardId]?.attack)await delay(NightActors.forCard(event.cardId)==='heavy'?180:150);}
@@ -10941,7 +10950,7 @@ const api={PALETTES,resolve,impactSVG,flightSVG,card,launch,clear,flightDuration
       const from=event.source==='enemy'?'enemy':'player',actor=document.querySelector(`[data-combatant="${event.executor&&event.executor!=='player'?event.executor:from}"] ${event.executor&&event.executor!=='player'?'.machine-portrait':'.portrait'}`),receiver=document.querySelector(`[data-combatant="${target}"] .portrait`),enemy=from==='enemy',heavy=!enemy&&(['C04','C21'].includes(context.cardId)||Number(event.amount)>=20),damage=Number(event.damage)||0,absorbed=Number(event.absorbed)||0;
       if(!enemy&&(!event.executor||event.executor==='player'))portraitAct('attack',{heavy,cardId:context.cardId,hitIndex:event.hitIndex});attackMotion(actor,enemy,heavy,event.cardId||context.cardId,event.hitIndex||0);const ghost=actorGhost(actor,enemy);if(ghost)keep(ghost);
       if(actor)actor.dataset.attacking='true';
-      const skillInfo=skillVisualInfo(event,context);globalThis.NightCombatEffects?.launch(skillInfo,target,motionMode,event.executor||from);
+      const skillInfo=skillVisualInfo(event,context);skillInfo.sourceOrigin=context.departedOrigins?.[event.executor];globalThis.NightCombatEffects?.launch(skillInfo,target,motionMode,event.executor||from);
       await delay(globalThis.NightCombatEffects?.flightDuration||95);
       audio()?.playEvent?.(event,{cardId:context.cardId,enemyId:game.state.battle?.enemy.id,intentName:context.intentName});
       const snake=enemy&&game.state.battle.enemy.id==='snake';

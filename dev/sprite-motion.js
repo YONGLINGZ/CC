@@ -263,7 +263,10 @@ class Animator{
   const next=load(d);if(!next)return;
   const token=(this.token||0)+1;this.token=token;
   const apply=()=>{
-   if(this.disposed||token!==this.token||next.status!=='ready')return;
+   if(this.disposed||token!==this.token)return;
+   // A failed secondary (e.g. boss-move) atlas must not leave the caller's
+   // acting flags latched. Keep the ready base appearance and finish cleanly.
+   if(next.status!=='ready'){this.idle();options.onfinish?.();return;}
    if(this.asset!==next){if(this.asset!==this.base)this.asset.refs--;this.asset=next;if(next!==this.base)next.refs++;}
    const old=this.state,r=phaseRange(next.d.columns,options.phase);
    let start=r[0];if(options.phase==='impact'&&old&&old.row===options.row&&old.asset===next&&(old.phase==='prepare'||old.kind==='hold'))start=old.position??r[0];
@@ -325,7 +328,7 @@ function observe(){
  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastTick=0;if(jobTimer)clearTimeout(jobTimer);jobTimer=null;}else{if(jobs.length&&!jobTimer)jobTimer=setTimeout(runJobs,0);beginRAF();}});
  const preference=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;preference?.addEventListener?.('change',beginRAF);
 }
-function warm(d,row=0){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;try{warmRow(a,row,1);return true;}catch{return false;}});}
+function warm(d,row=0,isCurrent=()=>true){const a=load(descriptor(d));if(!a)return Promise.resolve(false);return a.promise.then(ready=>{if(!ready)return false;try{if(!isCurrent())return false;warmRow(a,row,1);return true;}catch{return false;}});}
 function stats(){return {instances:instances.size,assets:assets.size,pairs:pairs.size,pending:jobs.length,renderedSamples:[...instances].reduce((n,i)=>n+i.samples,0),renderer:[...new Set([...instances].map(i=>i.renderer?.kind))],targetSamplesPerSecond:60,interpolation:'bidirectional motion field, premultiplied-alpha mesh warp'};}
 const api={blendWeight,descriptor,resolve,phaseRange,phaseSample,features,fieldSample,constantField,warpPoint,estimatePair,mount,play,idle,warm,observe,stats};
 if(typeof module!=='undefined')module.exports=api;root.NightSpriteMotion=api;

@@ -434,6 +434,7 @@
   async function showEvent(event,visual,context){
     const type=event.type,target=event.target==='enemy'?'enemy':'player',temporary=[];
     const keep=el=>{if(el)temporary.push(el);return el;};
+    if(type==='squadOverload'){const id=event.unitId;(context.departedOrigins??={})[id]=globalThis.NightCombatEffects?.captureSource(id);}
     const deferSquad=type==='squadDamage'||type==='squadBroken';if(!deferSquad)applyResourceSnapshot(event.resources,visual);
     if(context.enemyTurn){const a=app.querySelector('[data-combatant=enemy] .portrait'),id=game.state.battle?.enemy.id;if(a&&NightBossMoves.get(id,context.intentName)){a.dataset.bossIntent=context.intentName;if(!context.bossPrepared){context.bossPrepared=true;await Promise.race([NightEncounterActors.readyBoss(id),new Promise(r=>setTimeout(r,800))]);NightEncounterActors.play(a,'skill',motionMode,'prepare');NightBossMoves.effect(id,context.intentName,'prepare','enemy',motionMode);await delay(160);}}}
     if(type==='card'){context.cardId=event.cardId;audio()?.playCard?.(event.cardId);const actor=app.querySelector('[data-combatant="player"] .portrait');if(actor?.querySelector('.actor-sprite'))NightActors.play(actor,event.mode==='trap'?'cast':NightActors.forCard(event.cardId),motionMode,CARDS[event.cardId]?.attack&&event.mode!=='trap'&&(!String(event.cardId).startsWith('J')||['J01','J03','J07','J38'].includes(event.cardId))?'prepare':'full');else NightStage.pose(actor,event.mode==='trap'?'guard':String(event.cardId).startsWith('J')?'channel':NightStage.profiles[event.cardId]?.pose||'channel',motionMode);cardVisual(event.cardId,'player','cast','player',skillVisualInfo(event,context));if(CARDS[event.cardId]?.attack)await delay(NightActors.forCard(event.cardId)==='heavy'?180:150);}
@@ -452,7 +453,7 @@
       const from=event.source==='enemy'?'enemy':'player',actor=document.querySelector(`[data-combatant="${event.executor&&event.executor!=='player'?event.executor:from}"] ${event.executor&&event.executor!=='player'?'.machine-portrait':'.portrait'}`),receiver=document.querySelector(`[data-combatant="${target}"] .portrait`),enemy=from==='enemy',heavy=!enemy&&(['C04','C21'].includes(context.cardId)||Number(event.amount)>=20),damage=Number(event.damage)||0,absorbed=Number(event.absorbed)||0;
       if(!enemy&&(!event.executor||event.executor==='player'))portraitAct('attack',{heavy,cardId:context.cardId,hitIndex:event.hitIndex});attackMotion(actor,enemy,heavy,event.cardId||context.cardId,event.hitIndex||0);const ghost=actorGhost(actor,enemy);if(ghost)keep(ghost);
       if(actor)actor.dataset.attacking='true';
-      const skillInfo=skillVisualInfo(event,context);globalThis.NightCombatEffects?.launch(skillInfo,target,motionMode,event.executor||from);
+      const skillInfo=skillVisualInfo(event,context);skillInfo.sourceOrigin=context.departedOrigins?.[event.executor];globalThis.NightCombatEffects?.launch(skillInfo,target,motionMode,event.executor||from);
       await delay(globalThis.NightCombatEffects?.flightDuration||95);
       audio()?.playEvent?.(event,{cardId:context.cardId,enemyId:game.state.battle?.enemy.id,intentName:context.intentName});
       const snake=enemy&&game.state.battle.enemy.id==='snake';

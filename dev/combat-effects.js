@@ -91,6 +91,7 @@ function findActor(stage,id){
  return stage.querySelector(`[data-combatant="${safe}"] .portrait, [data-combatant="${safe}"] .machine-portrait`);
 }
 function point(stage,id){const actor=findActor(stage,id);if(!actor)return null;const a=actor.getBoundingClientRect(),s=stage.getBoundingClientRect();return {x:a.left-s.left+a.width*.5,y:a.top-s.top+a.height*.46,w:a.width,h:a.height};}
+function captureSource(id){const stage=typeof document!=='undefined'&&document.querySelector('.battle-stage'),p=stage&&point(stage,id);return p?{...p,stage,id}:null;}
 function base(stage,p,phase,target,source){
  const el=document.createElement('div');el.className=`skill-vfx skill-vfx-${phase} skill-theme-${p.theme}`;el.dataset.skillFx=p.id;el.dataset.phase=phase;el.dataset.theme=p.theme;el.dataset.shape=p.shape;el.dataset.receiver=target;el.dataset.source=source;el.setAttribute('aria-hidden','true');
  el.style.setProperty('--skill-color',p.color);el.style.setProperty('--skill-core',p.core);el.style.setProperty('--skill-shade',p.shade);if(p.heavy)el.classList.add('skill-vfx-heavy');stage.append(el);
@@ -107,11 +108,13 @@ function card(id,target,mode='full',phase='cast',source='player',info={}){
 }
 function launch(info={},target='enemy',mode='full',source='player'){
  const stage=typeof document!=='undefined'&&document.querySelector('.battle-stage');if(!stage||mode==='off'||reduced(mode))return null;
- const from=point(stage,source),to=point(stage,target);if(!from||!to)return null;const p=resolve(info),el=base(stage,p,'flight',target,source),dx=to.x-from.x,dy=to.y-from.y,angle=Math.atan2(dy,dx)*180/Math.PI,length=Math.min(150,Math.max(60,Math.hypot(dx,dy)*.32));
+ // Overload settles its withdrawal before the queued burst. Retain only that
+ // action's source point, scoped to its stage and identity; never use the hero.
+ const saved=info.sourceOrigin,from=point(stage,source)||(saved?.stage===stage&&saved.id===source?saved:null),to=point(stage,target);if(!from||!to)return null;const p=resolve(info),el=base(stage,p,'flight',target,source),dx=to.x-from.x,dy=to.y-from.y,angle=Math.atan2(dy,dx)*180/Math.PI,length=Math.min(150,Math.max(60,Math.hypot(dx,dy)*.32));
  el.style.left=from.x+'px';el.style.top=from.y+'px';el.style.width=length+'px';el.innerHTML=flightSVG(p);
  el.animate?.([{opacity:0,transform:`translate(-90%,-50%) rotate(${angle}deg) scaleX(.25)`},{opacity:1,transform:`translate(calc(-90% + ${dx*.2}px),calc(-50% + ${dy*.2}px)) rotate(${angle}deg) scaleX(.75)`,offset:.25},{opacity:1,transform:`translate(calc(-90% + ${dx}px),calc(-50% + ${dy}px)) rotate(${angle}deg) scaleX(1)`}],{duration:125,easing:'cubic-bezier(.52,.04,.81,.51)',fill:'forwards'});
  return expire(el,145);
 }
 function clear(){if(typeof document!=='undefined')document.querySelectorAll('.skill-vfx').forEach(el=>{clearTimeout(el._skillTimer);el.getAnimations?.().forEach(a=>a.cancel());el.remove();});}
-const api={PALETTES,resolve,impactSVG,flightSVG,card,launch,clear,flightDuration:125};if(typeof module!=='undefined')module.exports=api;root.NightCombatEffects=api;
+const api={PALETTES,resolve,impactSVG,flightSVG,captureSource,card,launch,clear,flightDuration:125};if(typeof module!=='undefined')module.exports=api;root.NightCombatEffects=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -6,7 +6,9 @@ const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g
 function descriptor(raw){return raw?{columns:4,rows:4,...(typeof raw==='string'?{src:raw}:raw)}:null;}
 function readyBoss(id){
  const d=descriptor(root.NightAssets?.bossActors?.[id]);if(!d?.src||typeof Image==='undefined')return Promise.resolve(false);
- if(root.NightSpriteMotion)return root.NightSpriteMotion.warm(d,0);
+ // A preload may finish after a fast encounter switch. Only analyse the atlas
+ // while that enemy is still represented in the current document.
+ if(root.NightSpriteMotion)return root.NightSpriteMotion.warm(d,0,()=>typeof document!=='undefined'&&!!document.querySelector(`.encounter-sprite[data-encounter-type="enemy"][data-encounter-id="${esc(id)}"]`));
  if(!warmed.has(d.src)){const image=new Image(),entry={status:'pending'};image.src=d.src;entry.promise=image.decode().then(()=>{entry.status='ready';return true},()=>{entry.status='failed';return false});warmed.set(d.src,entry);}return warmed.get(d.src).promise;
 }
 const attacks=new Set(['attack','slash','thrust','flurry','finisher','counter','leap']);
